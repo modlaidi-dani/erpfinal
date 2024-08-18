@@ -1,0 +1,119 @@
+ <!-- Loading screen -->
+   <!-- sidebar -->
+   <div class="sidebar max-h-screen top-0 h-screen bg-gray-100  text-white w-60 fixed  left-0 transform transition duration-200 ease-in-out z-1"
+   x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+   :class="open === true ? 'md:translate-x-0 md:sticky ':'-translate-x-full' ">
+  
+ 
+  
+   <!-- nav -->
+   <nav class="px-4 pt-4  max-h-[calc(100vh-64px)]" x-data="{selected:'Tasks'}">
+       <ul class="flex flex-col space-y-2">
+           <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+            Achats
+           </div>
+        <!-- ITEM -->
+        {% if 'achats.can_see_bonscommandesachat' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'list-commandes' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                
+                </div>
+                <div>Bons Commandes</div>
+             </a>
+           </li>   
+        {% endif %}
+        <!-- ITEM -->
+        {% if 'achats.can_see_bonslivraisonachat' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'list-achat' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">
+                 
+                </div>
+                <div> Bons Livraisons </div>
+              </a>
+           </li>
+        {% endif %}
+        {% if request.session.role == "manager" %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'list-dossier-achat' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">
+                 
+                </div>
+                <div> Dossiers Achats </div>
+              </a>
+           </li>
+        {% endif %}
+        {% if 'achats.can_see_bonreception' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'list-receptions' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                   
+                   </div>
+                   <div>Bons Réceptions</div>
+               </a>
+           </li> 
+        {% endif %}
+        {% if 'achats.can_see_bonreception' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'list-expeditions' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                   
+                   </div>
+                   <div>Expéditions</div>
+               </a>
+           </li> 
+        {% endif %}
+        {% if 'achats.can_see_avoirsachats' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'list-avoirs-achats' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Avoirs</div>
+               </a>
+           </li>    
+        {% endif %}
+        {% if 'achats.can_see_facturesachats' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'list-factures-achats' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">                    
+                   </div>
+                   <div>Factures</div>
+               </a>
+           </li> 
+        {% endif %}
+
+         <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+            Crédit De Note
+         </div>
+         {% if request.session.role == 'manager' %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'list-projets' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">                    
+                   </div>
+                   <div>Liste des Projets</div>
+               </a>
+           </li> 
+           <li class="text-sm text-gray-500 ">
+               <a href="#"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">                    
+                   </div>
+                   <div>Crédit de Note</div>
+               </a>
+           </li> 
+        {% endif %}
+
+       </ul>
+   </nav>
+  </div>
+  <!-- End sidebar -->

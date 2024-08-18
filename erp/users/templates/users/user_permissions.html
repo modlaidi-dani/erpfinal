@@ -1,0 +1,449 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="home" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="w-full h-full px-3 py-4 mx-auto overflow-hidden " x-data="RoleGroup()">
+		<div class=" bg-white  rounded-md ">
+			<table class="w-full">
+				<thead>
+					<tr class="bg-gray-100">
+						<th class="py-2 px-4 font-medium border-r" >Module</th>
+						<th class="py-2 px-4 font-medium">Permissions</th>
+					</tr>
+				</thead>
+				<tbody x-data="{ selectedPermissions: {} }">
+					<tr class="border-b  ">
+						<td class="py-2 px-4 font-semibold border-r ">Produits</td>
+						<td class="py-2 px-4">
+							<label class="block">
+								<input type="checkbox" value="can_see_produits" x-model="permissions" id="produits_permissions" class="mr-2">
+								Consulter liste des produits
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_see_comminfo"   x-model="permissions"    id="produits_permissions" class="mr-2">
+								Consulter les informations commerciales des produits
+							</label>
+								<label class="block">
+								<input type="checkbox" value="can_see_repinfo"  x-model="permissions"  id="produits_permissions"  class="mr-2">
+								Consulter la répartition du produit
+							</label>
+							</label>
+								<label class="block">
+								<input type="checkbox" value="can_see_persoinfo"  x-model="permissions"  id="produits_permissions"  class="mr-2">
+								Consulter les détails personalisation du produit
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_add_product"   x-model="permissions"  id="produits_permissions"  class="mr-2">
+								Ajouter un produit
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_product"  x-model="permissions"  id="produits_permissions"  class="mr-2">
+								Modifier un produit
+							</label>
+						
+							<label class="block">
+								<input type="checkbox" value="can_delete_product"  x-model="permissions" id="produits_permissions"  class="mr-2">
+								Supprimer un produit
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_verify_qte"  x-model="permissions" id="produits_permissions"  class="mr-2">
+								Verifier les quantités des produits
+							</label>
+							<!-- Add more permissions for 'produits' as needed -->
+						</td>
+					</tr>
+					<tr class="border-b  ">
+						<td class="py-2 px-4 font-semibold border-r ">Stock</td>
+						<td class="py-2 px-4">
+							<label class="block">
+								<input type="checkbox" value="can_see_bs"  x-model="permissions" id="stock_permissions" class="mr-2">
+								Consulter les bons de mouvements de stock
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_bs"  x-model="permissions" id="stock_permissions" class="mr-2">
+								Modifier les bons de mouvements de stock
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_create_bs"  x-model="permissions" id="stock_permissions"  class="mr-2">
+								Creation des bons de mouvements de stock
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_bs"  x-model="permissions" id="stock_permissions"  class="mr-2">
+								Suppression des bons de mouvements de stock
+							</label>
+						</td>
+					</tr>
+					<tr class="border-b">
+						<td class="py-2 px-4 font-semibold  border-r ">Tiers</td>
+						<td class="py-2 px-4">
+							<label class="block">
+								<input type="checkbox" value="can_add_client"  x-model="permissions" id="tiers_permissions" class="mr-2">
+								Creation des nouveau clients
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_client"  x-model="permissions" id="tiers_permissions" class="mr-2">
+								Modification des clients
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_validate_client"  x-model="permissions" id="tiers_permissions" class="mr-2">
+								Validation des clients
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_client"  x-model="permissions" id="tiers_permissions" class="mr-2">
+								Suppression des clients
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_see_allclients"  x-model="permissions" id="tiers_permissions" class="mr-2">
+								Consulter tous les clients
+							</label>
+							
+							<!-- Add more permissions for 'vente' as needed -->
+						</td>
+					</tr>
+					<tr class="border-b">
+						<td class="py-2 px-4 font-semibold  border-r ">Vente</td>
+						<td class="py-2 px-4">
+							<label class="block">
+								<input type="checkbox" value="can_create_bv"  x-model="permissions" id="vente_permissions" class="mr-2">
+								Creation des bons de vente
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_bv"  x-model="permissions" id="vente_permissions" class="mr-2">
+								Modification des bons de vente
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_validate_bv"  x-model="permissions" id="vente_permissions" class="mr-2">
+								Validation des bons de vente
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_bv"  x-model="permissions" id="vente_permissions" class="mr-2">
+								Suppression des bons de vente
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_see_allbv"  x-model="permissions" id="vente_permissions" class="mr-2">
+								Consulter tous les bons de vente
+							</label>
+						</td>
+					</tr>
+					<tr class="border-b">
+						<td class="py-2 px-4 font-semibold  border-r">Achat</td>
+						<td class="py-2 px-4">
+							<label class="block">
+								<input type="checkbox" value="can_create_ba"  x-model="permissions" id="achat_permissions" class="mr-2">
+								Creation des bons d'achat
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_ba"  x-model="permissions" sid="achat_permissions" class="mr-2">
+								Modification des bons d'achat
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_validate_ba"  x-model="permissions" id="achat_permissions" class="mr-2">
+								Validation des bons d'achat
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_ba"  x-model="permissions" id="achat_permissions" class="mr-2">
+								Suppression des bons d'achat
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_see_allba"  x-model="permissions" id="achat_permissions" class="mr-2">
+								Consulter les bons d'achat
+							</label>
+						</td>
+					</tr>
+					<tr class="border-b">
+						<td class="py-2 px-4 font-semibold border-r">Comptoir</td>
+						<td class="py-2 px-4">
+							<label class="block">
+								<input type="checkbox" value="can_create_pv"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Creation des points de vente
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_pv"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Modification des points de vente
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_pv"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Supression des points de vente
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_create_aff"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Creation des affectation caisse/utilisateur
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_aff"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Modification des affectation caisse/utilisateur
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_aff"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Supression des affectation caisse/utilisateur
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_create_bvc"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Creation des bons de vente au comptoir
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_bvc"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Modification des bons de vente au comptoir
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_bvc"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Supression des bons de vente au comptoir
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_create_clot"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Introduction de cloture
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_clot"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Modification de cloture
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_clot"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Supression de cloture
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_collecte_clot"  x-model="permissions" id="comptoir_permissions" class="mr-2">
+								Collecte de cloture
+							</label>
+						</td>
+					</tr>
+					<tr class="border-b">
+						<td class="py-2 px-4 font-semibold border-r">Reglements</td>
+						<td class="py-2 px-4">
+							<label class="block">
+								<input type="checkbox" value="can_see_soldereglements"  x-model="permissions" id="reglements_permissions" class="mr-2">
+								Consulter etat de reglements
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_add_reg"  x-model="permissions" id="reglements_permissions" class="mr-2">
+								Introduction de nouveau reglement
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_reg"  x-model="permissions" id="reglements_permissions" class="mr-2">
+								Modification de reglement
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_reg"  x-model="permissions" id="reglements_permissions" class="mr-2">
+								Suppression de reglement
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_collecte_reg"  x-model="permissions" id="reglements_permissions" class="mr-2">
+								Collecte de reglement
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_see_depense" x-model="permissions" id="can_see_depense" class="mr-2">
+								Consultation des dépenses
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_see_salaries" x-model="permissions" id="can_see_salaries" class="mr-2">
+								Consultation des salariés
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_see_loyers" x-model="permissions" id="can_see_loyers" class="mr-2">
+								Consultation des loyers
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_see_divers" x-model="permissions" id="can_see_divers" class="mr-2">
+								Consultation des désignations des dépenses divers
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_create_depense" x-model="permissions" id="can_create_depense" class="mr-2">
+								Créer une dépense
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_depense" x-model="permissions" id="can_edit_depense" class="mr-2">
+								Modifier une dépense
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_depense" x-model="permissions" id="can_delete_depense" class="mr-2">
+								Supprimer une dépense
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_create_salarie" x-model="permissions" id="can_create_salarie" class="mr-2">
+								Ajouter un salarié
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_salarie" x-model="permissions" id="can_edit_salarie" class="mr-2">
+								Modifier les informations d'un salarié
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_salarie" x-model="permissions" id="can_delete_salarie" class="mr-2">
+								Suppression d'un salarié
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_create_loyer" x-model="permissions" id="can_create_loyer" class="mr-2">
+								Ajouter un local
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_loyer" x-model="permissions" id="can_edit_loyer" class="mr-2">
+								Modifier un loyer
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_loyer" x-model="permissions" id="can_delete_loyer" class="mr-2">
+								Supprimer un loyer
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_create_divers" x-model="permissions" id="can_create_divers" class="mr-2">
+								Ajouter un type de dépense divers
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_divers" x-model="permissions" id="can_edit_divers" class="mr-2">
+								Modifier un type de dépense divers
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_divers" x-model="permissions" id="can_delete_divers" class="mr-2">
+								Supprimer un type de dépense divers
+							</label>
+						</td>
+					</tr>
+					<tr class="border-b">
+						<td class="py-2 px-4 font-semibold border-r">Target</td>
+						<td class="py-2 px-4">
+							<label class="block">
+								<input type="checkbox" value="can_see_targets"  x-model="permissions" id="target_permissions" class="mr-2">
+								Consulter liste des targets
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_see_equipe"  x-model="permissions" id="target_permissions" class="mr-2">
+								Consulter Liste des equipes
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_create_teams"  x-model="permissions" id="target_permissions" class="mr-2">
+								Créer Equipe
+							</label>						
+							<label class="block">
+								<input type="checkbox" value="can_create_target"  x-model="permissions" id="target_permissions" class="mr-2">
+								Créer Un nouveau Target
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_see_targetstats"  x-model="permissions" id="target_permissions" class="mr-2">
+								Consulter la page des statistiques du target
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_target"  x-model="permissions" id="target_permissions" class="mr-2">
+								Modifier un Target
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_target"  x-model="permissions" id="target_permissions" class="mr-2">
+								Supprimer un Target
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_edit_teams"  x-model="permissions" id="target_permissions" class="mr-2">
+								Modifier une equipe
+							</label>
+							<label class="block">
+								<input type="checkbox" value="can_delete_teams"  x-model="permissions" id="target_permissions" class="mr-2">
+								Supprimer une equipe
+							</label>
+							<!-- Add more permissions for 'reglement' as needed -->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		<div class="mt-6 flex items-center justify-end gap-x-6">
+			<button type="button" class="text-sm font-semibold leading-6 text-gray-900">Annuler</button>
+			<button type="submit" class="rounded-md bg-gray-700 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " @click="getInformations">Enregistrer</button>
+		  </div> 
+		</div>
+
+		<script>
+		  function RoleGroup(){
+			return{
+			  user_username :'{{myuser}}',
+			  permissions:{{permissions | safe}},
+			  showPermissions: false,
+			  showUsers:false,
+			  getInformations(){
+				const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+				// Parcourez toutes les cases à cocher
+				const checkboxGroups = {};
+				checkboxes.forEach(checkbox => {
+				  const id = checkbox.id;
+				  const value = checkbox.value;
+				  const isChecked = checkbox.checked;
+				  if (!checkboxGroups[id]) {
+					checkboxGroups[id] = []; // Initialize the array for this ID
+				  }
+				  if (isChecked) {
+					 checkboxGroups[id].push(value); // Add the checked value to the array
+				  }
+				});
+				// Maintenant, checkboxValues contient les états de toutes les cases à cocher, groupés par leur ID
+				console.log(checkboxGroups);
+				const dataObj = {
+					user_username : this.user_username,
+					permissions:{{permissions | safe}},			  	
+				  	listPermissions:checkboxGroups,						   
+							  };
+						axios.post('', {
+						   formData: dataObj
+						   }, {
+						   headers: {
+							  'Content-Type': '',
+							  'X-CSRFToken': getCookie('csrftoken'),
+						   }
+						   })
+						 .then((response) => {
+							 data= response.data
+							// {# response.data.message #}�
+						   console.log('HNAA RANI -_-')
+						   console.log(data.error)
+						   if(data.error){
+							  alert(data.error);
+						   }else{
+							  alert("Permissions Modifié !");
+							}		  
+						  }).catch((error) => {
+							alert(error)
+						  });							
+			  },
+			    
+			}             
+		  }
+		  function getCookie(name) {
+					  var cookieValue = null;
+					  if (document.cookie && document.cookie !== '') {
+						  var cookies = document.cookie.split(';');
+						  for (var i = 0; i < cookies.length; i++) {
+							  var cookie = cookies[i].trim();
+							  // Does this cookie string begin with the name we want?
+							  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+								  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								  break;
+							  }
+						  }
+					  }
+					  return cookieValue;
+				}
+		</script>
+	</main>	
+	<!-- end Main content  -->
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

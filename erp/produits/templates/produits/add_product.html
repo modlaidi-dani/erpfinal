@@ -1,0 +1,615 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="prodcts" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_produits.html" %}
+  <div class="h-full w-full"   x-data="{isOpen :false}">
+	<!-- Main content header -->
+	<main class="block w-full px-2" x-data="product()"  x-init="initData()">
+		<form >
+		<div class="space-y-12 py-4">
+	       <div class="border-b border-gray-900/10 pb-12">
+	         <h2 class="font-semibold leading-7 text-gray-900 text-3xl text-left">Ajouter un produit</h2>
+	         <p class="mt-1 text-md leading-6 text-gray-600 text-left">Cette Page est dédié à l'ajout d'un nouveau produit dans la base de données.</p>
+	          <div x-data="{ tab: 1 }" x-cloak class="my-10 antialiased ">
+					<div class="relative flex flex-col rounded-lg shadow-xs overflow-hidden">         
+						<div class="flex space-x-8 bg-white border-b border-gray-200 ">
+							<button
+								type="button"
+								class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+								x-on:click="tab = 1"
+								:class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 1 }"
+							 >
+								Informations Générales
+							</button>
+							<button
+								type="button"
+								class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+								x-on:click="tab = 2"
+								:class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 2 }"
+							 >
+								Informations Commerciales
+							</button>
+							{% if request.session.store == '2' or request.session.store == '8' %}
+							<button
+								type="button"
+								class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+								x-on:click="tab = 3"
+								:class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 3 }"
+							 >
+							 Détails
+							</button>
+							{% endif %}
+						</div>     
+						<div class="h-full">
+							<div x-show="tab === 1">
+									<div class=" border-gray-900/10 pb-12 mt-5">
+										<h2 class="text-2xl font-semibold leading-7 text-gray-900 text-center pt-4">Informations Générales</h2>
+										<p class="mt-1 text-xl leading-6 text-gray-600 text-center">Introduire les informations générales.</p>
+		  								<div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 py-4">
+	        								<div class="sm:col-span-3">
+		     								<label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Référence</label>
+		     								<div class="mt-2">
+		     								<input type="text" name="reference" id="reference" {% if request.session.store == '2' or request.session.store == '8'  %} disabled {% endif %}
+		      								autocomplete="given-name" placeholder="Référence de produit" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset px-2 focus:ring-gray-700 sm:text-sm sm:leading-6" x-model="reference">
+		     								</div>
+	        								</div>
+	  										<div class="sm:col-span-3">
+		     								<label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Désignation</label>
+		     								<div class="mt-2">
+		       								<input type="text" name="last-name" id="last-name" autocomplete="family-name" placeholder="Désignation" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6" x-model="designation">
+		     								</div>
+	  										</div>
+		   								</div>
+
+	        								<div class="sm:col-span-3 mt-4">
+			  								<label for="categorie" class="block text-sm font-medium leading-6 text-gray-900">Familles de produits </label>
+			  								<div class="mt-2">
+				  								<select id="categorie" name="categorie" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:max-w-xs sm:text-sm sm:leading-6" x-model="categorie" x-on:change="categorie=$event.target.value">
+					  								<option value="" disabled selected>Familles</option>
+					  								{% for cat in categories %}
+					   								<option value="{{ cat.id}}" >
+						   							{{ cat.Libellé }} 
+					   								</option>
+													{% endfor %}			
+				  								</select>
+			  								</div>
+		    								</div>
+										<div class="sm:col-span-3 mt-4">
+			  								<label for="fournisseur" class="block text-sm font-medium leading-6 text-gray-900">Fournisseur </label>
+			  								<div class="mt-2">
+				  								<select id="fournisseur" name="fournisseur" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:max-w-xs sm:text-sm sm:leading-6" x-model="fournisseur" x-on:change="fournisseur = $event.target.value"> 
+					  								<option value="" disabled selected>Sélectionner le fournisseur</option>
+					  								{% for fr in fournisseurs %}
+					   								<option value="{{ fr.acronym }}" >
+						   								{{ fr.acronym  }} 
+					   								</option>
+													{% endfor %}
+				  								</select>
+			  								</div>
+		  								</div>
+  										</div>
+  										<div class="sm:col-span-3">
+                                        <label
+                                          for="last-name"
+                                          class="block text-sm font-medium leading-6 text-gray-900"
+                                          >Quantité Par Carton</label
+                                        >
+                                        <div class="mt-2">
+                                          <input
+                                            type="number"
+                                            placeholder="Quantité Par Carton"
+                                            class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                            x-model="qtypercart"
+                                          />
+                                        </div>
+                                     </div>
+  						 			</div>
+							</div> 
+
+							<div x-show="tab === 2"> 
+									 <div class="border-b border-gray-900/10 pb-12 mt-5" >
+	  								<h2 class="text-2xl font-semibold leading-7 text-gray-900 text-center">Informations Commercial</h2>
+	  								<p class="mt-1 text-xl leading-6 text-gray-600 text-center">Introduire les informations commerciales.</p>	     
+		  								<div class="w-full md:w-1/2 mb-2 md:mb-0 border-b border-gray-900/10 pb-12">
+			  								<div class="max-w-3xl  left-0 right-0 overflow-hidden mt-12 ">
+				  								<div class="w-full  bg-white overflow-hidden  block ">				
+					  								<div class="sm:col-span-3 mb-2">
+						  								<label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Historique prix achat</label>
+						  								<select id="fournisseur" name="fournisseur" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:max-w-xs sm:text-sm sm:leading-6">
+							  								<option value="" disabled selected>Historique prix achat</option>										
+						  								</select>
+					  								</div>
+					   								<div class="sm:col-span-3 mb-2">
+			 									<label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Prix Achat HT</label>
+												<div class="mt-2">
+												<input type="text" name="last-name" id="last-name" autocomplete="family-name" placeholder="PRU HT" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6" x-model="prixAchatHt">
+												</div>
+		   								</div>
+					   								<div class="sm:col-span-3 mb-2">
+						  								<div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 py-4">
+							  								<div class="sm:col-span-3">
+								  								<label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Prix Vente HT</label>
+								  								<div class="mt-2">
+									  								<input type="text" name="first-name" id="first-name" autocomplete="given-name" placeholder="PVUHT" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset px-2 focus:ring-gray-700 sm:text-sm sm:leading-6" x-model="prixVenteHt">
+								  								</div>
+							  								</div>				
+							  								<div class="sm:col-span-3">
+								  								<label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Marge %</label>
+								  								<div class="mt-2">
+									  								<input type="text" name="last-name" id="last-name" autocomplete="family-name" placeholder="marge %" class="block w-24 rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6" x-model="marge=(((prixVenteHt - prixAchatHt) * 100) / prixAchatHt).toFixed(2)">
+								  								</div>
+							  								</div>
+						  								</div>
+		   											</div>
+					   								<div class="mb-4 w-32"> 
+						  								<div class="relative">
+							  								<label class="block text-sm font-medium leading-6 text-gray-900">TVA</label>
+							  								<select x-model="tva" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:max-w-xs sm:text-sm sm:leading-6" x-on:change="tva = $event.target.value">
+								  								<option value="19">TVA 19%</option>									
+								  								<option value="0">TVA 0%</option>
+							  								</select>								
+						  								</div>
+					  								</div>
+					   								<div class="sm:col-span-3">
+			 								<label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Prix vente TTC</label>
+			 								<div class="mt-2 mb-4">
+			   								<input type="text" name="last-name" id="last-name" autocomplete="family-name" placeholder="PVUTTC" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6" x-model="prixVenteTtc = parseFloat(prixVenteHt) + parseFloat(((prixVenteHt * tva) / 100).toFixed(2))">
+			 								</div>
+			 								<label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Prix Livraison</label>
+			 								<div class="mt-2 mb-4">
+			   								<input type="text" name="last-name"  placeholder="Prix De Livraison" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6" x-model="prixLivraison">
+			 								</div>
+			 								<label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Tax Produit</label>
+			 								<div class="mt-2 mb-4">
+			   								<input type="text" name="last-name"  placeholder="Prix De Livraison" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6" x-model="taxProduit">
+			 								</div>
+		   								</div>																								
+				  								</div>
+			  								</div>
+		  								</div>
+		  								<body class="bg-gray-100 p-4 grid grid-cols-2 ">
+			  								<div class=" mt-4 ">
+											  <table class="w-2/3 bg-white shadow-md">
+				  								<thead>
+													<tr>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100  ">Type Client</th>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  border-r border-gray-100">PV HT</th>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100 ">PV TTC</th>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  ">Marge %</th>
+													</tr>
+				  								</thead>
+				  								<tbody>
+													<template x-for="cltype_item in typesClient">
+														<tr class="">
+															<td class="py-1 border-b border-r  border-gray-200">
+																<input x-text="cltype_item.nom" x-model="cltype_item.nom" disabled class="mt-1 text-sm font-medium leading-6 text-gray-900  text-left">
+															</td>
+															<td class="">
+																<input type="text" name="prixHt" x-model="cltype_item.prixHt" x-on:input="updatePrices(cltype_item)" class="border text-gray-500 text-sm rounded p-1 w-full">
+															</td>
+															<td class="">
+																<input type="text" name="prixttc" x-model="cltype_item.prixTtc" x-on:input="updateHtFromTtc(cltype_item)" class="border text-gray-500 text-sm rounded p-1 w-full">
+															</td>
+															<td class="">
+																<input type="text" name="marge" x-model="cltype_item.marge" class="border text-gray-500 text-sm rounded p-1 w-full">
+															</td>
+														</tr>
+													</template>
+				  								</tbody>
+											  </table>
+			  								</div>
+			  								<div class=" mt-4 ">
+											  <table class="w-2/3 bg-white shadow-md">
+				  								<thead>
+													<tr>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100  ">Type Client</th>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  border-r border-gray-100">PV PC HT</th>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100 ">PV PC TTC</th>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  ">Marge PC%</th>
+													</tr>
+				  								</thead>
+				  								<tbody>
+													<template x-for="cltype_item in typesClient">
+														<tr class="">
+															<td class="py-1 border-b border-r  border-gray-200">
+																<input x-text="cltype_item.nom" x-model="cltype_item.nom" disabled class="mt-1 text-sm font-medium leading-6 text-gray-900  text-left">
+															</td>
+															<td class="">
+																<input type="text" name="prixHt" x-model="cltype_item.prixHtPC" x-on:input="updatePrices(cltype_item)" class="border text-gray-500 text-sm rounded p-1 w-full">
+															</td>
+															<td class="">
+																<input type="text" name="prixttc" x-model="cltype_item.prixTtcPC" x-on:input="updateHtFromTtc(cltype_item)" class="border text-gray-500 text-sm rounded p-1 w-full">
+															</td>
+															<td class="">
+																<input type="text" name="marge" x-model="cltype_item.margePC" class="border text-gray-500 text-sm rounded p-1 w-full">
+															</td>
+														</tr>
+													</template>
+				  								</tbody>
+											  </table>
+			  								</div>
+			  								<div class=" mt-4 ">
+											  <table class="w-2/3 bg-white shadow-md">
+				  								<thead>
+													<tr>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100  ">Type Client</th>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  border-r border-gray-100">PV KIT HT</th>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100 ">PV KIT TTC</th>
+					  								<th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  ">Marge KIT %</th>
+													</tr>
+				  								</thead>
+				  								<tbody>
+													<template x-for="cltype_item in typesClient">
+														<tr class="">
+															<td class="py-1 border-b border-r  border-gray-200">
+																<input x-text="cltype_item.nom" x-model="cltype_item.nom" disabled class="mt-1 text-sm font-medium leading-6 text-gray-900  text-left">
+															</td>
+															<td class="">
+																<input type="text" name="prixHt" x-model="cltype_item.prixHtKIT" x-on:input="updatePrices(cltype_item)" class="border text-gray-500 text-sm rounded p-1 w-full">
+															</td>
+															<td class="">
+																<input type="text" name="prixttc" x-model="cltype_item.prixTtcKIT" x-on:input="updateHtFromTtc(cltype_item)" class="border text-gray-500 text-sm rounded p-1 w-full">
+															</td>
+															<td class="">
+																<input type="text" name="marge" x-model="cltype_item.margeKIT" class="border text-gray-500 text-sm rounded p-1 w-full">
+															</td>
+														</tr>
+													</template>
+				  								</tbody>
+											  </table>
+			  								</div>
+		  								</body>	
+	  
+   								</div>
+							</div> 
+
+							{% if request.session.store == '2' or request.session.store == '8' %}
+								<div x-show="tab === 3">				
+										
+									<div class="border-b border-gray-900/10 pb-12" >
+										<h2 class="text-2xl font-semibold leading-7 text-gray-900 text-center">Détails</h2>
+										<p class="mt-1 text-xl leading-6 text-gray-600 text-center">Introduire les informations détaillé sur le produit.</p>	   			
+										<div class="">
+											<div class="bg-white p-4 ">
+												<div>
+													<form class="mb-4">
+														<div class="mb-2">
+														<label class="block text-sm font-medium text-gray-700">Couleur</label>
+														<select
+														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight overflow-y-scroll focus:outline-none focus:shadow-outline"
+														id="entrepot"
+														name="entrepot"
+														x-model="variante_produit.variante"
+														x-on:change="
+														variante_produit.variante= $event.target.value
+														updateCheckboxes( $event.target.value)
+														"
+														>					
+															<option value="" selected>Sélectionner</option>
+															<option value="rou">Rouge</option>
+															<option value="ble">Bleu</option>
+															<option value="ver">Vert</option>
+															<option value="jau">Jaune</option>
+															<option value="lim">Lime</option>
+															<option value="ora">Orange</option>
+															<option value="vio">Violet</option>
+															<option value="ros">Rose</option>
+															<option value="marr">Marron</option>
+															<option value="gri">Gris</option>
+															<option value="grs">Gris souris</option>
+															<option value="grc">Gris clair</option>
+															<option value="grf">Gris foncé</option>
+															<option value="noi">Noir</option>
+															<option value="bla">Blanc</option>
+															<option value="bei">Beige</option>
+															<option value="cre">Creme</option>
+															<option value="cam">Camel</option>
+															<option value="mou">Moutarde</option>
+															<option value="bri">Brique</option>
+															<option value="arg">Argent</option>
+															<option value="dor">Doré</option>
+															<option value="BLM">Bleu marine</option>
+															<option value="BLF">Bleu foncé</option>
+															<option value="BLC">Bleu claire</option>
+															<option value="BLN">Bleu nuit</option>
+															<option value="TUR">Turquoise </option>
+															<option value="Mix">Mixte </option>
+															<option value="BDR">bois de rose </option>
+														</select>
+														</div>
+														<div class="mb-2 grid grid-cols-6" id="checkboxesContainer">
+
+
+														</div>
+															<button type="button" @click="addVariant(variante_produit.variante)" class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm ">Ajouter Variante</button>
+													</form>
+													{% comment %} <button onclick="addNewVariantForm()" class=" text-black rounded p-2 mt-4 ">Ajouter Nouvelle Variante</button> {% endcomment %}
+												</div>
+												<table id="variantTable" class="mt-4 w-full border-collapse">
+													<thead>
+														<tr>
+															<th class="px-4 py-2 bg-gray-200 text-left">Couleur</th>
+															<th class="px-4 py-2 bg-gray-200 text-left">Tailles</th>
+															<th class="px-4 py-2 bg-gray-200"></th>
+														</tr>
+													</thead>
+													<tbody id="variantTableBody">
+														<template x-for="invoice in variantes">
+															<tr class="border-b border-gray-100 hover:bg-gray-50" @click="variante_produit.variante=invoice.variante; editcheckboxes(invoice) ">
+																<td class="py-2">
+																	<p class="text-sm font-medium leading-6 text-gray-900 text-left" x-text="invoice.variante" x-model="invoice.variante"></p>
+																</td>
+																<td class="py-2">
+																	<p class="text-gray-800" x-text="invoice.value" x-model="invoice.value"></p>
+																</td>
+																<td class="py-2">
+																	<div class="px-1 w-20 text-right">
+																		<a href="#" class="text-red-500 hover:text-red-600 text-sm font-semibold" @click.prevent="deleteVariante(invoice.variante)">Annuler</a>
+																	</div>
+																</td>
+															</tr>
+														</template>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+
+								</div>												
+							{% endif %}
+						</div> 
+					<div class="mt-6 flex items-center justify-end gap-x-6">
+						<button class="rounded-md  px-6 py-2 text-sm font-semibold text-white shadow-sm bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" @click.prevent="validateBon()">Ajouter produit</button> 
+						<button type="button" class="text-sm font-semibold leading-6 text-gray-900 border border-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md" @click="window.location.href='/produits/produits'" >Annuler</button>  
+					</div>    
+			  </div> 
+			 </div>
+							</div> 
+ </form>				
+
+ <script>
+  function product(){
+	  return{
+		  reference:'',
+		  designation:'',
+		  categorie:'',
+		  fournisseur:'',
+		  prixAchatHt :0,
+		  prixVenteHt: 0,
+		  prixVenteTtc:0,
+		  prixLivraison:0,
+		  qtypercart:0,
+		  marge:0,
+		  tva:{% if request.session.store == '2' or request.session.store == '8' %} 0 {% else %} 19 {% endif %},
+		  taxProduit:0,
+		  typesClient:[],
+		  typeClient :{
+			  nom:'',
+			  prixHt:0,
+			  prixTtc:0,
+			  marge:0,
+			  prixHtPC:0,
+			  prixTtcPC:0,
+			  margePC:0,
+			  prixHtKIT:0,
+			  prixTtcKIT:0,
+			  margeKIT:0,
+			  prixHtCarton:0,
+			  prixTtcCarton:0,
+			  margeCarton:0
+		  },
+		 updatePrices(cltype_item) {
+			// Update prixTtc based on prixHt
+			cltype_item.prixTtc = (parseFloat(cltype_item.prixHt) * 1.19).toFixed(2);
+			cltype_item.prixTtcPC = (parseFloat(cltype_item.prixHtPC) * 1.19).toFixed(2);
+			cltype_item.prixTtcKIT = (parseFloat(cltype_item.prixHtKIT) * 1.19).toFixed(2);
+			cltype_item.marge =(( (parseFloat(cltype_item.prixHt) - this.prixAchatHt)/parseFloat(cltype_item.prixHt)   )*100).toFixed(2);
+			cltype_item.margePC =(( (parseFloat(cltype_item.prixHtPC) - this.prixAchatHt)/parseFloat(cltype_item.prixHtPC)   )*100).toFixed(2);
+			cltype_item.margeKIT =(( (parseFloat(cltype_item.prixHtKIT) - this.prixAchatHt)/parseFloat(cltype_item.prixHtKIT)   )*100).toFixed(2);
+			
+		},
+
+		updateHtFromTtc(cltype_item) {
+			// Update prixHt based on prixTtc
+			cltype_item.prixHt = (parseFloat(cltype_item.prixTtc) / 1.19).toFixed(2);
+			cltype_item.prixHtPC = (parseFloat(cltype_item.prixTtcPC) / 1.19).toFixed(2);
+			cltype_item.margePC =(( (parseFloat(cltype_item.prixHtPC) - this.prixAchatHt)/parseFloat(cltype_item.prixHtPC)   )*100).toFixed(2);
+			cltype_item.prixHtKIT = (parseFloat(cltype_item.prixTtcKIT) / 1.19).toFixed(2);
+			cltype_item.margeKIT =(( (parseFloat(cltype_item.prixHtKIT) - this.prixAchatHt)/parseFloat(cltype_item.prixHtKIT)   )*100).toFixed(2);
+			cltype_item.marge =(( (parseFloat(cltype_item.prixHt) - this.prixAchatHt)/parseFloat(cltype_item.prixHt)   )*100).toFixed(2);
+			
+		},
+		  initData() {					
+			  clientsData={{ type_clients|safe }}					
+			  for (const client of clientsData) {					  
+				  const client_info = {										
+					  nom: client.nom,	
+					  prixHt:0,
+					  prixTtc:0,
+					  marge:0,
+					  prixHtPC:0,
+					  prixTtcPC:0,
+					  margePC:0,
+					  prixHtKIT:0,
+					  prixTtcKIT:0,
+					  margeKIT:0,
+					  prixHtCarton:0,
+        			  prixTtcCarton:0,
+        			  margeCarton:0
+				  };
+				  this.typesClient.push(client_info);
+				  console.log(this.typesClient)
+			  }
+			  if ({{request.session.store}} == '2' || {{request.session.store}} == '8'){
+				this.reference ='{{mareference}}';
+			  }
+			  this.updateCheckboxes();
+		  },
+		  variantes:[],				 					 
+		  variante_produit:{
+			  variante : '',
+			  value:'' 
+		  },
+
+		updateCheckboxes() {
+		   const checkboxesContainer = document.getElementById("checkboxesContainer");
+		   checkboxesContainer.innerHTML = "";
+		   console.log('in the checkbox function');
+		   for (let i = 42; i <= 66; i=i+2) {
+			   const div = document.createElement("div");
+			   div.className = "flex items-center mt-1";
+			   div.innerHTML = `
+			   <input type="checkbox" value="${i}" >
+			   <span class="pl-2">${i}</span>
+			   `;
+			   checkboxesContainer.appendChild(div);
+		   }
+		   tailles_letters=['1','2','3','4', '5', '6','m', 'l','xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', 'standard']
+		   tailles_letters.forEach((size) => {
+			const div = document.createElement("div");
+			div.className = "flex items-center mt-1";
+			div.innerHTML = `
+			  <input type="checkbox" value="${size}" ">
+			  <span class="pl-2">${size}</span>
+			`;
+			checkboxesContainer.appendChild(div);
+		  });
+		  
+		},
+		deleteVariante(variante) {
+            const index = this.variantes.findIndex(item => item.variante === variante);
+            if (index !== -1) {
+                this.variantes.splice(index, 1);
+            }
+        },
+		editcheckboxes(selectedVariant){
+				// Assuming you have an array of checkboxes
+    		const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    		const selectedValues = selectedVariant.value;
+    		checkboxes.forEach((checkbox) => {
+        		const value = checkbox.value;
+       			 checkbox.checked = selectedValues.includes(value);
+    		});
+		  },
+		addVariant(variante_type) {
+    const selectedType = variante_type;
+    const selectedCheckboxes = Array.from(document.querySelectorAll("#checkboxesContainer input[type=checkbox]:checked"))
+        .map(checkbox => checkbox.value);
+
+    if (selectedType && selectedCheckboxes.length > 0) {
+        // Check if an object with the same variante_type exists
+        const existingVariant = this.variantes.find(variant => variant.variante === selectedType);
+
+        if (existingVariant) {
+            // If it exists, update its value
+            existingVariant.value = [...selectedCheckboxes];
+        } else {
+            // If it doesn't exist, create a new object
+            this.variantes.push({
+                variante: selectedType,
+                value: [...selectedCheckboxes]
+            });
+        }
+
+        console.log(this.variantes);
+    }
+
+    this.variante_produit.variante = '';
+    this.updateCheckboxes();
+},
+		  
+		  
+		addNewVariantForm() {
+		   document.getElementById("variantType").value = "";
+		   document.getElementById("checkboxesContainer").innerHTML = "";
+		},
+	  
+		  validateBon(){		
+              if (this.categorie =='')  {
+                  alert("veuillez spécifier la famille de produit !");
+                  return;
+              }		
+              		
+			  const dataObj = {
+				  reference: this.reference,
+				  designation: this.designation,
+				  category: this.categorie,
+				  fournisseur:this.fournisseur,
+				  prixAchatHt:this.prixAchatHt,
+				  prixVenteHt:this.prixVenteHt,
+				  taxProduit:this.taxProduit,
+				  prixVenteTtc:this.prixVenteTtc,
+				  frais_livraison: this.prixLivraison,
+				  marge:this.marge,
+				  tva:this.tva,
+				  clients_price:this.typesClient,
+				  product_variantes:this.variantes,
+				  qtypercart:this.qtypercart,
+			  };
+			  axios.post('', {
+				  formData: dataObj
+			   }, {
+					headers: {
+					'Content-Type': '',
+					'X-CSRFToken': getCookie('csrftoken'),
+					}
+					})
+				.then((response) => {
+				data= response.data
+				if(data.error){
+				alert(data.error);
+				}else{
+					alert("Produit Ajouté !");
+					window.location.href="/produits/produits";
+				}		  
+			})
+			.catch((error) => {
+				alert(error)
+			});	
+		  },
+	  }
+  }
+  function getCookie(name) {
+	  var cookieValue = null;
+	  if (document.cookie && document.cookie !== '') {
+		  var cookies = document.cookie.split(';');
+		  for (var i = 0; i < cookies.length; i++) {
+			  var cookie = cookies[i].trim();
+			  // Does this cookie string begin with the name we want?
+			  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+				  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+				  break;
+			  }
+		  }
+	  }
+	  return cookieValue;
+  }
+  </script>		
+</main> 	
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

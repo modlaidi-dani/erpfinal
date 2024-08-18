@@ -1,0 +1,377 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div class="w-2/3 mt-4 mx-auto  py-12 px-3" x-data="organisation()">
+    <div class=" rounded-2xl bg-gray-100 px-8 py-4">
+  <div class="space-y-4">
+      <h2 class="text-xl w-fit mx-auto text-center font-bold leading-7 border-solid text-gray-900">Ajouter une nouvelle organisation</h2>
+      <div class="h-1 mt-1 w-24  mx-auto bg-gray-700 "></div>
+    <div class="border-b border-gray-900/10 pb-4" x-data="{open :true}">
+      <div class="flex justify-between">
+            <h2 class="text-base font-semibold leading-7 text-gray-900 ">Informations officiels</h2>
+            <span x-show="!open" @click="open = !open" class="cursor-pointer">
+                <svg id='chevron-down_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                 <g transform="matrix(1 0 0 1 12 12)" >
+                 <g style="" >
+                 <g transform="matrix(1 0 0 1 0 0)" >
+                    <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                 </g>
+                 <g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+                    <polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-6,-3 0,3 6,-3 " />
+                 </g>
+                </g>
+                </g>
+                </svg>
+            </span>
+            <span x-show="open" @click="open = !open" class="cursor-pointer">
+                <svg id='chevron-up_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                    <g transform="matrix(1 0 0 1 12 12)" >
+                    <g style="" >
+                    <g transform="matrix(1 0 0 1 0 0)" >
+                    <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                    </g>
+                    <g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+                    <polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-6,3 0,-3 6,3 " />
+                    </g>
+                    </g>
+                    </g>
+                </svg>
+            </span>
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"  x-show="open">
+        <div class="sm:col-span-3">
+          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Code Organisation</label>
+          <div class="mt-2">
+            <input type="text" name="code-org" id="code-org" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">N° Adhérent</label>
+          <div class="mt-2">
+            <input type="text" name="num-adh" id="num-adh" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div class="sm:col-span-3">
+          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Dénomination</label>
+          <div class="mt-2">
+            <input type="text" name="denom" id="denom" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Raison Sociale</label>
+          <div class="mt-2">
+            <input type="text" name="rais-social" id="raissocial" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Code Postal</label>
+          <div class="mt-2">
+            <input type="text" name="code-postal" id="code-postal" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Monnaie</label>
+          <div class="mt-2">
+            <input type="text" name="monnaie" id="monnaie" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Identification Fiscale</label>
+          <div class="mt-2">
+            <input type="text" name="id-fis" id="id-fis" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Registre de commerce</label>
+          <div class="mt-2">
+            <input type="text" name="reg-com" id="reg-com" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+      
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Article Imposition</label>
+          <div class="mt-2">
+            <input type="text" name="art-impo" id="art-impo" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Numéro Identifiant</label>
+          <div class="mt-2">
+            <input type="text" name="num-id" id="num-id" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Banque</label>
+          <div class="mt-2">
+            <input type="text" name="banque" id="banque" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Compte Bancaire</label>
+          <div class="mt-2">
+            <input type="text" name="cpt-banc" id="cpt-banc" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Compte CCP</label>
+          <div class="mt-2">
+            <input type="text" name="ccp" id="ccp" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div class="sm:col-span-2">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Capital Sociale</label>
+          <div class="mt-2">
+            <input type="text" name="cap-soc" id="cap-soc" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-b border-gray-900/10 pb-4" x-data="{open :false}">
+        <div class="flex justify-between">
+            <h2 class="text-base font-semibold leading-7 text-gray-900 ">Informations de Contact</h2>
+            <span x-show="!open" @click="open = !open" class="cursor-pointer">
+                <svg id='chevron-down_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                 <g transform="matrix(1 0 0 1 12 12)" >
+                 <g style="" >
+                 <g transform="matrix(1 0 0 1 0 0)" >
+                    <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                 </g>
+                 <g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+                    <polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-6,-3 0,3 6,-3 " />
+                 </g>
+                </g>
+                </g>
+                </svg>
+            </span>
+            <span x-show="open" @click="open = !open" class="cursor-pointer">
+                <svg id='chevron-up_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                    <g transform="matrix(1 0 0 1 12 12)" >
+                    <g style="" >
+                    <g transform="matrix(1 0 0 1 0 0)" >
+                    <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                    </g>
+                    <g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+                    <polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-6,3 0,-3 6,3 " />
+                    </g>
+                    </g>
+                    </g>
+                </svg>
+            </span>
+        </div>
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6" x-show="open">
+          <div class="sm:col-span-2">
+            <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Adresse 1 </label>
+            <div class="mt-2">
+                <input type="text" name="adr1" id="adr1" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Adresse 2</label>
+            <div class="mt-2">
+                <input type="text" name="adr2" id="adr2" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Adresse 3</label>
+          <div class="mt-2">
+            <input type="text" name="adr3" id="adr3" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+          </div>
+          <div class="sm:col-span-2">
+         <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Tél 1 </label>
+         <div class="mt-2">
+          <input type="text" name="tel1" id="tel1" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+         </div>
+          </div>
+          <div class="sm:col-span-2">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Tél 2</label>
+          <div class="mt-2">
+            <input type="text" name="tel2" id="tel2" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+          </div>
+          <div class="sm:col-span-2">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Tél 3</label>
+          <div class="mt-2">
+           <input type="text" name="tel3" id="tel3" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+          </div>
+          <div class="sm:col-span-2">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Fax 1 </label>
+          <div class="mt-2">
+            <input type="text" name="fax1" id="fax1" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+          </div>
+          <div class="sm:col-span-2">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Fax 2</label>
+          <div class="mt-2">
+            <input type="text" name="fax2" id="fax2" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+          </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Fax 3</label>
+            <div class="mt-2">
+                <input type="text" name="fax3" id="fax3" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Mobile 1 </label>
+            <div class="mt-2">
+                <input type="text" name="mob1" id="mob1" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+              <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Mobile 2</label>
+              <div class="mt-2">
+                <input type="text" name="mob2" id="mob2" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+              </div>
+          </div>
+          <div class="sm:col-span-2">
+           <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Mobile 3</label>
+           <div class="mt-2">
+             <input type="text" name="mob3" id="mob3" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+      </div>    
+    </div>
+
+    <div class=" pb-4" x-data="{open :false}">
+        <div class="flex justify-between">
+            <h2 class="text-base font-semibold leading-7 text-gray-900 ">Personalisation Des fonctionnalités</h2>
+            <span x-show="!open" @click="open = !open" class="cursor-pointer">
+                <svg id='chevron-down_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                 <g transform="matrix(1 0 0 1 12 12)" >
+                 <g style="" >
+                 <g transform="matrix(1 0 0 1 0 0)" >
+                    <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                 </g>
+                 <g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+                    <polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-6,-3 0,3 6,-3 " />
+                 </g>
+                </g>
+                </g>
+                </svg>
+            </span>
+            <span x-show="open" @click="open = !open" class="cursor-pointer">
+                <svg id='chevron-up_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                    <g transform="matrix(1 0 0 1 12 12)" >
+                    <g style="" >
+                    <g transform="matrix(1 0 0 1 0 0)" >
+                    <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                    </g>
+                    <g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+                    <polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-6,3 0,-3 6,3 " />
+                    </g>
+                    </g>
+                    </g>
+                </svg>
+            </span>
+        </div>
+        <div class=" border-b border-gray-900/10 mt-10 space-y-10" x-show="open">
+          <fieldset>
+            <legend class="text-sm font-semibold leading-6 text-gray-900">Produits</legend>
+            <div class="mt-6 space-y-6">
+              <div class="relative flex gap-x-3">
+                <div class="flex h-6 items-center">
+                  <input id="variantes" name="variantes" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-gray-700 focus:ring-gray-700">
+                </div>
+                <div class="text-sm leading-6">
+                  <label for="comments" class="font-medium text-gray-900">Variation de produits</label>
+                  <p class="text-gray-500">Activer la possibilté d'ajouter des variantes aux produits.</p>
+                </div>
+              </div>
+         
+            </div>
+          </fieldset>
+          
+        </div>
+        <div class="mt-6 flex items-center justify-end gap-x-6">
+          <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+          <button class="rounded-md bg-gray-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " x-on:click="addORG">Save</button>
+        </div> 
+    </div>
+    <script>
+        function organisation(){
+            return{
+              addORG(){
+                const checkbox = document.getElementById('variantes');
+                const productVariants = checkbox.checked ? true : false;
+                console.log('here');
+                const dataObj = {
+                    codeOrg: document.getElementById('code-org').value,
+                    numAdh: document.getElementById('num-adh').value,
+                    denom: document.getElementById('denom').value,
+                    raissocial: document.getElementById('raissocial').value,
+                    codePostal: document.getElementById('code-postal').value,
+                    monnaie: document.getElementById('monnaie').value,
+                    idFis: document.getElementById('id-fis').value,
+                    regCom: document.getElementById('reg-com').value,
+                    artImpo: document.getElementById('art-impo').value,
+                    numId: document.getElementById('num-id').value,
+                    banque: document.getElementById('banque').value,
+                    cptbanc: document.getElementById('cpt-banc').value,
+                    ccp: document.getElementById('ccp').value,
+                    capSoc: document.getElementById('cap-soc').value,
+                    adr1: document.getElementById('adr1').value,
+                    adr2: document.getElementById('adr2').value,
+                    adr3: document.getElementById('adr3').value,
+                    tel1: document.getElementById('tel1').value,
+                    tel2: document.getElementById('tel2').value,
+                    tel3: document.getElementById('tel3').value,
+                    fax1: document.getElementById('fax1').value,
+                    fax2: document.getElementById('fax2').value,
+                    fax3: document.getElementById('fax3').value,
+                    mob1: document.getElementById('mob1').value,
+                    mob2: document.getElementById('mob2').value,
+                    mob3: document.getElementById('mob3').value,
+                    productVariants:productVariants
+                };
+       
+                axios.post('', {
+                    formData: dataObj
+                }, {
+                headers: {
+                    'Content-Type': '',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                }
+                })
+                .then((response) => {
+                    data = response.data
+                    console.log(data.error)
+		            if(data.error){
+						alert(data.error);
+			        }else{
+						alert("Organisation Ajouté !");
+			        }		            
+                })
+                .catch((error) => {
+                    alert(error)     
+                });
+             },
+    
+            }
+        }
+    
+        function getCookie(name) {
+          var cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+        }
+          return cookieValue;
+        }
+    </script>
+    </div>
+</div>
+{% endblock content %}

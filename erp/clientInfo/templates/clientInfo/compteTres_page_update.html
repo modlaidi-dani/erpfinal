@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  <div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="home" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+  <main class="block w-full h-full px-2 overflow-hidden" x-data="{isOpen :false}">
+    <!-- Main content header -->
+    <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                           
+      <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Modifier Compte Entreprise : {{compte_ent.label}} </h1>          
+    </div>
+ <div class=" max-w-4xl relative left-0 right-0 overflow-hidden p-4 " x-data="compteTres()">
+  <form action="" id="myForm">
+    <div class="w-full rounded-lg bg-white overflow-hidden block ">		  
+     <div class="form-input">
+       <div class="mb-2">
+         <label class="block text-gray-700 font-semibold mb-2" for="nature">
+           Nature :
+         </label>
+         <select
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+          id="nature"
+          name="nature"	
+          x-model="nature"					
+          required  
+          >
+          <option value="" disabled selected> Nature</option>             
+          <option value="Caisse">  Caisse </option>
+          <option value="Banque">  Banque </option>
+          <option value="CCP">  CCP </option>
+          <option value="Autres">  Autres </option>     
+         </select>
+       </div>
+    
+        <div class="mb-2 mr-2">
+         <label class="block text-gray-700 font-semibold mb-2" for="label">
+           Libellé :
+         </label>
+         <input
+           class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+           type="text"
+           id="label"
+           name="label"
+           x-model="label"
+           placeholder=" label ... "
+         >
+        </div>      
+        <div class="mb-2 ">
+         <label class="block text-gray-700 font-semibold mb-2" for="Numcompte">
+           Numéro compte:
+         </label>
+         <input
+           class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+           type="text"
+           id="Numcompte"
+           name="Numcompte"
+           x-model="numcompte"
+           placeholder="Numéro de compte  . . ."
+         >
+        </div> 
+     
+      
+       <div class="mb-2 mr-4">
+         <label class="block text-gray-700 font-semibold mb-2" for="banque">
+           Banque :
+         </label>
+         <select
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+          id="banque"
+          name="banque"	
+          x-model="banque"					
+          required  
+          >
+          <option value="" disabled selected> Selectionnez  Banque</option>
+          {% for banque in banques  %}
+            <option value="{{banque.pk}}"> {{banque.nom}} </option>
+          {% endfor %}
+         </select>
+       </div>
+       <div class="mb-2">
+         <label class="block text-gray-700 font-semibold mb-2" for="agence">
+           Agence :
+         </label>
+         <select
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+          id="agence"
+          name="agence"	
+          x-model="agence"					
+          required  
+          >
+          <option value="" disabled selected> Selectionnez  Agence</option>
+          {% for agence in agences  %}
+            <option value="{{agence.pk}}"> {{agence.code}} </option>
+          {% endfor %}
+         </select>
+       </div>
+    
+       <div class="mb-2">
+         <label class="block text-gray-700 font-semibold mb-2" for="agence">
+           Compte comptable :
+         </label>
+         <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer" id="compteComptable">
+           <option value="">Select an account...</option>
+         
+           {% for entry in plan_comptable %}
+        
+             <optgroup label="{{ entry.class.name }}">
+               {% for account in entry.accounts %}
+                 <option value="{{ account.code }}">{{ account.code }} - {{ account.name }}</option>
+               {% endfor %}
+             </optgroup>
+           {% endfor %}
+         </select>
+       </div>
+       <div class="mb-4">
+         <label class="block text-gray-700 font-semibold mb-2" for="agence">
+           Journal :
+         </label>
+         <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer" id="journal" x-model="journal">
+           <option value="Achat"> Achat </option>
+           <option value="Banque BNA"> Banque BNA </option>
+           <option value="Banque SGA"> Banque SGA </option>
+           <option value="Banque SGA Alger"> Banque SGA Alger </option>
+           <option value="Caisse"> Caisse </option>
+           <option value="Journal des salaires"> Journal des salaires </option>
+           <option value="Operation Divers"> Operation Divers</option>
+           <option value="Reouverture">Reouverture</option>
+           <option value="Stock Entrees">Stock Entrees</option>
+           <option value="Stock Sorties">Stock Sorties</option>
+           <option value="Vente">Vente</option>
+         </select>
+       </div>
+       <div class="mb-4">
+         <label class="block text-gray-700 font-semibold mb-2" for="agence" x-model="monnaie">
+           Monnaie :
+         </label>
+         <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer" id="monnaie">
+           <option value="">Choisir une monnaie...</option>
+           <option value="null">Aucun</option>
+           <option value="USD">Dollar Américain(USD)</option>
+           <option value="EUR">Euro (EUR)</option>
+           <option value="DZD">Dinar ALgérien (DA)</option>
+         </select>
+       </div>
+     </div>
+    <div class="mt-8 text-right">
+    <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="isOpen = false">
+     Annuler
+    </button>	
+    <button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" @click="updateCompte">
+     Valider
+    </button>	
+     </div>
+     </div> 
+   </form>
+   <script>
+     function compteTres(){
+       return{
+         nature :'{{compte_ent.nature}}',
+         label:'{{compte_ent.label}}',
+         Numcompte:'{{compte_ent.numCompte}}',
+         banque:'{{compte_ent.banque}}',
+         agence:'{{compte_ent.agence}}',
+         compteComptable:'{{compte_ent.compteComptable.code}}',
+         journal:'{{compte_ent.journal}}',
+         monnaie:'{{compte_ent.monnaie}}',
+         updateCompte(){
+            dataObj={
+              nature : document.getElementById('nature').value,
+              label : document.getElementById('label').value,
+              Numcompte : document.getElementById('Numcompte').value, 
+              banque : document.getElementById('banque').value, 
+              agence : document.getElementById('agence').value,             
+              journal : document.getElementById('journal').value, 
+            
+            }
+            
+           axios.post('', {
+             formData: dataObj
+            }, {
+            headers: {
+            'Content-Type': '',
+            'X-CSRFToken': getCookie('csrftoken'),
+            }
+           })
+          .then((response) => {
+            data = response.data
+            console.log(data.error)
+            if(data.error){
+                 alert(data.error);
+             }else{
+                 alert("Agence Ajouté !");
+             }		  
+            window.location.reload()            
+           })
+          .catch((error) => {
+            alert(error)      
+          });
+         },
+       }  
+     }
+     function getCookie(name) {
+       var cookieValue = null;
+       if (document.cookie && document.cookie !== '') {
+         var cookies = document.cookie.split(';');
+         for (var i = 0; i < cookies.length; i++) {
+           var cookie = cookies[i].trim();
+           // Does this cookie string begin with the name we want?
+           if (cookie.substring(0, name.length + 1) === (name + '=')) {
+             cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+             break;
+           }
+         }
+       }
+       return cookieValue;
+     }
+   </script>
+</div>
+
+
+</main>
+<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock content %}

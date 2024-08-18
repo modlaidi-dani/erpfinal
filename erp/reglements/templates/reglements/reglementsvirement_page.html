@@ -1,0 +1,602 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="reglements" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_reglements.html" %}
+  <div class="h-full w-full">
+	<main class="block w-full px-2 h-full overflow-hidden" x-data="pointssells()" x-init="init()">
+		<!-- Main content header -->
+		<div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                                                                                                     
+			<h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des Bon de Livraison - Virement -</h1>          
+		</div>
+		<div class="flex flex-wrap justify-start border-b  py-2">
+		   <div class="flex flex-wrap justify-start space-x-2 border-r  px-2 py-2">
+		   	<div class=" py-2 ">
+				<input type="search" x-model="search" class="form-input rounded-md bg-gray-50 text-sm text-black  h-10 py-2 pl-4 border-transparent border-none outline-none focus:ring-0 focus:text-black transition-all duration-300 ease-in-out focus:w-72 w-60"
+					placeholder="Rechercher...">
+			</div>			
+			<div class="py-2">
+				<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+				x-model="selectedFournisseur">
+				<option value="">Tous les utilisateurs</option>
+				{% for user in users %}
+				<option value="{{ user.username }}">{{ user.username }}</option>
+				{% endfor %}
+				</select>
+			</div>
+			<div class="py-2">
+				<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+					x-model="regle">
+					<option value="">Reglement</option>			
+					<option value="true">Réglé</option>
+					<option value="false">Non-Réglé</option>
+				</select>
+			</div>
+		  </div>
+		  <div class="flex justify-start space-x-3 px-4 ">
+				<div class="flex items-center space-x-2">
+					<label for="startDate" class="text-sm">Date début:</label>
+					<input type="date" x-model="datedeb" id="startDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				</div>
+				<div class="flex items-center space-x-2">
+					<label for="endDate" class="text-sm">Date Fin:</label>
+					<input type="date" x-model="datefin" id="endDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				</div>
+   		 </div>
+		</div>
+		<div class="-mb-2 py-2 flex justify-between border-b">  
+            <div>
+            </div>          
+            <div class="inline-block  border text-sm leading-5 font-medium rounded-md text-black  ">
+                <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 border-r text-sm font-bold tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Montant Total Des Bons
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 border-r text-sm font-bold tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Montant Total Réglé
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr class="transition-all bg-gray-100 hover:shadow-lg"
+                         >
+                          <td class="px-6 py-4 border-r text-center whitespace-nowrap">
+                            <span class="inline-flex px-2 text-lg tracking-wide font-semibold leading-5 rounded-full" x-text="SumTotalReglement() +' DA'"></span>
+                          </td>
+                          <td class="px-6 py-4 border-r text-center whitespace-nowrap">
+                            <span class="inline-flex px-2 text-lg tracking-wide font-semibold leading-5 rounded-full" x-text="SumTotalReglementRegle() +' DA'"></span>
+                          </td>
+                        </tr>            
+                    </tbody>
+                </table>
+            </div>
+          </div> 
+		<div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b">  
+		  <div>
+            <div class="-mb-2 py-2 flex border-b">  
+                <div class="relative mr-4 inline-block">
+					<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip1 = true" @mouseleave="showTooltip1 = false" @click="exportExcelDiva">
+						<svg id='file-spreadsheet_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                            <g transform="matrix(1 0 0 1 12 12)" >
+                            <g style="" >
+                            <g transform="matrix(1 0 0 1 0 0)" >
+                            <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 4 -7)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-16.5, -5.5)" d="M 14 3 L 14 7 C 14 7.552284749830793 14.447715250169207 8 15 8 L 19 8" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -0.5 -0.5)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 17 21 L 7 21 C 5.8954305003384135 21 5 20.104569499661586 5 19 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 14 3 L 19 8 L 19 19 C 19 20.104569499661586 18.104569499661586 21 17 21 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -0.5 2)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -14.5)" d="M 8 11 L 16 11 L 16 18 L 8 18 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -0.5 2.5)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -15)" d="M 8 15 L 16 15" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -1.5 2)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-11, -14.5)" d="M 11 11 L 11 18" stroke-linecap="round" />
+                            </g>
+                            </g>
+                            </g>
+                        </svg>			  
+					</div>
+					<div x-show.transition="showTooltip1" class="z-40 shadow-lg text-center w-32 block absolute left-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+						Exporter Ficher Liste Reglements !
+					</div>
+				</div>      
+            </div>  
+		  </div>      
+		  <div>    
+		
+		</div> 
+		</div> 
+		 <!-- Print Template -->
+				 <div id="js-print-template" x-ref="printTemplate" class="hidden">
+					<h2 class="text-3xl text-center py-4 font-bold mb-6 pb-2 tracking-wider uppercase">Fiche de Règlement </h2>
+					<div class="flex justify-between space-x-3 mb-10">
+						<div class=" w-full border border-black">
+							<div class="px-4 py-3 ">		
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Référence du Règlement.</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="invoiceNumber"></div>
+							</div>				
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date du règlement</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="date"></div>
+							</div>
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Client</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="client"></div>
+							</div>
+						</div>
+						</div>					
+					</div>
+		
+					    <table class="w-full border-collapse border border-black">
+            		<thead>
+                		<tr class="bg-gray-100 rounded-lg">
+                    		<th class=" px-1 py-2 border border-black text-black uppercase tracking-wide text-sm font-bold">Type règlement</th>
+                    		<th class=" px-1 py-2 border border-black text-black uppercase tracking-wide text-sm font-bold">Mode Paiement</th>
+                    		<th class=" px-1 py-2 border border-black  text-center text-black uppercase tracking-wide text-sm font-bold">Montant</th>
+                        </tr>
+            		</thead>
+            		<tbody>
+                  			<tr class="border border-black">
+                      			<td class="border border-black px-1 py-2 text-center text-black text-xs" x-text="typeReg"></td>
+                     		    <td class="border border-black px-1 py-2 text-center text-black text-xs" x-text="modereglabel"></td>
+                      			<td class="border border-black px-1 py-2 text-center text-black text-xs" x-text="montant"></td>
+                  			</tr>
+            		</tbody>
+           		</table>
+          		<div class=" flex justify-between mt-12 mr-0">              		
+              		<div >
+                		<p class="font-semibold"> Reçu Par : </p> 
+                  <p class="font-bold" x-text="user"> </p> 
+              		</div>
+                  <div></div>
+           		</div>
+		   
+				 </div>
+				 <!-- /Print Template -->
+           
+		<div class="flex flex-col mt-5">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+                  <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Code Bon
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+							Date Du Bon
+                        </th>
+                        <th
+							scope="col"
+							class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+							>
+                          Client
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Montant Bon
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Banque
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Etat Reglement
+                        </th>
+                        
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+						Code Reglement
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+						Date Reglement
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+						Montant Reglement
+                        </th>
+                          <th                      
+                            scope="col"
+                            class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                          >
+                            Etat Encaissement
+                          </th>                                       
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">                        
+                      <template x-for="reglement in filteredAndPaginatedProducts" :key="reglement.id" >                          
+                        <tr  class="transition-all hover:shadow-lg border" x-show="productMatches(search, reglement.codebon, reglement.client)" x-bind:class="{'bg-green-500': reglement.montantRegle == reglement.montantBon, 'bg-red-500': reglement.montantRegle != reglement.montantBon}"> 
+                            <td class="px-4 py-2 text-sm font-medium text-left flex  " >							
+								<span class="px-4 py-2 text-sm font-medium text-left  " x-text="reglement.codebon"></span>
+							</td>
+                            <td class="px-4 py-2 text-sm font-medium text-left  " x-text="reglement.dateBon"></td>
+                            <td class="px-4 py-2 text-sm font-medium text-left  " x-text="reglement.client"></td>
+                            <td class="px-4 py-2 text-sm font-medium text-left  " x-text="reglement.montantBon +' '+'DA'"></td>  
+                            <td class="px-4 py-2 text-sm font-medium text-left  " x-text="reglement.banque"></td>  
+                            <td class="px-4 py-2 text-sm font-medium text-left  " x-text="reglement.montantRegle != 0.00 ? 'réglé' : 'Non-réglé'"></td>  
+                            <td class="px-4 py-2 text-sm font-medium text-left  " x-text="reglement.montantRegle != 0.00 ? reglement.codeReglement : '/'"></td>  
+                            <td class="px-4 py-2 text-sm font-medium text-left  " x-text="reglement.montantRegle != 0.00 ? reglement.dateReglement : '/'"></td>  
+                            <td class="px-4 py-2 text-sm font-medium text-left  " x-text="reglement.montantRegle"></td>  
+							<td  class="px-6 py-4 text-sm font-bold text-gray-500 whitespace-nowrap ">
+								<template x-if="reglement.collected=='True'">
+									<span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700">Collecté </span>
+								</template>
+								<template x-if="reglement.collected !='True'">
+								<div>
+									<span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-700">Non-Collecté</span>                    
+								</div>                           
+								</template>
+							</td> 
+                        </tr>
+                    </template> 
+                  </tbody>
+                </table>				   
+                </div>
+              </div>
+            </div>
+		<div class="flex bg-gray-100 justify-between px-8">
+		
+ 		<div class="flex justify-start">
+			<button
+				x-bind:disabled="currentPage === 1"
+				@click="prevPage"
+			>
+			<svg id='chevrons-left_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+					<g transform="matrix(1 0 0 1 12 12)" >
+					<g style="" >
+					<g transform="matrix(1 0 0 1 0 0)" >
+					<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+					</g>
+					<g transform="matrix(1 0 0 1 -3.75 -0.25)" >
+					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+					</g>
+					<g transform="matrix(1 0 0 1 2.25 -0.25)" >
+					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+					</g>
+					</g>
+					</g>
+			</svg>
+			</button>
+			<p class=" text-lg px-2" x-text="currentPage"></p> /<p id="total-pages" class=" text-lg px-2" x-text="totalPages"></p>
+			<button
+				x-bind:disabled="currentPage === totalPages"
+				@click="nextPage"
+			>
+				<svg id='chevrons-right_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+						<g transform="matrix(1 0 0 1 12 12)" >
+						<g style="" >
+						<g transform="matrix(1 0 0 1 0 0)" >
+						<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+						</g>
+						<g transform="matrix(1 0 0 1 -2.75 -0.25)" >
+						<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+						</g>
+						<g transform="matrix(1 0 0 1 3.25 -0.25)" >
+						<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+						</g>
+						</g>
+						</g>
+				</svg>
+			</button>
+		</div>
+</div>
+      
+		
+          </div> 
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+	<script>
+		function pointssells(){
+			return {
+				openModal:false,
+				showModal:false,
+				showTooltip1: false,
+				openCollection:false,
+				liste_clotures:{{ reglements|safe }},
+				cloture_id:'',
+				montant :'',
+				date:new Date().toISOString().slice(0, 10),	
+				verifying:false,
+				user_now:'{{request.user.username}}',
+				success:false,
+        		reglementcode:'',
+				password:'',
+				operation:'add',
+				search: '',
+				selectedFamily: '',
+				products: [],
+				currentPage: 1,
+				showModal:false,
+				selectedFournisseur:'',
+				productReference: '',
+				pageSize: 10,
+				get totalPages() {
+					return Math.max(1, Math.ceil(this.filteredProducts.length / this.pageSize));
+				},
+				SumTotalReglement(){
+					const sum = this.filteredProducts
+                        .reduce((accumulator, currentItem) => {
+                            return accumulator + parseFloat(currentItem.montantBon);
+                        }, 0);
+                    return (sum).toFixed(0);	
+				},
+				SumTotalReglementRegle(){
+					const sum = this.filteredProducts
+                        .reduce((accumulator, currentItem) => {
+                            return accumulator + parseFloat(currentItem.montantRegle);
+                        }, 0);
+                    return (sum).toFixed(0);	
+				},
+				datedeb: '',
+				datefin:'',
+				regle:'',	
+				get filteredProducts() {
+					return this.liste_clotures.filter((product) => {
+						const familyMatch = this.selectedFamily === '' || this.selectedFamily == product.CompteEntreprise;
+						const fournisseurMatch = this.selectedFournisseur === '' || this.selectedFournisseur == product.user;
+						const nameMatch = product.codeReglement.toLowerCase().includes(this.search.toLowerCase());
+                        const referenceMatch = product.client.toLowerCase().includes(this.search.toLowerCase());
+						// Parse the dates from the input fields
+						const startDate = new Date(this.datedeb);
+						const endDate = new Date(this.datefin);
+
+						// Check if the product date is within the selected date range
+						const dateMatch = startDate <= new Date(product.dateReglement) && new Date(product.dateReglement) <= endDate;
+						if (this.regle === 'true') {
+							// If regle is 'true', filter products where montantrestant is 0
+							return (familyMatch && fournisseurMatch) && (nameMatch || referenceMatch) && dateMatch && parseFloat(product.montantRegle) === parseFloat(product.montantBon);
+						} else if (this.regle === 'false') {
+							// If regle is 'false', filter products where montantrestant is not 0
+							return (familyMatch && fournisseurMatch) && (nameMatch || referenceMatch) && dateMatch && parseFloat(product.montantRegle) !== parseFloat(product.montantBon);
+						} else {
+							// If regle is not 'true' or 'false', return all products without regle filter
+							return (familyMatch && fournisseurMatch) && (nameMatch || referenceMatch) && dateMatch;
+						}
+					});
+				},
+    
+                date:'',
+				invoiceNumber:'',
+				boncomptoir:'',
+				typeReg:'',
+				client:'',
+				clientadress:'',
+				modereglabel:'',
+				user:'',
+				montant:'',
+				remise:'',
+				nettotal:'',
+				totalGSTLiv:'',
+				extra:'',
+				toprintbill:'',
+				renderInformation(idBon){
+					toprintbill = this.liste_clotures.find((product) => product.codeReglement == idBon)
+					const toprint_bill = this.liste_clotures.find((product) => product.codeReglement == idBon)
+					date = toprint_bill.dateReglement;
+					invoiceNumber = toprint_bill.codeReglement;
+					client = toprint_bill.client;
+					typeReg = 'Paiement';
+					montant=toprint_bill.montant;
+					modereglabel = 'Espece';
+					user= toprint_bill.user;
+					this.printInvoice();
+				},
+				get filteredAndPaginatedProducts() {
+					const start = (this.currentPage - 1) * this.pageSize;
+					const end = start + this.pageSize;
+					return this.filteredProducts.slice(start, end);
+				},
+				exportExcelDiva() {
+						const array_print = []
+
+							this.filteredProducts.forEach(product => {
+								// Add the product itself
+								array_print.push({
+								    ReferenceReglement: product.codeReglement,
+									DateReglement: product.dateReglement,
+									Client: product.client,
+									montant: product.montant,
+									ModeReglement:product.mode_reglement, 
+								});
+							});
+						const ws = XLSX.utils.json_to_sheet(array_print);
+						const wb = XLSX.utils.book_new();
+						XLSX.utils.book_append_sheet(wb, ws, 'Reglements');
+						XLSX.writeFile(wb, 'fichiers_liste_Reglements.xlsx');
+				},
+                printInvoice() {
+						var printContents = this.$refs.printTemplate.innerHTML;
+						document.body.innerHTML = printContents;
+						setTimeout(() => {
+							window.print();
+							window.location.reload();
+							this.items = [];
+						}, 50); // Delay for 1 second (adjust as needed)      			
+				},
+				prevPage() {
+					if (this.currentPage > 1) {
+					this.currentPage -= 1;
+					}
+				},
+
+				nextPage() {
+					if (this.currentPage < this.totalPages) {
+						this.currentPage += 1;
+					}
+				},
+
+				productMatches(search, productName, productReference) {
+					//  if (productName === null || productReference === null) {
+					//     return false;
+					//     }
+					
+					return (
+						productName.toLowerCase().includes(search.toLowerCase()) ||
+						productReference.toLowerCase().includes(search.toLowerCase())
+					);
+				},
+
+				init(){
+						const currentDate = new Date();
+
+                        // Set to the first day of the year
+                        const firstDay = new Date(currentDate.getFullYear(), 0, 1);
+                        
+                        // Set to the last day of the year
+                        const lastDay = new Date(currentDate.getFullYear(), 11, 31);
+                        
+                        // Format the dates
+                        this.datedeb = firstDay.toISOString().split('T')[0];
+                        this.datefin = lastDay.toISOString().split('T')[0];
+				},
+
+				
+
+				selectedItems: [],
+					deletedSelected(){
+                        if (this.selectedItems.length === 0) {
+                            alert("Veuillez Selectionner aumoins un élément pour supprimer!.");
+                            return;
+                        }
+						console.log(this.selectedItems);
+
+						dataObj ={
+							liste_ids: this.selectedItems,                        
+								}
+						axios.post('DeleteReglements/',dataObj, {
+							headers: {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+						})
+							.then(response => {
+								// Check if the deletion was successful
+								if (response.data.success) {            			
+									showModal = false;
+									alert(response.data.message);
+									window.location.reload();
+								} else {
+									alert(response.data.message);
+									window.location.reload();
+								}
+							})
+						.catch(error => {
+						// Handle request errors
+						alert(error);
+						});
+						this.showModal = false;
+						this.selectedItems = [];
+					},
+
+					annulerSuppression() {
+						// Réinitialiser les variables
+						this.showModal = false;
+						this.billtodelete = '';
+					},
+				modifierFournisseur(){					
+					 dataObj={
+        				montant : this.montant,
+						date : this.date,	
+						user_id: this.cloture_id, 				
+       				}
+			 		axios.post('modifierCloture/', dataObj, {
+			 		headers: {
+			  		 'Content-Type': '',
+			 		 'X-CSRFToken': getCookie('csrftoken'),
+			 		}
+			 		})
+		 			.then((response) => {
+		     			data = response.data
+			    			if( data.error){
+                  			alert(data.error);
+              			}else{
+                  			alert("Clôture Modifié!");
+              			}
+						window.location.reload()            
+		  	  		})
+	   				.catch((error) => {
+		  				alert(error)
+		  			
+	   				});
+			   		var form = document.getElementById('myForm');
+  						form.reset();
+				},
+			}
+		}
+		function getCookie(name) {
+      		var cookieValue = null;
+      		if (document.cookie && document.cookie !== '') {
+        		var cookies = document.cookie.split(';');
+        		for (var i = 0; i < cookies.length; i++) {
+          		  var cookie = cookies[i].trim();
+          		  // Does this cookie string begin with the name we want?
+          		  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+           			 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            			break;
+          		  }
+        		}
+            }
+           return cookieValue;
+    }
+	</script>
+	</main>	
+  </div>
+</div>
+</div>
+</div>
+{% endblock content %}

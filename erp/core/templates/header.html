@@ -1,0 +1,638 @@
+<header x-data="salesData()" x-init="init">
+
+    <nav class="bg-gray-800 shadow-xl sticky w-full top-0 text-black z-50" >
+      <div class="mx-auto ">
+          <div class="flex items-stretch justify-between h-12">
+              <div class="flex items-center pl-6">
+                  <div class="flex-shrink-0 ">
+                      {% if request.session.role == 'manager' %}
+                      <a href="{% url 'identification' %}" class="text-white flex items-center space-x-2 group">
+                          <div>
+                              <span class="text-2xl font-extrabold">{{request.session.nomStore}} </span>                        
+                          </div>
+                      </a>
+                      {% else %}
+                      <a href="{% url "user-page" %}" class="text-white flex items-center space-x-2 group">
+                          <div>
+                              <span class="text-2xl font-extrabold">{{request.session.nomStore}} </span>                        
+                          </div>
+                      </a>
+                      {% endif %}
+                  </div>
+                  <div class="hidden lg:block">
+                      <!-- Search -->
+                      <form action="" class="app-search" method="GET">
+                          <div class="relative group">
+                              <input type="text"
+                                  class="form-input rounded-md bg-gray-700 text-sm text-gray-300 pl-10 py-1.5 ml-5 border-transparent border-none outline-none focus:ring-0 focus:text-white transition-all duration-300 ease-in-out focus:w-60 w-48"
+                                  placeholder="Search..." autocomplete="off">
+                              <span
+                                  class="absolute left-44 bottom-2 text-gray-400 transition-all duration-300 ease-in-out group-focus-within:left-8">
+                                 
+                              </span>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+    
+              <div class="hidden md:flex items-stretch">
+                  {% if request.session.role == 'manager' or request.session.role == "DIRECTEUR EXECUTIF" or request.session.username == "ziad" %}
+                    <div class="flex items-center px-4 py-2 border-r ">
+           <!--             <div x-data="{ dropdownOpen: false }" class="relative">  -->
+           <!--                 <div class="relative  block rounded-md bg-transparent py-2 focus:outline-none">-->
+           <!--                     <button @click="dropdownOpen = !dropdownOpen" class="relative  block rounded-md bg-transparent p-2 focus:outline-none">-->
+           <!--                         <svg id='clock-hour-3_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>-->
+                                <!--	<g transform="matrix(1 0 0 1 12 12)" >-->
+                                <!--	<g style="" >-->
+                                <!--	<g transform="matrix(1 0 0 1 0 0)" >-->
+                                <!--	<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />-->
+                                <!--	</g>-->
+                                <!--	<g transform="matrix(1 0 0 1 0 0)" >-->
+                                <!--	<circle style="stroke: rgb(199,154,123); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="9" />-->
+                                <!--	</g>-->
+                                <!--	<g transform="matrix(1 0 0 1 1.75 0)" >-->
+                                <!--	<path style="stroke: rgb(199,154,123); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-13.75, -12)" d="M 12 12 L 15.5 12" stroke-linecap="round" />-->
+                                <!--	</g>-->
+                                <!--	<g transform="matrix(1 0 0 1 0 -2.5)" >-->
+                                <!--	<path style="stroke: rgb(199,154,123); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -9.5)" d="M 12 7 L 12 12" stroke-linecap="round" />-->
+                                <!--	</g>-->
+                                <!--	</g>-->
+                                <!--	</g>-->
+                                <!--</svg>-->
+           <!--                     </button>-->
+           <!--                     <span class="absolute top-0 mt-1 right-0 flex items-center justify-center w-5 h-5 bg-red-500 text-white rounded-full text-xs" x-text="bills.length"> -->
+           <!--                     </span>-->
+           <!--                 </div>-->
+           <!--                 <div x-cloak x-show="dropdownOpen" class="absolute right-0  bg-white rounded-md shadow-lg overflow-hidden z-20" style="width:20rem;">-->
+           <!--                     <div class="bg-gray-100">-->
+           <!--                           <div class=" flex justify-between bg-gray-100 px-4 py-2">                                                          -->
+           <!--                            <p class="font-bold">Liste des Bons non-preparé</p> -->
+           <!--                           <div class="bg-red-500 rounded-lg text-white px-4"  x-text="bills.length"></div>-->
+           <!--                           </div>-->
+           <!--                           <div id="variableType " class="bg-white overflow-y-auto" style="max-height: 400px;">-->
+           <!--                             <Template x-for="client in bills">-->
+           <!--                                <Template x-for="bill in client.bills">  -->
+           <!--                                     <div class="flex justify-between cursor-pointer py-2 border-b border-gray-200 hover:bg-gray-100">-->
+           <!--                                         <a class="px-4" href="/ventes/sell-bills">-->
+           <!--                                             <p class="font-bold text-gray-700 uppercase">Bon N°: <span x-text="bill.idbon"></span></p>-->
+           <!--                                             <p class="text-sm text-gray-700 ">Client: <span x-text="client.client_name"></span> - <span x-text="client.username"></span></p>-->
+           <!--                                         </a>-->
+           <!--                                     </div>-->
+           <!--                                 </Template>-->
+           <!--                             </Template>-->
+           <!--                          </div>                           -->
+           <!--                     </div>-->
+           <!--                 </div>-->
+           <!--             </div>-->
+           <!--             <div x-data="{ dropdownOpen: false }" class="relative">  -->
+           <!--                 <div class="relative  block rounded-md bg-transparent py-2 focus:outline-none">-->
+           <!--                     <button @click="dropdownOpen = !dropdownOpen" class="relative  block rounded-md bg-transparent p-2 focus:outline-none">-->
+           <!--                         <svg id='premium-rights_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>-->
+           <!--                             <g transform="matrix(1 0 0 1 12 12)" >-->
+           <!--                             <g style="" >-->
+           <!--                             <g transform="matrix(1 0 0 1 0 0)" >-->
+           <!--                             <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 0 0)" >-->
+           <!--                             <circle style="stroke: rgb(55,100,10); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="9" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 0 0)" >-->
+           <!--                             <path style="stroke: rgb(55,100,10); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 13.867 9.75 C 13.621 9.27 13.159 8.981 12.667000000000002 9 L 11.333000000000002 9 C 10.597000000000001 9 10.000000000000002 9.67 10.000000000000002 10.5 C 10.000000000000002 11.327 10.597000000000001 11.999 11.333000000000002 11.999 L 12.667000000000002 11.999 C 13.403000000000002 11.999 14.000000000000002 12.67 14.000000000000002 13.499 C 14.000000000000002 14.327 13.403000000000002 14.998000000000001 12.667000000000002 14.998000000000001 L 11.333000000000002 14.998000000000001 C 10.841000000000001 15.017000000000001 10.379000000000001 14.728000000000002 10.133000000000003 14.248000000000001" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 0 -4)" >-->
+           <!--                             <path style="stroke: rgb(55,100,10); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -8)" d="M 12 7 L 12 9" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 0 4)" >-->
+           <!--                             <path style="stroke: rgb(55,100,10); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -16)" d="M 12 15 L 12 17" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             </g>-->
+           <!--                             </g>-->
+           <!--                         </svg>-->
+           <!--                     </button>-->
+           <!--                     <span class="absolute top-0 mt-1 right-0 flex items-center justify-center w-5 h-5 bg-red-500 text-white rounded-full text-xs" x-text="billsRegl.length"> -->
+           <!--                     </span>-->
+           <!--                 </div>-->
+           <!--                 <div x-cloak x-show="dropdownOpen" class="absolute right-0  bg-white rounded-md shadow-lg overflow-hidden z-20" style="width:20rem;">-->
+           <!--                     <div class="bg-gray-100">-->
+           <!--                           <div class=" flex justify-between bg-gray-100 px-4 py-2">                                                          -->
+           <!--                            <p class="font-bold">Liste des Bons non-reglé</p> -->
+           <!--                           <div class="bg-red-500 rounded-lg text-white px-4"  x-text="billsRegl.length"></div>-->
+           <!--                           </div>-->
+           <!--                           <div id="variableType " class="bg-white overflow-y-auto" style="max-height: 400px;">-->
+                                       
+           <!--                                <Template x-for="bill in billsRegl">  -->
+           <!--                                     <div class="flex justify-between cursor-pointer py-2 border-b border-gray-200 hover:bg-gray-100">-->
+           <!--                                         <a class="px-4" href="/ventes/sell-bills">-->
+           <!--                                             <p class="font-bold text-gray-700 uppercase">Bon N°: <span x-text="bill.idbon"></span></p>-->
+           <!--                                             <p class="text-sm text-gray-700 ">Client: <span x-text="bill.client_name"></span> - <span x-text="bill.username"></span></p>-->
+           <!--                                         </a>-->
+           <!--                                     </div>-->
+           <!--                                 </Template>-->
+                                        
+           <!--                          </div>                           -->
+           <!--                     </div>-->
+           <!--                 </div>-->
+           <!--             </div>-->
+           <!--             <div x-data="{ dropdownOpen: false }" class="relative ">  -->
+           <!--                 <div class="relative  block rounded-md bg-transparent py-2 focus:outline-none">-->
+           <!--                     <button @click="dropdownOpen = !dropdownOpen" class="relative  block rounded-md bg-transparent p-2 focus:outline-none">-->
+           <!--                         <svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>-->
+           <!--                             <g transform="matrix(0.83 0 0 0.83 12 12)" >-->
+           <!--                             <g style="" >-->
+           <!--                             <g transform="matrix(1 0 0 1 -5.25 -4.5)" >-->
+           <!--                             <path style="stroke: rgb(255,255,255); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-6.75, -7.5)" d="M 0.75 7.5 C 0.75 10.813708498984761 3.4362915010152393 13.5 6.75 13.5 C 10.063708498984761 13.5 12.75 10.813708498984761 12.75 7.5 C 12.75 4.186291501015239 10.063708498984761 1.5 6.75 1.5 C 3.436291501015239 1.5 0.75 4.186291501015239 0.75 7.499999999999999 Z" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 -6.58 -5.83)" >-->
+           <!--                             <path style="stroke: rgb(255,255,255); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-5.42, -6.17)" d="M 4.098 7.5 L 6.75 7.5 L 6.75 4.848" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 3.75 3.39)" >-->
+           <!--                             <path style="stroke: rgb(255,255,255); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-15.75, -15.39)" d="M 14.25 12 L 15.75 12 C 16.57842712474619 12 17.25 12.67157287525381 17.25 13.5 L 17.25 18.788" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 -5.63 6.75)" >-->
+           <!--                             <path style="stroke: rgb(255,255,255); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-6.38, -18.75)" d="M 7.5 21 L 6.75 21 C 5.92157287525381 21 5.25 20.32842712474619 5.25 19.5 L 5.25 16.5" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 8.25 5.25)" >-->
+           <!--                             <path style="stroke: rgb(255,255,255); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-20.25, -17.25)" d="M 17.25 13.5 L 20.25 13.5 C 21.90685424949238 13.5 23.25 14.843145750507619 23.25 16.5 L 23.25 19.5 C 23.25 20.32842712474619 22.57842712474619 21 21.75 21 L 19.462 21" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 5.63 8.63)" >-->
+           <!--                             <path style="stroke: rgb(255,255,255); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-17.63, -20.63)" d="M 15.75 20.625 C 15.75 21.660533905932738 16.589466094067262 22.5 17.625 22.5 C 18.660533905932738 22.5 19.5 21.660533905932738 19.5 20.625 C 19.5 19.589466094067262 18.660533905932738 18.75 17.625 18.75 C 16.589466094067262 18.75 15.75 19.589466094067262 15.75 20.625 Z" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 -2.63 8.63)" >-->
+           <!--                             <path style="stroke: rgb(255,255,255); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-9.38, -20.63)" d="M 7.5 20.625 C 7.5 21.660533905932738 8.339466094067262 22.5 9.375 22.5 C 10.410533905932738 22.5 11.25 21.660533905932738 11.25 20.625 C 11.25 19.589466094067262 10.410533905932738 18.75 9.375 18.75 C 8.339466094067262 18.75 7.5 19.589466094067262 7.5 20.625 Z" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 1.52 9)" >-->
+           <!--                             <path style="stroke: rgb(255,255,255); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-13.52, -21)" d="M 15.788 21 L 11.25 21" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             <g transform="matrix(1 0 0 1 9.75 4.5)" >-->
+           <!--                             <path style="stroke: rgb(255,255,255); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-21.75, -16.5)" d="M 23.25 16.5 L 20.25 16.5" stroke-linecap="round" />-->
+           <!--                             </g>-->
+           <!--                             </g>-->
+           <!--                             </g>-->
+           <!--                         </svg> -->
+           <!--                     </button>-->
+           <!--                     <span class="absolute top-0 mt-1 right-0 flex items-center justify-center w-5 h-5 bg-red-500 text-white rounded-full text-xs" x-text="billsLivre.length"> -->
+           <!--                     </span>-->
+           <!--                 </div>-->
+           <!--                 <div x-cloak x-show="dropdownOpen" class="absolute right-0  bg-white rounded-md shadow-lg overflow-hidden z-20" style="width:20rem;">-->
+           <!--                     <div class="bg-gray-100"> -->
+           <!--                           <div class=" flex justify-between bg-gray-100 px-4 py-2">                                                          -->
+           <!--                            <p class="font-bold">Liste des Bons non-Livré</p> -->
+           <!--                           <div class="bg-red-500 rounded-lg text-white px-4"  x-text="billsLivre.length"></div>-->
+           <!--                           </div>-->
+           <!--                           <div id="variableType " class="bg-white overflow-y-auto" style="max-height: 400px;">-->
+           <!--                             <Template x-for="bill in billsLivre">-->
+           <!--                                     <div class="flex justify-between cursor-pointer py-2 border-b border-gray-200 hover:bg-gray-100">-->
+           <!--                                         <a class="px-4" href="/ventes/sell-bills">-->
+           <!--                                             <p class="font-bold text-gray-700 uppercase">Bon N°: <span x-text="bill.idbon"></span> - <span x-text="bill.agence"></span></p>-->
+           <!--                                             <p class="text-sm text-gray-700 ">Client: <span x-text="bill.client"></span> - <span x-text="bill.username"></span></p>-->
+           <!--                                         </a>-->
+           <!--                                     </div>-->
+           <!--                             </Template>-->
+           <!--                          </div>                           -->
+           <!--                     </div>-->
+           <!--                 </div>-->
+           <!--             </div>-->
+                    </div>
+                 {% endif %}
+                {% if request.session.role == 'manager' or request.session.role == "DIRECTEUR EXECUTIF" %}
+                  <header class=" h-full py-2 shadow-lg px-4 md:sticky top-0 bg-gray-800 z-40 border-none" x-data="{open: false}">
+                    <!-- logo -->
+                        <div class="relative text-white flex justify-between items-center space-x-2 group hover:text-white min-h-full  cursor-pointer " @click="open = !open">
+                        <div>
+                            <span class="text-md font-medium">{{request.session.nomStore}}</span>  
+                        </div>
+                        <div class="  transition-transform duration-300"
+                        >
+                            <svg class=" h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div> 
+                        </div>
+                            <div x-cloak x-show="open" @click.away="open = false"
+                            class="origin-top-right absolute right-0 mt-2 min-w-full rounded-b-md shadow py-2 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            x-transition:enter="transition ease-out duration-100"
+                            x-transition:enter-start="transform opacity-0 scale-95"
+                            x-transition:enter-end="transform opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-75"
+                            x-transition:leave-start="transform opacity-100 scale-100"
+                            x-transition:leave-end="transform opacity-0 scale-95" role="menu"
+                            aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            {% for  store in request.session.magasins %}
+                            <a href="{% url 'identification' store.id %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            role="menuitem" tabindex="-1" id="user-menu-item-1">{{store.name}}</a>
+                            {% endfor %}            
+                            </div>
+                  </header>
+                {% endif %} 
+                  <!-- Profile Menu DT -->
+                  <div class="ml-4 flex md:ml-6 ">
+                    <div class="flex justify-center">
+                        <!--{% if request.session.role == "manager" %}-->
+                        <!-- <a href="#" class="block  text-md py-3 text-white "-->
+                        <!--          role="menuitem" tabindex="-1" id="user-menu-item-0">-->
+                        <!--          <svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>-->
+                        <!--            <rect width='24' height='24' stroke='none' fill='none' opacity='0'/>-->
+                                
+                        <!--            <g transform="matrix(1 0 0 1 12 12)">-->
+                        <!--                <g style="">-->
+                        <!--                    <g transform="matrix(1 0 0 1 1 -1)">-->
+                        <!--                        <polyline style="stroke: #FFFFFF; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-1,-3 -1,1 1,3 " />-->
+                        <!--                    </g>-->
+                        <!--                    <g transform="matrix(1 0 0 1 0.03 -0.09)">-->
+                        <!--                        <path style="stroke: #FFFFFF; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12.03, -11.91)" d="M 3.05 11 C 3.513937050287146 6.445449702624086 7.323058587045914 2.964915836786341 11.900878158244055 2.912628443358857 C 16.478697729442196 2.860341049931373 20.366323763750444 6.252963441299391 20.934169436148206 10.79572882048147 C 21.50201510854597 15.338494199663549 18.56911538701472 19.58368231051151 14.119281059625141 20.659851654407493 C 9.669446732235565 21.736020998303477 5.120782137324696 19.30021039892444 3.5500000000000016 15.000000000000004 M 3.05 20 L 3.05 15 L 8.05 15" stroke-linecap="round" />-->
+                        <!--                    </g>-->
+                        <!--                </g>-->
+                        <!--            </g>-->
+                        <!--        </svg>-->
+                        <!-- </a>-->
+                        <!--{% endif %}-->
+                         <a 
+                                  href="{% url 'page-reqs-salarie' %}"
+                                  class="block pl-4 relative text-md mt-1 text-white "
+                                  role="menuitem" tabindex="-1" id="user-menu-item-0">
+                                  <svg id='Complaint_32' width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='32' height='32' stroke='none' fill='#000000' opacity='0'/>
+                                    <g transform="matrix(0.56 0 0 0.56 16 16)" >
+                                    <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" translate(-25, -23)" d="M 40 0 C 34.486 0 30 4.486 30 10 C 30 12.022 30.599281 13.953141 31.738281 15.619141 L 30.050781 20.683594 C 29.916781 21.083594 30.048859 21.524156 30.380859 21.785156 C 30.561859 21.928156 30.78 22 31 22 C 31.184 22 31.366297 21.949656 31.529297 21.847656 L 35.898438 19.117188 C 37.192437 19.703188 38.57 20 40 20 C 45.514 20 50 15.514 50 10 C 50 4.486 45.514 0 40 0 z M 39.199219 5 L 40.800781 5 C 40.900781 5 41 5.0992187 41 5.1992188 L 41 10.800781 C 41 10.900781 40.900781 11 40.800781 11 L 39.199219 11 C 39.099219 11 39 10.900781 39 10.800781 L 39 5.1992188 C 39 5.0992187 39.099219 5 39.199219 5 z M 18.394531 6.9863281 C 14.979531 7.0483281 12.482703 8.0928906 10.970703 10.087891 C 9.1997031 12.425891 8.8665156 15.948406 9.9785156 20.566406 C 9.5665156 21.085406 9.2666719 21.871625 9.3886719 22.890625 C 9.6316719 24.890625 10.428937 25.733891 11.085938 26.087891 C 11.382938 27.610891 12.150234 29.434172 12.990234 30.326172 C 12.991234 30.795172 12.993094 31.227922 12.996094 31.669922 C 13.000094 32.227922 13.004859 32.800422 13.005859 33.482422 C 12.425859 34.701422 10.514141 35.440656 8.4941406 36.222656 C 4.8901406 37.617656 0.40635938 39.354406 0.068359375 44.941406 L 0.00390625 46.001953 L 36.992188 46.001953 L 36.929688 44.941406 C 36.592688 39.354406 32.107906 37.595641 28.503906 36.181641 C 26.486906 35.390641 24.575187 34.639875 23.992188 33.421875 C 24.005188 32.191875 24.007812 31.324672 24.007812 30.263672 C 24.846813 29.379672 25.613156 27.585891 25.910156 26.087891 C 26.568156 25.734891 27.365422 24.892578 27.607422 22.892578 C 27.729422 21.893578 27.444922 21.119609 27.044922 20.599609 C 27.584922 18.753609 28.653203 14.098937 26.783203 11.085938 C 25.986203 9.8019375 24.781312 8.9918281 23.195312 8.6738281 C 22.307312 7.5808281 20.633531 6.9863281 18.394531 6.9863281 z M 39.199219 13 L 40.800781 13 C 40.900781 13 41 13.099219 41 13.199219 L 41 14.800781 C 41 14.900781 40.900781 15 40.800781 15 L 39.199219 15 C 39.099219 15 39 14.900781 39 14.800781 L 39 13.199219 C 39 13.099219 39.099219 13 39.199219 13 z" stroke-linecap="round" />
+                                    </g>
+                                  </svg>
+                                {% if request.session.role == "manager" or request.session.role == "DIRECTEUR EXECUTIF"  %}  
+                                  <span class="absolute top-0  left-2 flex items-center justify-center p-2 w-2 h-2 bg-red-500 text-white rounded-full text-sm" x-text ="nbrreq"> 
+                                  </span>
+                                {% endif %} 
+                        </a>
+                        
+                        <div x-data="{ dropdownOpen: false }" class="relative ">  
+                            <div class="relative  block rounded-md bg-transparent p-2 focus:outline-none">
+                                <button @click="dropdownOpen = !dropdownOpen" class="relative  block rounded-md bg-transparent p-2 focus:outline-none">
+                                    <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
+                                        <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+                                    </svg>
+                                </button>
+                                {% load notifications_tags %}
+                                <!-- Notification badge -->
+                                {% live_notify_badge as unread %}
+                              
+                                <span class="absolute top-0 right-0 flex items-center justify-center w-5 h-5 bg-red-500 text-white rounded-full text-xs"> 
+                                    {{ unread }}</span>
+                              
+                            </div>
+                            <div x-cloak x-show="dropdownOpen" class="absolute right-0  bg-white rounded-md shadow-lg overflow-hidden z-20" style="width:20rem;">
+                                <div class="bg-gray-100">
+                                      {% load notifications_tags %}
+                                        {% notifications_unread as unread %} 
+                                      <div class=" flex justify-between bg-gray-100 px-4 py-2">                                                          
+                                       <p class="font-bold">Nouvelles Notifications</p> 
+                                      <div class="bg-red-500 rounded-lg text-white px-4">  {{ unread }} </div>
+                                      </div>
+    
+                                      {% live_notify_list as notifications_list %}
+                                      <div id="variableType " class="bg-white px-4" >
+                                        {{ notifications_list}}
+                                     </div>                           
+                                </div>
+                                <a href="{% url 'notifications'  %}" class="block bg-gray-800 text-white text-center font-bold py-2">Voir tous les notifications</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+    
+                      <!-- Profile dropdown -->
+                      <div class="relative  px-4 text-gray-400 hover:text-white text-sm cursor-pointer"
+                          x-data="{open: false}">
+                          <div class="flex items-center min-h-full" @click="open = !open">
+                              <div class="max-w-xs bg-gray-800 rounded-full flex items-center text-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                  id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                  <span class="sr-only">Open user menu</span>
+                                  {{request.user.username|slice:"1"|upper}}
+                              </div>
+    
+                              <div class="flex flex-col ml-4">
+                                  <span>{{request.user.username}}</span>
+                                  <span>{{request.session.role}}</span>
+                              </div>
+                          </div>
+    
+                          <div x-cloak x-show="open" @click.away="open = false"
+                              class="origin-top-right absolute right-0 mt-0 min-w-full rounded-b-md shadow py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                              x-transition:enter="transition ease-out duration-100"
+                              x-transition:enter-start="transform opacity-0 scale-95"
+                              x-transition:enter-end="transform opacity-100 scale-100"
+                              x-transition:leave="transition ease-in duration-75"
+                              x-transition:leave-start="transform opacity-100 scale-100"
+                              x-transition:leave-end="transform opacity-0 scale-95" role="menu"
+                              aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                             
+                            {% if request.session.role == 'manager' %}
+                              <a href="{% url 'new-org' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                  role="menuitem" tabindex="-1" id="user-menu-item-1">Nouvelle Organization</a>
+                            {% endif %}
+                            <span>{{request.session.role}}</span>
+                              <a href="{% url 'logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                  role="menuitem" tabindex="-1" id="user-menu-item-1">Déconnecter</a>
+                          </div>
+                      </div>
+    
+                  </div>
+              </div>
+    
+    
+              <div class="-mr-2 flex md:hidden">
+                  <!-- Mobile menu button -->
+                  <button type="button" @click="mobilemenue = !mobilemenue"
+                      class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                      aria-controls="mobile-menu" aria-expanded="false">
+                      <span class="sr-only">Open main menu</span>
+                      <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                          viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16" />
+                      </svg>
+                      <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                          viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                  </button>
+              </div>
+          </div>
+      </div>
+     
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div class="md:hidden absolute bg-gray-800 w-full" id="mobile-menu" x-cloak x-show="mobilemenue"
+          x-transition:enter="transition ease-out duration-100"
+          x-transition:enter-start="transform opacity-0 scale-95"
+          x-transition:enter-end="transform opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-75"
+          x-transition:leave-start="transform opacity-100 scale-100"
+          x-transition:leave-end="transform opacity-0 scale-95" @click.away="mobilemenue = false
+          
+          ">
+         
+    
+          <div class="pt-4 pb-3 border-t border-gray-700">
+              <!-- profile menue for mobile -->
+              <div class="flex items-center px-5">
+                  <div class="ml-3">
+                      <div class="text-base font-medium leading-none text-white">{{request.user.username}}</div>
+                      <div class="text-sm font-medium leading-none text-gray-400">{{request.session.role}}</div>
+                  </div>
+              </div>
+              <div class="mt-3 px-2 space-y-1">
+    
+                  <a href="{% url 'logout' %}" 
+                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign
+                      out</a>
+              </div>
+          </div>
+      </div>
+    </nav>
+    
+       {% if request.session.store == '1' %}
+        <div class="flex justify-between items-center space-x-2 mx-auto bg-white" >
+            {% if request.session.store == '1' and request.session.role == 'commercial' or request.session.role == 'commercial-vente' or request.session.role == 'MARKETING' or  request.session.role == 'manager' or request.session.role == 'DIRECTEUR EXECUTIF'  %}
+            <!-- flip clock container -->
+            <div class="relative my-2 mx-auto border-8 border-gray-700 rounded shadow-2xl font-mono text-9xl text-white grid grid-cols-12 gap-x-px" >
+                <!-- stand -->
+                <div class="absolute inset-x-0 -bottom-5 mx-auto flex justify-center">
+                    <div class="w-3/4 bg-gray-700 h-6 rounded"> 
+                        <p class="text-sm py-1 font-bold text-center relative">Quantité Vendu</p>
+                    </div>
+                </div>
+                <template x-for="(cat, index) in categoryTotals" x-bind:key="index" >
+                    <div  class="relative text-center bg-black p-1 ">
+                        <!-- background grid of black squares -->
+                        <div class="absolute inset-0 grid grid-rows-2">
+                            <div class="bg-gradient-to-br from-gray-800 to-black"></div>
+                            <div class="bg-gradient-to-br from-gray-700 to-black"></div>
+                        </div>
+    
+                    <p class="text-lg font-bold py-2 text-center relative">
+                            <span class="uppercase text-sm font-semibold" x-text="cat.component"></span><br>
+                            <span x-text="cat.total"class="text-red-500" ></span>
+                        </p>
+                        <!-- line across the middle -->
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="h-px w-full bg-black"></div>
+                        </div>
+                    </div>           
+                </template>
+            </div>
+     
+            <div class="relative my-2  border-8 border-gray-700 rounded shadow-2xl font-mono text-9xl text-white grid grid-cols-12 gap-x-px" x-show="qteav"  >
+                <!-- stand -->
+                <div class="absolute inset-x-0 -bottom-5 mx-auto flex justify-center">
+                    <div class="w-3/4 px-2 flex justify-between bg-gray-700 h-6 rounded"> 
+                        <p class="text-sm py-1 font-bold cursor-pointer text-center relative">Quantité A vendre</p>
+                        <p class="text-sm py-1 font-bold text-gray-200 cursor-pointer text-center relative" x-on:click="qteav = false;">Voir Quantité Disponible</p>
+                    </div>
+                </div>
+                <template x-for="(cat, index) in differences" x-bind:key="index" >
+                    <div  class="relative text-center bg-black p-1 ">
+                        <!-- background grid of black squares -->
+                        <div class="absolute inset-0 grid grid-rows-2">
+                            <div class="bg-gradient-to-br from-gray-800 to-black"></div>
+                            <div class="bg-gradient-to-br from-gray-700 to-black"></div>
+                        </div>
+    
+                    <p class="text-lg font-bold py-2 text-center relative">
+                            <span class="uppercase text-sm font-semibold" x-text="cat.component"></span><br>
+                            <span x-text="cat.total"class="text-red-500" ></span>
+                        </p>
+                        <!-- line across the middle -->
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="h-px w-full bg-black"></div>
+                        </div>
+                    </div>           
+                </template>       
+            </div>
+            <div class="relative my-2 mx-auto border-8 border-gray-700 rounded shadow-2xl font-mono text-9xl text-white grid grid-cols-12 gap-x-px" x-show="!qteav" >
+                <!-- stand -->
+                <div class="absolute inset-x-0 -bottom-5 mx-auto flex justify-center">
+                    <div class="w-3/4 px-2 flex justify-between bg-gray-700 h-6 rounded"> 
+                        <p class="text-sm py-1 font-bold cursor-pointer text-center relative">Quantité Diponible</p>
+                        <p class="text-sm py-1 font-bold text-gray-200 cursor-pointer text-center relative" x-on:click="qteav = true;"> Voir Quantité A vendre</p>
+                    </div>
+                </div>
+                <template x-for="(cat, index) in quantities" x-bind:key="index" >
+                    <div  class="relative text-center bg-black p-1 ">
+                        <!-- background grid of black squares -->
+                        <div class="absolute inset-0 grid grid-rows-2">
+                            <div class="bg-gradient-to-br from-gray-800 to-black"></div>
+                            <div class="bg-gradient-to-br from-gray-700 to-black"></div>
+                        </div>
+    
+                        <p class="text-lg font-bold py-2 text-center relative">
+                            <span class="uppercase text-sm font-semibold" x-text="cat.component"></span><br>
+                            <span x-text="cat.total"class="text-green-500" ></span>
+                        </p>
+                        <!-- line across the middle -->
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="h-px w-full bg-black"></div>
+                        </div>
+                    </div>           
+                </template>       
+            </div>
+            {% endif %}
+        
+        {% if request.session.store == '1' and request.session.role == 'gestion-stock' %}
+         <template x-if="bills.length > 0" >
+            <!-- flip clock container -->
+            <div class="relative my-2 mx-auto border-8 border-gray-700 rounded shadow-2xl font-mono text-9xl text-white grid grid-cols-12 gap-x-px" >
+                <!-- stand -->
+                <div class="absolute inset-x-0 -bottom-5 mx-auto flex justify-center">
+                    <div class="w-3/4 bg-gray-700 h-6 rounded"> 
+                        <p class="text-sm py-1 font-bold text-center relative">Bons de Livraison Validés</p>
+                    </div>
+                </div>
+                <template x-for="(cat, index) in bills" x-bind:key="index">
+                    <div class="relative text-center bg-black p-1" x-data="{open: false}">
+                      <div class="cursor-pointer" @click="open = !open">
+                        <div class="absolute inset-0 grid grid-rows-2">
+                            <div class="bg-gradient-to-br from-gray-800 to-black"></div>
+                            <div class="bg-gradient-to-br from-gray-700 to-black"></div>
+                        </div>
+                        <p class="text-lg font-bold py-1 text-center relative" >
+                            <span class="uppercase text-gray-100 text-sm font-semibold truncate w-40 cursor-pointer"  x-text="cat.client_name"></span><br>
+                            <span class="uppercase text-gray-100 text-sm font-semibold truncate w-40 cursor-pointer"  x-text="cat.client_wilaya"></span><br>
+                            <span class="uppercase text-gray-200 text-sm font-semibold truncate w-40 cursor-pointer"  x-text="cat.username + ' (' + cat.bills.length + ')'"></span>
+                            
+                            <div x-cloak x-show="open" @click.away="open = false"
+                                class="origin-top-right absolute right-0 mt-1  rounded-b-md shadow py-2 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20"
+                                x-transition:enter="transition ease-out duration-100"
+                                x-transition:enter-start="transform opacity-0 scale-95"
+                                x-transition:enter-end="transform opacity-100 scale-100"
+                                x-transition:leave="transition ease-in duration-75"
+                                x-transition:leave-start="transform opacity-100 scale-100"
+                                x-transition:leave-end="transform opacity-0 scale-95" role="menu"
+                                aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-2">
+                                <template x-for="(x, index) in cat.bills" x-bind:key="index">
+                                    <a :href="x.link" class="block  py-2 text-sm border-b text-gray-700 hover:bg-gray-100"
+                                        role="menuitem" tabindex="-1" id="user-menu-item-1">
+                                        <span x-text="x.idbon" class="uppercase text-gray-800 text-sm truncate " ></span>
+                                        <span x-text="'-' + x.agence + '-'" class="uppercase text-gray-800 text-sm truncate " ></span>
+                                    </a> 
+                                </template>         
+                            </div>
+                        </p>
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="h-px w-full bg-black"></div>
+                        </div>
+                      </div>
+                    </div>
+                </template>
+            </div>
+         </template>
+        {% endif %}
+        </div>
+        {% endif %}
+    </header>
+    
+    <script>
+        function salesData() {
+            
+            return {
+                sales: 0,
+                animate: false,
+                qteav : true,
+                qtedisp:false,
+                categoryTotals: [],
+                billsRegl:[],
+                quantities: [],
+                differences :[],
+                bills: [],
+                billsLivre:[],
+                nbrreq:0,
+                init() {
+					    this.fetchSales();
+
+                        {% if request.session.role == "Chauffeur" %}
+                            this.logCordinates();
+                            setInterval(() => {
+                                this.logCordinates();
+                            }, 60000); // Met à jour les ventes toutes les 5000ms
+				    	{% endif %}
+
+    					
+                },
+                logCordinates() {
+                    if ('geolocation' in navigator) {
+                        navigator.geolocation.getCurrentPosition(
+                        function (position) {
+                          var lat = position.coords.latitude;
+                          var lon = position.coords.longitude;
+                          const dataObj = {
+                            latitude: lat,
+                            longitude: lon,                      
+                          };
+                          axios.post('/logCordinates/', {
+                                formData: dataObj
+                                }, {
+                                headers: {
+                                    'Content-Type': '',
+                                    'X-CSRFToken': getCookie('csrftoken'),
+                                }
+                            })
+                            .then(response => {
+                            })
+                            .catch(error => {
+                                console.error('Erreur lors de la récupération des ventes:', error);
+                            });
+                        },
+                        function (error) {
+                          console.error('Error getting location:', error.message);
+                          alert('Unable to retrieve location. Please check your settings and try again.');
+                        }
+                      );
+                    } else {
+                      alert('Geolocation is not supported by your browser.');
+                    }
+                    
+                },
+                fetchSales() {
+                    axios.get('/get_sales/')
+                        .then(response => {
+                            this.categoryTotals = response.data.sells
+                            const filteredCategories = this.categoryTotals.filter(category => category.component === 'cpu' || category.component === 'mb');
+
+                            // Calculate maxTotal based on the filtered categories
+                            const maxTotal = Math.max(...this.categoryTotals.map(category => category.total));
+                            
+                            this.differences = this.categoryTotals.map(category => ({
+                                component: category.component,
+                                total: Math.min(maxTotal - category.total, category.total_qte),
+                            }));
+
+                            //--------*************-----------------
+                            this.quantities = response.data.quantities;
+                            this.bills = response.data.bills;
+                            this.nbrreq = response.data.nbrrq;
+                        })
+                        .catch(error => {
+                            console.error('Erreur lors de la récupération des ventes:', error);
+                        });
+                },
+    
+    
+                
+            };
+        }
+    
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                  var cookie = cookies[i].trim();
+                  // Does this cookie string begin with the name we want?
+                  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                  }
+              }
+            }
+           return cookieValue;
+        }
+    </script>
+    
+    

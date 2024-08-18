@@ -1,0 +1,693 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="products" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_produits.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full h-full px-2 overflow-y-auto" x-data="product()" x-init="initData()">
+		<h2 class="text-2xl font-bold mb-6 py-4 pb-2 tracking-wider uppercase"> Details du Produit </h2>
+	    <div class=" border-b ">
+					<dl class="divide-y divide-gray-100">
+					  <div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<dt class="text-base font-semibold leading-7 text-gray-900">Référence Produit</dt>
+						<dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{reference_produit}}</dd>
+					  </div>
+					  <div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<dt class="text-base font-semibold leading-7 text-gray-900">Désignation Produit</dt>
+						<dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{nom_product}}</dd>
+					  </div>
+					  <div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<dt class="text-base font-semibold leading-7 text-gray-900">Catégorie Du Produit</dt>
+						<dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{category_product}}</dd>
+					  </div>
+					  <div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<dt class="text-base font-semibold leading-7 text-gray-900">Fournisseur Du Produit</dt>
+						<dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"> {{fournisseur}}</dd>
+					  </div>
+					  <div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<dt class="text-base font-semibold leading-7 text-gray-900">Quantité Totale Du Produit</dt>
+						<dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"> {{qteTotale}}</dd>
+					  </div>
+					  <div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<dt class="text-base font-semibold leading-7 text-gray-900">Quantité Reforme Du Produit</dt>
+						<dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"> {{qteReforme}}</dd>
+					  </div>
+					  <div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<dt class="text-base font-semibold leading-7 text-gray-900">Quantité Intacte Du Produit</dt>
+						<dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"> {{qteintacte}}</dd>
+					  </div>
+					  <div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<dt class="text-base font-semibold leading-7 text-gray-900">Barcode Du Produit</dt>
+						<dd class="mt-1 text-sm leading-6 cursor-pointer text-gray-700 font-bold sm:col-span-2 sm:mt-0"><img  width="150" height="70" id="barcode" /> <a class="font-bold" @click="printBarcode('barcode', '{{nom_product}}', '{{prix_product}}' )">Imprimer le code</a> </dd>
+					  </div>
+					</dl>
+				  </div>
+		<div x-data="{ tab: 1 }" x-cloak class="my-10 antialiased ">
+		  <div class="relative flex flex-col rounded-lg shadow-xs overflow-hidden">         
+			<div class="flex space-x-4 bg-white  border-gray-200 ">
+			  {% if request.session.usenrame == 'hanane' %}
+			  <button
+				type="button"
+				class="focus:outline-none text-black py-2 px-1 border-t-2 text-sm cursor-pointer   tracking-wide font-medium border-transparent"
+				x-on:click="tab = 1"
+				:class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 1 }"
+			  >
+				Répartition Du stock
+			  </button>
+			  {% endif %}
+			  {% if  request.session.role == 'manager' or 'produits.can_see_comminfo' in request.session.permissions  %}
+			  <button
+				type="button"
+				class="focus:outline-none text-black py-2 px-1 border-t-2 text-sm cursor-pointer tracking-wide font-medium border-transparent"
+				x-on:click="tab = 2"
+				:class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 2 }"
+			  >
+				Information commerciales
+			  </button>
+			  {% endif %}
+			  {% if request.session.store == "2" %}
+			  <button
+				type="button"
+				class="focus:outline-none text-black py-2 px-1 border-t-2 text-sm tracking-wide cursor-pointer  font-medium border-transparent"
+				x-on:click="tab = 3"
+				:class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 3 } "
+			  >
+				Détails Personalisation
+			  </button>
+
+			  {% endif %}
+			</div>     
+			<div class="overflow-y-auto">
+			  {% if request.session.role == 'manager' or 'produits.can_see_repinfo' in request.session.permissions %}
+			    <div x-show="tab === 1">
+				 <div class="content mb-2 md:mb-1 py-4 block">
+				  <br>
+				  <div class="mb-2 md:mb-1 py-2 md:block items-center">
+					<label class="w-fit text-gray-800 font-bold text-sm uppercase tracking-wide">Répartition De Produit :</label>                    
+					<div class="flex-1 py-2">
+					  <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+						<thead class="bg-gray-50">
+						  <tr>
+							<th
+							  scope="col"
+							  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+							>
+							  Référence
+							</th>
+							<th
+							  scope="col"
+							  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+							>
+							  Titre
+							</th>
+							<th
+							  scope="col"
+							  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+							>
+							  Quantité Intacte (non-reforme)
+							</th>
+							<th
+							  scope="col"
+							  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+							>
+							  Dépot
+							</th>                    
+						  </tr>
+						</thead>
+						<tbody class="bg-white divide-y divide-gray-200">
+						  {% for  stock in stocks %}
+							<tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+							  <td class="px-6 py-4 whitespace-nowrap">
+								<div class="flex items-center">                            
+								  <div class="ml-4">
+									<div class="text-sm font-medium text-gray-900">{{reference_produit}}</div>                               
+								  </div>
+								</div>
+							  </td>
+							  <td class="px-6 py-4 whitespace-nowrap">
+								<div class="text-sm text-gray-900">{{nom_product}}</div>
+							   
+							  </td>
+							  <td class="px-6 py-4 whitespace-nowrap">
+								<span
+								  class="inline-flex px-2 text-xs font-semibold leading-5   rounded-full"
+								>
+								  {{stock.quantity}}
+								</span>
+							  </td>
+							  <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{stock.entrepot}}</td>
+						   
+							</tr>
+						 {% endfor %}
+						</tbody>
+					  </table>
+					</div>
+				  </div>
+				 </div>
+			    </div>     
+			  {% endif %}
+
+			  {% if  request.session.role == 'manager' or 'produits.can_see_comminfo' in request.session.permissions and request.session.store != "8"  %} 
+			    <div x-show="tab === 2">
+				<div class="border-b border-gray-900/10 pb-12" >
+				  <h2 class="text-2xl font-semibold leading-7 text-gray-900 text-center">Informations Commercial</h2>
+				  <p class="mt-1 text-xl leading-6 text-gray-600 text-center">Introduire les informations commerciales.</p>	     
+					<div class="w-full  mb-2 md:mb-0 border-b border-gray-900/10 pb-12">
+					  <div class="w-full left-0 right-0 overflow-hidden mt-12 flex ">                        
+						<div class="w-full  bg-white overflow-hidden block">				
+						  <div class="sm:col-span-3 mb-2">
+							<label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Historique prix achat</label>
+							<select id="fournisseur" name="fournisseur" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+							  <option value="" disabled selected> Historique prix achat </option>		
+							  {% for p in historiqueAchat %}
+							 	 <option value=""  > {{p.date}} :  {{p.prix_achat}} </option>		
+							  {% endfor %}								
+							</select>
+						  </div>
+						   <div class="sm:col-span-3 mb-2">
+							 <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Prix Achat HT</label>
+							 <div class="mt-2">
+							   <input type="text" name="last-name" id="last-name" autocomplete="family-name" placeholder="PRU HT" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" x-model="prixAchatHt">
+							 </div>
+						   </div>
+						   <div class="sm:col-span-3 mb-2">
+							<div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 py-4">
+							  <div class="sm:col-span-3">
+								<label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Prix Vente HT</label>
+								<div class="mt-2">
+								  <input type="text" name="first-name" id="first-name" autocomplete="given-name" placeholder="PVUHT" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset px-2 focus:ring-indigo-600 sm:text-sm sm:leading-6" x-model="prixVenteHt">
+								</div>
+							  </div>				
+							  <div class="sm:col-span-3">
+								<label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Marge %</label>
+								<div class="mt-2">
+								  <input type="text" name="last-name" id="last-name" autocomplete="family-name" placeholder="marge %" class="block w-24 rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" x-model="marge=(((prixVenteHt - prixAchatHt) * 100) / prixAchatHt).toFixed(2)">
+								</div>
+							  </div>
+							</div>
+						   </div>
+						   <div class="mb-4 w-32"> 
+							<div class="relative">
+							  <label class="block text-sm font-medium leading-6 text-gray-900">TVA</label>
+							  <select class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" x-model="tva" x-change="tva = $event.target.value">
+								<option value="19">TVA 19%</option>									
+								<option value="0">TVA 0%</option>
+							  </select>								
+							</div>
+						   </div>
+						   <div class="sm:col-span-3">
+							 <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Prix vente TTC</label>
+							 <div class="mt-2">
+							   <input type="text" name="last-name" id="last-name" autocomplete="family-name" placeholder="PVUTTC" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" x-model="prixVenteTtc = parseFloat(prixVenteHt) + parseFloat(((prixVenteHt * tva) / 100).toFixed(2))">
+							 </div>
+						   </div>																								
+						   <div class="sm:col-span-3">
+							 <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Prix Livraison</label>
+							 <div class="mt-2">
+							   <input type="text" placeholder="Prix Livraison" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" x-model="prixLivraison">
+							 </div>
+						   </div>																								
+						   <div class="sm:col-span-3">
+							 <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Tax Produit</label>
+							 <div class="mt-2">
+							   <input type="text" placeholder="Tax de Produit" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" x-model="taxProduit">
+							 </div>
+						   </div>																								
+						</div>
+					
+					  </div>
+					</div>
+					<body class="bg-gray-100 p-4 ">
+					  <div class="w-2/3 mt-4 ">
+						<table class="w-2/3 bg-white shadow-md">
+						<thead >
+						  <tr>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100  ">Type Client</th>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  border-r border-gray-100">PV HT</th>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100 ">PV TTC</th>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  ">Marge %</th>
+						  </tr>
+						</thead>
+						<tbody>
+						 <template x-for="cltype_item in typesClient">
+						   <tr class="">
+							 <td class="py-1 border-b border-r  border-gray-200">
+							  <input x-text="cltype_item.nom" x-model="cltype_item.nom" disabled class="mt-1 text-sm font-medium leading-6 text-gray-900  text-left">
+							 </td>
+							 <td class="">
+							  <input type="text" name="prixHt" x-text="cltype_item.prixHt" x-model="cltype_item.prixHt" class="border text-gray-500 text-sm rounded p-1 w-full">
+							 </td>
+							 <td class="">
+							  <input type="text" name="prixttc" x-text="cltype_item.prixTtc" x-model="cltype_item.prixTtc=parseFloat(cltype_item.prixHt) + parseFloat(((cltype_item.prixHt * tva) / 100).toFixed(2))" class="border text-gray-500 text-sm rounded p-1 w-full">
+							  </td>
+							 <td class="">
+							  <input type="text" name="marge" x-text="cltype_item.marge"
+							   x-model="cltype_item.marge=(((cltype_item.prixHt - prixAchatHt) * 100) / prixAchatHt).toFixed(2)"  class="border text-gray-500 text-sm rounded p-1 w-full">
+							 </td>						
+						   </tr>
+						 </template>
+						  <!-- Add more rows similarly -->
+
+						</tbody>
+						</table>
+					  </div>
+					  <div class="w-2/3 mt-4 ">
+						<table class="w-2/3 bg-white shadow-md">
+						<thead >
+						  <tr>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100  ">Type Client</th>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  border-r border-gray-100">PV HT PC</th>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100 ">PV TTC PC</th>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  ">Marge PC %</th>
+						  </tr>
+						</thead>
+						<tbody>
+						 <template x-for="cltype_item in typesClient">
+						   <tr class="">
+							 <td class="py-1 border-b border-r  border-gray-200">
+							  <input x-text="cltype_item.nom" x-model="cltype_item.nom" disabled class="mt-1 text-sm font-medium leading-6 text-gray-900  text-left">
+							 </td>
+							 <td class="">
+							  <input type="text" name="prixHt" x-text="cltype_item.prixHtPC" x-model="cltype_item.prixHtPC" class="border text-gray-500 text-sm rounded p-1 w-full">
+							 </td>
+							 <td class="">
+							  <input type="text" name="prixttc" x-text="cltype_item.prixTtcPC" x-model="cltype_item.prixTtcPC=parseFloat(cltype_item.prixHtPC) + parseFloat(((cltype_item.prixHtPC * tva) / 100).toFixed(2))" class="border text-gray-500 text-sm rounded p-1 w-full">
+							  </td>
+							 <td class="">
+							  <input type="text" name="marge" x-text="cltype_item.marge"
+							   x-model="cltype_item.margePC=(((cltype_item.prixHtPC - prixAchatHt) * 100) / prixAchatHt).toFixed(2)"  class="border text-gray-500 text-sm rounded p-1 w-full">
+							 </td>						
+						   </tr>
+						 </template>
+						  <!-- Add more rows similarly -->
+
+						</tbody>
+						</table>
+					  </div>
+					  <div class="w-2/3 mt-4 ">
+						<table class="w-2/3 bg-white shadow-md">
+						<thead >
+						  <tr>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100  ">Type Client</th>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  border-r border-gray-100">PV HT KIT</th>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900 border-r border-gray-100 ">PV TTC KIT</th>
+						  <th class="py-2 px-4 bg-gray-200  text-sm font-medium leading-6 text-gray-900  ">Marge KIT %</th>
+						  </tr>
+						</thead>
+						<tbody>
+						 <template x-for="cltype_item in typesClient">
+						   <tr class="">
+							 <td class="py-1 border-b border-r  border-gray-200">
+							  <input x-text="cltype_item.nom" x-model="cltype_item.nom" disabled class="mt-1 text-sm font-medium leading-6 text-gray-900  text-left">
+							 </td>
+							 <td class="">
+							  <input type="text" name="prixHt" x-text="cltype_item.prixHtKIT" x-model="cltype_item.prixHtKIT" class="border text-gray-500 text-sm rounded p-1 w-full">
+							 </td>
+							 <td class="">
+							  <input type="text" name="prixttc" x-text="cltype_item.prixTtcKIT" x-model="cltype_item.prixTtcKIT=parseFloat(cltype_item.prixHtKIT) + parseFloat(((cltype_item.prixHtKIT * tva) / 100).toFixed(2))" class="border text-gray-500 text-sm rounded p-1 w-full">
+							  </td>
+							 <td class="">
+							  <input type="text" name="marge" x-text="cltype_item.marge"
+							   x-model="cltype_item.margeKIT=(((cltype_item.prixHtKIT - prixAchatHt) * 100) / prixAchatHt).toFixed(2)"  class="border text-gray-500 text-sm rounded p-1 w-full">
+							 </td>						
+						   </tr>
+						 </template>
+						  <!-- Add more rows similarly -->
+
+						</tbody>
+						</table>
+					  </div>
+					</body>	
+				  
+				 </div>
+			  </div>
+	          {% endif %}
+	          {% if request.session.store == "2"  %}
+			    <div x-show="tab === 3">
+			 <div class="inline-block px-4 py-2  my-8 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+			 	<button class="pl-2" @click="generateBarcodesVariants()">Générer les Barcodes</button>
+			 </div>
+			 <div class="inline-block px-4 py-2  my-8 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+			 	<button class="pl-2" @click=" generatePDFs()">Imprimer tous les  Barcodes</button>
+			 </div>
+
+            <table class="w-2/3 bg-white shadow-md border py-8">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100">Reference</th>
+                        <th class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100">Désignation</th>
+                        <th class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100">Quantité Totale</th>
+                        <th class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100">Quantité Intacte</th>
+                        <th class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900">Quantité Réforme</th>
+                        <th class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900">Barcode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="variant in variantes">
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-1 border-b border-r border-gray-200">
+                                <p x-text="variant.reference_produit"></p>
+                            </td>
+                            <td class="py-1 border-b border-r border-gray-200">
+                                <p x-text="variant.nom_product"></p>
+                            </td>
+                            <td class="py-1 border-b border-r border-gray-200">
+                                <p x-text="variant.qteTotale"></p>
+                            </td>
+                            <td class="py-1 border-b border-r border-gray-200">
+                                <p x-text="variant.qteintacte"></p>
+                            </td>
+                            <td class="py-1 border-b border-gray-200">
+                                <p x-text="variant.qteReforme"></p>
+                            </td>
+                            <td class=" border-b border-gray-200">				
+         						<img width="150" height="70" class="barcode" :id="'barcode-' + variant.id" />
+        						  <a @click="printBarcode(`barcode-${variant.id}`, variant.nom_product, variant.prix_product )" class="cursor-pointer">
+        							<svg id='printer_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+        								<g transform="matrix(1 0 0 1 12 12)" >
+        								<g style="" >
+        								<g transform="matrix(1 0 0 1 0 0)" >
+        								<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+        								</g>
+        								<g transform="matrix(1 0 0 1 -0.25 0.75)" >
+        								<path style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -13)" d="M 17 17 L 19 17 C 20.104569499661586 17 21 16.104569499661586 21 15 L 21 11 C 21 9.895430500338414 20.104569499661586 9 19 9 L 5 9 C 3.895430500338413 9 3 9.895430500338414 3 11 L 3 15 C 3 16.104569499661586 3.895430500338413 17 5 17 L 7 17" stroke-linecap="round" />
+        								</g>
+        								<g transform="matrix(1 0 0 1 -0.25 -6.25)" >
+        								<path style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -6)" d="M 17 9 L 17 5 C 17 3.895430500338413 16.104569499661586 3 15 3 L 9 3 C 7.8954305003384135 3 7 3.895430500338413 7 5 L 7 9" stroke-linecap="round" />
+        								</g>
+        								<g transform="matrix(1 0 0 1 -0.25 4.75)" >
+        								<rect style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x="-5" y="-4" rx="2" ry="2" width="10" height="8" />
+        								</g>
+        								</g>
+        								</g>
+        							</svg>
+        						  </a>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+</div>
+	          {% endif %} 
+			</div>
+			  <div class="mt-6 flex items-center justify-end gap-x-6">
+			     {% if  request.session.role == 'manager' or request.session.username == 'hanane' or 'produits.can_edit_product' in request.session.permissions  %}
+			     	<button class="rounded-md px-6 py-2 text-sm font-semibold text-white shadow-sm bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" x-on:click="window.location.href='/produits/modifier-product/' + '{{ id }}'">Modifier produit</button>
+				{% endif %}
+				<button type="button" class="text-sm font-semibold leading-6 text-gray-900 border border-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md"@click="window.location.href='/produits/produits'" >Retour</button>  
+			  </div> 
+		  </div>
+		</div>  
+		<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.6.2/dist/pdf-lib.umd.min.js"></script>
+
+		{% block extra_body_js %}
+		<script>
+  			/* setup */
+  			const { jsPDF } = window.jspdf;
+  
+  			const element = document.querySelector('#barcode');
+  			const productChoices = new Choices(element, {
+    			renderChoiceLimit: 20,
+    			allowHTML: true,
+  			});
+		</script>
+
+		<script>
+		  function product(){
+			return{
+			  reference:'{{reference_produit}}',
+			  designation:'',
+			  categorie:'',
+			  id_product:'',
+			  fournisseur:'',
+			  prixAchatHt :{{ prix_achat }},
+			  prixLivraison:{{prix_livraison}},
+			  taxProduit:{{tax_produit}},
+			  prixVenteHt: 0,
+			  prixVenteTtc:0,
+			  marge:0,
+			  tva:parseInt({{tva_produit}}),			
+			  typesClient:[],
+			  typeClient :{
+				nom:'',
+				prixHt:0,
+				prixTtc:0,
+				prixHtPC:0,
+				prixTtcPC:0,
+				marge:0,
+				prixHtKIT:0,
+				prixTtckitprixHtKIT:0,
+				marge:0
+			  },
+	
+			  initData() {			
+				this.prixAchatHt = {{prix_achat}}
+				this.prixVenteHt= {{prix_product}}
+				variantsData= {{ variants_prix_data|safe }}
+				this.typesClient = variantsData.map(variant => ({
+				  nom: variant.type_client,
+				  prixHt: variant.prix_vente,
+				  prixHtPC: variant.prix_vente_pc,
+				  prixHtKIT: variant.prix_vente_kit,
+
+				}));
+			    {% if variants_products %}
+				 variantes_const = {{ variants_products|safe }}
+				 for (const item of variantes_const) {
+  				 const variant = {
+  				    var_id: item.id,
+    				id: item.reference_produit,
+					reference_produit: item.reference_produit,// Utilisez une valeur unique comme ID
+    				nom_product: item.nom_product,
+    				category_product: item.category_product,
+    				prix_product: item.prix_product,
+    				qteTotale: item.qteTotale,
+    				qteReforme: item.qteReforme,
+    				qteintacte: item.qteintacte, // Assurez-vous que le nom des propriétés est correct
+    				barcode: '',
+  				 };
+  				   this.variantes.push(variant);
+				 }	
+				{% endif %}
+				
+
+				this.reference = '{{reference_produit}}'
+				this.id_product = '{{id}}'
+				JsBarcode("#barcode", this.id_product, {
+					format: "CODE39", // You can use a different format if needed
+					displayValue: false,
+				});
+				
+			  },
+			 variantes: [],				 					 
+			   variant:{
+				 variant:'',
+				value:'',
+			  },
+			 generatePDFs() {
+				const barcodeImages = document.querySelectorAll('.barcode');
+				const printWindow = window.open('', '', 'width=800,height=600');
+				printWindow.document.write('<html><head><title>Barcodes</title></head><body>');
+				barcodeImages.forEach((barcodeImage, index) => {
+				  // Extract the reference from the image ID
+				  const reference = barcodeImage.id.split('-')[1];
+				  // Debugging: Log the reference
+				  console.log('Reference:', reference);
+				  // Find the item in the variantes array using the reference
+				  const item = this.variantes.find((variant) => variant.id === reference);
+				  // Debugging: Log the item
+				  console.log('Item:', item);
+			  
+				  if (item) {
+					// Create the main container
+					const container = document.createElement('div');
+					container.id = 'barcode-container';
+					container.className = 'py-4 border border-black';
+			  
+					
+			  
+					// Add item details to the container
+					const productName = document.createElement('div');
+					productName.textContent = item.nom_product;
+					productName.style.textAlign = 'center';
+					productName.style.fontSize = "x-small";
+					container.appendChild(productName);
+					
+					const imageContainer = document.createElement('div');
+                    imageContainer.style.textAlign = 'center';
+                
+                    // Create the barcode image element
+                    const barcodeImageClone = barcodeImage.cloneNode(true);
+                
+                    // Append the cloned barcode image to the image container
+                    imageContainer.appendChild(barcodeImageClone);
+                
+                    // Append the image container to the main container
+                    container.appendChild(imageContainer);
+                			  
+					
+					const productPrice = document.createElement('div');
+					productPrice.textContent = item.prix_product + ' DA';
+					productPrice.style.textAlign = 'center';
+					container.appendChild(productPrice);
+			  
+					// Append the container to the print window's document
+					printWindow.document.body.appendChild(container);
+			  
+					// Add a page break before each container (except the first one)
+					if (index >= 0) {
+						printWindow.document.write('<div style="page-break-before: always;"></div>');
+					}
+				  }
+				});
+			  
+				// Close the print window
+				printWindow.document.write('</body></html>');
+				printWindow.document.close();
+				printWindow.print();
+				printWindow.close();
+             },
+
+			 generateBarcodesVariants(){
+				this.variantes.forEach(variant => {
+				  const id = 'barcode-' + variant.id;
+            	  const barcodeId = '#' + id;
+            	  JsBarcode(barcodeId, variant.var_id, {
+                	format: "CODE39",
+					displayValue: false,
+            	 });
+			    }); 
+			 },
+			  
+			 updateCheckboxes(variante_type) {
+			   const selectedType = variante_type;
+			   const checkboxesContainer = document.getElementById("checkboxesContainer");
+			   checkboxesContainer.innerHTML = "";
+			   if (selectedType === "taille") {
+			   for (let i = 44; i <= 54; i++) {
+				 const div = document.createElement("div");
+				 div.className = "flex items-center mt-1";
+				 div.innerHTML = `
+				 <input type="checkbox" value="${i}" >
+				 <span>${i}</span>
+				 `;
+				 checkboxesContainer.appendChild(div);
+			   }
+			   } else if (selectedType === "couleur") {
+			   const options = ["Noir", "Blanc"];
+			   options.forEach(option => {
+				 const div = document.createElement("div");
+				 div.className = "flex items-center mt-1";
+				 div.innerHTML = `
+				 <input type="checkbox" value="${option}" class="mr-2">
+				 <span>${option}</span>
+				 `;
+				 checkboxesContainer.appendChild(div);
+			   });
+			   }
+			 },
+		   
+			addVariant(variante_type) {
+				const selectedType = variante_type
+				const inputValue = document.getElementById("variantInput").value.trim();
+				const selectedCheckboxes = Array.from(document.querySelectorAll("#checkboxesContainer input[type=checkbox]:checked"))
+								.map(checkbox => checkbox.value);						
+				if (selectedType && (inputValue || selectedCheckboxes.length > 0)) {
+				this.variantes.push({
+					variante:this.variante_produit.variante,
+					value: [...selectedCheckboxes, inputValue]
+				});			
+				}
+				this.variante_produit.variante = '';
+				this.variante_produit.value= '';
+			},
+
+			printBarcode(imgId, variantName, VariantPrice) {
+					// Create the main container
+						const container = document.createElement('div');
+						container.id = 'barcode-container';
+						container.className = 'py-4 border border-black';
+
+						// Create the product name element
+						const productName = document.createElement('div');
+						productName.id = 'product-name';
+						productName.textContent = variantName 
+						productName.style.textAlign = 'center';
+						productName.style.fontSize = "x-small";
+						// Create the barcode image element
+						const barcodeImage = document.getElementById(imgId)
+						barcodeImage.className = 'mx-auto';
+
+						// Create the product price element
+						const productPrice = document.createElement('div');
+						productPrice.id = 'product-price';
+						productPrice.textContent = parseFloat(VariantPrice) +' '+'DA';
+						productPrice.style.textAlign = 'center';
+						// Append the child elements to the main container
+						container.appendChild(productName);
+						container.appendChild(barcodeImage);
+						container.appendChild(productPrice);
+
+						// Append the container to the document's body (you can change this to your desired location)
+						document.body.innerHTML =container.innerHTML;
+						window.print();
+						window.location.reload();
+			},
+
+			addNewVariantForm() {
+				document.getElementById("variantType").value = "";
+				document.getElementById("checkboxesContainer").innerHTML = "";
+				document.getElementById("variantInput").value = "";
+			},
+
+			 }
+		  }
+		  function getCookie(name) {
+			var cookieValue = null;
+			if (document.cookie && document.cookie !== '') {
+			  var cookies = document.cookie.split(';');
+			  for (var i = 0; i < cookies.length; i++) {
+				var cookie = cookies[i].trim();
+				// Does this cookie string begin with the name we want?
+				if (cookie.substring(0, name.length + 1) === (name + '=')) {
+				  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+				  break;
+				}
+			  }
+			}
+			return cookieValue;
+		  }
+		</script>	
+		{% endblock extra_body_js %}	      
+</main>   	
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

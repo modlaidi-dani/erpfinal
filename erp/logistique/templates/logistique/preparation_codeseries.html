@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="logistique" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_logistiques.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+    <main class="block w-full h-full px-2 overflow-hidden" x-data="reglement()" x-init='initProducts()'>
+          <!-- Main content header -->
+                <div class="flex justify-between  mt-4 px-6 ">
+				  <h2 class="text-2xl font-bold mb-2 pb-2 tracking-wider uppercase">Préparation Code Series</h2>				 
+			   </div>
+                <div class="flex flex-col" >
+							<div class=" px-4 py-2  w-full my-8 text-sm leading-5 font-medium rounded-md text-black border border-gray-700  focus:outline-none focus:shadow-outline cursor-pointer">
+								<div class="mb-4 w-full ">			
+                                    <label class="block text-gray-700 font-semibold mb-2" for="price">
+                                        Produit :
+                                    </label>
+                                    <div class="relative">
+                                        <input type="hidden" :value="selected.value">
+                                        <input type="text" x-model="search" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline bg-gray-50 text-gray-600 font-medium"
+                                            placeholder="Cliquer pour rechercher ..." @click="optionsVisible = !optionsVisible">
+                                        <div class="absolute bg-white shadow-lg w-full overflow-y-scroll z-40" style="max-height:200px;" x-show="optionsVisible">
+                                            <template x-for="option in filteredOptions()">
+                                                <a class="cursor-pointer border-b py-2 px-2 text-left hover:bg-gray-100" 
+                                                    @click.prevent="
+                                                        produit_ref = option.reference;                                                
+                                                        selected = option;
+                                                        optionsVisible = false;
+                                                    "
+                                                    x-text="option.name"
+                                                    style="display: block;"></a>
+                                            </template>
+                                        </div>   
+                                        <select
+                                            class="appearance-none border rounded w-full py-2 px-3 mb-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                            id="entrepot"
+                                            name="entrepot"
+                                            x-model="produit_ref"                                          
+                                            required  
+                                            disabled
+                                            >
+                                            <option value="" disabled selected>produit</option>
+                                            {% for produit in produits %}
+                                                <option value="{{ produit.reference }}" >
+                                                    {{ produit.name }} 
+                                                </option>
+                                            {% endfor %}
+							            </select>		                                   
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="block text-gray-700 font-semibold mb-2" for="bon_commande">
+                                        Numéro de code séries :
+                                    </label>
+                                    <input type="number" x-model="numberSerials" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline bg-gray-50 text-gray-600 font-medium"
+                                            placeholder="Numéro de code séries ..." >
+                                </div>
+                                <button class="px-2 py-2 rounded-md mt-4 bg-gray-700 text-white hover:shadow-lg" @click="generateSerialNumbers(); search='';">Générer les Barcodes</button>
+							</div>
+							<div class="inline-block px-4 py-2  my-8 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+								<button class="pl-2" @click=" generatePDFs()">Imprimer tous les  Barcodes</button>
+							</div>
+
+							<table class="w-2/3 bg-white shadow-md border py-8">
+								<thead>
+									<tr>								
+
+										<th class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900" colspan="2">Barcode</th>
+									</tr>
+								</thead>
+								<tbody>
+									<template x-for="(variant) in variantes">
+									   <template x-for="(variant, index) in variant.numSeries" :key="index">
+                                            <tr class="hover:bg-gray-100">							
+                                                <td class="py-1  border-b border-gray-200">		
+                                                    <p x-text="variant"></p>   
+                                                </td>    
+                                                <td class="py-1 flex border-b border-gray-200">    		
+                                                    <img width="150" height="70" class="barcode" :id="'barcode-' + index" />                                                   
+                                                </td>
+                                            </tr>
+                                        </template>
+									</template>
+								</tbody>
+							</table>
+				</div>
+
+     <!-- /Modal -->
+        <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.6.2/dist/pdf-lib.umd.min.js"></script>
+        <script>
+  			/* setup */
+  			const { jsPDF } = window.jspdf;
+  
+  			const element = document.querySelector('#barcode');
+  			const productChoices = new Choices(element, {
+    			renderChoiceLimit: 20,
+    			allowHTML: true,
+  			});
+		</script>
+        <script>
+        function reglement(){
+            return {
+                variantes: [],
+                produit_ref: [],
+                numberSerials:0,
+                stocks: [],
+                optionsVisible: false,
+                search: "",
+                filteredOptions() {
+                    return this.stocks.filter((option) => {
+                        return (option.name.toLowerCase().includes(this.search.toLowerCase()));
+                    });
+                },
+                initProducts(){
+                    productsData ={{ produits|safe }}		
+                    for (const product of productsData) {					  
+                        const product_info = {			
+                            reference: product.reference,
+                            name: product.name,
+                        };
+                        this.stocks.push(product_info);
+                    }     
+                },
+                generateSerialNumbers() {
+                    const nbrnumseries = this.numberSerials;
+                    const numSeries = Array.from({ length: nbrnumseries }, () => this.generateRandomString(20));
+
+                    this.variantes.push({
+                        reference: this.produit_ref,
+                        nbrnumseries: this.numberSerials,
+                        numSeries: numSeries,
+                    });
+                    setTimeout(() => {
+                        this.generateBarcodesVariants();
+                    }, 1000); 
+                },
+                generateRandomString(length) {
+                    const charset = "0123456789";
+                    let result = "";
+                    const values = new Uint32Array(length);
+                    crypto.getRandomValues(values);
+
+                    for (let i = 0; i < length; i++) {
+                        result += charset[values[i] % charset.length];
+                    }
+
+                    return result;
+                },
+                generatePDFs() {
+                    const barcodeImages = document.querySelectorAll('.barcode');
+                    const printWindow = window.open('', '', 'width=800,height=600');
+                    printWindow.document.write('<html><head><title>Barcodes</title></head><body>');
+                    barcodeImages.forEach((barcodeImage, index) => {
+                        // Extract the reference from the image ID
+                        console.log(barcodeImage);
+                        const reference = barcodeImage.id.split('-')[1];
+                        console.log(reference);
+                        // Find the item in the variantes array using the reference
+                        const itemReference = this.variantes[0].numSeries[reference];
+
+                        // Create the main container
+                        const container = document.createElement('div');
+                        container.id = 'barcode-container';
+                        container.className = 'py-4 border border-black';
+                        // Add item details to the container
+                        const productName = document.createElement('div');
+                        productName.textContent = itemReference;
+                        productName.style.textAlign = 'center';
+                        container.appendChild(productName);
+                        
+                        const imageContainer = document.createElement('div');
+                        imageContainer.style.textAlign = 'center';
+                    
+                        // Create the barcode image element
+                        const barcodeImageClone = barcodeImage.cloneNode(true);
+                    
+                        // Append the cloned barcode image to the image container
+                        imageContainer.appendChild(barcodeImageClone);
+                    
+                        // Append the image container to the main container
+                        container.appendChild(imageContainer);
+
+                
+                        // Append the container to the print window's document
+                        printWindow.document.body.appendChild(container);
+                
+                        // Add a page break before each container (except the first one)
+                        if (index >= 0) {
+                            printWindow.document.write('<div style="page-break-before: always;"></div>');
+                        }
+    
+                    });
+                
+                    // Close the print window
+                    printWindow.document.write('</body></html>');
+                    printWindow.document.close();
+                    printWindow.print();
+                    printWindow.close();
+                },
+
+                generateBarcodesVariants(){
+                    this.variantes.forEach((variant, variantIndex) => {
+                        variant.numSeries.forEach((numSerie, numIndex) => {
+                            const id = 'barcode-' + numIndex;                            
+                            const barcodeId = '#' + id;
+                            console.log(barcodeId);
+                            // Assuming 'JsBarcode' is available and imported properly
+                            JsBarcode(barcodeId, numSerie, {
+                                format: "CODE128",
+                                displayValue: false,
+                            });
+                        });
+                    });
+                },
+            }
+        }
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+                }
+            }
+            return cookieValue;
+        }
+        </script>
+
+    </main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+{% endblock content %}

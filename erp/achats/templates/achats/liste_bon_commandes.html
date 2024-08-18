@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="achat" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_achats.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	  <main class="block w-full h-full px-2 overflow-hidden " x-data="{isOpen :false}">
+          <!-- Main content header -->
+          <div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                    
+            <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des Bons de Commande Fournisseur</h1>          
+          </div>
+          <div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b">  
+            <div></div>          
+            <div class="inline-block px-4 py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+                <a href="{% url 'new-command' %}">Créer nouveau bon de Commande Fournisseur</a> 
+            </div>
+          </div>   
+          <div class="flex flex-col mt-5">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+                  <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+                      <thead class="bg-gray-50">                    
+                      <tr>
+                        <th class="px-4 py-2 text-xs font-medium text-left text-gray-500 uppercase  border-gray-200  ">
+                          ID BON
+                        </th>
+                        <th class="px-4 py-2 text-xs font-medium text-left text-gray-500 uppercase  border-gray-200  ">
+                          Date BON
+                        </th>
+                        <th class="px-4 py-2 text-xs font-medium text-left text-gray-500  border-gray-200 uppercase">
+                          Fournisseur 
+                        </th>
+                        <th class="px-4 py-2 text-xs font-medium text-left text-gray-500 uppercase  border-gray-200">
+                          Déstinataire
+                        </th>
+                        <th class="px-4 py-2 text-xs font-medium text-left text-gray-500 uppercase  border-gray-200">
+                         Livraison
+                        </th>                                           
+                        <th class="px-4 py-2 text-xs font-medium text-left text-gray-500 uppercase ">
+                          MAJ
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     {% for bon in bons %}
+                     <tr class="hover:bg-gray-100 hover:shadow-md border-b cursor-pointer" >							  
+								       <td class="px-4 py-2 text-sm font-medium text-left text-gray-600 ">{{bon.id}} </td>
+								       <td class="px-4 py-2 text-sm font-medium text-left text-gray-600 ">{{ bon.dateBon }}</td>
+								       <td class="px-4 py-2 text-sm font-medium text-left text-gray-600 ">{{bon.fournisseur.acronym}}</td>                         
+								       <td class="px-4 py-2 text-sm font-medium text-left text-gray-600 ">{{ bon.destinataire }}</td>
+								       <td class="px-4 py-2 text-sm font-medium text-left text-gray-600 ">{{ bon.livraison.name }}</td>
+								       <td class="px-6 border-r py-4 text-sm text-gray-500 whitespace-nowrap flex">
+								        <a href="{% url 'update-entry' bon.id %}">
+									      {% heroicon_mini "pencil-square" class="transition-transform" %}
+								        </a>
+								        {% heroicon_mini "archive-box-x-mark" class="transition-transform" %}
+								      </td>                       						                    
+						       </tr>
+                     {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div> 	    
+       
+        </main>	
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

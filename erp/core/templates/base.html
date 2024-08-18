@@ -1,0 +1,75 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>ERP - DIVATECH </title>
+        {% if page.search_description %}
+        <meta name="description" content="{{ page.search_description }}" />
+        {% endif %}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="{% static 'media/ERPLOGO.png' %}" sizes="192x192" />
+        {# Force all links in the live preview panel to be opened in a new tab #}
+        {% if request.in_preview_panel %}
+        <base target="_blank">
+        {% endif %}
+
+        {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
+        <style>
+            [x-cloak] { display: none !important; }
+            @media print {
+                @page {
+                   margin-left: 0.5in;
+                   margin-right: 0.5in;
+                   margin-top: 0;
+                   margin-bottom: 0;
+                }
+                 
+                .print-td {
+                    /* Your styles for td elements when printing */
+                    /* For example, you can set width, padding, text alignment, etc. */
+                    width: 65%; /* Adjust the width as needed */
+                    text-align: left; /* Adjust the text alignment as needed */
+                } 
+                .tdgreen{
+                    background-color:green;
+                }
+                .tdred{
+                    background-color:red;
+                }
+                .page-break {
+                    page-break-before: always;
+                }
+            }
+     
+           .scroller {          
+             scrollbar-width: none !important;
+           }
+        </style>
+    
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://unpkg.com/htmx.org@1.5.0/dist/htmx.js"></script>
+        <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+        {% load notifications_tags %}
+        <script src="{% static 'notifications/notify.js' %}" type="text/javascript"></script>
+        {% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' %}
+      
+        {% block content %}{% endblock %}
+        
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/core.js' %}"></script>
+
+        {% block extra_js %}
+        {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

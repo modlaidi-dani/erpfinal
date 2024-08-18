@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="achat" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_achats.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+           <main class="block w-full h-full px-2 overflow-hidden" x-data="{isOpen :false}">
+          <!-- Main content header -->
+          <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                           
+            <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Introduire une nouvelle Expédition</h1>          
+          </div>
+       <div class="p-4 max-w-4xl relative left-0 right-0 overflow-hidden " x-data="reglement()">
+        <form action="" id="myForm">
+       <div class=" w-full  bg-white overflow-hidden block ">		
+          <div class="form-input">
+    <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2" for="bon_commande">
+            Bon Commande Achat:
+        </label>
+        <select
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+            id="bon_commande"
+            name="bon_commande"
+            required
+        >
+            <option value="{{ bon_commande.id }}"> {{ bon_commande.idBonCommande }} </option>
+            <option value="" disabled selected>Choisir Bon Commande</option>
+            {% for bon_commande in bon_commandes %}
+            <option value="{{ bon_commande.id }}"> {{ bon_commande.idBonCommande }} </option>
+            {% endfor %}
+        </select>
+    </div>
+	<div class="flex space-x-4 w-full">
+      <div class="mb-2">
+         <label class="block text-gray-700 font-semibold mb-2" for="Port_debarquement">
+            Port de Débarquement:
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
+            id="Port_debarquement"
+            name="Port_debarquement"
+            placeholder="Port de Débarquement..."
+        >
+      </div>
+
+      <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2" for="port_embarquement">
+            Port d'Embarquement:
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
+            id="port_embarquement"
+            name="port_embarquement"
+            placeholder="Port d'Embarquement..."
+        >
+      </div>
+   </div>
+    <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2" for="nombre_colis">
+            Nombre de Colis:
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="number"
+            id="nombre_colis"
+            name="nombre_colis"
+            placeholder="Nombre de Colis..."
+        >
+    </div>
+
+    <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2" for="etat">
+            État:
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
+            id="etat"
+            name="etat"
+            placeholder="État..."
+        >
+    </div>
+
+	<div class="flex space-x-2">
+    <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2" for="date_depart">
+            Date de Départ:
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="date"
+            id="date_depart"
+            name="date_depart"
+        >
+    </div>
+
+    <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2" for="date_arrive">
+            Date d'Arrivée:
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="date"
+            id="date_arrive"
+            name="date_arrive"
+        >
+    </div>
+	</div>
+
+    <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2" for="date_remise_transitaire">
+            Date de Remise au Transitaire:
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="date"
+            id="date_remise_transitaire"
+            name="date_remise_transitaire"
+        >
+    </div>
+	 <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2" for="date_conaissement">
+            Date de Connaissement:
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="date"
+            id="date_conaissement"
+            name="date_conaissement"
+        >
+    </div>
+
+	<div class="flex space-x-4">
+    <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2" for="date_domiciliation">
+            Date de Domiciliation:
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="date"
+            id="date_domiciliation"
+            name="date_domiciliation"
+        >
+    </div>
+
+   
+
+    <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2" for="banque_domiciliation">
+            Banque de Domiciliation:
+        </label>
+        <select
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+            id="banque_domiciliation"
+            name="banque_domiciliation"
+            required
+        >
+            <option value="" disabled selected>Choisir une banque</option>
+            <option value="banque1">Banque 1</option>
+            <option value="banque2">Banque 2</option>
+            <!-- Add more options as needed -->
+        </select>
+    </div>
+	</div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="nbr_jours_port">
+            Nombre de Jours au Port:
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="number"
+            id="nbr_jours_port"
+            name="nbr_jours_port"
+            placeholder="Nombre de Jours au Port..."
+        >
+    </div>
+</div>
+         <div class="mt-8 text-right">
+        <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="isOpen = false">
+         Annuler
+        </button>	
+        <button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" @click="validateReglement()">
+         Valider
+        </button>	
+         </div>
+       </div> 
+        </form>
+      </div>
+   
+     <!-- /Modal -->
+    <script>
+      function reglement(){
+      return {
+        bl:'',
+        client :'',
+        typeReg :'',
+        date :new Date().toISOString().slice(0, 10),
+        modeReglement :'',
+        banque : '',
+        numCheque:'',
+        representant:'',
+        montant:'',
+        compteEntreprise:'',
+        extra:'',
+        prixApayer:'',
+        showPrice:false,
+        showBanque: false,
+  
+        validateReglement(){				
+          const dataObj = {
+            bl: this.bl,
+            client: this.client,
+            typeReg: this.typeReg,
+            date: this.date,
+            modeReglement: this.modeReglement,
+            banque: this.banque,
+            numCheque: this.numCheque,
+            representant: this.representant,
+            montant: this.montant,
+            compteEntreprise: this.compteEntreprise,
+            extra: this.extra
+          };
+            console.log(dataObj)
+            axios.post('', {
+             formData: dataObj
+            }, {
+             headers: {
+              'Content-Type': '',
+              'X-CSRFToken': getCookie('csrftoken'),
+            }
+           })
+          .then((response) => {
+           data= response.data
+           if(data.error){
+            alert(data.error);
+           }else{
+            alert("Réglement Introduit");
+            window.location.href = 'reglements';
+           }		  
+          })
+          .catch((error) => {
+             alert(error);
+          });				
+        },
+        
+      }
+      }
+      function getCookie(name) {
+       var cookieValue = null;
+       if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+       }
+       return cookieValue;
+      }
+    </script>
+
+  </main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+                        
+
+{% endblock content %}

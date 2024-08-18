@@ -1,0 +1,116 @@
+ <!-- Loading screen -->
+   <!-- sidebar -->
+   <div class="sidebar max-h-screen top-0 h-screen bg-gray-100  text-white w-60  left-0 transform transition duration-200 ease-in-out "
+   x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+   :class="open === true ? 'md:translate-x-0 md:sticky ':'-translate-x-full' ">  
+   <!-- nav -->
+   <nav class="px-4 pt-4  max-h-[calc(100vh-64px)]" x-data="{selected:'Tasks'}">
+       <ul class="flex flex-col space-y-2">
+           <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+            Produits
+           </div>
+           <!-- ITEM -->
+           {% if 'produits.can_see_produits_familles' in request.session.permissions or 'produits.can_see_produits' in request.session.permissions %}
+           {% if 'produits.can_see_produits_familles' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'familles-list' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700" >
+                <div class="pr-2">                
+                </div>
+                <div>Familles</div>
+             </a>
+           </li>
+           {% endif %}
+           <!-- ITEM -->
+           {% if 'produits.can_see_produits' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'produits' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                
+                </div>
+                <div> Produits </div>
+              </a>         
+           </li>
+           {% if request.session.store != '1' and request.session.store != '2' and request.session.store != '8' %}
+              <li class="text-sm text-gray-500 ">
+                <a href="{% url 'qtys-facture' %}"
+                    class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                    <div class="pr-2">
+                    
+                    </div>
+                    <div> Quantité à Facturer </div>
+                  </a>         
+              </li>       
+           {% endif %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'liste-prix' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                
+                </div>
+                <div> Liste Des Prix </div>
+              </a>         
+           </li>
+          {% endif %}
+         
+          {% endif %}
+  
+           <!-- Section Devider -->
+           {% if 'produits.can_see_liasion_entrepotproduit' in request.session.permissions %}
+           <div class="section border rounded-lg text-sm text-gray-700 mt-2 border-gray-700 pl-3">
+               Liaison
+           </div>
+           <!-- ITEM -->
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'entrepots' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                   
+                   </div>
+                   <div>Produits / Entrepots</div>
+               </a>
+           </li>          
+           {% endif %}
+           {% if 'produits.can_see_archives' in request.session.permissions or request.session.role == 'DIRECTEUR EXECUTIF' %}
+               <div class="section border rounded-lg text-sm text-gray-700 mt-2 border-gray-700 pl-3">
+                Etat de stock
+               </div>
+            <!-- ITEM -->
+            {% if 'produits.can_see_archives' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+            <a href="{% url 'list-archive' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">                
+                </div>
+                <div>Archives de Vérification </div>
+            </a>
+           </li>
+           
+           {% endif %}
+           {% if 'produits.can_see_archives' in request.session.permissions or request.session.role == 'DIRECTEUR EXECUTIF' %}
+               <li class="text-sm text-gray-500 ">
+                 <a href="{% url 'etat-stockweek' %}"
+                    class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                    <div class="pr-2">
+                    
+                    </div>
+                    <div> Etat Stock</div>
+                  </a>         
+               </li>
+           <li class="text-sm text-gray-500 ">
+            <a href="{% url 'state-stcok' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">                
+                </div>
+                <div>Vérification Stock </div>
+            </a>
+           </li> 
+           {% endif %}
+           {% endif %}
+           
+       </ul>
+   </nav>
+  </div>
+  <!-- End sidebar -->  
+  

@@ -1,0 +1,485 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+
+
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="home" %}
+ <div class=" w-full flex flex-row">
+
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-11/12 mx-auto" x-data="targets()">
+            <div class="flex flex-col w-11/12 ">
+                <div class="flex-1 bg-gray-50 rounded-lg shadow-xl mt-2 p-8">
+                     <h4 class="text-3xl text-gray-900 font-bold">Bonjour {{request.session.username}} !</h4>
+                    
+                </div>
+                {% if request.session.role == "commercial" or request.session.role == "DIRECTEUR EXECUTIF" or request.session.role == "manager" or request.session.role == 'commercial-vente'%}
+                <div class="flex-1 bg-gray-50 shadow-xl rounded-lg mt-4 p-8">
+                    <h4 class="text-xl text-gray-900 font-bold pb-2 ">Statistiques Globale de Production </h4>               
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mt-4">
+                                   <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-indigo-600">Chiffre d'affaire</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-6">
+                                <div>
+                                    <svg class="w-12 h-12 p-2.5 bg-indigo-400 bg-opacity-20 rounded-full text-indigo-600 border border-indigo-600" id='cash_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                        <g transform="matrix(1 0 0 1 12 12)" >
+                                        <g style="" >
+                                        <g transform="matrix(1 0 0 1 0 0)" >
+                                        <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                        </g>
+                                        <g transform="matrix(1 0 0 1 2 2)" >
+                                        <rect style="stroke: rgb(79,70,229); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x="-7" y="-5" rx="2" ry="2" width="14" height="10" />
+                                        </g>
+                                        <g transform="matrix(1 0 0 1 2 2)" >
+                                        <circle style="stroke: rgb(79,70,229); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2" />
+                                        </g>
+                                        <g transform="matrix(1 0 0 1 -2 -2)" >
+                                        <path style="stroke: rgb(79,70,229); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-10, -10)" d="M 17 9 L 17 7 C 17 5.8954305003384135 16.104569499661586 5 15 5 L 5 5 C 3.895430500338413 5 3 5.8954305003384135 3 7 L 3 13 C 3 14.104569499661586 3.895430500338413 15 5 15 L 7 15" stroke-linecap="round" />
+                                        </g>
+                                        </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex items-end">
+                                        <span class="text-xl  text-indigo-600 font-semibold">{{ca}} DA</span>
+                                        <div class="flex items-center ml-2 mb-1">
+                                            <span class="font-bold text-sm text-gray-500 ml-0.5"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                       
+                        <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-green-600">Total Bon de Vente Créé</span>
+                                {% comment %} <span class="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">7 days</span> {% endcomment %}
+                            </div>
+                            <div class="flex items-center justify-between mt-6">
+                                <div>
+                                    <svg class="w-12 h-12 p-2.5 bg-green-400 bg-opacity-20 rounded-full text-green-600 border border-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex items-end">
+                                        <span class="text-xl  text-green-600 font-semibold">{{bonventes}}</span>
+                                        <div class="flex items-center ml-2 mb-1">
+                                            <span class="font-bold text-sm text-gray-500 ml-0.5"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-amber-600">Total Bon de Livraison Créé</span>
+                                {% comment %} <span class="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">7 days</span> {% endcomment %}
+                            </div>
+                            <div class="flex items-center justify-between mt-6">
+                                <div>
+                                    <svg class="w-12 h-12 p-2.5 bg-amber-400 bg-opacity-20 rounded-full text-amber-600 border border-amber-600" id='truck_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                        <g transform="matrix(1 0 0 1 12 12)" >
+                                        <g style="" >
+                                        <g transform="matrix(1 0 0 1 0 0)" >
+                                        <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                        </g>
+                                        <g transform="matrix(1 0 0 1 -5 5)" >
+                                        <circle style="stroke: rgb(217,119,6); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2" />
+                                        </g>
+                                        <g transform="matrix(1 0 0 1 5 5)" >
+                                        <circle style="stroke: rgb(217,119,6); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2" />
+                                        </g>
+                                        <g transform="matrix(1 0 0 1 0 -1)" >
+                                        <path style="stroke: rgb(217,119,6); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -11)" d="M 5 17 L 3 17 L 3 6 C 3 5.447715250169207 3.4477152501692068 5 4 5 L 13 5 L 13 17 M 9 17 L 15 17 M 19 17 L 21 17 L 21 11 L 13 11 M 13 6 L 18 6 L 21 11" stroke-linecap="round" />
+                                        </g>
+                                        </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex items-end">
+                                        <span class="text-xl  text-amber-600 font-semibold">{{bonliv}}</span>
+                                        <div class="flex items-center ml-2 mb-1">
+                                            <span class="font-bold text-sm text-gray-500 ml-0.5"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-red-600">Total Bon de Retour Créé</span>
+                                {% comment %} <span class="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">7 days</span> {% endcomment %}
+                            </div>
+                            <div class="flex items-center justify-between mt-6">
+                                <div>
+                                    <svg  class="w-12 h-12 p-2.5 bg-red-400 bg-opacity-20 rounded-full text-red-600 border border-red-600" id='receipt-refund_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                        <g transform="matrix(1 0 0 1 12 12)" >
+                                        <g style="" >
+                                        <g transform="matrix(1 0 0 1 0 0)" >
+                                        <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                        </g>
+                                        <g transform="matrix(1 0 0 1 0 0)" >
+                                        <path style="stroke: rgb(246,31,8); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 5 21 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 17 3 C 18.104569499661586 3 19 3.8954305003384126 19 5 L 19 21 L 16 19 L 14 21 L 12 19 L 10 21 L 8 19 L 5 21" stroke-linecap="round" />
+                                        </g>
+                                        <g transform="matrix(1 0 0 1 0 -1)" >
+                                        <path style="stroke: rgb(246,31,8); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -11)" d="M 15 14 L 15 12 C 15 10.895430500338414 14.104569499661586 10 13 10 L 9 10 L 11 8 M 11 12 L 9 10" stroke-linecap="round" />
+                                        </g>
+                                        </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex items-end">
+                                        <span class="text-xl  text-red-600 font-semibold">{{bons_retour}}</span>
+                                        <div class="flex items-center ml-2 mb-1">
+                                            <span class="font-bold text-sm text-gray-500 ml-0.5"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-blue-600">Base Clientèle</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-6">
+                                <div>
+                                    <svg class="w-12 h-12 p-2.5 bg-blue-400 bg-opacity-20 rounded-full text-blue-600 border border-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex items-end">
+                                        <span class="text-xl text-blue-600 font-semibold">{{clients}}</span>
+                                        {% comment %} <div class="flex items-center ml-2 mb-1">
+                                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                            <span class="font-bold text-sm text-gray-500 ml-0.5">7%</span>
+                                        </div> {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="flex-1 bg-gray-50 rounded-lg shadow-xl  mt-4 p-8">
+                        <h4 class="text-2xl text-gray-900 font-bold pb-2">Statistiques d'état du target</h4>
+                         {% if user_targets %}
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4">
+                            <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-md text-indigo-600">Libellé Target</span>
+                                </div>
+                                <div class="flex items-center justify-between mt-6">
+                                    <div>
+                                        <svg class="w-12 h-12 p-2.5 bg-indigo-400 bg-opacity-20 rounded-full text-indigo-600 border border-indigo-600" id='target-arrow_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                            <g transform="matrix(1 0 0 1 12 12)" >
+                                            <g style="" >
+                                            <g transform="matrix(1 0 0 1 0 0)" >
+                                            <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 0 0)" >
+                                            <circle style="stroke: rgb(129,140,248); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="1" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 0 0)" >
+                                            <path style="stroke: rgb(129,140,248); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 12 7 C 9.238576250846034 7 7 9.238576250846034 7 12 C 7 14.761423749153966 9.238576250846034 17 12 17 C 14.761423749153966 17 17 14.761423749153966 17 12" stroke-linecap="round" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 0 0)" >
+                                            <path style="stroke: rgb(129,140,248); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 13.004 3.055 C 9.204300548491325 2.628719975300877 5.5500195612487095 4.649783631253014 3.8914407514837723 8.094859379774594 C 2.232861941718836 11.539935128296174 2.932073333905368 15.656920829530758 5.635041000282669 18.361250020988717 C 8.33800866665997 21.065579212446675 12.454641731369202 21.766863780704195 15.900552283494031 20.110020080167672 C 19.34646283561886 18.45317637963115 21.369366487473712 14.79991363922419 20.945 11" stroke-linecap="round" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 6 -6)" >
+                                            <path style="stroke: rgb(129,140,248); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-18, -6)" d="M 15 6 L 15 9 L 18 9 L 21 6 L 18 6 L 18 3 z" stroke-linecap="round" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 1.5 -1.5)" >
+                                            <path style="stroke: rgb(129,140,248); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-13.5, -10.5)" d="M 15 9 L 12 12" stroke-linecap="round" />
+                                            </g>
+                                            </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                <div class="flex flex-col">
+                                        <div class="flex items-end">
+                                            <span class="text-xl  text-indigo-600 font-bold">{{user_targets.name}}</span>
+                                            <div class="flex items-center ml-2 mb-1">
+                                                <span class="font-bold text-sm text-gray-500 ml-0.5"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-sm text-green-600">Date Création</span>
+                                </div>
+                                <div class="flex items-center justify-between mt-6">
+                                    <div>
+                                        <svg class="w-12 h-12 p-2.5 bg-green-400 bg-opacity-20 rounded-full text-green-600 border border-green-600" id='calendar_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                            <g transform="matrix(1 0 0 1 12 12)" >
+                                            <g style="" >
+                                            <g transform="matrix(1 0 0 1 0 0)" >
+                                            <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 0 1)" >
+                                            <rect style="stroke: rgb(74,222,128); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x="-8" y="-8" rx="2" ry="2" width="16" height="16" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 4 -7)" >
+                                            <line style="stroke: rgb(74,222,128); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x1="0" y1="-2" x2="0" y2="2" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 -4 -7)" >
+                                            <line style="stroke: rgb(74,222,128); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x1="0" y1="-2" x2="0" y2="2" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 0 -1)" >
+                                            <line style="stroke: rgb(74,222,128); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x1="-8" y1="0" x2="8" y2="0" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 -0.5 3)" >
+                                            <line style="stroke: rgb(74,222,128); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x1="-0.5" y1="0" x2="0.5" y2="0" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 0 4.5)" >
+                                            <line style="stroke: rgb(74,222,128); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x1="0" y1="-1.5" x2="0" y2="1.5" />
+                                            </g>
+                                            </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <div class="flex items-end">
+                                            <span class="text-xl text-green-600 font-bold">{{user_targets.start_date}}</span>
+                                            <div class="flex items-center ml-2 mb-1">
+                                                <span class="font-bold text-sm text-gray-500 ml-0.5"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-sm text-red-600">Date Expiration</span>
+                                </div>
+                                <div class="flex items-center justify-between mt-6">
+                                    <div>
+                                        <svg  class="w-12 h-12 p-3 bg-red-400 bg-opacity-20 rounded-full text-red-600 border border-red-500" id='calendar-time_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                            <g transform="matrix(1 0 0 1 12 12)" >
+                                            <g style="" >
+                                            <g transform="matrix(1 0 0 1 0 0)" >
+                                            <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 -1 1)" >
+                                            <path style="stroke: rgb(220,38,38); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-11, -13)" d="M 11.795 21 L 5 21 C 3.895430500338413 21 3 20.104569499661586 3 19 L 3 7 C 3 5.8954305003384135 3.895430500338413 5 5 5 L 17 5 C 18.104569499661586 5 19 5.895430500338413 19 7 L 19 11" stroke-linecap="round" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 6 6)" >
+                                            <circle style="stroke: rgb(220,38,38); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="4" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 3 -7)" >
+                                            <path style="stroke: rgb(220,38,38); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-15, -5)" d="M 15 3 L 15 7" stroke-linecap="round" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 -5 -7)" >
+                                            <path style="stroke: rgb(220,38,38); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-7, -5)" d="M 7 3 L 7 7" stroke-linecap="round" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 -1 -1)" >
+                                            <path style="stroke: rgb(220,38,38); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-11, -11)" d="M 3 11 L 19 11" stroke-linecap="round" />
+                                            </g>
+                                            <g transform="matrix(1 0 0 1 6.5 5.75)" >
+                                            <path style="stroke: rgb(220,38,38); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-18.5, -17.75)" d="M 18 16.496 L 18 18 L 19 19" stroke-linecap="round" />
+                                            </g>
+                                            </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <div class="flex items-end">
+                                            <span class="text-xl  text-red-600 font-bold">{{user_targets.end_date}}</span>
+                                            <div class="flex items-center ml-2 mb-1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- start::Stats  -->
+                        <div class="flex flex-col py-4 xl:flex-row space-y-4 xl:space-y-0 xl:space-x-4">
+                            <!-- start::Stats by category -->
+                            <div class="w-full xl:w-1/2 p-6 space-y-6 bg-white rounded-lg shadow-xl capitalize">
+                                <h4 class="text-center text-xl font-semibold mb-4">Taux de Contribution A la réalisation du target</h4>
+                                <section 
+                                    class="space-y-6"
+                                >
+
+                                    
+                                    <p class="text-center text-xl font-semibold text-gray-700" x-text="`${currentItem.name}`"></p>
+
+                                    <div class="flex items-center justify-center" x-data="{ circumference: 2 * 22 / 7 * 80 }">
+                                        <svg class="-rotate-90 w-48 h-48">
+                                            <circle cx="96" cy="96" r="80" stroke="currentColor" stroke-width="20" fill="transparent"
+                                            class="text-gray-300" />
+                                            
+                                            <circle cx="96" cy="96" r="80" stroke="currentColor" stroke-width="20" fill="transparent"
+                                            :stroke-dasharray="circumference"
+                                            :stroke-dashoffset="circumference - currentItem.percent / 100 * circumference"
+                                            class="text-green-500" />
+                                        </svg>
+                                        <span class="absolute text-3xl font-bold text-green-500" x-text="currentItem.percent + ' %'"></span>
+                                    </div>
+                                </section>
+                            </div>
+                            <!-- end::Stats by category -->
+
+                            <!-- start::Project overview stats -->
+                            <div 
+                                class="w-full xl:w-1/2 p-6 space-y-6 bg-white shadow-xl rounded-lg"
+                            >
+                                <h4 class="text-xl text-center font-semibold mb-4 capitalize">Taux de réalisation de Target</h4>
+                                <section class="space-y-6">
+                                    <div class="flex items-center justify-center" x-data="{ circumference: 2 * 22 / 7 * 110 }">
+                                        <svg class="rotate-90 w-64 h-64">
+                                            <circle cx="128" cy="128" r="110" stroke="currentColor" stroke-width="7" fill="transparent"
+                                            class="text-gray-300" />                                       
+                                            <circle cx="128" cy="128" r="110" stroke="currentColor" stroke-width="20" fill="transparent"
+                                            :stroke-dasharray="circumference"
+                                            :stroke-dashoffset="circumference - project.ratecompleted / 100 * circumference"
+                                            class="text-green-500" />
+                                        </svg>
+                                        <span class="absolute text-5xl font-bold text-green-500" x-text="`${(project.ratecompleted).toFixed(2)}%`"></span>
+                                    </div>
+                                </section>
+                                <div class="grid grid-cols-2 border-t-2 border-gray-300 pt-4" @click="showStat=true">
+                                    <div class="flex flex-col items-center justify-center border-r-2 border-gray-300">
+                                        <span class="text-sm text-gray-600">Quantité Vendu</span>
+                                        <span class="text-3xl font-bold text-gray-800" x-text="`${project.completed}`"></span>
+                                    </div>
+                                    <div class="flex flex-col items-center justify-center">
+                                        <span class="text-sm text-gray-600">Quantité Restante</span>
+                                        <span class="text-3xl font-bold text-gray-800" x-text="`${project.in_progress}`"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end::Project overview stats -->
+                            <!-- end::Total stats -->
+                        </div>
+                        <!-- end::Stats -->
+                        <div class="flex-2 rounded-lg shadow-xl p-8">
+                            <h4 class="text-xl text-gray-900 font-bold">Produits de Target</h4>
+                            <span @click="exportExcel" class=" cursor-pointer font-semibold whitespace-nowrap">
+                                <svg id='file-export_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                    <g transform="matrix(1 0 0 1 12 12)" >
+                                    <g style="" >
+                                    <g transform="matrix(1 0 0 1 0 0)" >
+                                    <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                    </g>
+                                    <g transform="matrix(1 0 0 1 4 -7)" >
+                                    <path style="stroke: rgb(30,41,59); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-16.5, -5.5)" d="M 14 3 L 14 7 C 14 7.552284749830793 14.447715250169207 8 15 8 L 19 8" stroke-linecap="round" />
+                                    </g>
+                                    <g transform="matrix(1 0 0 1 0.5 0)" >
+                                    <path style="stroke: rgb(30,41,59); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-13, -12.5)" d="M 11.5 21 L 7 21 C 5.8954305003384135 21 5 20.104569499661586 5 19 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 14 3 L 19 8 L 19 13 M 14 19 L 21 19 M 18 16 L 21 19 L 18 22" stroke-linecap="round" />
+                                    </g>
+                                    </g>
+                                    </g>
+                                </svg>
+                                Exporter Un fichier
+                            </span>   
+                            <table class="w-full my-8 whitespace-nowrap">
+                                <thead class="bg-gray-200 text-gray-700 font-bold">
+                                    <td class="py-2 text-center pl-2">
+                                        Référence Produit
+                                    </td>
+                                    <td class="py-2 text-center pl-2">
+                                        Désignation Produit
+                                    </td>
+                                    <td class="py-2 text-center pl-2">
+                                        Quantité
+                                    </td>
+                                </thead>
+                                <tbody class="text-sm">
+                                {% for row in user_targets.target_products.all %}
+                                 
+                                    <tr class="bg-gray-100 hover:bg-primary hover:bg-opacity-20 transition duration-200" >                                   
+                                        <td class="py-3 text-center pl-2">
+                                            {{row.product.reference}}
+                                        </td>
+                                        <td class="py-3 pl-2 text-center capitalize">
+                                            {{row.product.name}}
+                                        </td>
+                                        <td class="py-3 text-center pl-2">
+                                            {{row.quantity}}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div> 
+                         {% else %}
+                            <h4 class="text-LG text-gray-900 font-bold pb-2">Actuellement, il n'y a aucun  TARGET qui vous est attribué.</h4>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+                <script>
+                    // Stats by category
+                    function targets(){
+                        return{
+                            currentItem:{
+                                name:'{{request.session.username}}',
+                                percent:'{{percent}}',
+                            },  
+                            showStat:false,                
+                            project: {
+                                'ratecompleted':{{user_targets.get_taux_completion}},
+                                'completed': {{user_targets.total_quantity_sold}},
+                                'in_progress': {{user_targets.target_total_qte}} - {{user_targets.total_quantity_sold}},
+                            },
+                            liste_products: {{listProducts | safe}},
+                            exportExcel() {
+                                const array_print = []
+                                this.liste_products.forEach(product => {
+                                    // Add the product itself
+                                    array_print.push({
+                                        Référence: product.reference,
+                                        Désignation: product.designation,
+                                        qty: product.qty,
+                                    });
+                                });
+                                const ws = XLSX.utils.json_to_sheet(array_print);
+                                const wb = XLSX.utils.book_new();
+                                XLSX.utils.book_append_sheet(wb, ws, 'Products');
+                                XLSX.writeFile(wb, 'fichier_produits_detailed.xlsx');
+                            }  
+                        }
+                    }
+
+
+                    
+
+                </script>
+            </div>
+        </div>
+    </div>  
+    
+    
+    </main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

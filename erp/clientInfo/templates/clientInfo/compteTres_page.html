@@ -1,0 +1,431 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  <div class="flex flex-col min-h-screen custom-scrollbar" >
+      <!-- start::Black overlay -->
+      <div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+      <!-- end::Black overlay -->
+      {% include 'header.html' %}
+      {% include 'tabs.html' with active_tab="home" %}
+      <div class=" w-full flex flex-row">
+        {% include "sidebar.html" %}
+        <div class="h-full w-full">
+          <!-- Main content header -->
+            <main class="block w-full  h-full px-2 overflow-hidden " x-data="compteTres()">
+                  <!-- Main content header -->
+                  <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                     
+                    <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des comptes d'entreprise</h1>          
+                  </div>
+                  
+                  <div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b">  
+                    <div></div>          
+                    <div class="inline-block px-4 py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer" x-on:click="isOpen = true">
+                        Créer un nouveau compte d'entreprise
+                    </div>
+                  </div>
+
+                  <!-- Modal -->
+                  <div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="isOpen">
+                        <div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-0 md:mt-12">
+                          <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+                          x-on:click="isOpen = false">
+                            <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                              d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+                            </svg>
+                          </div>
+                          <form action="" id="myForm">
+                            <div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+                              <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter un nouveau compte d'entreprise</h2>
+                                <div class="form-input">
+                                  <div class="mb-4">
+                                    <label class="block text-gray-700 font-semibold mb-2" for="nature">
+                                      Nature :
+                                    </label>
+                                    <select
+                                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                                    id="nature"
+                                    x-model="nature"	
+                                    name="nature"						
+                                    required  
+                                    >
+                                    <option value="" disabled selected> Nature</option>             
+                                    <option value="Caisse">  Caisse </option>
+                                    <option value="Banque">  Banque </option>
+                                    <option value="CCP">  CCP </option>
+                                    <option value="Autres">  Autres </option>     
+                                    </select>
+                                  </div>
+                                  <div class="flex">
+                                  <div class="mb-4 mr-2">
+                                    <label class="block text-gray-700 font-semibold mb-2" for="label">
+                                      Libellé :
+                                    </label>
+                                    <input
+                                      class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                      type="text"
+                                      id="label"
+                                      x-model="label"
+                                      name="label"
+                                      placeholder=" label ... "
+                                    >
+                                  </div>      
+                                  <div class="mb-4 ">
+                                    <label class="block text-gray-700 font-semibold mb-2" for="Numcompte">
+                                      Numéro compte:
+                                    </label>
+                                    <input
+                                      class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                      type="text"
+                                      id="Numcompte"
+                                      x-model="numcompte"
+                                      name="Numcompte"
+                                      placeholder="Numéro de compte  . . ."
+                                    >
+                                  </div> 
+                                  </div>
+                                  <div class="flex ">
+                                    <div class="mb-4 mr-4">
+                                      <label class="block text-gray-700 font-semibold mb-2" for="banque">
+                                        Banque :
+                                      </label>
+                                      <select
+                                      class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                                      id="banque"
+                                      name="banque"			
+                                      x-model="banque"				
+                                      required  
+                                      >
+                                      <option value="" disabled selected> Selectionnez  Banque</option>
+                                      {% for banque in banques  %}
+                                        <option value="{{banque.pk}}"> {{banque.nom}} </option>
+                                      {% endfor %}
+                                      </select>
+                                    </div>
+                                    <div class="mb-4">
+                                      <label class="block text-gray-700 font-semibold mb-2" for="agence">
+                                        Agence :
+                                      </label>
+                                      <select
+                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                                        id="agence"
+                                        name="agence"	
+                                        x-model="agence"					
+                                        required  
+                                      >
+                                      <option value="" disabled selected> Selectionnez  Agence</option>
+                                      {% for agence in agences  %}
+                                        <option value="{{agence.pk}}"> {{agence.code}} </option>
+                                      {% endfor %}
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="mb-4">
+                                    <label class="block text-gray-700 font-semibold mb-2" >
+                                      Compte comptable :
+                                    </label>
+                                    <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer" x-model="comptecompt" id="compteComptable">
+                                      <option value="">Select an account...</option>
+                                      {% for entry in plan_comptable %}
+                                        <optgroup label="{{ entry.class.name }}">
+                                          {% for account in entry.accounts %}
+                                            <option value="{{ account.code }}">{{ account.code }} - {{ account.name }}</option>
+                                          {% endfor %}
+                                        </optgroup>
+                                      {% endfor %}
+                                    </select>
+                                  </div>
+                                  <div class="mb-4">
+                                    <label class="block text-gray-700 font-semibold mb-2" >
+                                      Journal :
+                                    </label>
+                                    <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer" id="journal" x-model="journal">
+                                      <option value="Achat"> Achat </option>
+                                      <option value="Banque BNA"> Banque BNA </option>
+                                      <option value="Banque SGA"> Banque SGA </option>
+                                      <option value="Banque SGA Alger"> Banque SGA Alger </option>
+                                      <option value="Caisse"> Caisse </option>
+                                      <option value="Journal des salaires"> Journal des salaires </option>
+                                      <option value="Operation Divers"> Operation Divers</option>
+                                      <option value="Reouverture">Reouverture</option>
+                                      <option value="Stock Entrees">Stock Entrees</option>
+                                      <option value="Stock Sorties">Stock Sorties</option>
+                                      <option value="Vente">Vente</option>
+                                    </select>
+                                  </div>
+                                  <div class="mb-4 ">
+                                    <label class="block text-gray-700 font-semibold mb-2" for="Numcompte">
+                                      Solde Initial:
+                                    </label>
+                                    <input
+                                      class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                      type="text"
+                                      id="monnaie"
+                                      x-model="monnaie"
+                                      name="solde"
+                                      placeholder="Solde Initial  . . ."
+                                    >
+                                  </div> 
+                                </div>
+                                <div class="mt-8 text-right">
+                                  <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="nature= '';
+                                                                        label= '';
+                                                                        numcompte= '';
+                                                                        banque= '';
+                                                                        agence= '';
+                                                                        journal= '';
+                                                                        monnaie= '';
+                                                                        comptecompt = '';
+                                                                        isOpen = false">
+                                    Annuler
+                                  </button>	
+                                  <button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" x-on:click="
+                                                if (operation === 'add') {
+                                                  addCompte();
+                                                  } else if (operation === 'update') {
+                                                  updateCompte();
+                                              }
+                                            ">
+                                            <span x-text="operation === 'add' ? 'Ajouter' : 'Modifier'"></span>
+                                  </button>	
+                                </div>
+                            </div> 
+                          </form>
+                        </div>
+                  </div>
+                  <!-- /Modal -->
+
+                  <script>
+                    function compteTres(){
+                      return{
+                        isOpen :false,
+                        operation: 'add',
+                        nature: '',
+                        label: '',
+                        numcompte: '',
+                        comptecompt:'',
+                        banque: '',
+                        agence: '',
+                        journal: '',
+                        monnaie: '',
+                        soldeInitial: '',
+                        id:'', 
+                        updateCompte(){
+                            dataObj={
+                              id:this.id,
+                              nature : document.getElementById('nature').value,
+                              label : document.getElementById('label').value,
+                              Numcompte : document.getElementById('Numcompte').value, 
+                              banque : document.getElementById('banque').value, 
+                              agence : document.getElementById('agence').value, 
+                              compteComptable : document.getElementById('compteComptable').value, 
+                              journal : document.getElementById('journal').value, 
+                              monnaie : document.getElementById('monnaie').value, 
+                            }
+                            axios.post('editCompte/', {
+                                  formData: dataObj
+                                }, 
+                                {
+                                  headers: {
+                                  'Content-Type': '',
+                                  'X-CSRFToken': getCookie('csrftoken'),
+                                  }
+                                })
+                                  .then((response) => {
+                                    data = response.data
+                                    console.log(data.error)
+                                    if(data.error){
+                                          alert(data.error);
+                                      }else{
+                                          alert("Compte Modifié !");
+                                      }		  
+                                    window.location.reload()            
+                                  })
+                                    .catch((error) => {
+                                        alert(error)      
+                                    });
+                        },
+                        
+                        deleteCompte(){
+                            if (confirm("Etes-vous Sur de Bien Vouloir Supprimer l'instance selectionnée?")) {
+                              dataObj={
+                                id:this.id,                             
+                              }
+                              axios.post('deleteCompte/', {
+                                    formData: dataObj
+                                  }, 
+                                  {
+                                    headers: {
+                                    'Content-Type': '',
+                                    'X-CSRFToken': getCookie('csrftoken'),
+                                    }
+                                  })
+                                    .then((response) => {
+                                      data = response.data
+                                      console.log(data.error)
+                                      if(data.error){
+                                            alert(data.error);
+                                        }else{
+                                            alert(data.message);
+                                        }		  
+                                      window.location.reload()            
+                                    })
+                                      .catch((error) => {
+                                          alert(error)      
+                                      });
+                            } 
+                        },
+
+                        addCompte(){
+                            dataObj={
+                              nature : document.getElementById('nature').value,
+                              label : document.getElementById('label').value,
+                              Numcompte : document.getElementById('Numcompte').value, 
+                              banque : document.getElementById('banque').value, 
+                              agence : document.getElementById('agence').value, 
+                              compteComptable : document.getElementById('compteComptable').value, 
+                              journal : document.getElementById('journal').value, 
+                              monnaie : document.getElementById('monnaie').value, 
+                            }
+                            
+                            axios.post('', {
+                                  formData: dataObj
+                                }, 
+                                {
+                                  headers: {
+                                  'Content-Type': '',
+                                  'X-CSRFToken': getCookie('csrftoken'),
+                                  }
+                                })
+                                  .then((response) => {
+                                    data = response.data
+                                    console.log(data.error)
+                                    if(data.error){
+                                          alert(data.error);
+                                      }else{
+                                          alert("Compte Entreprise Ajoutée !");
+                                      }		  
+                                    window.location.reload()            
+                                  })
+                                    .catch((error) => {
+                                        alert(error)      
+                            });
+                        },
+
+                      }
+                    }
+
+                    function getCookie(name) {
+                      var cookieValue = null;
+                      if (document.cookie && document.cookie !== '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                          var cookie = cookies[i].trim();
+                          // Does this cookie string begin with the name we want?
+                          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                          }
+                        }
+                      }
+                      return cookieValue;
+                    }
+                  </script>
+                  
+                  <!--  Table Affichage      -->
+                  <div class="flex flex-col mt-5">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                        <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+                          <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                              <tr>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                Libellé
+                                </th>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Nature
+                                </th>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Banque
+                                </th>
+                                
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Agence
+                                </th>                     
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Numéro
+                                </th>                     
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  MAJ
+                                </th>                     
+                              </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                              {% for cmpt in comptes %}
+                                <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" @click="" >             
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">{{cmpt.label}}</div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <span
+                                      class="inline-flex px-2 text-xs font-semibold leading-5 rounded-full"
+                                    >
+                                      {{cmpt.nature}}
+                                    </span>
+                                  </td>
+                                  <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{cmpt.banque.nom}}</td>
+                                  <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{cmpt.agence.code}}</td>
+                                  <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{cmpt.numCompte}}</td>                    
+                                  <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap flex">
+                                    <a  x-on:click="id='{{cmpt.id}}';
+                                        nature= '{{cmpt.nature}}';
+                                        label= '{{cmpt.label}}';
+                                        numcompte= '{{cmpt.numCompte}}';
+                                        banque= '{{cmpt.banque.pk}}';
+                                        agence= '{{cmpt.agence.pk}}';
+                                        journal= '{{cmpt.journal}}';
+                                        monnaie= '{{cmpt.monnaie}}';
+                                        comptecompt = '{{cmpt.compteComptable.code}}';
+                                        operation = 'update';
+                                        isOpen =true;">
+                                        {% heroicon_mini "pencil-square" class="transition-transform cursor-pointer hover:text-gray-250" %}
+                                    </a>
+                                    <a x-on:click=" id='{{cmpt.id}}'; deleteCompte()">
+                                      {% heroicon_mini "archive-box-x-mark" class="transition-transform cursor-pointer hover:text-red-500" %}
+                                    </a>
+                                  </td>
+                                </tr>        
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+            </main>
+          <!-- end Main content  -->
+        </div>
+      </div>
+  </div>
+{% endblock content %}

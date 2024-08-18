@@ -1,0 +1,565 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="logistique" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_logistiques.html" %}
+  <div class="h-full w-full">
+	<main class="block w-full h-full px-2 " x-data=" billscompt()" x-init="init()">
+		<div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row py-2"  >                                                                                                                                                    
+			 <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des Courses de Livraison</h1>      
+		</div>
+
+		<div class="flex flex-wrap items-center justify-start border-b  py-2">
+		   <div class="flex flex-wrap justify-start space-x-2 border-r  px-2 py-2">
+		   	<div class=" py-2 ">
+				<input type="search" x-model="search" class="form-input rounded-md bg-gray-50 text-sm text-black  h-10 py-2 pl-4 border-transparent border-none outline-none focus:ring-0 focus:text-black transition-all duration-300 ease-in-out focus:w-72 w-60"
+					placeholder="Rechercher...">
+			</div>
+		  </div>
+		  <div class="relative mr-4 inline-block ml-4 " x-data="{showTooltip: false}">
+			<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
+				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+					<path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+					<path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+					<rect x="7" y="13" width="10" height="8" rx="2" />
+				</svg>				  
+			</div>
+			<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute left-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+				Imprimer Résumé de Livraison!
+			</div>
+			<div id="js-print-template" x-ref="printTemplate" class="hidden">
+				<h2 class="text-3xl text-center font-bold mb-6 pb-2 tracking-wider uppercase">Fiche de Livraison</h2>
+				<div class=" space-x-3 mb-2">
+					<div class="w-full border border-black">
+						<div class="px-4 py-3 ">		
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Chauffeur</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="selectedChauffeur"></div>
+							</div>				
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Livraison</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="dateEnvoi"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				 <table class="w-full border-collapse border border-black">
+					<thead>
+					  <tr class="bg-gray-100">
+						<th class="border border-black py-2 text-black uppercase tracking-wide text-sm font-bold">Client</th>
+						<th class="border border-black py-2 text-black uppercase tracking-wide text-sm font-bold">Adresse</th>
+						<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Code Bon</th>
+						<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Date Bon</th>
+						<th class="border border-black py-2 text-center text-black uppercase text-sm font-bold">Montant Bon</th>
+						<th class="border border-black px-1 py-2 text-center text-black uppercase tracking-wide text-sm font-bold">Solde Anterieur</th>
+						<th class="border border-black px-1 py-2 text-center text-black uppercase tracking-wide text-sm font-bold">Total A ramasser</th>
+						<th class="border border-black px-8 py-2 text-center text-black uppercase tracking-wide text-sm font-bold" >Cachet</th>
+					  </tr>
+					</thead>
+					<tbody>
+						<template x-for="invoice in regroupByTransporteur">
+							<tr class="border border-black">
+							  <!-- First cell with rowspan -->
+							  <td class="border border-black py-2 text-black text-xs" :rowspan="invoice.products.length + 1" x-text="invoice.transporteur"></td>
+							  <td class="border border-black py-2 text-black text-xs" :rowspan="invoice.products.length + 1" x-text="invoice.address"></td>
+							  <!-- Nested template for products -->
+							  <template x-for="(item, index) in invoice.products" :key="index">
+								<tr>
+								  <td class="border border-black px-1 py-2 text-black text-xs" x-text="item.idBon"></td>
+								  <td class="border border-black px-1 py-2 text-black text-xs" x-text="item.dateBon"></td>
+								  <td class="border border-black py-2 text-center text-black text-xs" x-text="(parseFloat(item.montantBl)).toFixed(0)"></td>
+								  <td class="border border-black px-1 py-2 text-center text-black text-xs" :rowspan="invoice.products.length" x-show="index == 0" x-text="(invoice.solde).toFixed(0)"></td>
+								  <td class="border border-black px-1 py-2 text-center text-black text-xs" :rowspan="invoice.products.length" x-show="index == 0" x-text="totalSumClient(invoice)"></td>
+								  <td class="border border-black px-8 py-3 h-24 text-center text-black text-xs" :rowspan="invoice.products.length" x-show="index == 0" style="width: 7cm; height: 4cm;"></td>
+								</tr>
+							  </template>
+							  <!-- Solde cell with rowspan -->
+							</tr>							
+						</template>
+					</tbody>
+				  </table>
+				 <div class="w-full flex mt-4  space-x-3 ">
+					 <div class="w-1/3 table-auto ">
+					 </div>
+					 <table class="w-2/3 h-fit table-auto border-collapse border border-black">
+						 <thead>
+							 <tr class="bg-gray-100">
+								 <th class="border border-gray-700 px-4 ">Total des montants</th>
+								 <th class="border border-gray-700 px-4 ">Total des soldes antérieur </th>
+								 <th class="border border-gray-700 px-4 ">Total à Ramasser</th>
+							 </tr>
+						 </thead>
+						 <tbody>					 
+							 <tr class="border border-gray-700">
+								 <td class="border border-gray-700 px-4" x-text="totalMontant()"></td>
+								 <td class="border border-gray-700 px-4" x-text="totalSolde()"></td>
+								 <td class="border border-gray-700 px-4" x-text="parseFloat(totalMontant()) + parseFloat(totalSolde())"></td>
+							 </tr>
+						 </tbody>
+					 </table>
+				 </div>
+				 <div class=" flex justify-between mt-12 mr-0">
+					 <div></div>
+					 <div class="font-bold">
+						 Cachet et Signature
+					 </div>
+				 </div>
+			</div>
+		</div>
+		  <div class="py-2">
+			<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+			x-model="selectedChauffeur">
+			<option value="">Tous les utilisateurs</option>
+			{% for user in utilisateurs %}
+			<option value="{{ user.username }}">{{ user.username }}</option>
+			{% endfor %}
+			</select>
+		</div>
+		  <div class="flex justify-start space-x-3 px-4 ">
+				<div class="flex items-center space-x-2">
+					<label for="startDate" class="text-sm">Date début:</label>
+					<input type="date" x-model="datedeb" id="startDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				</div>
+				<div class="flex items-center space-x-2">
+					<label for="endDate" class="text-sm">Date Fin:</label>
+					<input type="date" x-model="datefin" id="endDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				</div>
+   		  </div>
+		</div>
+		<div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b px-2">  
+		  <div></div>          
+		  <div class="inline-block px-4 py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+			<a href="{% url 'new-course' %}">Créer une nouvelle Affectation de Course</a> 
+		  </div>
+		</div>  
+		
+								 
+		
+		 <div class="w-full mx-auto py-4 px-2">
+			<table class="items-center w-full  mb-0 align-top border-gray-200 text-black  backdrop-blur-sm bg-white/30" >
+				<thead class="border-b bg-gray-100 text-gray-800 font-semibold">   
+				   <td></td>
+				   <td class="py-2 pl-2">
+					    Date d'affectation
+				   </td>
+				   <td class="py-2 pl-2">
+					    Date Debut
+				   </td>
+				   <td class="py-2 pl-2">
+					    Date Fin
+				   </td>
+				   <td class="py-2 pl-2">
+					    Client / Transporteur
+				   </td>
+				   <td class="py-2 pl-2">
+					    Code BL
+				   </td>
+				   <td class="py-2 pl-2">
+					    Chauffeur
+				   </td>
+				   <td class="py-2 pl-2">
+					    Adresse
+				   </td>
+				   <td class="py-2 pl-2">
+					    Montant A récupérer
+				   </td>
+				   <td class="py-2 pl-2">
+				   	    Etat
+				   </td>
+				   <td class="py-2 pl-2"></td>
+				</thead>
+				<tbody class="text-sm">
+				   <template x-for="(course, index) in filteredAndPaginatedProducts">
+					   <tr class=" hover:shadow-lg border transition duration-200">
+						   <td class="py-3 pl-2">
+							<input class=" border-l-0  border-r-0 text-sm whitespace-nowrap" type="checkbox" :value="course.id" x-model="selectedItems" id="target-row">
+						   </td>
+						   <td class="py-3 pl-2" x-text="course.dateTimeAffectation"></td>
+						   <td class="py-3 pl-2" x-text="course.dateTimedebut"></td>
+						   <td class="py-3 pl-2" x-text="course.dateTimefin"></td>
+						   <td class="py-3 pl-2 capitalize" x-text="course.transporteur"></td>
+						   <td class="py-3 pl-2 capitalize" x-text="course.idBon"></td>
+						   <td class="py-3 pl-2 capitalize" x-text="course.chauffeur"></td>
+						   <td class="py-3 pl-2 capitalize" x-text="course.adresse"></td>
+						   <td class="py-3 pl-2" x-text="course.montant"></td>
+						   <td class="py-3 pl-2">
+						       <template x-if="course.etat == 'en-attente'">
+							        <span class="bg-orange-500 px-1.5 py-0.5 rounded-lg text-gray-100">En attente</span>
+						       </template>
+						       <template x-if="course.etat == 'en-route'">
+							        <span class="bg-red-500 px-1.5 py-0.5 rounded-lg text-gray-100">En route</span>
+						       </template>
+						       <template x-if="course.etat == 'livre'">
+							        <span class="bg-green-500 px-1.5 py-0.5 rounded-lg text-gray-100">Livré</span>
+						       </template>
+						       <template x-if="course.etat == 'annule'">
+							        <span class="text-red-500 px-1.5 py-0.5 rounded-lg text-gray-100">Annulé</span>
+						       </template>
+						   </td>                                  
+						   <td class="py-3 pl-2 flex items-center space-x-2">
+							   <a class="cursor-pointer" x-on:click=" courseID = course.id; etat = course.etat; operation= 'update'; isOpen = true;">
+								   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500 hover:text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+								   </svg>
+							   </a>                                                        
+						   </td>
+					   </tr>
+				   </template>
+				</tbody>
+			</table>
+			<div class="flex bg-gray-100 justify-between ">
+				<div class="transition-transform cursor-pointer pl-2 py-1 text-red-500 hover:text-red-700" @click="showModal = true;" >
+					{% heroicon_mini "trash" %}
+				</div>
+				<div class="flex justify-start">
+                    <button
+                        x-bind:disabled="currentPage === 1"
+                        @click="prevPage"
+                    >
+                        <svg id='chevrons-left_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                <g transform="matrix(1 0 0 1 12 12)" >
+                                <g style="" >
+                                <g transform="matrix(1 0 0 1 0 0)" >
+                                <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                </g>
+                                <g transform="matrix(1 0 0 1 -3.75 -0.25)" >
+                                <polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+                                </g>
+                                <g transform="matrix(1 0 0 1 2.25 -0.25)" >
+                                <polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+                                </g>
+                                </g>
+                                </g>
+                        </svg>
+                    </button>
+                    <p class=" text-lg px-2" x-text="currentPage"></p> /<p id="total-pages" class=" text-lg px-2" x-text="totalPages"></p>
+                    <button
+                        x-bind:disabled="currentPage === totalPages"
+                        @click="nextPage"
+                    >
+                        <svg id='chevrons-right_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                <g transform="matrix(1 0 0 1 12 12)" >
+                                <g style="" >
+                                <g transform="matrix(1 0 0 1 0 0)" >
+                                <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                </g>
+                                <g transform="matrix(1 0 0 1 -2.75 -0.25)" >
+                                <polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+                                </g>
+                                <g transform="matrix(1 0 0 1 3.25 -0.25)" >
+                                <polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+                                </g>
+                                </g>
+                                </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+			<div x-cloak x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+					<div class="modal bg-gray-50 rounded-lg p-4 max-w-md mx-auto shadow-lg">
+						<p class="text-gray-700 text-lg mb-4">Voulez-vous vraiment supprimer les éléments sélectionné </p>
+						<div class="flex justify-end">
+							<button @click="deletedSelected()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none mr-2">Oui</button>
+							<button @click="annulerSuppression()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 focus:outline-none">Annuler</button>
+						</div>
+					</div>
+			</div>
+
+		</div>
+		
+<!-- Modal de confirmation -->
+				
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+			<script>
+				function billscompt(){
+					return{
+						search: '',
+						selectedFamily: '',
+						products: [],
+						currentPage: 1,
+						showModal:false,
+						selectedChauffeur:'',
+						productReference: '',
+						bills:[],
+						showClosedTooltip: false,
+						showOpenTooltip: false,
+						pageSize: 20,					
+						get totalPages() {
+							return Math.max(1, Math.ceil(this.filteredProducts.length / this.pageSize));
+						},	
+						dateEnvoi :'',			
+						datedeb: '',
+						datefin:'',
+						client:'',
+						totalMontant(){
+							return (this.filteredToPrintProducts.reduce((sum, product) => sum + parseFloat(product.montantBl), 0)).toFixed(0);
+						},
+						totalSolde() {
+							if (!this.regroupByTransporteur() || this.regroupByTransporteur().length === 0) {
+								return 0; // Return 0 or any default value if regroupByTransporteur is empty
+							}
+							// Sum all solde of all items in regroupByTransporteur
+							return this.regroupByTransporteur().reduce((sum, transporteurGroup) => sum + parseFloat(transporteurGroup.solde), 0).toFixed(0);
+						},
+						
+						
+						
+						totalSumClient(invoice) {
+							if (!invoice || !invoice.products || invoice.products.length === 0) {
+								return 0; // Return 0 or any default value if invoice or products are empty
+							}
+							// Sum the montant of the given invoice.products + solde
+							let totalMontant = invoice.products.reduce((sum, product) => sum + parseFloat(product.montantBl), 0);
+							return (totalMontant + parseFloat(invoice.solde)).toFixed(0);
+						},
+						printInvoice() {
+							this.dateEnvoi = this.filteredProducts['0'].dateTimeAffectation;
+							this.client = this.filteredProducts['0'].transporteur;
+							setTimeout(() => {			
+								var printContents = this.$refs.printTemplate.innerHTML;
+								document.body.innerHTML = printContents;
+								window.print();
+								window.location.reload();
+							}, 500); // Delay for 1 second (adjust as needed)      			
+						},
+						get filteredProducts() {
+							return this.products.filter((product) => {
+								const nameMatch = product.transporteur.toLowerCase().includes(this.search.toLowerCase());
+								const DriverMatch = this.selectedChauffeur === '' || this.selectedChauffeur == product.chauffeur;
+								const referenceMatch = product.chauffeur.toLowerCase().includes(this.search.toLowerCase());
+
+								const datedeb = new Date(this.datedeb);
+								const dateend = new Date(this.datefin);
+
+								// Format both dates to 'dd/mm/yy'
+								const options = { day: '2-digit', month: '2-digit', year: '2-digit' };
+
+								const formattedDatedeb = datedeb.toLocaleDateString('en-GB', options);
+								const formattedDateend = dateend.toLocaleDateString('en-GB', options);
+								const dateMatch = datedeb <= new Date(product.dateTimeAffectation) && new Date(product.dateTimeAffectation) <= dateend;
+								return dateMatch && DriverMatch && (nameMatch || referenceMatch);
+							});
+						},
+						get filteredToPrintProducts(){
+							return this.filteredProducts.filter((elem) => this.selectedItems.includes(elem.id))	
+
+						},
+						get filteredAndPaginatedProducts() {
+							const start = (this.currentPage - 1) * this.pageSize;
+							const end = start + this.pageSize;
+							return this.filteredProducts.slice(start, end);
+						},
+
+						prevPage() {
+						if (this.currentPage > 1) {
+						this.currentPage -= 1;
+						}
+						},
+
+						nextPage() {
+						if (this.currentPage < this.totalPages) {
+							this.currentPage += 1;
+						}
+						},
+
+						productMatches(search, productName, productReference) {
+						//  if (productName === null || productReference === null) {
+						//     return false;
+						//     }
+						
+							return (
+							productName.toLowerCase().includes(search.toLowerCase()) ||
+							productReference.toLowerCase().includes(search.toLowerCase())
+							);
+						},
+
+						showModal:false,
+						billtodelete:'',
+						selectedItems: [],
+						deletedSelected(){
+							if (this.selectedItems.length === 0) {
+								alert("Veuillez Selectionner aumoins un élément pour supprimer!.");
+								return;
+							}
+					
+							dataObj ={
+								liste_ids: this.selectedItems,                        
+									}
+							axios.post('supprimerCourses/',dataObj, {
+								headers: {
+								'Content-Type': 'application/json',
+								'X-CSRFToken': getCookie('csrftoken'),
+								}
+							})
+								.then(response => {
+									// Check if the deletion was successful
+									if (response.data.success) {            			
+										showModal = false;
+										alert(response.data.message);
+										window.location.reload();
+									} else {
+										alert(response.data.message);
+										window.location.reload();
+									}
+								})
+							.catch(error => {
+							// Handle request errors
+							alert(error);
+							});
+							this.showModal = false;
+							this.selectedItems = [];
+						},
+
+						annulerSuppression() {
+							// Réinitialiser les variables
+							this.showModal = false;
+							this.billtodelete = '';
+						},
+						regroupByTransporteur() {
+							// Create an object to hold regrouped products
+							var regrouped = {};
+						
+							// Loop through the products array
+							this.filteredToPrintProducts.forEach(function(product) {
+								var transporteur = product.transporteur;
+								var idBon = product.idBon;
+						
+								// Initialize array for this transporteur if it doesn't exist
+								if (!regrouped[transporteur]) {
+									regrouped[transporteur] = {
+										products: [],
+										address: product.adresse // Assume each product has an address property
+									};
+								}
+						
+								// Check if idBon already exists for this transporteur
+								var existingProduct = regrouped[transporteur].products.find(function(p) {
+									return p.idBon === idBon;
+								});
+						
+								if (existingProduct) {
+								} else {
+									// Add the new product to the array
+									regrouped[transporteur].products.push(product);
+								}
+							});
+						
+							// Convert regrouped object to an array format with calculated solde
+							var result = [];
+							for (var key in regrouped) {
+								if (regrouped.hasOwnProperty(key)) {
+									// Calculate the sum of montants
+									var totalMontant = regrouped[key].products.reduce(function(sum, p) {
+										return sum + parseFloat(p.montantBl);
+									}, 0);
+						
+									// Calculate the final solde
+									var finalSolde = regrouped[key].products[0].solde - totalMontant; // Assuming solde is the same for all products in the transporteur group
+						
+									result.push({
+										transporteur: key,
+										address: regrouped[key].address,
+										products: regrouped[key].products,
+										totalMontant: totalMontant,
+										initialSolde: regrouped[key].products[0].solde,
+										solde: finalSolde
+									});
+								}
+							}
+							return result;
+						},
+						init() { 
+							var products = [];
+							{% for course in courses %}
+								note = `{{course.note}}`
+								var formattedNote = note.replace(/\n/g, '<br>');
+								var courseData = {
+									'id': '{{course.id}}',
+									'adresse': '{{course.adresse}}',
+									'dateTimeAffectation': '{{course.dateTimeAffectation}}',
+									'dateTimedebut': '{{course.dateTimeDebut}}',
+									'dateTimefin': '{{course.dateTimeFin}}',
+									'chauffeur': '{{course.chauffeur}}',
+									'idBon': '{{course.idBon}}',
+									'dateBon': '{{course.dateBon}}',
+									'montantBl': '{{course.montantBl}}',
+									'solde': '{{course.solde}}',
+									'note': formattedNote,
+									'etat': '{{course.typeCourse}}', 
+									'transporteur': '{{course.transporteur}}',
+									'montant': {{course.montant}},
+									'etat': '{{course.etat}}',							
+								};
+								var exists = products.some(function(existingProduct) {
+									return existingProduct.id === courseData.id; // Assuming "id" exists
+								});
+
+								if (!exists) {
+									products.push(courseData);
+								}
+							{% endfor %}
+
+							// Now, assign the filtered products array to this.products
+							this.products = products;
+							const currentDate = new Date();
+							const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+							const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+
+							this.datedeb = firstDayOfMonth.toISOString().split('T')[0];
+							this.datefin = lastDayOfMonth.toISOString().split('T')[0];
+							this.regroupByTransporteur();
+						},
+				
+					}
+				}
+				function getCookie(name) {
+					var cookieValue = null;
+					if (document.cookie && document.cookie !== '') {
+						var cookies = document.cookie.split(';');
+						for (var i = 0; i < cookies.length; i++) {
+							var cookie = cookies[i].trim();
+						// Does this cookie string begin with the name we want?
+							if (cookie.substring(0, name.length + 1) === (name + '=')) {
+								cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								break;
+							}
+						}
+					}
+					return cookieValue;
+  				}
+			</script> 
+				
+			  </div>
+			</div>
+		  </div>
+		</div>
+</main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

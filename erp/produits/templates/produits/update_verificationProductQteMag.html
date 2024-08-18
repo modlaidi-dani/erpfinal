@@ -1,0 +1,358 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="products" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_produits.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full px-2 h-full  overflow-hidden overflow-y-scroll">
+        <body class=" p-4" x-data="verification()" x-init="init()">
+          <div class=" mx-auto bg-white p-6 rounded shadow" >
+              <h1 class="text-2xl font-semibold mb-4">Vérification des quantités des produits</h1>               
+              <div >
+                <div class="mb-4">
+                  <label class="block text-gray-700 font-medium mb-2" >
+                    Entrepot :
+                  </label>
+                  <select
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="entrepot"
+                    name="entrepot"
+                    x-model="entrepot"
+                    x-on:change="getStock($event.target.value)
+                    entrepot= $event.target.value
+                    "
+                    disabled
+                    required  
+                   >
+                    <option value="" disabled selected> Entrepot</option>                 
+                    {% for entrepot in entrepots %}
+                      <option value="{{ entrepot.name }}">
+                        {{ entrepot.name }} 
+                      </option>
+                    {% endfor %}
+                  </select>
+                  </div>
+                  <div class="mb-4">                 
+                    <div class="w-full ">
+                      <div  class="flex flex-col items-center relative">
+                        <div class="w-full">
+                          <label class="block text-gray-700 font-semibold mb-2" for="price">
+                            Reference / désignation du produit:
+                            </label>
+                          <div @click.away="closeProduct()" class="my-2 p-1 bg-white flex border border-gray-200 rounded">
+                            <input 
+                                x-model="filterProduct"
+                                x-transition:leave="transition ease-in duration-100"
+                                x-transition:leave-start="opacity-100"
+                                x-transition:leave-end="opacity-0"
+                                placeholder="Introduire référence / désignation d'un produit"
+                                @mousedown="openProduct()"
+                                @keydown.enter.stop.prevent="selectProduct()"
+                                @keydown.arrow-up.prevent="focusPrevOption()"
+                                @keydown.arrow-down.prevent="focusNextOption()"
+                                class="p-1 px-2 appearance-none outline-none w-full text-gray-800">
+                            <div class="text-gray-300 w-8 py-1 pl-2 pr-1 border-l flex items-center border-gray-200">
+                              <span @click="toggleProduct()" class="cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none">
+                                <svg  xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <polyline x-show="!isProductsOpen()" points="18 15 12 20 6 15"></polyline>
+                                  <polyline x-show="isProductsOpen()" points="18 15 12 9 6 15"></polyline>
+                                </svg>										  
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div x-show="isProductsOpen()" class="absolute shadow bg-gray-50 top-100 z-40 w-full left-0 h-fit rounded overflow-y-auto " style="top:100%; max-height: 250px; ">
+                          <div class="flex flex-col w-full overflow-hidden ">									
+                            <template x-for="(item, index) in filteredStock() " :key="index">
+                            <div @click="onProductClick(index)">
+                              <div class="flex w-full items-center border-b border-gray-50 relative cursor-pointer hover:bg-gray-100">
+                                <div class="w-full items-center border-b border-gray-150 flex">
+                                  <div class="mx-2 py-2 -mt-1">
+                                      <span class="font-md"  x-text="item.reference + ' - ' + item.name"></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            </template>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>                  
+              </div>
+        
+              <h2 class="text-xl font-semibold mt-6">Récapitulatif de Vérification</h2>
+              <table class="w-full mt-4">
+                  <thead>
+                      <tr class="bg-gray-100">
+                          <th class="text-center">Reference</th>
+                          <th class="text-center">Désignation</th>
+                          <th class="text-center">Quantité Entrée</th>
+                          <th class="text-center">Quantité Réelle</th>
+                          <th class="text-center">Resultat</th>
+                          <th class="text-center">action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <template x-for="entry in verificationHistory" >
+                         <tr class="border-b border-black" x-bind:class="{'bg-red-500': entry.verificationResult == 'incorrect', 'bg-green-400':entry.verificationResult == 'correct'}">
+                              <td class=" py-2 uppercase text-center font-semibold text-sm" x-text="entry.productReference" ></td>
+                              <td class=" py-2 uppercase text-center font-semibold text-sm" x-text="entry.productName" ></td>
+                              <td class="py-2 uppercase text-center font-semibold text-sm" x-text="entry.quantity"></td>
+                              <td class="py-2 uppercase text-center font-semibold text-sm" x-text="entry.realQuantity"></td>
+                              <td class="py-2 uppercase text-center font-semibold text-sm" x-bind:class="text-black" x-text="entry.verificationResult"></td>
+                              <td class="py-2 text-center cursor-pointer" @click="deleteVerification(entry.productReference)" class="cursor-pointer" > Supprimer </td>
+                          </tr>
+                      </template>
+                  </tbody>
+              </table>
+            </div>        
+            <div class="flex w-full mx-auto">
+              <button @click="Archiver" class="border border-gray-700 text-gray-700 px-4 py-2 mt-2 mr-2 rounded hover:bg-gray-700 hover:text-white">Archiver le résultat</button>
+            </div>
+          <script>
+              function verification(){
+                return{
+                  productReference: '',
+                  productName: '',
+                  quantity: '',
+                  id_archive:'{{id_archive}}',
+                  entrepot:'{{entrepot.name}}',
+                  verificationResult: '',
+                  verificationHistory: [],                  
+                  items:[],
+                  debouncedAddProduct: () => _.debounce(() => verifyProduct(), 500),
+                 
+
+                  deleteVerification(reference){
+                    const index = this.verificationHistory.findIndex(entry => entry.productReference === reference);
+                    if (index !== -1) {
+                        this.verificationHistory.splice(index, 1);
+                    }
+                  },
+
+                  init(){
+                     itemsData={{stocks | safe}};
+                      for (const itemData of itemsData) {						 
+                        const item = {
+                          reference: itemData.reference,
+                          name: itemData.product_name,
+                          qty: itemData.quantity,
+                        };
+                        this.items.push(item);
+                      }				
+                    products = {{produits_archives | safe}}
+                    products.forEach((product) => {
+                        const entry = {
+                            id: this.generateRandomId(), // Implement this function as in your previous code
+                            productReference: product.reference,
+                            productName : product.name,
+                            quantity: product.quantity,
+                            realQuantity: product.realQuantity,
+                            verificationResult: product.quantity === product.realQuantity ? 'correct' : 'incorrect',
+                        };
+
+                        // Check for duplicates based on productReference
+                        const isDuplicate = this.verificationHistory.some((existingEntry) => existingEntry.productReference === entry.productReference);
+
+                        // Push the entry only if it's not a duplicate
+                        if (!isDuplicate) {
+                            this.verificationHistory.push(entry);
+                        }
+                    });
+                  },
+
+                   filterProduct: '',
+                  showProduct: false,
+                  selectedProduct: null,
+                  closeProduct() { 
+                                  this.showProduct = false;
+                                  this.focusedOptionIndex = this.selected ? this.focusedOptionIndex : null;
+                  },
+                  openProduct(){
+                                this.showProduct = true; 
+                                this.filterProduct = '';
+                  },
+                  toggleProduct() { 
+                      if (this.showProduct) {
+                        this.closeProduct();
+                      }
+                      else {
+                        this.openProduct()
+                      }
+                  },
+                  isProductsOpen() { return this.showProduct === true },
+                  selectedProductName() { return this.selectedProduct ? this.selectedProduct.name : this.filterProduct; },
+                  filteredStock() {
+                                  return this.items
+                                    ? this.items.filter(option => {
+                                      return (option.name.toLowerCase().indexOf(this.filterProduct) > -1) 
+                                        || (option.reference.toLowerCase().indexOf(this.filterProduct) > -1)
+                                      })
+                                      : {}
+                  },
+                  onProductClick(index) {
+                      this.focusedOptionIndex = index;
+                      this.selectProduct();
+                  },
+                  selectProduct() {
+                      if (!this.isProductsOpen()) {
+                        return;
+                      }
+                        this.focusedOptionIndex = this.focusedOptionIndex ?? 0;
+                        const selected = this.filteredStock()[this.focusedOptionIndex]								
+                        if (this.selectedProduct && this.selectedProduct.name == selected.name) {
+                          
+                        }
+                        else {
+                            this.selectedProduct = selected;
+                              this.filterProduct = this.selectedProductName();
+                              // Find the stock item with the matching reference
+                              const matchingStockItem = this.items.find(stockItem => stockItem.reference === selected.reference);
+
+                              if (matchingStockItem) {
+                                  // Update the item data with the matching stock item
+                                  this.productReference = matchingStockItem.reference;
+                                  this.productName = matchingStockItem.name;
+                              } 
+                              this.quantity=1; 
+                              this.verifyProduct();
+                        }
+                      this.closeProduct();
+                  },
+
+                  verifyProduct() {
+                    if (!this.productReference || !this.quantity) {
+                        this.verificationResult = false;
+                        return;
+                    }
+
+                    if (!this.entrepot) {
+                        alert("Veuillez choisir un entrepôt !");                    
+                        this.quantity = 0;
+                        this.productReference = '';
+                        return;
+                    }
+                    
+                    let existingItem = this.items.find(item => item.reference === this.productReference);
+                    let existingEntry = this.verificationHistory.find(entry => entry.productReference === this.productReference);
+
+                    if (existingItem) {
+                        if (existingEntry) {
+                          console.log("me");
+                            // An entry with the same product reference already exists.
+                            // Increment its quantity with the new quantity.
+                            existingEntry.quantity = (parseInt(existingEntry.quantity) || 0) + (parseInt(this.quantity) || 0);
+
+                            // Re-verify if the new quantity is equal to the real quantity.
+                            if (existingEntry.quantity === existingEntry.realQuantity) {
+                                existingEntry.verificationResult = 'correct';
+                            } else {
+                                existingEntry.verificationResult = 'incorrect';
+                            }
+                        } else {
+                            // The entry doesn't exist; add it to verificationHistory.
+                            const entry = {
+                                id: this.generateRandomId(), // Implement this function as in your previous code
+                                productReference: this.productReference,
+                                productName: this.productName,
+                                quantity: this.quantity,
+                                realQuantity: existingItem.qty,
+                                verificationResult: this.quantity === existingItem.qty ? 'correct' : 'incorrect',
+                            };
+                            console.log(entry);
+                            this.verificationHistory.push(entry);
+                        }
+                    } else {
+                         const entry = {
+                                id: this.generateRandomId(), // Implement this function as in your previous code
+                                productReference: this.productReference,
+                                quantity: 0,
+                                realQuantity: 0,
+                                verificationResult: "reference du produit n'existe pas",
+                        };
+                        this.verificationHistory.push(entry);
+                    }
+                    console.log(this.verificationHistory);
+                    // Clear input fields
+                    this.productReference = '';
+                    this.quantity = '';
+
+                  },
+
+                  Archiver() {
+                    dataObj={
+                        archive_id : this.id_archive,
+                        entrepot : this.entrepot,
+                        products: this.verificationHistory
+                    }
+                    axios.post('', {
+                      formData: dataObj
+                     }, {
+                     headers: {
+                      'Content-Type': '',
+                      'X-CSRFToken': getCookie('csrftoken'),
+                     }
+                    }).then((response) => {
+                      data= response.data
+                      if(data.error){
+                        alert(data.error);
+                      }else{
+                        alert("Verification data saved successfully");
+                      }		  
+                    }).catch((error) => {
+                       alert(error)
+                      });
+                  },
+                
+                  generateRandomId() {
+                    return Math.random().toString(36).substring(2, 10) + Math.random().toString(36).substring(2, 10);
+                  },
+                }
+              }
+
+              function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                  var cookies = document.cookie.split(';');
+                  for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                    }
+                  }
+                }
+                return cookieValue;
+              }             
+          </script>
+        </body>
+      </main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

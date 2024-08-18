@@ -1,0 +1,1183 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="vente" %}
+ <div class="w-full flex flex-row">
+	{% include "sidebar_ventes.html" %}
+           <div class="h-full w-full">
+				<body class="antialiased sans-serif" x-data="entries()"
+								x-init="initData()">
+							<div 
+								class="container mx-auto py-6 px-4"
+								
+								x-cloak
+							 >
+								<div class="flex justify-between">
+									<h2 class="text-2xl font-bold mb-6 pb-2 tracking-wider uppercase">Bon de Devis</h2>
+									<div>
+										<div class="relative mr-4 inline-block">
+											<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
+												<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+													<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+													<path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+													<path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+													<rect x="7" y="13" width="10" height="8" rx="2" />
+												</svg>				  
+											</div>
+											<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+												Print this invoice!
+											</div>
+										</div>
+											<!-- Print Template -->
+											<div id="js-print-template" x-ref="printTemplate" class="hidden">
+												<!--<div class="py-4 border-b border-stone-500">-->
+												<!--	<img src="{% static 'media/divatech-logo.png' %}" alt="">-->
+												<!--</div>-->
+										
+									
+												<h2 class="text-3xl text-center border-b font-bold mb-6 pb-2 tracking-wider uppercase">Bon de devis</h2>
+												<div class="flex justify-between space-x-3 mb-10">
+													<div class="w-1/2 border border-black px-1">
+																			
+														<div class="mb-1 flex items-center">
+															<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Numéro de Bon.</label>
+															<span class="mr-4 inline-block">:</span>
+															<div x-text="invoiceNumber"></div>
+														</div>
+											
+														<div class="mb-1 flex items-center">
+															<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Bon</label>
+															<span class="mr-4 inline-block">:</span>
+															<div x-text="invoiceDate"></div>
+														</div>
+														<div class="mb-1 flex items-center">
+															<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date Fin de Validité de Bon</label>
+															<span class="mr-4 inline-block">:</span>
+															<div x-text="invoiceDueDate"></div>
+														</div>
+													
+													</div>
+													
+													<div class=" w-1/2 border border-black px-1">										
+														 <div class=" border-black">
+															<div class="mb-1 flex items-center">
+																<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Client </label>
+																<span class="mr-4 inline-block">:</span>
+																<div x-text="billing.name"></div>
+															</div>
+															<div class="mb-1 flex items-center">
+																<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+																<span class="mr-4 inline-block">:</span>
+																<div x-text="billing.address"></div>
+															</div>
+															<div class="mb-1 flex items-center">
+																<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Extra </label>
+																<span class="mr-4 inline-block">:</span>
+																<div x-text="billing.extra"></div>
+															</div>
+															
+														 </div>
+													</div>
+												</div>
+												<table class="w-full border-collapse border border-black">
+													<thead>
+															<template x-if="clientType != 1">
+																<tr class="bg-gray-100">
+																	<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+																	<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+																	<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+																	<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
+																	<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
+																</tr>	
+															</template>
+															<template x-if="clientType == 1">
+																<tr class="bg-gray-100">
+																	<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+																	<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+																	<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+																	<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Prix Unitaire</th>
+																	<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Montant Total</th>
+																</tr>	
+																
+															</template>
+
+													</thead>
+													<tbody>
+
+															<template x-for="invoice in items" :key="invoice.id">
+																<tr class="border border-black">
+																	<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
+																	<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
+																	<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qty"></td>
+																	<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="numberFormat(invoice.rateLiv * 1.19)"></td>
+																	<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="numberFormat(invoice.totalLiv *1.19)"></td>
+																</tr>											
+															</template>											
+															
+													</tbody>
+												</table>
+			
+													<div class="w-full flex mt-4  space-x-3 ">
+
+														<table class="w-1/3 table-auto  border-collapse border border-black">
+															<thead>
+																<tr class="bg-gray-100">
+																	<th class="border border-gray-700 px-4 ">TVA</th>
+																	<th class="border border-gray-700 px-4 ">Total TVA</th>                     
+																</tr>
+															</thead>
+															<tbody>
+															
+																<tr class="border border-gray-700">
+																	<td class="border border-gray-700 px-4 ">0 %</td>
+																	<td class="border border-gray-700 px-4 "x-text="0"></td> 
+																</tr>
+														
+															</tbody>
+														</table>
+
+														<table class="w-2/3 h-fit table-auto border-collapse border border-black">
+															<thead>
+																<tr class="bg-gray-100">
+																	<th class="border border-gray-700 px-4 ">Total Remise</th>
+																	<th class="border border-gray-700 px-4 ">Total HT</th>
+																	<th class="border border-gray-700 px-4 ">Total TTC</th>
+																	<th class="border border-gray-700 px-4 ">Net à Payer</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr class="border border-gray-700">
+																	<td class="border border-gray-700 px-4" x-text="TotalRemise"></td>
+																	<td class="border border-gray-700 px-4" x-text="TotalPayLiv"></td>
+																	<td class="border border-gray-700 px-4" x-text="TotalPayLiv"></td>
+																	<td class="border border-gray-700 px-4" x-text="TotalPayLiv" ></td>
+																</tr>
+															</tbody>
+														</table>
+													
+													</div>
+																				
+											 </div>
+											<!-- /Print Template -->
+									</div>
+								</div>
+						
+								<div class="flex mb-8 justify-between">
+									<div class="w-2/4">
+															
+										<div class="mb-2 md:mb-1 md:flex items-center">
+											<label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Date de Bon</label>
+											<span class="mr-4 inline-block  md:block">:</span>
+											<div class="flex-1">
+											<input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 " type="date" {% if request.session.role != 'manager' %}disabled{% endif %} x-model="invoiceDate">
+											</div>
+										</div>
+						
+										<div class="mb-2 md:mb-1 md:flex items-center">
+											<label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Date d'expiration</label>
+											<span class="mr-4 hidden md:block">:</span>
+											<div class="flex-1">
+											<input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 " type="date"  x-model="invoiceDueDate">
+											</div>
+										</div> 
+									</div>									
+								</div>
+						
+
+								<div x-data="{ tab: 2 }" x-cloak class=" antialiased ">
+				  	<div class="relative flex flex-col rounded-lg shadow-xs overflow-hidden">         
+					   <div class="flex space-x-8 bg-white border-b border-gray-200 ">						 
+						  	<button
+							  type="button"
+							  class="focus:outline-none text-black py-2 px-2 border-t-2 text-md tracking-wide font-semibold border-transparent"
+							  x-on:click="tab = 1"
+							  :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 1 }"
+						  	>
+							 Informations Client
+						  	</button>
+						  	<button
+							  type="button"
+							  class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+							  x-on:click="tab = 2"
+							  :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 2 }"
+						  	>
+							  Bon de Devis
+						  	</button>
+						  	<button
+							  type="button"
+							  class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+							  x-on:click="tab = 3"
+							  :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 3 }"
+						  	>
+						 	 Produits du Bon
+						  	</button>						  
+					   </div>     
+					   <div class="">
+					     <div x-show="tab === 1">
+							  <div class="flex flex-wrap justify-between mb-8 py-4">
+							   <div class="w-full md:w-1/3 mb-2 md:mb-0">
+								   <label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Bon Pour :</label>
+								   <select class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none  focus:bg-white" id="clients"					
+									  x-on:change="
+										billing.name =$event.target.value
+										billing.address = $event.target.selectedOptions[0].dataset.address
+										billing.phone = $event.target.selectedOptions[0].dataset.phone
+										clientType = $event.target.selectedOptions[0].dataset.typecl
+										fetchPrice($event.target.selectedOptions[0].dataset.typecl)
+									  ">
+												<option value="">Select a client</option>
+												<template x-for="client in clients">
+														<option :value="client.name" x-text="client.name" :data-typecl="client.client_type" :data-address="client.address" :data-phone="client.phone">
+															</option>
+												</template>
+								   </select>
+								   <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="client-address" type="text" placeholder="Adresse de client" x-model="billing.address">
+								   <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="client-phone" type="text" placeholder="Numéro de téléphone" x-model="billing.phone">
+								  <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="inline-full-name" type="text" placeholder="Additional info" x-model="billing.extra">
+							   </div>	
+							  </div>
+						  </div>     
+						<div class="w-full" x-show="tab === 3">    
+							<table class=" mt-2 border-collapse border-l border-r w-full">
+								<thead class="border-b  bg-gray-100  border-t  py-4">
+									<tr class="border-b py-4">
+										<th class="text-center ">
+											<p class="text-gray-800 uppercase tracking-wide text-sm py-4 font-bold">Référence</p>
+										</th>
+										<th class="text-center">
+											<p class="text-gray-800 uppercase tracking-wide text-sm  py-4 font-bold">Désignation</p>
+										</th>											
+										{% if request.session.role == "manager" %}
+											<th class="text-center">
+												<p class="text-gray-800 uppercase tracking-wide text-sm py-4 font-bold">PVU HT</p>
+											</th>
+											<th class="text-center">
+												<p class="text-gray-800 uppercase tracking-wide text-sm font-bold">P.FR</p>
+											</th>
+											<th class="text-center">
+												<p class="text-gray-800 uppercase tracking-wide text-sm font-bold">TAX</p>
+											</th>
+										{% endif %}
+										<th class="text-center">
+											<p class="text-gray-800 uppercase tracking-wide text-sm font-bold">PVU HT</p>
+										</th>
+										<th class="text-center">
+											<p class="text-gray-800 uppercase tracking-wide text-sm font-bold">PVU TTC</p>
+										</th>
+										<th class="text-center">
+											<p class="text-gray-800 uppercase tracking-wide text-sm py-4 font-bold">Quantité</p>
+										</th>
+										<th class="text-center">
+											<p class="text-gray-800 uppercase tracking-wide text-sm font-bold">Total HT</p>
+										</th>
+										<th class="text-center">
+											<p class="text-gray-800 uppercase tracking-wide text-sm font-bold">Total TTC</p>
+										</th>
+										<th class="px-1 text-center"></th>
+									</tr>
+								</thead>
+								<tbody >
+								  <template x-for="invoice in items" :key="invoice.id">
+									<tr class=" -mx-1 py-2 border-b">
+										<td class="px-1 text-center">
+											<p class="text-gray-800" x-text="invoice.ref"></p>
+										</td>
+										<td class="px-1 text-center">
+											<p class="text-gray-800" x-text="invoice.name"></p>
+										</td>
+										{% if request.session.role == "manager" %}
+											<td class="px-1 text-center">
+												<p class="text-gray-800" x-text="numberFormat(invoice.rate)"></p>
+											</td>
+											<td class="px-1 text-center">
+												<p class="text-gray-800" x-text="numberFormat(invoice.livraison_prix)"></p>
+											</td>
+											<td class="px-1 text-center">
+												<p class="text-gray-800" x-text="numberFormat(invoice.tax)"></p>
+											</td>
+										{% endif %}
+										<td class="px-1 text-center">
+											<p class="text-gray-800" x-text="numberFormat(invoice.rateLiv)"></p>
+										</td>
+										<td class="px-1 text-center">
+											<p class="text-gray-800" x-text="numberFormat(invoice.rateLiv * 1.19)"></p>
+										</td>
+										<td class="px-1 text-center">
+											<p class="text-gray-800" x-text="invoice.qty"></p>
+										</td>
+										<td class="px-1 text-center">
+											<p class="text-gray-800" x-text="numberFormat(invoice.totalLiv )"></p>
+										</td>
+										<td class="px-1 text-center">
+											<p class="text-gray-800" x-text="numberFormat(invoice.totalLiv * 1.19)"></p>
+										</td>
+										<td class="text-center flex items-center">
+											<a href="#" class="text-green-950 text-sm font-semibold" @click.prevent="editItem(invoice)">{% heroicon_mini "pencil-square" class="transition-transform" %}</a>
+											<input type="checkbox" x-model="invoice.selected" class="mr-2" />
+										</td>
+									</tr>
+								  </template>
+								</tbody>
+							</table>
+							<div class="flex justify-between ">
+								<div></div>
+								<button @click="deleteSelectedItems" class="text-red-500 hover:text-red-700 px-4 py-2 rounded-md" x-show="items.length > 0">
+									{% heroicon_mini "trash" %}
+								</button>
+							</div>
+							<button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" x-on:click="showModal">
+								Ajouter des produits
+							</button>
+					  </div>
+						  <div x-show="tab === 2">
+							  <div class="flex flex-wrap justify-between mb-8 py-4">
+							   <div class="w-full md:w-1/3 mb-2 md:mb-0">
+								   <div class="mb-4">
+									   <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+										   Mode de Réglement:
+									   </label>
+									   <select
+										  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+										  id="modReg"
+										  name="modReg"
+										  x-on:change="
+								  			ModeReglement = $event.target.selectedOptions[0].value;                     
+								  			showBanque = $event.target.value == 2;
+										  "
+										  required  
+									   >
+									   <option value=""selected > Aucun </option>
+									   {% for mode in modeReg %}
+										  <option value="{{ mode.id }}" >
+											  {{ mode.label }} 
+										  </option>
+										  {% endfor %}
+									   </select>
+								   </div>
+								   <div class="mb-4">
+									  <div x-show="showBanque">
+									  <!-- Show this div when 'cheque' is selected -->
+									  <div class="mb-4">
+									   <label class="block text-gray-700 font-semibold mb-2" for="banque">
+										   Banque :
+									   </label>
+									   <select
+										  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+										  id="banque"
+										  name="banque"														
+										  required  
+										  x-on:change ="banque = $event.target.selectedOptions[0].value;"
+										  >
+										  <option value="" disabled selected> Selectionnez  Banque</option>
+										  {% for banque in banques  %}
+											  <option value="{{banque.pk}}"> {{banque.nom}} </option>
+										  {% endfor %}
+									   </select>
+									</div>
+									  <label for="chequeInput" class="block font-bold mt-4"> Cheque Number: </label>
+									  <input
+											  type="text"
+											  id="chequeInput"
+											  name="chequeInput"
+											  x-model="numCheque"
+											  class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+									  >
+									  </div>
+								  </div>
+								   <div class="mb-4">
+									   <label class="block text-gray-700 font-semibold mb-2" for="echReg">
+										   Echéance de Réglement	:
+									   </label>
+									   <select
+										  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+										  id="echReg"
+										  name="echReg"
+										  x-on:change="
+											echeance = $event.target.value
+										  "
+										  required  
+									   >
+									   <option value="null" disabled selected>Aucun</option>
+									   {% for ech in echeances %}
+										  <option value="{{ ech.id }}">
+											  {{ ech.label }} 
+										  </option>
+										  {% endfor %}
+									   </select>
+								   </div>
+								   <label class="block text-gray-700 font-semibold mb-2" for="remise">
+									   Remise	:
+								   </label>
+								   <div class="flex space-x-4 mb-4">
+									   <select
+										  class="border rounded w-full  px-3 text-gray-700  focus:outline-none focus:shadow-outline"
+										  id="echReg"
+										  name="echReg"
+										  required  
+									   >
+									   <option value="" disabled selected>Aucune</option>
+									   <option value="val" >Valeur</option>
+									   <option value="per" >Pourcentage (%)</option>						
+									   </select>
+									   <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white " id="remise" type="text" >
+								   </div>
+								   
+								   <div class="mb-4">
+									   <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="inline-full-name" type="text" placeholder="Additional info" x-model="billing.extra">
+								   </div>
+								   {% comment %} <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="client-address" type="text" placeholder="Adresse de client" x-model="billing.address">
+								   <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="client-phone" type="text" placeholder="Numéro de téléphone" x-model="billing.phone"> {% endcomment %}			   
+							   </div>	
+							  </div>
+						   
+						  </div>
+					   </div> 
+			       </div> 
+				 
+								
+				   <div class="py-2 ml-auto mt-5 w-full border-t">
+					<div class="border-b bg-gray-100 p-2 mb-2">
+					  {% if request.session.role == "manager" %}
+						   <div class="flex justify-between mb-3">
+							   <div class="text-gray-800 text-right flex-1">Total HT [Sans Livraison]</div>
+							   <div class="text-right w-40">
+								   <div class="text-gray-800 font-medium" x-html="numberFormat(netTotal)"></div>
+							   </div>
+						   </div>
+						   <div class="flex justify-between mb-3">
+								<div class="text-gray-800 text-right flex-1">Total TTC [Sans Livraison]</div>
+								<div class="text-right w-40">
+									<div class="text-gray-800 font-medium" x-html="numberFormat(TotalPay)"></div>
+								</div>
+						   </div>
+						   <div class="flex justify-between mb-4">
+							   <div class="text-sm text-gray-600 text-right flex-1">Frais Livraison [ INTERNE ]</div>
+							   <div class="text-right w-40">
+								   <div class="text-sm text-gray-600" x-html="numberFormat(fraisLivraison)"></div>
+							   </div>
+						   </div> 
+						   <div class="flex justify-between mb-4">
+								<div class="text-sm text-gray-600 text-right flex-1">TAX</div>
+								<div class="text-right w-40">
+									<div class="text-sm text-gray-600" x-html="numberFormat(tax)"></div>
+								</div>
+							</div> 
+					   {% endif %}
+					 </div>
+					 <div class="flex justify-between mb-3">
+						   <div class="text-gray-800 text-right flex-1">Total HT</div>
+						 <div class="text-right w-40">
+							 <div class="text-gray-800 font-medium" x-html="numberFormat(netTotalLiv)"></div>
+						 </div>
+					 </div>
+   
+					 <div class="flex justify-between mb-3">
+						   <div class="text-gray-800 text-right flex-1">Total TTC</div>
+						 <div class="text-right w-40">
+							 <div class="text-gray-800 font-medium" x-html="numberFormat(TotalPayLiv)"></div>
+						 </div>
+					 </div>
+				 
+					 <div class="py-2 border-t border-b">
+						 <div class="flex justify-between">
+							 <div class="text-xl text-gray-600 text-right flex-1">Net À Payer</div>
+							 <div class="text-right w-40">
+								 <div class="text-xl text-gray-800 font-bold" x-html="numberFormat(TotalPayTotal())"></div>
+							 </div>
+						 </div>
+					 </div>
+   
+					 <div class="flex justify-between">
+						 <div></div>
+						 <button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" type="submit" x-on:click="validateBon">Valider le Bon & imprimer</button>
+					 </div>
+				  </div>
+								
+
+							
+						
+								<!-- Modal -->
+								<div style=" background-color: rgba(0, 0, 0, 0.8)" class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full" x-show.transition.opacity="openModal">
+									<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-24">
+										<div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+											x-on:click="openModal = !openModal">
+											<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+												<path
+													d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+											</svg>
+										</div>
+										<form action="" id="myForm">
+											<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+												<h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter des produits au bon</h2>
+												<div class="mb-4 w-full ">			
+													<label class="block text-gray-700 font-semibold mb-2" for="price">
+														Produit :
+													</label>
+													<div class="relative">
+														<input type="hidden" :value="selected.value">
+														<input type="text" x-model="search" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline bg-gray-50 text-gray-600 font-medium"
+															placeholder="Cliquer pour rechercher ..." @click="optionsVisible = !optionsVisible">
+														<div class="absolute bg-white shadow-lg w-full overflow-y-scroll z-40" style="max-height:200px;" x-show="optionsVisible">
+															<template x-for="option in filteredProducts()">
+																<a class="cursor-pointer border-b py-2 px-2 text-left hover:bg-gray-100" 
+																	@click.prevent="
+																		item.ref = option.ref;
+																		item.name = option.name;
+																		showQuantity = true;
+																		availableQuantity = option.qty;
+																		item.rate = (parseFloat(option.prix)).toFixed(2);
+																		item.livraison_prix = option.livraison_prix;
+																		item.tax = option.tax;
+																		item.rateLiv = (parseFloat(option.prix) + parseFloat(option.tax)+ parseFloat(option.livraison_prix)).toFixed(2);
+																		item.ent = option.ent;
+																		selectedProduct = option;
+																		optionsVisible = false;
+																		search='';
+																	"
+																	x-text="option.name"
+																	style="display: block;"></a>
+															</template>
+														</div>
+														
+													</div>
+																									<select
+						 							class="appearance-none border rounded w-full py-2 mb-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						 							id="entrepot"
+						 							name="entrepot"
+													x-model="item.ref"
+													required  
+													disabled
+					 							 	>
+													<template x-for="produit in stocks">
+														<option :value="produit.ref" x-text="produit.name">
+						 								</option>
+													</template>													
+					  						    </select>	
+												</div>
+
+										
+
+												<div class="mb-4">
+													<label class="block text-gray-700 font-semibold mb-2" for="quantity">
+														Quantity:
+														<div class="mb-4" id="productQuantityDiv" style="display: none;" x-show="showQuantity">
+														<label class="block text-primary font-medium text-sm mb-2">
+															Available Quantity: <span id="productQuantity" x-text="availableQuantity"></span>
+														</label>
+														</div>
+													</label>
+												</div>					
+												<div class="flex">
+														<div class="mb-4 w-32 mr-2">
+															<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Quantité</label>
+															<input class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" x-model="item.qty">
+														</div>
+											
+														<div class="mb-4 w-32 mr-2">
+															<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">PVU HT</label>
+															<input class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" x-model="item.rateLiv" disabled>
+														</div>
+								
+														<div class="mb-4 w-32">
+															<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">TOtal HT</label>
+															<input class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" x-model="item.total = item.qty * item.rateLiv" disabled>
+														</div>
+												</div>
+												
+												<div class="mt-8 text-right">
+														<button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="openModal = !openModal">
+															Cancel
+														</button>	
+														<button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" @click="addItem()">
+															Ajouter Produit
+														</button>	
+												</div>
+											  </div> 
+											</div>
+										</form>
+									</div>
+								</div>
+								<!-- /Modal -->
+
+								<!-- Modal Creation Client -->
+								<div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="ClientOpen">
+									<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-0 md:mt-12">
+									<div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+										x-on:click="ClientOpen = false">
+										<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+										<path
+											d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+										</svg>
+									</div>
+									<form action="" id="myForm">
+										<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+										<h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter Client</h2>
+											<div class="form-input">
+											<div class="mb-4">
+												<label class="block text-gray-700 font-semibold mb-2" for="name">
+												Nom Client :
+												</label>
+												<input
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												type="text"
+												id="name"
+												name="name"
+												placeholder=" Nom du client . . . "
+												>
+											</div>
+											<div class="mb-4">
+												<label class="block text-gray-700 font-semibold mb-2" for="address">
+												Adresse Client :
+												</label>
+												<input
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												type="text"
+												id="address"
+												name="address"
+												placeholder=" Addresse du client. . . "
+												>
+											</div>
+											<div class="mb-4">
+												<label class="block text-gray-700 font-semibold mb-2" for="phone">
+												Numéro de téléphone :
+												</label>
+												<input
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												type="text"
+												id="phone"
+												name="phone"
+												placeholder="Numéro de téléphone du client . . ."
+												>
+											</div>         			
+											<div class="mb-4">
+												<label class="block text-gray-700 font-semibold mb-2" for="catclient">
+												Catégorie de client :
+												</label>
+												<select
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												id="catclient"
+												name="catclient"						
+												required  
+											>
+												<option value="" disabled selected>Catégories de client</option>
+												<option value="null"> Aucun </option>
+													{% for type in types_clients  %}
+														<option value="{{type.id}}"> {{type.type_desc}} </option>             
+													{% endfor %}		
+											</select>
+											</div>
+											</div>
+											<div class="mt-8 text-right">
+											<button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="ClientOpen = false">
+											Cancel
+											</button>	
+											<button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" @click="addClient()">
+											Ajouter Client
+											</button>	
+											</div>
+										</div> 
+									</form>
+									</div>
+									</div>  
+								</div>
+								<!-- end Modal Creation Client -->
+
+							<script src="https://cdn.jsdelivr.net/npm/number-to-words"></script>
+							<script>
+								window.addEventListener('DOMContentLoaded', function() {
+									// Get the product dropdown element, quantity input element, and price input element
+							     const productDropdown = document.getElementById('product');
+								 const quantityInput = document.getElementById('quantity');
+							     const priceInput = document.getElementById('price');
+							
+									// Event listener for when the selected product changes
+								 productDropdown.addEventListener('change', (event) => {			
+								 const availableQuantity = selectedProductOption.dataset.quantity;
+								 productQuantityDiv.style.display = 'block';
+								 productQuantity.textContent = availableQuantity; 					
+							    });
+						        });
+						
+								function entries() {
+									return {
+										items: [],
+										invoiceNumber: 0,
+										invoiceDate:  new Date().toISOString().slice(0, 10),
+                      		 			invoiceDueDate: new Date().toISOString().slice(0, 10),
+										availableQuantity:0,	
+		                				clientsVariants:[],
+									  	clients:[],
+										stocks:[],
+										tax:0,
+										ClientOpen:false,
+										totalGST: 0,
+					  					netTotal: 0,
+					  					TotalRemise :0,
+					  					TotalPay:0,
+										netTotalLetters:'',
+										openModal: false,
+										filter: '',
+										show: false,
+										selected: null,
+										product:'',
+										focusedOptionIndex: null,
+										options: [],
+							      		clientVar: {
+											type_client:'',
+											price:'',
+										},
+
+										item:{
+											id: '',
+											name: '',
+											ref:'',
+											fournisseur:'',
+											qty: 0,
+											rate: 0,
+											total: 0,														
+										},
+
+										deleteSelectedItems(){
+											this.items = this.items.filter(invoice => !invoice.selected);
+											const sumPrixLivraison = this.items.reduce((total, item) => total + item.livraison_prix, 0);
+											const sumTax = this.items.reduce((total, item) => total + item.tax, 0);
+											this.tax = sumTax;
+											// Assign the sum to this.fraislivraison
+											this.fraisLivraison = sumPrixLivraison;
+											this.itemTotal();
+											this.itemTotalGST();
+											this.itemTotalLiv();
+											this.itemTotalGSTLiv();
+
+											const netTotal = parseFloat(this.netTotal.replace(/[^\d.,]/g, "").replace(",", "."));
+											const totalGST = parseFloat(this.totalGST.replace(/[^\d.,]/g, "").replace(",", "."));
+											const netTotalLiv = parseFloat(this.netTotalLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+											const totalGSTLiv = parseFloat(this.totalGSTLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+
+											
+											this.TotalPay = netTotal * 1.19;
+											this.TotalPayLiv = netTotalLiv * 1.19;
+											this.totalGST = netTotal * 0.19;
+											this.totalGSTLiv = netTotalLiv * 0.19;
+										},
+
+										editItem(invoiceData) {				
+											this.item = {
+												id: invoiceData.id,
+												name: invoiceData.name,
+												ref: invoiceData.ref,
+												tva:invoiceData.tva,
+												qty: invoiceData.qty,
+												rateLiv: invoiceData.rateLiv,
+											};
+											console.log(this.item)
+											// Open the modal
+											this.openModal = true;
+										},
+
+										addClient(){
+											 const catclient=   document.getElementById('catclient').value
+												if (!catclient){
+													alert('veuillez specifier la categorie du client');
+													return;
+												}
+												const nameclient = document.getElementById('name').value;
+												const existingClient = this.options.find(item => item.name === nameclient);
+												if (existingClient) {
+													alert('Il existe déjà un client avec le même Nom!');
+													return;
+												}
+											form =document.getElementById('myForm')
+											const formData = new FormData(form);
+												// Send the data to Django using Axios
+												dataObj={
+													nomClient : document.getElementById('name').value,
+													adresse: document.getElementById('address').value,
+													phone:  document.getElementById('phone').value,              					
+													catclient:  document.getElementById('catclient').value,
+												}
+												axios.post('ajouterClient/', dataObj, {
+													headers: {
+														'Content-Type': '',
+														'X-CSRFToken': getCookie('csrftoken'),
+														}
+													})
+												.then((response) => {
+													console.log(response.data.produits) 
+													client_info = {					   								
+															name: document.getElementById('name').value,
+															address: document.getElementById('address').value,
+															phone: document.getElementById('phone').value,  							
+													}
+													this.options.push(client_info)
+													this.filter =client_info.name
+												})
+												.catch((error) => {
+													alert(error)
+												});								
+										},
+
+										optionsVisible: false,
+										search: "",
+										filteredProducts() {
+											console.log(this.stocks)
+											return this.stocks.filter((option) => {
+												return (option.name.toLowerCase().includes(this.search.toLowerCase()));
+											});
+										},
+
+										initData() {
+											this.invoiceNumber = '{{code}}';
+											clientsData={{ clients|safe }}				
+					   						for (const client of clientsData) {					  
+					    						const client_info = {					   								
+						   							name: client.client_name,
+						   							address: client.client_address,
+						   							phone: client.client_phone,			
+													client_type:client.client_type,			
+												};
+					    						this.clients.push(client_info);
+					   						}
+
+											
+										},	
+
+										billing: {
+											name: '',
+											address: '',
+											extra: '',
+											phone:''
+										},
+									  	
+										close() { 
+											this.show = false;
+											this.filter = this.selectedName();
+											this.billing.name = this.selectedName();
+											this.focusedOptionIndex = this.selected ? this.focusedOptionIndex : null;
+										},
+										open() { 
+											this.show = true; 
+											this.filter = '';
+										},
+										toggle() { 
+											if (this.show) {
+												this.close();
+											}
+											else {
+												this.open()
+											}
+										},
+										isOpen() { return this.show === true },
+										selectedName() { return this.selected ? this.selected.name : this.filter; },
+										fetchOptions() {
+																		
+																		
+																},
+										filteredOptions() {
+												return this.options
+													? this.options.filter(option => {
+														return (option.name.toLowerCase().indexOf(this.filter.toLowerCase()) > -1) 
+															|| (option.address.toLowerCase().indexOf(this.filter.toLowerCase()) > -1)
+															|| (option.phone.toLowerCase().indexOf(this.filter.toLowerCase()) > -1)
+														})
+														: {}
+										},
+										onOptionClick(index) {
+												this.focusedOptionIndex = index;
+												this.selectOption();
+										},
+										onProductClick(index) {
+												this.focusedOptionIndex = index;
+												this.selectProduct();
+										},	
+										selectOption() {
+											if (!this.isOpen()) {
+												return;
+											}
+											this.focusedOptionIndex = this.focusedOptionIndex ?? 0;
+												const selected = this.filteredOptions()[this.focusedOptionIndex]
+												if (this.selected && this.selected.name == selected.name) {
+														this.filter = '';
+														this.selected = null;
+												}
+												else {
+												this.selected = selected;
+													this.filter = this.selectedName();
+												}
+												this.close();
+										},
+						
+										showTooltip: false,
+										showTooltip2: false,
+										openModal: false,
+										showQuantity:false,
+										netTotal: 0,
+										TotalRemise :0,
+										TotalPay:0,
+										TotalPayLiv:0,
+										fraisLivraison:0,
+										netTotalLiv :0,
+										totalGSTLiv:0,
+										TotalPayTotal(){
+											const totalPayLiv = parseFloat(this.TotalPayLiv) || 0;
+											const fraisLivraisonExt = parseFloat(this.fraisLivraisonExt) || 0;
+											const totalRemise = parseFloat(this.TotalRemise) || 0;
+					
+											// Perform the calculation
+											const result = parseFloat((totalPayLiv + fraisLivraisonExt) - totalRemise);
+					
+											return result;
+										},
+										showModal(){
+											document.getElementById('myForm').reset(); 										
+											this.openModal =true;
+										},
+						
+										addItem() {
+											// Check if the item already exists in the items array
+											const existingItemIndex = this.items.findIndex(item => item.ref === this.item.ref);
+
+											if (existingItemIndex !== -1) {
+												// Update the quantity of the existing item
+												const existingItem = this.items[existingItemIndex];
+												const taux_liv = existingItem.livraison_prix / existingItem.qty
+												
+												existingItem.qty = this.item.qty;
+												existingItem.livraison_prix = taux_liv * parseFloat(this.item.qty);
+												existingItem.tax = taux_liv * parseFloat(this.item.qty);
+												existingItem.total =  parseFloat(this.item.qty) * parseFloat(existingItem.rate);
+												existingItem.totalLiv =  parseFloat(this.item.qty) * parseFloat(existingItem.rateLiv);
+										
+											} else {
+												// Add a new item to the items array
+												this.items.push({
+													id: this.generateUUID(),
+													name: this.item.name,
+													ref: this.item.ref,
+													qty: this.item.qty,
+													ent: this.item.ent,
+													rate: this.item.rate,
+													tax:this.item.tax,
+													rateLiv: this.item.rateLiv,
+													tva: 19,
+													gst: this.calculateGST(19, parseFloat(this.item.rate)),
+													gstLiv: this.calculateGST(19, parseFloat(this.item.rateLiv)),
+													livraison_prix: this.item.livraison_prix * this.item.qty,
+													total: this.item.qty * this.item.rate,
+													totalLiv: this.item.qty * this.item.rateLiv
+												});
+											}
+											  
+											this.itemTotal();
+											this.itemTotalGST();
+											this.itemTotalLiv();
+											this.itemTotalGSTLiv();
+					
+											const netTotal = parseFloat(this.netTotal.replace(/[^\d.,]/g, "").replace(",", "."));
+											const totalGST = parseFloat(this.totalGST.replace(/[^\d.,]/g, "").replace(",", "."));
+											const netTotalLiv = parseFloat(this.netTotalLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+											const totalGSTLiv = parseFloat(this.totalGSTLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+					
+											const sumPrixLivraison = this.items.reduce((total, item) => total + item.livraison_prix, 0);
+											const sumTax = this.items.reduce((total, item) => total + item.tax, 0);
+											this.tax = sumTax;
+											// Assign the sum to this.fraislivraison
+											this.fraisLivraison = sumPrixLivraison;
+											this.TotalPay = netTotal + totalGST;
+											this.TotalPayLiv = netTotalLiv + totalGSTLiv;
+					
+											this.item.id = '';
+											this.item.name = '';
+											this.item.ref = '';
+											this.item.qty = 0;
+											this.item.rate = 0;
+											this.item.rateLiv =0;
+											this.item.livraison_prix =0;
+											this.item.totalLiv = 0;
+											this.item.gst = 0;
+											this.item.total = 0;
+											document.getElementById('myForm').reset(); 
+											this.showQuantity = false; 
+										
+										 },
+						  
+										
+										
+										
+										clientType:'',
+										
+										fetchPrice(product){
+											this.stocks=[]
+                      						console.log(product);
+											dataObj ={
+												clientType : this.clientType,
+											}
+											axios.post('fetchPrice/', dataObj, {
+													headers: {
+														'Content-Type': '',
+														'X-CSRFToken': getCookie('csrftoken'),
+													}
+												})
+												.then((response) => {
+													itemsData = response.data.price_variants;
+													for (const itemData of itemsData) {							 
+														const item = {
+															id: this.generateUUID(),
+															name: itemData.name,
+															ref: itemData.reference,
+															qty: itemData.quantity,
+															prix: itemData.price,	
+															tax: itemData.tax,													
+															livraison_prix: itemData.prix_livraison,
+															rateLiv: parseFloat(itemData.price) +  parseFloat(itemData.prix_livraison) +  parseFloat(itemData.tax)
+														};											
+														this.stocks.push(item);	
+													}			 				
+												})
+												.catch((error) => {
+													console.log(error)
+												});
+										},
+						
+										deleteItem(uuid) {
+											this.items = this.items.filter(item => uuid !== item.id);
+						
+											this.itemTotal();
+										  this.itemTotalLetter();
+										},
+						
+										itemTotal() {
+											this.netTotal = this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+												return result + item.total;
+											}, 0) : 0);
+										},
+				  
+										itemTotalLiv() {
+											this.netTotalLiv = this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+												return result + item.totalLiv;
+											}, 0) : 0);
+										},
+						
+										itemTotalGST() {
+											this.totalGST =  this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+												return result + (item.gst * item.qty);
+											}, 0) : 0);
+										},
+										itemTotalGSTLiv() {
+											this.totalGSTLiv =  this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+												return result + (item.gstLiv * item.qty);
+											}, 0) : 0);
+										},
+						
+										calculateGST(GSTPercentage, itemRate) {	
+						  					return this.numberFormat((itemRate * GSTPercentage/100).toFixed(2));
+					  					},
+						
+										generateUUID() {
+											return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+												var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+												return v.toString(16);
+											});
+										},
+						
+										generateInvoiceNumber(minimum, maximum) {
+											const randomNumber = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+											this.invoiceNumber = '#BD-'+ randomNumber;
+										},
+						
+										numberFormat(amount) {
+											return amount.toLocaleString("fr-FR", {
+												style: "currency",
+												currency: "DZD"
+											});
+										},
+						
+										printInvoice() {
+											var printContents = this.$refs.printTemplate.innerHTML;
+											var originalContents = document.body.innerHTML;
+											document.body.innerHTML = printContents;
+											window.print();
+											window.location.reload();
+											console.log(originalContents)
+											document.body.innerHTML = originalContents;
+						
+											this.items=[];
+										},
+										validateBon(){	
+											if(this.billing.name ==""){
+												alert("Veuillez Ajouter Un client!");
+												return;
+											}									
+											if(this.items.length == 0){
+												alert("Veuillez Ajouter Aumoins un produit au bon!");
+												return;
+											}									
+											const numericNetTotal = parseFloat(this.netTotal.replace(/\s/g, '').replace(',', '.'));
+											const dataObj = {
+												IdBon : this.invoiceNumber,
+												dateBp:this.invoiceDate,
+												FournisseurInfo:this.billing,
+												total:numericNetTotal,
+												clientInfo:this.billing,
+												produits:this.items,
+												
+											};
+											axios.post('', {
+													formData: dataObj
+												}, {
+													headers: {
+														'Content-Type': '',
+														'X-CSRFToken': getCookie('csrftoken'),
+													}
+												})
+												.then((response) => {
+													this.invoiceNumber = response.data.code;
+													alert(response.data.message)							
+												})
+												.catch((error) => {
+													alert(error)
+												});
+												
+										},
+										
+									}
+								}
+								function getCookie(name) {
+									var cookieValue = null;
+									if (document.cookie && document.cookie !== '') {
+										var cookies = document.cookie.split(';');
+										for (var i = 0; i < cookies.length; i++) {
+											var cookie = cookies[i].trim();
+											// Does this cookie string begin with the name we want?
+											if (cookie.substring(0, name.length + 1) === (name + '=')) {
+												cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+												break;
+											}
+										}
+									}
+									return cookieValue;
+								}
+							</script>
+				</body>           
+			</div>
+		</div>
+	   </div>
+	   </div>
+{% endblock content %}

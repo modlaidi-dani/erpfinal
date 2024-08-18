@@ -1,0 +1,1310 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="vente" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_ventes.html" %}
+  <div class="h-full w-full">
+	<main class="block w-full h-full px-2 " x-data=" billscompt()" x-init="init()">
+		<div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row py-2"  >                                                                                                                                                    
+			 <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des Bons du Livraison Cartons</h1>         
+		</div>
+		<div class="flex flex-wrap justify-start border-b  py-2">
+		   <div class="flex flex-wrap justify-start space-x-2 border-r  px-2 py-2">
+		   	<div class=" py-2 ">
+				<input type="search" x-model="search" class="form-input rounded-md bg-gray-50 text-sm text-black  h-10 py-2 pl-4 border-transparent border-none outline-none focus:ring-0 focus:text-black transition-all duration-300 ease-in-out focus:w-72 w-60"
+					placeholder="Rechercher...">
+			</div>
+			{% if request.session.role == "manager" or  request.session.role == "DIRECTEUR EXECUTIF" %}
+			<div class="py-2">
+				<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+				x-model="selectedFamily">
+				<option value="">Tous les entrepôts</option>
+				{% for ent in entrepots%}
+				<option value="{{ ent.name }}">{{ ent.name }}</option>
+				{% endfor %}
+				</select>
+			</div>
+			<div class="py-2">
+				<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+					x-model="prepared">
+					<option value="">Préparation</option>
+					<option value="prep-nonliv">En attente de Livraison</option>
+					<option value="attente-prep">En attente de Préparation</option>
+					<option value="liv-nonprep">Problème de Garantie ( livré sans garantie )</option>
+					<option value="livre">Préparé et Livré</option>
+				</select>
+			</div>
+			<div class="py-2">
+				<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+				x-model="selectedFournisseur">
+				<option value="">Tous les utilisateurs</option>
+				{% for user in users %}
+				<option value="{{ user.username }}">{{ user.username }}</option>
+				{% endfor %}
+				</select>
+			</div>
+			{% endif %}
+		  </div>
+		  <div class="flex justify-start space-x-3 px-4 ">
+				<div class="flex items-center space-x-2">
+					<label for="startDate" class="text-sm">Date début:</label>
+					<input type="date" x-model="datedeb" id="startDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				</div>
+				<div class="flex items-center space-x-2">
+					<label for="endDate" class="text-sm">Date Fin:</label>
+					<input type="date" x-model="datefin" id="endDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				</div>
+   		 </div>
+		</div>
+		<div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b px-2">  
+		  <div> 
+                <div class="relative mr-4 inline-block">
+					<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip1 = true" @mouseleave="showTooltip1 = false" @click="exportExcelDiva">
+						<svg id='file-spreadsheet_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                            <g transform="matrix(1 0 0 1 12 12)" >
+                            <g style="" >
+                            <g transform="matrix(1 0 0 1 0 0)" >
+                            <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 4 -7)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-16.5, -5.5)" d="M 14 3 L 14 7 C 14 7.552284749830793 14.447715250169207 8 15 8 L 19 8" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -0.5 -0.5)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 17 21 L 7 21 C 5.8954305003384135 21 5 20.104569499661586 5 19 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 14 3 L 19 8 L 19 19 C 19 20.104569499661586 18.104569499661586 21 17 21 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -0.5 2)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -14.5)" d="M 8 11 L 16 11 L 16 18 L 8 18 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -0.5 2.5)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -15)" d="M 8 15 L 16 15" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -1.5 2)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-11, -14.5)" d="M 11 11 L 11 18" stroke-linecap="round" />
+                            </g>
+                            </g>
+                            </g>
+                        </svg>			  
+					</div>
+					<div x-show.transition="showTooltip1" class="z-40 shadow-lg text-center w-32 block absolute left-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+						Exporter Ficher Liste BLs !
+					</div>
+				</div>      
+		  </div>  
+		  <div class="inline-block px-4  text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+				<a href="{% url 'new-sell-diva-carton' %}">Créer nouveau bon de livraison Carton</a>
+		  </div>
+		</div>  
+		<div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b px-2">
+    		     <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+    				<thead class="bg-gray-50">
+    				<tr>
+    					<th
+    					scope="col"
+    					class="px-6 py-3 border-r text-sm font-bold tracking-wider text-center text-red-500 uppercase"
+    					>
+    					Montant Total Des Bons
+    					</th>
+    				</tr>
+    				</thead>
+    				<tbody class="bg-white divide-y divide-red-200">
+    					<tr class="transition-all bg-gray-100"
+    					>
+    					<td class="px-6 py-4 border-r text-center whitespace-nowrap">
+    						<span class="inline-flex px-2 text-lg  text-red-500 tracking-wide font-semibold leading-5 rounded-full" x-text="SumTotalMontant() +' DA'"></span>
+    					</td>
+    					</tr>            
+    				</tbody>
+    			</table>	
+    	</div>   
+		<div class="w-full  py-4 ">
+ <div class="">
+  <div class="bg-gray-50">
+    <div class="grid  {% if request.session.store == '1' %} grid-cols-8 {% else %} grid-cols-7 {% endif %}">
+      <div class="px-6 py-3 text-sm text-center font-medium text-gray-500 uppercase">IDBON</div>
+      <div class="px-6 py-3 text-sm  text-center font-medium text-gray-500 uppercase">Date Bon</div>
+      <div class="px-6 py-3 text-sm text-center font-medium text-gray-500 uppercase">Entrepot du Bon</div>
+      <div class="px-6 py-3 text-sm text-center font-medium text-gray-500 uppercase">Client</div>
+      <div class="px-6 py-3 text-sm text-center font-medium text-gray-500 uppercase">Agence de Livraison</div>
+      <div class="px-6 py-3 text-sm text-center font-medium text-gray-500 uppercase">CRÉER PAR</div>
+	  {% if request.session.store == "1" %}
+	  	<div class="px-6 py-3 text-sm text-center font-medium text-gray-500 uppercase">Etat de Validation</div>
+      {% endif %}
+      <div class="px-6 py-3"></div>
+    </div>
+  </div>
+  <div class="bg-white divide-y divide-gray-200">
+    <template x-for="product in filteredAndPaginatedProducts">
+      <div class="transition-all hover:shadow-lg" x-show="productMatches(search, product.priceachat, product.reference)">
+        <div class="grid  {% if request.session.store == '1' %} grid-cols-8 {% else %} grid-cols-7 {% endif %}">
+          <div class="px-6 py-2 text-center items-center flex">
+		     {% if request.session.role == "manager" %}
+		    	<input class=" border-l-0 border-r-0 text-sm whitespace-nowrap" type="checkbox" :value="product.reference" x-model="selectedItems" id="target-row">
+             {% endif %}
+             		<div  class="inline-flex px-2  text-sm font-semibold leading-5" x-text="product.reference"></div>
+					 <div class="relative inline-block "  x-data="{showTooltip :false}">
+						<button class="cursor-pointer rounded-full  inline-flex items-center justify-center"
+							:class="{
+								'text-green-500': product.confirmed,
+								
+								'text-red-500': !product.confirmed
+							}"
+							:disabled= product.confirmed
+							x-on:click= 'billId= product.id; selectedBL = product.reference; openModalConfirmation = true;' @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" 
+						>	
+							<span x-show="product.confirmed"><a :href="product.fichierConfirm"  target="_blank"><svg id='file-check_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+								<g transform="matrix(1 0 0 1 12 12)" >
+								<g style="" >
+								<g transform="matrix(1 0 0 1 0 0)" >
+								<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 4.25 -6.75)" >
+								<path style="stroke: rgb(108,203,27); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-16.5, -5.5)" d="M 14 3 L 14 7 C 14 7.552284749830793 14.447715250169207 8 15 8 L 19 8" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+								<path style="stroke: rgb(108,203,27); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 17 21 L 7 21 C 5.8954305003384135 21 5 20.104569499661586 5 19 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 14 3 L 19 8 L 19 19 C 19 20.104569499661586 18.104569499661586 21 17 21 z" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 -0.25 2.75)" >
+								<path style="stroke: rgb(108,203,27); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -15)" d="M 9 15 L 11 17 L 15 13" stroke-linecap="round" />
+								</g>
+								</g>
+								</g>
+								</svg></a>
+							</span>
+							<span x-show="!product.confirmed">
+								<svg id='file-x_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+									<g transform="matrix(1 0 0 1 12 12)" >
+									<g style="" >
+									<g transform="matrix(1 0 0 1 0 0)" >
+									<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+									</g>
+									<g transform="matrix(1 0 0 1 4.25 -6.75)" >
+									<path style="stroke: rgb(248,17,17); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-16.5, -5.5)" d="M 14 3 L 14 7 C 14 7.552284749830793 14.447715250169207 8 15 8 L 19 8" stroke-linecap="round" />
+									</g>
+									<g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+									<path style="stroke: rgb(248,17,17); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 17 21 L 7 21 C 5.8954305003384135 21 5 20.104569499661586 5 19 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 14 3 L 19 8 L 19 19 C 19 20.104569499661586 18.104569499661586 21 17 21 z" stroke-linecap="round" />
+									</g>
+									<g transform="matrix(1 0 0 1 -0.25 1.75)" >
+									<path style="stroke: rgb(248,17,17); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -14)" d="M 10 12 L 14 16 M 14 12 L 10 16" stroke-linecap="round" />
+									</g>
+									</g>
+									</g>
+								</svg>
+							</span>
+														
+						</button>
+						<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							<span x-show="!product.confirmed">Confirmer ce Bon!</span>
+						    <span x-show="product.confirmed">Bon Confirmé le <span x-text="product.dateconfirm"></span>! Cliquez Pour voir le document de confirmation</span>
+						</div>
+					</div>	
+             {% if request.session.store == "1" %}
+			        <template x-if="product.etat == 'attente-prep'">
+			 		  <div class="relative inline-block"  x-data="{showTooltip :false}">
+						<div class="cursor-pointer w-10 h-10 rounded-full  inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" >
+							<svg id='clock-hour-3_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+								<g transform="matrix(1 0 0 1 12 12)" >
+								<g style="" >
+								<g transform="matrix(1 0 0 1 0 0)" >
+								<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 0 0)" >
+								<circle style="stroke: rgb(199,154,123); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="9" />
+								</g>
+								<g transform="matrix(1 0 0 1 1.75 0)" >
+								<path style="stroke: rgb(199,154,123); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-13.75, -12)" d="M 12 12 L 15.5 12" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 0 -2.5)" >
+								<path style="stroke: rgb(199,154,123); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -9.5)" d="M 12 7 L 12 12" stroke-linecap="round" />
+								</g>
+								</g>
+								</g>
+							</svg>		  
+						</div>
+						<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							Cette Commande est en Attente de Préparation!
+						</div>
+					  </div>	
+					</template>	
+
+			        <template x-if="!product.livre && product.etat != 'attente-prep'">
+					   <div class="relative inline-block {% if request.session.username == 'younes' %} cursor-pointer {% endif %}" {% if request.session.username == 'younes' %} x-on:click="markLivre(product)" {% endif %} x-data="{showTooltip :false}" >
+						<div class="w-10 h-10 rounded-full  inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" >
+							<svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+								<g transform="matrix(0.83 0 0 0.83 12 12)" >
+								<g style="" >
+								<g transform="matrix(1 0 0 1 -5.25 -4.5)" >
+								<path style="stroke: rgb(255,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-6.75, -7.5)" d="M 0.75 7.5 C 0.75 10.813708498984761 3.4362915010152393 13.5 6.75 13.5 C 10.063708498984761 13.5 12.75 10.813708498984761 12.75 7.5 C 12.75 4.186291501015239 10.063708498984761 1.5 6.75 1.5 C 3.436291501015239 1.5 0.75 4.186291501015239 0.75 7.499999999999999 Z" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 -6.58 -5.83)" >
+								<path style="stroke: rgb(255,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-5.42, -6.17)" d="M 4.098 7.5 L 6.75 7.5 L 6.75 4.848" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 3.75 3.39)" >
+								<path style="stroke: rgb(255,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-15.75, -15.39)" d="M 14.25 12 L 15.75 12 C 16.57842712474619 12 17.25 12.67157287525381 17.25 13.5 L 17.25 18.788" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 -5.63 6.75)" >
+								<path style="stroke: rgb(255,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-6.38, -18.75)" d="M 7.5 21 L 6.75 21 C 5.92157287525381 21 5.25 20.32842712474619 5.25 19.5 L 5.25 16.5" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 8.25 5.25)" >
+								<path style="stroke: rgb(255,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-20.25, -17.25)" d="M 17.25 13.5 L 20.25 13.5 C 21.90685424949238 13.5 23.25 14.843145750507619 23.25 16.5 L 23.25 19.5 C 23.25 20.32842712474619 22.57842712474619 21 21.75 21 L 19.462 21" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 5.63 8.63)" >
+								<path style="stroke: rgb(255,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-17.63, -20.63)" d="M 15.75 20.625 C 15.75 21.660533905932738 16.589466094067262 22.5 17.625 22.5 C 18.660533905932738 22.5 19.5 21.660533905932738 19.5 20.625 C 19.5 19.589466094067262 18.660533905932738 18.75 17.625 18.75 C 16.589466094067262 18.75 15.75 19.589466094067262 15.75 20.625 Z" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 -2.63 8.63)" >
+								<path style="stroke: rgb(255,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-9.38, -20.63)" d="M 7.5 20.625 C 7.5 21.660533905932738 8.339466094067262 22.5 9.375 22.5 C 10.410533905932738 22.5 11.25 21.660533905932738 11.25 20.625 C 11.25 19.589466094067262 10.410533905932738 18.75 9.375 18.75 C 8.339466094067262 18.75 7.5 19.589466094067262 7.5 20.625 Z" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 1.52 9)" >
+								<path style="stroke: rgb(255,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-13.52, -21)" d="M 15.788 21 L 11.25 21" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 9.75 4.5)" >
+								<path style="stroke: rgb(255,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-21.75, -16.5)" d="M 23.25 16.5 L 20.25 16.5" stroke-linecap="round" />
+								</g>
+								</g>
+								</g>
+							</svg> 
+						</div>
+						<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							Cette Commande est Préparée et en Attente de Livraison!
+						</div>
+					   </div>
+					</template>
+
+			        <template x-if="product.etat == 'liv-nonprep'">
+					  <div class="relative inline-block"  x-data="{showTooltip :false}">
+						<div class="cursor-pointer w-10 h-10 rounded-full  inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" >
+							<svg id='alert-triangle-filled_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+								<g transform="matrix(1 0 0 1 12 12)" >
+								<g style="" >
+								<g transform="matrix(1 0 0 1 0 0)" >
+								<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 0.99 -0.02)" >
+								<path style="stroke: rgb(248,10,10); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: rgb(248,10,10); fill-rule: nonzero; opacity: 1;" transform=" translate(-11.99, -10.98)" d="M 11.99 1.968 C 13.013 1.968 13.96 2.489 14.502 3.327 L 14.605 3.499 L 21.705 15.749 L 21.767 15.875 C 22.126778012584975 16.76477399520306 22.03911929167173 17.772976268112938 21.531177024677014 18.587305829334607 C 21.023234757682296 19.401635390556276 20.156331714641464 19.92377999544972 19.198999999999998 19.992 L 18.999999999999996 20 L 4.9999999999999964 20 L 4.950999999999996 19.997 L 4.838999999999996 19.999 C 3.936990956274979 19.952580208807 3.103900208193235 19.502241030170218 2.5709999999999953 18.773 L 2.461999999999996 18.613 C 1.9797594239888405 17.85533360961547 1.8623378995585755 16.921465548131017 2.1419999999999964 16.067999999999998 L 2.2139999999999964 15.873999999999997 L 2.2739999999999965 15.748999999999997 L 9.365999999999996 3.5159999999999965 C 9.894260056516845 2.560910180529014 10.899553599547755 1.9680742168673597 11.990999999999996 1.9679999999999969 z M 12.01 14 L 11.883 14.007 C 11.37994910585601 14.066836384762196 11.001114351371877 14.493402926340394 11.001114351371877 15 C 11.001114351371877 15.506597073659606 11.37994910585601 15.933163615237804 11.883 15.993 L 12 16 L 12.127 15.993 C 12.63005089414399 15.933163615237804 13.008885648628123 15.506597073659607 13.008885648628123 15 C 13.008885648628123 14.493402926340394 12.63005089414399 14.066836384762196 12.127 14.007 L 12.01 14 z M 12 8 C 11.493025170398202 8.000066877953907 11.066316051168386 8.379507111871257 11.007 8.883 L 11 9 L 11 11 L 11.007 11.117 C 11.066836384762196 11.62005089414399 11.493402926340393 11.998885648628123 12 11.998885648628123 C 12.506597073659606 11.998885648628123 12.933163615237804 11.62005089414399 12.993 11.117 L 13 11 L 13 9 L 12.993 8.883 C 12.933683948831614 8.379507111871256 12.506974829601798 8.000066877953907 12 7.999999999999999 z" stroke-linecap="round" />
+								</g>
+								</g>
+								</g>
+							</svg>
+						</div>
+						<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							ERREUR! Livré sans Garantie
+						</div>
+					  </div>	
+					</template>	
+
+			        <template x-if="product.livre">
+					  <div class="relative inline-block {% if request.session.username == 'younes' %} cursor-pointer {% endif %}"  x-data="{showTooltip :false}" {% if request.session.username == 'younes' %} x-on:click="markLivre(product)" {% endif %}>
+						<div class="cursor-pointer w-10 h-10 rounded-full  inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" >
+							<svg id='circle-check_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+								<g transform="matrix(1 0 0 1 12 12)" >
+								<g style="" >
+								<g transform="matrix(1 0 0 1 0 0)" >
+								<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+								</g>
+								<g transform="matrix(1 0 0 1 0 0)" >
+								<circle style="stroke: rgb(73,191,30); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="9" />
+								</g>
+								<g transform="matrix(1 0 0 1 0 0)" >
+								<path style="stroke: rgb(73,191,30); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 9 12 L 11 14 L 15 10" stroke-linecap="round" />
+								</g>
+								</g>
+								</g>
+							</svg>
+						</div>
+						<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							Commande Livré
+						</div>
+					  </div>	
+					</template>	
+			 {% endif %}		
+          </div>
+          <div class=" py-2 text-center">
+            <div class="inline-flex text-sm  font-semibold leading-5" x-text="product.name"></div>
+          </div>
+		  <div class="px-6 py-2 text-center">
+            <div class="inline-flex px-2 text-sm  font-semibold leading-5" x-text="product.price"></div>
+          </div>
+          <div class=" flex items-center px-6 py-2 text-center">
+            <div class="inline-flex px-2 text-sm  font-semibold leading-5" x-text="product.priceachat"></div>
+            <template x-if="product.source == 'MARKETING'">
+                Client de la part Marketing
+    			  <div class="relative inline-block"  x-data="{showTooltip :false}">
+    				<div class="cursor-pointer w-10 h-10 rounded-full  inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" >
+    				    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><style>.cls-1{fill:#42a5f5}</style></defs><g id="Ads_Setting" data-name="Ads Setting">
+    				        <path class="cls-1" d="M48 27v-6l-4.62-1.85a19.53 19.53 0 0 0-2.25-5.43l2-4.57-4.28-4.24-4.57 2a19.53 19.53 0 0 0-5.43-2.25L27 0h-6l-1.85 4.62a19.53 
+    				        19.53 0 0 0-5.43 2.25l-4.57-2-4.24 4.28 2 4.57a19.53 19.53 0 0 0-2.25 5.43L0 21v6l4.62 1.85a19.53 19.53 0 0 0 2.25 5.43l-2 4.57 4.24 4.24 4.57-2a19.53 19.53 0 0 0 5.43 2.25L21 
+    				        48h6l1.85-4.62a19.53 19.53 0 0 0 5.43-2.25l4.57 2 4.24-4.24-2-4.57a19.53 19.53 0 0 0 2.25-5.43zM24 40a16 16 0 1 1 16-16 16 16 0 0 1-16 16z"/><path class="cls-1" d="M33 25v-6a3 3 0 0 1 0 6z"/>
+    				        <path d="M32.49 13.14a27.9 27.9 0 0 1-10.4 3.7c-1.54.22-.35.16-6.09.16a5 5 0 0 0-1 9.9V34a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1c0-2.77.2-2.21-1-3.41V27c10.15 1.45 11.09
+    				        4.66 12.49 3.86.73-.41.51.32.51-16.87a1 1 0 0 0-1.51-.85zM13 22a3 3 0 0 1 3-3h4v6h-4a3 3 0 0 1-3-3zm7 11h-3v-6h2c0 5.08-.27 4.15 1 5.41zm12-4.71a30 30 0 0 0-10-3.16v-6.26a30 30 0 0 0 10-3.16z"
+    				        style="fill:#424242"/></g>
+    				   </svg>
+    				</div>
+    				<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+    					Client de la part Marketing
+    				</div>
+    			  </div>	
+			</template>	
+          </div>         
+          <div class="px-6 py-2 text-center">            
+				<span class="inline-flex items-center mx-auto rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-700" x-text="product.agenceliv">Yalidine </span>
+          </div>         
+          <div class="px-6 py-2 text-sm text-center text-gray-500">
+            <div class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.user"></div>
+          </div>
+		  {% if request.session.store == "1" %}
+			<div class="px-4 py-2 mx-auto">  
+			<template x-if="product.transfert_valide">          
+				<div class="flex items-center mx-auto">
+						<div class="w-2 h-2 align-center rounded-full" :class="{ 'bg-green-500': product.valide , 'bg-red-500': !product.valide  }"></div>
+						<span class="ml-2  text-center" :class="{ 'text-green-500': product.valide , 'text-red-500': !product.valide}" x-text="product.valide ? 'Validé' : 'En attente'"></span>
+				</div>
+			</template>
+			<template x-if="!product.transfert_valide">          
+				<div class="flex items-center mx-auto">
+					<span class="inline-flex items-center mx-auto rounded-md bg-orange-50 px-2 py-1 text-xs font-medium text-orange-700 ring-1 ring-inset ring-orange-700">Validation Transfert </span>
+				</div>
+			</template>
+			</div> 
+		  {% endif %}
+          <div class="px-6 py-4 text-right items-center flex ">
+                {% if request.session.store == "2"  %}
+					<a :href="'edit-billLivraison/' + product.id" class="text-gray-700">
+    					<svg id='edit_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                            <g transform="matrix(1 0 0 1 12 12)" >
+                            <g style="" >
+                            <g transform="matrix(1 0 0 1 0 0)" >
+                            <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -2 1)" >
+                            <path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-10.5, -13.5)" d="M 7 7 L 6 7 C 4.8954305003384135 7 4 7.8954305003384135 4 9 L 4 18 C 4 19.104569499661586 4.8954305003384135 20 6 20 L 15 20 C 16.104569499661586 20 17 19.104569499661586 17 18 L 17 17" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 2.5 -3.5)" >
+                            <path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-15, -9)" d="M 20.385 6.585 C 21.20514285349873 5.764857146501272 21.20514285349873 4.4351428534987285 20.385 3.615 C 19.564857146501275 2.794857146501272 18.23514285349873 2.7948571465012715 17.415000000000003 3.6149999999999998 L 9.000000000000004 12 L 9.000000000000004 15 L 12.000000000000004 15 L 20.385000000000005 6.585000000000001 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 5 -6)" >
+                            <path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-17.5, -6.5)" d="M 16 5 L 19 8" stroke-linecap="round" />
+                            </g>
+                            </g>
+                            </g>
+                        </svg>
+					</a>
+				{% endif%}
+			    {% if request.session.role == "manager" or request.session.role == "DIRECTEUR EXECUTIF" and request.session.store != "2" and request.session.store != "8"  %}
+					<a :href="'edit-bill-carton-diva/' + product.id" class="text-gray-700">
+						<svg id='edit_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                            <g transform="matrix(1 0 0 1 12 12)" >
+                            <g style="" >
+                            <g transform="matrix(1 0 0 1 0 0)" >
+                            <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -2 1)" >
+                            <path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-10.5, -13.5)" d="M 7 7 L 6 7 C 4.8954305003384135 7 4 7.8954305003384135 4 9 L 4 18 C 4 19.104569499661586 4.8954305003384135 20 6 20 L 15 20 C 16.104569499661586 20 17 19.104569499661586 17 18 L 17 17" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 2.5 -3.5)" >
+                            <path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-15, -9)" d="M 20.385 6.585 C 21.20514285349873 5.764857146501272 21.20514285349873 4.4351428534987285 20.385 3.615 C 19.564857146501275 2.794857146501272 18.23514285349873 2.7948571465012715 17.415000000000003 3.6149999999999998 L 9.000000000000004 12 L 9.000000000000004 15 L 12.000000000000004 15 L 20.385000000000005 6.585000000000001 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 5 -6)" >
+                            <path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-17.5, -6.5)" d="M 16 5 L 19 8" stroke-linecap="round" />
+                            </g>
+                            </g>
+                            </g>
+                        </svg>
+					</a>
+			    {% endif %} 
+			    {% if request.session.role == "commercial" or request.session.role == "commercial-vente"  and request.session.store == "1" %}
+					<template x-if="product.modifiable">
+							<a :href="'edit-bill-carton-diva/' + product.id" class="text-gray-700 inline-block">
+								<svg id='edit_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+									<g transform="matrix(1 0 0 1 12 12)" >
+									<g style="" >
+									<g transform="matrix(1 0 0 1 0 0)" >
+									<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+									</g>
+									<g transform="matrix(1 0 0 1 -2 1)" >
+									<path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-10.5, -13.5)" d="M 7 7 L 6 7 C 4.8954305003384135 7 4 7.8954305003384135 4 9 L 4 18 C 4 19.104569499661586 4.8954305003384135 20 6 20 L 15 20 C 16.104569499661586 20 17 19.104569499661586 17 18 L 17 17" stroke-linecap="round" />
+									</g>
+									<g transform="matrix(1 0 0 1 2.5 -3.5)" >
+									<path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-15, -9)" d="M 20.385 6.585 C 21.20514285349873 5.764857146501272 21.20514285349873 4.4351428534987285 20.385 3.615 C 19.564857146501275 2.794857146501272 18.23514285349873 2.7948571465012715 17.415000000000003 3.6149999999999998 L 9.000000000000004 12 L 9.000000000000004 15 L 12.000000000000004 15 L 20.385000000000005 6.585000000000001 z" stroke-linecap="round" />
+									</g>
+									<g transform="matrix(1 0 0 1 5 -6)" >
+									<path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-17.5, -6.5)" d="M 16 5 L 19 8" stroke-linecap="round" />
+									</g>
+									</g>
+									</g>
+								</svg>
+							</a>
+					</template>
+					<template x-if="!product.modifiable">
+						<div class="relative inline-block" @click.prevent="alert('Demande de Modification Envoye! Vous allez Recevoir une Notification lors d\'acceptation de votre demande')" x-data="{showTooltip :false}">
+							<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
+								<svg id='Lock_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+									<g transform="matrix(0.77 0 0 0.77 12 12)" >
+									<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-16, -16)" d="M 16 3 C 12.15625 3 9 6.15625 9 10 L 9 13 L 6 13 L 6 29 L 26 29 L 26 13 L 23 13 L 23 10 C 23 6.15625 19.84375 3 16 3 Z M 16 5 C 18.753906 5 21 7.246094 21 10 L 21 13 L 11 13 L 11 10 C 11 7.246094 13.246094 5 16 5 Z M 8 15 L 24 15 L 24 27 L 8 27 Z" stroke-linecap="round" />
+									</g>
+								</svg>			  
+							</div>
+							<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+								Ce Bon est Fermé, Cliquer Pour demander une modification!
+							</div>
+						</div>
+					</template>
+				{% endif %}
+				<button class="font-bold text-lg " @click="product.showVariants = !product.showVariants"> 
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+						</svg>
+				</button>  
+				{% if request.session.store != "2" and request.session.store != "8" and request.session.username != "ziad" %} 
+				<div class="relative inline-block" @click.prevent="renderInformation(product.reference);" x-data="{showTooltip :false}">
+						<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full  hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" >
+							<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+								<path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+								<path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+								<rect x="7" y="13" width="10" height="8" rx="2" />
+							</svg>			  
+						</div>
+						<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							Imprimer Ce Bon!
+						</div>
+				</div>
+				<div x-data="{ isOpen: false }" class="relative inline-block text-left">
+					<button @click="isOpen = !isOpen" class="hover:bg-gray-300 cursor-pointer text-gray-700 font-semibold py-2 px-2 rounded-full inline-flex items-center">
+						<svg id='Chevron_Down_24' width='12' height='12' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+							<g transform="matrix(1.11 0 0 1.11 12 12)">
+								<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -13)" d="M 3 8 L 3 12 L 12 18 L 21 12 L 21 8 L 12 14 L 3 8 z" stroke-linecap="round" />
+							</g>
+						</svg>
+					</button>
+
+					<ul x-show="isOpen" @click.away="isOpen = false" class="dropdown-menu absolute mb-2 right-0 text-gray-700 pt-1 w-48 rounded-md border  bg-white shadow-xl z-40">
+						
+						<a :href="'bonGarantie/' + product.id"> <li class=" border-gray-150 hover:bg-gray-50 px-2 border-b py-2 block whitespace-no-wrap cursor-pointer">Générer BG</li></a>
+						{% if request.session.role == "manager"  %}
+							<a :href="'facture/' + product.id">   <li class=" border-gray-150 hover:bg-gray-50 px-2 border-b py-2 block whitespace-no-wrap">Générer facture</li></a>
+							<a :href="'/stock/bon_sortie/' + product.id"> <li class="px-2 border-b hover:bg-gray-50 py-2 block whitespace-no-wrap">Générer BS</li></a>
+						{% endif %}
+					</ul>
+				</div>   
+				{% endif %}
+			
+				
+         </div>
+        </div>
+        <!-- Variant Structure -->
+        <template  class="px-2" x-if="product.showVariants">
+			<table class="min-w-full bg-gray-50 divide-y divide-gray-200">
+				<thead class="bg-gray-100">
+				<tr>
+					<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Référence</th>
+					<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Titre</th>
+					<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Quantité Totale</th>
+					<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Prix Unitaire</th>
+					{% if request.session.store == "1" %}
+						<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">TVA</th>
+					{% endif %}
+					<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Montant Totale</th>
+					
+					<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase"></th>
+				</tr>
+				</thead>
+				<tbody class="bg-gray-50">
+				<template x-for="variant in product.variants">
+					<tr class="transition-all  border-b hover:shadow-lg">
+					<td class="border-r">
+						<div  class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.reference"></div>
+					</td>
+					<td class="border-r">
+						<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.name"></div>
+					</td>
+					<td class="border-r">
+						<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.quantity"></div>
+					</td>
+					<td class="border-r">
+						<div class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.price"></div>
+					</td>
+					{% if request.session.store == "1" %}
+						<td class="border-r">
+							<div class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.tva"></div>
+						</td>
+					{% endif %}
+					<td class="border-r text-sm text-gray-500">
+						<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.priceachat"></div>
+					</td>                        
+					</tr>
+				</template>
+
+
+				<tr class="bg-gray-100 border-t border-gray-100">
+						<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Prix Total HT :'+' '+product.totalHt" ></td>
+						
+						<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Remise :'+' '+product.remise"></td>
+						<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Sous Total HT :'+' '+(product.totalHt - product.remise)" ></td>
+						<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Frais Livraison :'+' '+product.livraison"></td>
+						{% if request.session.store != "2" and request.session.store != "7" %}
+							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Total à Payé :'+' '+((product.totalHt - product.remise) * 1.19).toFixed(2)"></td>
+						{% else %}
+						<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Total à Payé :'+' '+ (product.totalHt - product.remise)"></td>
+						{% endif %}
+						<td class="px-4 py-2 text-sm font-medium text-left text-gray-700"></td>
+					</tr>
+				</tbody>
+				</table>
+    </template>
+      </div>
+    </template>
+  </div>
+</div>
+<div class="flex bg-gray-100 justify-between px-8">
+   <div class="transition-transform cursor-pointer px-5 pl-4 py-1 text-red-500 hover:text-red-700" @click="showModal = true;" >
+        {% heroicon_mini "trash" %}
+    </div>
+	<div class="flex justify-start">
+		<button
+			x-bind:disabled="currentPage === 1"
+			@click="prevPage"
+		>
+		<svg id='chevrons-left_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+				<g transform="matrix(1 0 0 1 12 12)" >
+				<g style="" >
+				<g transform="matrix(1 0 0 1 0 0)" >
+				<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+				</g>
+				<g transform="matrix(1 0 0 1 -3.75 -0.25)" >
+				<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+				</g>
+				<g transform="matrix(1 0 0 1 2.25 -0.25)" >
+				<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+				</g>
+				</g>
+				</g>
+		</svg>
+		</button>
+		<p class=" text-lg px-2" x-text="currentPage"></p> /<p id="total-pages" class=" text-lg px-2" x-text="totalPages"></p>
+		<button
+			x-bind:disabled="currentPage === totalPages"
+			@click="nextPage"
+		>
+			<svg id='chevrons-right_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+					<g transform="matrix(1 0 0 1 12 12)" >
+					<g style="" >
+					<g transform="matrix(1 0 0 1 0 0)" >
+					<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+					</g>
+					<g transform="matrix(1 0 0 1 -2.75 -0.25)" >
+					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+					</g>
+					<g transform="matrix(1 0 0 1 3.25 -0.25)" >
+					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+					</g>
+					</g>
+					</g>
+			</svg>
+		</button>
+	 </div>
+</div>
+               <div id="js-print-template" x-ref="printTemplate" class="hidden">
+                   {% if request.session.store != '1' and request.session.store != '2' and request.session.store != "8" %}
+        			  <div class="py-4 border-b border-stone-500">
+            				 <img src="{% static 'media/entete_2.jpg' %}" alt="">
+            		  </div>
+        		    {% endif %}	  
+		  
+				  <h2 class="text-3xl text-center font-bold mb-6 pb-2 tracking-wider uppercase">Bon de Livraison</h2>
+				  <div class="flex justify-between space-x-3 mb-10">
+					  <div class="w-1/2 border border-black">
+						  <div class="px-4 py-3 ">		
+						  <div class="mb-1 flex items-center">
+							  <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Numéro de Bon.</label>
+							  <span class="mr-4 inline-block">:</span>
+							  <div x-text="invoiceNumber"></div>
+						  </div>				
+						  <div class="mb-1 flex items-center">
+							  <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Bon</label>
+							  <span class="mr-4 inline-block">:</span>
+							  <div x-text="invoiceDate"></div>
+						  </div>
+					  </div>
+					  </div>
+					  <div class="w-1/2 border border-black">
+						   <div class="px-4 py-3 ">
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Client </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="client"></div>
+							  </div>
+
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Note </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="toprintbill.note"></div>
+							  </div>								
+						   </div>
+					  </div>
+				  </div>
+					<table class="w-full border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité Totale</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Nombre Cartons</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité Par Carton</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Prix Carton</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							<template x-for="invoice in toprintbill.variants" >
+								<tr class="border border-black">
+									<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
+									<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.reference"></td>
+									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.quantity"></td>
+									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="parseInt(invoice.quantity) / parseInt(invoice.qtyPerCarton)"></td>
+									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qtyPerCarton"></td>
+									<td class="border border-black px-1 py-2 text-black text-xs" x-text="(parseFloat(invoice.price) * 1.19 * parseInt(invoice.qtyPerCarton) ).toFixed(0) "></td>
+									<td class="border border-black px-1 py-2 text-black text-xs" x-text="(parseFloat(invoice.price) * 1.19 * parseInt(invoice.qtyPerCarton) * (parseInt(invoice.quantity) / parseInt(invoice.qtyPerCarton))).toFixed(0) "></td>
+								</tr>
+							</template>
+						</tbody>
+					</table>
+
+
+					<div class="w-full flex mt-4  space-x-3 ">
+					<table class="w-1/3 table-auto  border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-gray-700 px-4 ">TVA</th>
+								<th class="border border-gray-700 px-4 ">Total TVA</th>                     
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Sample data rows -->
+							<tr class="border border-gray-700">
+								{% if request.session.store != "2" and request.session.store != "8" and request.session.store != "1" %}
+									<td class="border border-gray-700 px-4 "> 19 %</td>
+								{% else %}
+									<td class="border border-gray-700 px-4 "> 0 %</td>
+								{% endif %}
+								{% if request.session.store != "2" and request.session.store != "8" and request.session.store != "1" %}
+									<td class="border border-gray-700 px-4 "x-text="((totalht - remise) * 0.19).toFixed(2) +' DZD'"></td> 
+								{% else %}
+									<td class="border border-gray-700 px-4 "> 0 DZD</td>
+								{% endif %}
+							</tr>
+							<!-- Add more rows as needed -->
+						</tbody>
+					</table>
+					<table class="w-2/3 h-fit table-auto border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-gray-700 px-4 ">Total HT</th>
+								<th class="border border-gray-700 px-4 ">Total Remise</th>
+								<th class="border border-gray-700 px-4 ">Sous Total </th>
+								<th class="border border-gray-700 px-4 ">Net à Payer</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Sample data rows -->
+							{% if  request.session.store == "1" %}
+								<tr class="border border-gray-700">
+									<td class="border border-gray-700 px-4" x-text="((totalht) * 1.19).toFixed(0) +'.00 DA'"></td>
+									<td class="border border-gray-700 px-4" x-text="((remise) * 1.19).toFixed(0)"></td>
+									<td class="border border-gray-700 px-4" x-text="((totalht - remise) * 1.19).toFixed(0) +'.00 DA'""></td>
+									<td class="border border-gray-700 px-4" x-text="((totalht - remise) * 1.19).toFixed(0) +'.00 DA'" ></td>
+								</tr>
+							{% else %}
+								<tr class="border border-gray-700">
+									<td class="border border-gray-700 px-4" x-text="totalht"></td>
+									<td class="border border-gray-700 px-4" x-text="remise"></td>
+									<td class="border border-gray-700 px-4" x-text="(totalht - remise)"></td>
+									<td class="border border-gray-700 px-4" x-text="((totalht - remise) * 1.19).toFixed(0) +'.00 DA'" ></td>
+								</tr>
+							{% endif %}
+							<tr>
+    							<td class="border border-gray-700 px-4 py-2" colspan="5">
+    								<div class="flex space-x-1 items-center">
+    									<p class="text-left">
+    								    	Solde : 
+    								    	<span class="font-semibold" x-text="solde  + ' DZD'"> </span>
+    									</p>
+    								
+    								</div>
+    							</td>
+							</tr>
+							<!-- Add more rows as needed -->
+						</tbody>
+					</table>
+					</div>
+					<div class=" flex justify-between mt-12 mr-0">
+						<div></div>
+						<div class="font-bold">
+						Cachet et Signature
+						</div>
+					</div>
+			   </div>
+			   <div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="openModal">
+					<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-24">
+						<div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+							x-on:click="openModal = !openModal">
+							<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+								<path
+									d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+							</svg>
+						</div>
+						<form action="" id="myForm">
+									<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+										<h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Paramètres de Recouvrement</h2>											
+										<div class="mb-4">
+											<label class="block text-gray-700 font-semibold mb-2" for="product">
+												Bon Livraison :
+											</label>
+											<select
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												id="entrepot"
+												name="entrepot"
+												x-model="bonL"
+												x-on:change="
+													bonL= $event.target.value
+												"
+												required 
+												disabled
+												>
+												<option value="" disabled selected>Bon Livraison</option>						  
+												{% for bon in bons_sorties %}
+													<option value="{{bon.id}}" >
+														{{ bon.idBon }} 
+													</option>
+												{% endfor %}
+											</select>												
+										</div>	
+										<div class="mb-4">
+											<label class="block text-gray-700 font-semibold mb-2" for="modReg">
+												Mode de Réglement:
+											</label>
+											<select
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												id="modReg"
+												name="modReg"
+												x-model="ModeReglement"
+												x-on:change="
+													ModeReglement = $event.target.selectedOptions[0].value;                     
+												"
+												required  
+												>
+													<option value=""selected > Aucun </option>
+													{% for mode in modeReg %}
+													<option value="{{ mode.id }}" >
+														{{ mode.label }} 
+													</option>
+													{% endfor %}
+											</select>
+										</div>
+										<div class="mb-4">
+											<div >
+												<!-- Show this div when 'cheque' is selected -->
+												<div class="mb-4">
+													<label class="block text-gray-700 font-semibold mb-2" for="banque">
+														Banque :
+													</label>
+													<select
+														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+														id="banque"
+														name="banque"
+														x-model="banque"														
+														required  
+														x-on:change ="banque = $event.target.selectedOptions[0].value;"
+														>
+														<option value="" disabled selected> Selectionnez  Banque</option>
+														{% for banque in banques  %}
+															<option value="{{banque.pk}}"> {{banque.nom}} </option>
+														{% endfor %}
+													</select>
+												</div>
+												<label for="chequeInput" class="block text-gray-700 font-semibold mb-2"> Numéro de chèque : </label>
+												<input
+														type="text"
+														id="chequeInput"
+														name="chequeInput"
+														x-model="numCheque"
+														class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+													>
+											</div>
+										</div>	
+									<div class="mt-8 text-right">
+											<button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="openModal = !openModal">
+												Cancel
+											</button>	
+											<button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" @click="UpdateRecPars()">
+												Add Item
+											</button>	
+										</div>
+									</div>
+						</form>
+					</div>
+				</div>			
+
+			   <!-- /Print Template -->
+  				<div x-cloak x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+					<div class="modal bg-gray-50 rounded-lg p-4 max-w-md mx-auto shadow-lg">
+						<p class="text-gray-700 text-lg mb-4">Voulez-vous vraiment supprimer les éléments sélectionné </p>
+						<div class="flex justify-end">
+							<button @click="deletedSelected()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none mr-2">Oui</button>
+							<button @click="annulerSuppression()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 focus:outline-none">Annuler</button>
+						</div>
+					</div>
+				</div>
+				<!-- Modal de confirmation du BL-->
+				<div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="openModalConfirmation">
+					<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-24">
+							<div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+								x-on:click="openModalConfirmation = !openModalConfirmation">
+								<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+									<path
+										d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+								</svg>
+							</div>
+							<form action="{% url 'confirm-bill' %}" method="post" id="myForm" enctype="multipart/form-data">
+								{% csrf_token %}
+								<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+										<h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Confirmer BL  - <span x-text="selectedBL"></span> - </h2>
+								
+										<div class="mb-4">
+											<label class="block text-gray-700 font-semibold mb-2" for="product">
+												Bon de Livraison :
+											</label>
+											<input type="hidden" name="billId" :value="billId">
+											<input
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												type="text"
+												id="selectedBL"
+												name="selectedBL"
+												x-model="selectedBL"												
+												disabled
+												required 	
+											>																					
+										</div>		
+										<div class="mb-4">
+											<label class="block text-gray-700 font-semibold mb-2" for="product">
+												Date Livraison Prévu Par le client :
+											</label>
+											<input
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												type="date"
+												id="dateLivraison"
+												name="dateLivraison"
+												x-model="dateLivraison"												
+												required 	
+											>																					
+										</div>		
+										<div class="mb-4">
+											<label class="block text-gray-700 font-semibold mb-2" for="product">
+												Fichier / photo du Bl Caché:
+											</label>
+											<input
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												type="file"
+												id="LivraisonFile"
+												name="LivraisonFile"
+												x-model="LivraisonFile"												
+												required 	
+											>																					
+										</div>		
+										
+										
+										
+								
+										<div class="mt-8 text-right">
+											<button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="openModalConfirmation = !openModalConfirmation">
+												Cancel
+											</button>	
+											<button type="submit" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" @click="addItem()">
+												Confirmer
+											</button>	
+										</div>			  
+								</div>
+							</form>
+					</div>
+				</div>
+			   <!-- /Modal -->
+</div>
+<!-- Modal de confirmation -->
+				
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+	   <script>
+				function billscompt(){
+				  return{
+					search: '',
+					selectedFamily: '',
+					products: [],
+					items:[],
+					currentPage: 1,
+					prepared:'',
+					billId:'',
+					showModal:false,
+					selectedFournisseur:'',
+					openModalConfirmation: false,
+					selectedBL:'',
+					dateLivraison:new Date(),
+					LivraisonFile:'',
+					productReference: '',
+					pageSize: 10,	
+					exportExcelDiva() {
+						const array_print = []
+							this.filteredProducts.forEach(product => {
+								array_print.push({
+								    DateBon: product.name,
+								    IDBon: product.reference,
+									Client: product.priceachat,
+									MontantTTC: product.totalprice,
+									user: product.user,
+								});
+							});
+						const ws = XLSX.utils.json_to_sheet(array_print);
+						const wb = XLSX.utils.book_new();
+						XLSX.utils.book_append_sheet(wb, ws, 'BLS');
+						XLSX.writeFile(wb, 'fichiers_liste_bls.xlsx');
+					},				
+					get totalPages() {
+						return Math.max(1, Math.ceil(this.filteredProducts.length / this.pageSize));
+					},				
+					datedeb: '',
+    				datefin:'',
+					invoiceDate:'',
+					invoiceNumber:'',
+					boncomptoir:'',
+					decision:'',
+					client:'',
+					clientadress:'',
+					totalht:'',
+					totalttc:'',
+					remise:'',
+					nettotal:'',
+					totalGSTLiv:'',
+					extra:'',
+					toprintbill:'',
+					items:[],
+					solde:0,
+					renderInformation(idBon){
+						toprintbill = this.products.find((product) => product.reference == idBon)
+						const toprint_bill = this.products.find((product) => product.reference == idBon)
+						invoiceDate = toprint_bill.name;
+						invoiceNumber = toprint_bill.reference;
+						client = toprint_bill.priceachat;
+						solde = toprint_bill.client_solde;
+						extra = toprint_bill.note;
+						totalht = toprint_bill.totalHt;
+						totalttc = toprint_bill.totalprice;
+						totalGSTLiv = (toprint_bill.totalHt * 0.19).toFixed(0);
+						remise = toprint_bill.remise;
+						nettotal = parseFloat(toprint_bill.totalprice) - parseFloat(toprint_bill.remise);
+						console.log(toprint_bill.variants);
+						for (const variant of toprint_bill.variants) {
+							const newItem = {
+								reference: variant.reference,
+								name: variant.name,
+								quantity: variant.quantity,
+								price: variant.price,
+								total: variant.priceachat,
+							};
+							// Adding the new item to this.items
+							this.items.push(newItem);
+						}
+						this.printInvoice();
+					},
+
+					printInvoice() {
+						var printContents = this.$refs.printTemplate.innerHTML;
+						document.body.innerHTML = printContents;
+						setTimeout(() => {
+							window.print();
+							window.location.reload();
+							this.items = [];
+						}, 50); // Delay for 1 second (adjust as needed)      			
+					},
+					bonL:'',
+					ModeReglement:'',
+					banque:'',
+					numCheque:'',
+					datePaiement:new Date(),
+					openModal:false,
+					UpdateRecPars(){
+						dataObj = {
+							id: this.bonL,
+							ModeReglement: this.ModeReglement,
+							banque: this.banque,
+							datePaiement: this.datePaiement,
+							numCheque: this.numCheque,
+						}
+						axios.post('UpdateRecPars/',dataObj, {
+							headers: {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+						})
+							.then(response => {
+								// Check if the deletion was successful
+								if (response.data.success) { 
+								    console.log('here111');
+									showModal = false;
+									alert(response.data.message);
+                                    BillInstance = this.products.filter((product) => {product.id = this.bonL});
+                                    BillInstance.modereglementID = this.ModeReglement;
+								} else {
+								    console.log('here');
+								    showModal = false;
+									alert(response.data.message);
+									BillInstance = this.products.filter((product) => {product.id = this.bonL});
+                                    BillInstance.modereglementID = this.ModeReglement;
+								}
+							})
+						.catch(error => {
+						// Handle request errors
+						alert(error);
+						});
+						this.showModal = false;
+						this.selectedItems = [];
+					},
+					get filteredProducts() {
+						return this.products.filter((product) => {
+							const familyMatch = this.selectedFamily === '' || this.selectedFamily == product.price;
+							const fournisseurMatch = this.selectedFournisseur === '' || this.selectedFournisseur == product.user;
+							const preparedMatch = this.prepared === '' || this.prepared == product.etat;
+							const nameMatch = product.reference.toLowerCase().includes(this.search.toLowerCase());
+							const referenceMatch = product.priceachat.toLowerCase().includes(this.search.toLowerCase());
+
+							// Parse the dates from the input fields
+							const startDate = new Date(this.datedeb);
+							const endDate = new Date(this.datefin);
+
+							// Check if the product date is within the selected date range
+							const dateMatch = startDate <= new Date(product.name) && new Date(product.name) <= endDate;
+                            return (familyMatch && fournisseurMatch && preparedMatch) && (nameMatch || referenceMatch) && dateMatch
+
+						});
+					},
+
+	  				get filteredAndPaginatedProducts() {
+		  				const start = (this.currentPage - 1) * this.pageSize;
+		  				const end = start + this.pageSize;
+		  				return this.filteredProducts.slice(start, end);
+	  				},
+
+					prevPage() {
+					  if (this.currentPage > 1) {
+					   this.currentPage -= 1;
+					  }
+					},
+
+					nextPage() {
+					  if (this.currentPage < this.totalPages) {
+						  this.currentPage += 1;
+					  }
+					},
+					productMatches(search, productName, productReference) {
+					  //  if (productName === null || productReference === null) {
+					  //     return false;
+					  //     }
+					 
+		  				return (
+			 			 productName.toLowerCase().includes(search.toLowerCase()) ||
+			  			 productReference.toLowerCase().includes(search.toLowerCase())
+		  				);
+	    			},
+
+					showModal:false,
+					billtodelete:'',
+					selectedItems: [],
+					deletedSelected(){
+                        if (this.selectedItems.length === 0) {
+                            alert("Veuillez Selectionner aumoins un élément pour supprimer!.");
+                            return;
+                        }
+						console.log(this.selectedItems);
+
+						dataObj ={
+							liste_ids: this.selectedItems,                        
+								}
+						axios.post('DeleteInvoiceBill/',dataObj, {
+							headers: {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+						})
+							.then(response => {
+								// Check if the deletion was successful
+								if (response.data.success) {            			
+									showModal = false;
+									alert(response.data.message);
+									window.location.reload();
+								} else {
+									alert(response.data.message);
+									window.location.reload();
+								}
+							})
+						.catch(error => {
+						// Handle request errors
+						alert(error);
+						});
+						this.showModal = false;
+						this.selectedItems = [];
+					},
+
+					markLivre(product){
+						if (product.livre == 'true'){
+							alert('Bon déjà marqué Livré!')
+							return;
+						}
+						dataObj ={
+							idbon: product.id,                        
+						}
+						axios.post('markLivre',dataObj, {
+							headers: {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+						})
+							.then(response => {
+									alert(response.data.message);
+									product.livre = true;
+							})
+						.catch(error => {
+							// Handle request errors
+							alert(error);
+						});
+						this.showModal = false;
+						this.selectedItems = [];
+					},
+
+					annulerSuppression() {
+						// Réinitialiser les variables
+						this.showModal = false;
+						this.billtodelete = '';
+					},
+					SumTotalMontant(){
+				    	const sum = this.filteredProducts
+                        .reduce((accumulator, currentItem) => {
+                            return accumulator + parseFloat(currentItem.totalprice);
+                        }, 0);
+                        return (sum).toFixed(0);
+					},
+					init() {
+						var products = [];
+						{% for bon in bons_sorties %}     				      
+							var productData = {
+								id:"{{bon.id}}",
+								reference: "{{bon.idBon}}",
+								name: "{{ bon.dateBon }}",
+								price:"{{ bon.entrepot.name }}",
+								note: "{{bon.etat_relgement}}",
+								priceachat:"{{ bon.client.name }} ",
+								source:"{{bon.client.sourceClient}}",
+								client_adrees:"{{ bon.client.adresse }} ",
+								client_solde:"{{ bon.client.remaining_amount }}",
+								user: "{{bon.user.username }}",
+								totalHt :"{{bon.get_total_price}}",
+								fichierConfirm : "{{bon.confirmationFile}}",
+								confirmed:"{{bon.confirmed}}" == 'True' ? true : false,
+								dateconfirm:"{{bon.confirmationDateTime}}",
+								garantie:"{{ bon.garantieprepared }}" == 'True' ? true : false,
+								totalprice: (parseFloat("{{ bon.get_total_price}}") * 1.19).toFixed(0),
+								prixpayed:"{{ bon.totalprice }}",
+								modereglement:"{{bon.mode_reglement.label}}",
+								modereglementID:"{{bon.mode_reglement.id}}",
+                                banque:'{{bon.banque_Reglement.pk}}',
+							    cheque:'{{bon.num_cheque_reglement}}',
+								livraison : {{bon.fraisLivraisonexterne}},
+								etat:"{{bon.statebill}}",
+								livre:"{{bon.livre}}" == 'True' ? true : false,
+								remise:"{{ bon.Remise }}",
+								valide:"{{ bon.valide }}" == 'True' ? true : false,
+								transfert_valide:"{{ bon.get_etat_transfert }}" == 'True' ? true : false,
+								modifiable:"{{ bon.modifiable }}" == 'True' ? true : false,
+								agenceliv:"{{ bon.agenceLivraison}}",
+								showVariants:false,
+								variants:[],
+							};
+							{% for produit in bon.produits_en_bon_sorties.all %}				
+								var variantData ={
+									name: "{{ produit.stock.reference }}",
+									reference: "{{ produit.stock.name }}",
+									price:"{{ produit.unitprice }}",
+									qtyPerCarton:"{{produit.stock.QuantityPerCarton}}",
+									tva:"{{produit.stock.tva}}",
+									priceachat:"{{ produit.totalprice }}",
+									quantity:"{{ produit.quantity }}",	
+								}
+								productData.variants.push(variantData)
+							{% endfor %}
+						// Check if the product already exists in the products array
+						var exists = products.some(function(existingProduct) {
+							return existingProduct.id === productData.id;
+						});
+						if (!exists) {
+							products.push(productData);					
+						}
+						{% endfor %}
+
+						// Now, assign the filtered products array to this.products
+						this.products = products;
+						const currentDate = new Date();
+
+						// Set to the first day of the year
+						const firstDay = new Date(currentDate.getFullYear(), 0, 1);
+						
+						// Set to the last day of the year
+						const lastDay = new Date(currentDate.getFullYear(), 11, 31);
+						
+						// Format the dates
+						this.datedeb = firstDay.toISOString().split('T')[0];
+						this.datefin = lastDay.toISOString().split('T')[0];	
+						// Disabled Till Optimization
+					},
+				  }
+				}
+				function getCookie(name) {
+					var cookieValue = null;
+					if (document.cookie && document.cookie !== '') {
+					  var cookies = document.cookie.split(';');
+					  for (var i = 0; i < cookies.length; i++) {
+						var cookie = cookies[i].trim();
+						// Does this cookie string begin with the name we want?
+						if (cookie.substring(0, name.length + 1) === (name + '=')) {
+						  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+						  break;
+						}
+					  }
+					}
+					return cookieValue;
+				}
+			   </script> 
+				
+			  </div>
+			</div>
+		  </div>
+		</div>
+</main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

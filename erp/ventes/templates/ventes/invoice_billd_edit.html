@@ -1,0 +1,1796 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+
+{% block content %}
+
+<div 
+ x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+ }" 
+ class="flex flex-col min-h-screen custom-scrollbar"
+ >
+ <!-- start::Black overlay -->
+ <div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+ <!-- end::Black overlay -->
+ {% include 'header.html' with active_tab="vente" %}
+ {% include 'tabs.html' with active_tab="vente" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_ventes.html" %}
+   <div class="h-full w-full">
+	  <!-- Main content header -->
+	  <body class="antialiased sans-serif" x-data="invoices()"
+	  x-init="initData()"
+	  x-cloak>
+			 <div class="h-2"></div> 
+			 <div 
+			   class="container mx-auto py-6 px-4"	 
+			 >
+			   <div class="flex justify-between">
+			      <div class="flex space-x-2 items-center mb-6 pb-2 ">
+					<div x-show="!invoiceNumber.startsWith('BECH')"> 
+						<h2 class="text-2xl font-bold tracking-wider uppercase">Bon de Livraison</h2>
+					</div>
+					<div x-show="invoiceNumber.startsWith('BECH')"> 
+						<h2 class="text-2xl font-bold tracking-wider uppercase">Bon d'échange</h2>
+					</div>
+					<div class="">
+						<template x-if="transfer_valide && !valide" >
+							<div class="relative flex space-x-2 mb-2">
+								<span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium cursor-pointer text-red-700 ring-1 ring-inset ring-red-700"  @mouseenter="showTooltip4 = true" @mouseleave="showTooltip4 = false">Non-validé</span>
+								<div x-show.transition="showTooltip4" class="z-40 shadow-lg text-center w-64 block absolute right-0 top-0 p-2 mt-8 rounded-lg bg-gray-700 text-white text-xs">
+										Ce Bon  n'est pas encore validé par l'administrateur !
+								</div>
+								{% if request.session.role == 'manager' or request.session.role == "DIRECTEUR EXECUTIF" or  'ventes.can_validate_bv' in request.session.permissions %} 
+										<span x-on:click="openModalValide = true" class="hover:underline rounded cursor-pointer">Valider</span>
+								{% endif %}
+							</div>   
+						</template>
+						<template x-if="!transfer_valide && !valide">
+							<div class="flex space-x-2 relative" >
+								<span class="inline-flex items-center rounded-md bg-orange-50 px-2 py-1 text-xs font-medium cursor-pointer text-orange-700 ring-1 ring-inset ring-orange-700"  @mouseenter="showTooltip4 = true" @mouseleave="showTooltip4 = false">Transfert</span>
+								<div x-show.transition="showTooltip4" class="z-40 shadow-lg text-center w-64 block absolute right-0 top-0 p-2 mt-8 rounded-lg bg-gray-700 text-white text-xs">
+										Le Bon de transfert n'est pas encore validé par le responsable d'entrepot !
+								</div>									
+							</div>   
+						</template>
+
+						<template x-if="!modifiable">
+									<div class="flex space-x-2 relative" x-data="{showTooltip4 : false}">
+										<span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium cursor-pointer text-red-700 ring-1 ring-inset ring-red-700"  @mouseenter="showTooltip4 = true" @mouseleave="showTooltip4 = false">Fermé</span>
+										<div x-show.transition="showTooltip4" class="z-40 shadow-lg text-center w-64 block absolute right-0 top-0 p-2 mt-8 rounded-lg bg-gray-700 text-white text-xs">
+												Ce Bon  n'est pas modifiable !
+										</div>
+										{% if request.session.role == 'manager' %} 
+												<span x-on:click="openModalValideModification = true" class="hover:underline rounded cursor-pointer">Autoriser Modification</span>
+										{% endif %}
+									</div>                           
+						</template> 
+
+						<div x-show="openModalValideModification" @click.away="openModalValide = false" class="fixed inset-0 z-40 w-full flex items-center justify-center bg-black bg-opacity-50">
+							<div class="bg-white p-6 rounded shadow-md">
+								<h3 class="text-lg font-semibold mb-2">Autoriser Modification</h3>
+								<p class="mb-4">Veuillez Intrduire votre mot de passe pour autoriser la modification</p>
+								<input x-model="password" type="password" class="border rounded px-2 py-1 mb-2">
+								<button @click.prevent="verifyPasswordModification()" class="btn btn-primary">
+									<span x-show="!verifying">Confirm</span>
+									<span x-show="verifying">Verifying...</span>
+								</button>
+								<button @click.prevent="openModalValideModification = false" class="btn btn-secondary">Annuler</button>
+							</div>
+						</div>	
+
+						<div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="openModalValide">
+							<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-24">
+									<div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+										x-on:click="openModalValide = !openModalValide">
+										<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+											<path
+												d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+										</svg>
+									</div>
+									<form action="" id="myForm">
+										<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">	
+												<h2 class="font-bold text-2xl text-gray-800">Valider Le Bon</h2>
+												<p class="mb-4 text-gray-800 pb-2 text-sm font-semibold border-b ">Veuillez Introduire votre mot de passe Pour valider le Bon:</p>
+												<div class="mb-4">
+													<label class=" text-gray-800 block font-bold text-sm uppercase tracking-wide">Type de Validation</label>
+													<select
+														class="appearance-none border rounded w-48 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+														id="typevalidation"
+														name="typevalidation"
+														x-on:change="                              
+															typevalidation = $event.target.value;											
+														"
+														required  
+													 >
+														<option value="false"  selected>Simple</option>
+														<option value="true" >Avec Point</option>										
+													</select>
+												</div>												
+												<div x-show="typevalidation">
+													<label class=" text-gray-800 block font-bold text-sm uppercase tracking-wide">Type de Client</label>
+													<select
+													class="appearance-none border rounded w-48 mb-4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+													id="typeclientvalidation"
+													name="typeclientvalidation"
+													x-on:change="                              
+														typeclientvalidation = $event.target.value;
+														percent = $event.target.selectedOptions[0].dataset.percentage
+													"
+													required  
+												 >
+													<option value=""  selected>Aucun</option>
+														{% for type in typespercents  %}
+																<option value="{{type.label}}" data-percentage="{{type.percent}}" > {{type.label}} </option>									   
+														{% endfor %}									
+													</select>
+
+													<label class=" text-gray-800 block font-bold text-sm uppercase tracking-wide">Pourcentage / Solde Note</label>
+													<div class="flex items-center space-x-2">
+													 	<input x-model="percent" type="text" placeholder="Pourcentage de Solde" class="mb-4  bg-gray-200 appearance-none border-2 border-gray-200 rounded w-32 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700"><p class="py-2 text-gray-700 font-bold"> %<p>
+														<input x-model="montantSolde()" type="text" placeholder="Montant Solde Note" class="mb-4 bg-gray-200 appearance-none border-2 border-gray-200 rounded  w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700">
+
+													</div>
+												</div>
+												<input x-model="password" type="password" placeholder="Veuillez Introduire votre mot de passe pour confirmer" class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700">
+												<div class="mt-8 text-right">
+														<button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="openModalValide = false">
+															Annuler
+														</button>	
+														<button @click="verifyPassword()" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm">
+															<span x-show="!verifying">Confirmer</span>
+															<span x-show="verifying">Vérification ...</span>
+														</button>
+									
+													</div>
+										</div>
+									</form>
+							</div>
+						</div>
+					 						
+						<template x-if="valide">
+								<div>
+								<span class="inline-flex items-center rounded-md bg-white px-2 py-1 text-xs font-medium cursor-pointer text-green-700 ring-1 ring-inset ring-green-700"  @mouseenter="showTooltip4 = true" @mouseleave="showTooltip4 = false">validé</span>
+								<div x-show.transition="showTooltip4" class="z-40 shadow-lg text-center w-64 block absolute right-0 top-0 p-2 mt-8 rounded-lg bg-gray-700 text-white text-xs">
+										Ce Bon est validé !
+								</div>
+
+								</div>                           
+						</template>						 
+					</div>
+				  </div>
+				  <div>
+				  
+					  <div class="relative mr-4 inline-block">
+						  <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
+							  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+								  <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+								  <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+								  <rect x="7" y="13" width="10" height="8" rx="2" />
+							  </svg>				  
+						  </div>
+						  <div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							  Print this invoice!
+						  </div>
+					  </div>
+					  
+			          <div class="relative inline-block">
+						<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip2 = true" @mouseleave="showTooltip2 = false" @click="openPreview=true">
+							<svg id='eye_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+									<g transform="matrix(1 0 0 1 12 12)" >
+									<g style="" >
+									<g transform="matrix(1 0 0 1 0 0)" >
+									<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+									</g>
+									<g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+									<circle style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2" />
+									</g>
+									<g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+									<path style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 22 12 C 19.333 16.667 16 19 12 19 C 8 19 4.667 16.667 2 12 C 4.667 7.333 8 5 12 5 C 16 5 19.333 7.333 22 12" stroke-linecap="round" />
+									</g>
+									</g>
+									</g>
+							</svg>		  
+						</div>
+						<div x-show.transition="showTooltip2" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							Preview
+						</div>
+					</div>
+				  </div>
+			   </div>
+	  			 <!-- Print Template -->
+			   <div id="js-print-template" x-ref="printTemplate" class="hidden">
+			       {% if request.session.store == '6' %}
+        			  <div class="py-4 border-b border-stone-500">
+            				 <img src="{% static 'media/entete_2.jpg' %}" alt="">
+            		  </div>
+        		    {% endif %}	 
+				  <div x-show="!invoiceNumber.startsWith('BECH')"> 
+						<h2 class="text-3xl font-bold mb-2 mt-2 pb-2 tracking-wider uppercase text-center border-b border-stone-500">Bon de Livraison</h2>
+					</div>
+					<div x-show="invoiceNumber.startsWith('BECH')"> 
+						<h2 class="text-3xl font-bold mb-2 mt-2 pb-2 tracking-wider uppercase text-center border-b border-stone-500">Bon d'échange</h2>
+					</div>
+				  <div class="flex justify-between space-x-3 mb-10">
+					  <div class="w-1/2 border border-black">
+						  <div class="px-4 py-3 ">		
+						  <div class="mb-1 flex items-center">
+							  <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Numéro de Bon.</label>
+							  <span class="mr-4 inline-block">:</span>
+							  <div x-text="invoiceNumber"></div>
+						  </div>				
+						  <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Bon</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceDate"></div>
+					 </div>
+					  </div>
+					  </div>
+					  <div class="w-1/2 border border-black">
+						   <div class="px-4 py-3 ">
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Client </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="billing.name"></div>
+							  </div>
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="billing.address"></div>
+							  </div>
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Extra </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="billing.extra"></div>
+							  </div>								
+						   </div>
+					  </div>
+				  </div>
+	  
+				{% if bill.reference_pc == '' %}
+					<table class="w-full border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">PU. HT</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
+							</tr>
+						</thead>
+						<tbody>
+							<template x-for="invoice in items" :key="invoice.id">
+							<tr class="border border-black">
+								<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
+								<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
+								<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qty"></td>
+								<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="numberFormat(invoice.rateLiv)"></td>
+								<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="numberFormat(invoice.totalLiv)"></td>
+							</tr>
+							</template>
+						</tbody>
+					</table>
+				{% else %}
+					<table class="w-full border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold print-td" colspan="2">Designation</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Qté</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
+							</tr>
+						</thead>
+						<tbody>
+											<template x-for="(invoice, index) in items">
+												<tr class=" -mx-1 py-2 ">
+													<td class="px-1 border-r border-black  text-center" :rowspan="index === 0 ? items.length : 1" x-show="index === 0 ">
+														<p class="text-gray-800" x-text="reference_pc"></p>
+													</td>
+													<td class="px-1 border-r border-black  text-center print-td" colspan="2">
+														<p class="text-gray-800 text-left font-bold" x-text="designation_pc" x-show="index === 0 "></p>
+														<p class="text-gray-800" x-text="'- ' +invoice.name"></p>
+													</td>
+													<td class="px-1 border-r border-black  text-center" :rowspan="index === 0 ? items.length : 1" x-show="index === 0 ">
+														<p class="text-gray-800" x-text="(parseFloat(netTotalLiv) / items[0].qty).toFixed(2)"></p>
+													</td>
+													<td class="px-1 border-r border-black  text-center" :rowspan="index === 0 ? items.length : 1" x-show="index === 0 ">
+														<p class="text-gray-800" x-text="items[0].qty"></p>
+													</td>
+													<td class="px-1 border-r border-black  text-center" :rowspan="index === 0 ? items.length : 1" x-show="index === 0 ">
+														<p class="text-gray-800" x-text="(netTotalLiv).toFixed(2)"></p>
+													</td>										
+												</tr>
+											</template>
+											</tbody>
+					</table>
+			 	{% endif %}
+
+					<div class="w-full flex mt-4  space-x-3 ">
+					<table class="w-1/3 table-auto  border-collapse border border-black">
+					<thead>
+						<tr class="bg-gray-100">
+							<th class="border border-gray-700 px-4 ">TVA</th>
+							<th class="border border-gray-700 px-4 ">Total TVA</th>                     
+						</tr>
+					</thead>
+					<tbody>
+					  <tr class="border border-gray-700">
+						 <td class="border border-gray-700 px-4 ">19 %</td>
+						 <td class="border border-gray-700 px-4 "x-text="((netTotalLiv - TotalRemise) * 0.19).toFixed(2)"></td> 
+					  </tr>
+					</tbody>
+		  		  </table>
+		          <table class="w-2/3 h-fit table-auto border-collapse border border-black">
+			  		<thead>
+				  		<tr class="bg-gray-100">
+					  		<th class="border border-gray-700 px-4 ">Total HT </th>
+							<th class="border border-gray-700 px-4 ">Total Remise</th>
+							<th class="border border-gray-700 px-4 ">Sous Total HT </th>
+							<th class="border border-gray-700 px-4 ">Sous Total TTC </th>
+					  		<th class="border border-gray-700 px-4 ">Net à Payer</th>
+				  		</tr>
+			  		</thead>
+			  			<tbody>
+							<!-- Sample data rows -->
+							<tr class="border border-gray-700">
+								<td class="border border-gray-700 px-4" x-text="netTotalLiv"></td>
+								<td class="border border-gray-700 px-4" x-text="TotalRemise"></td>
+								<td class="border border-gray-700 px-4" x-text="netTotalLiv - TotalRemise"></td>
+								<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(2)"></td>
+								<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(2)" ></td>
+							</tr>
+							<tr class="border border-gray-700">
+								<!--<td class="border border-gray-700 px-4" x-text="frais"></td>-->
+								<td class="border border-gray-700 px-4" x-text="'SOLDE : ' + billing.solde +' DZD' " colspan="5"></td>
+
+							</tr>
+							
+							<!-- Add more rows as needed -->
+						</tbody>
+		  		  </table>
+					</div>
+					<div class=" flex justify-between mt-12 mr-0">
+						<div></div>
+						<div class="font-bold">
+						Cachet et Signature
+						</div>
+					</div>
+			   </div>
+			   <!-- /Print Template -->
+
+			   <div class="flex mb-8 justify-between">
+				  <div class="w-2/4">
+					   <div class="mb-2 md:mb-1 md:flex items-center">
+						   <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Numéro de Bon</label>
+						   <span class="mr-4 inline-block  md:block">:</span>
+						   <div class="flex-1">
+							  <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="inline-full-name" type="text" placeholder="eg. #BON-100001" x-model="invoiceNumber">
+						   </div>
+					   </div>
+	  
+					   <div class="mb-2 md:mb-1 md:flex items-center">
+						   <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Date de Bon</label>
+						   <span class="mr-4 inline-block  md:block">:</span>
+						   <div class="flex-1">
+							<input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700 " type="date" x-model="invoiceDate" {% if request.session.role != 'manager' and request.session.username != 'younes_facturation' %}disabled{% endif %}>
+						   </div>
+					   </div>
+					   <div class="mb-2 md:mb-1 md:flex items-center" x-show="invoiceNumber.startsWith('BECH')">
+						  <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Bon Retour Source</label>
+						  <span class="mr-4 hidden md:block">:</span>
+						  <div class="flex-1">
+							  <select
+										  class="appearance-none border rounded w-48 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+										  id="echReg"
+										  name="echReg"
+                                          x-model="bon_retour"
+										  x-on:change="                              
+										  	BonEntrepot = $event.target.selectedOptions[0].dataset.entrepot
+                                            item.ent =  $event.target.selectedOptions[0].dataset.entrepot 
+                                            billing.name = $event.target.selectedOptions[0].dataset.client_name
+                                            billing.address = $event.target.selectedOptions[0].dataset.address
+                                            billing.phone = $event.target.selectedOptions[0].dataset.phone
+                                            billing.solde = $event.target.selectedOptions[0].dataset.solde
+                                            clientType = $event.target.selectedOptions[0].dataset.typecl
+                                            getStock($event.target.selectedOptions[0].dataset.entrepot);
+										  "
+										  required  
+									   >
+									   <option value="" disabled selected>Aucun</option>
+									   {% for bon in bons_commandes %}
+										   <option value="{{ bon.idBon}}" data-client_name="{{bon.bonL.client.name}}" data-solde="{{bon.bonL.client.remaining_amount}}" data-typecl="{{bon.bonL.client.categorie_client.id}}" data-phone="{{bon.bonL.client.phone}}"  data-address="{{bon.bonL.client.adresse}}"  data-entrepot="{{bon.bonL.entrepot.name}}"> 
+											  {{ bon.idBon}}
+										   </option>
+									   {% endfor %}
+							  </select>
+						  </div>
+					  </div>
+					   <div class="mb-2 md:mb-1 md:flex items-center">
+						   <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Entrepot</label>
+						   <span class="mr-4 inline-block  md:block">:</span>
+						   <div class="flex-1">
+							  <select
+							  class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700"
+							  id="entrepot"
+							  name="entrepot"
+							  x-model="BonEntrepot"
+							  x-on:change="
+							   BonEntrepot = $event.target.value
+							   getStock($event.target.value);
+							  "
+							  required  
+						   >
+						   <option value="" disabled selected>Select entrepot</option>
+						   {% for entrepot in entrepots %}
+							  <option value="{{ entrepot.name }}" data-stock="{{entrepot.get_stocks}}">
+								  {{ entrepot.name }} 
+							  </option>
+							  {% endfor %}
+						   </select>
+						   </div>
+					   </div>
+					   <label class="w-32 text-gray-800 mb-1 block font-bold text-sm uppercase tracking-wide">Note :</label>	
+						<textarea class="appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Note ..." rows="4" cols="50" x-model="obs">                            
+                        </textarea>	
+                  
+				  </div>
+
+			   </div>
+			   
+			    <div x-data="{ tab: 1 }" x-cloak class="my-10 antialiased ">
+				  <div class="relative flex flex-col rounded-lg shadow-xs overflow-hidden">         
+					  <div class="flex space-x-8 bg-white border-b border-gray-200 ">
+						  <button
+							  type="button"
+							  class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+							  x-on:click="tab = 1"
+							  :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 1 }"
+						  >
+							  Informations Client
+						  </button>
+						  <button
+							  type="button"
+							  class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+							  x-on:click="tab = 2"
+							  :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 2 }"
+						  >
+							  Bon de Livraison
+						  </button>
+						  <button
+							  type="button"
+							  class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+							  x-on:click="tab = 4"
+							  :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 4 }"
+						  >
+						  Modalité de livraison
+						  </button>						  
+						  <button
+							  type="button"
+							  class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+							  x-on:click="tab = 3"
+							  :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 3 }"
+						  >
+						  Produits du Bon
+						  </button>						  
+					  </div>     
+					  <div class="">
+						  <div x-show="tab === 1">
+							  <div class="flex flex-wrap justify-between mb-8 py-4">
+							   <div class="w-full md:w-1/3 mb-2 md:mb-0">
+								   <label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Bon Pour :</label>
+								   <select class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none  focus:bg-white" id="clients"					
+									  x-model="billing.name"
+									  x-on:change="
+									  billing.name =$event.target.value
+									  billing.address = $event.target.selectedOptions[0].dataset.address
+									  billing.phone = $event.target.selectedOptions[0].dataset.phone
+									  billing.solde =  $event.target.selectedOptions[0].dataset.solde
+									  "
+									  {% if request.session.role != 'manager' %} disabled {% endif %}
+									  >
+															   <option value="">Select a client</option>
+															   {% for client in clients %}
+															   <option value="{{client.name}}" :data-solde="{{client.remaining_amount}}" :data-address="{{client.adresse}}" :data-phone="{{client.phone}}">
+																		{{client.name}}  </option>
+															   {% endfor %}
+															   
+									  </select>
+		   
+								   <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="client-address" type="text" disabled placeholder="Adresse de client" x-model="billing.address">
+								   <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="client-phone" type="text" disabled placeholder="Numéro de téléphone" x-model="billing.phone">
+								  <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="inline-full-name" type="text" placeholder="Additional info" x-model="billing.extra">
+							   </div>	
+							  </div>
+						  </div>     
+													   
+						  <div x-show="tab === 2">
+							  <div class="flex flex-wrap justify-between mb-8 py-4">
+							   <div class="w-full md:w-1/3 mb-2 md:mb-0">
+								   <div class="mb-4">
+									   <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+										   Mode de Réglement:
+									   </label>
+									   <select
+										  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+										  id="modReg"
+										  name="modReg"
+										  x-on:change="
+								  			ModeReglement = $event.target.selectedOptions[0].value;                     
+								  			showBanque = $event.target.value == 2;
+										  "
+										  required  
+									   >
+									   <option value=""selected > Aucun </option>
+									   {% for mode in modeReg %}
+										  <option value="{{ mode.id }}" >
+											  {{ mode.label }} 
+										  </option>
+										  {% endfor %}
+									   </select>
+								   </div>
+								   <div class="mb-4">
+									  <div >
+									  <!-- Show this div when 'cheque' is selected -->
+									  <div class="mb-4">
+									   <label class="block text-gray-700 font-semibold mb-2" for="banque">
+										   Banque :
+									   </label>
+									   <select
+										  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+										  id="banque"
+										  name="banque"														
+										  required  
+										  x-on:change ="banque = $event.target.selectedOptions[0].value;"
+										  >
+										  <option value="" disabled selected> Selectionnez  Banque</option>
+										  {% for banque in banques  %}
+											  <option value="{{banque.pk}}"> {{banque.nom}} </option>
+										  {% endfor %}
+									   </select>
+									</div>
+									  <label for="chequeInput" class="block text-gray-700 font-semibold mb-2"> Numéro de chèque: </label>
+									  <input
+											  type="text"
+											 
+											  name="chequeInput"
+											  x-model="numCheque"
+											  class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+									  >
+									  </div>
+								  </div>
+								   <div class="mb-4">
+									   <label class="block text-gray-700 font-semibold mb-2" for="echReg">
+										   Echéance de Réglement	:
+									   </label>
+									   <select
+										  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+										  id="echReg"
+										  name="echReg"
+										  x-on:change="
+											echeance = $event.target.value
+										  "
+										  required  
+									   >
+									   <option value="null" disabled selected>Aucun</option>
+									   {% for ech in echeances %}
+										  <option value="{{ ech.id }}">
+											  {{ ech.label }} 
+										  </option>
+										  {% endfor %}
+									   </select>
+								   </div>
+								   <label class="block text-gray-700 font-semibold mb-2" for="remise">
+									   Remise	:
+								   </label>
+								   <div class="flex space-x-4 mb-4">
+									   <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white " id="remise" x-model="TotalRemise" type="text" >
+								   </div>
+								   
+								   <div class="mb-4">
+									   <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="inline-full-name" type="text" placeholder="Additional info" x-model="billing.extra">
+								   </div>
+								   {% comment %} <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="client-address" type="text" placeholder="Adresse de client" x-model="billing.address">
+								   <input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="client-phone" type="text" placeholder="Numéro de téléphone" x-model="billing.phone"> {% endcomment %}			   
+							   </div>	
+							  </div>
+						   
+						  </div>
+
+                          <div x-show="tab === 4">
+                                <div class="flex flex-wrap justify-between mb-8 py-4">
+							   <div class="w-full md:w-1/3 mb-2 md:mb-0">
+								   <div class="mb-4">
+									   <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+										   Mode de Livraison:
+									   </label>
+									   <select
+										  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+										  id="modReg"
+										  name="modReg"
+										  x-on:change="
+								  			modeLivraison = $event.target.selectedOptions[0].value;                     
+								  		   $event.target.value === 'ext' ? showmodeLivraison =true : showmodeLivraison =false ;
+                                            
+										  "
+										  required  
+									   >
+									   <option value=""selected > Aucun </option>									   
+										<option value="int" > Interne </option>
+										<option value="ext" > Externe </option>
+									
+									   </select>
+								   </div>
+								   <div class="mb-4">
+									 <div x-show="showmodeLivraison">
+									   <!-- Show this div when 'cheque' is selected -->
+									   <div class="mb-4">
+									     <label class="block text-gray-700 font-semibold mb-2" for="banque">
+										    Agence de livraison :
+									     </label>
+									     <input
+											  type="text"
+											  name="chequeInput"
+											  x-model="agenceLivraison"
+											  class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700"
+									      >
+									   </div>	
+									   <div class="mb-4">
+									     <label class="block text-gray-700 font-semibold mb-2" for="banque">
+										    Frais de livraison :
+									     </label>
+									     <input
+											  type="text"
+											  id="chequeInput"
+											  name="chequeInput"
+											  x-model="fraisLivraisonExt"
+											  class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700"
+									      >
+								  	   </div>								  
+									 </div>
+								  </div>
+                                  
+							   </div>	
+							  </div>
+                          </div>
+
+						  <div class="w-full" x-show="tab === 3">    
+								<table class=" mt-2 border-collapse border-l border-r w-full">
+									<thead class="border-b  bg-gray-100  border-t  py-4">
+										<tr class="border-b py-4">
+											<th class="text-center ">
+												<p class="text-gray-800 uppercase tracking-wide text-sm py-4 font-bold">Référence</p>
+											</th>
+											<th class="text-center">
+												<p class="text-gray-800 uppercase tracking-wide text-sm  py-4 font-bold">Désignation</p>
+											</th>											
+											{% if request.session.role == "manager" %}
+												<th class="text-center">
+													<p class="text-gray-800 uppercase tracking-wide text-sm py-4 font-bold">PVU HT</p>
+												</th>
+												<th class="text-center">
+													<p class="text-gray-800 uppercase tracking-wide text-sm font-bold">P.FR</p>
+												</th>
+												<th class="text-center">
+													<p class="text-gray-800 uppercase tracking-wide text-sm font-bold">TAX</p>
+												</th>
+											{% endif %}
+											<th class="text-center">
+												<p class="text-gray-800 uppercase tracking-wide text-sm font-bold">PVU HT</p>
+											</th>
+											<th class="text-center">
+												<p class="text-gray-800 uppercase tracking-wide text-sm py-4 font-bold">Quantité</p>
+											</th>
+											<th class="text-center">
+												<p class="text-gray-800 uppercase tracking-wide text-sm font-bold">Total HT</p>
+											</th>
+											<th class="px-1 text-center"></th>
+										</tr>
+									</thead>
+
+									<tbody >
+									  <template x-for="invoice in items" :key="invoice.id">
+										<tr class=" -mx-1 py-2 border-b">
+											<td class="px-1 text-center">
+												<p class="text-gray-800" x-text="invoice.ref"></p>
+											</td>
+											<td class="px-1 text-center">
+												<p class="text-gray-800" x-text="invoice.name"></p>
+											</td>
+											{% if request.session.role == "manager" %}
+												<td class="px-1 text-center">
+													<p class="text-gray-800" x-text="numberFormat(invoice.rate)"></p>
+												</td>
+												<td class="px-1 text-center">
+													<p class="text-gray-800" x-text="numberFormat(invoice.livraison_prix)"></p>
+												</td>
+												<td class="px-1 text-center">
+													<p class="text-gray-800" x-text="numberFormat(invoice.tax)"></p>
+												</td>
+											{% endif %}
+											<td class="px-1 text-center">
+												<p class="text-gray-800" x-text="numberFormat(invoice.rateLiv)"></p>
+											</td>
+											<td class="px-1 text-center">
+												<p class="text-gray-800" x-text="invoice.qty"></p>
+											</td>
+											<td class="px-1 text-center">
+												<p class="text-gray-800" x-text="numberFormat(invoice.totalLiv)"></p>
+											</td>
+											{% if request.session.role == "manager" or bill.user.username == request.session.username %}
+											<td class="text-center flex items-center">
+												<a href="#" class="text-green-950 text-sm font-semibold" @click.prevent="operation = 'update'; editItem(invoice)">{% heroicon_mini "pencil-square" class="transition-transform" %}</a>
+												<input type="checkbox" x-model="invoice.selected" class="mr-2" />
+											</td>
+											{% endif %}
+										</tr>
+									  </template>
+									</tbody>
+								</table>
+								{% if request.session.role == "manager" or bill.user.username == request.session.username %}
+								<div class="flex justify-between ">
+									<div></div>
+									<button @click="deleteSelectedItems" class="text-red-500 hover:text-red-700 px-4 py-2 rounded-md" x-show="items.length > 0">
+										{% heroicon_mini "trash" %}
+									</button>
+								</div>
+								
+								<button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" x-on:click="showModal">
+									Ajouter des produits
+								</button>
+								{% endif %}
+						  </div>
+			      </div> 
+				</div> 
+
+	  
+			    <div class="py-2 ml-auto mt-5 w-full border-t">
+			     <div class="border-b bg-gray-100 p-2 mb-2">
+			        {% if request.session.role == "manager" %}
+						<div class="flex justify-between mb-3">
+							<div class="text-gray-800 text-right flex-1">Total HT [Sans Livraison]</div>
+							<div class="text-right w-40">
+								<div class="text-gray-800 font-medium" x-html="numberFormat(netTotal)"></div>
+							</div>
+						</div>
+						<div class="flex justify-between mb-3">
+						<div class="text-gray-800 text-right flex-1">Total TTC [Sans Livraison]</div>
+						<div class="text-right w-40">
+							<div class="text-gray-800 font-medium" x-html="numberFormat(TotalPay)"></div>
+						</div>
+						</div>
+						<div class="flex justify-between mb-4">
+							<div class="text-sm text-gray-600 text-right flex-1">Frais Livraison [ INTERNE ]</div>
+							<div class="text-right w-40">
+								<div class="text-sm text-gray-600" x-html="numberFormat(fraisLivraison)"></div>
+							</div>
+						</div> 
+						<div class="flex justify-between mb-4">
+							<div class="text-sm text-gray-600 text-right flex-1">TAX</div>
+							<div class="text-right w-40">
+								<div class="text-sm text-gray-600" x-html="numberFormat(tax)"></div>
+							</div>
+						</div> 
+				    {% endif %}
+				  </div>
+			      <div class="flex justify-between mb-3">
+				  	  <div class="text-gray-800 text-right flex-1">Total HT</div>
+					  <div class="text-right w-40">
+						  <div class="text-gray-800 font-medium" x-html="netTotalLiv"></div>
+					  </div>
+				  </div>
+                   <div class="flex justify-between mb-4">
+					  <div class="text-sm text-gray-600 text-right flex-1">Remise </div>
+					  <div class="text-right w-40">
+						  <div class="text-sm text-gray-600" x-html="TotalRemise"></div>
+					  </div>
+				  </div>   
+                   <div class="flex justify-between mb-4">
+					  <div class="text-sm text-gray-600 text-right flex-1">Sous Total HT </div>
+					  <div class="text-right w-40">
+						  <div class="text-sm text-gray-600" x-html="netTotalLiv - TotalRemise"></div>
+					  </div>
+				  </div>   
+			      <div class="flex justify-between mb-3">
+				  	  <div class="text-gray-800 text-right flex-1">Total TTC</div>
+					  <div class="text-right w-40">
+						  <div class="text-gray-800 font-medium" x-html="((netTotalLiv - TotalRemise) * 1.19).toFixed(2)"></div>
+					  </div>
+				  </div>
+				 
+				  <div class="flex justify-between mb-4">
+					  <div class="text-sm text-gray-600 text-right flex-1">Frais Livraison</div>
+					  <div class="text-right w-40">
+						  <div class="text-sm text-gray-600" x-html="numberFormat(fraisLivraisonExt)"></div>
+					  </div>
+				  </div>
+
+				 
+			  
+				  <div class="py-2 border-t border-b">
+					  <div class="flex justify-between">
+						  <div class="text-xl text-gray-600 text-right flex-1">Net À Payer</div>
+						  <div class="text-right w-40">
+							  <div class="text-xl text-gray-800 font-bold" x-html="(parseFloat(netTotalLiv - TotalRemise) * 1.19).toFixed(2) + parseFloat(fraisLivraisonExt)"></div>
+						  </div>
+					  </div>
+				  </div>
+				  {% if request.session.role == "manager" or bill.user.username == request.session.username %}
+					<div class="flex justify-between">
+    					<div></div>
+    					<button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" type="submit" @click.prevent="validateBon()">Valider le Bon & imprimer</button> 
+					</div>
+                  {% endif %}  
+			   </div>
+			  
+				<div style=" background-color: rgba(0, 0, 0, 0.8)" class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full py-8" x-show.transition.opacity="openPreview">	
+				   <div class="shadow absolute -right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+						x-on:click="openPreview = !openPreview">
+						<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path
+								d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+						</svg>
+				   </div>
+			       <div class="p-4 w-1/3 mx-auto relative left-0 right-0 overflow-hidden  bg-white h-full "  x-on:click.away="openPreview = !openPreview">
+				     		  <div class="py-4 border-b border-stone-500">
+					             <img src="{% static 'media/divatech-logo.png' %}" alt="">
+				   				</div>
+		  
+				  <h2 class="text-3xl font-bold mb-6 pb-2 tracking-wider uppercase">Bon de Livraison</h2>
+				  <div class="flex justify-between space-x-3 mb-10">
+					  <div class="w-1/2 border border-black">
+						  <div class="px-4 py-3 ">		
+						  <div class="mb-1 flex items-center">
+							  <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Numéro de Bon.</label>
+							  <span class="mr-4 inline-block">:</span>
+							  <div x-text="invoiceNumber"></div>
+						  </div>				
+						  <div class="mb-1 flex items-center">
+							  <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Bon</label>
+							  <span class="mr-4 inline-block">:</span>
+							  <div x-text="invoiceDate"></div>
+						  </div>
+					  </div>
+					  </div>
+					  <div class="w-1/2 border border-black">
+						   <div class="px-4 py-3 ">
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Client </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="billing.name"></div>
+							  </div>
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="billing.address"></div>
+							  </div>
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Extra </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="billing.extra"></div>
+							  </div>								
+						   </div>
+					  </div>
+				  </div>
+	  
+				 <table class="w-full border-collapse border border-black">
+		   		   <thead>
+			  		<tr class="bg-gray-100">
+				  		<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+				  		<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+				  		<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+				  		<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
+				  		<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
+			  		</tr>
+		   		   </thead>
+		   		   <tbody>
+			  		<template x-for="invoice in items" :key="invoice.id">
+						<tr class="border border-black">
+							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
+							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
+							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qty"></td>
+							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="numberFormat(invoice.rateLiv)"></td>
+							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="numberFormat(invoice.totalLiv)"></td>
+						</tr>
+			  		</template>
+		   		   </tbody>
+				 </table>
+
+				 <div class="w-full flex mt-4  space-x-3 ">
+		  		  <table class="w-1/3 table-auto  border-collapse border border-black">
+					<thead>
+						<tr class="bg-gray-100">
+							<th class="border border-gray-700 px-4 ">TVA</th>
+							<th class="border border-gray-700 px-4 ">Total TVA</th>                     
+						</tr>
+					</thead>
+					<tbody>
+					  <tr class="border border-gray-700">
+						 <td class="border border-gray-700 px-4 ">0 %</td>
+						 <td class="border border-gray-700 px-4 "x-text="totalGST"></td> 
+					  </tr>
+					</tbody>
+		  		  </table>
+		          <table class="w-2/3 h-fit table-auto border-collapse border border-black">
+			  		<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-gray-700 px-4 ">Total HT </th>
+								<th class="border border-gray-700 px-4 ">Total Remise</th>
+								<th class="border border-gray-700 px-4 ">Sous Total TTC </th>
+								<th class="border border-gray-700 px-4 ">Net à Payer</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Sample data rows -->
+							<tr class="border border-gray-700">
+								<td class="border border-gray-700 px-4" x-text="netTotalLiv"></td>
+								<td class="border border-gray-700 px-4" x-text="TotalRemise"></td>
+								<td class="border border-gray-700 px-4" x-text="TotalPayLiv"></td>
+								{% if bill.BonS.mode_reglement.label == 'Espèce' %}
+									<td class="border border-gray-700 px-4" x-text="((TotalPayLiv - TotalRemise) * 0.01).toFixed(2)" ></td>
+									<td class="border border-gray-700 px-4" x-text="((TotalPayLiv - TotalRemise).toFixed(2)" ></td>
+								{% else %}	
+                                	<td class="border border-gray-700 px-4" x-text="TotalPayLiv - TotalRemise" ></td>
+								{% endif %}
+							</tr>
+							<tr>
+    							<td class="border border-gray-700 px-4 py-2" colspan="5">
+    							  
+    								<div class="flex space-x-1 items-center">
+        								 {% if request.session.store == "1" %} 
+        									<p class="text-left">
+        								    	Solde : 
+        								    	<span class="font-semibold" x-text="billing.solde + ' DZD'" > </span>
+        									</p>
+        								 {% else %}
+        								    <p class="text-left">
+        								    	Solde : 
+        								    	<span class="font-semibold" > 0 DZD </span>
+        									</p>
+        							     {% endif %}	
+    							   
+								</div>
+								</td>
+							</tr>
+							<!-- Add more rows as needed -->
+						</tbody>
+		  		  </table>
+		         </div>
+		         <div class=" flex justify-between mt-12 mr-0">
+					<div></div>
+					<div class="font-bold">
+			  			Cachet et Signature
+					</div>
+			     </div>
+			     </div>
+				</div>
+	  
+				<div x-show="showConfirmation" style=" background-color: rgba(0, 0, 0, 0.8);" class="fixed inset-0 z-50 overflow-y-auto ">
+					<div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
+							<div x-cloak x-show="showConfirmation"
+									x-transition:enter="transition ease-out duration-300 transform"
+									x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+									x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+									x-transition:leave="transition ease-in duration-200 transform"
+									x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+									x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+									class="inline-block  w-1/2 mx-auto p-6 my-10 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl "
+							 >
+									<div class="flex items-center justify-between space-x-4">
+											<h1 class="text-xl font-bold text-gray-800 ">Entrepots Différents</h1>
+									</div>
+									<h2 class="text-xl font-bold text-gray-800 ">Il existent des produits avec entrepôt différent d'entrepot du bon.</h2>
+									<p class="mt-2 text-md text-gray-800 ">
+										Voulez Vous Créer un bon de transfert automatiquement ?
+								</p>
+									<button @click="showDetails = !showDetails">show more details</button>
+								<div x-show="showDetails" >
+									<table>
+										<thead>
+											<tr>
+												<th>Reference</th>
+												<th>Entrepot</th>
+											</tr>
+										</thead>
+										<tbody>
+											<template x-for="prdouct in productsdifferent">
+												<tr>
+													<td >
+														<p x-text="product.reference"></p>
+													</td>
+													<td >
+														<p x-text="product.entrepot"></p>
+													</td>
+												</tr>
+											</template>
+										</tbody>
+									</table>
+								</div>
+									
+											<div class="flex justify-end mt-6">
+													<button for="show"
+														@click="showConfirmation = false; validateBon()" type="button" class="mr-2 px-2 py-2 text-sm tracking-wide text-black capitalize transition-colors duration-200 transform border border-gray-700 hover:bg-gray-700 rounded-md shadow-md">
+															Ne pas créer
+													</button>
+													<button for="show"
+														@click="showConfirmation = false; creationAutomatique=true; validateBon() " type="button" class="mr-2 px-2 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-700  rounded-md shadow-md">
+															Confirmer création
+													</button>                                     
+											</div>
+									
+							</div>
+					</div>
+				</div>
+
+			    <!-- Modal -->
+				<div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="openModal">
+					<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-24">
+							<div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+								x-on:click="openModal = !openModal; operation = 'add';">
+								<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+									<path
+										d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+								</svg>
+							</div>
+							<form action="" id="myForm">
+										<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+										<h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter des produits au bon</h2>
+										<div class="mb-4 w-full ">			
+											<label class="block text-gray-700 font-semibold mb-2" for="price">
+												Produit :
+											</label>
+
+											<div class="relative">
+												<input type="hidden" :value="selected.value">
+												<input type="text" x-model="search" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline bg-gray-50 text-gray-600 font-medium"
+													placeholder="Cliquer pour rechercher ..." @click="optionsVisible = !optionsVisible">
+												<div class="absolute bg-white shadow-lg w-full overflow-y-scroll z-40" style="max-height:200px;" x-show="optionsVisible">
+													<template x-for="option in filteredOptions()">
+														<a class="cursor-pointer border-b py-2 px-2 text-left hover:bg-gray-100" 
+															@click.prevent="
+																item.ref = option.ref;
+																item.name = option.name;
+																showQuantity = true;
+																availableQuantity = option.qty;
+																item.rate = option.prix;
+																item.tax = option.tax;
+																item.livraison_prix = option.livraison_prix;
+																item.rateLiv = (parseFloat(option.prix) + parseFloat(option.livraison_prix) + parseFloat(option.tax)).toFixed(2);
+																item.ent = option.ent;
+																selected = option;
+																optionsVisible = false;
+																search='';
+
+																"
+															x-text="option.name"
+															style="display: block;"></a>
+													</template>
+												</div>
+												
+											</div>
+
+											<select
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												id="product"
+												name="product"
+												x-model="item.ref"
+												x-on:change="
+													item.ref = $event.target.value;
+													item.name=$event.target.selectedOptions[0].dataset.name;
+													item.rate = $event.target.selectedOptions[0].dataset.price;					
+													item.quantity = $event.target.selectedOptions[0].dataset.quantity;
+													item.livraison_prix = $event.target.selectedOptions[0].dataset.livraison;
+													item.rateLiv =  (parseFloat($event.target.selectedOptions[0].dataset.price) + parseFloat($event.target.selectedOptions[0].dataset.livraison)).toFixed(2);
+													showQuantity = true;
+													availableQuantity =$event.target.selectedOptions[0].dataset.quantity;
+												"
+												required
+												disabled  
+												>
+												<option value="" disabled selected>Select product</option>
+												<template x-for="stock_item in stocks">
+													<option
+														x-bind:value="stock_item.ref"
+														x-bind:data-name="stock_item.name"
+														x-bind:data-price="stock_item.prix"
+														x-bind:data-quantity="stock_item.qty"
+														x-bind:data-livraison ="stock_item.livraison_prix"
+														x-text="stock_item.name"
+													>
+
+													</option>
+												</template>
+											</select>
+										</div>
+							
+										<div class="mb-4">
+											<label class="block text-gray-700 font-semibold mb-2" for="quantity">
+												Quantity:
+												<div class="mb-4" id="productQuantityDiv" style="display: none;" x-show="showQuantity">
+												<label class="block text-primary font-medium text-sm mb-2">
+													Available Quantity: <span id="productQuantity" x-text="availableQuantity"></span>
+												</label>
+												</div>
+											</label>
+											<input
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												type="number"
+												id="quantity"
+												name="quantity"
+												placeholder="Enter quantity"
+												min="1"
+												max="5"
+												required
+												x-model="item.qty"
+											>
+											<div class="mb-4" id="productQuantityDiv" x-show="quantityRequired > 0" >
+												<label class="block text-red-700 font-medium text-sm mb-2">
+													Quantité Obligatoire : <span id="productQuantity" x-text="quantityRequired"></span>
+												</label>
+											</div>
+										</div>	 
+
+										<div class="mb-4">
+											<label class="block text-gray-700 font-semibold mb-2" for="price">
+												Price:
+											</label>
+											<input
+												class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+												type="text"
+												id="price"
+												name="price"
+												placeholder="Price will be fetched automatically"
+												x-model="item.rateLiv"
+												{% if request.session.role != "manager" %} disabled {% endif %}
+											>
+										</div>
+											
+										<div class="mt-8 text-right">
+											<button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="openModal = !openModal; operation = 'add';">
+												Cancel
+											</button>	
+											<button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm"
+													x-on:click="
+													if (operation === 'add') {
+														// Call the 'addClient' method
+														addItem();
+														} else if (operation === 'update') {
+														// Call the 'modifierFournisseur' method
+
+														validerModification();
+													}
+												">
+												<span x-text="operation === 'add' ? 'Ajouter' : 'Modifier'"></span>
+												</button>		
+										</div>
+								</div> 				  
+								</div>
+							</form>
+					</div>
+				</div>
+			    <!-- /Modal -->	
+		</div>
+		  
+	   <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+	   <script>				  
+		  function invoices() {
+				return {
+					items: [],
+					clients:[],
+					stocks:[],
+					stockFiltered:[],					 
+					productsdifferent :[],
+					quantityRequired:'',
+					id:'{{bill.id}}',
+					invoiceNumber: '{{bill.idBon}}',
+					invoiceDate: '',
+					BonEntrepot:'{{bill.entrepot.name}}',
+					availableQuantity:0,
+					showConfirmation:false,
+					totalGST: 0,
+					openPreview:false,
+					netTotal: 0,
+					tax:{{bill.my_tax}},
+					reference_pc:'{{bill.reference_pc}}',
+				 	designation_pc: '{{bill.name_pc}}',
+					openModalValide:false,
+					openModalValideModification:false,
+					modifiable:"{{ bill.modifiable }}" == 'True' ? true : false,
+					TotalRemise :{{bill.Remise}},
+					typevalidation:false,
+					typeclientvalidation:'',
+					percent:'',
+					obs:'{{bill.etat_reglement}}',
+					montantSolde(){
+						return ((parseFloat(this.percent) / 100) * parseFloat(this.TotalPayLiv - this.TotalRemise)).toFixed(2);	
+					},
+					TotalPay:0,
+					valide:"{{ bill.valide }}" == 'True' ? true : false,
+					transfer_valide : "{{bill.get_etat_transfert}}" == 'True' ? true : false,
+					showModalConfirmation:false,
+					showBanque:false,
+					clientType : '{{bill.client.categorie_client.id}}',
+					banque:'',
+					numCheque: '',
+					showDetails:false,
+					modeLivraison:'',
+					showmodeLivraison:false,
+					agenceLivraison:'',
+					fraisLivraison:0,
+					fraisLivraisonExt:"{{bill.fraisLivraisonexterne}}" != '' ? {{bill.fraisLivraisonexterne}} : 0,
+					netTotalLiv :0,
+					totalGSTLiv:0,
+					TotalPayLiv:0,
+					showTooltip4:false,
+					creationAutomatique :false,
+					item: {
+						id: '',
+						category: '',
+						name: '',
+						ref:'',
+						ent:'',
+						qty: 0,
+						rate: 0,
+						rateLiv: 0,
+						livraison_prix:0,
+						total: 0,
+						gst: 0,
+					},
+					optionsVisible: false,
+					search: "",
+					filteredOptions() {
+							return this.stocks.filter((option) => {
+								return (option.name.toLowerCase().includes(this.search.toLowerCase()));
+							});
+					},
+
+					deleteSelectedItems() {
+						this.items = this.items.filter(invoice => !invoice.selected);
+						const sumPrixLivraison = this.items.reduce((total, item) => total + item.livraison_prix * item.qty, 0);
+						const sumTax = this.items.reduce((total, item) => total + item.tax, 0);
+						this.tax = sumTax;
+						// Assign the sum to this.fraislivraison
+						this.fraisLivraison = sumPrixLivraison;
+						this.itemTotal();
+						this.itemTotalGST();
+						this.itemTotalLiv();
+						this.itemTotalGSTLiv();
+
+						const netTotal = parseFloat(this.netTotal.replace(/[^\d.,]/g, "").replace(",", "."));
+						const totalGST = parseFloat(this.totalGST.replace(/[^\d.,]/g, "").replace(",", "."));
+						const netTotalLiv = parseFloat(this.netTotalLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+						const totalGSTLiv = parseFloat(this.totalGSTLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+
+						this.netTotalLiv = netTotalLiv
+						this.TotalPay = netTotal * 1.19;
+						this.TotalPayLiv = netTotalLiv * 1.19;
+						this.totalGST = this.netTotal * 0.19;
+						this.totalGSTLiv = this.netTotalLiv * 0.19
+					},
+
+					billing: {
+						name: '{{bill.client.name}}',
+						address: '{{bill.client.adresse}}',
+						extra: '{{bill.etat_reglement}}' == 'non-regle' ? '' : '{{bill.etat_reglement}}',
+						phone:'{{bill.client.phone}}',
+						solde:parseFloat('{{bill.client.remaining_amount}}'),
+					},
+
+					showTooltip: false,
+					showTooltip2: false,
+					openModal: false,
+					showQuantity:false,
+
+					TotalPayTotal(){
+						const totalPayLiv = parseFloat(this.TotalPayLiv) || 0;
+						console.log(totalPayLiv)
+						const fraisLivraisonExt = parseFloat(this.fraisLivraisonExt) || 0;
+						const totalRemise = parseFloat(this.TotalRemise) || 0;
+						// Perform the calculation
+						const result = parseFloat((totalPayLiv + fraisLivraisonExt) - totalRemise);
+
+						return (result).toFixed(0);
+					},
+					operation:'add',
+					showModal(){
+						document.getElementById('myForm').reset(); 
+						this.showQuantity = false; 
+						this.openModal =true;
+					},
+					invoice_toedit:'',
+					index: 0,
+					editItem(invoice) {
+						this.item = {
+							ref: invoice.ref,
+							name: invoice.name,
+							qty: invoice.qty,
+							livraison_prix: invoice.livraison_prix,
+							tax : invoice.tax,
+							rateLiv: invoice.rateLiv,
+							gst: invoice.tva,
+						};	
+						this.invoice_toedit = invoice;	
+						this.openModal = true;
+					},
+
+					validerModification(){
+						const existingItemIndex = this.items.findIndex(item => item === this.invoice_toedit);
+						existingItem = this.items[existingItemIndex];
+						const taux_liv = this.invoice_toedit.livraison_prix / this.invoice_toedit.qty
+						this.tax -= this.invoice_toedit.tax *  this.invoice_toedit.qty
+						this.fraisLivraison -= taux_liv * this.invoice_toedit.qty
+						if (existingItem.ref != this.item.ref){
+							existingItem.name = this.item.name
+							existingItem.ref= this.item.ref
+							existingItem.rate= this.item.rate
+							existingItem.rateLiv= this.item.rateLiv
+							existingItem.livraison_prix= this.item.livraison_prix * this.item.qty,
+							existingItem.tax=this.item.tax,
+							existingItem.total= this.item.qty * this.item.rate,
+							existingItem.totalLiv= this.item.qty * this.item.rateLiv
+						}
+						existingItem.qty= this.item.qty
+												
+						existingItem.tva= 19,
+						existingItem.gst= this.calculateGST(19, parseFloat(this.item.rate))
+						existingItem.gstLiv= this.calculateGST(19, parseFloat(this.item.rateLiv))
+						existingItem.livraison_prix= this.item.livraison_prix * this.item.qty
+						existingItem.tax=this.item.tax
+						existingItem.total= this.item.qty * this.item.rate,
+						existingItem.totalLiv= this.item.qty * this.item.rateLiv	
+						var fr_liv = parseFloat(this.fraisLivraison);
+						var livraison_prix = parseFloat(existingItem.livraison_prix);
+						
+						var qty = parseFloat(existingItem.qty);
+
+						this.fraisLivraison = (fr_liv + livraison_prix * qty).toFixed(2);
+						this.tax += existingItem.tax * this.item.qty
+						this.itemTotal();
+						this.itemTotalGST();
+						this.itemTotalLiv();
+						this.itemTotalGSTLiv();
+	  
+						const netTotal = parseFloat(this.netTotal.replace(/[^\d.,]/g, "").replace(",", "."));
+						const totalGST = parseFloat(this.totalGST.replace(/[^\d.,]/g, "").replace(",", "."));
+						const netTotalLiv = parseFloat(this.netTotalLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+						const totalGSTLiv = parseFloat(this.totalGSTLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+	  
+						this.netTotalLiv = netTotalLiv
+						this.TotalPay = (netTotal * 1.19).toFixed(2);
+						this.TotalPayLiv = (netTotalLiv * 1.19).toFixed(2);
+						this.totalGST = netTotal * 0.19;
+						this.totalGSTLiv = (netTotalLiv * 0.19).toFixed(2);
+
+						this.item.id = '';
+						this.item.name = '';
+						this.item.ref = '';
+						this.item.qty = 0;
+						this.item.rate = 0;
+						this.item.rateLiv =0;
+						this.item.livraison_prix =0;
+						this.item.totalLiv = 0;
+						this.item.gst = 0;
+						this.item.total = 0;
+					    document.getElementById('myForm').reset(); 
+					    this.showQuantity = false; 
+
+					},
+					getStock(entrepotStock){
+						this.stocks=[]
+						dataObj={
+							nomEnt : entrepotStock,	
+							typeclient : this.clientType,					 
+						}						
+						axios.post('/ventes/fetchStock', dataObj, {
+							headers: {
+							'Content-Type': '',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+						})
+						.then((response) => {
+							console.log(response.data.stocks) 
+							itemsData=response.data.stocks;
+							for (const itemData of itemsData) {		
+								console.log(itemData.entrepot)						 
+								const item = {
+									id: this.generateUUID(),
+									name: itemData.product_name,
+									ref: itemData.reference,
+									ent:itemData.entrepot,
+									qty: itemData.quantity,
+									prix: itemData.price,
+									livraison_prix: itemData.prix_livraison,
+									rateLiv: parseFloat(itemData.price) +  parseFloat(itemData.prix_livraison)
+								};
+								this.stocks.push(item);
+							}						 
+						})
+						.catch((error) => {
+							alert(error)				  
+						});
+					},
+			
+					initData() {
+                        this.invoiceDate = '{{dateBon}}';
+						items= {{items | safe}}
+						for (const item of items) {
+							const item_obj = {	
+								id: this.generateUUID(),			
+								name: item.produit_name,
+								ref: item.produit_ref,
+								qty: parseFloat(item.produit_qty),
+								rate: item.produit_freeprice !== null ? parseFloat(item.produit_freeprice) : 0,	
+								livraison_prix: item.produit_livraison,
+								rateLiv: parseFloat(item.produit_unitprice) ,
+								tva: parseFloat(item.produit_tva),		
+								tax: parseFloat(item.produit_tax),			   
+								gst: this.calculateGST(item.produit_tva, item.produit_freeprice),
+								gstLiv: this.calculateGST(item.produit_tva, parseFloat(item.produit_unitprice)),		
+								totalLiv: parseFloat(item.produit_qty) *( parseFloat(item.produit_unitprice)), 
+								total: parseFloat(item.produit_qty) * (item.produit_unitprice !== null ? parseFloat(item.produit_unitprice) : 0),		
+							};	
+							this.items.push(item_obj);
+							this.itemTotal();
+							this.itemTotal();
+							this.itemTotalGST();
+							this.itemTotalLiv();
+							this.itemTotalGSTLiv();
+							const netTotal = parseFloat(this.netTotal.replace(/[^\d.,]/g, "").replace(",", "."));
+							const totalGST = parseFloat(this.totalGST.replace(/[^\d.,]/g, "").replace(",", "."));
+							const netTotalLiv = parseFloat(this.netTotalLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+							const totalGSTLiv = parseFloat(this.totalGSTLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+							console.log(totalGST);
+							this.netTotalLiv = netTotalLiv;
+							this.TotalPay = netTotal + totalGST;
+							this.TotalPayLiv = netTotalLiv + totalGSTLiv;
+						}
+
+						this.fraisLivraison = "{{ bill.fraisLivraison}}" !== '' ? "{{bill.fraisLivraison}}" : 0
+						itemsData={{stocks | safe}};
+						for (const itemData of itemsData) {							 
+							const item = {
+								id: this.generateUUID(),
+								name: itemData.product_name,
+								ref: itemData.reference,
+								ent:itemData.entrepot,
+								qty: itemData.quantity,
+								prix: itemData.price,
+								tax: itemData.tax,
+								livraison_prix: itemData.prix_livraison,
+								rateLiv: parseFloat(itemData.price) +  parseFloat(itemData.prix_livraison) + parseFloat(itemData.tax)
+							};
+							this.stocks.push(item);
+						}	
+						this.invoiceDate = new Date('{{bill.dateBon}}').toLocaleDateString('fr-FR')		
+					},
+
+
+					addItem() {
+						const existingItemIndex = this.items.findIndex(item => item.ref === this.item.ref);
+						if (existingItemIndex !== -1) {
+							const existingItem = this.items[existingItemIndex];
+							const taux_liv = existingItem.livraison_prix / existingItem.qty
+							this.tax -= existingItem.tax *  existingItem.qty
+							this.fraisLivraison -= taux_liv * existingItem.qty
+							existingItem.qty = this.item.qty;
+							existingItem.livraison_prix = taux_liv * parseFloat(this.item.qty);
+							existingItem.total =  parseFloat(this.item.qty) * parseFloat(existingItem.rate);
+							existingItem.totalLiv =  parseFloat(this.item.qty) * parseFloat(existingItem.rateLiv);
+							this.fraisLivraison += taux_liv * parseFloat(this.item.qty)
+							this.tax += this.item.tax * this.item.qty
+						} else {
+						    this.items.push({
+								id: this.generateUUID(),
+								name: this.item.name,
+								ref: this.item.ref,
+								qty: this.item.qty,
+								ent: this.item.ent,
+								rate: this.item.rate,
+								rateLiv: this.item.rateLiv,
+								tva: 19,
+								gst: this.calculateGST(19, parseFloat(this.item.rate)),
+								gstLiv: this.calculateGST(19, parseFloat(this.item.rateLiv)),
+								livraison_prix: this.item.livraison_prix * this.item.qty,
+								tax:this.item.tax,
+								total: this.item.qty * this.item.rate,
+								totalLiv: this.item.qty * this.item.rateLiv
+							});
+							var fr_liv = parseFloat(this.fraisLivraison);
+							var livraison_prix = parseFloat(this.item.livraison_prix);
+							
+							var qty = parseFloat(this.item.qty);
+
+							this.fraisLivraison = (fr_liv + livraison_prix * qty).toFixed(2);
+							this.tax += this.item.tax * this.item.qty
+						}
+					      
+						this.itemTotal();
+						this.itemTotalGST();
+						this.itemTotalLiv();
+						this.itemTotalGSTLiv();
+	  
+						const netTotal = parseFloat(this.netTotal.replace(/[^\d.,]/g, "").replace(",", "."));
+						const totalGST = parseFloat(this.totalGST.replace(/[^\d.,]/g, "").replace(",", "."));
+						const netTotalLiv = parseFloat(this.netTotalLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+						const totalGSTLiv = parseFloat(this.totalGSTLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+	  
+						this.netTotalLiv = netTotalLiv
+						this.TotalPay = (netTotal * 1.19).toFixed(2);
+						this.TotalPayLiv = (netTotalLiv * 1.19).toFixed(2);
+						this.totalGST = netTotal * 0.19;
+						this.totalGSTLiv = (netTotalLiv * 0.19).toFixed(2);
+
+						this.item.id = '';
+						this.item.name = '';
+						this.item.ref = '';
+						this.item.qty = 0;
+						this.item.rate = 0;
+						this.item.rateLiv =0;
+						this.item.livraison_prix =0;
+						this.item.totalLiv = 0;
+						this.item.gst = 0;
+						this.item.total = 0;
+					    document.getElementById('myForm').reset(); 
+					    this.showQuantity = false; 
+
+				    },
+	
+					deleteItem(uuid) {
+						const removedItem = this.items.find(item => {
+						return item.id === uuid;
+						});	
+						this.itemTotal();
+						this.itemTotalGST();
+						this.itemTotalLiv();
+						this.itemTotalGSTLiv();
+						const netTotalLiv = parseFloat(this.netTotalLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+						const totalGSTLiv = parseFloat(this.totalGSTLiv.replace(/[^\d.,]/g, "").replace(",", "."));
+						const netTotal = parseFloat(this.netTotal.replace(/[^\d.,]/g, "").replace(",", "."));
+						const totalGST = parseFloat(this.totalGST.replace(/[^\d.,]/g, "").replace(",", "."));	
+						this.fraisLivraison -= removedItem.livraison_prix
+						this.TotalPay = netTotal + totalGST;
+						this.TotalPayLiv = netTotalLiv + totalGSTLiv;
+						this.items = this.items.filter(item => uuid !== item.id);
+						
+					},
+	
+					itemTotal() {
+						this.netTotal = this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+							return result + (item.rate * item.qty);
+						}, 0) : 0);
+					},
+
+					itemTotalLiv() {
+						this.netTotalLiv = this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+							return result + item.totalLiv;
+						}, 0) : 0);
+					},
+	
+					itemTotalGST() {
+						this.totalGST =  this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+							console.log(item.ref+item.gst + item.qty)
+							return result + (item.gst * item.qty);
+						}, 0) : 0);
+					},
+
+					itemTotalGSTLiv() {
+						this.totalGSTLiv =  this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+							return result + (item.gstLiv * item.qty);
+						}, 0) : 0);
+					},
+	
+					calculateGST(GSTPercentage, itemRate) {	
+						console.log(GSTPercentage, itemRate);
+						return this.numberFormat((itemRate * GSTPercentage/100).toFixed(2));
+					},
+	
+					generateUUID() {
+						return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+							var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+							return v.toString(16);
+						});
+					},
+	
+					generateInvoiceNumber(minimum, maximum) {
+						const randomNumber = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+						this.invoiceNumber = '#BL-'+ randomNumber;
+					},
+	
+					numberFormat(amount) {
+						return amount.toLocaleString("fr-FR", {
+							style: "currency",
+							currency: "DZD"
+						});
+					},
+
+					printInvoice() {
+						var printContents = this.$refs.printTemplate.innerHTML;
+						var originalContents = document.body.innerHTML;
+						document.body.innerHTML = printContents;
+						window.print();
+						window.location.reload();
+						document.body.innerHTML = originalContents;
+						this.items=[];
+					},
+
+					verifying:false,
+					openModalValide: false,
+					success:false,
+					password:'',
+
+					verifyPassword(){
+						this.verifying = true;                 
+						dataObj ={
+							password: this.password,
+							idBon: this.id,
+							typevalidation: this.typevalidation,
+							typeclientvalidation: this.typeclientvalidation,
+							percent: this.percent,
+							montantSolde: this.montantSolde(),
+							type: "bs"
+						}
+						axios.post('/verify-password-validation/', dataObj, {
+							headers: {
+							'Content-Type': '',
+							'X-CSRFToken': getCookie('csrftoken'),
+						}
+						})
+						.then(response => {
+							if (response.data.success) {
+							this.success=true;
+							this.openModalValide = false;
+							this.password=""
+							this.valide=true;
+							
+								// Set a timeout to reset this.success after a certain time
+							setTimeout(() => {
+								this.success = false;
+							}, 1000);
+							} else {
+							alert("false")
+							this.verifying = false;
+							this.openModalValide = false;
+							this.password=""
+							}
+						})
+						.catch(error => {
+							// Handle any errors that occur during the AJAX request
+							alert(error);
+							this.verifying = false;
+						
+						});
+					}, 	
+					verifyPasswordModification(){
+						// Set the verifying flag to true to show the loading message
+						this.verifying = true;                 
+						// Make an AJAX request to verify the password
+						dataObj ={
+							password : this.password,
+							idBon: this.id,
+							type:"bs",
+							modif:"True",
+						}
+						axios.post('/verify-password-validation/', dataObj, {
+							headers: {
+							'Content-Type': '',
+							'X-CSRFToken': getCookie('csrftoken'),
+						}
+						})
+						.then(response => {
+							if (response.data.success) {
+							this.success=true;
+							this.openModalValideModification = false;
+							this.password=""
+							this.modifiable=true;
+							
+								// Set a timeout to reset this.success after a certain time
+							setTimeout(() => {
+								this.success = false;
+							}, 1000);
+							} else {
+							alert("false")
+							this.verifying = false;
+							this.openModalValideModification = false;
+							this.password=""
+							}
+						})
+						.catch(error => {
+							// Handle any errors that occur during the AJAX request
+							alert(error);
+							this.verifying = false;
+						
+						});
+					}, 	
+
+					VerifyBon(){
+						this.items.forEach(item => {
+							if (item.ent != this.BonEntrepot) {
+								// Push the product details to the array
+								product_obj ={
+								reference: item.ref,
+								entrepot: item.ent,
+									quantity: item.qty,
+							}
+								this.productsdifferent.push(product_obj);
+							}
+							
+						});
+						if (this.productsdifferent.length > 0) {
+							this.showConfirmation = true;
+
+							
+						}else{
+						this.validateBon()
+						}
+					},
+
+					validateBon(){
+						console.log("hello");
+						const numericNetTotal = parseFloat(this.netTotal.replace(/\s|/g, ''));
+						const dataObj = {
+						    id:'{{bill.id}}',
+							IdBon : this.invoiceNumber,
+							dateBp:this.invoiceDate,
+							clientInfo:this.billing,
+							entrepotBon : this.BonEntrepot,
+							total:this.TotalPay,
+							remise : this.TotalRemise !== '' ? parseFloat(this.TotalRemise) : 0,
+							agencelivraison:this.Agencelivraison,
+							fraislivraison : this.fraisLivraison,
+							fraislivraisonext: this.fraisLivraisonext,
+							produits:this.items,
+							obs: this.obs,
+						};
+						axios.post('', {
+						formData: dataObj
+						}, {
+							headers: {
+							'Content-Type': '',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+							})
+							.then((response) => {
+								data= response.data
+								if(data.error){
+								alert(data.error);
+								}else{
+									alert("Bon Modifié!");
+								}		  
+							})
+							.catch((error) => {
+								alert(error)
+							});
+					},
+						
+				}
+		  }
+		  
+		  function getCookie(name) {
+				  var cookieValue = null;
+				  if (document.cookie && document.cookie !== '') {
+					  var cookies = document.cookie.split(';');
+					  for (var i = 0; i < cookies.length; i++) {
+						  var cookie = cookies[i].trim();
+						  // Does this cookie string begin with the name we want?
+						  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+							  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+							  break;
+						  }
+					  }
+				  }
+				  return cookieValue;
+		  }
+	   </script>
+	  </body>
+   </div>
+ </div>
+</div>
+</div>
+{% endblock content %}

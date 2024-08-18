@@ -1,0 +1,1701 @@
+{% extends "base.html" %} 
+{% load static heroicons %} 
+
+{% block content %}
+<div
+  x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}"
+  class="flex flex-col min-h-screen custom-scrollbar"
+>
+  <!-- start::Black overlay -->
+
+  <!-- end::Black overlay -->
+  {% include 'header.html' %} 
+  {% include 'tabs.html' with active_tab="prodcts" %}
+  <div class="w-full flex flex-row">
+    {% include "sidebar_produits.html" %}
+    <div class="h-full w-full" x-data="{isOpen :false}">
+      <!-- Main content header -->
+      <main class="block w-full px-2" x-data="product()" x-init="initData()">
+        <form>
+          <div class="space-y-12 py-4">
+            <div class="border-b border-gray-900/10 pb-12">
+              <h2
+                class="font-semibold leading-7 text-gray-900 text-3xl text-left"
+              >
+                Modifier un produit
+              </h2>
+              <p class="mt-1 text-md leading-6 text-gray-600 text-left">
+                Cette Page est dédié à la modification d'un produit présent dans
+                la base de données.
+              </p>
+              <div x-data="{ tab: 1 }" x-cloak class="my-10 antialiased">
+                <div
+                  class="relative flex flex-col rounded-lg shadow-xs overflow-hidden"
+                >
+                  <div class="flex space-x-8 bg-white border-b border-gray-200">
+                    
+                    <button
+                      type="button"
+                      class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+                      x-on:click="tab = 1"
+                      :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 1 }"
+                    >
+                      Informations Générales
+                    </button>
+                    <button
+                      type="button"
+                      class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+                      x-on:click="tab = 4"
+                      :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 4 }"
+                    >
+                      Répartition Du Produit
+                    </button>
+                    <button
+                      type="button"
+                      class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+                      x-on:click="tab = 2"
+                      :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 2 }"
+                    >
+                      Informations Commerciales
+                    </button>
+                    <button
+                      type="button"
+                      class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+                      x-on:click="tab = 5"
+                      :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 5 }"
+                    >
+                      Historique Promotion
+                    </button>
+                    {% if request.session.store == '2' %}
+                    <button
+                      type="button"
+                      class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+                      x-on:click="tab = 3"
+                      :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 3 }"
+                    >
+                      Détails
+                    </button>
+                    {% endif %}
+                  </div>
+                  <div class="h-full">
+                    <div x-show="tab === 1">
+                      <div class="border-gray-900/10 pb-12 mt-5">
+                        <h2
+                          class="text-2xl font-semibold leading-7 text-gray-900 text-center pt-4"
+                        >
+                          Informations Générales
+                        </h2>
+                        <p
+                          class="mt-1 text-xl leading-6 text-gray-600 text-center"
+                        >
+                          Introduire les informations générales.
+                        </p>
+                        <div
+                          class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 py-4"
+                        >
+                          <div class="sm:col-span-3">
+                            <label
+                              for="first-name"
+                              class="block text-sm font-medium leading-6 text-gray-900"
+                              >Référence</label
+                            >
+                            <div class="mt-2">
+                              <input type="text" name="reference" id="reference"
+                                {% if request.session.store == '2' %} disabled {% endif %} 
+                                autocomplete="given-name"
+                                placeholder="Référence de produit" class="block
+                                w-full rounded-md border-0 py-1.5 text-gray-900
+                                shadow-sm ring-1 ring-inset ring-gray-300
+                                placeholder:text-gray-400 focus:ring-2
+                                focus:ring-inset px-2 focus:ring-indigo-600
+                                sm:text-sm sm:leading-6" x-model="reference">
+                            </div>
+                          </div>
+                          <div class="sm:col-span-3">
+                            <label
+                              for="last-name"
+                              class="block text-sm font-medium leading-6 text-gray-900"
+                              >Désignation</label
+                            >
+                            <div class="mt-2">
+                              <input
+                                type="text"
+                                name="last-name"
+                                id="last-name"
+                                autocomplete="family-name"
+                                placeholder="Désignation"
+                                class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                x-model="designation"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="sm:col-span-3 mt-4">
+                          <label
+                            for="categorie"
+                            class="block text-sm font-medium leading-6 text-gray-900"
+                            >Familles de produits
+                          </label>
+                          <div class="mt-2">
+                            <select
+                              id="categorie"
+                              name="categorie"
+                              class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                              x-model="categorie"
+                              x-on:change="categorie=$event.target.value"
+                            >
+                              <option value="" disabled selected>
+                                Familles
+                              </option>
+                              {% for cat in categories %}
+                              <option value="{{ cat.Libellé }}">
+                                {{ cat.Libellé }}
+                              </option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                        </div>
+                        <div class="sm:col-span-3 mt-4">
+                          <label
+                            for="fournisseur"
+                            class="block text-sm font-medium leading-6 text-gray-900"
+                            >Fournisseur
+                          </label>
+                          <div class="mt-2">
+                            <select
+                              id="fournisseur"
+                              name="fournisseur"
+                              class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                              x-model="fournisseur"
+                              x-on:change="fournisseur = $event.target.value"
+                            >
+                              <option value="" disabled selected>
+                                Sélectionner le fournisseur
+                              </option>
+                              {% for fr in fournisseurs %}
+                              <option value="{{ fr.acronym }}">
+                                {{ fr.acronym }}
+                              </option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                        </div>
+                        <div class="sm:col-span-3">
+                            <label
+                              for="last-name"
+                              class="block text-sm font-medium leading-6 text-gray-900"
+                              >Quantité Par Carton</label
+                            >
+                            <div class="mt-2">
+                              <input
+                                type="number"
+                                placeholder="Quantité Par Carton"
+                                class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                x-model="qtypercart"
+                              />
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div x-show="tab === 5">
+                    <div class="content mb-2 md:mb-1 py-4 block">
+                      <div class="mb-2 md:mb-1 py-2 md:block items-center">
+                        <div class="py-2 flex justify-between">
+                          <h2 class=" text-gray-800 font-bold text-lg uppercase tracking-wide">
+                            Historique Promotion
+                          </h2>
+                          <a @click.prevent="openModalPromo = true"
+                            class="inline-block py-2 px-2 text-sm  cursor-pointer leading-5 justify-end font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline">
+                              Lancer Une Promotion
+                          </a>
+                        </div>
+                        <div class="flex-1 py-2">
+                          <table
+                            class="min-w-full overflow-x-scroll divide-y divide-gray-200"
+                          >
+                            <thead class="bg-gray-50">
+                              <tr>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Date Début
+                                </th>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Date Fin
+                                </th>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Etat
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                              {% for stock in promotions %}
+                              <tr
+                                class="transition-all hover:bg-gray-100 hover:shadow-lg"
+                              >
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <div class="flex items-center">
+                                    <div class="ml-4">
+                                      <div
+                                        class="text-sm font-medium text-gray-900"
+                                      >
+                                        {{stock.DateDEb}}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <div class="text-sm text-gray-900">
+                                    {{stock.DateFin}}
+                                  </div>
+                                </td>
+                                <td
+                                  class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"
+                                >
+                                  {{stock.actif}}
+                                </td>
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div x-show="tab === 4">
+                    <div class="content mb-2 md:mb-1 py-4 block">
+                      <br />
+                      <div class="mb-2 md:mb-1 py-2 md:block items-center">
+                        <label
+                          class="w-fit text-gray-800 font-bold text-sm uppercase tracking-wide"
+                          >Répartition De Produit :</label
+                        >
+                        <div class="flex-1 py-2">
+                          <table
+                            class="min-w-full overflow-x-scroll divide-y divide-gray-200"
+                          >
+                            <thead class="bg-gray-50">
+                              <tr>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Référence
+                                </th>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Titre
+                                </th>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Dépot
+                                </th>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Quantité Totale
+                                </th>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Quantité Details
+                                </th>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Quantité PC
+                                </th>
+                                <th
+                                  scope="col"
+                                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                >
+                                  Quantité KIT
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                              {% for stock in stocks %}
+                              <tr
+                                class="transition-all hover:bg-gray-100 hover:shadow-lg"
+                              >
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <div class="flex items-center">
+                                    <div class="ml-4">
+                                      <div
+                                        class="text-sm font-medium text-gray-900"
+                                      >
+                                        {{reference_produit}}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <div class="text-sm text-gray-900">
+                                    {{nom_product}}
+                                  </div>
+                                </td>
+                                <td
+                                  class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"
+                                >
+                                  {{stock.entrepot}}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <span
+                                    class="inline-flex px-2 text-xs font-semibold leading-5 rounded-full"
+                                  >
+                                    {{stock.quantity}}
+                                  </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <span
+                                    class="inline-flex px-2 text-xs font-semibold leading-5 rounded-full"
+                                  >
+                                    {{stock.quantity_detailed}}
+                                  </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <span
+                                    class="inline-flex px-2 text-xs font-semibold leading-5 rounded-full"
+                                  >
+                                    {{stock.quantity_pc}}
+                                  </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <span
+                                    class="inline-flex px-2 text-xs font-semibold leading-5 rounded-full"
+                                  >
+                                    {{stock.quantity_kit}}
+                                  </span>
+                                </td>
+                                <td>
+                                  <a
+                                    @click.prevent="openModal(); showModalRep = true; entrepot_rep = '{{stock.entrepot}}'; referenceprod = '{{reference_produit}}'; quantity_det = {{stock.quantity}};  id_product = {{id_produit}};"
+                                    class="text-gray-700 cursor-pointer hover:text-red-500"
+                                    :class="{'text-red-500 disabled': product.reforme}"
+                                  >
+                                    {% heroicon_mini "pencil" class="transition-transform " %}
+                                  </a>
+                                </td>
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div x-show="tab === 2">
+                    <div class="border-b border-gray-900/10 pb-12">
+                      <h2
+                        class="text-2xl font-semibold leading-7 text-gray-900 text-center"
+                      >
+                        Informations Commercial
+                      </h2>
+                      <p
+                        class="mt-1 text-xl leading-6 text-gray-600 text-center"
+                      >
+                        Introduire les informations commerciales.
+                      </p>
+                      <div
+                        class="w-full flex items-center space-x-4 mb-2 md:mb-0 border-b border-gray-900/10 pb-12"
+                      >
+                        <div
+                          class="max-w-3xl left-0 right-0  mt-12"
+                        >
+                          <div class="w-full bg-white  block">
+                             <div class=" w-full flex flex-between space-x-4">
+                                 <label
+                                    for="last-name"
+                                    class="block text-sm mb-1 font-medium leading-6 text-gray-900"
+                                    >Tableau Historique Prix Achat</label
+                                  >
+                             	<button @click="showVariants = !showVariants" class="text-gray-700 justify-end cursor-pointer">
+                					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                						<path  x-show="!showVariants"  stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                						<path x-show="showVariants" stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                					</svg>			
+                				</button>   
+                             </div>
+                            
+                            <div class="sm:col-span-3 mb-2 overflow-y-auto" style="max-height: 450px;" x-show="showVariants">
+
+                              <table class="sm:col-span-3 mb-2 border border-gray-700 rounded ">
+                                <thead >
+                                  <tr>
+                                    <th scope="col" class="px-2 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider border border-gray-700">
+                                      Date
+                                    </th>
+                                    <th scope="col" class="px-2 py-2 text-center text-xs font-medium text-gray-700 uppercase tracking-wider border border-gray-700">
+                                      Quantité actuelle
+                                    </th>
+                                    <th scope="col" class="px-2 py-2 text-center text-xs font-medium text-gray-700 uppercase tracking-wider border border-gray-700">
+                                      Prix d'achat actuel
+                                    </th>
+                                    <th scope="col" class="px-2 py-2 text-center text-xs font-medium text-gray-700 uppercase tracking-wider border border-gray-700">
+                                      Quantité achetée
+                                    </th>
+                                    <th scope="col" class="px-2 py-2 text-center text-xs font-medium text-gray-700 uppercase tracking-wider border border-gray-700">
+                                      Prix d'achat
+                                    </th>
+                                    <th scope="col" class="px-2 py-2 text-center text-xs font-medium text-gray-700 uppercase tracking-wider border border-gray-700">
+                                      Prix d'achat calculé
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for item in historiqueAchat %}
+                                  <tr class="border">
+                                    <td class="px-2 py-2 text-center border border-gray-700">{{ item.date }}</td>
+                                    <td class="px-2 py-2 text-center border border-gray-700">{{ item.qty_qctuelle }}</td>
+                                    <td class="px-2 py-2 text-center border border-gray-700">{{ item.prix_achat_actuelle }}</td>
+                                    <td class="px-2 py-2 text-center border border-gray-700">{{ item.qty_achete }}</td>
+                                    <td class="px-2 py-2 text-center border border-gray-700">{{ item.prix_achat }}</td>
+                                    <td class="px-2 py-2 text-center border border-gray-700">{{ item.prix_achat_calcule }}</td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="sm:col-span-3 mb-2">
+                              <label
+                                for="last-name"
+                                class="block text-sm font-medium leading-6 text-gray-900"
+                                >Prix Achat HT</label
+                              >
+                              <div class="mt-2">
+                                <input
+                                  type="text"
+                                  name="last-name"
+                                  id="last-name"
+                                  autocomplete="family-name"
+                                  placeholder="PRU HT"
+                                  class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                  x-model="prixAchatHt"
+                                />
+                              </div>
+                            </div>
+                            <div class="sm:col-span-3 mb-2">
+                              <div
+                                class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 py-4"
+                              >
+                                <div class="sm:col-span-3">
+                                  <label
+                                    for="first-name"
+                                    class="block text-sm font-medium leading-6 text-gray-900"
+                                    >Prix Vente HT</label
+                                  >
+                                  <div class="mt-2">
+                                    <input
+                                      type="text"
+                                      name="first-name"
+                                      id="first-name"
+                                      autocomplete="given-name"
+                                      placeholder="PVUHT"
+                                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset px-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                      x-model="prixVenteHt"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="sm:col-span-3">
+                                  <label
+                                    for="last-name"
+                                    class="block text-sm font-medium leading-6 text-gray-900"
+                                    >Marge %</label
+                                  >
+                                  <div class="mt-2">
+                                    <input
+                                      type="text"
+                                      name="last-name"
+                                      id="last-name"
+                                      autocomplete="family-name"
+                                      placeholder="marge %"
+                                      class="block w-24 rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                      x-model="marge=(((prixVenteHt - prixAchatHt) * 100) / prixAchatHt).toFixed(2)"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="mb-4 w-32">
+                              <div class="relative">
+                                <label
+                                  class="block text-sm font-medium leading-6 text-gray-900"
+                                  >TVA</label
+                                >
+                                <select
+                                  x-model="tva"
+                                  class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                  x-model="tva"
+                                  x-on:change="tva = $event.target.value"
+                                >
+                                  <option value="19">TVA 19%</option>
+                                  <option value="0">TVA 0%</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="mb-4 sm:col-span-3">
+                              <label
+                                for="last-name"
+                                class="block text-sm font-medium leading-6 text-gray-900"
+                                >Prix vente TTC</label
+                              >
+                              <div class="mt-2">
+                                <input
+                                  type="text"
+                                  name="last-name"
+                                  id="last-name"
+                                  autocomplete="family-name"
+                                  placeholder="PVUTTC"
+                                  class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                  x-model="prixVenteTtc = parseFloat(prixVenteHt) + parseFloat(((prixVenteHt * tva) / 100).toFixed(2))"
+                                />
+                              </div>
+                            </div>
+                            <div class="sm:col-span-3">
+                              <label
+                                for="last-name"
+                                class="block text-sm font-medium leading-6 text-gray-900"
+                                >Prix Livraison</label
+                              >
+                              <div class="mt-2">
+                                <input
+                                  type="text"
+                                  name="last-name"
+                                  id="last-name"
+                                  autocomplete="family-name"
+                                  placeholder="Prix Livraison"
+                                  class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                  x-model="prix_livraison"
+                                />
+                              </div>
+                            </div>
+                            <div class="sm:col-span-3">
+                              <label
+                                for="last-name"
+                                class="block text-sm font-medium leading-6 text-gray-900"
+                                >Tax Produit</label
+                              >
+                              <div class="mt-2">
+                                <input
+                                  type="text"
+                                  name="last-name"
+                                  id="last-name"
+                                  autocomplete="family-name"
+                                  placeholder="taxProduit"
+                                  class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                  x-model="taxProduit"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        
+                      </div>
+                      <body class="bg-gray-100 p-4">
+                        <div class="w-2/3 mt-4">
+                          <table class="w-2/3 bg-white shadow-md">
+                            <thead>
+                              <tr>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  Type Client
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  PV HT
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  PV TTC
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900"
+                                >
+                                  Marge %
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <template x-for="cltype_item in typesClient">
+                                <tr class="">
+                                  <td
+                                    class="py-1 border-b border-r border-gray-200"
+                                  >
+                                    <input
+                                      x-text="cltype_item.nom"
+                                      x-model="cltype_item.nom"
+                                      disabled
+                                      class="mt-1 text-sm font-medium leading-6 text-gray-900 text-left"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="prixHt"
+                                      x-text="cltype_item.prixHt"
+                                      x-model="cltype_item.prixHt "
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="prixttc"
+                                      x-text="cltype_item.prixTtc"
+                                      x-model="cltype_item.prixTtc=parseFloat(cltype_item.prixHt) + parseFloat(((cltype_item.prixHt * tva) / 100).toFixed(2))"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="marge"
+                                      x-text="cltype_item.marge"
+                                      x-model="cltype_item.marge=(((cltype_item.prixHt - prixAchatHt) * 100) / prixAchatHt).toFixed(2)"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                </tr>
+                              </template>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div class="w-2/3 mt-4">
+                          <table class="w-2/3 bg-white shadow-md">
+                            <thead>
+                              <tr>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  Type Client
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  PV HT PC
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  PV TTC PC
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900"
+                                >
+                                  Marge PC %
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <template x-for="cltype_item in typesClient">
+                                <tr class="">
+                                  <td
+                                    class="py-1 border-b border-r border-gray-200"
+                                  >
+                                    <input
+                                      x-text="cltype_item.nom"
+                                      x-model="cltype_item.nom"
+                                      disabled
+                                      class="mt-1 text-sm font-medium leading-6 text-gray-900 text-left"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="prixHt"
+                                      x-text="cltype_item.prixHtPC"
+                                      x-model="cltype_item.prixHtPC"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="prixttc"
+                                      x-text="cltype_item.prixTtcPC"
+                                      x-model="cltype_item.prixTtcPC=parseFloat(cltype_item.prixHtPC) + parseFloat(((cltype_item.prixHtPC * tva) / 100).toFixed(2))"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="marge"
+                                      x-text="cltype_item.marge"
+                                      x-model="cltype_item.margePC=(((cltype_item.prixHtPC - prixAchatHt) * 100) / prixAchatHt).toFixed(2)"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                </tr>
+                              </template>
+                              <!-- Add more rows similarly -->
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="w-2/3 mt-4">
+                          <table class="w-2/3 bg-white shadow-md">
+                            <thead>
+                              <tr>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  Type Client
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  PV HT KIT
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  PV TTC KIT
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900"
+                                >
+                                  Marge KIT %
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <template x-for="cltype_item in typesClient">
+                                <tr class="">
+                                  <td
+                                    class="py-1 border-b border-r border-gray-200"
+                                  >
+                                    <input
+                                      x-text="cltype_item.nom"
+                                      x-model="cltype_item.nom"
+                                      disabled
+                                      class="mt-1 text-sm font-medium leading-6 text-gray-900 text-left"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="prixHt"
+                                      x-text="cltype_item.prixHtKIT"
+                                      x-model="cltype_item.prixHtKIT"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="prixttc"
+                                      x-text="cltype_item.prixTtcKIT"
+                                      x-model="cltype_item.prixTtcKIT=parseFloat(cltype_item.prixHtKIT) + parseFloat(((cltype_item.prixHtKIT * tva) / 100).toFixed(2))"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="marge"
+                                      x-text="cltype_item.marge"
+                                      x-model="cltype_item.margeKIT=(((cltype_item.prixHtKIT - prixAchatHt) * 100) / prixAchatHt).toFixed(2)"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                </tr>
+                              </template>
+                              <!-- Add more rows similarly -->
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="w-2/3 mt-4">
+                          <table class="w-2/3 bg-white shadow-md">
+                            <thead>
+                              <tr>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  Type Client
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  PV HT Carton
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  PV TTC Carton
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900"
+                                >
+                                  Marge Carton %
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <template x-for="cltype_item in typesClient">
+                                <tr class="">
+                                  <td
+                                    class="py-1 border-b border-r border-gray-200"
+                                  >
+                                    <input
+                                      x-text="cltype_item.nom"
+                                      x-model="cltype_item.nom"
+                                      disabled
+                                      class="mt-1 text-sm font-medium leading-6 text-gray-900 text-left"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="prixHt"
+                                      x-text="cltype_item.prixHtCarton"
+                                      x-model="cltype_item.prixHtCarton"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="prixttc"
+                                      x-text="cltype_item.prixTtcCarton"
+                                      x-model="cltype_item.prixTtcCarton=parseFloat(cltype_item.prixHtCarton) + parseFloat(((cltype_item.prixHtCarton * tva) / 100).toFixed(2))"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="marge"
+                                      x-text="cltype_item.marge"
+                                      x-model="cltype_item.margeCarton=(((cltype_item.prixHtCarton - prixAchatHt) * 100) / prixAchatHt).toFixed(2)"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                </tr>
+                              </template>
+                              <!-- Add more rows similarly -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </body>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background-color: rgba(0, 0, 0, 0.8)"
+                    class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full"
+                    x-cloak
+                    x-show.transition.opacity="openModalPromo"
+                   >
+                    <div
+                      class="p-4 max-w-xl mx-auto relative absolute left-0 right-0 overflow-hidden mt-24"
+                    >
+                      <div
+                        class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+                        x-on:click="openModalPromo = !openModalPromo"
+                      >
+                        <svg
+                          class="fill-current w-6 h-6"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="shadow w-full rounded-lg bg-white overflow-hidden block p-8"
+                      >
+                        <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">LANCER UNE PROMOTION</h2>
+                        <div class="mb-4">
+                          <label
+                            class="block text-gray-700 font-semibold mb-2"
+                            for="status"
+                          >
+                            Produit :
+                          </label>
+                          <input
+                            class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                            type="text"
+                            x-model="reference"
+                            disabled
+                          />
+                        </div>
+                        <div class="mb-4">
+                          <label
+                            class="block text-gray-700 font-semibold mb-2"
+                            for="status"
+                          >
+                            Date Début :
+                          </label>
+                          <input
+                            class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                            type="date"
+                            x-model="datedebPromo"
+                            
+                          />
+                        </div>
+                        <div class="mb-4">
+                          <label
+                            class="block text-gray-700 font-semibold mb-2"
+                            for="status"
+                          >
+                            Date Fin :
+                          </label>
+                          <input
+                            class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                            type="date"
+                            x-model="datefinPromo"
+                            
+                          />
+                        </div>
+                        <div class="mb-4">
+                          <table class="w-full bg-white shadow-md">
+                            <thead>
+                              <tr>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  Type Client
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  PVH
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900 border-r border-gray-100"
+                                >
+                                  PVHT PC
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900"
+                                >
+                                  PVHT KIT
+                                </th>
+                                <th
+                                  class="py-2 px-4 bg-gray-200 text-sm font-medium leading-6 text-gray-900"
+                                >
+                                  PVHT CARTON
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <template x-for="cltype_item in promoList">
+                                <tr class="">
+                                  <td
+                                    class="py-1 border-b border-r border-gray-200"
+                                  >
+                                    <input
+                                      x-text="cltype_item.nom"
+                                      x-model="cltype_item.nom"
+                                      disabled
+                                      class="mt-1 text-sm font-medium leading-6 text-gray-900 text-left"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="prixHt"
+                                      x-text="cltype_item.prixHt"
+                                      x-model="cltype_item.prixHt"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="prixttc"
+                                      x-text="cltype_item.prixHtPC"
+                                      x-model="cltype_item.prixHtPC"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="marge"
+                                      x-text="cltype_item.prixHtKIT"
+                                      x-model="cltype_item.prixHtKIT"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                  <td class="">
+                                    <input
+                                      type="text"
+                                      name="marge"
+                                      x-text="cltype_item.prixHtCarton"
+                                      x-model="cltype_item.prixHtCarton"
+                                      class="border text-gray-500 text-sm rounded p-1 w-full"
+                                    />
+                                  </td>
+                                </tr>
+                              </template>
+                              <!-- Add more rows similarly -->
+                            </tbody>
+                          </table>
+                        
+                        </div>
+                        <div class="flex justify-end space-x-4">                         
+                          <button
+                            @click.prevent="openModalPromo = false;"
+                            class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 focus:outline-none"
+                          >
+                            Annuler
+                          </button>
+                          <button
+                            @click.prevent="ValiderPromotion()"
+                            class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 focus:outline-none mr-2"
+                          >
+                            Confirmer
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="background-color: rgba(0, 0, 0, 0.8)"
+                    class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full"
+                    x-cloak
+                    x-show.transition.opacity="showModalRep"
+                    >
+                    <div
+                      class="p-4 max-w-xl mx-auto relative absolute left-0 right-0 overflow-hidden mt-24"
+                    >
+                      <div
+                        class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+                        x-on:click="showModalRep = !showModalRep"
+                      >
+                        <svg
+                          class="fill-current w-6 h-6"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="shadow w-full rounded-lg bg-white overflow-hidden w-full block p-8"
+                      >
+                        <div class="mb-4">
+                          <label
+                            class="block text-gray-700 font-semibold mb-2"
+                            for="status"
+                          >
+                            Produit :
+                          </label>
+                          <input
+                            class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                            type="text"
+                            x-model="reference"
+                            disabled
+                          />
+                        </div>
+                        <div class="mb-4">
+                          <div class="mb-4">
+                            <label
+                              class="block text-gray-700 font-semibold mb-2"
+                              for="status"
+                            >
+                              Entrepot :
+                            </label>
+                            <select
+                              class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                              id="status"
+                              x-model="entrepot_rep"
+                              name="status"
+                              x-on:change="entrepot_rep = $event.target.value;"
+                              required
+                            >
+                              <option value="">Entrepot</option>
+                              {% for entrepot in entrepots %}
+                              <option value="{{ entrepot.name }}">
+                                {{ entrepot.name }}
+                              </option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                          <div class="mb-4">
+                            <label
+                              class="block text-gray-700 font-semibold mb-2"
+                              for="status"
+                            >
+                              Quantité Details :
+                            </label>
+                            <input
+                              class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                              type="number"
+                              x-model="quantity_det"
+                            />
+                          
+                          </div>
+                          <div class="mb-4">
+                            <label
+                              class="block text-gray-700 font-semibold mb-2"
+                              for="status"
+                            >
+                              Quantité PC :
+                            </label>                           
+                            <input
+                              class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                              type="number"
+                              x-model="quantity_pc"
+                            />
+                            
+                          </div>
+                          <div class="mb-4">
+                            <label
+                              class="block text-gray-700 font-semibold mb-2"
+                              for="status"
+                            >
+                              Quantité KIT :
+                            </label>
+                            <input
+                              class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                              type="number"
+                              x-model="quantity_kit"
+                            />
+                            
+                          </div>
+                        </div>
+                        <div class="flex justify-end">
+                          <button
+                            @click.prevent="RepartProducts()"
+                            class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none mr-2"
+                          >
+                            Confirmer
+                          </button>
+                          <button
+                            @click.prevent="showModalRep = false;"
+                            class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 focus:outline-none"
+                          >
+                            Annuler
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% if request.session.store == '2' %}
+                  <div x-show="tab === 3">
+                    <div class="border-b border-gray-900/10 pb-12">
+                      <h2
+                        class="text-2xl font-semibold leading-7 text-gray-900 text-center"
+                      >
+                        Détails
+                      </h2>
+                      <p
+                        class="mt-1 text-xl leading-6 text-gray-600 text-center"
+                      >
+                        Introduire les informations détaillé sur le produit.
+                      </p>
+
+                      <div class="">
+                        <div class="bg-white p-4">
+                          <div>
+                            <form class="mb-4">
+                              <div class="mb-2" style="max-height: 50px">
+                                <label
+                                  class="block text-sm font-medium text-gray-700"
+                                  >Couleur</label
+                                >
+                                <select
+                                  class="appearance-none border rounded overflow-y-scroll w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                  id="colorOptions"
+                                  name="entrepot"
+                                  x-model="variante_produit.variante"
+                                  x-on:change="
+												variante_produit.variante= $event.target.value
+												"
+                                >
+                                  <option value="" selected>
+                                    Sélectionner
+                                  </option>
+                                  <option value="rou">Rouge</option>
+                                  <option value="ble">Bleu</option>
+                                  <option value="ver">Vert</option>
+                                  <option value="jau">Jaune</option>
+                                  <option value="lim">Lime</option>
+                                  <option value="ora">Orange</option>
+                                  <option value="vio">Violet</option>
+                                  <option value="ros">Rose</option>
+                                  <option value="marr">Marron</option>
+                                  <option value="gri">Gris</option>
+                                  <option value="grs">Gris souris</option>
+                                  <option value="grc">Gris clair</option>
+                                  <option value="grf">Gris foncé</option>
+                                  <option value="noi">Noir</option>
+                                  <option value="bla">Blanc</option>
+                                  <option value="bei">Beige</option>
+                                  <option value="cre">Creme</option>
+                                  <option value="cam">Camel</option>
+                                  <option value="mou">Moutarde</option>
+                                  <option value="bri">Brique</option>
+                                  <option value="arg">Argent</option>
+                                  <option value="dor">Doré</option>
+                                  <option value="BLM">Bleu marine</option>
+                                  <option value="BLF">Bleu foncé</option>
+                                  <option value="BLC">Bleu claire</option>
+                                  <option value="BLN">Bleu nuit</option>
+                                  <option value="Mix">Mixte</option>
+                                  <option value="TUR">Turquoise</option>
+                                  <option value="BDR">bois de rose</option>
+                                </select>
+                              </div>
+                              <div
+                                class="mb-2 grid grid-cols-6"
+                                id="checkboxesContainer"
+                              ></div>
+                              <button
+                                type="button"
+                                @click="addVariant(variante_produit.variante)"
+                                class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm"
+                               >
+                                Ajouter Variante
+                              </button>
+                            </form>
+                          </div>
+                          <table
+                          -
+                            id="variantTable"
+                            class="mt-4 w-full border-collapse"
+                           >
+                            <thead>
+                              <tr>
+                                <th class="px-4 py-2 bg-gray-200 text-left">
+                                  Couleur
+                                </th>
+                                <th class="px-4 py-2 bg-gray-200 text-left">
+                                  Tailles
+                                </th>
+                                <th class="px-4 py-2 bg-gray-200"></th>
+                              </tr>
+                            </thead>
+                            <tbody id="variantTableBody">
+                              <template x-for="invoice in variantes">
+                                <tr
+                                  class="border-b border-gray-100 hover:bg-gray-50"
+                                  @click="variante_produit.variante=invoice.variante; editcheckboxes(invoice) "
+                                >
+                                  <td class="py-2">
+                                    <p
+                                      class="text-sm font-medium leading-6 text-gray-900 text-left"
+                                      x-text="invoice.variante"
+                                      x-model="invoice.variante"
+                                    ></p>
+                                  </td>
+                                  <td class="py-2">
+                                    <p
+                                      class="text-gray-800"
+                                      x-text="invoice.value"
+                                      x-model="invoice.value"
+                                    ></p>
+                                  </td>
+                                  <td class="py-2">
+                                    <div class="px-1 w-20 text-right">
+                                      <a
+                                        href="#"
+                                        class="text-red-500 hover:text-red-600 text-sm font-semibold"
+                                        @click.prevent="deleteVariante(invoice.variante)"
+                                        >Annuler</a
+                                      >
+                                    </div>
+                                  </td>
+                                </tr>
+                              </template>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <button
+                        class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm"
+                        onclick="addVariant()"
+                      >
+                        Ajouter Variantes
+                      </button>
+                    </div>
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="mt-6 flex items-center justify-end gap-x-6">
+                  <button
+                    class="rounded-md px-6 py-2 text-sm font-semibold text-white shadow-sm bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    @click.prevent="validateBon()"
+                  >
+                    Valider Modification
+                  </button>
+                  <button
+                    type="button"
+                    class="text-sm font-semibold leading-6 text-gray-900 border border-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md"
+                    @click="window.location.href='/produits/produits'"
+                  >
+                    Annuler
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <script>
+           function product(){
+          return{
+          	reference:'{{reference_produit}}',
+          	designation:'{{nom_product}}',
+          	id:'{{id_produit}}',
+          	categorie:'{{category_product}}',
+          	fournisseur:'{{fournisseur}}',
+          	prixAchatHt :{{prix_achat}},
+          	prixVenteHt: {{prix_product}},
+          	prix_livraison:{{prix_livraison}},
+          	taxProduit:{{tax_produit}},
+          	prixVenteTtc:0,  
+          	showVariants:false,
+            openModalPromo:false,
+          	qtypercart:{{qtyperCarton}},
+          	sizesLetters: ['m', 'l', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', 'standard'],
+          	sizesNumbers:['42', '44', '46', '48', '50', '52', '54', '56', '58', '60', '62', '64', '66'],
+          	marge:0,
+          	tva:parseInt({{tva_product}}),
+          	typesClient:[],
+          	typeClient :{
+          		nom:'',
+          		prixHt:0,
+          		prixHtPC:0,
+          		prixHtKIT:0,
+          		prixTtc:0,
+          		marge:0,
+          		prixTtcPC:0,
+          		prixTtcKIT:0,
+          		margePC:0,
+          		margeKIT:0,
+              prixHtCarton:0,
+              prixTtcCarton:0,
+              margeCarton:0,
+          	},
+          	showModalRep:false,
+          	quantity_kit:0,
+          	quantity_pc:0,
+            quantity_det:0,
+          	entrepot_rep:'',
+          	editcheckboxes(selectedVariant){
+          	// Assuming you have an array of checkboxes
+          	const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          	const selectedValues = selectedVariant.value;
+          	checkboxes.forEach((checkbox) => {
+          		const value = checkbox.value;
+          			checkbox.checked = selectedValues.includes(value);
+          	});
+          	},
+            promoList: [],
+            datedebPromo:new Date().toISOString().slice(0, 10),
+            datefinPromo:new Date().toISOString().slice(0, 10),
+          	initData() {
+              variantsData= {{ variants_prix_data|safe }}
+              this.typesClient = variantsData.map(variant => ({
+                nom: variant.type_client,
+                prixHt: variant.prix_vente,
+                prixHtPC: variant.prix_vente_pc,
+                prixHtKIT: variant.prix_vente_kit,
+                prixHtCarton: variant.prix_vente_carton
+              }));
+              this.promoList = variantsData.map(variant => ({
+                nom: variant.type_client,
+                prixHt: variant.prix_vente,
+                prixHtPC: variant.prix_vente_pc,
+                prixHtKIT: variant.prix_vente_kit,
+                prixHtCarton: variant.prix_vente_carton
+              }));
+              {% if variants_products %}
+                  variantes_const = {{ variants_products|safe }}
+                  for (const item of variantes_const) {
+                  const variant = {
+                  id: item.reference_produit,
+                  reference_produit: item.reference_produit,// Utilisez une valeur unique comme ID
+                  };
+                  const colorStart = 5; // Color starts after the first 5 characters
+                  console.log(item.reference_produit)
+                  const reference_produitLength = item.reference_produit.length;
+
+                  const colorSelect = document.getElementById("colorOptions");
+                  const colorOptions = colorSelect.options;
+                  let potentialColor = "";
+
+                  const variante_produit = {
+                    variante: "",
+                    value:[]
+                  };
+
+                  for (let i = colorStart; i <= reference_produitLength; i++) {
+                    potentialColor = item.reference_produit.substring(colorStart, i);
+
+                    for (let j = 0; j < colorOptions.length; j++) {
+                      if (colorOptions[j].value === potentialColor) {
+                        variante_produit.variante = potentialColor;
+                      }
+                    }
+
+                    if (variante_produit.variante && i < reference_produitLength) {
+                      // Sizes start after the color, so extract the size part
+                      const size = item.reference_produit.substring(i);
+                      variante_produit.value.push(size);
+                      break; // We found the color and at least one size
+                    }
+                  }
+
+                  if (variante_produit.variante) {
+                  this.variantes.push(variante_produit);
+                  }
+
+                  console.log(this.variantes)
+                }
+                const groupedData = [];
+
+                // Loop through the list of objects and group values by variantes
+                this.variantes.forEach(item => {
+                  const variante = item.variante;
+                  const value = item.value;
+
+                  // Check if the variante already exists in groupedData
+                  const existingGroup = groupedData.find(group => group.variante === variante);
+
+                  if (existingGroup) {
+                    // If the variante already exists, merge the values
+                  existingGroup.value = existingGroup.value.concat(value);
+                  } else {
+                    // If the variante doesn't exist, add it
+                    groupedData.push({ variante: variante, value: value });
+                  }
+                });
+                this.variantes = groupedData
+                console.log(this.variantes);
+
+              {% endif %}
+              this.updateCheckboxes()
+
+          	},
+
+          	variantes:[],
+          	variante_produit:{
+          		variante : '',
+          		value:''
+          	},
+          	openModal(){
+          		console.log('modal is going to be openedd')
+          	},
+          	updateCheckboxes() {
+          		const checkboxesContainer = document.getElementById("checkboxesContainer");
+          		checkboxesContainer.innerHTML = "";
+          		console.log('in the checkbox function');
+          		for (let i = 42; i <= 66; i=i+2) {
+          			const div = document.createElement("div");
+          			div.className = "flex items-center mt-1";
+          			div.innerHTML = `
+          			<input type="checkbox" value="${i}" >
+          			<span class="pl-2">${i}</span>
+          			`;
+          			checkboxesContainer.appendChild(div);
+          		}
+          		tailles_letters=['1','2','3','4','5','6','m', 'l','xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', 'standard']
+          		tailles_letters.forEach((size) => {
+          			const div = document.createElement("div");
+          			div.className = "flex items-center mt-1";
+          			div.innerHTML = `
+          			<input type="checkbox" value="${size}" ">
+          			<span class="pl-2">${size}</span>
+          			`;
+          			checkboxesContainer.appendChild(div);
+          		});
+
+          	},
+          	deleteVariante(variante) {
+                    const index = this.variantes.findIndex(item => item.variante === variante);
+                    if (index !== -1) {
+                        this.variantes.splice(index, 1);
+                    }
+            },
+          	addVariant(variante_type) {
+          		const selectedType = variante_type;
+          		const selectedCheckboxes = Array.from(document.querySelectorAll("#checkboxesContainer input[type=checkbox]:checked"))
+          			.map(checkbox => checkbox.value);
+
+          		if (selectedType && selectedCheckboxes.length > 0) {
+          			// Check if an object with the same variante_type exists
+          			const existingVariant = this.variantes.find(variant => variant.variante === selectedType);
+
+          			if (existingVariant) {
+          				// If it exists, update its value
+          				existingVariant.value = [...selectedCheckboxes];
+          			} else {
+          				// If it doesn't exist, create a new object
+          				this.variantes.push({
+          					variante: selectedType,
+          					value: [...selectedCheckboxes]
+          				});
+          			}
+
+          			console.log(this.variantes);
+          		}
+
+          		this.variante_produit.variante = '';
+          		this.updateCheckboxes();
+          	},
+
+          	addNewVariantForm() {
+          	   document.getElementById("variantType").value = "";
+          	   document.getElementById("checkboxesContainer").innerHTML = "";
+          	},
+
+          	validateBon(){
+          		const dataObj = {
+          			id:this.id,
+          			reference: this.reference,
+          			designation: this.designation,
+          			category: this.categorie,
+          			fournisseur:this.fournisseur,
+          			prixAchatHt:this.prixAchatHt,
+          			prixVenteHt:this.prixVenteHt,
+          			prixVenteTtc:this.prixVenteTtc,
+          			prix_livraison : this.prix_livraison,
+          			qtypercart: this.qtypercart,
+          			taxProduit:this.taxProduit,
+          			marge:this.marge,
+          			tva:this.tva,
+          			clients_price:this.typesClient,
+          			product_variantes:this.variantes,
+          		};
+          		axios.post('', {
+          			formData: dataObj
+          		}, {
+          		headers: {
+          		'Content-Type': '',
+          		'X-CSRFToken': getCookie('csrftoken'),
+          		}
+          				})
+          		.then((response) => {
+          			data= response.data
+          			console.log(data.error)
+          		if(data.error){
+
+          		}else{
+          			alert("Produit Modifié !");
+          			window.location.reload();
+          		}
+          		})
+          		.catch((error) => {
+          			alert(error)
+          		});
+          	},
+
+          	RepartProducts(){
+              const dataObj = {
+                id:this.id,
+                reference: this.reference,
+                quantity_kit:this.quantity_kit,
+                quantity_pc:this.quantity_pc,
+                quantity_det:this.quantity_det,
+                entrepot_rep:this.entrepot_rep
+              };
+              axios.post('/produits/UpdateRepartition', {
+                formData: dataObj
+                }, {
+                    headers: {
+                    'Content-Type': '',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    }
+                })
+                .then((response) => {
+                data= response.data
+                
+                if(data.error){
+                  alert(data.error)
+                }else{
+                  alert("Répartition Effectuée !");
+                  window.location.reload();
+                }
+                })
+                .catch((error) => {
+                  alert(error)
+                });
+          	},
+          	ValiderPromotion(){
+              const dataObj = {
+                id:this.id,
+                promoList: this.promoList,
+                datedebPromo:this.datedebPromo,
+                datefinPromo:this.datefinPromo,
+              };
+              axios.post('/produits/LaunchPromotion', {
+                formData: dataObj
+                }, {
+                    headers: {
+                    'Content-Type': '',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    }
+                })
+                .then((response) => {
+                  data= response.data               
+                  if(data.error){
+                    alert(data.error)
+                  }else{
+                    alert("Promotion Lancé !");
+                    window.location.reload();
+                  }
+                })
+                .catch((error) => {
+                  alert(error)
+                });
+          	},
+            }
+           }
+           function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+          	  var cookies = document.cookie.split(';');
+          	  for (var i = 0; i < cookies.length; i++) {
+          		  var cookie = cookies[i].trim();
+          		  // Does this cookie string begin with the name we want?
+          		  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          			  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          			  break;
+          		  }
+          	  }
+            }
+            return cookieValue;
+           }
+        </script>
+      </main>
+      <!-- end Main content  -->
+    </div>
+  </div>
+</div>
+{% endblock content %}
