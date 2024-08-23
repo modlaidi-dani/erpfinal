@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block base_content %}
+{% if request.user.is_authenticated %}
+{% block sidebar %}
+ {% include 'sidebar.html' %}
+{% endblock sidebar %}
+{% endif %}
+
+{% comment %} <!-- Page content here --> {% endcomment %}
+{% block content %}{% endblock content %}
+
+
+{% endblock base_content %}

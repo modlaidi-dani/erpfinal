@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+
+<div x-data="{ 
+  menuOpen: false, 
+  basicSignInModal: false,
+  basicSignUpModal: false,
+  advanceSignInModal: false,
+  advanceSignUpModal: false,
+}" class="flex flex-col min-h-screen custom-scrollbar">
+  <!-- start::Black overlay -->
+  <div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+  <!-- end::Black overlay -->
+  {% include 'header.html' %}
+  {% include 'tabs.html' with active_tab="logistique" %}
+  <div class="w-full flex flex-row">
+    {% include "sidebar_logistiques.html" %}
+    <div class="h-full w-full">
+      <!-- Main content header -->
+      <body>
+        <div class="grid grid-cols-3 space-x-4 py-4 px-2"> 
+           {% for user in user_coordinates %}
+              <div class="bg-gray-700 px-4 rounded-lg m-h-64  transform hover:translate-y-2 hover:shadow-xl transition duration-300">
+                <div class="rounded-lg p-2 flex flex-col">
+                    <h5 class="text-gray-200 text-2xl font-bold leading-none">
+                      {{user.name}}
+                    </h5>
+
+                  <div class="items-center py-4 text-gray-400">
+                    <p>Longitude :{{user.longitude}}</p><br/>
+                    <p>Latitude :{{user.latitude}}</p><br/>
+                    
+                    <button onclick="showMyLocation('{{user.latitude}}','{{user.longitude}}')">Voir Sur Map</button>
+                  </div>
+                </div>
+              </div>
+           {% endfor %}
+        </div>
+        <div id="map" class="mx-auto" style="width: 75vw; height: 500px;"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      var map = L.map('map').setView([0, 0], 2);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+    
+      var marker = L.marker([0, 0]).addTo(map);
+    
+      function showMyLocation(la, lo) {
+        if ('geolocation' in navigator) {
+          navigator.geolocation.getCurrentPosition(
+            function (position) {
+              var lat = la;
+              var lon = lo;
+    
+              // Update the marker position and map view
+              marker.setLatLng([lat, lon]);
+              map.setView([lat, lon],8);
+            },
+            function (error) {
+              console.error('Error getting location:', error.message);
+              alert('Unable to retrieve location. Please check your settings and try again.');
+            }
+          );
+        } else {
+          alert('Geolocation is not supported by your browser.');
+        }
+      }
+    </script>
+
+</body>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock content %}

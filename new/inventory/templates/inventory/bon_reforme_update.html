@@ -1,0 +1,629 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="stock" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_stock.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<body class="antialiased sans-serif">
+		<div class="h-2"></div>
+		<div 
+		  class="container mx-auto py-6 px-4"
+		  x-data="invoices()"
+		  x-init="initItems()"
+		  x-cloak
+		>
+		  <div class="flex justify-between">
+			 <h2 class="text-2xl font-bold mb-6 pb-2 tracking-wider uppercase">Bon Reforme</h2>
+			 <div>
+				 <div class="relative mr-4 inline-block">
+					 <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
+						 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							 <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+							 <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+							 <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+							 <rect x="7" y="13" width="10" height="8" rx="2" />
+						 </svg>				  
+					 </div>
+					 <div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+						 Print this invoice!
+					 </div>
+				 </div>
+			     <div class="relative inline-block">
+						  <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip2 = true" @mouseleave="showTooltip2 = false" @click="openPreview=true">
+							   <svg id='eye_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+									<g transform="matrix(1 0 0 1 12 12)" >
+									<g style="" >
+									<g transform="matrix(1 0 0 1 0 0)" >
+									<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+									</g>
+									<g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+									<circle style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2" />
+									</g>
+									<g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+									<path style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 22 12 C 19.333 16.667 16 19 12 19 C 8 19 4.667 16.667 2 12 C 4.667 7.333 8 5 12 5 C 16 5 19.333 7.333 22 12" stroke-linecap="round" />
+									</g>
+									</g>
+									</g>
+							   </svg>		  
+						  </div>
+						  <div x-show.transition="showTooltip2" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							 Preview
+						  </div>
+				 </div>
+			 </div>
+		  </div>
+ 
+		   <div class="flex mb-8 justify-between">
+			 <div class="w-2/4">
+				  <div class="mb-2 md:mb-1 md:flex items-center">
+					  <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Numéro de Bon</label>
+					  <span class="mr-4 inline-block  md:block">:</span>
+					  <div class="flex-1">
+						 <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text"  x-model="invoiceNumber">
+					  </div>
+				  </div> 
+ 
+				  <div class="mb-2 md:mb-1 md:flex items-center">
+					  <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Date de Bon</label>
+					  <span class="mr-4 inline-block  md:block">:</span>
+					  <div class="flex-1">
+					   <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700 " type="date" x-model="invoiceDate" {% if request.session.role != 'manager' %}disabled{% endif %}>
+					  </div>
+				  </div>
+ 			 
+				  <div class="mb-2 md:mb-1 md:flex items-center">
+					 <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Entrepot</label>
+					 <span class="mr-4 hidden md:block">:</span>
+					 <div class="flex-1">
+								<select
+									 class="appearance-none border rounded w-48 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+									 id="Bl"
+									 name="Bl"
+									 x-model="entrepot"
+									 x-on:change="
+									 	getStock($event.target.value)
+									 "
+									 required  
+								  >
+								   <option value="" disabled selected>Aucun</option>
+								   {% for ent in entrepots %}
+									  <option value="{{ent.name}}" > 
+										 {{ ent.name}}
+									  </option>
+								   {% endfor %}
+								</select>
+					 </div>
+				 </div>
+				 
+			 </div>				
+		   </div>
+		  
+
+			 <div class="relative flex flex-col rounded-lg shadow-xs overflow-hidden">         
+				 <div class="border-t">
+						 <h1 class="text-xl font-bold mb-6 py-2 tracking-wider uppercase border-b w-fit ">Listes des produits </h1>   
+						 <table class="w-full mt-4">
+							 <thead>
+									 <tr class="border-b">
+											 <th class="text-gray-800 uppercase tracking-wide text-sm font-bold text-left">Référence</th>
+											 <th class="text-gray-800 uppercase tracking-wide text-sm font-bold text-left">Désignation</th>
+											 <th class="text-gray-800 uppercase tracking-wide text-sm font-bold text-left">Quantité</th>
+											 <th></th> <!-- Empty cell for actions -->
+									 </tr>
+							 </thead>
+							 <tbody>
+								 <template x-for="invoice in items" :key="invoice.id">
+											 <tr class="border-b">
+													 <td class="text-gray-800" x-text="invoice.ref"></td>
+													 <td class="text-gray-800 " x-text="invoice.name"></td>														
+													 <td class="text-gray-800 " x-text="invoice.qty"></td>																												
+													 <td class="text-right">
+															 <a href="#" class="text-red-500 hover:text-red-600 text-sm font-semibold" @click.prevent="deleteItem(invoice.id)">Delete</a>																	
+													 </td>
+											 </tr>
+								 </template>
+							 </tbody>
+					   </table>
+					   <button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" x-on:click="showModal">
+						  Add Invoice Items
+					   </button>
+				</div>
+				 <div class="py-2 ml-auto mt-5 w-full sm:w-2/4 lg:w-1/4">									
+							 <div class="flex justify-between">
+								 <div></div>
+								 <button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" type="submit" x-on:click="validateBon">Valider le Bon</button>
+						   </div>
+						 </div>
+			 </div>
+
+			<div style=" background-color: rgba(0, 0, 0, 0.8)" class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full py-8" x-show.transition.opacity="openPreview">	
+					<div class="shadow absolute -right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+						x-on:click="openPreview = !openPreview">
+						<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path
+								d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+						</svg>
+					</div>
+			   		<div class="p-4 w-1/3 mx-auto relative left-0 right-0 overflow-hidden  bg-white h-full "  x-on:click.away="openPreview = !openPreview">
+						<div class="h-full">
+								 <div class="py-4 border-b border-stone-500">
+				 <img src="{% static 'media/divatech-logo.png' %}" alt="">
+			 </div>
+			 <h2 class="text-3xl font-bold mb-6 mt-2 pb-2 tracking-wider uppercase text-center border-b border-stone-500">Bon de Reforme</h2>
+			 <div class="flex justify-between space-x-3 mb-10 ">
+				 <div class="w-full border border-black">
+					 <div class="px-4 py-3 ">		
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">N° Bon.</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceNumber"></div>
+					 </div>				
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date Bon</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceDate"></div>
+					 </div>
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Entrepot: </label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="entrepot"></div>
+					 </div>							
+				 </div>
+				 </div>
+				 
+			 </div>
+ 
+		   	  <table class="w-full border-collapse border border-black">
+		 			<thead>
+		 			<tr class="bg-gray-100">
+			 			<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+			 			<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+			 			<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+		 			</tr>
+	 			</thead>
+	 			<tbody>
+		 			<template x-for="invoice in items" :key="invoice.id">
+		   			<tr class="border border-black">
+			   			<td class="border border-black px-1 text-left py-2 text-black text-xs" x-text="invoice.ref"></td>
+			   			<td class="border border-black px-1 text-left py-2 text-black text-xs" x-text="invoice.name"></td>
+			   			<td class="text-gray-800 " x-text="invoice.qty"></td>
+		   			</tr>
+		 			</template>
+	 			</tbody>
+    			</table>
+
+ 
+				<div class=" flex justify-between mt-12 mr-0">
+	   			<div></div>
+	   			<div class="font-bold">
+		 			Cachet et Signature
+	   			</div>
+				</div>
+						</div>
+			  		</div>				
+			</div>
+		 
+		  <!-- Print Template -->
+		  <div id="js-print-template" x-ref="printTemplate" class="hidden">
+			 <div class="py-4 border-b border-stone-500">
+				 <img src="{% static 'media/divatech-logo.png' %}" alt="">
+			 </div>
+			 <h2 class="text-3xl font-bold mb-6 mt-2 pb-2 tracking-wider uppercase text-center border-b border-stone-500">Bon de Reforme</h2>
+			 <div class="flex justify-between space-x-3 mb-10 ">
+				 <div class="w-full border border-black">
+					 <div class="px-4 py-3 ">		
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">N° Bon.</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceNumber"></div>
+					 </div>				
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date Bon</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceDate"></div>
+					 </div>
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Entrepot: </label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="entrepot"></div>
+					 </div>							
+				 </div>
+				 </div>
+				 
+			 </div>
+ 
+		   	<table class="w-full border-collapse border border-black">
+		 			thead>
+		 			<tr class="bg-gray-100">
+			 			<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+			 			<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+			 			<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+		 			</tr>
+	 			</thead>
+	 			<tbody>
+		 			<template x-for="invoice in items" :key="invoice.id">
+		   			<tr class="border border-black">
+			   			<td class="border border-black px-1 text-left py-2 text-black text-xs" x-text="invoice.ref"></td>
+			   			<td class="border border-black px-1 text-left py-2 text-black text-xs" x-text="invoice.name"></td>
+			   			<td class="text-gray-800 " x-text="invoice.qty"></td>
+		   			</tr>
+		 			</template>
+	 			</tbody>
+    			</table>
+
+ 
+				<div class=" flex justify-between mt-12 mr-0">
+	   			<div></div>
+	   			<div class="font-bold">
+		 			Cachet et Signature
+	   			</div>
+				</div>
+		  </div>
+		  <!-- /Print Template -->
+ 
+		  <!-- Modal -->
+		  <div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full" x-cloak x-show.transition.opacity="openModal">
+			  <div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-24">
+				 <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+					 x-on:click="openModal = !openModal">
+					 <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						 <path
+							 d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+					 </svg>
+				 </div>
+				 <form action="" id="myForm">
+					 <div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+					 <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter des produits au bon</h2>
+						 
+						 <div class="mb-4">
+						   <label class="block text-gray-700 font-semibold mb-2" for="product">
+							 Product Name or Code:
+						   </label>
+						   <select
+								class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								id="product"
+								name="product"
+								x-on:change="
+								item.ref = $event.target.value;
+								item.name=$event.target.selectedOptions[0].dataset.name;
+								console.log(item.name);
+								item.price = $event.target.selectedOptions[0].dataset.price;					
+								item.quantity = $event.target.selectedOptions[0].dataset.quantity;
+								showQuantity = true;
+								document.getElementById('price').value = item.price;"
+								required  
+						    >
+						   <option value="" disabled selected>Select product</option>
+						   <option value="" >Frais Transport</option>
+						   {% for stock_item in  stock%}
+						   		<option
+								 value="{{stock_item.reference}}"
+								 x-bind:data-name="{{stock_item.name}}"
+								 x-bind:data-quantity="{{stock_item.qty}}"
+								   
+								>
+								{{stock_item.name}}
+							   </option>
+						   {% endfor %}
+						   {% comment %} <template x-for="stock_item in stocks">
+								<option
+								 x-bind:value="stock_item.ref"
+								 x-bind:data-name="stock_item.name"
+								 x-bind:data-price="stock_item.prix"
+								 x-bind:data-quantity="stock_item.qty"
+								   x-text="stock_item.name"
+								>
+							   </option>
+						   </template> {% endcomment %}
+			 </select>
+		   </div>
+					 
+						 <div class="mb-4">
+						 <label class="block text-gray-700 font-semibold mb-2" for="quantity">
+							 Quantity:								
+						 </label>
+						 <input
+							 class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+							 type="number"
+							 id="quantity"
+							 name="quantity"
+							 placeholder="Enter quantity"
+							 required
+							 x-model="item.qty"					
+						 >
+						 </div>
+	 
+						 <div class="mt-8 text-right">
+						 <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="openModal = !openModal">
+							 Cancel
+						 </button>	
+						 <button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm"
+												 @click="addItem()">
+						 <span >Valider</span>
+						 </button>	
+						 </div>
+					 </div> 
+					 </div>
+				  </form>
+		   </div>
+		  </div>
+		 <!-- /Modal -->
+ 
+	 </div>
+	 
+	 <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+	 <script>	 	
+		 function invoices() {
+			  return {
+				 items: [],
+				 stocks:[],				
+				 invoiceNumber: "{{bill.idBon}}",
+				 invoiceDate: new Date().toISOString().slice(0, 10),
+				 invoiceDueDate: new Date().toISOString().slice(0, 10),
+				 entrepot:'{{bill.entrepot.name}}',						
+				 item: {
+					 id: '',
+					 name: '',
+					 ref:'',
+					 qty: 0,
+												 
+				 },				 
+				 showTooltip: false,
+				 openPreview:false,
+				 showTooltip2: false,
+				 openModal: false,
+				 showQuantity:false,
+				 remiseBool: false,
+				 showBanque :false,
+			 	 showModal(){
+			  		document.getElementById('myForm').reset(); 
+			  		this.showQuantity = false; 
+			  		this.openModal =true;
+			 	 },
+				 initItems(){
+						items= {{items | safe}}
+						console.log(items)
+						for (const item of items) {					  
+					     const item_obj = {	
+						   id: this.generateUUID(),			
+						   name: item.name,
+						   ref: item.ref,
+						   qty: item.qty,						
+					     };
+					     this.items.push(item_obj);
+					   }
+					   console.log(this.items)
+				 },
+				 editItem(invoiceData) {
+				   		// Set the 'item' data to the selected invoiceData
+					 this.showQuantity = true;
+					 this.item = {
+					   id: invoiceData.id,
+					   name: invoiceData.name,
+					   ref: invoiceData.ref,
+					   qty: invoiceData.qty,
+					   rate: invoiceData.rate,
+					   total: invoiceData.total,
+					   // Add other properties as needed
+					 };
+					 // Open the modal
+					 this.operationType = 'update';
+					 this.openModal = true;
+				 },
+				 updateItem(){
+					 const index = this.items.findIndex((item) => item.id === this.item.id);
+					 console.log(items);
+					 if (index !== -1) {						
+						 this.items[index].total=this.item.qty * this.item.rate;
+						this.items[index] = this.item;
+					 }
+					   // Close the modal after successful update
+					 this.openModal = false;
+					 
+				 },
+
+			     getProducts(bonL){
+				   dataObj={
+				    bonL : bonL,						 
+				  }
+				  console.log('fetching the stock  ...',dataObj);
+				  axios.post('fetchProductsRetour/', dataObj, {
+					 headers: {
+					 'Content-Type': '',
+					 'X-CSRFToken': getCookie('csrftoken'),
+					 }
+				  })
+				  .then((response) => {
+					 console.log(response.data.produits) 
+					 itemsData=response.data.produits;
+					 for (const itemData of itemsData) {
+						 console.log(itemData.entrepot)						 
+						 const item = {
+							 id: this.generateUUID(),
+							 name: itemData.name,
+							 ref: itemData.reference,
+							 ent:itemData.entrepot,
+							 qty: itemData.quantity,
+							 rate: itemData.unitprice,
+							 total: itemData.totalprice
+						 };
+						 console.log(item.ent)
+						 this.items.push(item);
+					 }						 
+				  })
+				  .catch((error) => {
+					 alert(error)
+				  });
+				 },
+   				
+			    getStock(entrepotStock){
+				  this.stocks=[]
+				  dataObj={
+				   nomEnt : entrepotStock,						 
+				  }
+				  console.log('fetching the stock  ...',dataObj);
+				  axios.post('fetchStock/', dataObj, {
+					 headers: {
+					  'Content-Type': '',
+					  'X-CSRFToken': getCookie('csrftoken'),
+					 }
+				  })
+				  .then((response) => {
+					 console.log(response.data.stocks) 
+					 itemsData=response.data.stocks;
+					 for (const itemData of itemsData) {		
+						 console.log(itemData.entrepot)						 
+						 const item = {
+							 id: this.generateUUID(),
+							 name: itemData.product_name,
+							 ref: itemData.reference,
+							 ent:itemData.entrepot,
+							 qty: itemData.quantity,
+							 prix: itemData.price
+						 };
+						 console.log(item.ent)
+						 this.stocks.push(item);
+					 }						 
+				  })
+				  .catch((error) => {
+					 alert(error)
+			 
+				  });
+			    },
+						   
+			    addItem() {							
+					 console.log(this.item.ent)
+					 this.items.push({
+						 id: this.generateUUID(),
+						 name: this.item.name,
+						 ref:this.item.ref,
+						 qty: this.item.qty,
+						 ent:this.item.ent,								
+					 })
+			         console.log(this.item.rate)
+					 this.itemTotal();
+					 this.itemTotalGST();
+ 
+					 this.item.id = '';
+					 this.item.name = '';
+					 this.item.qty = 0;
+					 this.item.rate = 0;
+					 this.item.gst = 19;
+					 this.item.total = 0;
+			        document.getElementById('myForm').reset(); 
+			        this.showQuantity = false; 
+			         this.openModal=false;
+				},
+ 
+				deleteItem(uuid) {
+					 this.items = this.items.filter(item => uuid !== item.id);
+ 
+					 this.itemTotal();
+					 this.itemTotalGST();
+				},
+ 
+				 generateUUID(){
+			   	   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+						 var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+						 return v.toString(16);
+					 });
+				 },
+ 
+				 generateInvoiceNumber(minimum, maximum) {
+					 const randomNumber = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+					 this.invoiceNumber = 'FIG-'+ randomNumber;
+				 },
+ 
+		 
+				 printInvoice() {
+					 var printContents = this.$refs.printTemplate.innerHTML;
+					 var originalContents = document.body.innerHTML;
+					 document.body.innerHTML = printContents;
+					 window.print();
+				   window.location.reload();
+			  
+			  		 console.log(originalContents)
+					 document.body.innerHTML = originalContents;
+					 this.items=[];
+				 },
+
+				 validateBon(){
+					 const dataObj = {
+						 idBon:this.invoiceNumber,
+						 dateBp:this.invoiceDate,
+						 entrepot : this.entrepot,
+						 produits:this.items
+					 };
+					   // Send the data to Django using Axios
+			   		axios.post('', {
+				  		formData: dataObj
+					 }, {
+				 	headers: {
+					'Content-Type': '',
+					'X-CSRFToken': getCookie('csrftoken'),
+					 }
+				  })
+				  .then((response) => {
+					 data= response.data
+				   // {# response.data.message #}�
+				   console.log('HNAA RANI -_-')
+				   console.log(data.error)
+				  if(data.error){
+					  if (error.response.status === 500) {
+					   window.location.href = 'inventory/'; // Replace with the URL of your error template
+					 }
+				  }else{
+					 alert("Bon Validé, you can print it");
+				  }		  
+				  })
+				  .catch((error) => {
+				     alert(error)
+				  });								
+			   	 },
+				 
+			}
+		  } 
+		 function getCookie(name) {
+			   var cookieValue = null;
+			   if (document.cookie && document.cookie !== '') {
+				   var cookies = document.cookie.split(';');
+				   for (var i = 0; i < cookies.length; i++) {
+					 var cookie = cookies[i].trim();
+					 // Does this cookie string begin with the name we want?
+					 if (cookie.substring(0, name.length + 1) === (name + '=')) {
+						 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+						 break;
+					 }
+				 }
+			   }
+			  return cookieValue;
+		   }
+	 </script>
+ </body>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

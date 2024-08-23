@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}bg-gray-100{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="vente" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_ventes.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-4/5 max-h-full mx-auto overflow-hidden overflow-y-scroll">
+		<!-- Main content header -->
+		<div class="flex flex-col items-start justify-between  space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                                                                                                     
+		  
+		  <h1 class="text-2xl font-semibold whitespace-nowrap py-2"> Stock </h1>          
+		</div>
+	 
+
+		{% comment %} <!-- Start Content -->
+		<div class="grid grid-cols-1 space-x-8 mt-6 sm:grid-cols-2 lg:grid-cols-4">          
+		  <div class="pl-1 w-64 h-20 bg-green-400 rounded-lg shadow-md">
+			<div class="flex w-full h-full py-2 px-4 bg-white rounded-lg justify-between">
+			  <div class="my-auto">
+				<p class="font-bold">Bons de sorties</p>
+				<p class="text-lg">{{total_bons}} </p>
+			  </div>
+			  <div class="my-auto">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+				</svg>                 
+			  </div>
+			</div>
+		  </div>
+			<div class="pl-1 w-64 h-20 bg-red-500 rounded-lg shadow-md">
+			  <div class="flex w-full h-full py-2 px-4 bg-white rounded-lg justify-between">
+				<div class="my-auto">
+				  <p class="font-bold">EARNINGS </p>
+				  <p class="text-lg">{{total_income}} DZD</p>
+				</div>
+				<div class="my-auto">
+				  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+				  </svg>                   
+				</div>
+			  </div>
+			</div>         
+		</div> {% endcomment %}
+		<!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
+		<div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b">  
+		  <div></div>          
+		  <div class="inline-block px-4 py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer" >
+			  <a href="{% url 'new-entry' %}">Créer Bon d'entrée</a> 
+		  </div>
+		</div>
+			
+	   {% comment %}  end Logic to upload stock from file  {% endcomment %}        
+		<div class="flex flex-col mt-5">
+		  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+			<div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+			  <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+				<table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+				  <thead class="bg-gray-50">
+					<tr>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Référence
+					  </th>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Titre
+					  </th>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Quantité
+					  </th>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Dépot
+					  </th>
+					  <th scope="col" class="relative px-6 py-3">
+						<span class="sr-only">
+						  <svg id='View_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+							<g transform="matrix(0.91 0 0 0.91 12 12)" >
+							<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-14, -13)" d="M 4 2 L 4 22 L 14.105469 22 C 12.807469 20.729 12 18.96 12 17 C 12 13.134 15.134 10 19 10 C 19.34 10 19.673 10.033078 20 10.080078 L 20 8 L 14 2 L 4 2 z M 13 3.4550781 L 18.5 9 L 13 9 L 13 3.4550781 z M 18.980469 11.972656 C 17.707719 11.972656 16.433359 12.467031 15.443359 13.457031 C 13.463359 15.437031 13.463359 18.547344 15.443359 20.527344 C 16.150359 21.234344 17.070234 21.729406 17.990234 21.941406 L 17.990234 24 L 19.96875 24 L 19.96875 21.941406 C 20.88775 21.729406 21.807625 21.234344 22.515625 20.527344 C 24.495625 18.547344 24.495625 15.437031 22.515625 13.457031 C 21.525625 12.467031 20.253219 11.972656 18.980469 11.972656 z M 18.980469 13.96875 C 19.740719 13.96875 20.500563 14.268141 21.101562 14.869141 C 22.303562 16.071141 22.303562 17.911281 21.101562 19.113281 C 19.899563 20.315281 18.059422 20.315281 16.857422 19.113281 C 15.655422 17.911281 15.655422 16.071141 16.857422 14.869141 C 17.458422 14.268141 18.220219 13.96875 18.980469 13.96875 z" stroke-linecap="round" />
+							</g>
+						  </svg>                         
+						</span>
+					  </th>
+					</tr>
+				  </thead>
+				  <tbody class="bg-white divide-y divide-gray-200">
+					{% for  prod in stock %}
+					  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <div class="flex items-center">                            
+							<div class="ml-4">
+							  <div class="text-sm font-medium text-gray-900">{{prod.product.reference}}</div>                               
+							</div>
+						  </div>
+						</td>
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <div class="text-sm text-gray-900">{{prod.product.name}}</div>
+						 
+						</td>
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <span
+							class="inline-flex px-2 text-xs font-semibold leading-5  {% if prod.product.TotalQte != 0 %} text-green-800 bg-green-100 {% else %} text-red-800 bg-red-100{% endif %}  rounded-full"
+						  >
+							{{prod.product.TotalQte}}
+						  </span>
+						</td>
+						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{prod.entrepot}}</td>
+						<td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+						  <a href="{% url 'view-product' prod.product.reference %}" class="text-indigo-600 hover:text-indigo-900"><svg id='View_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+							<g transform="matrix(0.91 0 0 0.91 12 12)" >
+							<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-14, -13)" d="M 4 2 L 4 22 L 14.105469 22 C 12.807469 20.729 12 18.96 12 17 C 12 13.134 15.134 10 19 10 C 19.34 10 19.673 10.033078 20 10.080078 L 20 8 L 14 2 L 4 2 z M 13 3.4550781 L 18.5 9 L 13 9 L 13 3.4550781 z M 18.980469 11.972656 C 17.707719 11.972656 16.433359 12.467031 15.443359 13.457031 C 13.463359 15.437031 13.463359 18.547344 15.443359 20.527344 C 16.150359 21.234344 17.070234 21.729406 17.990234 21.941406 L 17.990234 24 L 19.96875 24 L 19.96875 21.941406 C 20.88775 21.729406 21.807625 21.234344 22.515625 20.527344 C 24.495625 18.547344 24.495625 15.437031 22.515625 13.457031 C 21.525625 12.467031 20.253219 11.972656 18.980469 11.972656 z M 18.980469 13.96875 C 19.740719 13.96875 20.500563 14.268141 21.101562 14.869141 C 22.303562 16.071141 22.303562 17.911281 21.101562 19.113281 C 19.899563 20.315281 18.059422 20.315281 16.857422 19.113281 C 15.655422 17.911281 15.655422 16.071141 16.857422 14.869141 C 17.458422 14.268141 18.220219 13.96875 18.980469 13.96875 z" stroke-linecap="round" />
+							</g>
+							</svg></a>                      
+						</td>
+					  </tr>                  
+					{% endfor %}
+				  </tbody>
+				</table>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	   
+	 
+		<h3 class="mt-6 text-xl">Bons de Sorties</h3>
+		<div class="flex flex-col mt-6">
+		  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+			<div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+			  <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+				<table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+				  <thead class="bg-gray-50">
+					<tr>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						IDBon
+					  </th>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Date Bon
+					  </th>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Prix Totale
+					  </th>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Client
+					  </th>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Done By
+					  </th>
+					  {% if request.session.role == 'manager' %}
+					  <th scope="col" class="relative px-6 py-3">
+						<span class="sr-only">show more</span>
+					  </th>
+					  {% endif %}
+					</tr>
+				  </thead>
+				  <tbody class="bg-white divide-y divide-gray-200">
+					{% for  bon in bons_sorties %}
+					  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <div class="flex items-center">                            
+							<div class="ml-4">
+							  <div class="text-sm font-medium text-gray-900">{{bon.IdBon}}</div>                               
+							</div>
+						  </div>
+						</td>
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <div class="text-sm text-gray-900">{{bon.dateBon}}</div>                         
+						</td>
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full" >
+							{{bon.totalPrice}}
+						  </span>
+						</td>
+						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{bon.client}}</td>
+						<td class=" py-4 text-sm text-gray-500 whitespace-nowrap">{{bon.user}}</td>
+						{% if request.session.role == 'manager' %}
+						 <td class="pr-12 py-4 text-sm font-medium text-right whitespace-nowrap flex">
+						  <a href="{% url 'edit-bill'  bon.IdBon %}" class="text-indigo-600 hover:text-indigo-900">
+							<svg id='Edit_File_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+							<g transform="matrix(0.77 0 0 0.77 12 12)" >
+							<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-12.95, -12.95)" d="M 4 0 C 1.800781 0 0 1.800781 0 4 L 0 21 C 0 23.199219 1.800781 25 4 25 L 12.1875 25 L 12.1875 24.8125 L 12.6875 23 L 4 23 C 2.898438 23 2 22.101563 2 21 L 2 4 C 2 2.898438 2.898438 2 4 2 L 10.3125 2 C 11.011719 2.199219 11 3.101563 11 4 L 11 7 C 11 7.601563 11.398438 8 12 8 L 15 8 C 16 8 17 8 17 9 L 17 17 L 19 15 L 19 8 C 19 6.898438 18.011719 5.886719 16.3125 4.1875 C 16.011719 3.988281 15.800781 3.699219 15.5 3.5 C 15.300781 3.199219 15.011719 2.988281 14.8125 2.6875 C 13.113281 0.988281 12.101563 0 11 0 Z M 23.34375 14.09375 C 23.070313 14.09375 22.792969 14.207031 22.59375 14.40625 L 21.40625 15.59375 L 24.40625 18.59375 L 25.59375 17.40625 C 25.992188 17.007813 25.992188 16.40625 25.59375 15.90625 L 24.09375 14.40625 C 23.894531 14.207031 23.617188 14.09375 23.34375 14.09375 Z M 20.3125 16.59375 L 15.59375 21.59375 C 15.492188 21.59375 15.40625 21.710938 15.40625 21.8125 L 14.3125 25.40625 C 14.210938 25.507813 14.304688 25.710938 14.40625 25.8125 C 14.507813 25.914063 14.585938 25.90625 14.6875 25.90625 L 14.8125 25.90625 L 18.40625 24.8125 C 18.507813 24.8125 18.492188 24.789063 18.59375 24.6875 L 23.5 19.8125 Z M 16 22.09375 L 17.5 22.40625 L 17.8125 24 L 15.8125 24.5 L 15.40625 24.09375 Z" stroke-linecap="round" />
+							</g>
+							</svg>
+						  </a>                         
+						  <a href="#" class="text-indigo-600 hover:text-indigo-900" @click="deleteBill('{{bon.IdBon}}')">
+							<svg id='Delete_Trash_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+							  <g transform="matrix(0.91 0 0 0.91 12 12)" >
+							  <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-13.77, -13)" d="M 10 2 L 9 3 L 4 3 L 4 5 L 5 5 L 5 20 C 5 21.093063 5.9069372 22 7 22 L 15 22 L 15 20 L 7 20 L 7 5 L 17 5 L 17 15 L 19 15 L 19 5 L 20 5 L 20 3 L 19 3 L 15 3 L 14 2 L 10 2 z M 9 7 L 9 18 L 11 18 L 11 7 L 9 7 z M 13 7 L 13 18 L 15 18 L 15 7 L 13 7 z M 17.878906 16.929688 L 16.464844 18.34375 L 18.585938 20.464844 L 16.464844 22.585938 L 17.878906 24 L 20 21.878906 L 22.121094 24 L 23.535156 22.585938 L 21.414062 20.464844 L 23.535156 18.34375 L 22.121094 16.929688 L 20 19.050781 L 17.878906 16.929688 z" stroke-linecap="round" />
+							  </g>
+							</svg>
+						  </a>   
+						  <script>
+							function deleteBill(idBon){
+							  console.log("helo here ")
+							  const objData={
+								id : idBon,
+							  }
+							 
+							  axios.post('delete-bill/', objData, {
+								headers: {
+								'Content-Type': 'multipart/form-data',
+								'X-CSRFToken': getCookie('csrftoken'),
+								}
+							  })
+							  .then((response) => {
+								data= response.data
+								if(data.error){
+								alert(data.error);
+								}else{
+								alert("fichier uploaded");               
+								}		  
+							  })
+							  .catch((error) => {
+								alert(error)
+							
+							  });
+
+							}                                                                    
+							function getCookie(name) {
+							var cookieValue = null;
+							if (document.cookie && document.cookie !== '') {
+							  var cookies = document.cookie.split(';');
+							  for (var i = 0; i < cookies.length; i++) {
+								var cookie = cookies[i].trim();
+								// Does this cookie string begin with the name we want?
+								if (cookie.substring(0, name.length + 1) === (name + '=')) {
+								  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								  break;
+								}
+							  }
+							}
+							return cookieValue;
+							}
+						  </script>                                                  
+						 </td>
+						{% endif %}
+					  </tr>
+				   {% endfor %}
+				  </tbody>
+				</table>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	
+   </main>	
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

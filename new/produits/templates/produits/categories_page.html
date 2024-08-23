@@ -1,0 +1,429 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="products" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_produits.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full px-2 h-full overflow-hidden overflow-y-scroll" x-data="Catgories()">
+		<div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                     
+			<h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des familles de produits</h1>          
+		  </div>
+		  <div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b">  
+			<div></div>          
+			<div class="inline-block px-4 py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer"  x-on:click="isOpen = true; operation == 'add';">
+				 Créer une nouvelle famille de produit
+			</div>
+		  </div>
+		  
+		  <body >
+			<table class="min-w-full overflow-x-scroll divide-y divide-gray-200 mt-4">
+				<thead class="bg-gray-50">
+					<tr>
+						<th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">Libéllé</th>
+						<th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">Composant Associé</th>
+						<th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">Produits</th>
+						<th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">Type</th>                        
+						<th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"></th>                        
+					</tr>
+				</thead>
+				<tbody>
+				  {% for category in categories %}
+					<tr class="hover:bg-gray-100 hover:shadow-md border-b cursor-pointer" @click=" isButtonDisabled=true; ">
+						<td class="px-4 py-2 text-sm font-medium text-center text-gray-600 ">						 
+						  {{ category.Libellé }}
+						</td>                         
+						<td class="px-4 py-2 text-sm font-medium text-center text-gray-600 ">{{ category.pc_component}}</td>
+						<td class="px-4 py-2 text-sm font-medium text-center text-gray-600 ">{{ category.get_products|length }} produits</td>
+						<td class="px-4 py-2 text-sm font-medium text-center text-gray-600 ">
+							{% if category.kit %}
+								KIT
+							{% else %}
+								DETAIL
+							{% endif %}
+						</td> 
+						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap flex">
+						  <a  @click="
+								isOpen=true;
+								kit = {% if category.kit %} true {% else %} false {% endif %};
+								categorieP='{% if category.MotherCategory %}{{ category.MotherCategory.id }}{% endif %}';
+								libFamille='{{ category.Libellé }}';
+								component ='{{ category.pc_component}}';
+								list2 = {{category.getkitComp | safe}};
+								id_category ='{{ category.id }}';
+								operation = 'update';
+							"class="text-gray-700">{% heroicon_mini "pencil-square" class="cursor-pointer transition-transform" %}</a>
+						    {% if request.session.role == "manager" %}
+								<input class="align-middle border-l-0 border-r-0 text-sm whitespace-nowrap" type="checkbox" :value="{{category.id}}" x-model="selectedItems" id="target-row">
+							{% endif %}
+						</td>               
+					</tr>
+					
+				  {% endfor %}
+				</tbody>
+			</table>
+		</body>
+		<div class="flex bg-gray-100 justify-between px-8">
+		    <div></div>
+			<div class="transition-transform cursor-pointer px-1 py-1 text-red-500 hover:text-red-700" @click="showModal = true;" >
+				{% heroicon_mini "trash" %}
+			</div>
+		</div>
+		  <div x-cloak x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+			<div class="modal bg-gray-50 rounded-lg p-4 max-w-md mx-auto shadow-lg">
+				<p class="text-gray-700 text-lg mb-4">Voulez-vous vraiment supprimer les éléments sélectionné </p>
+				<div class="flex justify-end">
+					<button @click="deletedSelected()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none mr-2">Oui</button>
+					<button @click="annulerSuppression()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 focus:outline-none">Annuler</button>
+				</div>
+			</div>
+		  </div>
+					 <!-- Modal -->
+  <div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="isOpen">
+	<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-0 md:mt-12">
+	  <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+	   x-on:click="isOpen = false">
+		<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+		 <path
+			d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+		</svg>
+		</div>
+		<form action="" id="myForm">
+		<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+		<h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter une nouvelle famille de produit</h2>
+		<div class="form-input">
+			{% if request.session.store != '2' and request.session.store != '8' %}
+				<div class="mb-4">
+					<label class="block text-gray-700 font-semibold mb-2" for="categorieP">
+					Composant Convient :
+					</label>
+					<select
+						class=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						id="product"
+						name="product"
+						x-model="component"
+					>
+						<option value="" disabled selected>Selectioner Composant</option>
+						<option value="cpu">Processeur</option>
+						<option value="mb">Carte mère</option>
+						<option value="ram">Mémoire RAM</option>
+						<option value="cpuc">Refroidissement CPU</option>
+						<option value="gpu">Carte graphique</option>
+						<option value="ssd">SSD</option>
+						<option value="psu">Alimentation</option>
+						<option value="case">Boîtier</option>
+						<option value="casef">Refroidissement Boitier</option>
+						<option value="moniteur">Moniteurs</option>
+						<option value="claviers">Claviers</option>
+						<option value="souris">Souris</option>
+						<option value="extras">Extras</option>
+					</select>
+				</div>
+			{% endif %}
+		<div class="mb-4">
+			<label class="block text-gray-700 font-semibold mb-2" for="categorieP">
+			Type Catégorie :
+			</label>
+			<select
+				class=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+				id="kit"
+				x-model="kit"
+				name="kit"						
+				required  
+				>
+				<option value="false"> Détails </option>  
+				<option value="true">  kit </option>
+			
+			</select>
+		</div>
+		<div class="mb-4" x-show="kit">
+			<label class="block text-gray-700 font-semibold mb-2" for="name">
+			  Attribuer les Composants Du Kit:
+			</label>
+			<div class="flex space-x-1 items-center text-lg font-bold leading-7 text-gray-900 mt-2" >
+				<div class="w-1/3">                               
+					<ul class="border p-4">
+						<template x-for="item in list1" :key="item">
+							<li class="cursor-pointer text-lg font-normal" @click="toggleSelection(item)">
+								<span x-text="item" :class="{ 'text-blue-500': isSelected(item) }"></span>
+							</li>
+						</template>
+					</ul>
+				</div>	
+				<div class="flex flex-col  align-baseline items-center justify-center py-2 px-2 w-1/3">
+					<button class=" text-gray-700 text-xs rounded-full " @click.prevent="moveItems(list1, list2)">
+						&rarr;
+						Ajouter
+					</button>
+					<!-- Move Left Button -->
+					<button class=" text-gray-700  text-xs rounded-full" @click.prevent="moveItems(list2, list1)">
+						Retirer
+						&larr;
+					</button>
+				</div>
+
+				<!-- List 2 -->
+				<div class="w-1/3">
+					<ul class="border p-4">
+						<template x-for="item in list2" :key="item">
+							<li class="cursor-pointer" @click="toggleSelection(item)">
+								<span x-text="item" :class="{ 'text-blue-500': isSelected(item) }"></span>
+							</li>
+						</template>
+					</ul>
+				</div>
+			</div> 
+		</div>  
+		<div class="mb-4">
+			<label class="block text-gray-700 font-semibold mb-2" for="categorieP">
+			Categorie Parent :
+			</label>
+			<select
+			class=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+			id="categorieP"
+			x-model="categorieP"
+			name="categorieP"						
+			required  
+			>
+			<option value="null"> Aucune </option>  
+			{% for category in categories %}           
+			<option value="{{category.id}}">  {{category.Libellé}} </option>
+			{% endfor %}
+			
+			</select>
+		</div>
+		<div class="mb-4 ">
+			<label class="block text-gray-700 font-semibold mb-2" for="libFamille">
+			Libellé famille de produit:
+			</label>
+			<input
+			class=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+			type="text"
+			id="libFamille"
+			x-model="libFamille"
+			name="libFamille"
+			placeholder="Libellé de famille . . ."
+			>
+		</div> 		
+		
+		</div>
+		<div class="mt-8 text-right">
+		<button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="isOpen = false">
+		Annuler
+		</button>	
+		<button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" x-on:click="
+      		if (operation === 'add') {
+        		addCategorie();
+      			} else if (operation === 'update') {
+        		updateCompte();
+     		 }
+    	">
+	    <span x-text="operation === 'add' ? 'Ajouter' : 'Modifier'"></span>
+	  </button>	
+		</div>
+		</div> 
+		</form>
+		</div>
+		</div>
+<!-- /Modal -->
+<script>
+	function Catgories(){
+		return{
+				isOpen:false,
+				categorieP:'',
+				libFamille:'',
+				descFamille:'',
+				kit:false,
+				status:'',
+				showModal:false,
+				component:'',
+				operation:'add',
+				id_category:'',
+				isButtonDisabled: false,
+				list1: ['cpu', 'mb','ram','cpuc','gpu','ssd','psu','case','moniteur','claviers','souris','extras'],
+				list2: [],
+				selectedItems: [],
+                dateCreationEquipe:new Date().toISOString().slice(0, 10),
+
+                toggleSelection(item) {
+                    if (this.isSelected(item)) {
+                        this.selectedItems = this.selectedItems.filter(selectedItem => selectedItem !== item);
+                    } else {
+                        this.selectedItems.push(item);
+                    }
+                },
+
+                isSelected(item) {
+                    return this.selectedItems.includes(item);
+                },
+                
+                moveItems(sourceList, destinationList) {
+					destinationList.push(...this.selectedItems);
+
+					// Remove selected items from the sourceList
+					this.selectedItems.forEach(item => {
+						const index = sourceList.indexOf(item);
+						if (index !== -1) {
+							sourceList.splice(index, 1);
+						}
+					});
+					// Clear the selectedItems array
+					this.selectedItems = [];
+                },
+				addCategorie(){
+					{% if request.session.store == '1' %}
+						if(this.component == '' && !this.kit){
+							alert("veuillez Specifier Le composant associé a cettte catégorie");
+							return
+						}
+					{% endif %}
+
+					dataObj={
+						categorieP: this.categorieP,
+						libFamille: this.libFamille,
+						kit: this.kit,
+						component: this.component,
+						list2: this.list2					
+					}
+
+					axios.post('', {
+					formData: dataObj
+					}, {
+					headers: {
+					'Content-Type': '',
+					'X-CSRFToken': getCookie('csrftoken'),
+					}
+					})
+					.then((response) => {
+					data = response.data
+					console.log(data.error)
+						if(data.error){
+							alert(data.error);
+						}else{
+							alert("Famille Ajouté !");
+						}		  
+					window.location.reload()            
+					})
+					.catch((error) => {
+					alert(error)      
+					});
+				},
+
+				updateCompte(){
+                        dataObj={
+                          id:this.id_category,
+                          categorieP : this.categorieP,
+						  libFamille : this.libFamille,
+						  descFamille : this.descFamille, 
+						  component :this.component, 
+						  kit: this.kit,
+						  list2: this.list2      
+                        }
+                        axios.post('ModifierFamille/', {
+                          formData: dataObj
+                        }, {
+                        headers: {
+                        'Content-Type': '',
+                        'X-CSRFToken': getCookie('csrftoken'),
+                        }
+                        })
+                      .then((response) => {
+                        data = response.data
+                        console.log(data.error)
+                        if(data.error){
+                              alert(data.error);
+                          }else{
+                              alert("Catégorie modifié !");
+                          }		  
+                        window.location.reload()            
+                      })
+                      .catch((error) => {
+                        alert(error)
+                        
+                      });
+                    },
+
+				selectedItems: [],
+
+				deletedSelected(){
+                        if (this.selectedItems.length === 0) {
+                            alert("Veuillez Selectionner aumoins un élément pour supprimer!.");
+                            return;
+                        }
+						console.log(this.selectedItems);
+
+						dataObj ={
+							liste_ids: this.selectedItems,                        
+								}
+						axios.post('DeleteCategories/',dataObj, {
+							headers: {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+						})
+							.then(response => {          			
+									showModal = false;
+									alert(response.data.message);
+									window.location.reload();
+							})
+						.catch(error => {
+						// Handle request errors
+						alert(error);
+						});
+						this.showModal = false;
+						this.selectedItems = [];
+				},
+
+				annulerSuppression() {
+						// Réinitialiser les variables
+						this.showModal = false;
+						this.billtodelete = '';
+				},
+		}
+	}
+
+	function getCookie(name) {
+		var cookieValue = null;
+		if (document.cookie && document.cookie !== '') {
+		var cookies = document.cookie.split(';');
+		for (var i = 0; i < cookies.length; i++) {
+		var cookie = cookies[i].trim();
+		// Does this cookie string begin with the name we want?
+		if (cookie.substring(0, name.length + 1) === (name + '=')) {
+			cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+			break;
+		}
+		}
+		}
+		return cookieValue;
+	}
+</script>
+		</div>
+</main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

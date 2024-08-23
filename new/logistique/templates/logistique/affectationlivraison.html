@@ -1,0 +1,533 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="logistique" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_logistiques.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+    <main class="block w-full h-full px-2 overflow-hidden" x-data="reglement()" x-init="initPage()">
+          <!-- Main content header -->
+        <div class="flex justify-between  mt-4 px-6 ">
+				  <h2 class="text-2xl font-bold tracking-wider uppercase">Affectation Une Course</h2>
+                   <div>
+					  <!--<div class="relative mr-4 inline-block">-->
+						 <!-- <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center"  @click="printInvoice()">-->
+							<!--  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">-->
+							<!--	  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>-->
+							<!--	  <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />-->
+							<!--	  <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />-->
+							<!--	  <rect x="7" y="13" width="10" height="8" rx="2" />-->
+							<!--  </svg>				  -->
+						 <!-- </div>-->
+						 
+					  <!--</div>-->
+					</div>
+			   </div>
+                <div class=" mt-2 mb-8 border-t px-6">
+                    <div class="w-2/4">
+                        <div class="mb-2">
+                            <label class="w-1/4 text-gray-700 font-semibold mb-2 py-2" for="datereg">
+                                Client :
+                            </label>
+                            <div class="relative">
+                                <input type="hidden" :value="selectedClient.value">
+                                <input type="text" x-model="searchClient" class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline bg-gray-50 text-gray-600 font-medium"
+                                    placeholder="Cliquer pour rechercher ..." @click="optionsClientVisible = !optionsClientVisible">
+                                <div class="absolute bg-white shadow-lg w-full overflow-y-scroll z-40" style="max-height:200px;" x-show="optionsClientVisible">
+                                    <template x-for="option in filteredOptionsclients()">
+                                        <a class="cursor-pointer border-b py-2 px-2 text-left hover:bg-gray-100" 
+                                            @click.prevent="                                                
+                                                client = option.id;
+                                                montant = option.soldeCl;
+                                                bills = option.bills;
+                                                selectedClient = option;
+                                                optionsClientVisible = false;
+                                                searchClient='';
+                                            "
+                                            x-text="option.name"
+                                            style="display: block;"></a>
+                                    </template>
+                                </div>
+                                
+                            </div>
+                            <div class="mb-2">
+                                <select
+                                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                                    x-model="client"
+                                    required
+                                    disabled
+                                >
+                                    <option value="" disabled selected>Client</option>
+                                    {% for client in clients %}
+                                        <option value="{{client.id}}" > {{ client.name}} </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                        </div>   
+                        <div class="mb-2">
+                            <label class="block text-gray-700 font-semibold mb-2" for="port_embarquement">
+                                Solde Antérieur :
+                            </label>
+                            <input
+                                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                type="text"
+                                x-model="montant"
+                                placeholder="Solde Antérieur..."
+                            >
+                        </div>
+				    </div>
+                    <div x-data="{ tab: 1 }" x-cloak class="antialiased">
+                        <div
+                          class="relative flex flex-col rounded-lg shadow-xs overflow-hidden"
+                        >
+                          <div
+                            class="flex space-x-8 bg-white border-b border-gray-200"
+                           >
+                            <button
+                              type="button"
+                              class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+                              x-on:click="tab = 1"
+                              :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 1 }"
+                            >
+                              Details Course
+                            </button>
+                            <button
+                              type="button"
+                              class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+                              x-on:click="tab = 2"
+                              :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 2 }"
+                            >
+                              Bons Du Client
+                            </button>
+                          </div>
+                          <div class="">
+                            <div x-show="tab === 1">
+                                <div class="mb-2">
+                                    <label class="block text-gray-700 font-semibold mb-2" for="port_embarquement">
+                                        Adresse Livraison :
+                                    </label>
+                                    <input
+                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        type="text"                       
+                                        x-model="adresse"
+                                        placeholder="Adresse Livraison..."
+                                    >
+                                </div>
+                                <div class="mb-2">
+                                    <label class=" text-gray-700 font-semibold mb-2" for="bon_commande">
+                                        Chauffeur :
+                                    </label>
+                                    <select
+                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                                        x-model="chaufeur"
+                                        required
+                                    >
+                                        <option value="" disabled selected>Chauffeur</option>
+                                        {% for client in chauffeurs %}
+                                            <option value="{{client.username}}" >{{ client.last_name}} {{ client.first_name}}  </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="block text-gray-700 font-semibold mb-2" for="Port_debarquement">
+                                        Moyen de transport :
+                                    </label>
+                                    <select
+                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                                        id="moyen_transport"
+                                        name="moyen_transport"
+                                        x-model="moyen_transport"
+                                        x-on:change="name_moyentransport = $event.target.options[$event.target.selectedIndex].text"
+                                        required
+                                    >
+        
+                                        <option value="" disabled selected>Selectionner Moyen de transport </option>
+                                        {% for moyen in moyens_transport %}
+                                            <option value="{{moyen.id}}">{{moyen.designation}} - {{ moyen.immatriculation }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <label class=" text-gray-700 font-semibold mb-2" for="bon_commande">
+                                        Type Course :
+                                    </label>
+                                    <select
+                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                                        x-model="type"                                
+                                        required
+                                    >
+                                        <option value="" disabled selected>Type Course</option>
+                                        <option value="courrier" > Livraison Courriers </option>
+                                        <option value="trans" > Transporteur </option>
+        
+                                    </select>
+                                </div>
+                                <div class="mb-2" x-show="type == 'trans'">
+                                        <label class="block text-gray-700 font-semibold mb-2" for="port_embarquement">
+                                            Transporteur :
+                                        </label>
+                                        <input
+                                            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                            type="text"                           
+                                            x-model="transporteur"
+                                            placeholder="Nom Complet Transporteur..."
+                                        >
+                                </div>                   
+                                
+                                <div class="mb-2">
+                                        <label class="block text-gray-700 font-semibold mb-2" for="port_embarquement">
+                                            Note:
+                                        </label>
+                                        <textarea class=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Note ..." rows="4" cols="50" x-model="note">                            
+                                        </textarea>
+                                </div>  
+                            </div>
+                            <div x-show="tab === 2">
+                              <table class="w-full mt-4">
+                                <thead class="border-b bg-gray-100 border-t py-4">
+                                  <tr>
+                                    <th
+                                      class="text-gray-800 py-4 uppercase tracking-wide text-sm font-bold text-center"
+                                    >
+                                      IDBON
+                                    </th>
+                                    <th
+                                      class="text-gray-800 py-4 uppercase tracking-wide text-sm font-bold text-center"
+                                    >
+                                      Montant Bon
+                                    </th>
+                                                           
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <template
+                                    x-for="invoice in bills"
+                                  >
+                                    <tr class="border-b" :class="{ 'bg-green-500': invoice.deliver}">
+                                      <td
+                                        class="text-gray-800 text-center"
+                                        x-text="invoice.idBon"
+                                      ></td>
+                                      <td
+                                        class="text-gray-800 text-center"
+                                        x-text="invoice.montant"
+                                      ></td>
+                                     
+                                      <td class="text-center flex items-center">                                      
+                                        <a
+                                            href="#"
+                                            class=" text-sm font-semibold"
+                                            @click.prevent="addToDeliver(invoice)"
+                                            :class="{'text-white' : invoice.montantRegle == invoice.montant}"
+                                            >{% heroicon_mini "check-circle" class="transition-transform" %}                                  
+                                        </a>
+                                        <a
+                                          href="#"
+                                          class=" cursor-pointer text-sm font-semibold hover:text-red-500"
+                                          @click.prevent="removeFromDeliver(invoice)"
+                                          :class=""
+                                          >{% heroicon_mini "x-circle" class="transition-transform" %}                                  
+                                        </a
+
+                                      </td>
+                                    </tr>
+                                  </template>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                        
+			   </div>
+                <div class="">
+                        <div class="mt-8 border-t py-4 text-right">
+                            <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="isOpen = false">
+                            Annuler
+                            </button>	
+                            <button type="button" class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" @click="validateReglement()">
+                            Valider
+                            </button>	
+                        </div>
+                </div> 
+
+             <!-- Print Template -->
+            <div id="js-print-template" class="hidden" x-ref="printTemplate" >
+              <div class="block space-y-4">   
+                <div class=" mb-8 py-4 border-stone-500">   
+                   
+                    <h2 class="text-3xl font-bold mt-2 pb-2 text-center border-b tracking-wider uppercase">Fiche Livraison Externe </h2>
+                    <div class="block w-full  space-y-4 mb-2">
+                        <div class="block w-full  space-y-4 mb-2">
+                        <div class="w-full ">
+                                <table class="table-auto w-full">
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Date</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="date"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Client</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="client"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Adresse Livraison</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="adresse"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Transporteur</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="transporteur"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Nombre De colis</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text=""></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Montant A Récupérer</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="montant"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Remarques</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="note"></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+
+                    </div>
+                    </div>
+                     <p class="text-red-700 font-bold text-md text-right"> .لا تفتح الأظرف والصناديق لأي سبب كان</p>
+                    <div class=" flex justify-between border-t mt-4 pb-8 mr-0">
+                        <div class="font-bold">
+                        Signature Transporteur
+                        </div>
+                        <div class="font-bold">
+                            Cachet et Signature Service Logistique
+                        </div>
+                    </div>
+                </div>  
+                <div class="border-dashed border-t border-black" >   
+                    <h2 class="text-3xl font-bold mt-4  pb-2 text-center border-b tracking-wider uppercase">Fiche Livraison Externe </h2>
+                    <div class="block w-full  space-y-4 mb-2">
+                        <div class="w-full ">
+                               <table class="table-auto w-full">
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Date</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="date"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Client</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="client"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Adresse Livraison</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="adresse"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Transporteur</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="transporteur"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Nombre De colis</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="numeroColis"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Montant A Récupérer</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="montant"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-black px-2 py-2 w-1/4">Remarques</td>
+                                            <td class="border border-black px-2 py-2 w-3/4" colspan="2"><div x-text="note"></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+
+                    </div>
+                    <p class="text-red-700 font-bold text-md text-right"> .لا تفتح الأظرف والصناديق لأي سبب كان</p>
+                    <div class=" flex justify-between border-t mt-4 mr-0">
+                        <div class="font-bold">
+                        Signature Transporteur
+                        </div>
+                        <div class="font-bold">
+                            Cachet et Signature Service Logistique
+                        </div>
+                    </div>
+                </div> 
+              </div>   
+            </div>
+        <!-- /Print Template -->
+
+      </div>
+   
+     <!-- /Modal -->
+        <script>
+        function reglement(){
+            return {
+                date :new Date().toISOString().slice(0, 10),
+                bill:'',
+                client: '',
+                adresse: '',
+                chaufeur: '',
+                moyen_transport: '',
+                type: '',
+                transporteur: '',
+                montant: '',
+                fraistransport :0,
+                note: '',
+                showQuantity:false,
+                selectedProductQuantity:false,
+                openModal: false,
+                selectedClient:'',
+                searchClient:'',
+                optionsClientVisible:false,
+                bills:[],
+                clients:[],
+                billstoDeliver:[],
+                addToDeliver(invoice){
+                    invoice.deliver = true;
+                    this.billstoDeliver.push(invoice);
+                    console.log(this.billstoDeliver);
+                },
+                removeFromDeliver(invoice){
+                    invoice.deliver = false;
+                    this.billstoDeliver = this.billstoDeliver.filter((bill) => bill.id != invoice.id);
+                    console.log(this.billstoDeliver);
+                },
+
+                initPage(){                   
+                    var clients = [];
+                    {% for client in clients %}     				      
+                        var clientData = {
+                            id:"{{client.id}}",
+                            name:"{{client.name}}",
+                            soldeCl:"{{client.remaining_amount}}",
+                            bills:[]
+                        } 
+                        {% for bill in client.client_bonS.all %}
+                                clientData.bills.push({
+                                    "id": "{{bill.id}}",
+                                    "idBon": "{{bill.idBon}}",
+                                    "deliver": false,
+                                    "montant": "{{bill.get_total_soldprice}}",
+                                })
+                        {% endfor %}
+                        var exists = clients.some(function(existingClient) {
+							return existingClient.id === clientData.id;
+						});
+						if (!exists) {
+							clients.push(clientData);					
+						}  
+                    {% endfor %}     
+                    this.clients = clients;      
+                },
+                filteredOptionsclients() {
+                        return this.clients.filter((option) => {
+                            return (option.name.toLowerCase().includes(this.searchClient.toLowerCase()));
+                        });
+                },
+                printInvoice() {
+                    var printContents = this.$refs.printTemplate.innerHTML;
+                    var originalContents = document.body.innerHTML;
+                    document.body.innerHTML = printContents;
+                    window.print();
+                    document.body.innerHTML = originalContents;
+                },
+
+                items: [],
+                stock:[],
+                item: {
+					idbon: '',
+                    date: '',
+                    mode: '',
+                    etat: '',
+                    note: '',
+				},
+                showModal(){
+					 document.getElementById('myForm').reset(); 
+					 this.openModal =true;
+				},
+
+                validateReglement(){
+                    const dataObj = {
+                        date :this.date,                   
+                        bills: this.billstoDeliver,
+                        client: this.client,
+                        adresse: this.adresse,
+                        chaufeur: this.chaufeur,
+                        moyen_transport: this.moyen_transport,
+                        type: this.type,
+                        transporteur: this.transporteur,
+                        montant: this.montant,
+                        fraistransport: this.fraistransport,
+                        note: this.note ,                  
+                    };
+                    
+                    axios.post('', {
+                        formData: dataObj
+                        }, {
+                        headers: {
+                        'Content-Type': '',
+                        'X-CSRFToken': getCookie('csrftoken'),
+                        }
+                    })
+                    .then((response) => {
+                        data= response.data
+                        if(data.success){
+                            alert("Livraison Efffectué Créé!");
+                        }else{
+                            alert("une erreur a été Survenuer!"); 
+                        }		  
+                    })
+                    .catch((error) => {
+                        alert(error);
+                    });				
+                }, 
+            }
+        }
+        function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+            }
+        }
+        return cookieValue;
+        }
+        </script>
+
+    </main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="target" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_target.html" %}
+  <div class="h-full w-full">
+    <main class="block w-full h-full px-2 overflow-hidden" x-data="target()">
+       <div class="flex flex-col items-start  pt-4  space-x-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                           
+          <h1 class="p-4 text-2xl font-semibold whitespace-nowrap py-2">Etat d'avancement Target</h1>       
+       </div>
+        {% if request.session.role == 'manager' or 'target.can_create_target' in request.session.permissions %}
+            <div class="-mb-2 px-4 py-2 flex flex-wrap flex-grow justify-between border-b">  
+            <div></div>   
+
+            <div class="inline-block py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer" x-on:click="isOpen = true">
+                <a class="px-4" href="{% url 'target' %}"> Créer un nouveau Target </a> 
+            </div>
+            </div>
+        {% endif %}
+      <section class="relative py-4 ">
+        <div class="w-full mb-12 ">
+        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded text-black">
+            <div class="block w-full overflow-x-auto ">
+            <table class="items-center w-full rounded-xl bg-transparent border-collapse">
+                <thead>
+                    <tr class="bg-gray-100 ">
+                        <th class="px-6 align-middle border border-solid py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left  ">Target</th>
+                        <th class="px-6 align-middle border border-solid py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left  ">Date Création</th>
+                        <th class="px-6 align-middle border border-solid py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left  ">Date Fin</th>
+                        <th class="px-6 align-middle border border-solid py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left  ">Etat Target</th>
+                        <th class="px-6 align-middle border border-solid py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left  ">Utilisateurs</th>
+                        <th class="px-6 align-middle border border-solid py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left  ">Completion </th>
+                        <th class="px-6 align-middle border border-solid py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left  "></th>
+                    </tr>
+                </thead>
+                <tbody>
+                 <template x-for="target in targets" >
+                 <tr class="border-b">
+                    <!-- Replace target properties accordingly -->
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                     {% if request.session.role == 'manager' or 'target.can_delete_target' in request.session.permissions %}
+                        <input class=" px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4" type="checkbox" :value="target.id" x-model="selectedItems" id="target-row">
+                     {% endif %}
+                        <span class=" px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4" x-text="target.label"></span>
+                    </td>
+                  
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4" x-text="target.target_createddate"></td>
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4" x-text="target.target_duedate"></td>
+                   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full" :class="{ 'bg-green-500': target.completion_rate === 100, 'bg-red-500': target.completion_rate !== 100 && datetoday >= target.target_duedate, 'bg-orange-500': target.completion_rate !== 100 && datetoday < target.target_duedate }"></div>
+                            <span class="ml-2 font-semibold" x-text="target.completion_rate === 100 ? 'Réalisé' : (datetoday >= target.target_duedate ? 'Expiré' : 'En attente')"></span>
+                        </div>
+                    </td>
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <div class="flex ">
+                                <template x-for="user in target.users" >
+                                       <span class="w-10 h-10 py-2 text-center font-bold text-white items-center uppercase rounded-full border-2 bg-gray-700 shadow"
+                                         x-text="user.substring(0, 2)"></span>
+                                </template>
+                            </div>
+                    </td>
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <div class="block items-center">
+                            <span x-text="(target.completion_rate).toFixed(2) + '%'"></span>
+                            <template x-if="datetoday < target.target_duedate" >
+                                <div class="relative w-full">
+                                    <div class="overflow-hidden h-2 text-xs flex rounded bg-red-200">
+                                        <div   :style="'width: ' + target.completion_rate + '%'"
+                                                :class="{ 'bg-green-500': target.completion_rate === 100, 'bg-red-500': target.completion_rate < 100 }"
+                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-black justify-center"></div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </td>
+                    
+                    <td class="flex items-center border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        {% if request.session.role == 'manager' %}
+                          <a :href="'edit-Target/' + target.id" class="text-gray-700">
+                                <svg id='edit_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                    <g transform="matrix(1 0 0 1 12 12)" >
+                                    <g style="" >
+                                    <g transform="matrix(1 0 0 1 0 0)" >
+                                    <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                    </g>
+                                    <g transform="matrix(1 0 0 1 -2 1)" >
+                                    <path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-10.5, -13.5)" d="M 7 7 L 6 7 C 4.8954305003384135 7 4 7.8954305003384135 4 9 L 4 18 C 4 19.104569499661586 4.8954305003384135 20 6 20 L 15 20 C 16.104569499661586 20 17 19.104569499661586 17 18 L 17 17" stroke-linecap="round" />
+                                    </g>
+                                    <g transform="matrix(1 0 0 1 2.5 -3.5)" >
+                                    <path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-15, -9)" d="M 20.385 6.585 C 21.20514285349873 5.764857146501272 21.20514285349873 4.4351428534987285 20.385 3.615 C 19.564857146501275 2.794857146501272 18.23514285349873 2.7948571465012715 17.415000000000003 3.6149999999999998 L 9.000000000000004 12 L 9.000000000000004 15 L 12.000000000000004 15 L 20.385000000000005 6.585000000000001 z" stroke-linecap="round" />
+                                    </g>
+                                    <g transform="matrix(1 0 0 1 5 -6)" >
+                                    <path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-17.5, -6.5)" d="M 16 5 L 19 8" stroke-linecap="round" />
+                                    </g>
+                                    </g>
+                                    </g>
+                                </svg>
+                          </a> 
+                        {% endif %}   
+                        <a class="px-4 py-2 font-bold text-lg rounded-full hover:bg-gray-200" :href="'statsTarget/' + target.id"> + </a> 
+                    </td>
+                  </tr>
+                 </template>
+                </tbody>
+            </table>
+            <div class="flex items-center justify-between border-t border-gray-200 bg-gray-100 px-4 py-3 sm:px-6">
+                <div class=" w-full flex items-center justify-between">
+                   {% if request.session.role == 'manager' or 'target.can_delete_target' in request.session.permissions %}
+                        <div class="transition-transform cursor-pointer text-red-500 hover:text-red-700" @click="showModal = true;" >
+                            {% heroicon_mini "trash" %}
+                        </div>
+                    {% endif %}
+                    <div>
+                    
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>  
+      </section>
+       <div x-cloak x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+			<div class="modal bg-gray-50 rounded-lg p-4 max-w-md mx-auto shadow-lg">
+			 <p class="text-gray-700 text-lg mb-4">Voulez-vous vraiment supprimer les éléments sélectionné </p>
+			 <div class="flex justify-end">
+			   <button @click="deletedSelected()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none mr-2">Oui</button>
+			   <button @click="annulerSuppression()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 focus:outline-none">Annuler</button>
+			 </div>
+			</div>
+		  </div>
+    <script>
+      function target(){
+      return {
+        isUser: true,
+            targets:{{targets | safe}},
+            datetoday: new Date().toISOString().slice(0, 10),
+            selectedItems: [],
+           
+            showModal:false,
+            deletedSelected(){
+                        if (this.selectedItems.length === 0) {
+                            alert("Veuillez Selectionner aumoins un élément pour supprimer!.");
+                            return;
+                        }
+						dataObj ={
+							liste_ids: this.selectedItems,                        
+								}
+						axios.post('DeleteTarget/',dataObj, {
+							headers: {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+						})
+							.then(response => {
+						// Check if the deletion was successful
+						if (response.data.success) {            			
+							showModal = false;
+							alert('Target Supprimé!');
+							window.location.reload();
+						} else {
+							alert(response.data);
+							window.location.reload();
+						}
+						})
+						.catch(error => {
+						// Handle request errors
+						alert(error);
+						});
+						this.showModal = false;
+						this.selectedItems = [];
+					},
+					annulerSuppression() {
+						// Réinitialiser les variables
+						this.showModal = false;
+						this.selectedItems = [];
+					},
+            addTarget(){                
+                dataObj={
+                    label:this.label,
+                    datedeb:this.datedeb,
+                    datefin:this.datefin,
+                    isUser:this.isUser,
+                    concerned:this.isUser? this.selectedUser : this.selectedTeam,
+                    produits:this.products  
+                }
+                axios.post('', dataObj, {
+                    headers: {
+                        'Content-Type': '',
+                        'X-CSRFToken': getCookie('csrftoken'),
+                        }
+                    })
+                .then((response) => {
+                    alert(response);
+                })
+                .catch((error) => {
+                    alert(error);
+                });								
+            },
+      }
+      }
+      function getCookie(name) {
+       var cookieValue = null;
+       if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+       }
+       return cookieValue;
+      }
+    </script>
+
+    </main>
+  </div>
+</div>
+</div>
+</div>
+{% endblock content %}

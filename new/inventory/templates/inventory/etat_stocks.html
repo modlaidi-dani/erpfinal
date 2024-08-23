@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="stock" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_stock.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full h-full px-2 " x-data="products()" x-init="init()">
+		<div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row py-2"  >                                                                                                                                                    
+			<h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Etat des quantités aux stocks </h1>          
+		  </div>
+		 <div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row py-2"  >  
+		     <div class="md:w-1/3 py-2">
+    			<input type="search" x-model="search"
+     			 class="form-input rounded-md bg-gray-50 text-sm text-black  py-2 pl-4 border-transparent border-none outline-none focus:ring-0 focus:text-black transition-all duration-300 ease-in-out focus:w-72 w-60"
+      				placeholder="Rechercher...">
+  			</div>  
+                                                                                                                                               
+			<span @click="exportExcel" class=" cursor-pointer font-semibold whitespace-nowrap">
+			<svg id='file-export_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+				<g transform="matrix(1 0 0 1 12 12)" >
+				<g style="" >
+				<g transform="matrix(1 0 0 1 0 0)" >
+				<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+				</g>
+				<g transform="matrix(1 0 0 1 4 -7)" >
+				<path style="stroke: rgb(30,41,59); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-16.5, -5.5)" d="M 14 3 L 14 7 C 14 7.552284749830793 14.447715250169207 8 15 8 L 19 8" stroke-linecap="round" />
+				</g>
+				<g transform="matrix(1 0 0 1 0.5 0)" >
+				<path style="stroke: rgb(30,41,59); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-13, -12.5)" d="M 11.5 21 L 7 21 C 5.8954305003384135 21 5 20.104569499661586 5 19 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 14 3 L 19 8 L 19 13 M 14 19 L 21 19 M 18 16 L 21 19 L 18 22" stroke-linecap="round" />
+				</g>
+				</g>
+				</g>
+			</svg>
+			Exporter Un fichier</span>         
+		  </div>
+		
+								 
+<div class="w-full mx-auto">
+ <div class="">
+  <div class="bg-gray-50">
+    <table class="min-w-full">
+      <thead>
+        <tr>
+          <th class=" py-3 text-xs text-center border-r  font-medium text-gray-500 uppercase">Référence</th>
+          <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Désignation</th>
+          <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Entrepot</th>
+          <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Quantité réelle</th>    
+         
+        </tr>
+      </thead>
+
+      <tbody>
+        <template x-for="product in filteredAndPaginatedProducts" >
+          <tr class="transition-all hover:shadow-lg border-b" :class="{'bg-green-500': product.quantity_inreal == product.quantity_expected, 'bg-red-500': product.quantity_inreal != product.quantity_expected}" x-show="productMatches(search, product.name, product.reference)">
+            <td class="px-6 py-4 border-r text-center" >
+              <div class="inline-flex px-2 text-xs font-semibold   leading-5" x-text="product.reference" ></div>
+            </td>
+            <td class="py-4 border-r text-center">
+              <div class="inline-flex text-xs font-semibold   leading-5" x-text="product.name"></div>
+            </td>
+            <td class="py-4 border-r text-center">
+              <div class="inline-flex text-xs font-semibold   leading-5" x-text="product.entrepot"></div>
+            </td>
+            <td class="px-6 py-4 border-r text-center">
+              <div class="inline-flex px-2 text-xs font-semibold text-center  leading-5" x-text="product.quantity_expected"></div>
+            </td>
+           
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="flex justify-end mt-4">
+  <button
+	  x-bind:disabled="currentPage === 1"
+	  @click="prevPage"
+  >
+  <svg id='chevrons-left_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+		<g transform="matrix(1 0 0 1 12 12)" >
+		<g style="" >
+		<g transform="matrix(1 0 0 1 0 0)" >
+		<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+		</g>
+		<g transform="matrix(1 0 0 1 -3.75 -0.25)" >
+		<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+		</g>
+		<g transform="matrix(1 0 0 1 2.25 -0.25)" >
+		<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+		</g>
+		</g>
+		</g>
+  </svg>
+  </button>
+  <p class=" text-lg px-2" x-text="currentPage"></p> /<p id="total-pages" class=" text-lg px-2" x-text="totalPages"></p>
+  <button
+	  x-bind:disabled="currentPage === totalPages"
+	  @click="nextPage"
+  >
+	  <svg id='chevrons-right_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+			<g transform="matrix(1 0 0 1 12 12)" >
+			<g style="" >
+			<g transform="matrix(1 0 0 1 0 0)" >
+			<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+			</g>
+			<g transform="matrix(1 0 0 1 -2.75 -0.25)" >
+			<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+			</g>
+			<g transform="matrix(1 0 0 1 3.25 -0.25)" >
+			<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+			</g>
+			</g>
+			</g>
+	  </svg>
+  </button>
+</div>
+
+  
+</div>
+
+				
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+	   <script>
+				function products(){
+				  return{
+					search: '',
+					selectedFamily: true,
+					products: [],
+					currentPage: 1,
+					showModal:false,
+					selectedFournisseur:'',
+					selectedEntrepot:'',
+					productReference: '',
+					pageSize: 10,
+					juste: '',
+					entrepot:'',
+					produitRef:'',
+					produitQte:'',
+					isOpen:false,
+					exportExcel() {
+						const array_print = []
+							this.filteredProducts.forEach(product => {
+								array_print.push({
+									Référence: product.reference,
+									Désignation: product.name,
+									Entrepot: product.entrepot,
+									QteRéelle: product.quantity_expected,
+								});
+						});
+						const ws = XLSX.utils.json_to_sheet(array_print);
+						const wb = XLSX.utils.book_new();
+						XLSX.utils.book_append_sheet(wb, ws, 'Products');
+						XLSX.writeFile(wb, 'fichier_produits_detailed.xlsx');
+					},
+					get totalPages() {
+  						return Math.max(1, Math.ceil(this.filteredProducts.length / this.pageSize));
+  					},
+					get filteredProducts() {
+						return this.products.filter((product) => {
+						const familyMatch = this.selectedEntrepot === '' || this.selectedEntrepot === product.entrepot;
+						const entrepotMatch = this.selectedEntrepot === '' || this.selectedEntrepot === product.entrepot;
+						const nameMatch = product.name.toLowerCase().includes(this.search.toLowerCase());
+						const referenceMatch = product.reference.toLowerCase().includes(this.search.toLowerCase());
+
+						if (this.juste === 'true') {
+							// If juste is 'true', filter products where montantrestant is 0
+							return (familyMatch && entrepotMatch) && (nameMatch || referenceMatch) && product.quantity_inreal == product.quantity_expected;
+						} else if (this.juste === 'false') {
+							// If juste is 'false', filter products where montantrestant is not 0
+							return (familyMatch && entrepotMatch) && (nameMatch || referenceMatch) && product.quantity_inreal !== product.quantity_expected;
+						} else {
+							// If juste is not 'true' or 'false', return all products without juste filter
+							return (familyMatch && entrepotMatch) && (nameMatch || referenceMatch);
+						}
+						});
+						return (familyMatch && entrepotMatch) && (nameMatch || referenceMatch);
+            		},
+	  				get filteredAndPaginatedProducts() {
+		  				const start = (this.currentPage - 1) * this.pageSize;
+		  				const end = start + this.pageSize;
+		  				return this.filteredProducts.slice(start, end);
+	  				},
+					prevPage() {
+					  if (this.currentPage > 1) {
+					   this.currentPage -= 1;
+					  }
+					},
+					nextPage() {
+					  if (this.currentPage < this.totalPages) {
+						  this.currentPage += 1;
+					  }
+					},
+					productMatches(search, productName, productReference) {
+					    if (productName === null || productReference === null) {
+					       return false;
+					       }
+					 
+		  				return (
+			 			 productName.toLowerCase().includes(search.toLowerCase()) ||
+			  			 productReference.toLowerCase().includes(search.toLowerCase())
+		  				);
+	    			},
+
+					init() {
+							var products = [];
+							{% for prod in stock %}
+								var productData = {
+								reference: "{{ prod.reference }}",
+								name: "{{ prod.name }}",
+								entrepot:"{{prod.entrepot}}",
+								quantity_entered:"{{prod.quantity_entered}}",
+								quantity_received:"{{prod.quantity_received}}",
+								quantity_transfered:"{{prod.quantity_transfered}}",
+								quantity_sold:"{{prod.quantity_sold}}",
+								quantity_returned:"{{prod.quantity_returned}}",
+								quantity_inreal:"{{prod.quantity_inreal}}",
+								quantity_expected	:"{{prod.quantity_expected}}",			  
+								family: "{{ prod.family }}",
+								};
+								
+								products.push(productData)
+							{% endfor %}
+
+							var exists = products.some(function(existingProduct) {
+								return existingProduct.name === productData.name;
+							});
+							if (!exists) {
+								products.push(productData);
+							}
+
+							// Now, assign the filtered products array to this.products
+							this.products = products;
+					},
+		   
+				  }
+				}
+				function getCookie(name) {
+				  var cookieValue = null;
+	  			  if (document.cookie && document.cookie !== '') {
+		  			var cookies = document.cookie.split(';');
+		  			for (var i = 0; i < cookies.length; i++) {
+			  			var cookie = cookies[i].trim();
+			  		// Does this cookie string begin with the name we want?
+			  			if (cookie.substring(0, name.length + 1) === (name + '=')) {
+				  			cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+				  			break;
+			  			}
+		  			}
+	  			 }
+	  				return cookieValue;
+  				}
+			   </script> 
+				
+			  </div>
+			</div>
+		  </div>
+		</div>
+</main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

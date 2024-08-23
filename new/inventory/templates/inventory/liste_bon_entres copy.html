@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="stock" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_stock.html" %}
+  <div class="h-full w-full">
+	<main class="block w-full px-2 h-full overflow-hidden" x-data="{isOpen :false}">
+		<!-- Main content header -->
+		<div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                    
+		  <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des Bons d'entrées</h1>          
+		</div>
+		<div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b">  
+		  <div></div>          
+		  <div class="inline-block px-4 py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+			  <a href="{% url 'new-entry' %}">Créer nouveau bon d'entrée</a> 
+		  </div>
+		</div>       
+		<div class="flex flex-col mt-5">
+		  <div class="-my-2 overflow-x-auto ">
+			<div class="inline-block w-full py-2  ">
+			 <div class=" w-full px-2 overflow-hidden mt-2  ">
+			    {% for bon in bons %}
+				 <table class="border mt-2 overflow-x-scroll divide-y divide-gray-200">
+				   <thead class="bg-gray-100">					
+					<tr>
+					  <th class="px-4 py-2 text-xs font-medium text-left text-gray-500 uppercase border-r border-gray-200  ">
+						Information Générales
+					  </th>
+					  <th class="px-4 py-2 text-xs font-medium text-left text-gray-500 border-r border-gray-200 uppercase">
+						Référence Produit
+					  </th>
+					  <th class="px-4 py-2 text-xs font-medium text-left text-gray-500 uppercase border-r border-gray-200">
+						Désignation
+					  </th>
+					  <th class="px-4 py-2 text-xs font-medium text-left text-gray-500 uppercase border-r border-gray-200">
+						Qté
+					  </th>                      
+					  <th class="px-4 py-2 text-xs font-medium text-left text-gray-500 uppercase ">
+						MAJ
+					  </th>
+					</tr>
+				   </thead>
+				   <tbody>              
+                     {% for produit in bon.get_produits.all %}               
+                       <tr >
+                       {% if forloop.counter == 1 %}
+                       <td class="px-6 py-4 bg-gray-50 " style="width: 20%;" >
+                         <div class="text-sm text-gray-900">
+                            <p>Bon : <span class="font-semibold">{{bon.idBon}}</span> </p>
+							<p>Date: <span class="font-semibold">{{ bon.dateBon }}</span></p>
+							<p>Fournisseur : <span class="font-semibold">{{ bon.fournisseur.acronym }}</span></p>
+							<p>Dépôt Dest: <span class="font-semibold">{% if bon.entrepot.name != '' %} {{ bon.entrepot.name }}{% else %} / {% endif %}</span> </p>
+                         </div>
+                       </td>  
+                       {% else %}
+                       <td class="px-6 py-4 bg-gray-50 "></td>
+                       {% endif %}                                                       
+                          <td class="border px-4 py-2" style="width: 30%;">{{ produit.stock.reference }}</td>
+						  <td class="border px-4 py-2"  style="width: 30%;">{{ produit.stock.name }}</td>
+						  <td class="border px-4 py-2" style="width: 30%;">{{ produit.quantity }}</td>                                                          
+                         {% if forloop.counter == 1 %}
+                           <td class="px-6 border-r py-4 text-sm text-gray-500 whitespace-nowrap flex">
+                             {% heroicon_mini "pencil-square" class="transition-transform" %}
+                             {% heroicon_mini "archive-box-x-mark" class="transition-transform" %}
+                           </td>
+                        {% else %} 
+                          <td class=""></td>
+                        {% endif %} 
+                       </tr>
+                      {% endfor %}
+                   </tbody>
+				 </table>
+			    {% endfor %}
+			 </div>
+			</div>
+		  </div>
+		</div> 
+	</main>	
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

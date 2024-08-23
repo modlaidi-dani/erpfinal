@@ -1,0 +1,913 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="comptoire" %}
+ <div class=" w-full flex flex-row">
+	 {% include "sidebar_comptoire.html" %}
+     <div class="h-full w-full">
+	  <main class="block w-full px-2 h-full overflow-hidden">
+	    <body class="antialiased sans-serif"  x-cloak x-data="invoices()">	
+			   <div class="h-2"></div>
+			   <div>
+				 <div class="flex justify-between">
+				    <div class="flex mb-6 space-x-4 justify-between">
+						<h2 class="text-2xl font-bold  tracking-wider uppercase">{{request.session.nomStore}} - Retour Comptoir </h2>
+						<div class="cursor-pointer" @click="window.location.href='/comptoire/retours-comptoir-full'">
+				    	<svg id='arrows-maximize_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+						<g transform="matrix(1 0 0 1 12 12)" >
+						<g style="" >
+						<g transform="matrix(1 0 0 1 0 0)" >
+						<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+						</g>
+						<g transform="matrix(1 0 0 1 5.75 -6.25)" >
+						<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2,-2 2,-2 2,2 " />
+						</g>
+						<g transform="matrix(1 0 0 1 4.75 -5.25)" >
+						<line style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x1="-3" y1="3" x2="3" y2="-3" />
+						</g>
+						<g transform="matrix(1 0 0 1 -6.25 5.75)" >
+						<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2,2 -2,2 -2,-2 " />
+						</g>
+						<g transform="matrix(1 0 0 1 -5.25 4.75)" >
+						<line style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x1="-3" y1="3" x2="3" y2="-3" />
+						</g>
+						<g transform="matrix(1 0 0 1 5.75 5.75)" >
+						<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2,2 2,2 2,-2 " />
+						</g>
+						<g transform="matrix(1 0 0 1 4.75 4.75)" >
+						<line style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x1="-3" y1="-3" x2="3" y2="3" />
+						</g>
+						<g transform="matrix(1 0 0 1 -6.25 -6.25)" >
+						<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2,-2 -2,-2 -2,2 " />
+						</g>
+						<g transform="matrix(1 0 0 1 -5.25 -5.25)" >
+						<line style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x1="-3" y1="-3" x2="3" y2="3" />
+						</g>
+						</g>
+						</g>
+						</svg>
+					</div>
+					</div>
+					<div>
+						<div class="relative mr-4 inline-block">
+							<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+									<path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+									<path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+									<rect x="7" y="13" width="10" height="8" rx="2" />
+								</svg>				  
+							</div>
+							<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+								Print this invoice!
+							</div>
+						</div>
+				 		<div class="relative inline-block">
+						  <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip2 = true" @mouseleave="showTooltip2 = false" @click="openPreview=true">
+							   <svg id='eye_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+									<g transform="matrix(1 0 0 1 12 12)" >
+									<g style="" >
+									<g transform="matrix(1 0 0 1 0 0)" >
+									<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+									</g>
+									<g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+									<circle style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2" />
+									</g>
+									<g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+									<path style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 22 12 C 19.333 16.667 16 19 12 19 C 8 19 4.667 16.667 2 12 C 4.667 7.333 8 5 12 5 C 16 5 19.333 7.333 22 12" stroke-linecap="round" />
+									</g>
+									</g>
+									</g>
+							   </svg>		  
+						  </div>
+						  <div x-show.transition="showTooltip2" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							 Preview
+						  </div>
+					    </div>
+					</div>
+				 </div>
+		
+				 <div class="flex justify-between">
+					<div class="w-2/4">
+						<div class="mb-2 md:mb-1 md:flex items-center">
+							<label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Nature de Bon </label>
+							<span class="mr-4 inline-block  md:block">:</span>
+						   <select
+							class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700"
+							id="banque"
+							name="banque"														
+							required  
+							x-on:change="$event.target.value == 2 ? window.location.href = 'retours-comptoir' : window.location.href = 'page-comptoire' ">
+							<option value="1" x-bind:selected="typebon == '1'"> Bon de vente</option>
+							<option value="2" x-bind:selected="typebon == '2'">Bon de retour</option>
+						 </select>
+						</div> 
+						 <div class="mb-2 md:mb-1 md:flex items-center" >
+					 		<label class="w-fit text-gray-800 block font-bold text-sm uppercase tracking-wide">Bon Comptoire Associé </label>
+					 		<span class="px-4 hidden md:block">:</span>
+					 		<div class="flex-1">
+						       <select
+									 class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700"
+									 id="fournisseur"
+										 name="fournisseur"
+                                         x-model="boncomptoir"
+										 x-on:change="
+											getProducts($event.target.value)
+											boncomptoir= $event.target.value
+											billing.name =$event.target.selectedOptions[0].dataset.name
+											clientId = $event.target.selectedOptions[0].dataset.client
+										 "
+										 
+										 >
+										 <option value="" selected>Aucun</option>
+										 {% for bon in bons_compt %}
+											 <option value="{{bon.id}}" data-client="{{bon.client.id}}" data-name="{{bon.client.name}}">
+												 {{ bon.idBon }} 
+											 </option>
+										 {% endfor %}
+							   </select>
+					 		</div>
+						 </div> 		
+						 {% comment %} <div class="mb-2 md:mb-1 md:flex items-center">
+							 <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Date de Bon</label>
+							 <span class="mr-4 inline-block  md:block">:</span>
+							 <div class="flex-1">
+							   <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700 " type="date" x-model="invoiceDate" {% if request.session.role != 'manager' %}disabled{% endif %}>
+							 </div>
+						 </div>	 {% endcomment %}
+						 <div class="mb-2 md:mb-1 block ">
+						   <div class="flex flex-wrap justify-between mb-8 py-4">
+							 <div class="w-full md:w-1/3 mb-2 md:mb-0">
+								<label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Client :</label>
+								<input class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700" id="client-name" type="text" placeholder="Client" x-model="billing.name">								
+							 </div>	
+						   </div>					
+				 		 </div>					
+					</div>
+					<div class="w-full  border-gray-700 max-w-lg mx-auto">
+ 			         <div class="bg-white  rounded-md">
+    		           <div class="">
+                        <label for="prixTotal" class="w-fit text-gray-800 block font-bold text-md uppercase tracking-wide">Prix A rembourser</label>
+      					<input
+        					x-model="TotalPay"
+        					type="text"
+        					id="prixTotal"
+        					name="prixTotal"
+							disabled
+        					class="mt-1 py-8 w-full rounded-md border text-center text-4xl bg-gray-700 text-red-500 border-gray-700"
+      					 />
+    				   </div>
+					 
+  					 </div>
+					</div>
+				 </div>
+					
+				       <form action="" id="myForm">
+						   <div class=" w-full rounded-lg bg-white overflow-hidden block ">								     
+							   <div class="mb-4">
+							     <label class="block text-gray-700 font-semibold mb-2" for="product">
+								   Produits:
+							     </label>
+							     <select
+							       class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+							       id="product"
+							       name="product"
+								   x-model="item.ref"
+							       x-on:change="
+								     item.ref = $event.target.value;
+								     item.name=$event.target.selectedOptions[0].dataset.name;
+								     item.rate = $event.target.selectedOptions[0].dataset.price;
+									 selectedProductQuantity =  $event.target.selectedOptions[0].dataset.quantity;
+								     console.log(item.rate)
+								     console.log(item.qty)
+								     showQuantity = true;
+								     document.getElementById('price').value = item.price;"
+							      required  
+							     >
+							      <option value="" selected disabled>Produits du Bon de vente</option>
+							      <template x-for="product in stock" >
+								    <option :value="product.ref" :data-name ="product.name" :data-price="product.rate" :data-quantity="product.qty" x-text="product.name"></option>
+							      </template>											   
+							     </select>
+							   </div>
+						   
+				   
+				   			 <div class="flex space-x-2">
+							   <div class="mb-4">
+								   <label class="block text-gray-700 font-semibold mb-2" for="quantity">
+									   Quantity en Retour:
+								   </label>
+								   <input
+								   		class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								   		type="number"
+								   		id="quantity"
+								   		name="quantity"
+								   		placeholder="Enter quantity"
+								   		min="1"
+								   		max="5"
+								   		required
+								   		x-model="item.qty"
+								   		x-bind:max="selectedProductQuantity"
+								    >
+								   <div class="mb-4" id="productQuantityDiv" style="display: none;" x-show="showQuantity">
+								      <label class="block text-primary font-medium text-sm mb-2">
+									     Quantité sur le bon de livraison  : <span id="productQuantity" x-text="selectedProductQuantity"></span>
+								      </label>
+								   </div>
+							   </div>
+							   <div class="mb-4">
+								   <label class="block text-gray-700 font-semibold mb-2" for="price">
+									   Price:
+								   </label>
+								   <input
+									   class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+									   type="text"
+									   id="price"
+									   name="price"
+									   placeholder="Prix sera extrait automatiquement"
+									   x-model="item.rate"
+								   >
+							   </div>
+
+							   
+				   
+							   <div class="mt-8 text-right">
+							     <button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm"
+													   @click="addItem()">
+							      <span >Valider</span>
+							     </button>	
+							   </div>
+							 </div>
+						   </div>
+						</form>
+				 <div class="w-full" >    
+								<div class="flex  border-b py-2 items-start">
+								  <div class="flex-1 px-1">
+									 <p class="text-gray-800 uppercase tracking-wide text-sm font-bold">Référence</p>
+								  </div>			 
+								  <div class="flex-1 px-1">
+									 <p class="text-gray-800 uppercase tracking-wide text-sm font-bold">Désignation</p>
+								  </div>
+								  <div class="px-1 w-20 text-right">
+									 <p class="text-gray-800 uppercase tracking-wide text-sm font-bold">Quantité</p>
+								  </div>
+								  <div class="px-1 w-32 text-right">
+								   <p class="leading-none">
+									   <span class="block uppercase tracking-wide text-sm font-bold text-gray-800">PVU</span>
+									   {% comment %} <span class="font-medium text-xs text-gray-500">(Incl. GST)</span> {% endcomment %}
+								   </p>
+							   </div>
+				   
+							   <div class="px-1 w-32 text-right">
+								   <p class="leading-none">
+									   <span class="block uppercase tracking-wide text-sm font-bold text-gray-800">Total</span>
+									   {% comment %} <span class="font-medium text-xs text-gray-500">(Incl. GST)</span> {% endcomment %}
+								   </p>
+							   </div>
+				   
+							   <div class="px-1 w-20 text-center">
+							   </div>								 
+								</div>						 
+								<template  x-for="invoice in items" :key="invoice.id">
+								  <div class="flex no-worap -mx-1 py-2 border-b" >			 
+									 <div class="flex-1 px-1" >
+										 <p class="text-gray-800" x-text="invoice.ref"></p>
+									 </div>
+			 
+									 <div class="flex-1 px-1" >
+										 <p class="text-gray-800" x-text="invoice.name"></p>
+									 </div>
+					 
+									 <div class="px-1 w-20 text-right">
+										 <p class="text-gray-800" x-text="invoice.qty"></p>
+									 </div>
+									 <div class="px-1 w-32 text-right">
+									   <p class="text-gray-800" x-text="numberFormat(invoice.rate)"></p>
+								   	 </div>
+				   
+								     <div class="px-1 w-32 text-right">
+									   <p class="text-gray-800" x-text="numberFormat(invoice.total)"></p>
+								     </div>
+																	
+									
+									 <div class="px-1 w-20 text-right" >
+										 <a href="#" class="text-red-500 hover:text-red-600 text-sm font-semibold" @click.prevent="deleteItem(invoice.id)">Supprimer</a>
+									 </div>
+								  </div>
+								</template>					 							
+				 </div>
+				
+				<div class="flex justify-between mb-3">
+				  <div class="text-gray-800 text-right flex-1">Total</div>
+					  <div class="text-right w-40">
+						  <div class="text-gray-800 font-medium" x-html="netTotal"></div>
+					  </div>
+				  </div>
+				  
+			  
+				  <div class="py-2 border-t border-b">
+					  <div class="flex justify-between">
+						  <div class="text-xl text-gray-600 text-right flex-1">Net À Payer</div>
+						  <div class="text-right w-40">
+							  <div class="text-xl text-gray-800 font-bold" x-html="TotalPay"></div>
+						  </div>
+					  </div>
+				  </div>			  
+			   		<div x-show="decisionModal" class="fixed inset-0 flex items-center justify-center z-50 overflow-auto bg-black bg-opacity-50">
+			  <div class="modal-container bg-white w-1/2 mx-auto rounded shadow-lg p-6">
+				 <div class="modal-content">
+					 <h2 class="text-2xl font-bold mb-4">Decision Apres Retour</h2>
+					 <p>Veuillez Choisir l'option apres retour:</p>
+					 <div class="form-check">
+						 <input type="radio" id="exchange" name="decision" x-model="decision" value="exchange">
+						 <label for="exchange">Echange de produit - creation d'un autre bon de vente -</label>
+					 </div>
+					 <div class="form-check">
+						 <input type="radio" id="refund" name="decision" x-model="decision" value="refund">
+						 <label for="refund">Rembourssement</label>
+					 </div>
+					 <div x-show="decision === 'refund'">
+						 <p>Entrez le taux de Rembourssement:</p>
+						 <input type="text" x-model="refundAmount" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+					 </div>
+				 </div>
+				 
+				 <div class="flex justify-between py-4">
+					<div></div>
+					<div>
+						<button @click="decisionModal = false" class="bg-white text-gray-700 border rounded-md border-gray-700 px-3 py-1">Fermer</button>
+						<button @click="submitDecision" class="bg-gray-700 rounded-md text-white px-3 py-1">Valider</button>
+					</div>
+				 </div>
+			  </div>
+			</div>
+				  <div class="flex justify-between">
+							<div></div>
+							<button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-lg uppercase border border-gray-300 rounded shadow-sm" type="submit" @click="verifyValideBill">Valider </button>
+				  </div>
+
+				 <!-- Preview  -->
+				 <div style="background-color: rgba(0, 0, 0, 0.8)" class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full py-8" x-show.transition.opacity="openPreview">	
+					<div class="shadow absolute -right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+						x-on:click="openPreview = !openPreview">
+						<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path
+								d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+						</svg>
+					</div>
+			   		<div class="p-4 w-3/4 mx-auto relative left-0 right-0 overflow-hidden  bg-white h-full "  x-on:click.away="openPreview = !openPreview">
+						 <div class="h-full">
+							<body class="bg-gray-100 font-sans">
+								<div class="container mx-auto ">
+									<div class=" w-1/2 mx-auto border-b-2 border-black  border-dashed">
+										<img src="data:image/png;base64,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" alt="Your Logo" class="mx-auto h-32">
+									</div>
+									<div class=" w-2/3 mx-auto border-b-2 border-black border-dashed ">
+										<div class=" w-2/3 py-2 mx-auto border-b-2 border-black border-dashed  text-left">
+											<h1 class="text-lg text-center font-bold">Bon de Retour</h1>
+											<div class=" flex  justify-between text-left">
+												<p x-text="'Date :'+' '+invoiceDate"></p>
+												<p x-text="'Bon N°= :'+' '+invoiceNumber"></p>
+											</div>
+											<p class="text-left" x-text="'Bon de Vente Source  :'+' '+boncomptoir"></p>
+											<p > Caisse : <span class="font-bold"> {{caisse.label}} </span></p>
+										</div>
+									<div class="">
+									<div class="text-center py-2 w-2/3 mx-auto">
+										
+									</div>
+									<div class="py-4 w-2/3 mx-auto  border-b-2 border-black border-dashed">
+										<table class="">
+											<thead>
+												<tr class="border-b-2 border-black border-dashed">
+													<th class="px-4 py-2">Désignation</th>
+													<th class="px-4 py-2">Qté</th>
+													<th class="px-4 py-2">Prix</th>
+													<th class="px-4 py-2">Total</th>
+												</tr>
+											</thead>
+										<tbody>
+											<template x-for="invoice in items" :key="invoice.id">
+												<tr class="border-b">
+													{% comment %} <td class="border  px-1 py-2 text-black text-xs" x-text="invoice.ref"></td> {% endcomment %}
+													<td class="px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
+													<td class="px-1 py-2  text-right text-black text-xs" x-text="invoice.qty"></td>
+													<td class="px-1 py-2  text-right text-black text-xs" x-text="invoice.rate"></td>
+													<td class="px-1 py-2  text-right text-black text-xs" x-text="invoice.total"></td>
+												</tr>
+											</template>
+										</tbody>
+										</table>
+									</div>
+									<div class="mt-4 text-left w-2/3 mx-auto" >
+										<p class="font-bold" x-text="'Decision après retour :' + (decision === 'exchange' ? 'Echange' : (decision === 'refund' ? 'Remboursement' : decision))"></p>
+									
+									</div>
+									<div class="mt-4 text-right w-2/3 mx-auto" x-show="decision === 'refund'">
+										<p class="font-bold text-xl" x-text="'Total à Rembourser :'+' '+refundAmount"></p>
+									</div>
+									</div>
+									<div class=" w-2/3 mx-auto mt-2 text-xl font-bold text-center  ">
+										<p>Merci pour votre visite!</p>
+									</div>
+								</div>
+							</body>			   
+						 </div>
+			  		</div>				
+				 
+			     <!-- /Preview -->
+
+				  <!-- Print Template -->
+				 <div id="js-print-template" x-ref="printTemplate" class="hidden">	
+				        {% if request.session.store == "2" %}
+						  <body class="bg-gray-100 font-sans">
+  							<div class="container mx-auto ">
+								<div class=" w-1/2 mx-auto border-b-2 border-black  border-dashed">
+									<img src="data:image/png;base64,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" alt="Your Logo" class="mx-auto h-32">
+								</div>
+    							<div class=" w-2/3 mx-auto border-b-2 border-black border-dashed ">
+      							  	<div class=" w-2/3 py-2 mx-auto border-b-2 border-black border-dashed  text-left">
+										<h1 class="text-lg text-center font-bold">Bon de Retour</h1>
+								  		<div class=" flex  justify-between text-left">
+											<p x-text="'Date :'+' '+invoiceDate"></p>
+											<p x-text="'Bon N°= :'+' '+invoiceNumber"></p>
+      							    	</div>
+        								<p class="text-left" x-text="'Bon de Vente Source  :'+' '+boncomptoir"></p>
+										<p > Caisse : <span class="font-bold"> {{caisse.label}} </span></p>
+      							    </div>
+    							<div class="">
+      							  <div class="text-center py-2 w-2/3 mx-auto">
+        							
+      							  </div>
+      							  <div class="py-4 w-2/3 mx-auto  border-b-2 border-black border-dashed">
+        						    <table class="">
+										<thead>
+											<tr class="border-b-2 border-black border-dashed">
+												<th class="px-4 py-2">Désignation</th>
+												<th class="px-4 py-2">Qté</th>
+												<th class="px-4 py-2">Prix</th>
+												<th class="px-4 py-2">Total</th>
+											</tr>
+										</thead>
+          						      <tbody>
+										<template x-for="invoice in items" :key="invoice.id">
+											<tr class="border-b">
+												{% comment %} <td class="border  px-1 py-2 text-black text-xs" x-text="invoice.ref"></td> {% endcomment %}
+												<td class="px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
+												<td class="px-1 py-2  text-right text-black text-xs" x-text="invoice.qty"></td>
+												<td class="px-1 py-2  text-right text-black text-xs" x-text="invoice.rate"></td>
+												<td class="px-1 py-2  text-right text-black text-xs" x-text="invoice.total"></td>
+											</tr>
+										</template>
+          						      </tbody>
+       							    </table>
+      							  </div>
+								  <div class="mt-4 text-left w-2/3 mx-auto" >
+        							<p class="font-bold" x-text="'Decision après retour :' + (decision === 'exchange' ? 'Echange' : (decision === 'refund' ? 'Remboursement' : decision))"></p>
+       							
+      							  </div>
+      							  <div class="mt-4 text-right w-2/3 mx-auto" x-show="decision === 'refund'">
+        							<p class="font-bold text-xl" x-text="'Total à Rembourser :'+' '+refundAmount"></p>
+      							  </div>
+    						    </div>
+								<div class=" w-2/3 mx-auto mt-2 text-xl font-bold text-center  ">
+									<p>Merci pour votre visite!</p>
+								</div>
+  				            </div>
+						   </body>	
+						    {% else %}
+	                         <h2 class="text-3xl font-bold mb-6 pb-2 text-center tracking-wider uppercase">Bon de Retour</h2>
+                    			 <div class="flex justify-between space-x-3 mb-10">
+                    				 <div class="w-1/2 border border-black">
+                    					 <div class="px-4 py-3 ">		
+                    					 <div class="mb-1 flex items-center">
+                    						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Numéro de Bon.</label>
+                    						 <span class="mr-4 inline-block">:</span>
+                    						 <div x-text="invoiceNumber"></div>
+                    					 </div>				
+                    					 <div class="mb-1 flex items-center">
+                    						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Bon</label>
+                    						 <span class="mr-4 inline-block">:</span>
+                    						 <div x-text="invoiceDate"></div>
+                    					 </div>
+                    					 <div class="mb-1 flex items-center">
+                    						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Bon de livraison Associé</label>
+                    						 <span class="mr-4 inline-block">:</span>
+                    						 <div x-text="boncomptoir"></div>
+                    					 </div>
+                    				 </div>
+                    				 </div>
+                    				 <div class="w-1/2 border border-black">
+                    					  <div class="px-4 py-3 ">
+                    						 <div class="mb-1 flex items-center">
+                    							 <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Client </label>
+                    							 <span class="mr-4 inline-block">:</span>
+                    							 <div x-text="billing.name"></div>
+                    						 </div>
+                    						 <div class="mb-1 flex items-center">
+                    							 <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+                    							 <span class="mr-4 inline-block">:</span>
+                    							 <div x-text="billing.address"></div>
+                    						 </div>
+                    						 <div class="mb-1 flex items-center">
+                    							 <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Extra </label>
+                    							 <span class="mr-4 inline-block">:</span>
+                    							 <div x-text="billing.extra"></div>
+                    						 </div>								
+                    					  </div>
+                    				 </div>
+                    			 </div>
+                    				<table class="w-full border-collapse border border-black">
+                    					<thead>
+                    						<tr class="bg-gray-100">
+                    							<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+                    							<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+                    							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+                    							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
+                    							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Montant Total</th>
+                    						</tr>
+                    					</thead>
+                    					<tbody>
+                    						<template x-for="invoice in items" :key="invoice.id">
+                    						<tr class="border border-black">
+                    							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
+                    							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
+                    							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qty"></td>
+                    							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="numberFormat(invoice.rate)"></td>
+                    							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="numberFormat(invoice.total)"></td>
+                    							
+                    						</tr>
+                    						</template>
+                    					</tbody>
+                    				</table>
+                    
+                    				<div class=" flex justify-between mt-12 mr-0">
+                    				<div></div>
+                    				<div class="font-bold">
+                    					Cachet et Signature
+                    				</div>
+        				  </div>
+	                     {% endif %}
+				 </div>
+				 <!-- /Print Template -->
+
+			
+				
+			</div>
+			
+			
+			<!-- Modal d'échange de produit (au-dessus du modal de décision) -->
+			
+						
+		</div>
+  		 <!-- /Modal -->
+
+		  <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+		  <script>	
+			function invoices() {
+				return {
+						items: [],
+						stock:[],
+						stocks:[],
+						typebon:2,
+						decisionModal:false,
+						decision:'',
+						refundAmount: 0,
+						selectedProductQuantity:'',
+						productsdifferent :[],
+						boncomptoir:'',
+						clientId:'',
+						invoiceNumber: '{{code}}',
+						invoiceDate: new Date().toISOString().slice(0, 10),
+						invoiceDueDate: '',
+		        		BonEntrepot:'',
+						openPreview: false,
+						showConfirmation:false,
+						AssociatedBL:'',		        		
+						totalGST: 0,
+ 						netTotal: 0,
+ 						TotalRemise :0,
+					  	TotalPay:0,					
+    					prixPaye: 0,
+						item: {
+							id: '',
+							name: '',
+							ref:'',
+							ent:'',
+							qty: 0,
+							rate: 0,
+							total: 0,
+							gst: 0,
+						},
+						verifyValideBill(){
+							if (this.boncomptoir === '') {
+        						alert("Veuillez selectioner le bon de vente comptoir source !.");
+      						} else if (this.items.length === 0) {
+        						alert("Veuillez ajouter des produits.");
+							} else {
+								console.log("helo");
+								this.decisionModal =true;
+							}
+						},
+					
+						billing: {
+							name:'',
+							address: '',
+							extra: '',
+				      		phone:''
+						},
+
+						from: {
+							name: '{{selected_store.name}}',
+							address: '{{selected_store.location}}',
+							user:'{{request.user.username}}',
+							extra: ''
+						},
+		
+						showTooltip: false,
+						showTooltip2: false,
+						openModal: false,
+						openModal1: false,
+				     	showQuantity:false,
+						filter: '',
+						show: false,
+						selected: null,
+						focusedOptionIndex: null,
+						options: [],
+						submitDecision() {
+							if (this.decision === 'exchange') {
+								// Redirect to Bon de Vente page
+								this.validateBon()
+							} else if (this.decision === 'refund') {
+								// Handle refund logic
+								const refundAmount = parseFloat(this.refundAmount);
+								if (isNaN(refundAmount) || refundAmount < 0) {
+									alert('Veullez saisir un taux de Rembourssement valide.');
+								} else {
+									this.validateBon()									
+								}
+							}
+							this.decisionModal = false;
+						},
+						
+				    showModal(){
+						console.log(this.productsdifferent);
+				        document.getElementById('myForm').reset(); 
+				        this.showQuantity = false; 
+				        this.openModal =true;
+				    },
+
+				    getProducts(bonL){
+					 dataObj={
+					  bonL : bonL,						 
+					 }
+					 console.log('fetching the stock  ...',dataObj);
+					 axios.post('fetchProductsComptoir/', dataObj, {
+						 headers: {
+						 'Content-Type': '',
+						 'X-CSRFToken': getCookie('csrftoken'),
+						 }
+					 })
+					 .then((response) => {
+						 itemsData=response.data.produits;
+						 this.stock =[]
+						 for (const itemData of itemsData) {						 
+							const item = {
+								id: this.generateUUID(),
+								name: itemData.name,
+								ref: itemData.reference,
+								qty: itemData.quantity,
+								rate: itemData.unitprice,
+								total: itemData.totalprice
+							};
+							console.log(item.ent)
+							this.stock.push(item);
+						}							 
+					 })
+					 .catch((error) => {
+						 alert(error)
+					 });
+				    },
+				    getStock(entrepotStock){
+						this.stocks=[]
+						dataObj={
+						 nomEnt : entrepotStock,						 
+						}
+						console.log('fetching the stock  ...',dataObj);
+						axios.post('fetchStock/', dataObj, {
+							headers: {
+							'Content-Type': '',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+						})
+						.then((response) => {
+							console.log(response.data.stocks) 
+							itemsData=response.data.stocks;
+							for (const itemData of itemsData) {		
+								console.log(itemData.entrepot)						 
+								const item = {
+									id: this.generateUUID(),
+									name: itemData.product_name,
+									ref:  itemData.reference,
+									ent:  itemData.entrepot,
+									qty:  itemData.quantity,
+									prix: itemData.price
+								};
+								this.stocks.push(item);
+							}						 
+						})
+						.catch((error) => {
+							alert(error)
+					
+						});
+				    },
+				
+				    initData() {
+					  this.generateInvoiceNumber(111111, 999999);
+					  clientsData={{ clients|safe }}
+					
+					   for (const client of clientsData) {					  
+					    const client_info = {	
+						   id: this.generateUUID(),			
+						   name: client.client_name,
+						   address: client.client_address,
+						   phone: client.client_phone,						
+					    };
+					    this.clients.push(client_info);
+					   }
+				    },
+		
+						addItem() {
+							if (this.item.qty > this.selectedProductQuantity || this.item.qty == 0 ) {
+      						  alert("Veuillez introduire une quantité de retour valide !");
+							  return 
+							}
+							this.item.rate = document.getElementById('price').value;
+							console.log(this.item.ent)
+							this.items.push({
+								id: this.generateUUID(),
+								name: this.item.name,
+								ref:this.item.ref,
+								qty: this.item.qty,
+								ent:this.item.ent,
+								rate: this.item.rate,
+								gst: this.calculateGST(this.item.gst, this.item.rate),
+								total: this.item.qty * this.item.rate
+							})
+				      		console.log(this.item.rate)
+							this.itemTotal();
+							this.itemTotalGST();
+		          			const netTotal = parseFloat(this.netTotal.replace(/[^\d.,]/g, "").replace(",", "."));
+							const totalGST = parseFloat(this.totalGST.replace(/[^\d.,]/g, "").replace(",", "."));
+							console.log(netTotal)
+							// Calculate the sum
+							this.TotalPay = (netTotal + totalGST).toFixed(2);
+
+							this.item.id = '';
+							this.item.name = '';
+							this.item.qty = 0;
+							this.item.rate = 0;
+							this.item.gst = 0;
+							this.item.total = 0;
+				      		document.getElementById('myForm').reset(); 
+				     	 this.showQuantity = false; 
+				     		 this.openModal=false;
+						},
+		
+					    deleteItem(uuid) {
+							this.items = this.items.filter(item => uuid !== item.id);
+							this.itemTotal();
+							this.itemTotalGST();
+					    },	
+
+					    itemTotal() {
+							this.netTotal = this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+								return result + item.total;
+							}, 0) : 0);
+					    },
+		
+						itemTotalGST() {
+							this.totalGST =  this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+								return result + (item.gst * item.qty);
+							}, 0) : 0);
+						},
+		
+						calculateGST(GSTPercentage, itemRate) {	
+							return this.numberFormat((itemRate * GSTPercentage/100).toFixed(2));
+						},
+		
+						generateUUID() {
+							return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+								var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+								return v.toString(16);
+							});
+						},
+		
+						generateInvoiceNumber(minimum, maximum) {
+							const randomNumber = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+							this.invoiceNumber = '#BS-'+ randomNumber;
+						},
+		
+						numberFormat(amount) {
+							return amount.toLocaleString("fr-FR", {
+								style: "currency",
+								currency: "DZD"
+							});
+						},
+		
+						printInvoice() {
+							var printContents = this.$refs.printTemplate.innerHTML;
+							var originalContents = document.body.innerHTML;
+							document.body.innerHTML = printContents;
+							window.print();
+							document.body.innerHTML = originalContents;
+							this.items=[];
+						},
+					
+						validateBon(){
+							if (this.boncomptoir === '') {
+        						alert("Veuillez selectioner le bon de vente comptoir source !.");
+      						} else if (this.items.length === 0) {
+        						alert("Veuillez ajouter des produits.");
+							} else {
+							  const dataObj = {
+								IdBon : this.invoiceNumber,
+								dateBp:this.invoiceDate,
+								clientId:this.clientId,
+								boncomptoir : this.boncomptoir,	
+								decision : this.decision,
+								refundAmount : this.refundAmount,			
+								produits:this.items,						
+							 };
+				      		 axios.post('', {
+					    		 formData: dataObj
+					    	 }, {
+					    		headers: {
+						   			'Content-Type': '',
+						   			'X-CSRFToken': getCookie('csrftoken'),
+					    		}
+				 	    	 })
+							 .then((response) => {
+								data= response.data
+					  			if(data.error){
+									alert(data.error);
+					 			}else{
+					 			    if(this.refundAmount == 0){
+									  alert("Bon Retour Validé, vous pouvez l'imprimer");
+									 
+					 			    }else{
+					 			        alert("Bon Retour Validé, vous pouvez l'imprimer");
+					 			    }
+									
+					  			}		  
+					 		 })
+							 .catch((error) => {
+					  			alert(error)
+					 		});	
+							}							
+						},
+						
+					}
+			}
+			function getCookie(name) {
+					var cookieValue = null;
+					if (document.cookie && document.cookie !== '') {
+						var cookies = document.cookie.split(';');
+						for (var i = 0; i < cookies.length; i++) {
+							var cookie = cookies[i].trim();
+							// Does this cookie string begin with the name we want?
+							if (cookie.substring(0, name.length + 1) === (name + '=')) {
+								cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								break;
+							}
+						}
+					}
+					return cookieValue;
+			}
+		  </script>
+	    </body>
+	                    
+ 	  </main>	
+   </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

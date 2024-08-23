@@ -1,0 +1,301 @@
+{% extends "base.html" %}
+{% load static %}
+{% load heroicons %}
+{% block body_class %}{% endblock %}
+{% block content %}
+
+
+<div 
+x-data="{ 
+	menuOpen: false, 
+    mobilemenue:false,
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ <div class=" w-full flex flex-row">
+  <div class="h-full w-full">
+	<main class="w-full overflow-hidden h-screen bg-white/50 ">
+        <section 
+             class="sales" 
+             id="sales-view"
+             x-data="salesView">
+             <div class="w-full bg-auto bg-no-repeat bg-center">
+                 <div class="">
+                     <div class="py-2 mt-4 flex flex-wrap flex-grow justify-between border-b px-2">  
+                         <div>
+                             <h3 class="text-3xl uppercase  font-bold text-primary">Page de Liste des Courses</h3>
+                         </div>  
+                         
+                     </div>  
+                     <div class="flex flex-wrap">
+                         <div class="flex-none w-full max-w-full">
+                             <div class="  relative flex flex-col min-w-0 mb-6 break-words  border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+                                 <div class="flex-auto px-0 pt-0 pb-2">
+                                     <div class="rounded-lg px-2 py-4 h-screen overflow-x-auto custom-scrollbar mb-12 bg-white/30 bg-center bg-no-repeat">
+                                         <table class="items-center w-full  mb-0 align-top border-gray-200 text-black  backdrop-blur-sm bg-white/30" >
+                                             <thead class="border-b bg-gray-100 text-gray-800 font-semibold">   
+                                                <td class="py-2 pl-2">
+                                                    Date d'affectation
+                                                </td>
+                                                <td class="py-2 pl-2">
+                                                    Client / Transporteur
+                                                </td>
+                                                <td class="py-2 pl-2">
+                                                    Adresse
+                                                </td>
+                                                <td class="py-2 pl-2">
+                                                    Montant A récupérer
+                                                </td>
+                                                <td class="py-2 pl-2">
+                                                Etat
+                                                </td>
+                                                <td class="py-2 pl-2"></td>
+                                             </thead>
+                                             <tbody class="text-sm">
+                                                <template x-for="(course, index) in data_arry">
+                                                    <tr class=" hover:shadow-lg border transition duration-200">
+                                                        <td class="py-3 pl-2" x-text="course.dateTimeAffectation"></td>
+                                                        <td class="py-3 pl-2 capitalize" x-text="course.transporteur"></td>
+                                                        <td class="py-3 pl-2 capitalize" x-text="course.adresse"></td>
+                                                        <td class="py-3 pl-2" x-text="course.montant"></td>
+                                                        <td class="py-3 pl-2">
+                                                            <template x-if="course.etat == 'en-attente'">
+                            							        <span class="bg-orange-500 px-1.5 py-0.5 rounded-lg text-gray-100">En attente</span>
+                            						       </template>
+                            						       <template x-if="course.etat == 'en-route'">
+                            							        <span class="bg-red-500 px-1.5 py-0.5 rounded-lg text-gray-100">En route</span>
+                            						       </template>
+                            						       <template x-if="course.etat == 'livre'">
+                            							        <span class="bg-green-500 px-1.5 py-0.5 rounded-lg text-gray-100">Livré</span>
+                            						       </template>
+                            						       <template x-if="course.etat == 'annule'">
+                            							        <span class="text-red-500 px-1.5 py-0.5 rounded-lg text-gray-100">Annulé</span>
+                            						       </template>
+                                                        </td>                                  
+                                                        <td class="py-3 pl-2 flex items-center space-x-2">
+                                                            <a class="cursor-pointer" x-bind:disabled="course.etat == 'livre' || course.etat == 'annule'" x-on:click=" 
+                                                            courseID = course.id; 
+                                                            client = course.transporteur;
+                                                            etat = course.etat; 
+                                                            adresse = course.adresse;
+                                                            bill = course.bonlivraison;
+                                                            montant = course.montant;
+                                                            fraisTransport = course.fraisTransport;
+                                                            operation= 'update'; 
+                                                            isOpen = true;">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500 hover:text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                                                </svg>
+                                                            </a>                                                        
+                                                        </td>
+                                                    </tr>
+                                                </template>
+                                             </tbody>
+                                         </table>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                     <div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="isOpen">
+                         <div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-0 md:mt-12">
+                             <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full z-20  bg-gray-100 text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+                                 x-on:click="isOpen = false">
+                                 <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                 <path
+                                     d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+                                 </svg>
+                             </div>
+                             <form action="" id="myForm">
+                                 <div class="shadow w-full rounded-lg bg-gray-50 overflow-hidden block p-8">		
+                                 <h2 class="text-2xl mb-6 text-gray-800 uppercase border-b pb-2">Mettre A Jour Etat de Course</h2>
+                                     <div class="form-input">
+                                        <div class="mb-4">
+                                            <label class="block text-gray-800 font-semibold mb-2" for="phone">
+                                                Bon Livraison :
+                                            </label>
+                                            <input
+                                                class="appearance-none  w-full py-2 px-1 border  text-gray-800 leading-tight focus:outline-none "
+                                                type="text"
+                                                x-model="bill"
+                                                placeholder="Bon Livraison"
+                                                disabled
+                                            >
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-800 font-semibold mb-2" for="phone">
+                                                Client / Transporteur :
+                                            </label>
+                                            <input
+                                                class="appearance-none  w-full py-2 px-1 border  text-gray-800 leading-tight focus:outline-none "
+                                                type="text"
+                                                x-model="client"
+                                                placeholder="client"
+                                                disabled
+                                            >
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-800 font-semibold mb-2" for="phone">
+                                                Montant A Récupérer :
+                                            </label>
+                                            <input
+                                                class="appearance-none  w-full py-2 px-1 border  text-gray-800 leading-tight focus:outline-none "
+                                                type="text"
+                                                x-model="montant"
+                                                placeholder="Montant à récupérer"
+                                                disabled
+                                            >
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-800 font-semibold mb-2" for="phone">
+                                                Frais de Transport :
+                                            </label>
+                                            <input
+                                                class="appearance-none  w-full py-2 px-1 border  text-gray-800 leading-tight focus:outline-none "
+                                                type="text"
+                                                x-model="fraisTransport"
+                                                placeholder="frais de transport"
+                                                disabled
+                                            >
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-800 font-semibold mb-2" for="phone">
+                                                Etat de Course:
+                                            </label>
+                                            <select
+                                                class="appearance-none  w-full py-2 px-1 border  text-gray-800 leading-tight focus:outline-none "
+                                                type="text"
+                                                x-model="etat"
+                                                
+                                            >
+                                                <option value="Etat">Etat de Course</option>
+                                                <option value="en-attente" :disabled="etat == 'en-route' || etat == 'livre' || etat == 'livre'">En attente</option>
+                                                <option value="en-route">En route</option>
+                                                <option value="livre">Livré</option>
+                                                <option value="annule">Annulé</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-4" x-show="etat == 'livre'">
+                                            <label class="block text-gray-800 font-semibold mb-2" for="phone">
+                                                Montant Récupéré :
+                                            </label>
+                                            <input
+                                                class="appearance-none  w-full py-2 px-1 border  text-gray-800 leading-tight focus:outline-none "
+                                                type="number"
+                                                x-model="montantgot"
+                                                placeholder="Montant Récupéré"                                           
+                                            >
+                                        </div>
+                                        <div class="mb-4" x-show="etat == 'annule'">
+                                            <label class="block text-gray-800 font-semibold mb-2" for="phone">
+                                                Justification d'annulation :
+                                            </label>
+                                            <input
+                                                class="appearance-none  w-full py-2 px-1 border  text-gray-800 leading-tight focus:outline-none "
+                                                type="text"
+                                                x-model="justif"
+                                                placeholder="Justification"
+                                            >
+                                        </div>
+                                     </div>
+                                 <div class="mt-8 text-right">
+                                 <button type="button" class="bg-gray-100  font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="isOpen = false">
+                                     Annuler
+                                 </button>	
+                                 <button type="button" class="bg-gray-150 text-black font-semibold py-2 px-4 border  rounded shadow-sm"
+                                     x-on:click="
+                                     if (operation === 'add') {
+                                         addFeedBack();
+                                     } else if (operation === 'update') {
+                                         modifierFeedBack();
+                                     }
+                                 ">
+                                 <span x-text="operation === 'add' ? 'Envoyer' : 'Modifier'"></span>
+                                 </button>	
+                                 </div>
+                                 </div> 
+                             </form>
+                         </div>
+                     </div>
+             </div>
+             <script>
+                 function salesView(){
+                     return{
+                         data_arry:{{users | safe}},                                         
+                         isOpen:false,
+                         bill:'',
+                         client:'',
+                         montant:'',
+                         fraisTransport:'',
+                         etat:'',
+                         montantgot:'',
+                         justif:'',
+                         courseID:'',
+                         operation:'add',
+
+                         modifierFeedBack(){
+                             dataObj={                               
+                                etat: this.etat,
+                                montantgot: this.montantgot,
+                                justif: this.justif,
+                                Courseid: this.courseID,
+                             }
+
+                             axios.post('', dataObj, {
+                             headers: {
+                                 'Content-Type': '',
+                                 'X-CSRFToken': getCookie('csrftoken'),
+                             }
+                             })
+                             .then((response) => {
+                                 data = response.data
+                                 if( data.error){
+                                         alert(data.error);
+                                     }else{
+                                         alert("Informations Modifié!");
+                                     }
+                                 window.location.reload()            
+                                 })
+                                 .catch((error) => {
+                                 alert(error)
+                                 
+                                 });
+                                 var form = document.getElementById('myForm');
+                                 form.reset();
+                         },
+                     }
+                 }
+                 function getCookie(name) {
+                     var cookieValue = null;
+                     if (document.cookie && document.cookie !== '') {
+                     var cookies = document.cookie.split(';');
+                     for (var i = 0; i < cookies.length; i++) {
+                         var cookie = cookies[i].trim();
+                         // Does this cookie string begin with the name we want?
+                         if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                         break;
+                         }
+                     }
+                     }
+                     return cookieValue;
+                 }
+             </script>
+         </section>
+     </main>		
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,389 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="target" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_target.html" %}
+    <div class="h-full w-full">
+        <main class="block w-full h-full px-2 overflow-hidden" x-data="target()">
+            <div class="flex flex-col items-start  pt-4  space-x-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                           
+                <h1 class="p-4 text-2xl font-semibold whitespace-nowrap py-2">Ajouter une nouvelle Prévision</h1>       
+            </div>
+            <div class="p-4 max-w-6xl relative left-0 right-0 overflow-hidden " >
+                <form>
+                    <!-- Label and Description -->
+                    <div class="border-b py-4 border-gray-700">                     
+                        <!-- Start and End Date -->
+                        <div class="mb-4">
+                            <label for="start_date" class="block text-sm font-medium text-gray-800">Date Début</label>
+                            <input type="date" x-model="datedeb" id="start_date" name="start_date" class="mt-1 p-2 w-full border-2 rounded">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="end_date" class="block text-sm font-medium text-gray-800">Date Fin</label>
+                            <input type="date" x-model="datefin" id="end_date" name="end_date" class="mt-1 p-2 w-full border-2 rounded">
+                        </div>
+                    </div>
+
+                    <!-- Product and Quantity -->		
+                    <div class="border-b border-gray-700 py-2 w-full">
+                        <div>
+                            <label for="team" class="block text-md font-medium text-gray-600 py-2">Affecter les prévision pour Chaque Client </label>
+                                <div>
+                                    <label class="block text-sm  py-2 text-red-500" x-show="showqtyAvailable">Quantité disponible : <span class="font-bold" x-text="availableqty"></span></label>
+                                    <div class="block py-2">
+                                        <p>Importer le fichier Excel Des Previsions</p>
+                                        <input type="file" id="excelFileInput" accept=".xlsx" x-ref="fileInput" x-on:change="handleFileChange">
+                                        <span class="">
+                                            <a href="#" class="text-red-500 hover:text-red-600 text-sm font-semibold" @click.prevent="products = []">Réinitialiser</a>																	
+                                        </span>
+                                    </div>
+                                    <a href="#" class="text-gray-700 text-sm font-semibold" @click.prevent="filemodel()">Télécharger modèle de fichier</a>		
+                                    <div class="py-2" x-show="products.length > 0">
+                                        <h3 class="text-lg font-semibold mb-2">Liste Prévision</h3>
+                                        <table class="w-full rounded border-collapse border-2">
+                                            <thead class="bg-gray-50">
+                                                <tr class="border-b">
+                                                    <th class="text-center p-2">Client</th>
+                                                    <th class="text-center p-2">Prévision</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <template x-for="item in products" :key="item.client">
+                                                    <tr class="border-b">
+                                                        <td class="text-center p-2 border-r" x-text="item.client"></td>
+                                                        <td>
+                                                            <table class="w-full">
+                                                                <thead>
+                                                                    <tr class="border-b">
+                                                                        <template x-for="product in item.components" :key="product.name">
+                                                                            <th class="text-center p-2 border-r" x-text="product.name"></th>
+                                                                        </template>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr class="border-b">
+                                                                        <template x-for="product in item.components" :key="product.name">
+                                                                            <td class="text-center border-r p-2" x-text="product.quantity"></td>
+                                                                        </template>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </template>
+                                            </tbody>
+                                        </table>
+                                        
+                                    </div>
+                                </div> 
+                                                           
+                        <div>
+                    </div>
+
+                    <!-- <div x-show="currentClientIndex === list2.length && list2.length > 0">
+                        <h3 class="text-lg font-semibold mb-2">Table Récapitulatif des prévisions des wilaya de la région <span x-text="selectedTeam"></span></h3>
+                        <table class="w-full  rounded border-2-collapse border-2">
+                            <thead class="bg-gray-50">
+                                <tr class="border-b">
+                                    <th class="text-center p-2">Wilaya</th>
+                                    <th class="text-center p-2">Prévision</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template x-for="(item, index) in items">                               
+                                        <tr class="border-b">
+                                          <td class="text-center p-2 border-r" x-text="item.client_name" ></td>
+                                           <td>
+                                                <table>
+                                                    <thead>
+                                                        <tr class="border-b">
+                                                            <template x-for="product in items[0].products">
+                                                                <th class="text-center p-2 border-r" x-text="product.name"></th>
+                                                            </template>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr class="border-b">
+                                                                <template x-for="product in item.products">
+                                                                    <td class="text-center border-r p-2" x-text="product.quantity"></td>
+                                                                </template>
+                                                            </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                </template>
+                            </tbody>
+                        </table>
+
+                        <h3 class="text-lg font-semibold mb-2">Table des Quanatié Total sur la région <span x-text="selectedTeam"></span></h3>
+                        <table class="w-full  rounded border-2-collapse border-2">
+                            <thead class="bg-gray-50">
+                                <tr class="border-b">
+                                    <th class="text-center p-2">Région</th>
+                                    <th class="text-center p-2">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>                             
+                                <tr class="border-b">
+                                    <td class="text-center p-2 border-r" x-text="selectedTeam"> </td>
+                                    <td>
+                                        <table>
+                                            <thead>
+                                                <tr class="border-b">
+                                                    <template x-for="product in items[0].products">
+                                                        <th class="text-center p-2 border-r" x-text="product.name"></th>
+                                                    </template>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr class="border-b">
+                                                        <template x-for="product in items[0].products">
+                                                            <td class="text-center border-r p-2" x-text="totalQuantities(product.name)"></td>
+                                                        </template>
+                                                    </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> -->
+
+                    <!-- Submit Button -->
+                    <div class="py-2">
+                        <button  class="px-4 py-2 bg-gray-700 text-white font-semibold hover:text-gray-700 hover:bg-white hover:border border-gray-700  rounded" @click.prevent="addTarget">Créer Prévision</button>
+                    </div> 
+                </form>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>  
+            <script>
+            function target(){
+            return {
+                isUser: true,
+                products: [],
+                productsavailable:{{produits | safe}},
+                liste_users: {{users | safe}},
+                liste_equipes: {{equipes | safe}},
+                list1: {{users |safe}},
+                list2: [],
+                EquipeOpen:false,
+                selectedItems: [],
+                currentClientIndex: 0,
+                labelEquipe:'',
+                dateCreationEquipe:new Date().toISOString().slice(0, 10),
+                items:[],
+                prev:{
+                    client:'',
+                    products: [],
+                },
+
+                totalQuantities(name){
+                    let totalQuantity = 0;
+                    this.items.forEach(item => {
+                        item.products.forEach(product => {
+                            if (product.name === name) {
+                                qty = totalQuantity
+                                totalQuantity = parseFloat(qty) + parseFloat(product.quantity);
+                            }
+                        });
+                    });
+                    return totalQuantity; 
+                },
+
+                validateProducts(clientIndex) {
+                    client_name = this.list2[clientIndex]
+                    this.prev.products = this.products;
+                    this.items.push({
+                        "client_name": client_name,
+                        "products":this.prev.products
+                    })
+                    console.log(this.items);
+                    this.item.client=''
+                    this.item.products=[] 
+                    // After validation, you can clear the products list or perform other actions
+                    this.products = [];
+                    
+                    this.currentClientIndex += 1;
+                },
+
+                filemodel(){
+                    // Sample this.clients array for demonstration purposes
+                    const clients = this.liste_users;
+
+                    // Component categories to be used as headers
+                    const selectValues = [
+                        "cpu",
+                        "mb",
+                        "ram",
+                        "cpuc",
+                        "gpu",
+                        "ssd",
+                        "psu",
+                        "case",
+                        "casef",
+                        "moniteur",
+                        "claviers",
+                        "souris",
+                        "extras"
+                    ];
+
+                    // Create an empty array with headers
+                    const headers = ["Client", ...selectValues];
+                    
+                    // Create an array of objects with client names and empty quantities
+                    const data = clients.map(client => {
+                        let row = { "Client": client };
+                        selectValues.forEach(component => {
+                            row[component] = '';
+                        });
+                        return row;
+                    });
+
+                    // Add the headers as the first row in the data
+                    const emptyData = [headers].concat(data);
+                    
+                    // Convert the data to a sheet
+                    const ws = XLSX.utils.json_to_sheet(data, { header: headers });
+                    
+                    // Create a new workbook and append the sheet
+                    const wb = XLSX.utils.book_new();
+                    XLSX.utils.book_append_sheet(wb, ws, 'Products');
+
+                    // Write the workbook to a file
+                    XLSX.writeFile(wb, `fichier_modele.xlsx`);
+                },
+
+                handleFileChange(event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            const data = new Uint8Array(e.target.result);
+                            const workbook = XLSX.read(data, { type: 'array' });
+                            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                            const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+                            if (jsonData.length > 0) {
+                                // Extract headers (the first row)
+                                const headers = jsonData[0];
+
+                                // Process each row after the header row
+                                for (let i = 1; i < jsonData.length; i++) {
+                                    const row = jsonData[i];
+                                    if (row.some(cell => cell !== '')) { // Check if any cell in the row is not empty
+                                        const clientName = row[0];
+                                        const components = [];
+                                        
+                                        // Map the rest of the row to the corresponding headers (components)
+                                        for (let j = 1; j < row.length; j++) {
+                                            components.push({
+                                                name: headers[j],
+                                                quantity: parseFloat(row[j]) || 0
+                                            });
+                                        }
+
+                                        // Create the product entry
+                                        this.products.push({
+                                            client: clientName,
+                                            components: components
+                                        });
+                                        console.log(this.products);
+                                    }
+                                }
+                            }
+                        };
+                        reader.readAsArrayBuffer(file);
+                        this.$refs.fileInput.value = '';
+                    }
+                },
+
+                updateListClients(){
+                    console.log(this.liste_equipes);
+                    const selectedEquipe = this.liste_equipes.find(eq => eq.label === this.selectedTeam);
+                    console.log(this.liste_equipes.find(eq => eq.label === this.selectedTeam));
+                    this.list2 = selectedEquipe ? selectedEquipe.clients : [];
+                    console.log(this.list2);
+                },
+
+                showqtyAvailable:false,
+                availableqty:0,
+                selectedUser: '',
+                selectedTeam: '',
+                label:'',
+                datedeb: new Date().toISOString().slice(0, 10),
+                datefin: new Date().toISOString().slice(0, 10),
+                addTarget(){                     
+                        if (this.products.length == 0){
+                            alert("Veuillez Ajouter des produits !");
+                            return;
+                        }
+
+                        dataObj={
+                            datedeb:this.datedeb,
+                            datefin:this.datefin,
+                            products:this.products,
+                        }
+                        axios.post('', dataObj, {
+                            headers: {
+                                'Content-Type': '',
+                                'X-CSRFToken': getCookie('csrftoken'),
+                                }
+                            })
+                        .then((response) => {
+                            if(response.data.success){
+                                alert("Prévision Créé !");
+                            }else{
+                                alert("Une erreur a été Survenue Veuillez Re-éssayer !");
+                            }
+                        })
+                        .catch((error) => {
+                            alert(error);
+                        });								
+                },
+            }
+            }
+            function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+                }
+            }
+            return cookieValue;
+            }
+            </script>
+        </main>
+    </div>
+</div>
+</div>
+</div>
+
+                        
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+
+
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="home" %}
+ <div class=" w-full flex flex-row">	
+  <div class="w-full flex flex-col items-center ">
+			<!--<img class="w-1/2 text-primary" src="{% static '403.png' %}" alt="">-->
+            <div class="flex flex-col items-center ">
+                <p class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider text-gray-600 mt-8">ERREUR 500</p>
+                <p class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-600 mt-2">Une ERREUR INTERNE AU SERVER</p>
+                <p class="md:text-lg xl:text-xl text-gray-500 mt-4">Whoops, Une erreur a été survenue !</p>
+            </div>
+        
+			<a  href="{% if request.session.role == 'manager' %} {% url "identification" %} {% else %} {% url "user-page" %} {% endif %} "   class="flex items-center space-x-2 bg-gray-700 hover:bg-gray-800 text-gray-100 px-4 py-2 mt-6 rounded transition duration-150" title="Return Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Return Home</span>
+                </a>
+        </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

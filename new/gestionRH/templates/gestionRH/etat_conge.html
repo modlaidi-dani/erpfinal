@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load static  heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="eh" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_grh.html" %}
+  <div class="h-full w-full"  x-data="salarie()">
+	<!-- Main content header -->
+	<main class="block w-full h-full px-2 overflow-hidden " >
+          <div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                    
+            <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Situation Des Congés</h1>          
+          </div>          
+          <div class="-mb-2 py-2 flex justify-between border-b">  
+            <div>
+              <input type="search" x-model="search" class="form-input rounded-md bg-gray-50 text-sm text-black  h-10 py-2 pl-4 border-transparent border-none outline-none focus:ring-0 focus:text-black transition-all duration-300 ease-in-out focus:w-72 w-60"
+                    placeholder="Rechercher...">
+            </div>          
+            {% comment %} <div class="inline-block px-4 py-2 h-10 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+                <button x-on:click="isOpen = true; operation = 'add';">Ajouter Une Heure Supplémentaire</button> 
+            </div> {% endcomment %}
+          </div>  
+         <div class="flex flex-col mt-5">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+                  <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Nom Complet Salarié
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Date Debut
+                        </th>
+                        
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Etat
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Nbr Jour Congé 
+                        </th>                        
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Nbr Jour Pris 
+                        </th>                        
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Nbr Jour Restant
+                        </th>                                                                                                                       
+                      </tr>
+                    </thead>
+                    
+                    <tbody class="bg-white divide-y divide-gray-200">
+                      <template x-for="(salarie, index) in congedata" >
+                        <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" x-show="salarieMatches(search, salarie.nom)">
+                          <td class="text-center px-6 py-4 whitespace-nowrap">
+                            <span class="inline-flex px-2 text-center text-sm font-semibold leading-5 rounded-full" x-text="salarie.nom"></span>
+                          </td>
+                          <td class="px-6 py-4 text-center whitespace-nowrap">
+                            <span class="inline-flex px-2 text-sm font-semibold leading-5 rounded-full" x-text="salarie.datetimedeb"></span>
+                          </td>
+                          <td class="flex items-center  px-6 py-4 whitespace-nowrap">
+                            <template x-if="salarie.etat == 'false'">
+                              <div class="block mx-auto">                          
+                                <span class="inline-flex items-center mx-auto rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-700" >Inactif</span>
+                              </div>
+                            </template>
+                            <template x-if="salarie.etat == 'true'">
+                              <div class="block mx-auto">
+                                <span class="inline-flex items-center mx-auto rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700" >Actif </span>
+                              </div>
+                            </template>
+                          </td>
+                          <td class="px-6 py-4 text-center whitespace-nowrap">
+                            <span class="inline-flex px-2 text-sm font-semibold leading-5 rounded-full" x-text="salarie.nbr_jrconge"></span>
+                          </td>
+                          <td class="px-6 py-4 text-center whitespace-nowrap">
+                            <span class="inline-flex px-2 text-sm font-semibold leading-5 rounded-full" x-text="salarie.nbr_jrpris"></span>
+                          </td>
+                          <td class="px-6 py-4 text-center whitespace-nowrap">
+                            <span class="inline-flex px-2 text-sm font-semibold leading-5 rounded-full" x-text="salarie.nbr_jrrest"></span>
+                          </td>
+                         
+                        </tr>
+                      </template>                 
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div>
+
+        <script>
+          function salarie(){
+            return{          
+              datetimedeb:'',
+              search: '',
+              formatDate(dateString) {
+                  // Assuming dateString is in "yyyy-MM-dd HH:mm:ssZ" format
+                  const date = new Date(dateString);
+                  const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}T${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+                  return formattedDate;
+              },
+              {% if conges %}
+                congedata: {{ conges |safe }}, // Replace with your salarie data
+              {% endif %}
+              salarieMatches(search, SalaryName) {
+                  return (
+                    (SalaryName.toLowerCase().includes(search.toLowerCase()))
+                  );
+              },
+            }
+          }
+         
+          function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+              var cookies = document.cookie.split(';');
+              for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+                }
+              }
+            }
+            return cookieValue;
+          }
+        </script>
+  </main> 	
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}
