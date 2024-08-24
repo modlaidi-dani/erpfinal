@@ -152,3 +152,63 @@ SystemExit: 1
 [2024-08-24 09:00:49 +0000] [582834] [INFO] Worker exiting (pid: 582834)
 [2024-08-24 09:00:49 +0000] [582783] [INFO] Worker exiting (pid: 582783)
 [2024-08-24 11:00:49 +0200] [582782] [INFO] Shutting down: Master
+[2024-08-24 12:07:21 +0200] [585628] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 12:07:21 +0200] [585628] [INFO] Listening at: http://127.0.0.1:8000 (585628)
+[2024-08-24 12:07:21 +0200] [585628] [INFO] Using worker: sync
+[2024-08-24 12:07:21 +0200] [585629] [INFO] Booting worker with pid: 585629
+[2024-08-24 12:07:21 +0200] [585630] [INFO] Booting worker with pid: 585630
+[2024-08-24 12:07:21 +0200] [585631] [INFO] Booting worker with pid: 585631
+[2024-08-24 12:14:37 +0200] [585628] [INFO] Handling signal: int
+[2024-08-24 10:14:37 +0000] [585631] [INFO] Worker exiting (pid: 585631)
+[2024-08-24 10:14:37 +0000] [585629] [INFO] Worker exiting (pid: 585629)
+[2024-08-24 10:14:37 +0000] [585630] [INFO] Worker exiting (pid: 585630)
+[2024-08-24 12:14:38 +0200] [585628] [INFO] Shutting down: Master
+[2024-08-24 12:20:59 +0200] [586264] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 12:20:59 +0200] [586264] [INFO] Listening at: http://127.0.0.1:8000 (586264)
+[2024-08-24 12:20:59 +0200] [586264] [INFO] Using worker: sync
+[2024-08-24 12:20:59 +0200] [586265] [INFO] Booting worker with pid: 586265
+[2024-08-24 12:20:59 +0200] [586266] [INFO] Booting worker with pid: 586266
+[2024-08-24 12:20:59 +0200] [586267] [INFO] Booting worker with pid: 586267
+[2024-08-24 12:24:13 +0200] [586264] [INFO] Handling signal: hup
+[2024-08-24 12:24:13 +0200] [586264] [INFO] Hang up: Master
+[2024-08-24 12:24:13 +0200] [586264] [ERROR] Worker (pid:586267) was sent SIGHUP!
+[2024-08-24 12:24:13 +0200] [586264] [ERROR] Worker (pid:586265) was sent SIGHUP!
+[2024-08-24 12:24:13 +0200] [586264] [ERROR] Worker (pid:586266) was sent SIGHUP!
+[2024-08-24 12:24:13 +0200] [586338] [INFO] Booting worker with pid: 586338
+[2024-08-24 12:24:13 +0200] [586339] [INFO] Booting worker with pid: 586339
+[2024-08-24 12:24:13 +0200] [586340] [INFO] Booting worker with pid: 586340
+[2024-08-24 12:24:13 +0200] [586264] [INFO] Handling signal: hup
+[2024-08-24 12:24:13 +0200] [586264] [INFO] Hang up: Master
+[2024-08-24 12:24:13 +0200] [586342] [INFO] Booting worker with pid: 586342
+[2024-08-24 12:24:13 +0200] [586341] [INFO] Booting worker with pid: 586341
+[2024-08-24 12:24:13 +0200] [586343] [INFO] Booting worker with pid: 586343
+[2024-08-24 10:24:14 +0000] [586340] [INFO] Worker exiting (pid: 586340)
+[2024-08-24 10:24:14 +0000] [586338] [INFO] Worker exiting (pid: 586338)
+[2024-08-24 10:24:14 +0000] [586339] [INFO] Worker exiting (pid: 586339)
+[2024-08-24 12:24:14 +0200] [586264] [ERROR] Worker (pid:586338) was sent SIGTERM!
+[2024-08-24 12:24:14 +0200] [586264] [ERROR] Worker (pid:586340) was sent SIGTERM!
+[2024-08-24 12:24:14 +0200] [586264] [ERROR] Worker (pid:586339) was sent SIGTERM!
+[2024-08-24 12:36:19 +0200] [587068] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 12:36:58 +0200] [587074] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 10:39:33 +0000] [586343] [INFO] Worker exiting (pid: 586343)
+[2024-08-24 12:39:33 +0200] [586264] [INFO] Handling signal: term
+[2024-08-24 10:39:33 +0000] [586341] [INFO] Worker exiting (pid: 586341)
+[2024-08-24 10:39:33 +0000] [586342] [INFO] Worker exiting (pid: 586342)
+[2024-08-24 12:39:34 +0200] [586264] [ERROR] Worker (pid:586342) exited with code 120
+[2024-08-24 12:39:34 +0200] [586264] [ERROR] Worker (pid:586342) exited with code 120.
+[2024-08-24 12:39:34 +0200] [586264] [ERROR] Worker (pid:586341) exited with code 120
+[2024-08-24 12:39:34 +0200] [586264] [ERROR] Worker (pid:586341) exited with code 120.
+[2024-08-24 12:39:34 +0200] [586264] [ERROR] Worker (pid:586343) exited with code 120
+[2024-08-24 12:39:34 +0200] [586264] [ERROR] Worker (pid:586343) exited with code 120.
+[2024-08-24 12:39:34 +0200] [586264] [INFO] Shutting down: Master
+[2024-08-24 12:39:39 +0200] [587132] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 12:39:39 +0200] [587132] [INFO] Listening at: http://127.0.0.1:8000 (587132)
+[2024-08-24 12:39:39 +0200] [587132] [INFO] Using worker: sync
+[2024-08-24 12:39:39 +0200] [587133] [INFO] Booting worker with pid: 587133
+[2024-08-24 12:39:39 +0200] [587134] [INFO] Booting worker with pid: 587134
+[2024-08-24 12:39:40 +0200] [587135] [INFO] Booting worker with pid: 587135
+[2024-08-24 12:52:06 +0200] [587132] [INFO] Handling signal: int
+[2024-08-24 10:52:06 +0000] [587134] [INFO] Worker exiting (pid: 587134)
+[2024-08-24 10:52:06 +0000] [587133] [INFO] Worker exiting (pid: 587133)
+[2024-08-24 10:52:06 +0000] [587135] [INFO] Worker exiting (pid: 587135)
+[2024-08-24 12:52:08 +0200] [587132] [INFO] Shutting down: Master
