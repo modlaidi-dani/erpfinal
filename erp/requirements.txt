@@ -1,10 +1,11 @@
-﻿anyascii==0.3.2
+anyascii==0.3.2
 asgiref==3.7.2
 beautifulsoup4==4.11.2
 certifi==2023.7.22
 charset-normalizer==3.2.0
 defusedxml==0.7.1
 Django==4.2.5
+django-clearcache==1.2.1
 django-filter==23.3
 django-jsonfield==1.4.1
 django-model-utils==4.3.1
@@ -17,6 +18,7 @@ djangorestframework==3.14.0
 draftjs-exporter==2.1.7
 et-xmlfile==1.1.0
 filetype==1.2.0
+gunicorn==23.0.0
 heroicons==2.5.0
 html5lib==1.1
 idna==3.4
@@ -29,7 +31,7 @@ pandas==2.1.1
 Pillow==10.0.1
 pillow-heif==0.13.0
 plotly==5.17.0
-python-dateutil>=2.6.0
+python-dateutil==2.9.0.post0
 pytz==2023.3.post1
 requests==2.31.0
 six==1.16.0
@@ -43,5 +45,5 @@ tzdata==2023.3
 urllib3==2.0.5
 wagtail==5.1.1
 webencodings==0.5.1
+whitenoise==6.7.0
 Willow==1.6.2
-whitenoise

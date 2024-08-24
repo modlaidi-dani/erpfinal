@@ -1,0 +1,154 @@
+[2024-08-24 10:59:16 +0200] [582782] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 10:59:16 +0200] [582782] [INFO] Listening at: http://127.0.0.1:8000 (582782)
+[2024-08-24 10:59:16 +0200] [582782] [INFO] Using worker: sync
+[2024-08-24 10:59:16 +0200] [582783] [INFO] Booting worker with pid: 582783
+[2024-08-24 10:59:16 +0200] [582784] [INFO] Booting worker with pid: 582784
+[2024-08-24 10:59:16 +0200] [582785] [INFO] Booting worker with pid: 582785
+[2024-08-24 11:00:33 +0200] [582782] [CRITICAL] WORKER TIMEOUT (pid:582785)
+[2024-08-24 09:00:33 +0000] [582785] [ERROR] Error handling request /ventes/sell-bills
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Client' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/wsgi.py", line 124, in __call__
+    response = self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 140, in get_response
+    response = self._middleware_chain(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 16, in __call__
+    response = self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/whitenoise/middleware.py", line 124, in __call__
+    return self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/root/Erps/erpfinal/erp/tiers/models.py", line 194, in remaining_amount
+    return round(self.total_amount + self.solde - (self.total_paid_amount + self.total_rembourse + self.total_annule),0)
+  File "/root/Erps/erpfinal/erp/tiers/models.py", line 179, in total_amount
+    return sum(Decimal(bon.get_total_soldprice) for bon in self.client_bonS.exclude(idBon__startswith='BECH'))
+  File "/root/Erps/erpfinal/erp/tiers/models.py", line 179, in <genexpr>
+    return sum(Decimal(bon.get_total_soldprice) for bon in self.client_bonS.exclude(idBon__startswith='BECH'))
+  File "/root/Erps/erpfinal/erp/ventes/models.py", line 174, in get_total_soldprice
+    price_part = self.produits_en_bon_sorties.aggregate(total_price=Sum('totalprice'))['total_price']
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 592, in aggregate
+    return self.query.chain().get_aggregation(self.db, kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/sql/query.py", line 416, in get_aggregation
+    replacements[Ref(alias, aggregate)] = aggregate
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/expressions.py", line 502, in __hash__
+    return hash(self.identity)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/expressions.py", line 479, in identity
+    constructor_signature = inspect.signature(self.__init__)
+  File "/usr/lib/python3.10/inspect.py", line 3254, in signature
+    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,
+  File "/usr/lib/python3.10/inspect.py", line 3002, in from_callable
+    return _signature_from_callable(obj, sigcls=cls,
+  File "/usr/lib/python3.10/inspect.py", line 2404, in _signature_from_callable
+    return _signature_bound_method(sig)
+  File "/usr/lib/python3.10/inspect.py", line 1982, in _signature_bound_method
+    return sig.replace(parameters=params)
+  File "/usr/lib/python3.10/inspect.py", line 3020, in replace
+    if parameters is _void:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2024-08-24 09:00:33 +0000] [582785] [INFO] Worker exiting (pid: 582785)
+[2024-08-24 11:00:34 +0200] [582834] [INFO] Booting worker with pid: 582834
+[2024-08-24 11:00:49 +0200] [582782] [INFO] Handling signal: int
+[2024-08-24 09:00:49 +0000] [582784] [INFO] Worker exiting (pid: 582784)
+[2024-08-24 09:00:49 +0000] [582834] [INFO] Worker exiting (pid: 582834)
+[2024-08-24 09:00:49 +0000] [582783] [INFO] Worker exiting (pid: 582783)
+[2024-08-24 11:00:49 +0200] [582782] [INFO] Shutting down: Master
