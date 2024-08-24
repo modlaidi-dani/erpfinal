@@ -1,0 +1,94 @@
+ <!-- Loading screen -->
+   <!-- sidebar -->
+   <div class="sidebar max-h-screen top-0 h-screen bg-gray-100  text-white w-60 fixed  left-0 transform transition duration-200 ease-in-out z-1"
+   x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+   :class="open === true ? 'md:translate-x-0 md:sticky ':'-translate-x-full' ">
+  
+ 
+  
+   <!-- nav -->
+   <nav class="px-4 pt-4  max-h-[calc(100vh-64px)]" x-data="{selected:'Tasks'}">
+       <ul class="flex flex-col space-y-2">
+
+           {% if  'tiers.can_see_clients' in request.session.permissions or  'tiers.can_see_fournisseurs' in request.session.permissions %} 
+           <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+            Tiers
+           </div>
+        
+           {% if  'tiers.can_see_clients' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'customers' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                 
+                </div>
+                <div>Clients</div>
+             </a>
+           </li>
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'customers-prospection' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                 
+                </div>
+                <div>Prospection Clients</div>
+             </a>
+           </li>
+          {% endif %}
+          {% if  'tiers.can_see_fournisseurs' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'fournisseurs' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                
+                </div>
+                <div> Fournisseurs </div>
+              </a>
+           </li>
+           {% endif %}
+           {% endif %}
+  
+          {% if  'tiers.can_see_banques' in request.session.permissions or  'tiers.can_see_agences' in request.session.permissions or 'tiers.can_see_comptesBancaire' in request.session.permissions %}
+          <!-- Section Devider -->
+           <div class="section border rounded-lg text-sm text-gray-700 mt-2 border-gray-700 pl-3">
+               Finance
+           </div>
+           {% if  'tiers.can_see_banques' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'banques' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Banques</div>
+               </a>
+           </li> 
+           {% endif %}
+           {% if  'tiers.can_see_agences' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'agences' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Agence Bancaire</div>
+               </a>
+           </li> 
+           {% endif %}
+           {% if  'tiers.can_see_comptesBancaire' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'comptesBancaires' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Compte Bancaire</div>
+               </a>
+           </li> 
+            {% endif %}
+            {% endif %}
+       </ul>
+   </nav>
+  </div>
+  <!-- End sidebar -->  
+  

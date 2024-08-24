@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="products" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_produits.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full px-2 h-full  overflow-hidden overflow-y-scroll">
+        <body class=" p-4" x-data="verification()">
+          <div class=" mx-auto bg-white p-6 rounded shadow" >
+              <h1 class="text-2xl font-semibold mb-4">Vérification des quantités des produits</h1>               
+              <div >
+                <div class="mb-4">
+                  <label class="block text-gray-700 font-medium mb-2" >
+                    Entrepot :
+                  </label>
+                  <select
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="entrepot"
+                    name="entrepot"
+                    x-on:change="getStock($event.target.value)
+                    entrepot= $event.target.value
+                    "
+                    required  
+                   >
+                    <option value="" disabled selected> Entrepot</option>                 
+                    {% for entrepot in entrepots %}
+                      <option value="{{ entrepot.name }}">
+                        {{ entrepot.name }} 
+                      </option>
+                    {% endfor %}
+                  </select>
+                  </div>
+                  <div class="mb-4">
+                      <label for="productReference" class="block text-sm font-medium text-gray-700">Reference du produit:</label>
+                      <input x-model="productReference" type="text" id="productReference" class="mt-1 p-2 border rounded w-full focus:outline-none" placeholder="Saisissez référence du produit">
+                  </div>
+                  <div class="mb-4">
+                      <label for="quantity" class="block text-sm font-medium text-gray-700">Quantité du produit:</label>
+                      <input x-model="quantity" type="number" id="quantity" class="mt-1 p-2 border rounded w-full focus:outline-none" placeholder="Introduire quantité du produit">
+                  </div>
+                  <button @click="verifyProduct()" class="border border-gray-700 text-gray-700 px-4 py-2 rounded hover:bg-gray-700 hover:text-white">Verifier</button>       
+                  <div x-show="verificationResult !== null" class="mt-4">
+                      <p x-bind:class="{'text-green-500': verificationResult, 'text-red-500': verificationResult =='incorrect'}" x-text="verificationResult"></p>
+                  </div>
+              </div>
+        
+              <h2 class="text-xl font-semibold mt-6">Récapitulatif de Vérification</h2>
+              <table class="w-full mt-4">
+                  <thead>
+                      <tr>
+                          <th class="text-left">Reference</th>
+                          <th class="text-left">Quantité Entrée</th>
+                          <th class="text-left">Resultat</th>
+                          <th class="text-left">action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <template x-for="entry in verificationHistory" >
+                         <tr x-bind:class="{'bg-red-500': entry.verificationResult == 'incorrect', 'bg-green-400':entry.verificationResult == 'correct'}">
+                              <td x-text="entry.productReference" ></td>
+                              <td x-text="entry.quantity"></td>
+                              <td x-bind:class="text-black" x-text="entry.verificationResult"></td>
+                              <td @click="deleteVerification(entry.productReference)" class="cursor-pointer" > Supprimer </td>
+                          </tr>
+                      </template>
+                  </tbody>
+              </table>
+            </div>        
+            <div class="flex w-full mx-auto">
+              <button @click="Archiver" class="border border-gray-700 text-gray-700 px-4 py-2 mt-2 mr-2 rounded hover:bg-gray-700 hover:text-white">Archiver le résultat</button>
+            </div>
+          <script>
+              function verification(){
+                return{
+                  productReference: '',
+                  quantity: '',
+                  entrepot:'',
+                  verificationResult: '',
+                  verificationHistory: [],                  
+                  items:[],
+                  getStock(entrepotStock){
+                    this.stocks=[]
+                    dataObj={
+                     nomEnt : entrepotStock,						 
+                    }
+                    axios.post('fetchStock', dataObj, {
+                      headers: {
+                      'Content-Type': '',
+                      'X-CSRFToken': getCookie('csrftoken'),
+                      }
+                    })
+                    .then((response) => { 
+                      itemsData=response.data.stocks;
+                      for (const itemData of itemsData) {		
+                        console.log(itemData.entrepot)						 
+                        const item = {
+                          reference: itemData.reference,
+                          qty: itemData.quantity,
+                        };
+                        console.log(item.ent)
+                        this.items.push(item);
+                      }						 
+                    })
+                    .catch((error) => {
+                      alert(error)
+                  
+                    });
+                  },
+
+                  deleteVerification(reference){
+                    const index = this.verificationHistory.findIndex(entry => entry.productReference === reference);
+                    if (index !== -1) {
+                        this.verificationHistory.splice(index, 1);
+                    }
+                  },
+
+                  verifyProduct() {
+                    // Ensure both productReference and quantity are entered                 
+                    if (!this.productReference || !this.quantity) {
+                      console.log("here_1")
+                        this.verificationResult = false;
+                        return;
+                    }
+                    console.log(this.items)
+                    realQuantity =0
+                    const product = this.items.find(item => item.reference === this.productReference);  
+                    console.log(this.productReference)         
+                    if (product) {
+                        // console.log("here")
+                        // Product found, check if the entered quantity matches
+                        realQuantity = product.qty
+                        if (parseInt(this.quantity) === product.qty) {
+                            this.verificationResult = 'correct';
+                        } else {
+                            this.verificationResult = 'incorrect';
+                        }
+                    } else {
+                        // Product not found in the selected Entrepot
+                        this.verificationResult = "reference du produit n'existe pas";
+                    }
+                
+                    // Add the verification to the history
+                    const entry = {
+                        id: this.generateRandomId(), // Implement this function as in your previous code
+                        productReference: this.productReference,
+                        quantity: this.quantity,
+                        realQuantity : realQuantity,
+                        verificationResult: this.verificationResult,
+                    };
+                    this.verificationHistory.push(entry);
+                    console.log(this.verificationHistory)               
+                    // Clear input fields
+                    this.productReference = '';
+                    this.quantity = '';
+                  },
+
+                  Archiver() {
+                    dataObj={
+                        entrepot : this.entrepot,
+                        products: this.verificationHistory
+                    }
+                    axios.post('', {
+                      formData: dataObj
+                     }, {
+                     headers: {
+                      'Content-Type': '',
+                      'X-CSRFToken': getCookie('csrftoken'),
+                     }
+                    }).then((response) => {
+                      data= response.data
+                      console.log(data.error)
+                      if(data.error){
+                        alert(data.error);
+                      }else{
+                        alert("Verification data saved successfully");
+                      }		  
+                    }).catch((error) => {
+                       alert(error)
+                      });
+                  },
+                
+                  generateRandomId() {
+                    return Math.random().toString(36).substring(2, 10) + Math.random().toString(36).substring(2, 10);
+                  },
+                }
+              }
+
+              function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                  var cookies = document.cookie.split(';');
+                  for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                    }
+                  }
+                }
+                return cookieValue;
+              }             
+          </script>
+        </body>
+      </main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

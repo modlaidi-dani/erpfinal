@@ -1,0 +1,200 @@
+ <!-- Loading screen -->
+   <!-- sidebar -->
+   <div class="sidebar max-h-screen top-0 h-screen bg-gray-100  text-white w-60 fixed  overflow-y-auto left-0 transform transition duration-200 ease-in-out z-1"
+   x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+   :class="open === true ? 'md:translate-x-0 md:sticky ':'-translate-x-full' ">
+  
+   <!-- nav -->
+   <nav class="px-4 pt-4  max-h-[calc(100vh-64px)]" x-data="{selected:'Tasks'}">
+       <ul class="flex flex-col space-y-2">
+           {% if  request.session.role == "DIRECTEUR EXECUTIF" or request.session.role == "manager" %}
+           <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+                Situation de Reglements
+           </div>
+
+            {% if  request.session.role == "DIRECTEUR EXECUTIF" or request.session.role == "manager" %}
+                <li class="text-sm text-gray-500 ">
+                    <a href="{% url 'reglements-espece' %}"
+                        class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                        <div class="pr-2">                     
+                        </div>
+                        <div>Situations Des Règlements des Client</div>
+                    </a>
+                </li>
+            {% endif %}
+            {% endif %}
+
+        {% if  'reglements.can_see_etatregfac' in request.session.permissions or  request.session.username == "younes" or  request.session.username == "nadjemeddine" or  'reglements.can_see_etatregbl' in request.session.permissions or 'reglements.can_see_regbl' in request.session.permissions or 'reglements.can_see_regfaccli' in request.session.permissions or 'reglements.can_see_etatregbl' in request.session.permissions or request.session.role == "manager" %}
+           <!-- Section Devider -->
+           <div class="border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+             Reglements Clients
+           </div>
+           <!-- List ITEM -->
+           {% if  'reglements.can_see_etatregfac' in request.session.permissions or request.session.role == "manager" %}
+            <li class="text-sm text-gray-500 ">
+                <a href="{% url 'etat-reglement-fa' %}" 
+                    class="flex items-center w-full py-1 px-2 rounded relative text-gray-700 hover:text-white hover:bg-gray-700">
+                    <div class="pr-2">
+                        
+                    </div>
+                    <div>État réglements Factures</div>                 
+                </a> 
+            </li>
+           {% endif %}
+           {% if  'reglements.can_see_regfaccli' in request.session.permissions  or request.session.role == "manager" %}
+            <li class="text-sm text-gray-500 ">
+                <a href="{% url 'reglements-factures' %}" 
+                    class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                    <div class="pr-2">                   
+                    </div>
+                    <div>Réglements Factures clients</div>                  
+                </a> 
+            </li>
+           {% endif %}
+
+           {% if  'reglements.can_see_etatregbl' in request.session.permissions or  request.session.username == "younes"  %}
+                <li class="text-sm text-gray-500 ">
+                    <a href="{% url 'etat-reglement-BL' %}" 
+                        class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                        <div class="pr-2">
+                            
+                        </div>
+                        <div>État réglements Bons Livraisons</div>               
+                    </a> 
+                </li>
+                <li class="text-sm text-gray-500 ">
+                    <a href="{% url 'historique-montant' %}" 
+                        class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                        <div class="pr-2">
+                            
+                        </div>
+                        <div>Historique des montant Récupérés</div>               
+                    </a> 
+                </li>
+           {% endif %}
+           {% if  'reglements.can_see_regbl' in request.session.permissions or request.session.role == "manager" or  request.session.username == "younes" or  request.session.username == "nadjemeddine" %}
+            <li class="text-sm text-gray-500 ">
+                <a href="{% url 'reglements' %}" 
+                    class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                    <div class="pr-2">
+                        
+                    </div>
+                    <div>Réglements Bons Livraisons</div>                
+                </a> 
+            </li>  
+           {% endif %}
+           {% endif %}
+           
+            {% if request.session.role == "manager" %}
+           <!-- Section Devider -->
+           <div class="border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+             Reglements Fournisseurs
+           </div>
+           <!-- List ITEM -->
+           {% if  'reglements.can_see_etatregfac' in request.session.permissions or request.session.role == "manager" %}
+            <li class="text-sm text-gray-500 ">
+                <a href="{% url 'etat-reglement-fa-fournisseur' %}" 
+                    class="flex items-center w-full py-1 px-2 rounded relative text-gray-700 hover:text-white hover:bg-gray-700">
+                    <div class="pr-2">
+                        
+                    </div>
+                    <div>État réglements Factures de fournisseurs</div>                 
+                </a> 
+            </li>
+           {% endif %}
+           {% if   request.session.role == "manager" %}
+            <li class="text-sm text-gray-500 ">
+                <a href="{% url 'etat-reglement-BL-fournisseur' %}" 
+                    class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                    <div class="pr-2">
+                        
+                    </div>
+                    <div>État réglements Bons Livraisons fournisseurs</div>               
+                </a> 
+            </li>
+           {% endif %}
+           {% if  'reglements.can_see_regbl' in request.session.permissions or request.session.role == "manager" %}
+            <li class="text-sm text-gray-500 ">
+                <a href="{% url 'reglements-fournisseur' %}" 
+                    class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                    <div class="pr-2">
+                        
+                    </div>
+                    <div>Réglements fournisseurs</div>                
+                </a> 
+            </li>  
+           {% endif %}
+           {% endif %}
+
+            
+
+           <!-- Section Devider -->
+           {% if  'reglements.can_see_etattres' in request.session.permissions or request.session.role == "manager" %}
+           <div class="border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+             Trésorerie client
+           </div>
+           <!-- List ITEM -->
+           {% if  'reglements.can_see_etattres' in request.session.permissions or request.session.role == "manager" %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'etat-tresorerie' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative text-gray-700 hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Etat  trésorerie</div>                 
+               </a> 
+           </li>
+           {% endif %}
+           {% if  'reglements.can_see_etatregbl' in request.session.permissions or request.session.role == "manager" %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'mouvements-caisse' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Mouvements De caisses</div>               
+               </a> 
+           </li>
+           {% endif %}
+           {% if  'reglements.can_see_regbl' in request.session.permissions or request.session.role == "manager" %}
+           <li class="text-sm text-gray-500 ">
+               <a href="#" 
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Emprunts et Dettes</div>                
+               </a> 
+           </li>  
+           {% endif %}
+           {% endif %}
+           <!-- Section Devider -->
+           {% if request.session.role == "manager"  %}
+           <div class="border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+            Cloture Commerciale
+           </div>
+           <!-- List ITEM -->
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'clotures-comm' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative text-gray-700 hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">                    
+                   </div>
+                   <div>Cloture</div>                 
+               </a> 
+           </li>
+           {% endif %}
+           {% if request.session.role == "manager" %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'etat-tresorerie' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative text-gray-700 hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">                  
+                   </div>
+                   <div>Reglements Collecté</div>                 
+               </a> 
+           </li>
+           {% endif %}
+       </ul>
+   </nav>
+  </div>
+  <!-- End sidebar -->  
+  

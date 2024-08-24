@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="reglements" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_reglements.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full h-full px-2 overflow-hidden " x-data="{isOpen :false}">
+          <!-- Main content header -->
+          <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                                                                                                     
+            
+            <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des Réglements de fournisseur - Bon Livraisons -</h1>          
+          </div>
+          <div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b">  
+            <div></div>          
+            <a href="{% url 'new-reglement-fournisseur' %}">
+            <div class="inline-block px-4 py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer" >
+                Introduire un nouveau réglement fournisseur
+              </div>
+            </a>
+          </div>
+
+         {% comment %}  end Logic to upload stock from file  {% endcomment %}        
+          <div class="flex flex-col mt-5" x-data="reglement()" x-init="initData()">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+                  <div x-show="success">
+                    <div x-show="success" class=" top-0 right-0 w-2/3 md:w-1/3" x-transition:enter="transition transform ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition transform ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-1">
+                      <div class="bg-white border-gray-300 border p-3 flex items-start shadow-lg rounded-md space-x-2">
+                        <svg class="flex-shrink-0 h-6 w-6 text-green-400" stroke="currentColor" viewBox="0 0 20 20">
+                          <path stroke-width="1" d="M10.219,1.688c-4.471,0-8.094,3.623-8.094,8.094s3.623,8.094,8.094,8.094s8.094-3.623,8.094-8.094S14.689,1.688,10.219,1.688 M10.219,17.022c-3.994,0-7.242-3.247-7.242-7.241c0-3.994,3.248-7.242,7.242-7.242c3.994,0,7.241,3.248,7.241,7.242C17.46,13.775,14.213,17.022,10.219,17.022 M15.099,7.03c-0.167-0.167-0.438-0.167-0.604,0.002L9.062,12.48l-2.269-2.277c-0.166-0.167-0.437-0.167-0.603,0c-0.166,0.166-0.168,0.437-0.002,0.603l2.573,2.578c0.079,0.08,0.188,0.125,0.3,0.125s0.222-0.045,0.303-0.125l5.736-5.751C15.268,7.466,15.265,7.196,15.099,7.03"></path>
+                        </svg>
+                        <div class="flex-1 space-y-1">
+                          <p class="text-base leading-6 font-medium text-gray-700">Successfully collected !</p>                            
+                        </div>
+                        <svg class="flex-shrink-0 h-5 w-5 text-gray-400 cursor-pointer" x-on:click="success=false" stroke="currentColor" viewBox="0 0 20 20">
+                          <path stroke-width="1.2" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>                      
+                  <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          code Règlement
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Date de Règlement
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Fournisseur
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Bon Livraison Associé
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Montant
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Status
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          MAJ
+                        </th>                     
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">                        
+                      <template x-for="reglement in reglements">                          
+                        <tr class="transition-all hover:bg-gray-100 hover:shadow-lg border" >
+                            <td class="px-4 py-2 text-sm font-medium text-left text-gray-600 " x-text="reglement.codeReglement"></td>
+                            <td class="px-4 py-2 text-sm font-medium text-left text-gray-600 " x-text="reglement.dateReglement"></td>
+                            <td class="px-4 py-2 text-sm font-medium text-left text-gray-600 " x-text="reglement.fournisseur"></td>
+                            <td class="px-4 py-2 text-sm font-medium text-left text-gray-600 " x-text="reglement.BonS"></td>
+                            <td class="px-4 py-2 text-sm font-medium text-left text-gray-600 " x-text="reglement.montant +' '+'DA'"></td>                        
+                          <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap flex ">
+                            {% heroicon_mini "pencil-square" class="transition-transform" %}
+                            {% heroicon_mini "archive-box-x-mark" class="transition-transform" %}
+                          </td>
+                        </tr>
+                      </template> 
+                    </tbody>
+                  </table>
+                </div>
+                </template>            
+                </div>
+              </div>
+              
+             
+              <script>
+								function reglement() {
+									return {
+							      verifying:false,
+                    openModal: false,
+                    success:false,
+                    password:'',
+                    reglements:[],
+                    reglementcode:'',
+                    groupedReglements: {},
+                    initData(){
+                      reglements={{ reglements|safe }}
+                      for (const reglement of reglements) {					  
+                        const reg_info = {			
+                         codeReglement:reglement.codeReglement,
+                         type_reglement:reglement.type_reglement,
+                         collected:reglement.collected,
+                         client:reglement.client,
+                         mode_reglement:reglement.mode_reglement,
+                         dateReglement:reglement.dateReglement,
+                         BonS:reglement.BonS,
+                         montant:reglement.montant,
+                         CompteEntreprise:reglement.CompteEntreprise ,                     					
+                        };
+                        this.reglements.push(reg_info);
+                        
+                      }
+                      
+                      console.log(this.groupedReglements)
+                    },
+									  verifyPassword(){
+                      // Set the verifying flag to true to show the loading message
+                      this.verifying = true;                 
+                      // Make an AJAX request to verify the password
+                      dataObj ={
+                          password : this.password,
+                          reglementCode: this.reglementcode
+                      }
+                      axios.post('verify-password-collection/', dataObj, {
+                        headers: {
+                          'Content-Type': '',
+                          'X-CSRFToken': getCookie('csrftoken'),
+                        }
+                      })
+                        .then(response => {
+                          if (response.data.success) {
+                            this.success=true;
+                            this.openModal = false;
+                            this.password=""
+                            for (const reglement of this.reglements) {
+                              if (reglement.codeReglement === this.reglementcode) {
+                                  reglement.collected = 'True';
+                                  break; // No need to continue searching once found
+                              }
+                          }
+                              // Set a timeout to reset this.success after a certain time
+                            setTimeout(() => {
+                              this.success = false;
+                            }, 1000);
+                          } else {
+                            alert("false")
+                            this.verifying = false;
+                            this.openModal = false;
+                            this.password=""
+                          }
+                        })
+                        .catch(error => {
+                         // Handle any errors that occur during the AJAX request
+                         aler(error);
+                         this.verifying = false;
+                      
+                        });
+                    }, 
+										
+									}
+								}
+								function getCookie(name) {
+									var cookieValue = null;
+									if (document.cookie && document.cookie !== '') {
+										var cookies = document.cookie.split(';');
+										for (var i = 0; i < cookies.length; i++) {
+											var cookie = cookies[i].trim();
+											// Does this cookie string begin with the name we want?
+											if (cookie.substring(0, name.length + 1) === (name + '=')) {
+												cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+												break;
+											}
+										}
+									}
+									return cookieValue;
+								}
+							</script>
+              <script>
+                function verifyPassword() {
+                 
+                }
+              </script>
+            </div>
+          </div> 
+  </main>			
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

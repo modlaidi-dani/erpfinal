@@ -1,0 +1,1094 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="vente" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_ventes.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<body class="antialiased sans-serif">
+		<div class="h-2"></div> 
+		<div 
+		  class="container mx-auto py-6 px-4"
+		  x-data="invoices()"
+		  x-init="initData()"
+		  x-cloak
+		  >
+		  <div class="flex justify-between">
+			 <h2 class="text-2xl font-bold mb-6 pb-2 tracking-wider uppercase">Préparation de Stock</h2>
+			  {% comment %} <p x-text="'Time on page: ' + elapsedTime + ' seconds'"></p> {% endcomment %}
+			 {% comment %} <div>
+				 <div class="relative mr-4 inline-block">
+					 <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
+						 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							 <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+							 <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+							 <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+							 <rect x="7" y="13" width="10" height="8" rx="2" />
+						 </svg>				  
+					 </div>
+					 <div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+						 Print this invoice!
+					 </div>
+					 <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoiceBonl()">
+						 <svg id='Transaction_List_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                            <g transform="matrix(0.43 0 0 0.43 12 12)" >
+                            <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-24.92, -25)" d="M 2.71875 8 C 2.167969 8.078125 1.78125 8.589844 1.859375 9.140625 C 1.9375 9.691406 2.449219 10.078125 3 10 L 7 10 C 7.359375 10.003906 7.695313 9.816406 7.878906 9.503906 C 8.058594 9.191406 8.058594 8.808594 7.878906 8.496094 C 7.695313 8.183594 7.359375 7.996094 7 8 L 3 8 C 2.96875 8 2.9375 8 2.90625 8 C 2.875 8 2.84375 8 2.8125 8 C 2.78125 8 2.75 8 2.71875 8 Z M 11.71875 8 C 11.167969 8.078125 10.78125 8.589844 10.859375 9.140625 C 10.9375 9.691406 11.449219 10.078125 12 10 L 36 10 C 36.359375 10.003906 36.695313 9.816406 36.878906 9.503906 C 37.058594 9.191406 37.058594 8.808594 36.878906 8.496094 C 36.695313 8.183594 36.359375 7.996094 36 8 L 12 8 C 11.96875 8 11.9375 8 11.90625 8 C 11.875 8 11.84375 8 11.8125 8 C 11.78125 8 11.75 8 11.71875 8 Z M 41 8 C 40.449219 8 40 8.449219 40 9 C 40 9.550781 40.449219 10 41 10 C 41.550781 10 42 9.550781 42 9 C 42 8.449219 41.550781 8 41 8 Z M 44 8 C 43.449219 8 43 8.449219 43 9 C 43 9.550781 43.449219 10 44 10 C 44.550781 10 45 9.550781 45 9 C 45 8.449219 44.550781 8 44 8 Z M 47 8 C 46.449219 8 46 8.449219 46 9 C 46 9.550781 46.449219 10 47 10 C 47.550781 10 48 9.550781 48 9 C 48 8.449219 47.550781 8 47 8 Z M 2.71875 16 C 2.167969 16.078125 1.78125 16.589844 1.859375 17.140625 C 1.9375 17.691406 2.449219 18.078125 3 18 L 7 18 C 7.359375 18.003906 7.695313 17.816406 7.878906 17.503906 C 8.058594 17.191406 8.058594 16.808594 7.878906 16.496094 C 7.695313 16.183594 7.359375 15.996094 7 16 L 3 16 C 2.96875 16 2.9375 16 2.90625 16 C 2.875 16 2.84375 16 2.8125 16 C 2.78125 16 2.75 16 2.71875 16 Z M 11.71875 16 C 11.167969 16.078125 10.78125 16.589844 10.859375 17.140625 C 10.9375 17.691406 11.449219 18.078125 12 18 L 36 18 C 36.359375 18.003906 36.695313 17.816406 36.878906 17.503906 C 37.058594 17.191406 37.058594 16.808594 36.878906 16.496094 C 36.695313 16.183594 36.359375 15.996094 36 16 L 12 16 C 11.96875 16 11.9375 16 11.90625 16 C 11.875 16 11.84375 16 11.8125 16 C 11.78125 16 11.75 16 11.71875 16 Z M 44 16 C 43.449219 16 43 16.449219 43 17 C 43 17.550781 43.449219 18 44 18 C 44.550781 18 45 17.550781 45 17 C 45 16.449219 44.550781 16 44 16 Z M 47 16 C 46.449219 16 46 16.449219 46 17 C 46 17.550781 46.449219 18 47 18 C 47.550781 18 48 17.550781 48 17 C 48 16.449219 47.550781 16 47 16 Z M 2.71875 24 C 2.167969 24.078125 1.78125 24.589844 1.859375 25.140625 C 1.9375 25.691406 2.449219 26.078125 3 26 L 7 26 C 7.359375 26.003906 7.695313 25.816406 7.878906 25.503906 C 8.058594 25.191406 8.058594 24.808594 7.878906 24.496094 C 7.695313 24.183594 7.359375 23.996094 7 24 L 3 24 C 2.96875 24 2.9375 24 2.90625 24 C 2.875 24 2.84375 24 2.8125 24 C 2.78125 24 2.75 24 2.71875 24 Z M 11.71875 24 C 11.167969 24.078125 10.78125 24.589844 10.859375 25.140625 C 10.9375 25.691406 11.449219 26.078125 12 26 L 36 26 C 36.359375 26.003906 36.695313 25.816406 36.878906 25.503906 C 37.058594 25.191406 37.058594 24.808594 36.878906 24.496094 C 36.695313 24.183594 36.359375 23.996094 36 24 L 12 24 C 11.96875 24 11.9375 24 11.90625 24 C 11.875 24 11.84375 24 11.8125 24 C 11.78125 24 11.75 24 11.71875 24 Z M 44 24 C 43.449219 24 43 24.449219 43 25 C 43 25.550781 43.449219 26 44 26 C 44.550781 26 45 25.550781 45 25 C 45 24.449219 44.550781 24 44 24 Z M 47 24 C 46.449219 24 46 24.449219 46 25 C 46 25.550781 46.449219 26 47 26 C 47.550781 26 48 25.550781 48 25 C 48 24.449219 47.550781 24 47 24 Z M 2.71875 32 C 2.167969 32.078125 1.78125 32.589844 1.859375 33.140625 C 1.9375 33.691406 2.449219 34.078125 3 34 L 7 34 C 7.359375 34.003906 7.695313 33.816406 7.878906 33.503906 C 8.058594 33.191406 8.058594 32.808594 7.878906 32.496094 C 7.695313 32.183594 7.359375 31.996094 7 32 L 3 32 C 2.96875 32 2.9375 32 2.90625 32 C 2.875 32 2.84375 32 2.8125 32 C 2.78125 32 2.75 32 2.71875 32 Z M 11.71875 32 C 11.167969 32.078125 10.78125 32.589844 10.859375 33.140625 C 10.9375 33.691406 11.449219 34.078125 12 34 L 36 34 C 36.359375 34.003906 36.695313 33.816406 36.878906 33.503906 C 37.058594 33.191406 37.058594 32.808594 36.878906 32.496094 C 36.695313 32.183594 36.359375 31.996094 36 32 L 12 32 C 11.96875 32 11.9375 32 11.90625 32 C 11.875 32 11.84375 32 11.8125 32 C 11.78125 32 11.75 32 11.71875 32 Z M 41 32 C 40.449219 32 40 32.449219 40 33 C 40 33.550781 40.449219 34 41 34 C 41.550781 34 42 33.550781 42 33 C 42 32.449219 41.550781 32 41 32 Z M 44 32 C 43.449219 32 43 32.449219 43 33 C 43 33.550781 43.449219 34 44 34 C 44.550781 34 45 33.550781 45 33 C 45 32.449219 44.550781 32 44 32 Z M 47 32 C 46.449219 32 46 32.449219 46 33 C 46 33.550781 46.449219 34 47 34 C 47.550781 34 48 33.550781 48 33 C 48 32.449219 47.550781 32 47 32 Z M 2.71875 40 C 2.167969 40.078125 1.78125 40.589844 1.859375 41.140625 C 1.9375 41.691406 2.449219 42.078125 3 42 L 7 42 C 7.359375 42.003906 7.695313 41.816406 7.878906 41.503906 C 8.058594 41.191406 8.058594 40.808594 7.878906 40.496094 C 7.695313 40.183594 7.359375 39.996094 7 40 L 3 40 C 2.96875 40 2.9375 40 2.90625 40 C 2.875 40 2.84375 40 2.8125 40 C 2.78125 40 2.75 40 2.71875 40 Z M 11.71875 40 C 11.167969 40.078125 10.78125 40.589844 10.859375 41.140625 C 10.9375 41.691406 11.449219 42.078125 12 42 L 36 42 C 36.359375 42.003906 36.695313 41.816406 36.878906 41.503906 C 37.058594 41.191406 37.058594 40.808594 36.878906 40.496094 C 36.695313 40.183594 36.359375 39.996094 36 40 L 12 40 C 11.96875 40 11.9375 40 11.90625 40 C 11.875 40 11.84375 40 11.8125 40 C 11.78125 40 11.75 40 11.71875 40 Z M 44 40 C 43.449219 40 43 40.449219 43 41 C 43 41.550781 43.449219 42 44 42 C 44.550781 42 45 41.550781 45 41 C 45 40.449219 44.550781 40 44 40 Z M 47 40 C 46.449219 40 46 40.449219 46 41 C 46 41.550781 46.449219 42 47 42 C 47.550781 42 48 41.550781 48 41 C 48 40.449219 47.550781 40 47 40 Z" stroke-linecap="round" />
+                            </g>
+                        </svg>			  
+					 </div>
+					 <div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+						 Print this invoice!
+					 </div>
+				 </div>
+			     <div class="relative inline-block">
+						<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip2 = true" @mouseleave="showTooltip2 = false" @click="openPreview=true">
+							<svg id='eye_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+									<g transform="matrix(1 0 0 1 12 12)" >
+									<g style="" >
+									<g transform="matrix(1 0 0 1 0 0)" >
+									<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+									</g>
+									<g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+									<circle style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2" />
+									</g>
+									<g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+									<path style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 22 12 C 19.333 16.667 16 19 12 19 C 8 19 4.667 16.667 2 12 C 4.667 7.333 8 5 12 5 C 16 5 19.333 7.333 22 12" stroke-linecap="round" />
+									</g>
+									</g>
+									</g>
+							</svg>		  
+						</div>
+						<div x-show.transition="showTooltip2" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+							Preview
+						</div>
+				 </div>
+			 </div> {% endcomment %}
+		  </div>
+ 
+		  {% comment %} <div class="flex mb-8 justify-between">
+			 <div class="w-2/4">
+				  <div class="mb-2 md:mb-1 md:flex items-center">
+					  <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Numéro de Bon</label>
+					  <span class="mr-4 inline-block  md:block">:</span>
+					  <div class="flex-1">
+						 <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text"  x-model="invoiceNumber">
+					  </div>
+				  </div>
+ 
+				  <div class="mb-2 md:mb-1 md:flex items-center">
+					  <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Date de Bon</label>
+					  <span class="mr-4 inline-block  md:block">:</span>
+					  <div class="flex-1">
+					   <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700 " type="date" x-model="invoiceDate" {% if request.session.role != 'manager' %}disabled{% endif %}>
+					  </div>
+				  </div>
+ 
+			 
+			   <div class="mb-2 md:mb-1 md:flex items-center">
+					 <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Bon Livraison Associé </label>
+					 <span class="mr-4 hidden md:block">:</span>
+					 <div class="flex-1">
+		 				<input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700"type="text"  x-model="AssociatedBL" disabled >
+					 </div>
+				 </div> 
+			 </div>				
+		  </div> {% endcomment %}
+ 
+		  <div x-data="{ tab: 3 }" x-cloak class="antialiased ">
+			 <div class="relative flex flex-col rounded-lg shadow-xs overflow-hidden">         
+				 <div class="flex space-x-8 bg-white border-b border-gray-200 ">
+					 {% comment %} <button
+						 type="button"
+						 class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+						 x-on:click="tab = 1"
+						 :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 1 }"
+					 >
+						 Informations Client
+					 </button> {% endcomment %}
+					 <button
+						 type="button"
+						 class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+						 x-on:click="tab = 3"
+						 :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 3 }"
+					 >
+					 Produits du Bon
+					 </button>
+				 </div>     
+				 <div class="">
+					 <div x-show="tab === 1">
+					 </div>     					 
+					 <div class="w-full" x-show="tab === 3"> 
+						<table class="w-full mt-4">
+							<thead class="border-b  bg-gray-100  border-t  py-4">
+									<tr>
+											<th class="text-gray-800  py-4 uppercase tracking-wide text-sm font-bold text-center">Référence</th>
+											<th class="text-gray-800  py-4 uppercase tracking-wide text-sm font-bold text-center">Désignation</th>
+											<th class="text-gray-800  py-4 uppercase tracking-wide text-sm font-bold text-center">Quantité</th>
+											<th class="text-gray-800  py-4 uppercase tracking-wide text-sm font-bold text-center">Numéro Série</th>
+											<th></th> <!-- Empty cell for actions -->
+									</tr>
+							</thead>
+							<tbody>
+								<template x-for="invoice in items" :key="invoice.id">
+											<tr class="border-b">
+													<td class="text-gray-800 text-center" x-text="invoice.ref"></td>
+													<td class="text-gray-800 text-center" x-text="invoice.name"></td>
+													<td class="text-gray-800 text-center" x-text="invoice.qty"></td>
+												
+													<td class="text-center">
+															<template x-for="ns in invoice.numSeries">
+																	<p class="text-gray-800" x-text="ns"></p>  
+															</template>
+															<template x-show="!invoice.numSeries.length ">
+																	<p>pas de numéro de séries</p>
+															</template>
+													</td>
+													<td class="text-center flex items-center">
+														<a href="#" class="text-green-950 text-sm font-semibold" @click.prevent="editItem(invoice)">{% heroicon_mini "pencil-square" class="transition-transform" %}</a>
+														<input type="checkbox" x-model="invoice.selected" class="mr-2" />
+													</td>
+											</tr>
+								</template>
+
+							</tbody>
+					  </table>
+					  <div class="flex justify-between ">
+							   <div></div>
+							   <button @click.prevent="deleteSelectedItems" class="text-red-500 hover:text-red-700 px-4 py-2 rounded-md" x-show="items.length > 0">
+								   {% heroicon_mini "trash" %}
+							   </button>
+					   </div>
+					  {% comment %} <button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" x-on:click="showModal">
+						 Add Invoice Items
+					  </button> {% endcomment %}
+					 </div>
+				 </div>
+			 </div>
+		  </div> 
+
+		  <div class="py-2 border-t border-b">					
+			<div class="flex justify-between">
+				<div></div>
+				<button class=" bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" type="submit" x-on:click="validateBon">Enregistrer NumeroSeries</button>
+			</div>
+		</div>
+
+			
+		  <div style=" background-color: rgba(0, 0, 0, 0.8)" class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full py-8" x-show.transition.opacity="openPreview">	
+				<div class="shadow absolute -right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+						x-on:click="openPreview = !openPreview">
+						<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path
+								d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+						</svg>
+				</div>
+			    <div class="p-4 w-1/3 mx-auto relative left-0 right-0 overflow-hidden  bg-white h-full "  x-on:click.away="openPreview = !openPreview">
+				 <div class="h-full">
+						<div class="py-4 border-b border-stone-500">
+				
+			 </div>
+			 <h2 class="text-3xl font-bold mb-6 mt-2 pb-2 tracking-wider uppercase text-center border-b border-stone-500">Bon de Garantie</h2>
+			 <div class="flex justify-between space-x-3 mb-10 ">
+				 <div class="w-1/2 border border-black">
+					 <div class="px-4 py-3 ">		
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">N° Bon.</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceNumber"></div>
+					 </div>				
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date Bon</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceDate"></div>
+					 </div>
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Bon de livraison: </label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="AssociatedBL"></div>
+					 </div>							
+				 </div>
+				 </div>
+				 <div class="w-1/2 border border-black">										
+					  <div class="px-4 py-3">
+						 <div class="mb-1 flex items-center">
+							 <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Client </label>
+							 <span class="mr-4 inline-block">:</span>
+							 <div x-text="billing.name"></div>
+						 </div>
+						 <div class="mb-1 flex items-center">
+							 <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+							 <span class="mr-4 inline-block">:</span>
+							 <div x-text="billing.address"></div>
+						 </div>
+						 
+						 
+					  </div>
+				 </div>
+			 </div>
+ 
+			<table class="w-full border-collapse border border-black">
+				<thead>
+					<tr class="bg-gray-100">
+						<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+						<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+						<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Numéros de Série</th>
+					</tr>
+				</thead>
+				<tbody>
+					<template x-for="invoice in items" :key="invoice.id">
+					<tr class="border border-black">
+						<td class="border border-black px-1 text-left py-2 text-black text-xs" x-text="invoice.ref"></td>
+						<td class="border border-black px-1 text-left py-2 text-black text-xs" x-text="invoice.name"></td>
+						<td class="border border-black px-1 py-2 text-black text-xs text-left" >
+								<template x-for="ns in invoice.numSeries">
+										<p class="text-gray-800" x-text="ns"></p>  
+								</template>
+						</td>
+					</tr>
+					</template>
+				</tbody>
+			</table>
+
+ 
+				<div class=" flex justify-between mt-12 mr-0">
+				<div></div>
+				<div class="font-bold">
+					Cachet et Signature
+				</div>
+				</div>
+							</div>
+			  </div>				
+		   </div>	
+
+
+
+		 
+		  <!-- Print Template -->
+		  <div id="js-print-template" x-ref="printTemplate" class="hidden">
+			 <div class="py-4 border-b border-stone-500">
+			
+			 </div>
+			 <h2 class="text-3xl font-bold mb-6 mt-2 pb-2 tracking-wider uppercase text-center border-b border-stone-500">Bon de Garantie</h2>
+			 <div class="flex justify-between space-x-3 mb-2 ">
+				 <div class="w-1/2 border border-black">
+					 <div class="px-4 py-3 ">		
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">N° Bon.</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceNumber"></div>
+					 </div>				
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date Bon</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceDate"></div>
+					 </div>
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Bon de livraison: </label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="AssociatedBL"></div>
+					 </div>							
+				 </div>
+				 </div>
+				 <div class="w-1/2 border border-black">										
+					  <div class="px-4 py-3">
+						 <div class="mb-1 flex items-center">
+							 <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Client </label>
+							 <span class="mr-4 inline-block">:</span>
+							 <div x-text="billing.name"></div>
+						 </div>
+						 <div class="mb-1 flex items-center">
+							 <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+							 <span class="mr-4 inline-block">:</span>
+							 <div x-text="billing.address"></div>
+						 </div>
+						 
+						 
+					  </div>
+				 </div>
+			 </div>
+ 
+			<table class="w-full border-collapse border border-black">
+				<thead>
+					<tr class="bg-gray-100">
+						<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+						<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+						<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+						<th class="border border-black px-1 py-2 text-left text-black uppercase tracking-wide text-sm font-bold">Numéros de Série</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<template x-for="invoice in items" :key="invoice.id">
+					<tr class="border border-black">
+						<td class="border border-black px-1 text-left py-2 text-black text-xs" x-text="invoice.ref"></td>
+						<td class="border border-black px-1 text-left py-2 text-black text-xs" x-text="invoice.name"></td>
+						<td class="border border-black px-1 text-left py-2 text-black text-xs" x-text="invoice.qty"></td>
+
+						<td class="border border-black px-1 py-2 text-black text-xs text-left" >
+													<template x-for="ns in invoice.numSeries">
+														<p class="text-gray-800" x-text="ns"></p>  
+												</template>
+												</td>
+					</tr>
+					</template>
+				</tbody>
+			</table>
+
+			
+				<div class=" flex justify-between mt-12 mr-0">
+				<div></div>
+				<div class="font-bold">
+					Cachet et Signature
+				</div>
+				</div>
+		  </div>
+
+		  		<!-- /Print Template -->
+		   		<div id="js-print-template" x-ref="printTemplateBL" class="hidden">
+					<div class="py-4 border-b border-stone-500">
+									<img src="{% static 'media/divatech-logo.png' %}" alt="">
+					</div>
+		  			<h2 class="text-3xl text-center font-bold border-b mb-6 pb-2 tracking-wider uppercase">Facture</h2>
+					<div class="flex justify-between space-x-3 mb-2">
+						<div class="w-1/2 border border-black">
+							<div class="px-4 py-3 ">		
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Numéro de Bon</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="factureid"></div>
+							</div>				
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Bon</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="date"></div>
+							</div>
+						</div>
+						</div>
+						<div class="w-1/2 border border-black">
+							<div class="px-4 py-3 ">
+								<div class="mb-1 flex items-center">
+									<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide"> Client </label>
+									<span class="mr-4 inline-block">:</span>
+									<div x-text="billing.name"></div>
+								</div>
+								<div class="flex items-center">
+									<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+									<span class="mr-4 inline-block">:</span>
+									<div x-text="billing.address"></div>
+								</div>
+								<div class="flex items-center">
+									<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">N°= téléphone </label>
+									<span class="mr-4 inline-block">:</span>
+									<div x-text="billing.phone"></div>
+								</div>
+								{% if bill.client.categorie_client.type_desc|lower != 'client final' %}
+										<div class="flex items-center">
+											<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">N°= Rg:</label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="billing.num_registre"></div>
+										</div>
+										<div class="flex items-center">
+											<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">NIF </label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="billing.nif"></div>
+										</div>
+										<div class="flex items-center">
+											<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">N°= AI </label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="billing.nai"></div>
+										</div>
+										<div class="flex items-center">
+											<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">NIS </label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="billing.nis"></div>
+										</div>	
+								{% else %}
+										<div class="mb-1 flex items-center">
+											<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Note </label>
+											<span class="mr-4 inline-block">:</span>
+											<div > Client Final</div>
+										</div>	
+								{% endif %}				
+							</div>
+						</div>
+					</div>
+					<table class="w-full border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+								<th class="border border-black px-1 py-2 text-black uppercase print-td tracking-wide text-sm font-bold">Designation</th>
+								<th class="border border-black px-1 py-2 w-32 text-center text-black uppercase tracking-wide text-sm font-bold">PVU HT</th>								
+								<th class="border border-black px-1 py-2 w-32 text-center text-black uppercase tracking-wide text-sm font-bold">Quantité</th>								
+								<th class="border border-black px-1 py-2 w-32 text-center text-black uppercase tracking-wide text-sm font-bold">Total HT</th>								
+							</tr>
+						</thead>
+						<tbody>
+							<template x-for="invoice in items" >
+								<tr class="border border-black">
+									<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
+									<td class="border border-black px-1 py-2 text-black print-td text-xs" x-text="invoice.name"></td>
+									<td class="border border-black px-1 py-2 text-black text-center text-xs" x-text="invoice.rate"></td>
+									<td class="border border-black px-1 py-2 w-32 text-center text-black text-xs" x-text="invoice.qty"></td>
+									<td class="border border-black px-1 py-2 w-32 text-center text-black text-xs" x-text="invoice.total"></td>
+								</tr>
+							</template>
+						</tbody>
+					</table>
+					<div class="w-full flex mt-1  space-x-3 ">
+						<table class="w-1/3 table-auto  border-collapse border border-black">
+							<thead>
+								<tr class="bg-gray-100">
+									<th class="border border-gray-700 px-4 ">TVA</th>
+									<th class="border border-gray-700 px-4 ">Total TVA</th>                     
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Sample data rows -->
+								<tr class="border border-gray-700">
+									{% if request.session.store == "1"  %}
+										<td class="border border-gray-700 px-4 "> 19 %</td>
+									{% else %}
+										<td class="border border-gray-700 px-4 "> 0 %</td>
+									{% endif %}
+									<td class="border border-gray-700 px-4 "x-text="totalGSTLiv"></td> 
+								</tr>
+								<!-- Add more rows as needed -->
+							</tbody>
+						</table>
+						<table class="w-2/3 h-fit table-auto border-collapse border border-black">
+							<thead>
+								<tr class="bg-gray-100">
+									<!--<th class="border border-gray-700 px-4 ">Total HT</th>-->
+									<th class="border border-gray-700 px-4 ">Total HT </th>
+									<th class="border border-gray-700 px-4 ">Total Remise</th>
+									<th class="border border-gray-700 px-4 ">Sous Total TTC </th>
+                                    <th class="border border-gray-700 px-4 ">Net à Payer</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Sample data rows -->
+								<tr class="border border-gray-700">
+									<!--<td class="border border-gray-700 px-4" x-text="frais"></td>-->
+									<td class="border border-gray-700 px-4" x-text="totalHt"></td>
+									<td class="border border-gray-700 px-4" x-text="remise"></td>
+									<td class="border border-gray-700 px-4" x-text="totalttc"></td>
+                                    <td class="border border-gray-700 px-4" x-text="nettotal" ></td>
+								
+								</tr>
+								<tr>
+									<td class="border border-gray-700 px-4 py-2" colspan="5">
+										<div class="flex space-x-1 items-center">
+										<p class="text-center">
+											Condition de règlement : <p  class="font-bold uppercase" > VIREMENT BANCAIRE </p>
+										</p>
+							
+										</div>
+									</td>
+								</tr>
+								<!-- Add more rows as needed -->
+							</tbody>
+						</table>
+					</div>
+					<div class=" flex justify-between mt-2 mr-0">
+						<div></div>
+						<div class="font-bold">
+						Cachet et Signature
+						</div>
+					</div>
+			    </div>
+			    <!-- /Print Template -->
+ 
+		  		<!-- /Print Template -->
+		   		<div id="js-print-template" x-ref="printTemplateBonL" class="hidden">
+					
+		  			<h2 class="text-3xl text-center font-bold border-b mb-6 pb-2 tracking-wider uppercase">Bon Livraison</h2>
+					<div class="flex justify-between space-x-3 mb-2">
+						<div class="w-1/2 border border-black">
+							<div class="px-4 py-3 ">		
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Numéro de Bon</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="AssociatedBL"></div>
+							</div>				
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Bon</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="date"></div>
+							</div>
+						</div>
+						</div>
+						<div class="w-1/2 border border-black">
+							<div class="px-4 py-3 ">
+								<div class="mb-1 flex items-center">
+									<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide"> Client </label>
+									<span class="mr-4 inline-block">:</span>
+									<div x-text="billing.name"></div>
+								</div>
+								<div class="flex items-center">
+									<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+									<span class="mr-4 inline-block">:</span>
+									<div x-text="billing.address"></div>
+								</div>
+								<div class="flex items-center">
+									<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">N°= téléphone </label>
+									<span class="mr-4 inline-block">:</span>
+									<div x-text="billing.phone"></div>
+								</div>
+								{% if bill.client.categorie_client.type_desc|lower != 'client final' %}
+										<div class="flex items-center">
+											<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">N°= Rg:</label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="billing.num_registre"></div>
+										</div>
+										<div class="flex items-center">
+											<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">NIF </label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="billing.nif"></div>
+										</div>
+										<div class="flex items-center">
+											<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">N°= AI </label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="billing.nai"></div>
+										</div>
+										<div class="flex items-center">
+											<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">NIS </label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="billing.nis"></div>
+										</div>	
+								{% else %}
+										<div class="mb-1 flex items-center">
+											<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Note </label>
+											<span class="mr-4 inline-block">:</span>
+											<div > Client Final</div>
+										</div>	
+								{% endif %}				
+							</div>
+						</div>
+					</div>
+					<table class="w-full border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+								<th class="border border-black px-1 py-2 text-black uppercase print-td tracking-wide text-sm font-bold">Designation</th>
+								<th class="border border-black px-1 py-2 w-32 text-center text-black uppercase tracking-wide text-sm font-bold">PVU HT</th>								
+								<th class="border border-black px-1 py-2 w-32 text-center text-black uppercase tracking-wide text-sm font-bold">Quantité</th>								
+								<th class="border border-black px-1 py-2 w-32 text-center text-black uppercase tracking-wide text-sm font-bold">Total HT</th>								
+							</tr>
+						</thead>
+						<tbody>
+							<template x-for="invoice in items" >
+								<tr class="border border-black">
+									<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
+									<td class="border border-black px-1 py-2 text-black print-td  text-xs" x-text="invoice.name"></td>
+									<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.rate"></td>
+									<td class="border border-black px-1 py-2 w-32 text-center text-black text-xs" x-text="invoice.qty"></td>
+									<td class="border border-black px-1 py-2 w-32 text-center text-black text-xs" x-text="invoice.total"></td>
+								</tr>
+							</template>
+						</tbody>
+					</table>
+					<div class="w-full flex mt-2  space-x-3 ">
+						<table class="w-1/3 table-auto  border-collapse border border-black">
+							<thead>
+								<tr class="bg-gray-100">
+									<th class="border border-gray-700 px-4 ">TVA</th>
+									<th class="border border-gray-700 px-4 ">Total TVA</th>                     
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Sample data rows -->
+								<tr class="border border-gray-700">
+									{% if request.session.store == "1"  %}
+										<td class="border border-gray-700 px-4 "> 19 %</td>
+									{% else %}
+										<td class="border border-gray-700 px-4 "> 0 %</td>
+									{% endif %}
+									<td class="border border-gray-700 px-4 "x-text="totalGSTLiv"></td> 
+								</tr>
+								<!-- Add more rows as needed -->
+							</tbody>
+						</table>
+						<table class="w-2/3 h-fit table-auto border-collapse border border-black">
+							<thead>
+								<tr class="bg-gray-100">
+									<!--<th class="border border-gray-700 px-4 ">Total HT</th>-->
+									<th class="border border-gray-700 px-4 ">Total HT </th>
+									<th class="border border-gray-700 px-4 ">Total Remise</th>
+									<th class="border border-gray-700 px-4 ">Sous Total TTC </th>
+									<th class="border border-gray-700 px-4 ">Net à Payer</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Sample data rows -->
+								<tr class="border border-gray-700">
+									<td class="border border-gray-700 px-4" x-text="totalHt"></td>
+									<td class="border border-gray-700 px-4" x-text="remise"></td>
+									<td class="border border-gray-700 px-4" x-text="totalttc"></td>
+									<td class="border border-gray-700 px-4" x-text="nettotal" ></td>
+								</tr>								
+							</tbody>
+						</table>
+					</div>
+					<div class=" flex justify-between mt-2 mr-0">
+						<div></div>
+						<div class="font-bold">
+						Cachet et Signature
+						</div>
+					</div>
+			    </div>
+			    <!-- /Print Template -->
+ 
+				<!-- Modal -->
+				<div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full" x-cloak x-show.transition.opacity="openModal">
+					<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-24">
+						<div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+							x-on:click="openModal = !openModal">
+							<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+								<path
+									d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+							</svg>
+						</div>
+						<form action="" id="myForm">
+							<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+							<h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter des produits au bon</h2>
+								<div class="mb-4">
+								<label class="block text-gray-700 font-semibold mb-2" for="product">
+									Product Name or Code:
+								</label>
+								<select
+								class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								id="product"
+								name="product"
+														x-model="item.ref"
+								x-on:change="
+								item.ref = $event.target.value;
+								item.name=$event.target.selectedOptions[0].dataset.name;
+								item.price = $event.target.selectedOptions[0].dataset.price;
+								item.quantity = $event.target.selectedOptions[0].dataset.quantity;
+								showQuantity = true;
+								document.getElementById('price').value = item.price;"
+								required  
+								disabled
+								>
+													{% for stock_item in stock %}
+													<option
+													value="{{ stock_item.product.reference }}"
+													data-quantity="{{ stock_item.quantity }}"
+													:selected="{{stock_item.product.name}} == item.name" 
+													>
+								<option value="{{ stock_item.product.reference }}" data-name ={{stock_item.product.name}} data-price="{{ stock_item.product.price }}" data-quantity="{{ stock_item.quantity }}">
+									{{ stock_item.product.name }} 
+								</option>
+							{% endfor %}
+								</select>
+								</div>
+							
+								<div class="mb-4">
+								<label class="block text-gray-700 font-semibold mb-2" for="quantity">
+									Quantity:
+									<div class="mb-4" id="productQuantityDiv" style="display: none;" x-show="showQuantity">
+									<label class="block text-primary font-medium text-sm mb-2">
+										Available Quantity: <span id="productQuantity"></span>
+									</label>
+									</div>
+								</label>
+								<input
+									class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+									type="number"
+									id="quantity"
+									name="quantity"
+									placeholder="Enter quantity"
+									required
+									x-model="item.qty"	
+									disabled
+								>
+								</div>
+				
+								<div class="mb-4">
+									<label class="block text-red-500 font-medium text-sm mb-2">
+										Numéro de Série Introduit : <span class="font-bold" x-text="tags.length"></span>
+									</label>
+									<div x-cloak>
+										<input
+												type="text"
+												x-model="newTag"
+												@keydown.enter.prevent="addTag()"
+												placeholder="Saisie numéro de série and press Enter"
+												class="border rounded px-2 py-1 w-full"
+										/>
+								</div>
+						
+								<div class="mt-2  px-1 overflow-y-auto h-32">
+								    <div class="">
+										<template x-for="(tag, index) in tags" :key="index">
+												<span class="bg-gray-700 text-white rounded-full px-2 py-1 mt-2 mr-2">
+														<span x-text="tag"></span>
+														<button @click.prevent="removeTag(index)" class="ml-1">×</button>
+												</span>
+										</template>
+								    </div>
+								</div>
+								</div>
+								<div class="mt-8 text-right">
+								<button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="openModal = !openModal">
+									Cancel
+								</button>	
+								<button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm"
+														@click="updateItem()">
+								<span >Valider</span>
+								</button>	
+								</div>
+							</div> 
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /Modal -->
+ 
+	 </div>
+	 
+	 <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script>		
+		 function invoices() {
+			  return {
+				 items: [],
+				 clients:[],
+				 stocks:[],
+				 tags:[],
+				 elapsedTime: 0,
+				 timer: null,
+				 
+				 stopTimer() {
+                        clearInterval(this.timer);
+                 },
+				 newTag:'',
+				 addTag() {
+				     if ( this.item.qty < this.tags.length + 1){
+    					     alert('Veuillez introduire des Numéros de Séries Egal à la quantité !');
+    					     this.newTag = '';
+    					     return;
+    				 }  
+					 if (this.newTag.trim() === '') return;
+					 this.tags.push(this.newTag);
+					 this.newTag = '';
+			   	},
+				removeTag(index) {
+						this.tags.splice(index, 1);
+				},
+				 invoiceNumber: '{{code}}',
+				 invoiceDate: new Date().toISOString().slice(0, 10),
+				 invoiceDueDate: new Date().toISOString().slice(0, 10),
+				 AssociatedBL:'',	
+
+				 ModeReglement:'{{bill.mode_reglement.label}}',
+				 date:'',
+				 totalttc: (parseFloat("{{ bill.get_total_price}}") * 1.19).toFixed(0),
+				 totalHt :"{{bill.get_total_price}}",
+				 remise:"{{ bill.Remise }}",
+				 totalGSTLiv: (parseFloat("{{ bill.get_total_price}}") * 0.19).toFixed(0),
+				 nettotal: ((parseFloat("{{ bill.get_total_price}}") * 1.19) - parseFloat("{{ bill.Remise }}")).toFixed(0),			
+				 item: {
+					 id: '',
+					 name: '',
+					 ref:'',
+					 qty: 0,
+					 numSeries:[]							
+				 },
+
+				 billing: {
+					 name: '{{client_name}}',
+					 address: '{{client_address}}',
+					 num_registre:'{{bill.client.registreCommerce}}',
+					 nif: '{{bill.client.Nif}}',
+					 nai: '{{bill.client.num_article}}',
+					 nis: '{{bill.client.Nis}}',
+			   		 phone:'{{client_phone}}'
+				 },
+				 deleteSelectedItems() {
+					// Filter out the selected invoices and delete them
+					this.items = this.items.filter(invoice => !invoice.selected);
+				 },
+
+				 from: {
+					 name: '{{selected_store.name}}',
+					 address: '{{selected_store.location}}',
+					 user:'{{request.user.username}}',
+					 extra: ''
+				 },
+	
+				 showTooltip: false,
+				 showTooltip2: false,
+				 openModal: false,
+				 openPreview:false,
+			 	 showQuantity:false,
+	 		     remiseBool: false,
+	 			 showBanque :false,
+				 factureid:'',
+			 	 showModal(){
+			  	  document.getElementById('myForm').reset(); 
+			  	  this.showQuantity = false; 
+			  	  this.openModal =true;
+			 	 },
+
+				 initData() {
+					 itemsData={{ items|safe }}
+					 for (const itemData of itemsData) {								 
+						 const item = {
+							 id: this.generateUUID(),
+							 name: itemData.produit_name,
+							 ref: itemData.produit_ref,
+							 qty: itemData.produit_qty,
+							 rate: itemData.produit_unitPrice,
+							 total: itemData.prdouit_totalPrice,		
+							 numSeries:[],							
+						 };
+						 this.items.push(item);
+					 }
+					 
+					 var code = '{{idBon}}';
+
+					// Replace 'BL' with 'FA'
+					this.AssociatedBL = code;
+					this.date = new Date('{{bill.dateBon}}').toLocaleDateString('fr-FR')	
+					var code = '{{idBon}}';
+					// Replace 'BL' with 'FA'
+					this.factureid = code.replace('BL', 'FA');
+					this.startTimer()
+			     },
+				 startTimer() {
+					this.timer = setInterval(() => {
+						this.elapsedTime++;
+					}, 1000);
+				 },
+				 updateItem(){
+					 const index = this.items.findIndex((item) => item.id === this.item.id);
+					 if (index !== -1) {
+    					   
+					 // Update the numSeries property of the item at the found index
+						 this.items[index].numSeries = this.tags;
+					    console.log(this.items[index].numSeries);
+					 }
+					 // Close the modal after successful update
+					 this.tags=[];
+					 this.openModal = false;
+			     },
+   
+				 editItem(invoiceData) {
+					 // Set the 'item' data to the selected invoiceData	
+					 console.log(invoiceData)					
+						 this.item = {
+							 id: invoiceData.id,
+							 name: invoiceData.name,
+							 ref: invoiceData.ref,
+							 qty: invoiceData.qty,
+							 rate: invoiceData.rate,
+							 total: invoiceData.total,
+							 // Add other properties as needed
+						 };
+						 console.log(this.item)
+						 // Open the modal
+						 this.openModal = true;
+				 },
+
+			     getStock(entrepotStock){
+				  this.stocks=[]
+				  dataObj={
+				   nomEnt : entrepotStock,						 
+				  }
+				  console.log('fetching the stock  ...',dataObj);
+				  axios.post('fetchStock', dataObj, {
+					 headers: {
+					  'Content-Type': '',
+					  'X-CSRFToken': getCookie('csrftoken'),
+					 }
+				  })
+				  .then((response) => {
+					 console.log(response.data.stocks) 
+					 itemsData=response.data.stocks;
+					 for (const itemData of itemsData) {		
+						 console.log(itemData.entrepot)						 
+						 const item = {
+							 id: this.generateUUID(),
+							 name: itemData.product_name,
+							 ref: itemData.reference,
+							 ent:itemData.entrepot,
+							 qty: itemData.quantity,
+							 prix: itemData.price
+						 };
+						 console.log(item.ent)
+						 this.stocks.push(item);
+					 }						 
+				  })
+				  .catch((error) => {
+					 alert(error)
+			 
+				  });
+				 },
+						   
+			     addItem() {
+					 this.item.rate = document.getElementById('price').value;
+					 console.log(this.item.ent)
+					 this.items.push({
+						 id: this.generateUUID(),
+						 name: this.item.name,
+						 ref:this.item.ref,
+						 qty: this.item.qty,
+						 ent:this.item.ent,
+						 rate: this.item.rate,
+						 gst: this.calculateGST(19, this.item.rate),
+						 total: this.item.qty * this.item.rate
+					 })
+			   		console.log(this.item.rate)
+					 this.itemTotal();
+					 this.itemTotalGST();
+ 
+					 this.item.id = '';
+					 this.item.name = '';
+					 this.item.qty = 0;
+					 this.item.rate = 0;
+					 this.item.gst = 19;
+					 this.item.total = 0;
+			   		 document.getElementById('myForm').reset(); 
+			   	     this.showQuantity = false; 
+			         this.openModal=false;
+				 },
+ 
+				 deleteItem(uuid) {
+					 this.items = this.items.filter(item => uuid !== item.id);
+ 
+					 this.itemTotal();
+					 this.itemTotalGST();
+				 },
+
+				 generateUUID(){
+					 return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+						 var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+						 return v.toString(16);
+					 });
+				 },
+ 
+				 generateInvoiceNumber(minimum, maximum) {
+					 const randomNumber = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+					 this.invoiceNumber = 'FIG-'+ randomNumber;
+				 },
+ 
+		 
+				 printInvoice() {
+					 var printContents = this.$refs.printTemplate.innerHTML;
+					 var originalContents = document.body.innerHTML;
+					 document.body.innerHTML = printContents;
+					 window.print();
+					 this.printInvoiceBl();
+					 document.body.innerHTML = originalContents;
+					 this.items=[];
+				 },
+				 printInvoiceBl() {
+					 var printContents = this.$refs.printTemplateBL.innerHTML;
+					 var originalContents = document.body.innerHTML;
+					 document.body.innerHTML = printContents;
+					 window.print();
+					 this.printInvoiceBonl();
+					 document.body.innerHTML = originalContents;
+					 this.items=[];
+				 },
+				 printInvoiceBonl() {
+					 var printContents = this.$refs.printTemplateBonL.innerHTML;
+					 var originalContents = document.body.innerHTML;
+					 document.body.innerHTML = printContents;
+					 
+					 window.print();
+				  	 window.location.reload();
+					 document.body.innerHTML = originalContents;
+					 this.items=[];
+				 },
+
+				 validateBon(){
+					if ( this.AssociatedBL == ""){
+						alert("Veuillez Choisir Le Bon de Livraison Source!");
+						return;
+					}
+					if (this.items.some(product => product.numSeries.length === 0)) {
+                        if (!confirm("Voulez-vous continuer sans ajouter les numéros de série des produits?")) {
+                            // User clicked Cancel or closed the dialog, do nothing or handle accordingly
+                            return;
+                        }
+                    }
+					 this.stopTimer();
+					 const dataObj = {
+						 IdBon : this.invoiceNumber,
+						 dateBp:this.invoiceDate,
+						 clientInfo:this.billing,
+						 AssociatedBL : this.AssociatedBL,
+						 time:this.elapsedTime,
+						 produits:this.items
+				 	};
+					   // Send the data to Django using Axios
+			   		axios.post('', {
+				  		formData: dataObj
+				 	}, {
+					 headers: {
+						'Content-Type': '',
+						'X-CSRFToken': getCookie('csrftoken'),
+				 	}
+				  })
+				 .then((response) => {
+					 data= response.data
+				   // {# response.data.message #}�
+				  console.log('HNAA RANI -_-')
+				  console.log(data.error)
+				  if(data.error){
+					 alert(data.error);
+				  }else{
+					  alert("Numero Series Enregistré avec Succès");
+				  }		  
+				 })
+				 .catch((error) => {
+				  alert(error)
+				 });								
+			   },
+				 
+			 }
+		  } 
+		 function getCookie(name) {
+			   var cookieValue = null;
+			   if (document.cookie && document.cookie !== '') {
+				   var cookies = document.cookie.split(';');
+				   for (var i = 0; i < cookies.length; i++) {
+					 var cookie = cookies[i].trim();
+					 // Does this cookie string begin with the name we want?
+					 if (cookie.substring(0, name.length + 1) === (name + '=')) {
+						 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+						 break;
+					 }
+				 }
+			   }
+			  return cookieValue;
+		   }
+	</script>
+ </body>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

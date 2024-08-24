@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="stock" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_stock.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full px-2 h-full overflow-hidden" x-data="entrepots()">
+		<!-- Main content header -->
+		<div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >  
+			                                                                                                                                                  
+		  <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Inventaire Initiale</h1>          
+		</div>
+		<div class="-mb-2 py-2 flex flex-wrap  justify-between border-b">  
+		    <div class="py-2">
+				<input type="search" x-model="search" class="form-input rounded-md bg-gray-50 text-sm text-black  h-10 py-2 pl-4 border-transparent border-none outline-none focus:ring-0 focus:text-black transition-all duration-300 ease-in-out focus:w-72 w-60"
+					placeholder="Rechercher...">
+			</div> 
+			<div class="flex items-center ">  
+    			<a href="{% url 'Inventaire-initial' %}" class="inline-block px-4  text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+    	          Importer Inventaire Initial
+    	        </a> 
+    	    </div>
+		</div>
+							 <!-- Modal -->
+  <div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="isOpen">
+	<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-0 md:mt-12">
+	  <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+	   x-on:click="isOpen = false">
+		<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+		 <path
+			d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+		</svg>
+		</div>
+		<form action="" id="myForm">
+		<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+		<h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter une nouvelle famille de produit</h2>
+		<div class="form-input">			
+			<div class="mb-4">
+				<label class="block text-gray-700 font-semibold mb-2" for="categorieP">
+				Entrepot :
+				</label>
+				<select
+				class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+				id="categorieP"
+				x-model="entrepot"
+				name="categorieP"						
+				required  
+				>
+				<option value="null"> Aucune </option>  
+				{% for ent in entrepots %}           
+				<option value="{{ent.name}}">  {{ent.name}} </option>
+				{% endfor %}
+				
+				</select>
+			</div>
+			<div class="mb-4 ">
+				<label class="block text-gray-700 font-semibold mb-2" for="libFamille">
+				Référence
+				</label>
+				<input
+				class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				type="text"
+				id="libFamille"
+				x-model="reference"
+				name="libFamille"
+				placeholder="Référence Produit . . ."
+				>
+			</div> 
+			<div class="mb-4 ">
+				<label class="block text-gray-700 font-semibold mb-2" for="libFamille">
+				Quantité Initiale
+				</label>
+				<input
+					class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					type="text"
+					id="libFamille"
+					x-model="qty"
+					name="libFamille"
+					placeholder="Quantité Initiale Produit . . ."
+				>
+			</div> 
+	
+		</div>
+		<div class="mt-8 text-right">
+		<button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="isOpen = false">
+		Annuler
+		</button>	
+		<button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" x-on:click="confirmerSuppression()">
+	    Valider
+	  </button>	
+		</div>
+		</div> 
+		</form>
+		</div>
+		</div>
+<!-- /Modal -->
+  <script>
+  function entrepots() {
+	 return {
+		isOpen :false,
+		entrepot:'',
+		reference:'',
+		qty:'',
+		operation:'add',
+		showModal:false,
+		search:'',
+		liste_clotures:{{stocks | safe}},
+		get filteredProducts() {
+					return this.liste_clotures.filter((product) => {
+						const referenceMatch = product.reference.toLowerCase().includes(this.search.toLowerCase());
+						const nameMatch = product.name.toLowerCase().includes(this.search.toLowerCase());
+
+						// Parse the dates from the input fields
+
+						return (nameMatch || referenceMatch);
+					});
+				},
+				productMatches(search, productName, productReference) {
+					//  if (productName === null || productReference === null) {
+					//     return false;
+					//     }
+					
+					return (
+						productName.toLowerCase().includes(search.toLowerCase()) ||
+						productReference.toLowerCase().includes(search.toLowerCase())
+					);
+				},
+			confirmerSuppression() {
+					 console.log(this.fournisseurDelete)
+			          dataObj ={
+                            entrepot:this.entrepot,
+							reference:this.reference,
+							qty:this.qty,                    
+                      }
+      		      axios.post('/stock/editInvInitial/',dataObj, {
+                        headers: {
+                          'Content-Type': 'application/json',
+                          'X-CSRFToken': getCookie('csrftoken'),
+                        }
+                      })
+        		.then(response => {
+         			 // Check if the deletion was successful
+          			if (response.data.success) {            			
+            			showModal = false;
+						alert("Quantité Initiale Modifié!");
+						window.location.reload();
+         			 } else {
+            			alert("Une erreur a été Survenue!");
+         			 }
+        		})
+        		.catch(error => {
+          			// Handle request errors
+         			 alert(error);
+       			 });
+      				this.showModal = false;
+      				this.productReference = '';
+    		},
+			annulerSuppression() {
+      			// Réinitialiser les variables
+     			this.showModal = false;
+      			this.productReference = '';
+    		},
+			modifierFournisseur(){
+				var responsablesCheckboxes = document.querySelectorAll('#responsables:checked');
+	 			var checkedResponsables = [];
+
+				responsablesCheckboxes.forEach(function (checkbox) {
+      				checkedResponsables.push(checkbox.value);
+				});
+				console.log(checkedResponsables)
+
+			   // Send the data to Django using Axios
+			 dataObj={
+			    lib: document.getElementById('lib').value,
+  				adresse: document.getElementById('adresse').value,
+  				ville: document.getElementById('ville').value,
+  				postal: document.getElementById('postal').value,
+  				phone: document.getElementById('phone').value,
+				id:this.fournisseurDelete,
+  				responsables: checkedResponsables, // Include the array of checked values
+			 }
+			 axios.post('modifierEntrepot/', dataObj, {
+			 headers: {
+			  'Content-Type': '',
+			  'X-CSRFToken': getCookie('csrftoken'),
+			 }
+			 })
+		 		.then((response) => {
+		     	data = response.data
+			    if( data.error){
+                  alert(data.error);
+              }else{
+                  alert("Fournisseur Modifié!");
+              }
+				window.location.reload()            
+		  	  })
+	   			.catch((error) => {
+		  			alert(error)
+		  			
+	   			});
+			   var form = document.getElementById('myForm');
+  				form.reset();
+			},
+   addBanque(){
+	 var responsablesCheckboxes = document.querySelectorAll('#responsables:checked');
+	 var checkedResponsables = [];
+
+	 responsablesCheckboxes.forEach(function (checkbox) {
+      checkedResponsables.push(checkbox.value);
+	});
+
+	var dataObj = {
+  		lib: document.getElementById('lib').value,
+  		adresse: document.getElementById('adresse').value,
+  		ville: document.getElementById('ville').value,
+  		postal: document.getElementById('postal').value,
+  		phone: document.getElementById('phone').value,
+  		responsables: checkedResponsables, // Include the array of checked values
+	};
+	 console.log('Adding The type...',dataObj);
+	 axios.post('', {
+	  formData: dataObj
+	 }, {
+	 headers: {
+	 'Content-Type': '',
+	 'X-CSRFToken': getCookie('csrftoken'),
+	 }
+	})
+   .then((response) => {
+	 data = response.data
+	 console.log(data.error)
+		   if(data.error){
+					  alert(data.error);
+			  }else{
+					  alert("Entrepôt Ajouté !");
+			  }		  
+	 window.location.reload()            
+   })
+   .catch((error) => {
+	 alert(error)      
+   });
+  },
+	 }
+  }
+  
+  function getCookie(name) {
+	var cookieValue = null;
+	if (document.cookie && document.cookie !== '') {
+	  var cookies = document.cookie.split(';');
+	  for (var i = 0; i < cookies.length; i++) {
+		var cookie = cookies[i].trim();
+		// Does this cookie string begin with the name we want?
+		if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		  break;
+		}
+	  }
+	}
+	return cookieValue;
+  }
+ </script>
+	   {% comment %}  end Logic to upload stock from file  {% endcomment %}        
+		<div class="flex flex-col mt-5">
+		  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+			<div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+			  <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+				<table class="min-w-full overflow-x-scroll divide-y divide-gray-200" >
+                    	<thead class="bg-gray-50">
+					<tr>               
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs text-center font-medium tracking-wider text-gray-500 uppercase"
+					  >
+						Reference Produit
+					  </th>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs text-center font-medium tracking-wider text-gray-500 uppercase"
+					  >
+						Designation Produit
+					  </th>
+					  
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+					  >
+						Entrepot
+					  </th>                     
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+					  >
+						Quantité Initiale
+					  </th>  
+					  <th></th>                    
+					</tr>
+				  </thead>
+                       <tbody>
+					   <template x-for="cloture in filteredProducts"  >                          
+                        <tr  class="transition-all hover:shadow-lg border" x-show="productMatches(search, cloture.reference, cloture.name) && cloture.utilisateur != 'ikram' " >
+                            {% comment %} <td class="px-4 py-2 text-sm font-medium text-center text-gray-600 " x-text="cloture.id"></td> {% endcomment %}
+                            <td class="px-4 py-2 text-sm font-medium text-center text-gray-600 " x-text="cloture.reference"></td>
+                            <td class="px-4 py-2 text-sm font-medium text-center text-gray-600 " x-text="cloture.name"></td>
+						    <td class="px-4 py-2 text-sm font-medium text-center text-gray-600 " x-text="cloture.entrepot"></td>
+						    <td class="px-4 py-2 text-sm font-medium text-center text-gray-600 " x-text="cloture.quantity_initial"></td>
+						   
+							<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap flex">
+								<a  @click="
+									isOpen=true;
+									reference = cloture.reference;
+									entrepot = cloture.entrepot;
+									qty = cloture.quantity_initial;
+									operation = 'update';
+								"class="text-gray-700">{% heroicon_mini "pencil-square" class="cursor-pointer transition-transform" %}</a>						
+							</td>
+                        </tr>
+                      </template> 
+                       </tbody>
+                  </table>
+			  </div>
+			</div>
+		  </div>
+		</div> 
+    </main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

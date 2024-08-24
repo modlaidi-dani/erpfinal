@@ -1,0 +1,417 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="reglements" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_reglements.html" %}
+  <div class="h-full w-full">
+    <main class="block w-full h-full px-2 overflow-hidden" x-data="reglement()" x-init="formatDate()">
+       <div class="flex flex-col items-start  pt-4  space-x-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                           
+          <h1 class="text-2xl font-semibold whitespace-nowrap py-2">Introduire un nouveau règlement</h1> 
+          <div class="py-2">
+						<div class="relative mr-2 inline-block">
+							<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full py-1 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+									<path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+									<path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+									<rect x="7" y="13" width="10" height="8" rx="2" />
+								</svg>				  
+							</div>
+							<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+								Imprimer Fiche de règlement !
+							</div>
+						</div>
+				 		
+					</div>         
+       </div>
+        <div class="p-4 max-w-4xl relative left-0 right-0 overflow-hidden " >
+          <div>
+
+            <div class=" w-full  bg-white overflow-hidden block ">		
+              <div class="form-input">
+                <div class="mb-4 flex">
+                  <input type="text"  name="code" x-model="invoiceNumber" hidden>
+                  <label class=" w-1/4 text-gray-700 font-semibold mb-2 py-2" for="bon">
+                    Bon Livraison:
+                  </label>
+                  <select
+                  class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                  id="bon"
+                  name="bon"	
+                  x-model="bons"
+                  x-on:change="
+                    bl = $event.target.value
+                    client = $event.target.selectedOptions[0].dataset.client
+                    prixApayer = $event.target.selectedOptions[0].dataset.price
+                    showPrice =true
+                  "
+                  required  
+                  >
+                  <option value="" disabled selected> Bon de livraison </option>
+                  {% for bon in bons  %}
+                    <option value="{{bon.idBon}}" data-client="{{bon.client.id}}" data-price="{{bon.total_remaining_amount}}">  {{bon.idBon}} </option>
+                  {% endfor %}
+                  </select>
+                </div>
+                <div class="mb-4 flex">
+                  <label class="w-1/4 text-gray-700 font-semibold mb-2 py-2" for="client">
+                    Client :
+                  </label>
+                  <select
+                    class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                    id="client"
+                    name="client"		
+                    x-model = "client"		
+                    x-on:change=" client = $event.target.selectedOptions[0].dataset.client "		
+                    required  
+                    >
+                    <option value="" disabled selected> Client </option>
+                    {% for client in clients  %}
+                      <option value="{{client.client_id}}" data-client="{{bon.client.name}}"> {{client.client_name}} </option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="mb-4 flex">
+                  <label class="w-1/4 text-gray-700 font-semibold mb-2 py-2" for="typereg">
+                    Type de Réglement :
+                  </label>
+                  <select
+                  class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                  id="typereg"
+                  name="typereg"	
+                  x-model="typeReg"					
+                  required  
+                  >						
+                  <option value="paiement"> Type de Réglement </option>
+                  <option value="Paiement"> Paiement </option>
+                  <option value="Remboursement"> Remboursement </option>
+                  
+                  </select>
+                </div>
+                <div class="mb-4 flex">
+                  <label class="w-1/4 text-gray-700 font-semibold mb-2 py-2" for="datereg">
+                    Date :
+                  </label>
+                  <input
+                    class=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
+                    type="date"
+                    id="datereg"
+                    name="datereg"
+                    x-model="date"
+                    {% if request.session.role != "manager"%} disabled {% endif %}
+                    placeholder="Date Réglement . . ."
+                  >
+                </div>        
+                <div class="mb-4 flex">
+                  <label class="w-1/4 text-gray-700 font-semibold mb-2 py-2" for="modReg">
+                    Mode de Réglement:
+                  </label>
+                  <select
+                  class=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                  id="modReg"
+                  name="modReg"
+                  x-model="modeReglement"
+                  x-on:change="
+                    modeReglement = $event.target.selectedOptions[0].value; 
+                    modereglabel = $event.target.selectedOptions[0].dataset.label                 
+                    showBanque = $event.target.value == 2;
+                    console.log(showBanque)
+                  "
+                  required  
+                  >         
+                  <option value=""> Mode de réglement </option> 
+                  {% for mode in modeReg %}
+                  <option value="{{ mode.id }}" data-label="{{mode.label}}" >
+                    {{ mode.label }} 
+                  </option>
+                  {% endfor %}
+                  </select>
+                </div>
+                <div class="mb-4">
+                <div >
+                  <!-- Show this div when 'cheque' is selected -->
+                  <div class="mb-4 flex">
+                  <label class="w-1/4 text-gray-700 font-semibold mb-2 py-2" for="banque">
+                    Banque :
+                  </label>
+                  <select
+                    class=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                    id="banque"
+                    name="banque"		
+                    x-model="banque"												
+                     
+                    x-on:change ="banque = $event.target.selectedOptions[0].value;"
+                    >
+                    <option value="" disabled selected> Selectionnez  Banque</option>
+                    {% for banque in banques  %}
+                      <option value="{{banque.pk}}"> {{banque.nom}} </option>
+                    {% endfor %}
+                  </select>
+                  </div>
+                  <div class=" flex">
+                  <label for="chequeInput" class="w-1/4 text-gray-700 font-semibold mb-2 py-2"> Numéro de chèque: </label>
+                  <input
+                      type="text"
+                      id="chequeInput"
+                      name="chequeInput"
+                      x-model="numCheque"
+                      class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+                  >
+                  </div>
+
+                </div>
+                </div>
+                <div class="mb-4 flex">
+                  <label class=" w-1/4 text-gray-700 font-semibold mb-2 py-2" for="repr">
+                    Représentant :
+                  </label>
+                  <input
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    id="repr"
+                    name="repr"
+                    x-model="representant"
+                    placeholder="Représentant"
+                  >
+                </div>  
+                <div class="mb-4">
+                      
+                <div class="mb-4 flex">
+                  <label class=" w-1/4 text-gray-700 font-semibold mb-2 py-2" for="montant">
+                    Montant :
+                  </label>
+                  <input
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    id="montant"
+                    name="montant"
+                    x-model="montant"
+                    placeholder="00.00"
+                  >
+                </div>  
+                <div class="text-red-700 flex" x-show="showPrice">
+                  <label class=" w-1/5 text-gray-700 font-semibold mb-2 py-2" for="montant">
+                  </label>
+                  <div class="flex">
+                    Le montant à Payer : <p class="font-bold" x-text="prixApayer"></p>.
+                  </div>
+                </div>
+                </div>  
+                <div class="mb-4 flex">
+                  <label class="w-1/4 text-gray-700 font-semibold mb-2 py-2" for="comptes">
+                    Compte Entreprise :
+                  </label>
+                  <select
+                  class="cursor-pointer border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="comptes"
+                  name="comptes"
+                  x-model="compteEntreprise"
+                  x-on:change="                    
+                    compteEntreprise = $event.target.value
+                  "
+                  required  
+                  >
+                  <option value="" disabled selected>Compte Entreprise</option>
+                {% for compte in comptes %}
+                  <option value="{{ compte.id }}" >
+                    {{ compte.label }} 
+                  </option>
+                  {% endfor %}
+                </select>
+                </div>   
+                <div class="mb-4 flex">
+                  <label class="w-1/4 text-gray-700 font-semibold mb-2 py-2" for="libFamille">
+                    Note:
+                  </label>
+                  <textarea id="descFamille" name="descFamille" rows="4" cols="50"  class="appearance-none border rounded w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline">            
+                  </textarea>
+                </div> 
+              </div>
+              <div class="mt-8 text-right">
+              <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" >
+              Annuler
+              </button>	
+              <button class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" @click.prevent="validateBon">
+              Valider
+              </button>	
+              </div>
+            </div> 
+          </div>
+        </div>
+        <!-- Print Template -->
+				 <div id="js-print-template" x-ref="printTemplate" class="hidden">
+					{% comment %} <div class="py-4 border-b border-stone-500">
+						<img src="{% static 'media/divatech-logo.png' %}" alt="">
+					</div> {% endcomment %}
+			
+		
+					<h2 class="text-3xl text-center py-4 font-bold mb-6 pb-2 tracking-wider uppercase">Fiche de Règlement </h2>
+					<div class="flex justify-between space-x-3 mb-10">
+						<div class=" w-full border border-black">
+							<div class="px-4 py-3 ">		
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Référence du Règlement.</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="invoiceNumber"></div>
+							</div>				
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date du règlement</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="date"></div>
+							</div>
+							<div class="mb-1 flex items-center">
+								<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Client</label>
+								<span class="mr-4 inline-block">:</span>
+								<div x-text="client"></div>
+							</div>
+						</div>
+						</div>					
+					</div>
+		
+					    <table class="w-full border-collapse border border-black">
+            		<thead>
+                		<tr class="bg-gray-100 rounded-lg">
+                    		<th class=" px-1 py-2 border border-black text-black uppercase tracking-wide text-sm font-bold">Type règlement</th>
+                    		<th class=" px-1 py-2 border border-black text-black uppercase tracking-wide text-sm font-bold">Mode Paiement</th>
+                    		<th class=" px-1 py-2 border border-black  text-center text-black uppercase tracking-wide text-sm font-bold">Montant</th>
+                        </tr>
+            		</thead>
+            		<tbody>
+                  			<tr class="border border-black">
+                      			<td class="border border-black px-1 py-2 text-center text-black text-xs" x-text="typeReg"></td>
+                     		    <td class="border border-black px-1 py-2 text-center text-black text-xs" x-text="modereglabel"></td>
+                      			<td class="border border-black px-1 py-2 text-center text-black text-xs" x-text="montant"></td>
+                  			</tr>
+            		</tbody>
+           		</table>
+          		<div class=" flex justify-between mt-12 mr-0">              		
+              		<div >
+                		<p class="font-semibold"> Reçu Par : </p> 
+                    <p class="font-bold"> {{request.user.first_name }} {{request.user.last_name}}</p> 
+              		</div>
+                  <div></div>
+           		</div>
+		   
+				 </div>
+				 <!-- /Print Template -->
+    <script>
+      function reglement(){
+      return {
+        bl:'',
+        invoiceNumber:'{{reglement.codereglement}}',
+        client :'{{reglement.client.id}}',
+        typeReg :'{{reglement.type_reglement}}',
+        date :'',
+        formatDate(){
+            var date_reg = '{{reglement.dateReglement}}';
+            const dateObject = new Date(date_reg);
+            const year = dateObject.getFullYear();
+            const month = (dateObject.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+            const day = dateObject.getDate().toString().padStart(2, '0');
+            this.date= `${year}-${month}-${day}`;
+        },       
+        modeReglement :'{{reglement.mode_reglement.id}}',
+        modereglabel:'',
+        banque : '{{reglement.banque.id}}',
+        numCheque:'{{reglement.num_cheque}}',
+        representant:'{{reglement.representant}}',
+        montant:'{{reglement.montant}}',
+        compteEntreprise:'{{reglement.CompteEntreprise.id}}',
+        bons:'{{reglement.BonS.idBon}}',
+        id:'{{reglement.id}}',
+        extra:'',
+        prixApayer:'',
+        showPrice:false,
+        showBanque: false,
+  
+            showTooltip: false,
+						showTooltip2: false,
+            printInvoice() {
+							var printContents = this.$refs.printTemplate.innerHTML;
+							var originalContents = document.body.innerHTML;
+							document.body.innerHTML = printContents;
+							window.print();
+						    window.location.reload();
+				            console.log(originalContents)
+							document.body.innerHTML = originalContents;
+							this.items=[];
+						},
+            validateBon(){
+              const dataObj = {
+                id: this.id,
+                invoiceNumber:this.invoiceNumber,
+                client:this.client,
+                typeReg:this.typeReg,
+                date:this.date,
+                modeReglement:this.modeReglement,
+                montant:this.montant,
+                compteEntreprise:this.compteEntreprise,
+                bons:this.bons,
+              };
+              axios.post('', {
+              formData: dataObj
+              }, {
+                headers: {
+                'Content-Type': '',
+                'X-CSRFToken': getCookie('csrftoken'),
+                }
+                })
+                .then((response) => {
+                  data= response.data
+                  if(data.error){
+                  alert(data.error);
+                  }else{
+                    alert("Bon Modifié!");
+                  }		  
+                })
+                .catch((error) => {
+                  alert(error)
+                });
+					},
+        
+      }
+      }
+      function getCookie(name) {
+       var cookieValue = null;
+       if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+       }
+       return cookieValue;
+      }
+    </script>
+
+    </main>
+  </div>
+</div>
+</div>
+</div>
+
+                        
+
+{% endblock content %}

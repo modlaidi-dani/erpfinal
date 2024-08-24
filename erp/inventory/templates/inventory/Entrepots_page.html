@@ -1,0 +1,335 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="products" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_produits.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full h-full px-2 overflow-hidden overflow-y-scroll" x-data="repartition()">
+        <!-- Main content header -->
+        <div class="w-full h-screen py-8 ">
+          <div class=" ">
+             <div class="flex flex-col">
+              <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                 
+                <h1 class="text-2xl font-semibold whitespace-nowrap">Repartition des produits sur les entrepots</h1>          
+              </div>
+              
+         
+              <div class="-my-2 py-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                {% for ent  in entrepots  %}
+                <div class=" bg-gray-100  rounded-lg flex justify-between mt-2 px-4">
+                  <div>
+                    <h1 class="text-lg font-semibold whitespace-nowrap py-1 ">{{ ent.name}}</h1>
+                  </div>
+                  <div class="flex justify-between py-1">
+                    <span x-on:click="printExcelFile('{{ent.name}}')" class="cursor-pointer font-semibold whitespace-nowrap">
+                      <svg id='file-spreadsheet_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                          <g transform="matrix(1 0 0 1 12 12)" >
+                          <g style="" >
+                          <g transform="matrix(1 0 0 1 0 0)" >
+                          <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 4 -7)" >
+                          <path style="stroke: rgb(29,117,9); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-16.5, -5.5)" d="M 14 3 L 14 7 C 14 7.552284749830793 14.447715250169207 8 15 8 L 19 8" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 -0.5 -0.5)" >
+                          <path style="stroke: rgb(29,117,9); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 17 21 L 7 21 C 5.8954305003384135 21 5 20.104569499661586 5 19 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 14 3 L 19 8 L 19 19 C 19 20.104569499661586 18.104569499661586 21 17 21 z" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 -0.5 2)" >
+                          <path style="stroke: rgb(29,117,9); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -14.5)" d="M 8 11 L 16 11 L 16 18 L 8 18 z" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 -0.5 2.5)" >
+                          <path style="stroke: rgb(29,117,9); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -15)" d="M 8 15 L 16 15" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 -1.5 2)" >
+                          <path style="stroke: rgb(29,117,9); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-11, -14.5)" d="M 11 11 L 11 18" stroke-linecap="round" />
+                          </g>
+                          </g>
+                          </g>
+                      </svg>
+                    </span>
+                    <span x-on:click="printPDFFile('{{ent.name}}')" class="cursor-pointer font-semibold whitespace-nowrap">
+                      <svg id='file-type-pdf_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                          <g transform="matrix(1 0 0 1 12 12)" >
+                          <g style="" >
+                          <g transform="matrix(1 0 0 1 0 0)" >
+                          <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 4 -7)" >
+                          <path style="stroke: rgb(30,41,59); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-16.5, -5.5)" d="M 14 3 L 14 7 C 14 7.552284749830793 14.447715250169207 8 15 8 L 19 8" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 -0.5 -5)" >
+                          <path style="stroke: rgb(30,41,59); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -7.5)" d="M 5 12 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 14 3 L 19 8 L 19 12" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 -6 5.5)" >
+                          <path style="stroke: rgb(30,41,59); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-6.5, -18)" d="M 5 18 L 6.5 18 C 7.32842712474619 18 8 17.32842712474619 8 16.5 C 8 15.67157287525381 7.32842712474619 15 6.5 15 L 5 15 L 5 21" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 5.5 5.5)" >
+                          <path style="stroke: rgb(30,41,59); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-18, -18)" d="M 17 18 L 19 18" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 6 5.5)" >
+                          <path style="stroke: rgb(30,41,59); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-18.5, -18)" d="M 20 15 L 17 15 L 17 21" stroke-linecap="round" />
+                          </g>
+                          <g transform="matrix(1 0 0 1 0 5.5)" >
+                          <path style="stroke: rgb(30,41,59); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12.5, -18)" d="M 11 15 L 11 21 L 12 21 C 13.104569499661586 21 14 20.104569499661586 14 19 L 14 17 C 14 15.895430500338414 13.104569499661586 15 12 15 L 11 15 z" stroke-linecap="round" />
+                          </g>
+                          </g>
+                          </g>
+                      </svg>
+                    </span>
+                    <span @click="showTables[{{ ent.id }}] = !showTables[{{ ent.id }}]" class="cursor-pointer font-semibold whitespace-nowrap">
+                      <!-- Add your drop-down icon here with a dynamic path -->
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 transition-transform transform">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />                   
+                      </svg>
+                      
+                    </span>
+
+                  </div>
+                  
+                </div> 
+                 <div x-cloak x-show="showTables[{{ ent.id }}]" class="align-middle inline-block w-full shadow overflow-x-auto sm:rounded-lg border-b border-gray-200">
+                   <table class="min-w-full overflow-x-scroll divide-y divide-gray-200" id="ent-table">
+                     <thead class="bg-gray-50">
+                       <tr>
+                         {% comment %} <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                         >
+                          Référence Produit
+                        </th> {% endcomment %}
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Désignation
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Quantité - ENTREPOT -
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Prix Revient
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Montant
+                        </th>
+                        
+                     
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                      {% for  produit in ent.get_stocks %}
+                        <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                          {% comment %} <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">                            
+                              <div class="ml-4">
+                                <div class="text-sm font-medium text-gray-900">{{produit.product.reference}}</div>                                
+                              </div>
+                            </div>
+                          </td> {% endcomment %}
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm text-gray-900">{{produit.product.name}}</div>
+                           
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <span
+                              class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full"
+                            >
+                              {{produit.quantity}}
+                            </span>
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <span
+                              class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full"
+                            >
+                              {{produit.product.prix_achat}}
+                            </span>
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <span
+                              class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full"
+                            >
+                            {% widthratio produit.product.prix_achat 1 produit.quantity %}
+                       
+                            </span>
+                          </td>
+
+                          
+                        </tr>
+                     {% endfor %}
+                    </tbody>
+                   </table>
+                 </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.3/purify.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+
+		<script>
+  			/* setup */
+  			const { jsPDF } = window.jspdf;
+  
+
+		</script>
+      <script>
+        function repartition(){
+          return{
+            showTables: {},
+            stocks:[],
+            entrepot:'',
+            printExcelFile(entrepotStock){
+						   this.stocks=[]
+						   dataObj={
+							   nomEnt : entrepotStock,						 
+						   }
+						   console.log('fetching the stock  ...',dataObj);
+						   axios.post('fetchStock/', dataObj, {
+						   headers: {
+							   'Content-Type': '',
+							   'X-CSRFToken': getCookie('csrftoken'),
+						   }
+						  })
+						   .then((response) => {
+                console.log(response.data.stocks);
+								itemsData=response.data.stocks;
+								for (const itemData of itemsData) {								 
+									const item = {										
+										ref: itemData.reference,
+										name: itemData.product_name,
+										qty: itemData.quantity,
+										ent:itemData.entrepot,
+										prixrevient: itemData.prix_achat,
+                                        montant:itemData.quantity * itemData.prix_achat
+									};					
+									this.stocks.push(item);
+								}	
+								  const ws = XLSX.utils.json_to_sheet(this.stocks);
+    							const wb = XLSX.utils.book_new();
+    							XLSX.utils.book_append_sheet(wb, ws, 'Products');
+    							XLSX.writeFile(wb, `fichier_produits_en_${entrepotStock}.xlsx`);					 
+						})
+						.catch((error) => {
+							console.log(error);				
+						});
+					},
+          printPDFFile(entrepotStock) {
+            this.stocks = [];
+            dataObj = {
+                nomEnt: entrepotStock,
+            };
+            axios.post('fetchStock/', dataObj, {
+                headers: {
+                    'Content-Type': '',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                }
+            })
+            .then((response) => {
+                itemsData = response.data.stocks;
+                for (const itemData of itemsData) {
+                    const item = {
+                        ref: itemData.reference,
+                        name: itemData.product_name,
+                        qty: itemData.quantity,
+                        ent: itemData.entrepot,
+                    };
+                    this.stocks.push(item);
+                }
+        
+                const tableHeaders = ['Reference', 'Designation', 'Entrepot', 'Quantity'];
+                // Ensure that the data in each cell is defined or provide a default value (e.g., '-')
+                const tableData = this.stocks.map(item => [
+                    item.ref || '-',           // Check for empty 'ref'
+                    item.name || '-',          // Check for empty 'name'
+                    item.ent || '-',           // Check for empty 'ent'
+                    item.qty !== NaN ? item.qty : '-', // Check for empty 'qty' and handle undefined
+                    
+                ]);
+        
+                const docDefinition = {
+                    content: [
+                        { text: 'ETAT DE STOCK ', style: 'header' },
+                        {
+                            table: {
+                                headerRows: 1,
+                                widths: ['auto', 'auto', 'auto', 'auto', 'auto', 'auto'],
+                                body: [tableHeaders, ...tableData]
+                            }
+                        }
+                    ],
+                    styles: {
+                        header: {
+                            fontSize: 16,
+                            bold: true
+                        }
+                    }
+                };
+                // Create a PDFMake document and save the PDF
+                    const pdfDoc = pdfMake.createPdf(docDefinition);
+                    pdfDoc.download('stock_data.pdf');
+                })
+                .catch((error) => {
+                console.log(error);
+                });
+          },
+         }
+        }
+        function getCookie(name) {
+				var cookieValue = null;
+				if (document.cookie && document.cookie !== '') {
+					var cookies = document.cookie.split(';');
+					for (var i = 0; i < cookies.length; i++) {
+						var cookie = cookies[i].trim();
+						// Does this cookie string begin with the name we want?
+						if (cookie.substring(0, name.length + 1) === (name + '=')) {
+							cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+							break;
+						}
+					}
+				}
+				return cookieValue;
+			}
+        
+      </script>
+      
+    </main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

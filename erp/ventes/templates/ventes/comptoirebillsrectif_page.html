@@ -1,0 +1,659 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="vente" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_ventes.html" %}
+  <div class="h-full w-full">
+	<main class="block w-full h-full px-2 " x-data=" billscompt()" x-init="init()">
+		<div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row py-2"  >                                                                                                                                                    
+			 <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des Bons de Comptoir</h1>         
+		  </div>
+
+		<div class="flex flex-wrap justify-start border-b  py-2">
+		   <div class="flex flex-wrap justify-start space-x-2 border-r  px-2 py-2">
+		   	<div class=" py-2 ">
+				<input type="search" x-model="search" class="form-input rounded-md bg-gray-50 text-sm text-black  h-10 py-2 pl-4 border-transparent border-none outline-none focus:ring-0 focus:text-black transition-all duration-300 ease-in-out focus:w-72 w-60"
+					placeholder="Rechercher...">
+			</div>
+			{% if request.session.role == "manager" or request.session.role == "DIRECTEUR EXECUTIF"  %}
+			<div class="py-2">
+				<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+				x-model="selectedFamily">
+				<option value="">Tous les entrepôts</option>
+				{% for ent in entrepots%}
+				<option value="{{ ent.name }}">{{ ent.name }}</option>
+				{% endfor %}
+				</select>
+			</div>
+			<div class="py-2">
+				<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+				x-model="selectedFournisseur">
+				<option value="">Tous les utilisateurs</option>
+				{% for user in users %}
+				<option value="{{ user.username }}">{{ user.username }}</option>
+				{% endfor %}
+				</select>
+			</div>
+			{% endif %}
+			<div class="py-2">
+				<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+				x-model="stateBill">
+				<option value="">Retour/valide</option>
+				<option value="true">Retour</option>
+				<option value="false">Valide</option>
+
+				</select>
+			</div>
+			
+		  </div>
+		  <div class="flex justify-start space-x-3 px-4 ">
+				<div class="flex items-center space-x-2">
+					<label for="startDate" class="text-sm">Date début:</label>
+					<input type="date" x-model="datedeb" id="startDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				</div>
+				<div class="flex items-center space-x-2">
+					<label for="endDate" class="text-sm">Date Fin:</label>
+					<input type="date" x-model="datefin" id="endDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				</div>
+   		 </div>
+</div>
+
+								 
+		<div class="w-full mx-auto p-4">
+ <div class="">
+  <div class="bg-gray-50">
+    <div class="grid grid-cols-8">
+      <div class="px-6 py-3 text-sm font-medium text-gray-500 uppercase">IDBON</div>
+      <div class="px-6 py-3 text-sm font-medium text-gray-500 uppercase">Date Bon</div>
+      <div class="px-6 py-3 text-sm font-medium text-gray-500 uppercase">Entrepot</div>
+      <div class="px-6 py-3 text-sm font-medium text-gray-500 uppercase">Client</div>
+      <div class="px-6 py-3 text-sm font-medium text-gray-500 uppercase">Observation</div>
+      <div class="px-6 py-3 text-sm font-medium text-gray-500 uppercase">état du bon</div>
+      <div class="px-6 py-3 text-sm font-medium text-gray-500 uppercase">CRÉER PAR</div>
+      
+      <div class="px-6 py-3"></div>
+    </div>
+  </div>
+  <div class="bg-white divide-y divide-gray-200">
+    <template x-for="product in filteredAndPaginatedProducts">
+      <div class="transition-all hover:shadow-lg" x-show="productMatches(search, product.priceachat, product.reference)">
+        <div class="grid grid-cols-8">
+          <div class="px-6 py-2 flex items-center">
+		    {% if request.session.role == "manager" or request.session.role == "DIRECTEUR EXECUTIF" %}
+		    	<input class="align-middle border-l-0 border-r-0 text-sm whitespace-nowrap" type="checkbox" :value="product.reference" x-model="selectedItems" id="target-row">
+            {% endif %}
+			<div  class="inline-flex px-4 text-sm font-semibold leading-5" x-text="product.reference"></div>
+          </div>
+          <div class=" py-2">
+            <div class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.name"></div>
+          </div>
+		  <div class="px-6 py-2">
+            <div class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.price"></div>
+          </div>
+          <div class="px-6 py-2">
+            <div class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.priceachat"></div>
+          </div>         
+          <div class="px-6 py-2">
+            <div class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.observation"></div>
+          </div>         
+          <div class="px-6 py-2">
+             <template x-if="product.retour">
+				<span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-700">Retour </span>
+			</template>
+             <template x-if="!product.retour">
+				<span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700">Valide </span>
+
+			</template>
+			<template x-if="product.regle && !product.retour ">
+			<span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-800 ring-1 ring-inset ring-green-800">Réglé </span>
+			</template>
+			<template x-if="!product.regle && !product.retour">
+			<span class="inline-flex items-center rounded-md bg-orange-50 px-2 py-1 text-xs font-medium text-orange-500 ring-1 ring-inset ring-orange-500">Verssement </span>
+			</template>
+
+          </div>         
+          <div class="px-6 py-2 text-sm text-gray-500">
+            <div class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.user"></div>
+          </div>
+          <div class="px-6 py-4 text-right flex items-center ">
+              
+             <a :href="'edit-comptoire-bill/' + product.id" class="text-gray-700">
+				{% heroicon_mini "pencil-square" class="transition-transform" %}
+			 </a>
+			 
+			  				
+									<button class="font-bold text-lg " @click="product.showVariants = !product.showVariants"> 
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+										  </svg>
+										  
+									</button>  
+							{% if request.session.store != "2" and request.session.store != "8"  %}		
+							<div class="relative inline-block" @click.prevent="renderInformation(product.reference);" x-data="{showTooltip :false}">
+            						<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full  hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" >
+            							<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        									<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+        									<path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+        									<path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+        									<rect x="7" y="13" width="10" height="8" rx="2" />
+        								</svg>			  
+            						</div>
+            						<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+            							Imprimer Ce Bon!
+            						</div>
+            				</div>
+            				 
+							<div x-data="{ isOpen: false }" class="relative inline-block text-left">
+								<button @click="isOpen = !isOpen" class="hover:bg-gray-300 cursor-pointer text-gray-700 font-semibold py-2 px-2 rounded-full inline-flex items-center">
+									<svg id='Chevron_Down_24' width='12' height='12' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+										<g transform="matrix(1.11 0 0 1.11 12 12)">
+											<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -13)" d="M 3 8 L 3 12 L 12 18 L 21 12 L 21 8 L 12 14 L 3 8 z" stroke-linecap="round" />
+										</g>
+									</svg>
+								</button>
+		
+								<ul x-show="isOpen" @click.away="isOpen = false" class="dropdown-menu absolute mb-2 right-0 text-gray-700 pt-1 w-48 rounded-md border  bg-white shadow-xl z-40">
+									
+									<a :href="'bonGarantieComptoir/' + product.id"> <li class=" border-gray-150 hover:bg-gray-50 px-2 border-b py-2 block whitespace-no-wrap cursor-pointer">Générer BG</li></a>
+									
+								</ul>
+							</div>   
+							{% endif %}
+          </div>
+        </div>
+        <!-- Variant Structure -->
+        <template  class="px-2" x-if="product.showVariants">
+        <table class="min-w-full bg-gray-50 divide-y divide-gray-200">
+		<thead class="bg-gray-50">
+          <tr>
+            <th class=" py-3 text-sm text-left font-medium text-gray-500 uppercase">Référence</th>
+            <th class=" py-3 text-sm text-left font-medium text-gray-500 uppercase">Titre</th>
+            <th class=" py-3 text-sm text-left font-medium text-gray-500 uppercase">Quantité Totale</th>
+            <th class=" py-3 text-sm text-left font-medium text-gray-500 uppercase">Prix Unitaire</th>
+            <th class=" py-3 text-sm text-left font-medium text-gray-500 uppercase">Montant Totale</th>
+            
+            <th class=" py-3 text-sm text-left font-medium text-gray-500 uppercase"></th>
+          </tr>
+         </thead>
+         <tbody>
+          <template x-for="variant in product.variants">
+            <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+              <td class="">
+                <div  class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.reference"></div>
+              </td>
+              <td class="">
+                <div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.name"></div>
+              </td>
+              <td class="">
+                <div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.quantity"></div>
+              </td>
+              <td class="">
+                <div class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.price"></div>
+              </td>
+              <td class=" text-sm text-gray-500">
+                <div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.priceachat"></div>
+              </td>                        
+            </tr>
+          </template>
+
+
+		  <tr class="bg-gray-100 border-t border-gray-100">
+				<td class="px-4 py-2 text-sm font-medium text-left text-gray-600" x-text="'Prix Total :'+' '+product.totalprice"></td>
+				<td class="px-4 py-2 text-sm font-medium text-left text-gray-600"></td>
+				<td class="px-4 py-2 text-sm font-medium text-left text-gray-600" x-text="'Remise :'+' '+product.remise"></td>
+				<td class="px-4 py-2 text-sm font-medium text-left text-gray-600" x-text="'Total à Payé :'+' '+product.prix_to_pay"></td>
+				<td class="px-4 py-2 text-sm font-medium text-left text-gray-600">
+				    <template x-if="!product.regle ">
+			            <span class="inline-flex items-center rounded-md bg-orange-50 px-2 py-1 text-xs font-medium text-orange-500 ring-1 ring-inset ring-orange-500" x-text="'Montant Verssé :'+' '+product.prixpayed"></span>
+			        </template>
+				</td>
+			</tr>
+         </tbody>
+        </table>
+    </template>
+      </div>
+    </template>
+  </div>
+</div>
+<div class="flex bg-gray-100 justify-between px-4">
+  {% if request.session.role == "manager" %}
+   <div class="transition-transform cursor-pointer px-1 py-1 text-red-500 hover:text-red-700" @click="showModal = true;" >
+        {% heroicon_mini "trash" %}
+    </div>
+  {% else %}
+   <div></div>
+  {% endif %}
+  
+	<div class="flex">
+		<button
+			x-bind:disabled="currentPage === 1"
+			@click="prevPage"
+    		>
+    		<svg id='chevrons-left_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+    				<g transform="matrix(1 0 0 1 12 12)" >
+    				<g style="" >
+    				<g transform="matrix(1 0 0 1 0 0)" >
+    				<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+    				</g>
+    				<g transform="matrix(1 0 0 1 -3.75 -0.25)" >
+    				<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+    				</g>
+    				<g transform="matrix(1 0 0 1 2.25 -0.25)" >
+    				<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+    				</g>
+    				</g>
+    				</g>
+    		</svg>
+		</button>
+		<p class=" text-lg px-2" x-text="currentPage"></p> /<p id="total-pages" class=" text-lg px-2" x-text="totalPages"></p>
+		<button
+			x-bind:disabled="currentPage === totalPages"
+			@click="nextPage"
+		 >
+			<svg id='chevrons-right_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+					<g transform="matrix(1 0 0 1 12 12)" >
+					<g style="" >
+					<g transform="matrix(1 0 0 1 0 0)" >
+					<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+					</g>
+					<g transform="matrix(1 0 0 1 -2.75 -0.25)" >
+					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+					</g>
+					<g transform="matrix(1 0 0 1 3.25 -0.25)" >
+					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+					</g>
+					</g>
+					</g>
+			</svg>
+		</button>
+	 </div>
+</div>
+{% if request.session.store == "1" %}
+                     <!-- Print Template -->
+    			    <div id="js-print-template" x-ref="printTemplate" class="hidden">
+
+		  
+				  <h2 class="text-3xl text-center font-bold mb-6 pb-2 tracking-wider uppercase">Bon de Vente Au Comptoir</h2>
+				  <div class="flex justify-between space-x-3 mb-10">
+					  <div class="w-1/2 border border-black">
+						  <div class="px-4 py-3 ">		
+						  <div class="mb-1 flex items-center">
+							  <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Numéro de Bon.</label>
+							  <span class="mr-4 inline-block">:</span>
+							  <div x-text="invoiceNumber"></div>
+						  </div>				
+						  <div class="mb-1 flex items-center">
+							  <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Bon</label>
+							  <span class="mr-4 inline-block">:</span>
+							  <div x-text="invoiceDate"></div>
+						  </div>
+					  </div>
+					  </div>
+					  <div class="w-1/2 border border-black">
+						   <div class="px-4 py-3 ">
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Client </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="client"></div>
+							  </div>
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="clientadress"></div>
+							  </div>
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Extra </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="extra"></div>
+							  </div>								
+						   </div>
+					  </div>
+				  </div>
+					<table class="w-full border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+							
+								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
+								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
+							</tr>
+						</thead>
+						<tbody>
+							<template x-for="invoice in toprintbill.variants" >
+								<tr class="border border-black">
+									<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
+									<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.reference"></td>
+									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.quantity"></td>
+									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.price"></td>
+									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.priceachat"></td>
+								</tr>
+							</template>
+						</tbody>
+					</table>
+
+
+					<div class="w-full flex mt-4  space-x-3 ">
+				
+					<table class="w-2/3 h-fit table-auto border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<!--<th class="border border-gray-700 px-4 ">Total HT</th>-->
+								<th class="border border-gray-700 px-4 ">Sous Total </th>
+								<th class="border border-gray-700 px-4 ">Total Remise</th>
+								<th class="border border-gray-700 px-4 ">Net à Payer</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Sample data rows -->
+							<tr class="border border-gray-700">
+								<!--<td class="border border-gray-700 px-4" x-text="frais"></td>-->
+								<td class="border border-gray-700 px-4" x-text="totalttc +' DZD'"></td>
+								<td class="border border-gray-700 px-4" x-text="remise +' DZD'"></td>
+								<td class="border border-gray-700 px-4" x-text="(totalttc - remise)  +' DZD'" ></td>
+							</tr>
+							
+							<!-- Add more rows as needed -->
+						</tbody>
+					</table>
+					</div>
+					<div class=" flex justify-between mt-12 mr-0">
+						<div></div>
+						<div class="font-bold">
+						Cachet et Signature
+						</div>
+					</div>
+			   </div>
+			   <!-- /Print Template -->
+	            {% endif %}
+  <div x-cloak x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+			<div class="modal bg-gray-50 rounded-lg p-4 max-w-md mx-auto shadow-lg">
+				<p class="text-gray-700 text-lg mb-4">Voulez-vous vraiment supprimer les éléments sélectionné </p>
+				<div class="flex justify-end">
+					<button @click="deletedSelected()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none mr-2">Oui</button>
+					<button @click="annulerSuppression()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 focus:outline-none">Annuler</button>
+				</div>
+			</div>
+		  </div>
+</div>
+<!-- Modal de confirmation -->
+				
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+	   <script>
+				function billscompt(){
+				  return{
+					search: '',
+					selectedFamily: '',
+					products: [],
+					currentPage: 1,
+					showModal:false,
+					selectedFournisseur:'',
+					productReference: '',
+					pageSize: 10,
+					stateBill: '',
+					get totalPages() {
+  						return Math.max(1, Math.ceil(this.filteredProducts.length / this.pageSize));
+  					},
+  					invoiceDate:'',
+					invoiceNumber:'',
+					boncomptoir:'',
+					decision:'',
+					client:'',
+					clientadress:'',
+					totalht:'',
+					totalttc:'',
+					remise:'',
+					nettotal:'',
+					totalGSTLiv:'',
+					extra:'',
+					toprintbill:'',
+					items:[],
+					renderInformation(idBon){
+						toprintbill = this.products.find((product) => product.reference == idBon)
+						const toprint_bill = this.products.find((product) => product.reference == idBon)
+						invoiceDate = toprint_bill.name;
+						invoiceNumber = toprint_bill.reference;
+						client = toprint_bill.priceachat;
+						totalht = toprint_bill.totalHt;
+						totalttc = toprint_bill.totalprice;
+						remise = toprint_bill.remise;
+						nettotal = parseFloat(toprint_bill.totalprice) - parseFloat(toprint_bill.remise);
+						console.log(toprint_bill.variants);
+						for (const variant of toprint_bill.variants) {
+							const newItem = {
+								reference: variant.reference,
+								name: variant.name,
+								quantity: variant.quantity,
+								price: variant.price,
+								total: variant.priceachat,
+							};
+							// Adding the new item to this.items
+							this.items.push(newItem);
+						}
+						this.printInvoice();
+					},
+					printInvoice() {
+						var printContents = this.$refs.printTemplate.innerHTML;
+						document.body.innerHTML = printContents;
+						setTimeout(() => {
+							window.print();
+							window.location.reload();
+							this.items = [];
+						}, 50); // Delay for 1 second (adjust as needed)      			
+					},
+					selectedItems: [],
+					deletedSelected(){
+                        if (this.selectedItems.length === 0) {
+                            alert("Veuillez Selectionner aumoins un élément pour supprimer!.");
+                            return;
+                        }
+						console.log(this.selectedItems);
+
+						dataObj ={
+							liste_ids: this.selectedItems,                        
+								}
+						axios.post('DeleteComptBill/',dataObj, {
+							headers: {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+						})
+							.then(response => {
+								// Check if the deletion was successful
+								if (response.data.success) {            			
+									showModal = false;
+									alert(response.data.message);
+									window.location.reload();
+								} else {
+									alert(response.data.message);
+								}
+							})
+						.catch(error => {
+						// Handle request errors
+						alert(error);
+						});
+						this.showModal = false;
+						this.selectedItems = [];
+					},
+					datedeb: '',
+    				datefin:'',
+					get filteredProducts() {
+						return this.products.filter((product) => {
+							const familyMatch = this.selectedFamily === '' || this.selectedFamily == product.price;
+							const fournisseurMatch = this.selectedFournisseur === '' || this.selectedFournisseur == product.user;
+							const nameMatch = product.reference.toLowerCase().includes(this.search.toLowerCase());
+							const referenceMatch = product.priceachat.toLowerCase().includes(this.search.toLowerCase());
+
+							// Parse the dates from the input fields
+							const startDate = new Date(this.datedeb);
+							const endDate = new Date(this.datefin);
+							// Check if the product date is within the selected date range
+							const dateMatch = startDate <= new Date(product.name) && new Date(product.name) <= endDate;
+							if (this.stateBill === 'true') {
+								// If regle is 'true', filter products where montantrestant is 0
+								return (familyMatch && fournisseurMatch) && (nameMatch || referenceMatch) && dateMatch && product.retour ;
+							} else if (this.stateBill === 'false') {
+								// If regle is 'false', filter products where montantrestant is not 0
+								return (familyMatch && fournisseurMatch) && (nameMatch || referenceMatch) && dateMatch && !product.retour ;
+							} else {
+								// If regle is not 'true' or 'false', return all products without regle filter
+								return (familyMatch && fournisseurMatch) && (nameMatch || referenceMatch) && dateMatch;
+							}
+						});
+					},
+	  				get filteredAndPaginatedProducts() {
+		  				const start = (this.currentPage - 1) * this.pageSize;
+		  				const end = start + this.pageSize;
+		  				return this.filteredProducts.slice(start, end);
+	  				},
+					prevPage() {
+					  if (this.currentPage > 1) {
+					   this.currentPage -= 1;
+					  }
+					},
+					nextPage() {
+					  if (this.currentPage < this.totalPages) {
+						  this.currentPage += 1;
+					  }
+					},
+					productMatches(search, productName, productReference) {
+					  //  if (productName === null || productReference === null) {
+					  //     return false;
+					  //     }
+					 
+		  				return (
+			 			 productName.toLowerCase().includes(search.toLowerCase()) ||
+			  			 productReference.toLowerCase().includes(search.toLowerCase())
+		  				);
+	    			},
+
+				
+
+					showModal:false,					
+					annulerSuppression() {
+						// Réinitialiser les variables
+						this.showModal = false;
+						this.billtodelete = '';
+					},
+					init() {
+						var products = [];
+						{% for bon in bons_sorties %}    
+						    var observation = "{{bon.observation | safe}}";
+                            var numSeriesFormatted = "";
+                            if (observation) {
+                              // Replace all newline characters with empty string
+                              numSeriesFormatted = observation.replace(/\n/g, "");
+                            }
+							var productData = {
+							id:"{{bon.id}}",
+							reference: "{{bon.idBon}}",
+							name: "{{ bon.dateBon }}",
+							price:"{{ bon.pointVente.entrepot.name }}",
+							priceachat:"{{ bon.client.name }} ",
+							user: "{{bon.user.username }}",
+							observation :"{{bon.observation}}",
+							totalprice: "{{ bon.prixtotal }}",
+							prixpayed:"{{ bon.prix_payed }}",
+							remise:"{{ bon.totalremise }}",
+							prix_to_pay:"{{ bon.prix_to_pay }}",
+							retour:"{{bon.retourBill}}" =="True" ? true : false,
+							regle:"{{bon.regle}}"=="True" ? true : false,
+							showVariants:false,
+							variants:[],
+							};
+							{% for produit in bon.produits_en_bon_rectification.all %}				
+								var variantData ={
+									name: "{{ produit.stock.reference }}",
+									reference: "{{ produit.stock.name }}",
+									price:"{{ produit.unitprice }}",
+									priceachat:"{{ produit.totalprice }}",
+									quantity:"{{ produit.quantity }}",	
+								}
+								productData.variants.push(variantData)
+							{% endfor %}
+						// Check if the product already exists in the products array
+						var exists = products.some(function(existingProduct) {
+							return existingProduct.reference === productData.reference;
+						});
+						if (!exists) {
+							products.push(productData);					
+						}
+						{% endfor %}
+
+						// Now, assign the filtered products array to this.products
+						this.products = products;
+					    	const currentDate = new Date();
+
+                            // Set to the first day of the year
+                            const firstDay = new Date(currentDate.getFullYear(), 0, 1);
+                            
+                            // Set to the last day of the year
+                            const lastDay = new Date(currentDate.getFullYear(), 11, 31);
+                            
+                            // Format the dates
+                            this.datedeb = firstDay.toISOString().split('T')[0];
+                            this.datefin = lastDay.toISOString().split('T')[0];		
+					},
+			
+				  }
+				}
+				function getCookie(name) {
+				  var cookieValue = null;
+	  			  if (document.cookie && document.cookie !== '') {
+		  			var cookies = document.cookie.split(';');
+		  			for (var i = 0; i < cookies.length; i++) {
+			  			var cookie = cookies[i].trim();
+			  		// Does this cookie string begin with the name we want?
+			  			if (cookie.substring(0, name.length + 1) === (name + '=')) {
+				  			cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+				  			break;
+			  			}
+		  			}
+	  			 }
+	  				return cookieValue;
+  				}
+			   </script> 
+				
+			  </div>
+			</div>
+		  </div>
+		</div>
+</main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+

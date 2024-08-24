@@ -1,0 +1,260 @@
+<div class="sidebar max-h-screen top-0 h-screen bg-gray-100  text-white w-60 fixed  left-0 transform transition duration-200 ease-in-out z-1"
+   x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+   :class="open === true ? 'md:translate-x-0 md:sticky ':'-translate-x-full' ">
+   <nav class="px-4 pt-4  max-h-[calc(100vh-64px)]" x-data="{selected:'Tasks'}">
+       <ul class="flex flex-col space-y-2">
+         {% if request.session.role == "gestion-stock" or request.session.username == "nadjemeddine"  %}
+           <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+            Etat Stock
+           </div>
+           <!-- Disabled Till Optimizing The code !-->
+           <!--<li class="text-sm text-gray-500 ">-->
+           <!--  <a href="{% url 'etat-stock' %}"-->
+           <!--     class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">-->
+           <!--     <div class="pr-2">-->
+           <!--     </div>-->
+           <!--     <div>Etat Stock</div>-->
+           <!--  </a>-->
+           <!--</li>      -->
+         {% endif %}
+         {% if 'inventory.can_see_repartition' in request.session.permissions or 'inventory.can_see_entrepots' in request.session.permissions  %}
+           <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+            Stocks
+           </div>
+
+          {% if  'inventory.can_see_entrepots' in request.session.permissions  %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'entrepots-list' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">
+                
+                </div>
+                <div>Entrepôts</div>
+             </a>
+           </li>      
+          {% endif %}
+        
+          {% if 'inventory.can_see_repartition' in request.session.permissions  %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'entrepots' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">
+                 
+                </div>
+                <div>Répartition</div>
+             </a>
+           </li>
+          {% endif %}
+          {% endif %}
+
+          {% if  'inventory.can_see_bonentres' in request.session.permissions or 'inventory.can_see_bonreforme' in request.session.permissions or 'inventory.can_see_bonretour' in request.session.permissions or 'inventory.can_see_bonsreintegration' in request.session.permissions or 'inventory.can_see_bonsorties' in request.session.permissions or 'inventory.can_see_bontransfert' in request.session.permissions or 'inventory.can_see_bonsorties' in request.session.permissions %}
+           <!-- Section Devider -->
+           <div class="border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+               Mouvements
+           </div>
+           <!-- List ITEM -->
+           {% if  'inventory.can_see_bonentres' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'list-entry' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:bg-gray-700 hover:text-white">
+                   <div class="pr-2">                    
+                   </div>
+                   <div>Bons Entrées</div>
+               </a> 
+           </li>         
+           {% endif %}
+           {% if 'inventory.can_see_bontransfert' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'transfert-bills' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                   </div>
+                   <div>Bons Transferts</div>
+               </a> 
+           </li>          
+           {% endif %}
+           {% if request.session.role == 'manager' %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'transfert-magasin-bills' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                   </div>
+                   <div>Bons Transferts Magasins</div>
+               </a> 
+           </li>          
+           {% endif %}
+           {% if 'inventory.can_see_bonsorties' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'list-sorties' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">                   
+                   </div>
+                   <div>Bons Sorties</div>                  
+               </a> 
+           </li>         
+           {% endif %}
+           {% if 'inventory.can_see_bonsreintegration' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'list-reintegration' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Bons Réintégration</div>                
+               </a> 
+           </li>  
+           {% endif %}
+           {% if 'inventory.can_create_echange_bill' in request.session.permissions or request.session.role == 'manager' %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'liste-echange' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Bons Echange</div>                
+               </a> 
+           </li>  
+           {% endif %}
+           {% if 'inventory.can_create_bon_maintenance' in request.session.permissions or request.session.role == 'manager' or request.session.role == 'DIRECTEUR EXECUTIF' %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'liste-maintenance' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Bons Maintenance</div>                
+               </a> 
+           </li>  
+           {% endif %}
+           {% if 'inventory.can_see_bonretour' in request.session.permissions  %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'list-bons-retour' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Bons Retour</div>                
+               </a> 
+           </li>            
+           {% endif %}
+           {% if 'inventory.can_see_bonreforme' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'bons-reforme' %}" 
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                    
+                   </div>
+                   <div>Bons Réforme</div>                
+               </a> 
+           </li>            
+           {% endif %}
+           {% endif %}
+          
+           {% if 'inventory.can_see_etatentres' in request.session.permissions or  'inventory.can_see_etatreforme'  in request.session.permissions or 'inventory.can_see_etatreintegration' in request.session.permissions or 'inventory.can_see_etatsorties' in request.session.permissions or request.session.username == "nadjemeddine" %}
+           <div class="border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+            États
+           </div>  
+           {% if 'inventory.can_see_etatentres' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'list-stock-entry' %}" 
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                 
+                </div>
+                <div>Etat d'entrées</div>                
+             </a> 
+           </li>             
+           {% endif %}
+           {% if 'inventory.can_see_etatsorties' in request.session.permissions  or request.session.username == "nadjemeddine" %}
+            <li class="text-sm text-gray-500 ">
+              <a href="{% url 'list-stock-sortie' %}" 
+                  class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                  <div class="pr-2">
+                  
+                  </div>
+                  <div>Etat Sorties</div>                
+              </a> 
+            </li>   
+              
+            <li class="text-sm text-gray-500 ">
+             <a href="{% url 'list-retour' %}" 
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                 
+                </div>
+                <div>Etat Retour</div>                
+             </a> 
+           </li>  
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'list-maintenance' %}" 
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                 
+                </div>
+                <div>Etat Maintenance</div>                
+             </a> 
+           </li>  
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'stock-echange' %}" 
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                </div>
+                <div>Etat Echange</div>                
+             </a> 
+           </li>  
+           {% endif %}
+           
+           {% if 'inventory.can_see_etatreintegration' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'list-reintegre' %}" 
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                 
+                </div>
+                <div>Etat Réintégration</div>                
+             </a> 
+           </li>          
+           {% endif %}
+
+           {% if 'inventory.can_see_etatreforme'  in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'list-reforme' %}" 
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                 
+                </div>
+                <div>Etat stock Réforme</div>                
+             </a> 
+           </li>          
+           {% endif %}
+           {% endif %}
+           {% if 'inventory.can_see_invinitial' in request.session.permissions or 'inventory.can_see_invannuel' in request.session.permissions %}
+            <div class="border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+              Inventaires
+            </div>
+            {% if 'inventory.can_see_invinitial' in request.session.permissions %}
+            <li class="text-sm text-gray-500 ">
+              <a href="{% url 'Inv-initial' %}" 
+                  class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                  <div class="pr-2">                
+                  </div>
+                  <div>Inventaire Initial</div>                
+              </a> 
+            </li>            
+            {% endif %}
+            {% if 'inventory.can_see_invannuel' in request.session.permissions %}
+            <li class="text-sm text-gray-500 ">
+              <a href="{% url 'Inventaire-Annuel' %}" 
+                  class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                  <div class="pr-2">                
+                  </div>
+                  <div>Inventaire Annuel</div>                
+              </a> 
+            </li>            
+            {% endif %}
+           {% endif %}
+       </ul>
+   </nav>
+  </div>
+  <!-- End sidebar -->  
+  

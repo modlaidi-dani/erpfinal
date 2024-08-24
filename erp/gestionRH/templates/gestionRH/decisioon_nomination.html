@@ -1,0 +1,291 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="rh" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_grh.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+    <main class="block w-full h-full px-2 overflow-hidden" x-data="reglement()">
+          <!-- Main content header -->
+                <div class=" mt-4 px-6 ">
+				  <h2 class="text-2xl font-bold mb-2 pb-2 tracking-wider uppercase"> Décision de nomination</h2>
+				  
+			   </div>
+
+               	<div x-data="{ tab: 1 }" x-cloak class="my-10 px-6 antialiased border-b-2">
+				  <div class="relative flex flex-col rounded-lg shadow-xs overflow-hidden">         
+					  <div class="flex space-x-8 bg-white border-b border-gray-200 ">
+						  <button
+							  type="button"
+							  class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+							  x-on:click="tab = 1"
+							  :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 1 }"
+						    >
+							  Version Arabe
+						  </button>								  
+						  <button
+							  type="button"
+							  class="focus:outline-none text-black py-2 px-1 border-t-2 text-md tracking-wide font-semibold border-transparent"
+							  x-on:click="tab = 3"
+							  :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 3 }"
+                            >
+                            Version Française
+                          </button>						  
+					  </div>     
+					  <div class="">
+						  <div x-show="tab === 1">
+                                <div class="p-4 max-w-4xl mx-auto relative left-0 right-0 overflow-auto ">
+                                      <!-- Print Template -->
+                                    <div class="relative inline-block" @click.prevent="printInvoiceAr();" x-data="{showTooltip :false}">
+                                            <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full  hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+                                                    <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+                                                    <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+                                                    <rect x="7" y="13" width="10" height="8" rx="2" />
+                                                </svg>			  
+                                            </div>
+                                     
+                                    </div> 
+                                    <div id="js-print-template" x-ref="printTemplateArabe" >
+                                            <div class="py-2">
+                                                <img class="py-4 mx-auto" src="{% static 'media/logodiva.png' %}" alt="">
+                                            </div>
+                                            <div class="py-2 px-4">
+                                                <p dir="rtl" style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><u><strong><span style="font-size: 19px;">الشركة ذ. ش. و. م.م &quot; ديفاتاك&quot;</span></strong></u><span style="font-weight: bold; font-size: 19px;" dir="ltr"><strong>&nbsp; &nbsp; &nbsp;</strong></span></p>
+                                                <p dir="rtl" style="margin-top:0pt; margin-bottom:8pt;"><span style="font-size: 19px;"><strong>مركز تجاري الجنينة رقم 1262 المحمدية الجزائر &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</strong></span></p>
+                                                <p dir="rtl" style="margin-top:0pt; margin-bottom:8pt;"><span style="font-size: 19px;"><strong>الهاتف: /023.80.49.07/0561.72.83.85 &nbsp; &nbsp;</strong></span></p>
+                                                <p dir="rtl" style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:16pt;"><span style="line-height: 108%; font-size: 19px;"><strong>البريد الإلكتروني</strong>:</span><span dir="ltr" style="font-size: 19px;">&nbsp;</span><span style="line-height: 108%; font-size: 19px;">&nbsp;</span><span style="font-size: 19px;"><a href="mailto:INFO@DIVATECHDZ.COM" style="text-decoration:none;"><u><span style="line-height: 108%; color: rgb(5, 99, 193);" dir="ltr">INFO@DIVATECHDZ.COM</span></u></a></span><span style="line-height: 108%; font-size: 19px; color: rgb(5, 99, 193);" dir="ltr"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;</strong></span><span style="line-height: 108%; font-size: 19px;"><strong>الجزائر في</strong></span><span style="line-height: 108%; font-size: 19px;" dir="ltr"><strong>:</strong></span><span style="line-height:108%; font-sze:11pt;" dir="ltr"><span class="capitalize" style="font-se: 22px;" x-text="date"></span>&nbsp;</strong></span></p>
+                                                <p style="margin-top:0pt; margin-bottom:8pt;">&nbsp;</p>
+                                                <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:16pt;"><span dir="rtl"><strong><span style="font-size: 22px;">مقرر</span></strong></span></p>
+                                                <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:16pt;"><span dir="rtl" style="font-size: 22px;"><strong>يتضمن تعيين منصب في منص</strong><strong>ب</strong></span></p>
+                                                <p style="margin-top:0pt; margin-bottom:8pt; text-align:center;"><strong><span style="font-size: 22px;" x-text="'Developpeur'"></span></strong></p>
+                                                <p dir="rtl" style="margin-top:0pt; margin-bottom:8pt; text-align:left; line-height:108%; font-size:14pt;"><span style="font-weight:bold;" dir="ltr">&nbsp;</span></p>
+                                                <p dir="rtl" style="margin-top:0pt; margin-bottom:8pt; text-align:left; line-height:108%; font-size:14pt;">
+                                                    <span style="font-weight:bold;" dir="ltr">&nbsp;</span>
+                                                </p>
+
+                                                <p style="margin-top: 0pt; margin-bottom: 8pt; text-align: right; line-height: 115%; font-size: 16pt; margin-left: 60px;">
+                                                    طبقا للعقد رقم 
+                                                    <span x-text="'1110011'" class="font-semibold"></span> المؤرخ في
+                                                    <span x-text="'30/05/2024'" class="font-semibold"></span>
+                                                </p>
+                                                <p style="margin-top: 0pt; margin-bottom: 8pt; text-align: right; line-height: 115%; font-size: 16pt; margin-left: 60px;">
+                                                    المتضمن عقد محدد المدة من 
+                                                    <span x-text="'30/05/2023'" class="font-semibold"></span> الى 
+                                                    <span x-text="'30/05/2024'" class="font-semibold"></span>
+                                                </p>
+
+                                                <p style="margin-top: 0pt; margin-bottom: 8pt; line-height: 115%; font-size: 16pt; text-align: right;">
+                                                    <span dir="rtl">وبعد الفترة التجريبية وفق البنود التعاقدية بين الطرفين وبعد الاطلاع على القانون الداخلي.</span>
+                                                </p>
+
+                                                <p dir="rtl"  style="margin-top: 0pt; margin-bottom: 8pt; text-align: right; line-height: 115%; font-size: 16pt;">
+                                                    يتعين  
+                                                </p>
+
+                                                <p dir="rtl" style="margin-top: 0pt; margin-bottom: 8pt; text-align: right; line-height: 115%; font-size: 16pt;">
+                                                    الاسم اللقب: <span x-text="nomarabe" class="font-semibold"></span>.
+                                                </p>
+
+                                                <p dir="rtl" style="margin-top: 0pt; margin-bottom: 8pt; text-align: right; line-height: 115%; font-size: 16pt;">
+                                                    الوظيفة: <span x-text="fonctionarabe" class="font-semibold mr-2"> </span>.
+                                                </p>
+
+                                                <p dir="rtl" style="margin-top: 0pt; margin-bottom: 8pt; text-align: right; line-height: 115%; font-size: 16pt;">
+                                                    الرتبة: <span x-text="degre" class="font-semibold mr-2"></span>.
+                                                </p>
+
+                                                <p dir="rtl" style="margin-top: 0pt; margin-bottom: 8pt; text-align: right; line-height: 115%; font-size: 16pt;">
+                                                    الدرجة: <span x-text="echellon" class="font-semibold mr-2"></span>.
+                                                </p>
+
+                                                <p dir="rtl" style="margin-top: 0pt; margin-bottom: 8pt; text-align: right; line-height: 115%; font-size: 16pt;">
+                                                    الاجر الإجمالي: <span x-text="salaire" class="font-semibold mr-2"></span>.
+                                                </p>
+                                                <div class="py-4">
+                                                    <p dir="rtl"  style="margin-top: 0pt; margin-bottom: 8pt; text-align: right; line-height: 108%; font-size: 16pt;">اثباتا لذلك حررنا هذا المحضر وامضيناه مع المعني بالأمر في اليوم والشهر والسنة المذكورين أعلاه.</p>
+                                                    <p dir="rtl" class="py-2" style="margin-top: 0pt; margin-bottom: 8pt; text-align: right; line-height: 108%; font-size: 14pt;"><strong>&nbsp;امضاء المعني: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; مدير المؤسسة:</strong></p>
+                                                </div>
+                                            </div>
+                                    </div>
+                                <!-- /Print Template -->
+                                </div> 
+                           </div> 
+                           <div class="w-full" x-show="tab === 3">    
+                                <div class="p-4 max-w-4xl mx-auto relative left-0 right-0 overflow-hidden ">
+                                    <div class="relative inline-block" @click.prevent="printInvoice();" x-data="{showTooltip :false}">
+                                            <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full  hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+                                                    <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+                                                    <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+                                                    <rect x="7" y="13" width="10" height="8" rx="2" />
+                                                </svg>			  
+                                            </div>
+                                    </div>  
+                                    <div id="js-print-template" x-ref="printTemplate" >
+                                            <div class="py-1">
+                                                <img class="py-4 mx-auto" src="{% static 'media/logodiva.png' %}" alt="">
+                                            </div>
+                                            <div class="py-2 px-4">
+                                                
+                                                <p dir="ltl" style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;">
+                                                    <u><strong><span style="font-size: 19px;">La société EURL DIVATECH</span></strong></u>
+                                                    <span style="font-weight: bold; font-size: 19px;" dir="ltl"><strong>&nbsp; &nbsp; &nbsp;</strong></span>
+                                                </p>
+                                                <p dir="ltl" style="margin-top:0pt; margin-bottom:8pt;">
+                                                    <span style="font-size: 19px;"><strong>Centre commercial El Djennah n°1262, Mohammadia, Alger &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></span>
+                                                </p>
+                                                <p dir="ltl" style="margin-top:0pt; margin-bottom:8pt;">
+                                                    <span style="font-size: 19px;"><strong>Téléphone: /023.80.49.07/0561.72.83.85 &nbsp; &nbsp;</strong></span>
+                                                </p>
+                                                <p dir="ltl" style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:16pt;">
+                                                    <span style="line-height: 108%; font-size: 19px;"><strong>Adresse e-mail</strong>:</span>
+                                                    <span dir="ltl" style="font-size: 19px;">&nbsp;</span>
+                                                    <span style="line-height: 108%; font-size: 19px;">&nbsp;</span>
+                                                    <span style="font-size: 19px;"><a href="mailto:INFO@DIVATECHDZ.COM" style="text-decoration:none;"><u><span style="line-height: 108%; color: rgb(5, 99, 193);" dir="ltl">INFO@DIVATECHDZ.COM</span></u></a></span>
+                                                    <span style="line-height: 108%; font-size: 19px; color: rgb(5, 99, 193);" dir="ltl"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></span>
+                                                    <span style="line-height: 108%; font-size: 19px;"><strong>Algérie le</strong> <strong><span class="capitalize" style="font-size: 22px;" x-text="date"></span></strong></span>
+                                                    <span style="line-height: 108%; font-size: 19px;" dir="ltl"><strong>:</strong></span>
+                                                    <span style="line-height:108%; font-size:11pt;" dir="ltl"><strong>&nbsp;</strong></span>
+                                                </p>
+                                                <p style="margin-top:0pt; margin-bottom:8pt;">&nbsp;</p>
+                                                <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:16pt;">
+                                                    <span dir="ltl"><strong><span style="font-size: 22px;">Avis de Nomination</span></strong></span>
+                                                </p>
+                                                <p style="margin-top:0pt; margin-bottom:2pt; text-align:center; line-height:108%; font-size:16pt;">
+                                                    <span dir="ltl" style="font-size: 22px;"><strong>Comprenant la nomination d'un poste au sein de</strong><strong> l'entreprise Pour le Poste</strong> </span>
+                                                </p>
+                                                <p class="mb-4" style="margin-top:0pt; margin-bottom:4pt; text-align:center;">
+                                                    <strong><span class="capitalize" style="font-size: 22px;" x-text="fonction"></span></strong>
+                                                </p>
+                                                <p style="margin-top:0pt; margin-bottom:8pt;">&nbsp;</p>
+                                                <p style="margin-top: pt; margin-bottom: 8pt; text-align:left; line-height: 115%; font-size: 16pt; ">
+                                                    Conformément au contrat numéro 
+                                                    <span x-text="" class="font-semibold"></span> en date du 
+                                                    <span x-text="" class="font-semibold"></span>
+                                                </p>
+                                                <p style="margin-top: 0pt; margin-bottom: 8pt; text-align:left; line-height: 115%; font-size: 16pt; ">
+                                                    stipulant un contrat à durée déterminée du 
+                                                    <span x-text="" class="font-semibold"></span> au 
+                                                    <span x-text="" class="font-semibold"></span>
+                                                </p> <br>
+                                                <p style="margin-top: 0pt; margin-bottom: 8pt; line-height: 115%; font-size: 16pt; text-align:left;">
+                                                    <span dir="ltl">Après la période d'essai et conformément aux clauses contractuelles entre les deux parties et après consultation du règlement intérieur.</span>
+                                                </p>
+                                                <p dir="ltl"  style="margin-top: 0pt;  text-align:left; line-height: 115%; font-size: 16pt;">
+                                                   Il a été décidié la nomination de 
+                                                </p> 
+                                                <p style="margin-top:0pt; margin-bottom:8pt;">&nbsp;</p>
+                                                <p dir="ltl" style="margin-top: 0pt; margin-bottom: 8pt; text-align:left; line-height: 115%; font-size: 16pt;">
+                                                    Nom et prénom: <span x-text="name" class="font-semibold capitalize"></span>.
+                                                </p>
+                                                <p dir="ltl" style="margin-top: 0pt; margin-bottom: 8pt; text-align:left; line-height: 115%; font-size: 16pt;">
+                                                    Fonction: <span x-text="fonction" class="font-semibold mr-2 capitalize"> </span>.
+                                                </p>
+                                                <p dir="ltl" style="margin-top: 0pt; margin-bottom: 8pt; text-align:left; line-height: 115%; font-size: 16pt;">
+                                                    Grade: <span x-text="degre" class="font-semibold mr-2"></span>.
+                                                </p>
+                                                <p dir="ltl" style="margin-top: 0pt; margin-bottom: 8pt; text-align:left; line-height: 115%; font-size: 16pt;">
+                                                    Catégorie: <span x-text="echellon" class="font-semibold mr-2"></span>.
+                                                </p>
+                                                <p dir="ltl" style="margin-top: 0pt; margin-bottom: 8pt; text-align:left; line-height: 115%; font-size: 16pt;">
+                                                    Salaire total: <span x-text="salaire" class="font-semibold mr-2"></span>.
+                                                </p>
+                                                <div class="py-4">
+                                                    <p dir="ltl"  style="margin-top: 0pt; margin-bottom: 8pt; text-align:left; line-height: 108%; font-size: 16pt;">En conséquence, nous avons rédigé ce procès-verbal et l'avons signé avec la partie concernée en ce jour, mois et année susmentionnés.</p>
+                                                    <p dir="ltl" class="py-2" style="margin-top: 0pt; margin-bottom: 8pt; text-align:left; line-height: 108%; font-size: 14pt;"><strong>Signature du concerné (e): &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Directeur de l'entreprise:</strong></p>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div> 
+						   </div>     
+                    </div> 
+                </div>
+
+
+
+      </div>
+   
+     <!-- /Modal -->
+        <script>
+        function reglement(){
+            return {
+                date :new Date().toISOString().slice(0, 10),
+                name: '{{salarie.name}}',              
+                fonction: '{{salarie.fonction}}',              
+                email: '{{salarie.email}}',
+                phone: '{{salarie.phone}}',
+                coutH: '{{salarie.coutH}}',
+                salaire: '{{salarie.salaire}}',
+                salaireEsp: '{{salarie.salaireEsp}}',
+                nomarabe:'{{salarie.nomarabe}}',
+                fonctionarabe:'{{salarie.fonctionarabe}}',
+                num_assurancesocial:'{{salarie.num_assurancesocial}}',
+                datenaiss:'{{salarie.datenaiss}}',
+                lieu_naissance:'{{salarie.lieu_naissance}}',
+                lieu_naissancearabe:'{{salarie.lieu_naissancearabe}}',
+                echellon:'{{salarie.echellon}}',
+                degre:'{{salarie.degre}}',
+                printInvoice() {
+                    var printContents = this.$refs.printTemplate.innerHTML;
+                    var originalContents = document.body.innerHTML;
+                    document.body.innerHTML = printContents;
+                    window.print();
+                    document.body.innerHTML = originalContents;
+                    this.items=[];
+                },
+                printInvoiceAr() {
+                    var printContents = this.$refs.printTemplateArabe.innerHTML;
+                    var originalContents = document.body.innerHTML;
+                    document.body.innerHTML = printContents;
+                    window.print();
+                    document.body.innerHTML = originalContents;
+                    this.items=[];
+                },
+            }
+        }
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+                }
+            }
+            return cookieValue;
+        }
+        </script>
+
+    </main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+{% endblock content %}

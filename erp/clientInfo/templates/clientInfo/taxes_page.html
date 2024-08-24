@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="home" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full h-full px-2 overflow-hidden overflow-y-scroll" x-data="{isOpen :false}">
+          <!-- Main content header -->
+          <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                                                                                                     
+            
+          <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">{% if type == 'DOUAN' %}Liste des Taxes douanières{% else %}Liste des Taxes{% endif %}<h1>          
+          </div>
+          <div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b">  
+            <div></div>          
+            <div class="inline-block px-4 py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer" x-on:click="isOpen = true">
+              {% if type == 'DOUAN' %} Créer une nouvelle taxe douanière {% else %}Créer une nouvelle taxe{% endif %}
+            </div>
+          </div>
+               <!-- Modal -->
+  <div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-hidden scroll" x-cloak x-show.transition.opacity="isOpen">
+    <div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-0 md:mt-12">
+      <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+        x-on:click="isOpen = false">
+        <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+        </svg>
+      </div>
+      <form action="" id="myForm">
+      <div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+       <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2"> {% if type == 'DOUAN' %} Ajouter une nouvelle taxe douanière {% else %}Ajouter une nouvelle taxe{% endif %}</h2>
+       <input type="hidden" name="" id="type" value="{{type}}">
+        <div class="form-input">
+          <div class="mb-4">
+						<label class="block text-gray-700 font-semibold mb-2" for="lib">
+						  Libellé:
+						</label>
+						<input
+						  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						  type="text"
+						  id="lib"
+						  name="lib"
+              placeholder=" Libellé ... "
+						>
+					</div>
+          <div class="mb-4">
+						<label class="block text-gray-700 font-semibold mb-2" for="taux">
+						  Taux :
+						</label>
+						<input
+						  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						  type="text"
+						  id="taux"
+						  name="taux"
+						  placeholder=" Taux  ... "
+						>
+					</div>          
+        </div>
+       <div class="mt-8 text-right">
+       <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="isOpen = false">
+        Annuler
+       </button>	
+       <button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" @click="addBanque()">
+        Valdier
+       </button>	
+      </div>
+    </div> 
+   </form>
+    </div>
+   </div>
+  <!-- /Modal -->
+  <script>
+    function addBanque(){
+
+        // Send the data to Django using Axios
+       dataObj={
+        lib: document.getElementById('lib').value,
+        taux : document.getElementById('taux').value,
+        type : document.getElementById('type').value,
+       }
+       axios.post('', {
+        formData: dataObj
+       }, {
+       headers: {
+       'Content-Type': '',
+       'X-CSRFToken': getCookie('csrftoken'),
+       }
+      })
+     .then((response) => {
+       data = response.data
+       console.log(data.error)
+			 if(data.error){
+						alert(data.error);
+				}else{
+						alert("Banque Ajouté !");
+				}		  
+       window.location.reload()            
+     })
+     .catch((error) => {
+       alert(error)
+       
+     });
+    }
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+  </script>
+         {% comment %}  end Logic to upload stock from file  {% endcomment %}        
+          <div class="flex flex-col mt-5">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+                  <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          #
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                        {% if type == 'DOUAN' %} Taxe douanière {% else %}TVA{% endif %}
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          taux
+                        </th>                      
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          MAJ
+                        </th>                     
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                      {% for tax in taxesList %}
+                        <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">             
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm text-gray-900">{{forloop.counter}}</div>
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm text-gray-900">{{tax.libelle}}</div>                          
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <span
+                              class="inline-flex px-2 text-xs font-semibold leading-5 rounded-full"
+                            >
+                              {{tax.taux}}
+                            </span>
+                          </td>
+                          <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap flex">
+                            <a href="{% url 'detail' model_type="taxes" pk=tax.pk %}">
+                              {% heroicon_mini "pencil-square" class="transition-transform" %}
+                            </a> 
+                            {% heroicon_mini "archive-box-x-mark" class="transition-transform" %}
+                          </td>
+                        </tr>                  
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div> 
+</main>	
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

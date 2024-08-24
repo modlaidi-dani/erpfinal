@@ -1,0 +1,419 @@
+{% extends "base.html" %}
+{% load static %}
+{% load heroicons %}
+{% block body_class %}{% endblock %}
+{% block content %}
+
+
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="home" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full h-full px-2 overflow-hidden ">
+		<!-- Main content header -->
+		  <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                                                                                                                 
+			<h1 class="text-2xl font-semibold whitespace-nowrap">Liste des utilisateurs </h1>          
+		  </div>
+		<!-- /Main content header -->      
+		<body class="antialiased sans-serif bg-gray-100">
+		  <div class="container mx-auto" x-data="datatables()" x-init="loadData()" x-cloak>
+			<div class="mb-4 mt-4 py-2 flex justify-between items-center border-b">
+			  <div class="flex-1 pr-4">
+				<div class="relative md:w-1/3">
+				  <input type="search" x-model="search" class="w-full pl-10 pr-4 py-2 inline-block text-sm leading-5 font-medium rounded-md text-black border border-gray-700  focus:outline-none" placeholder="Rechercher ...">
+				  <div class="absolute top-0 left-0 inline-flex items-center p-2">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+					  <circle cx="10" cy="10" r="7" />
+					  <line x1="21" y1="21" x2="15" y2="15" />
+					</svg>
+				  </div>
+				</div>
+			  </div>
+			  <div class="relative ">
+				<div class="inline-block px-4 py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer" x-on:click="showModal = true">
+				  Ajouter nouveau utilisateur 
+				</div>
+			  </div>              
+			  <div>
+			  </div>
+			</div>
+		
+			<div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative" >
+			  <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
+				<thead class="bg-gray-50">
+				  <tr class="text-left">
+					<template x-for="heading in headings">
+					  <th class=" sticky top-0 border-b border-gray-300 px-6 py-2 text-gray-700 font-bold tracking-wider uppercase text-xs" x-text="heading.value" x-show="columns.includes(heading.key)"></th>
+					</template>
+				  </tr>
+				</thead>
+				<tbody>
+				  <template x-for="user in filtered(users, 'firstName', 'lastName','emailAddress', 'phoneNumber')" :key="user.userId">
+					<tr class="border-b border-gray-300" >
+					  <td class="border-dashed border-t border-gray-300" x-show="columns.includes('userId')">
+						<span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.userId"></span>
+					  </td>
+					  <td class="border-dashed border-t border-gray-300" x-show="columns.includes('firstName')">
+						<span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.firstName"></span>
+					  </td>
+					  <td class="border-dashed border-t border-gray-300" x-show="columns.includes('lastName')">
+						<span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.lastName"></span>
+					  </td>
+					 <!-- <td class="border-dashed border-t border-gray-300" x-show="columns.includes('emailAddress')">-->
+						<!--<span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.emailAddress"></span>-->
+					 <!-- </td>-->
+					  <td class="border-dashed border-t border-gray-300" x-show="columns.includes('gender')">
+						<span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.role"></span>
+					  </td>
+					  <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap flex" >
+						<a x-bind:href="'Edit-user/' + user.userId"  class="">
+                            {% heroicon_mini "pencil-square" class="transition-transform" %}
+                        </a>
+                        <a @click="showConfirmModal = true; usertoDelete = user.userId"  class="">
+                            {% heroicon_mini "archive-box-x-mark" class="transition-transform" %}
+                        </a>
+					  </td>
+					</tr>
+				  </template>
+				</tbody>
+			  </table>
+			</div>
+		    <div x-cloak x-show="showConfirmModal" class="fixed inset-0 flex items-center justify-center z-50">
+              <div class="modal bg-gray-50 rounded-lg p-4 max-w-md mx-auto shadow-lg">
+                <p class="text-gray-700 text-lg mb-4">Voulez-vous vraiment supprimer l'utilisateur avec ID <span x-text="usertoDelete"></span>? </p>
+     			<div class="flex justify-end">
+       			  <button @click="confirmerSuppression" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none mr-2">Oui</button>
+       			  <button @click="annulerSuppression()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 focus:outline-none">Annuler</button>
+     			</div>
+              </div>
+ 			</div>
+
+		  <!-- Modal -->
+		  <div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll " x-cloak x-show.transition.opacity="showModal">
+			<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-0 md:mt-12">
+			  <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+				x-on:click="showModal = false">
+				<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				  <path
+					d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+				</svg>
+			  </div>
+			  <form action="" id="myForm">
+			  <div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+			   <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter Un Nouveau Utilisateur</h2>
+				<div class="form-input">
+				  <div class="mb-4">
+					<label class="block text-gray-700 font-semibold mb-2" for="groupe">
+					  Groupe :
+					</label>
+					<select
+					 class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+					 id="groupe"
+					 name="groupe"						
+					 required  
+					 >
+					 <option value="" disabled selected> Selectionnez  Groupe</option>
+					 <option value="" > Aucun </option>
+					 {% for groupe in groupes  %}
+					   <option value="{{groupe.pk}}"> {{groupe.label}} </option>
+					 {% endfor %}
+					</select>
+				  </div>
+				  <div class="mb-4">
+					<label class="block text-gray-700 font-semibold mb-2" for="nom">
+					  Nom :
+					</label>
+					<input
+					  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					  type="text"
+					  id="nom"
+					  name="nom"
+					  placeholder=" Nom ... "
+					>
+				  </div>
+				  <div class="mb-4">
+					<label class="block text-gray-700 font-semibold mb-2" for="prenom">
+					  Prénom :
+					</label>
+					<input
+					  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					  type="text"
+					  id="prenom"
+					  name="prenom"
+					  placeholder="Prénom ..."
+					>
+				  </div>        
+				  <div class="mb-4">
+					<label class="block text-gray-700 font-semibold mb-2" for="login">
+					  Login :
+					</label>
+					<input
+					  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					  type="text"
+					  id="login"
+					  name="login"
+					  placeholder="Login ..."
+					>
+				  </div>        
+				  <div class="mb-4">
+					<label class="block text-gray-700 font-semibold mb-2" for="password">
+					  Password :
+					</label>
+					<input
+					  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					  type="text"
+					  id="password"
+					  name="password"
+					  placeholder="Password ..."
+					>
+				  </div>    
+				  <div class="mb-4">
+					<label class="block text-gray-700 font-semibold mb-2" for="password">
+					  Confirm Password :
+					</label>
+					<input
+					  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					  type="text"
+					  id="rpassword"
+					  name="rpassword"
+					  placeholder="Re-tapez Password : ..."
+					>
+				  </div>     
+				  <div class="mb-4">
+					<label class="block text-gray-700 font-semibold mb-2" for="mail">
+					  Email :
+					</label>
+					<input
+					  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					  type="text"
+					  id="mail"
+					  name="mail"
+					  placeholder="Email ..."
+					>
+				  </div>                                                      
+				</div>
+			   <div class="mt-8 text-right">
+			   <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="showModal = false">
+				Annuler
+			   </button>	
+			   <button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm" @click="addUser()">
+				Valdier
+			   </button>	
+			  </div>
+			</div> 
+		   </form>
+			</div>
+		   </div>
+		  </div>
+		  <!--  end Modal -->
+		  <script>
+		   function datatables() {
+			return {
+			  headings: [
+				{
+				  key: "userId",
+				  value: "ID"
+				},
+				{
+				  key: "firstName",
+				  value: "Nom"
+				},
+				{
+				  key: "lastName",
+				  value: "Prénom"
+				},
+				{
+				  key: "gender",
+				  value: "Rôle"
+				},
+				{
+				  key: "MAJ",
+				  value: "MAJ"
+				}
+			  ],
+			  users: [],
+		  
+			  open: false,
+			  
+			  search: '',
+			  showModal: false,
+			  columns: [],
+              usertoDelete:'',
+              showConfirmModal:false,
+              confirmerSuppression() {
+			     dataObj ={
+                          user_id: this.usertoDelete,
+                         
+                      }
+      		        axios.post('supprimerUtilisateur/',dataObj, {
+                        headers: {
+                          'Content-Type': 'application/json',
+                          'X-CSRFToken': getCookie('csrftoken'),
+                        }
+                      })
+        		   .then(response => {
+					if (response.data.message){
+         				alert(response.data.message);
+						window.location.reload();
+					}else{
+						alert(response.data.error);
+						window.location.reload();
+					}
+        		})
+        		.catch(error => {
+          			// Handle request errors
+         			 alert(error);
+       			 });
+      				this.showConfirmModal = false;
+      				this.productReference = '';
+    	    },
+		annulerSuppression() {
+      		// Réinitialiser les variables
+     		this.showConfirmModal = false;
+      		this.productReference = '';
+    	},
+			  addUser(){
+				form =document.getElementById('myForm')
+				const formData = new FormData(form);
+				 // Send the data to Django using Axios
+				dataObj={
+				  groupe : document.getElementById('groupe').value,
+				  nom: document.getElementById('nom').value,
+				  prenom:  document.getElementById('prenom').value,
+				  login:  document.getElementById('login').value,
+				  password:  document.getElementById('password').value,
+				  rpassword:  document.getElementById('rpassword').value,
+				  mail:  document.getElementById('mail').value,
+				}
+				console.log('Adding The user...',formData);
+				axios.post('', {
+				  formData: dataObj
+				}, {
+				  headers: {
+					'Content-Type': '',
+					'X-CSRFToken': getCookie('csrftoken'),
+				  }
+				})
+				.then((response) => {
+					data = response.data
+					console.log(data.error)
+						  if(data.error){
+									alert(data.error);
+							}else{
+								  alert("Utilisateur Ajouté !");
+							}		  
+					  window.location.reload()            
+				})
+				.catch((error) => {
+				  alert(error)      
+				});
+			  },
+
+			  loadData(){
+				users = {{ users|safe }}
+				for (const user of users) {								 
+									  const item = {
+											 selected: false,
+						   userId: user.id,
+						   firstName: user.name,
+						   lastName: user.lname,
+						   emailAddress: user.email,
+						   role: user.role,
+						   phoneNumber: "882-911-7241"
+									  };
+									console.log(item.ent)
+									this.users.push(item);
+							  }		
+			  },
+			  get selectedUsers() {
+				return this.users.filter((user) => user.selected);
+			  },
+		  
+			  init() {
+				this.columns = this.headings.map((h) => {
+				  return h.key;
+				});                 
+			  },
+		  
+			  toggleColumn(key) {
+				this.columns.includes(key)
+				  ? (this.columns = this.columns.filter((i) => i !== key))
+				  : this.columns.push(key);
+			  },
+		  
+			  selectAllCheckbox() {
+				let filteredUsers = this.filtered(this.users);
+				if (filteredUsers.length === this.selectedUsers.length) {
+				  return filteredUsers.map((user) => (user.selected = false));
+				}
+				filteredUsers.map((user) => (user.selected = true));
+			  },
+		  
+			  filtered(...items) {
+				// Search filter Function for any Array of Objects !
+				
+				// You can pass only the Array of Objects, 
+				// it will search all props of every Object except "ID"
+				// Example : filtered(users)
+				
+				// OR you can pass additional props, it will only search passed props
+				// Example : filtered(users, 'firstName', 'lastName','emailAddress', 'phoneNumber')
+		  
+				values = items.shift(); // get the list of objects
+				props = items.length ? items : null; // get list of props
+		  
+				return values.filter((i) => {
+				  y = Object.assign({}, i);
+				  delete y['userId']; // Specifie the id prop to remove from object
+				  if (props) {
+					okeys = Object.keys(y).filter((b) => !props.includes(b));
+					okeys.map((d) => delete y[d]);
+				  }
+				  itemToSearch = Object.values(y).join(); // Object to array, then join to String
+				  return itemToSearch.toLowerCase().includes(this.search.toLowerCase()); // Return filtred Object
+				});
+			  }
+			};
+		   }
+		   function getCookie(name) {
+					   var cookieValue = null;
+					   if (document.cookie && document.cookie !== '') {
+						   var cookies = document.cookie.split(';');
+						   for (var i = 0; i < cookies.length; i++) {
+							   var cookie = cookies[i].trim();
+							   // Does this cookie string begin with the name we want?
+							   if (cookie.substring(0, name.length + 1) === (name + '=')) {
+								   cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+									 break;
+								}
+							}
+					   }
+					   return cookieValue;
+				   }
+		  </script>          
+		</main>	
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

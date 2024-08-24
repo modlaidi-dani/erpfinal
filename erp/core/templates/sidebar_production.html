@@ -1,0 +1,35 @@
+ <!-- Loading screen -->
+   <!-- sidebar -->
+ <div class="sidebar max-h-screen top-0 h-screen bg-gray-100  text-white w-60 fixed  left-0 transform transition duration-200 ease-in-out "
+   x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+   :class="open === true ? 'md:translate-x-0 md:sticky ':'-translate-x-full' ">  
+   <!-- nav -->
+   <nav class="px-4 pt-4  max-h-[calc(100vh-64px)]" x-data="{selected:'Tasks'}">
+       <ul class="flex flex-col space-y-2">
+           <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+            Production
+           </div>
+         {% if 'ventes.can_see_bonlivraison' in request.session.permissions or request.session.role == "manager"  %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'ordres-fabrication' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">
+              
+                </div>
+                <div> Ordres Fabrication </div>
+              </a>
+           </li>
+         {% endif %}
+    
+       </ul>
+   </nav>
+  </div>
+  <!-- End sidebar -->  
+  <div class="md:hidden">
+    <button
+        class="fixed z-50 right-0 top-0 p-2 bg-gray-700 "
+        x-on:click="$dispatch('togglesidebar')"
+    >
+        X
+    </button>
+</div>

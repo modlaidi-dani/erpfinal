@@ -1,0 +1,568 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="stock" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_stock.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<body class="antialiased sans-serif" x-data="entries()"
+			x-init="generateInvoiceNumber(111111, 999999);"
+			x-cloak>
+		<div  class="container mx-auto py-6 px-4">
+			<div class="flex justify-between border-b">
+				<h2 class="text-2xl font-bold mb-6 pb-2 tracking-wider uppercase">Inventaire Initial</h2>				
+			</div>
+	
+								<div class="block py-2">
+									<p>Ajouter à travers fichier excel</p>
+									<input type="file" id="excelFileInput" accept=".xlsx" x-ref="fileInput" x-on:change="handleFileChange">
+									<span class="">
+										<a href="#" class="text-red-500 hover:text-red-600 text-sm font-semibold" @click.prevent="products_real = []">Réinitialiser</a>																	
+									</span>
+								</div>
+									<a href="#" class="text-gray-700 text-sm font-semibold" @click.prevent="filemodel()">Télécharger modèle de fichier</a>	
+					 				<div x-show="products_real.length > 0">	
+									<h3 class="text-lg font-semibold mb-2">Liste Produits </h3>
+									<table class="w-full  rounded border-2-collapse border-2">
+										<thead class="bg-gray-50">
+											<tr class="border-b">
+												<th class=" p-2">Référence Produit</th>
+												<th class=" p-2">Désignation Produit</th>
+												<th class=" p-2">Entrepot</th>
+												<th class=" p-2">Quantité</th>
+												<th class=" p-2"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<template x-for="product in products_real" >
+												<tr class="border-b" >
+													<td class="text-center p-2" x-text="product.reference"></td>
+													<td class="text-center p-2" x-text="product.name"></td>
+													<td class="text-center p-2" x-text="product.entrepot"></td>
+													<td class=" text-center p-2" x-text="product.quantity"></td>												
+												</tr>
+											</template>
+										</tbody>
+									</table>
+								</div>
+
+				<div class="py-2 ml-auto mt-5 w-full ">	
+					<div class="flex justify-between border-t w-full">
+						<div></div>
+						<button 
+							class="mt-6 bg-gray-700 text-white hover:bg-gray-100 hover:border-gray-700 hover:text-gray-700 font-semibold py-2 px-8 text-sm border border-gray-300 "
+							:class="{ 'bg-gray-50': validating, 'bg-gray-700': !validating }"
+							:disabled="validating"
+							@click.prevent="validateBon"
+							class="mt-6 bg-gray-700 text-white hover:bg-gray-100 hover:border-gray-700 hover:text-gray-700 font-semibold py-2 px-8 text-sm border border-gray-300 rounded shadow-lg"
+						>
+							Valider
+						</button>					
+					</div>
+				</div>
+
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.3/purify.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+				<script>
+					function entries() {
+						return {
+							items: [],
+							stocks:[],
+							invoiceDate:  new Date().toISOString().slice(0, 10),
+							invoiceDueDate: new Date().toISOString().slice(0, 10),
+							openPreview:false,
+							netTotal: 0,
+							Inventrepot:'',
+							validating:false,
+							item: {
+								id: '',
+								name: '',
+								ref:'',
+								qty: 0,
+								rate: 0,
+								total: 0,					
+							},
+							products1: [],
+							products2: [],
+							products3: [],
+							products_real:[],
+
+							GenerateConclusion(){
+								if(this.Inventrepot == ""){
+									alert("Veuillez Spécifier l'entrepot");
+									return;
+								}
+								this.stocks = []; // Initialize stocks array
+
+								dataObj = {
+								nomEnt: this.Inventrepot,
+								};
+
+								axios
+								.post('fetchStock/', dataObj, {
+									headers: {
+									'Content-Type': '',
+									'X-CSRFToken': getCookie('csrftoken'),
+									},
+								})
+								.then((response) => {
+									itemsData = response.data.stocks;
+
+									for (const itemData of itemsData) {
+									const item = {
+										ref: itemData.reference,
+										name: itemData.product_name,
+										qty: itemData.quantity,
+									};
+									this.stocks.push(item);
+									}
+
+									const quantityMap = new Map();
+
+									// Process stocks and store quantityreal
+									for (const item of this.stocks) {
+									quantityMap.set(item.ref, {
+										ref: item.ref,
+										name: item.name,
+										quantityreal: item.qty,
+									});
+									}
+
+									// Process this.products1 and update the quantity map
+									for (const product of this.products1) {
+									const key = String(product.reference);
+									if (quantityMap.has(key)) {
+										quantityMap.get(key).quantity1 = product.quantity || 0;
+									} else {
+										quantityMap.set(key, {
+										ref: product.reference,
+										name: product.name,
+										quantity1: product.quantity || 0,
+										});
+									}
+									}
+
+									// Process this.products2 and update the quantity map
+									for (const product of this.products2) {
+									const key = String(product.reference);
+									if (quantityMap.has(key)) {
+										quantityMap.get(key).quantity2 = product.quantity || 0;
+									} else {
+										quantityMap.set(key, {
+										ref: product.reference,
+										name: product.name,
+										quantity2: product.quantity || 0,
+										});
+									}
+									}
+
+									// Create the result array
+									const resultArray = Array.from(quantityMap.values()).map(
+									({ ref, name, entrepot, quantity1, quantity2, quantityreal }) => ({
+										ref,
+										name,
+										entrepot:this.Inventrepot,
+										quantity1,										
+										quantity2,
+										quantityreal,
+									})
+									);
+									console.log(resultArray);
+									this.products_real = resultArray;
+								})
+								.catch((error) => {
+									alert(error);
+								});
+							},
+
+							downloadRealFile(){
+								const ws = XLSX.utils.json_to_sheet(this.products_real);
+											const wb = XLSX.utils.book_new();
+											XLSX.utils.book_append_sheet(wb, ws, 'Products');
+											XLSX.writeFile(wb, `fichier_produits_en_${this.Inventrepot}.xlsx`);	
+							},
+								filemodel(){
+									// Create an empty array with headers
+									const emptyData = [
+										{ reference: '', designation: '', entrepot:'', quantity: '' }
+									];
+
+									// Create worksheet
+									const ws = XLSX.utils.json_to_sheet(emptyData);
+
+									// Create workbook
+									const wb = XLSX.utils.book_new();
+									XLSX.utils.book_append_sheet(wb, ws, 'Products');
+
+									// Download the file
+									XLSX.writeFile(wb, `fichier_modele.xlsx`); 
+								},
+
+								handleFileChange(event) {
+									const file = event.target.files[0];
+									if (file) {
+										console.log("I am changing");
+										const reader = new FileReader();
+										reader.onload = (e) => {
+											const data = new Uint8Array(e.target.result);
+											const workbook = XLSX.read(data, { type: 'array' });
+											const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+											const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+											for (let i = 1; i < jsonData.length; i++) {
+												// Check if the reference is not empty
+												if (jsonData[i][0] && jsonData[i][0].trim() !== '') {
+													console.log("hello");
+													this.products_real.push({
+														reference: jsonData[i][0],
+														name: jsonData[i][1],
+														entrepot: jsonData[i][2],
+														quantity: parseFloat(jsonData[i][3]),
+													});
+												}
+											}
+										};
+										reader.readAsArrayBuffer(file);
+										this.$refs.fileInput.value = '';
+									}
+								},
+
+
+								
+								printExcelFile(entrepotStock){
+									this.stocks=[]
+									dataObj={
+										nomEnt : entrepotStock,						 
+									}
+									console.log('fetching the stock  ...',dataObj);
+									axios.post('fetchStock/', dataObj, {
+									headers: {
+										'Content-Type': '',
+										'X-CSRFToken': getCookie('csrftoken'),
+									}
+									})
+									.then((response) => {
+											console.log(response.data.stocks);
+											itemsData=response.data.stocks;
+											for (const itemData of itemsData) {								 
+												const item = {										
+													ref: itemData.reference,
+													name: itemData.product_name,
+													qty: itemData.quantity,
+													ent:itemData.entrepot,
+													prixrevient: itemData.prix_achat,
+													montant:itemData.quantity * itemData.prix_achat
+												};					
+												this.stocks.push(item);
+											}	
+											const ws = XLSX.utils.json_to_sheet(this.stocks);
+											const wb = XLSX.utils.book_new();
+											XLSX.utils.book_append_sheet(wb, ws, 'Products');
+											XLSX.writeFile(wb, `fichier_inventaire_${entrepotStock}.xlsx`);					 
+									})
+									.catch((error) => {
+										console.log(error);				
+									});
+								},
+
+								printPDFFile(entrepotStock) {
+									this.stocks = [];
+									dataObj = {
+										nomEnt: entrepotStock,
+									};
+									axios.post('fetchStock/', dataObj, {
+										headers: {
+											'Content-Type': '',
+											'X-CSRFToken': getCookie('csrftoken'),
+										}
+									})
+									.then((response) => {
+										itemsData = response.data.stocks;
+										for (const itemData of itemsData) {
+											const item = {
+												ref: itemData.reference,
+												name: itemData.product_name,
+												qty: itemData.quantity,
+												ent: itemData.entrepot,
+												prixrevient: itemData.prix_achat,
+												montant: itemData.quantity * itemData.prix_achat
+											};
+											this.stocks.push(item);
+										}
+
+										const tableHeaders = ['Reference', 'Product Name', 'Quantity', 'Prix Revient', 'Montant'];
+										// Ensure that the data in each cell is defined or provide a default value (e.g., '-')
+										const tableData = this.stocks.map(item => [
+											item.ref || '-',           // Check for empty 'ref'
+											item.name || '-',          // Check for empty 'name'
+											item.qty !== undefined ? item.qty : '-', // Check for empty 'qty' and handle undefined
+											item.prixrevient !== undefined ? item.prixrevient : '-', // Check for empty 'prixrevient' and handle undefined
+											item.montant !== undefined ? item.montant : '-' // Check for empty 'montant' and handle undefined
+										]);
+
+										const docDefinition = {
+											content: [
+												{ text: `Liste des produits en ${entrepotStock}`, style: 'header' },
+												{
+													table: {
+														headerRows: 1,
+														widths: ['auto', 'auto', 'auto', 'auto', 'auto', 'auto'],
+														body: [tableHeaders, ...tableData]
+													}
+												}
+											],
+											styles: {
+												header: {
+													fontSize: 16,
+													bold: true
+												}
+											}
+											};
+											// Create a PDFMake document and save the PDF
+											const pdfDoc = pdfMake.createPdf(docDefinition);
+											pdfDoc.download('stock_data.pdf');
+											})
+											.catch((error) => {
+											console.log(error);
+											});
+								},
+
+									filterProduct: '',
+									showProduct: false,
+									selectedProduct: null,
+									closeProduct() { 
+											this.showProduct = false;
+											this.filterProduct = this.selectedProductName();
+											this.item.name = this.selectedProductName();
+											this.item.ref= this.selectedProduct.ref;
+											this.focusedOptionIndex = this.selected ? this.focusedOptionIndex : null;
+									},
+									openProduct(){
+										this.showProduct = true; 
+										this.filterProduct = '';
+									},
+									toggleProduct() { 
+										if (this.showProduct) {
+											this.closeProduct();
+										}
+										else {
+											this.openProduct()
+										}
+									},
+									isProductsOpen() { return this.showProduct === true },
+									selectedProductName() { return this.selectedProduct ? this.selectedProduct.name : this.filterProduct; },
+									filteredStock() {
+													return this.stocks
+														? this.stocks.filter(option => {
+															return (option.name.toLowerCase().indexOf(this.filterProduct) > -1) 
+																|| (option.ref.toLowerCase().indexOf(this.filterProduct) > -1)
+															})
+															: {}
+									},
+									onProductClick(index) {
+										this.focusedOptionIndex = index;
+										this.selectProduct();
+									},	
+
+									selectProduct() {
+										if (!this.isProductsOpen()) {
+										return;
+										}
+										this.focusedOptionIndex = this.focusedOptionIndex ?? 0;
+										const selected = this.filteredStock()[this.focusedOptionIndex]								
+										if (this.selectedProduct && this.selectedProduct.name == selected.name) {
+												this.filterProduct = '';
+												this.selectedProduct = null;
+										}
+										else {
+											this.selectedProduct = selected;
+											this.filterProduct = this.selectedProductName();
+											// Find the stock item with the matching reference
+											const matchingStockItem = this.stocks.find(stockItem => stockItem.ref === selected.ref);
+
+											if (matchingStockItem) {
+												// Update the item data with the matching stock item
+												console.log(matchingStockItem.ref)
+												this.item.ref = matchingStockItem.ref;
+												this.item.name = matchingStockItem.name;
+												this.item.rate = matchingStockItem.rate;
+												this.selectedProductQuantity = matchingStockItem.qty;
+												this.showQuantity = true;
+												setTimeout(() => {
+													document.getElementById('price').value = matchingStockItem.prix;               						
+												}, 50); // Adjust the delay as needed
+												console.log(this.item.ref)
+											}
+										}
+										this.closeProduct();
+									},
+					
+									billing: {
+										name: '',
+										address: '',
+										extra: '',
+										phone:''
+									},
+									from: {
+										name: '',
+										address: '',
+										extra: ''
+									},
+					
+									showTooltip: false,
+									showTooltip2: false,
+									openModal: false,
+									showQuantity:false,
+					
+									showModal(){
+										document.getElementById('myForm').reset(); 						
+										this.openModal =true;
+									},
+					
+									addItem() {
+										this.items.push({
+											id: this.generateUUID(),
+											name: this.item.name,
+											qty: this.item.qty,
+											rate: this.item.rate,
+											ref: this.item.ref,
+											//gst: this.calculateGST(this.item.gst, this.item.rate),
+											total: this.item.qty * this.item.rate
+										})
+										console.log(this.item.rate)
+										this.itemTotal();
+										this.itemTotalGST();
+					
+										this.item.id = '';
+										this.item.name = '';
+										this.item.fournisseur='';
+										this.item.qty = 0;
+										this.item.rate = 0;
+										//this.item.gst = 18;
+										this.item.total = 0;
+										document.getElementById('myForm').reset(); 
+							
+									
+									},
+					
+									deleteItem(uuid) {
+										this.items = this.items.filter(item => uuid !== item.id);
+					
+										this.itemTotal();
+										//this.itemTotalGST();
+									},
+					
+									itemTotal() {
+										this.netTotal = this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+											return result + item.total;
+										}, 0) : 0);
+									},
+					
+									generateUUID() {
+										return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+											var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+											return v.toString(16);
+										});
+									},
+					
+									generateInvoiceNumber(minimum, maximum) {
+										const randomNumber = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+										this.invoiceNumber = '#BE-'+ randomNumber;
+									},
+					
+									numberFormat(amount) {
+										return amount.toLocaleString("fr-FR", {
+											style: "currency",
+											currency: "DZD"
+										});
+									},
+					
+									printInvoice() {
+										var printContents = this.$refs.printTemplate.innerHTML;
+										var originalContents = document.body.innerHTML;
+										document.body.innerHTML = printContents;
+										window.print();
+										window.location.reload();
+										console.log(originalContents)
+										document.body.innerHTML = originalContents;
+					
+										this.items=[];
+									},
+
+									validateBon(){
+										this.validating = true;
+										const dataObj = {
+											liste_products:this.products_real,										
+										};
+										axios.post('', {
+												formData: dataObj
+											}, {
+												headers: {
+													'Content-Type': '',
+													'X-CSRFToken': getCookie('csrftoken'),
+												}
+											})
+											.then((response) => {
+												data= response.data
+												if(data.error){
+													alert(data.error);
+													this.validating=false;
+												}else{
+													alert(data.message);
+													this.validating=false;
+												}		  
+											})
+											.catch((error) => {
+												alert(error)
+											});				
+											
+									},
+							
+						}
+					}
+					function getCookie(name) {
+						var cookieValue = null;
+						if (document.cookie && document.cookie !== '') {
+							var cookies = document.cookie.split(';');
+							for (var i = 0; i < cookies.length; i++) {
+								var cookie = cookies[i].trim();
+								// Does this cookie string begin with the name we want?
+								if (cookie.substring(0, name.length + 1) === (name + '=')) {
+									cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+									break;
+								}
+							}
+						}
+						return cookieValue;
+					}
+				</script>
+    </body>	
+	<!-- end Main content  -->
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

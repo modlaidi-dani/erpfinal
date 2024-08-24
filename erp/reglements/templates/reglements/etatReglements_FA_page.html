@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+   {% include 'header.html' %}
+   {% include 'tabs.html' with active_tab="reglements" %}
+   <div class=" w-full flex flex-row">
+	   {% include "sidebar_reglements.html" %}
+     <div class="h-full w-full">
+       <main class="block w-full px-2 h-full mx-auto overflow-hidden " x-data="{isOpen :false}">
+          <!-- Main content header -->
+          <div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                    
+            <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des Réglements Factures Clients</h1>          
+          </div>   
+          <div class="flex flex-col mt-5">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+               {% for client in clients %}
+               {% if client.remaining_amount_facture > 0 %}
+               <table class="border-collapse border-black w-full mt-2" x-data="{showBody: false}">
+                <thead class="{% if client.remaining_amount > client.total_paid_amount %}bg-red-400{% endif %}">
+                 <tr >
+                 <th class=" border px-4 "> Client </th>
+                 <th class=" border px-4 "> Montant </th>
+                 <th class=" border px-4 "> Réglé </th>
+                 <th class=" border px-4 "> Rembourssé </th>
+                 <th class=" border px-4 "> Solde </th>
+                 <th class=" border px-4 "> Solde Antérieur </th>
+                 <th class=" border px-4 "> MAJ </th>
+                 </tr>
+                 <tr>
+                 <th class=" border px-4 ">{{client.name}}</th>
+                 <th class=" border px-4 ">{{client.total_amount_facture}}</th>
+                 <th class=" border px-4 ">{{client.total_paid_amount_facture}}</th>
+                 <th class=" border px-4 "></th>
+                 <th class="border px-4 ">{{client.remaining_amount_facture}}</th>
+                 <th class="border px-4 ">0.00</th>
+                 <th class=" border  text-sm cursor-pointer ">                 
+                  <span @click="showBody=!showBody">show</span>               
+                 </th>
+                 </tr>
+               </thead>
+               <tbody x-show="showBody">
+                {% for bon_sortie in client.client_facture.all %}
+                 <tr class="border-b">
+                   <td class=" px-4 py-2 text-center">- {{ bon_sortie.codeFacture }}</td>
+                   <td class=" px-4 py-2 text-center">{{ bon_sortie.get_total_price }}</td>
+                   <td class=" px-4 py-2 text-center"> {{bon_sortie.total_paid_amount}} </td>
+                   <td class=" px-4 py-2 text-center"> / </td>
+                   <td class=" px-4 py-2 text-center">{{bon_sortie.total_remaining_amount}}</td>
+                   <td class=" px-4 py-2 text-center">/</td>
+                   <td class=" px-4 py-2 text-center"></td>
+                 </tr>
+                {% endfor %}
+               </tbody>
+               </table>
+               
+             
+               {% endif %}
+               {% endfor %}
+              </div>
+            </div>
+          </div> 
+       </main>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+{% endblock content %}

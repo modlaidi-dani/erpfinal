@@ -1,0 +1,117 @@
+ <!-- Loading screen -->
+   <!-- sidebar -->
+ <div class="sidebar max-h-screen top-0 h-screen bg-gray-100  text-white w-60 fixed  left-0 transform transition duration-200 ease-in-out "
+   x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+   :class="open === true ? 'md:translate-x-0 md:sticky ':'-translate-x-full' ">  
+   <!-- nav -->
+   <nav class="px-4 pt-4  max-h-[calc(100vh-64px)]" x-data="{selected:'Tasks'}">
+       <ul class="flex flex-col space-y-2">
+           {% if request.session.role == "manager" or request.session.username == "fares" or request.session.username == "toufik" %}
+           <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+             Codes Séries
+           </div>
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'prepare-series' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">             
+                </div>
+                <div> Préparation Code Séries </div>
+              </a>
+           </li>
+           {% endif %}
+           <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+              Logistiques
+           </div>
+         <!-- ITEM -->
+         {% if request.session.role == "manager" or request.session.username == "toufik" or request.session.role == "Finance" %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'page-req' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">             
+                </div>
+                <div> Requêtes Clients</div>
+              </a>
+           </li>
+           {% endif %}
+         {% if request.session.role == "manager" or request.session.username == "toufik" or request.session.username == "fares" or request.session.role == "Finance" %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'page-fiche' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">             
+                </div>
+                <div>Fiches Livraison</div>
+              </a>
+           </li>
+           {% endif %}
+         {% if request.session.role == "manager" or request.session.username == "toufik" or request.session.username == "fares" or request.session.role == "Finance" %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'page-courses' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">             
+                </div>
+                <div>Affectation Course Livraison</div>
+              </a>
+           </li>
+            {% if request.session.role == "manager" or request.session.username == "toufik" %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'track-users' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">             
+                </div>
+                <div>Tracking des Course Livraison</div>
+              </a>
+           </li>
+          
+           {% endif %}
+           {% endif %}
+         {% if request.session.role == "manager" or request.session.username == "fares" or request.session.username == "toufik" or request.session.role == "Finance" %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'moyen-transport' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+                
+                </div>
+                <div>Moyen de Transport</div>
+             </a>
+           </li>
+           
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'bons-transport' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">             
+                </div>
+                <div> Bons de transport </div>
+              </a>
+           </li>
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'instance-bills' %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                <div class="pr-2">             
+                </div>
+                <div> Bons Non-Préparé </div>
+              </a>
+           </li>
+           {% endif %}
+         <!--  <li class="text-sm text-gray-500 ">-->
+         <!--    <a href="{% url 'reglements-transport' %}"-->
+         <!--       class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">-->
+         <!--       <div class="pr-2">             -->
+         <!--       </div>-->
+         <!--       <div> Règlements de transport </div>-->
+         <!--     </a>-->
+         <!--  </li>-->
+         <!--{% comment %} {% endif %} {% endcomment %}-->
+
+             
+       </ul>
+   </nav>
+  </div>
+  <!-- End sidebar -->  
+  <div class="md:hidden">
+    <button
+        class="fixed z-50 right-0 top-0 p-4 bg-gray-700 "
+        x-on:click="$dispatch('togglesidebar')"
+    >
+        Toggle Sidebar
+    </button>
+</div>

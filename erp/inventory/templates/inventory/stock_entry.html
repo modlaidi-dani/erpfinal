@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="stock" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_stock.html" %}
+  <div class="w-full h-full ">
+	<!-- Main content header -->
+	<main class="block w-full h-full px-4 " x-data="products()" x-init="init()">
+		 <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                                                                                                                 
+            <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Etat Stock Entrée</h1>          
+          </div>
+		<div class="flex flex-wrap flex-grow justify-between border-b">
+		  <div class="md:w-1/3 py-2">
+			<input type="search"  x-model="search" class="w-full pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none border-gray-700 text-gray-600 font-medium" placeholder="Search...">
+			<div class="absolute top-0 left-0 inline-flex items-center p-2 py-4">
+			  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6  text-gray-400" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+				<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+				<circle cx="10" cy="10" r="7" />
+				<line x1="21" y1="21" x2="15" y2="15" />
+			  </svg>
+			</div>
+		  </div>
+		  
+		</div>
+								 
+		<div class="flex flex-col mt-5">	
+			<div class="w-full  overflow-x-auto">	  
+				<table class=" w-full divide-y divide-gray-200">
+				  <thead class="bg-gray-50">
+					<tr>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Référence
+					  </th>					 
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Désignation
+					  </th>	
+					   <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Fournisseur
+					  </th>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						BonEntry ID
+					  </th>
+					 
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Quantité
+					  </th>
+					  <th
+						scope="col"
+						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+					  >
+						Prix Achat
+					  </th>
+					</tr>
+				  </thead>
+				  <tbody class="bg-white divide-y divide-gray-200">
+					<template x-for="product in filteredAndPaginatedProducts">
+					  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" x-show="productMatches(search, product.name, product.reference)">
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <div class="flex items-center">                            
+							<div class="ml-4">
+							  <div class="text-sm font-medium text-gray-900">
+								<p x-text="product.reference"></p>
+							  </div>                               
+							</div>
+						  </div>
+						</td>
+						
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <span
+							class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
+						  >
+						  <p x-text="product.name"></p>
+						  </span>
+						</td>
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <span
+							class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
+						  >
+						  <p x-text="product.fournisseur"></p>
+						  </span>
+						</td>
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <span
+							class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
+						  >
+						  <p x-text="product.bonId"></p>
+						  </span>
+						</td>
+						
+						<td class="px-6 py-4 whitespace-nowrap">
+						  <span
+							class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
+						  >
+						  <p x-text="product.quantity"></p>
+						  </span>
+						</td>
+						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"> <p x-text="product.prix_achat"></p></td>
+						
+					  </tr>
+					</template>
+				  </tbody>
+				</table>
+			</div>
+				<div class="flex justify-end mt-4">
+				  <button
+					  x-bind:disabled="currentPage === 1"
+					  @click="prevPage"
+				  >
+				  <<
+				  </button>
+				  <p x-text="currentPage"></p>
+				  <button
+					  x-bind:disabled="currentPage === totalPages"
+					  @click="nextPage"
+				  >
+					  >>
+				  </button>
+			    </div>
+		</div>
+		<script>
+				function products(){
+				  return{
+					search: '',
+					selectedFamily: '',
+					products: [],
+					currentPage: 1,
+					pageSize: 10,
+					get totalPages() {
+                        return Math.max(1, Math.ceil(this.filteredProducts.length / this.pageSize));
+                    },
+
+					get filteredProducts() {
+					  return this.products.filter((product) => {
+				        if (
+				            (this.selectedFamily !== '' && this.selectedFamily != product.family) ||
+				          (!product.name.toLowerCase().includes(this.search.toLowerCase()) &&
+				          !product.reference.toLowerCase().includes(this.search.toLowerCase()))
+			           ) {
+				          return false;
+			        }
+
+			         return true;
+		             });
+	  			},
+	  			get filteredAndPaginatedProducts() {
+		  			const start = (this.currentPage - 1) * this.pageSize;
+		  			const end = start + this.pageSize;
+		  			return this.filteredProducts.slice(start, end);
+	  			},
+					prevPage() {
+					  if (this.currentPage > 1) {
+					   this.currentPage -= 1;
+					  }
+					},
+					nextPage() {
+					  if (this.currentPage < this.totalPages) {
+						  this.currentPage += 1;
+					  }
+					},
+					productMatches(search, productName, productReference) {
+					  //  if (productName === null || productReference === null) {
+					  //     return false;
+					  //     }
+					 
+		  return (
+			  productName.toLowerCase().includes(search.toLowerCase()) ||
+			  productReference.toLowerCase().includes(search.toLowerCase())
+		  );
+	  		},
+				init() {
+					var products = [];
+
+    				{% for product in product_summary %}
+       
+        	var productData = {
+            name: "{{ product.stock__name }}",
+            reference: "{{ product.stock__reference }}",
+			bonId: "{{ product.BonNo__idBon}}",
+			fournisseur: "{{ product.BonNo__fournisseur__acronym }}",			
+            quantity: "{{ product.quantity }}",
+            prix_achat: "{{ product.stock__prix_achat }}"
+        	};
+
+        	// Check if the product already exists in the products array
+        	var exists = products.some(function(existingProduct) {
+            return existingProduct.name === productData.name;
+        	});
+
+        	if (!exists) {
+            products.push(productData);
+        	}
+   			 {% endfor %}
+
+    		console.log(products);
+
+    		// Now, assign the filtered products array to this.products
+    		this.products = products;
+				  },
+		   
+				  }
+				}
+		</script> 
+				
+			 
+		</div>
+    </main>
+	<!-- end Main content  -->
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

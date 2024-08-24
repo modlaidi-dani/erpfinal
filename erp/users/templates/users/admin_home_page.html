@@ -1,0 +1,46 @@
+{% extends "default.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+
+{% block content %}
+<div id="wrapper" class="grid grid-cols-1 xl:grid-cols-2 xl:h-screen">
+  <div id="col-1" class="bg-gray-700 px-8 pt-32 pb-40   ">
+      <h1 class="text-gray-100 font-extrabold text-4xl md:text-6xl">Bonjour, Vous êtes l'administrateur de l'application </h1>
+      <p class="text-white text-normal md:text-3xl pt-3 md:pt-6 font-medium">Choisissez Une organisation.</p>
+      <p class="text-white text-normal md:text-3xl pt-3 md:pt-6 font-medium">Année d'exercice.</p>
+      <select
+        id="selectedYear"
+        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        name="year"
+        required  
+      >
+        <option value="2024"> 2024 </option>
+        <option value="2023"> 2023 </option>
+      </select>
+  </div>
+  <div id="col-2" class="px-3 md:px-20  xl:px-12">
+       {% for mag in magasins  %}
+       <div id="cards" class="rounded-lg flex border py-5 px-6 md:py-8 md:px-16 mt-6 md:mt-12 bg-white xl:pl-8 xl:rounded-xl">
+        <div id="circle" class="w-8 h-8 bg-gray-700 md:w-16 md:h-16 rounded-full"></div>
+        <p class="pl-4 md:pl-12 text-base pt-1 font-semibold md:text-2xl md:pt-4">
+          <a class="sidebar-text sidebar-subitem sidebar-button"
+             href="#"
+             onclick="updateUrl('{{ mag.id }}')">
+            {{ mag.name }} , {{ mag.location }}
+          </a>
+        </p>
+      </div>
+     {% endfor %} 
+  </div>
+</div>
+
+<script>
+  function updateUrl(magId) {
+    var selectedYear = document.getElementById('selectedYear').value;
+    var url = `/client/identification/${selectedYear}/${magId}`;
+    window.location.href = url;
+  }
+</script>
+
+{% endblock %}

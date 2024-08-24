@@ -1,0 +1,424 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="home" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="w-full h-full px-3 py-4 mx-auto overflow-hidden " x-data="RoleGroup()">
+		<!-- Main content header -->
+		<form class="">
+		  <div class="">
+			<div class="border-b border-gray-900/10 pb-12">
+			  <h2 class="text-lg font-bold leading-7 text-gray-900">Créer un nouveau groupe rôle.</h2>
+			  <p class="mt-1 text-sm leading-6 text-gray-600">Créer un nouveau group et personaliser les permissions.</p>          
+			  <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+				<div class="col-span-full">
+				  <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Libellé</label>
+				  <div class="mt-2">
+					<input type="text" name="first-name" id="first-name" autocomplete="given-name" x-model="labelGroup" class="block w-2/3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6">
+				  </div>
+				</div>
+				<div class="col-span-full">
+				  <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
+				  <div class="mt-2">
+					<textarea id="about" name="about" x-model="description" rows="3" class="block w-2/3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-700 sm:text-sm sm:leading-6"></textarea>
+				  </div>
+				  <p class="mt-3 text-sm leading-6 text-gray-600">Petite Description du rôle.</p>
+				</div>
+			  </div>
+			</div>
+		  </div>     
+		  <h2 class="text-lg font-bold leading-7 text-gray-900 mt-2">Attribuer les permissions</h2>
+		  <div class="">
+			<table class="border-collapse w-4/5 ">
+			  <thead>
+				<tr>
+				  <th class=" text-left px-4 py-2 "></th>
+				</tr>
+			  </thead>
+			  <tbody> 
+			   <tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2 font-semibold bg-gray-100" colspan="2">  Module de gestion des utilisateurs.</td>                    
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"><input type="checkbox" value="can_see_grp_users" id="users-values"> Groupe d'utilisateur</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_users" id="users-values"> Utilisateurs</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_users_perm" id="users-values"> Permissions utilisateurs</td>
+				</tr>
+			   </tr> 
+			   <tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left font-semibold px-4 py-2 w-full bg-gray-100" colspan="2" > <input type="checkbox" value="can_see_clientInfo" id="users-values"> Module de Gestion des Paramètres Sociétés.</td>
+				</tr>
+				<div class="pl-4">
+					<tr>
+					<td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_societe" id="client-values"> Paramètres Société</td>                
+					</tr>
+					<tr>
+					<td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_tablebases" id="client-values"> Tables de base</td>
+					</tr>
+					<tr>
+					<td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_compteEntreprise" id="client-values"> Comptes d'entreprise </td>
+					</tr>
+					<tr>
+					<td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_identification" id="client-values"> Identification</td>
+					</tr>
+					<tr>
+					<td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_valeur_devis" id="client-values" > Gestion des Valeurs de Devises</td>
+					</tr>
+					<tr>
+					<td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_type_client" id="client-values"> Types Client</td>
+					</tr>
+					<tr>
+					<td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_devises" id="client-values"> Devises</td>
+					</tr>
+					<tr>
+					<td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_tax_douan" id="client-values"> Taxes Douanières</td>
+					</tr>
+					<tr>
+					<td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_tax_tva" id="client-values"> TVA</td>
+					</tr>
+					<tr>
+					<td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_units" id="client-values"> Unités de Mesure</td>
+					</tr>
+				</div>
+			   </tr>
+			   <tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2 font-semibold bg-gray-100" colspan="2"> <input type="checkbox" value="can_see_producttab" id="produits-values"> Module de gestion des produits.</td>
+				</tr>                
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_produits_familles" id="produits-values"> Familles de produits</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_produits" id="produits-values"> Produits</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2">   <input type="checkbox" value="can_see_liasion_entrepotproduit" id="produits-values"> Liaisons Produits/Entrepots </td>
+				</tr>                 
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2">  <input type="checkbox"  value="can_see_archives" id="produits-values">  Archive de vérification </td>
+				</tr>             
+			   </tr>
+			   <tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2 bg-gray-100 font-semibold" colspan="2"> <input type="checkbox" value="can_see_tierstab" id="tiers-values"> Module de Gestion des Tiers.</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_clients" id="tiers-values"> Clients </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_fournisseurs" id="tiers-values"> Fournisseurs</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_marques" id="tiers-values"> Marques</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_constructeur" id="tiers-values"> Constructeurs</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_fournisseurs" id="tiers-values"> Comptes  fournisseur</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_banques" id="tiers-values"> Banques</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_agences" id="tiers-values"> Agences Bancaire</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_comptesBancaire" id="tiers-values"> Comptes Bancaire</td>
+				</tr> 
+			   </tr>                
+			   <tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2 bg-gray-100 font-semibold" colspan="2"><input type="checkbox" value="can_see_stocktab" id="stock-values"> Module de Gestion de Stock.</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_entrepots" id="stock-values"> Entrepots </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_repartition" id="stock-values"> Répartition </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonentres" id="stock-values"> Bon entrées</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bontransfert" id="stock-values"> Bon Transfert</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonsorties" id="stock-values"> Bon Sortie</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonsreintegration" id="stock-values">Bon Re-integration</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonretour" id="stock-values"> Bon Retour</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonreforme" id="stock-values"> Bon Reforme</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_etatreforme" id="stock-values"> Etat stock Reforme</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_create_echange_bill" id="stock-values"> Bon Echange</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_create_bon_maintenance" id="stock-values"> Bon Maintenance</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_etat_maintenance" id="stock-values"> Etat stock Maintenance</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_etatentres" id="stock-values"> Etat Entrees</td>
+				</tr> 
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_etatsorties" id="stock-values"> Etat Sorties</td>
+				</tr> 
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_etatreintegration" id="stock-values"> Etat Ré-intégration </td>
+				</tr> 
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_invinitial" id="stock-values"> Inventaire Initial </td>
+				</tr> 
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_invannuel" id="stock-values"> Inventaire Annuel </td>
+				</tr> 
+			   </tr>                
+			   <tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2 bg-gray-100 font-semibold" colspan="2"> <input type="checkbox" value="can_see_ventetab" id="ventes-values"> Module de Gestion de ventes.</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bondevis" id="ventes-values"> Bons Devis </td>
+				</tr>
+				<tr>
+				</tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonlivraison" id="ventes-values"> Bons Livraisons Détail</td>
+				<tr>
+				</tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonlivraisonpc" id="ventes-values"> Bons Livraisons PC Builder</td>
+				<tr>
+				</tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_boncomptoires" id="ventes-values"> Bons Comptoires</td>
+				<tr>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bongarantie" id="ventes-values"> Bons Garantie</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonretour" id="ventes-values"> Bons Retour</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_factures" id="ventes-values">Factures</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_avoir" id="ventes-values"> Avoirs</td>
+				</tr>                
+			   </tr>                
+			   <tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2 bg-gray-100 font-semibold" colspan="2"> <input type="checkbox" value="can_see_reglementstab" id="reglements-values">Module de Règlements.</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_typereg" id="reglements-values"> Type de Réglements </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_echreg" id="reglements-values"> Echéances de Réglements </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_etatregfac" id="reglements-values"> État réglements Factures</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_regfaccli" id="reglements-values">Réglements Factures clients</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_etatregbl" id="reglements-values"> État réglements Bons Livraisons</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_regbl" id="reglements-values">Réglements Bons Livraisons</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_etattres" id="reglements-values">Etat de Trésorerie</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_depense" id="reglements-values">Liste des dépenses</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_salaries" id="reglements-values">Liste des salariés</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_loyers" id="reglements-values">Liste des Loyers</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_divers" id="reglements-values">Liste des Divers</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_avoir" id="reglements-values"> Avoirs</td>
+				</tr>                
+			   </tr>                
+			   <tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2 bg-gray-100 font-semibold" colspan="2"> <input type="checkbox" value="can_see_comptoirtab" id="comptoir-values">Module de comptoir.</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_comptoir" id="comptoir-values"> Comptoir </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_cloture" id="comptoir-values"> Clôture </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_tableaubord" id="comptoir-values"> Tableau de bord </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_clientfid" id="comptoir-values">client fidèlité</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_pointsvente" id="comptoir-values"> Points de ventes</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_caisseusers" id="comptoir-values">Caisse / utilisateurs</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_fidelite" id="comptoir-values"> Fidèlité</td>
+				</tr>                
+			   </tr>                
+			   <tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2 bg-gray-100 font-semibold" colspan="2"> <input type="checkbox" value="can_see_achattab" id="achat-values">Module d'achat</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonscommandesachat" id="achat-values"> Bons Commandes </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonslivraisonachat" id="achat-values"> Bons Livraison Achat</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_bonreception" id="achat-values"> Bons Réception </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_avoirsachats" id="achat-values">Avoirs</td>
+				</tr>              
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_facturesachats" id="achat-values">Factures</td>
+				</tr>              
+			   </tr>                
+			   <tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2 bg-gray-100 font-semibold" colspan="2"> <input type="checkbox" value="can_see_targettab" id="target-values">Module de Target</td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_equipe" id="target-values"> Equipes </td>
+				</tr>
+				<tr>
+				  <td class="border-b border-gray-900/10 text-left px-4 py-2"> <input type="checkbox" value="can_see_targets" id="target-values"> Target</td>
+				</tr>           
+			   </tr>                
+			  </tbody>
+			</table>             
+		  </div>                                               
+		</form>
+		<div class="mt-6 flex items-center justify-end gap-x-6">
+		  <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Annuler</button>
+		  <button type="submit" class="rounded-md bg-gray-700 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " @click="getInformations">Enregistrer</button>
+		</div>  
+		<script>
+		  function RoleGroup(){
+			return{
+			  labelGroup:'',
+			  description:'',
+			  getInformations(){
+				const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+				// Parcourez toutes les cases à cocher
+				const checkboxGroups = {};
+				checkboxes.forEach(checkbox => {
+				  const id = checkbox.id;
+				  const value = checkbox.value;
+				  const isChecked = checkbox.checked;
+				  if (!checkboxGroups[id]) {
+					checkboxGroups[id] = []; // Initialize the array for this ID
+				  }
+				  if (isChecked) {
+					 checkboxGroups[id].push(value); // Add the checked value to the array
+				  }
+				});
+				// Maintenant, checkboxValues contient les états de toutes les cases à cocher, groupés par leur ID
+				console.log(checkboxGroups);
+				const dataObj = {
+								  labelGroup : this.labelGroup,
+								  description:this.description,		
+				  listPermissions:checkboxGroups,						   
+							  };
+						axios.post('', {
+						   formData: dataObj
+						   }, {
+						   headers: {
+							  'Content-Type': '',
+							  'X-CSRFToken': getCookie('csrftoken'),
+						   }
+						   })
+						 .then((response) => {
+							 data= response.data
+							// {# response.data.message #}�
+						   console.log('HNAA RANI -_-')
+						   console.log(data.error)
+						   if(data.error){
+							  alert(data.error);
+						   }else{
+							  alert("Groupe d'utilisateur Ajouté !");
+							}		  
+						  }).catch((error) => {
+							alert(error)
+						  });							
+			  },
+			}             
+		  }
+		  function getCookie(name) {
+					  var cookieValue = null;
+					  if (document.cookie && document.cookie !== '') {
+						  var cookies = document.cookie.split(';');
+						  for (var i = 0; i < cookies.length; i++) {
+							  var cookie = cookies[i].trim();
+							  // Does this cookie string begin with the name we want?
+							  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+								  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								  break;
+							  }
+						  }
+					  }
+					  return cookieValue;
+				}
+		</script>
+	</main>	
+	<!-- end Main content  -->
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

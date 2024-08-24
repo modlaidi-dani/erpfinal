@@ -1,0 +1,1058 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="vente" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_ventes.html" %}
+  <div class="h-full w-full" x-data=" billscompt()" x-init="init()">
+	<main class="block w-full h-full px-2 " >
+		<div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row py-2"  >                                                                                                                                                    
+			 <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des Factures</h1>         
+		</div>
+		<div class="flex flex-wrap justify-start border-b  py-2">
+		   <div class="flex flex-wrap justify-start space-x-2 border-r  px-2 py-2">
+		   	<div class=" py-2 ">
+				<input type="search" x-model="search" class="form-input rounded-md bg-gray-50 text-sm text-black  h-10 py-2 pl-4 border-transparent border-none outline-none focus:ring-0 focus:text-black transition-all duration-300 ease-in-out focus:w-72 w-60"
+					placeholder="Rechercher...">
+			</div>
+			{% if request.session.role == "manager" %}
+			<div class="py-2">
+				<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+				x-model="selectedFamily">
+				<option value="">Tous les entrepôts</option>
+				{% for ent in entrepots%}
+				<option value="{{ ent.name }}">{{ ent.name }}</option>
+				{% endfor %}
+				</select>
+			</div>
+			<div class="py-2">
+				<select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+				x-model="selectedFournisseur">
+				<option value="">Tous les utilisateurs</option>
+				{% for user in users %}
+				<option value="{{ user.username }}">{{ user.username }}</option>
+				{% endfor %}
+				</select>
+			</div>
+			{% endif %}
+		  </div>
+		  <div class="flex justify-start space-x-3 px-4 ">
+				<div class="flex items-center space-x-2">
+					<label for="startDate" class="text-sm">Date début:</label>
+					<input type="date" x-model="datedeb" id="startDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				</div>
+				<div class="flex items-center space-x-2">
+					<label for="endDate" class="text-sm">Date Fin:</label>
+					<input type="date" x-model="datefin" id="endDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				</div>
+   		 </div>
+		</div>
+		<div class="-mb-2 py-2 flex flex-wrap flex-grow justify-between border-b px-2">  
+		  <div>
+		      <div class="relative mr-4 inline-block">
+					 <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip1 = true" @mouseleave="showTooltip1 = false" @click="exportExcelDiva">
+						<svg id='file-spreadsheet_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                            <g transform="matrix(1 0 0 1 12 12)" >
+                            <g style="" >
+                            <g transform="matrix(1 0 0 1 0 0)" >
+                            <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 4 -7)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-16.5, -5.5)" d="M 14 3 L 14 7 C 14 7.552284749830793 14.447715250169207 8 15 8 L 19 8" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -0.5 -0.5)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 17 21 L 7 21 C 5.8954305003384135 21 5 20.104569499661586 5 19 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 14 3 L 19 8 L 19 19 C 19 20.104569499661586 18.104569499661586 21 17 21 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -0.5 2)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -14.5)" d="M 8 11 L 16 11 L 16 18 L 8 18 z" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -0.5 2.5)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -15)" d="M 8 15 L 16 15" stroke-linecap="round" />
+                            </g>
+                            <g transform="matrix(1 0 0 1 -1.5 2)" >
+                            <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-11, -14.5)" d="M 11 11 L 11 18" stroke-linecap="round" />
+                            </g>
+                            </g>
+                            </g>
+                        </svg>			  
+					 </div>
+					 <div x-show.transition="showTooltip1" class="z-40 shadow-lg text-center w-32 block absolute left-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+						Exporter Ficher Liste Factures !
+					 </div>
+				 </div>
+		  </div>          
+		  <div class="inline-block px-4 py-2 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+				<a href="{% url 'new-facture' %}">Créer nouvelle facture de vente</a> 
+		  </div>
+		</div>  
+
+								 
+		<div class="w-full mx-auto py-4 px-2">
+			<div class="">
+			<div class="bg-gray-50">
+				<div class="grid grid-cols-6">
+					<div class="px-6 py-3 text-sm text-center font-medium text-gray-500 uppercase">ID Facture</div>
+					<div class="px-6 py-3 text-sm  text-center font-medium text-gray-500 uppercase">Date Facture</div>
+					<div class="px-6 py-3 text-sm text-center font-medium text-gray-500 uppercase">Client</div>
+					<div class="px-6 py-3 text-sm text-center font-medium text-gray-500 uppercase">Bon de Livraison Source</div>
+							
+					<div class="px-6 py-3 text-sm text-center font-medium text-gray-500 uppercase">Etat de Reglement</div>
+					<div class="px-6 py-3"></div>
+				</div>
+			</div>
+			<div class="bg-white divide-y divide-gray-200">
+				<template x-for="product in filteredAndPaginatedProducts">
+				<div class="transition-all hover:shadow-lg" x-show="productMatches(search, product.priceachat, product.reference)">
+					<div class="grid grid-cols-6">
+					<div class="px-6 flex items-center py-2 text-center mx-auto ">
+						{% if request.session.role == "manager" or request.session.username == 'younes_facturation' %}
+							<input class="align-middle border-l-0 border-r-0 text-sm whitespace-nowrap" type="checkbox" :value="product.reference" x-model="selectedItems" id="target-row">
+						{% endif %}
+						<div  class="inline-flex px-2  text-sm font-semibold leading-5"  x-on:mouseenter="showClosedTooltip = true" x-on:mouseleave="showClosedTooltip = false" x-text="product.reference"></div>
+						
+					</div>
+					<div class=" py-2 text-center">
+						<div class="inline-flex text-sm  font-semibold leading-5" x-text="product.name"></div>
+					</div>
+					<div class="px-6 py-2 text-center">
+						<div class="inline-flex px-2 text-sm  font-semibold leading-5" x-text="product.priceachat"></div>
+					</div>
+					<div class="px-6 py-2 text-center">
+						<div class="inline-flex px-2 text-sm  font-semibold leading-5" x-text="product.bonL"></div>
+					</div>         
+					       
+					<div class="px-4 py-2 text-center mx-auto">            
+						<div class="flex items-center mx-auto">
+							<template x-if="product.regle">
+								<span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700">Réglé </span>
+							</template>
+							<template x-if="!product.regle">
+								<div class="flex">
+									<span class="inline-flex items-center rounded-md bg-red-50 px-2  text-xs font-medium text-red-700 ring-1 ring-inset ring-red-700">Non-Réglé</span>
+									<button @click="window.location.href='/reglements/newReglementFacture'" class="btn btn-secondary">Régler</button> 	 
+								</div>
+							</template>							
+						</div>
+					</div> 
+					<div class="px-6 py-4 text-right flex items-center ">
+						{% if request.session.role == "manager" or request.session.username == 'younes_facturation' %}
+							<a :href="'Editfacture/' + product.id" class="text-gray-700">
+								{% heroicon_mini "pencil-square" class="transition-transform" %}
+							</a>
+					
+						{% endif %} 
+						<div class="relative inline-block" @click.prevent="renderInformation(product.reference);" x-data="{showTooltip :false}">
+    						<div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full  hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" >
+    							<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+									<path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+									<path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+									<rect x="7" y="13" width="10" height="8" rx="2" />
+								</svg>			  
+    						</div>
+    						<div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+    							Imprimer!
+    						</div>
+    				    </div>
+						<button class="font-bold text-lg " @click="product.showVariants = !product.showVariants"> 
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+							</svg>
+							
+						</button>   
+						
+					</div>
+					</div>
+					<!-- Variant Structure -->
+					<template  class="px-2" x-if="product.showVariants">
+					<table class="min-w-full bg-gray-50 divide-y divide-gray-200">
+					<thead class="bg-gray-50">
+					<tr>
+						<th class=" py-3 text-sm text-center font-medium text-gray-500 uppercase">Référence</th>
+						<th class=" py-3 text-sm text-center font-medium text-gray-500 uppercase">Titre</th>
+						<th class=" py-3 text-sm text-center font-medium text-gray-500 uppercase">Quantité Totale</th>
+						<th class=" py-3 text-sm text-center font-medium text-gray-500 uppercase">Prix Unitaire</th>
+						<th class=" py-3 text-sm text-center font-medium text-gray-500 uppercase">TVA</th>
+						<th class=" py-3 text-sm text-center font-medium text-gray-500 uppercase">Montant Totale</th>
+						
+						<th class=" py-3 text-sm text-center font-medium text-gray-500 uppercase"></th>
+					</tr>
+					</thead>
+					<tbody>
+					<template x-for="variant in product.variants">
+						<tr class="transition-all  border-b hover:shadow-lg">
+						<td class="border-r  text-center">
+							<div  class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.reference"></div>
+						</td>
+						<td class="border-r text-center">
+							<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.name"></div>
+						</td>
+						<td class="border-r text-center">
+							<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.quantity"></div>
+						</td>
+						<td class="border-r text-center">
+							<div class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.price"></div>
+						</td>
+						<td class="border-r text-center">
+							<div class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.tva"></div>
+						</td>
+						<td class="border-r text-center text-sm text-gray-500">
+							<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.priceachat"></div>
+						</td>                        
+						</tr>
+					</template>
+
+
+					<tr class="bg-gray-100 border-t border-gray-100">
+							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Prix Total HT :'+' '+product.totalHt" colspan="2"></td>
+							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Prix Total TTC :'+' '+product.totalprice"></td>
+							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Remise :'+' '+product.remise"></td>
+							
+							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Net à Payé :'+' '+ (product.totalprice - product.remise)"></td>
+							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700"></td>
+						</tr>
+					</tbody>
+					</table>
+				</template>
+				</div>
+				</template>
+			</div>
+			</div>
+			<div class="flex bg-gray-100 justify-between px-8">
+			<div class="transition-transform cursor-pointer px-5 pl-4 py-1 text-red-500 hover:text-red-700" @click="showModal = true;" >
+					{% heroicon_mini "trash" %}
+				</div>
+				<div class="flex justify-start">
+		<button
+			x-bind:disabled="currentPage === 1"
+			@click="prevPage"
+		 >
+			<svg id='chevrons-left_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+					<g transform="matrix(1 0 0 1 12 12)" >
+					<g style="" >
+					<g transform="matrix(1 0 0 1 0 0)" >
+					<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+					</g>
+					<g transform="matrix(1 0 0 1 -3.75 -0.25)" >
+					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+					</g>
+					<g transform="matrix(1 0 0 1 2.25 -0.25)" >
+					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+					</g>
+					</g>
+					</g>
+			</svg>
+		</button>
+		<p class=" text-lg px-2" x-text="currentPage"></p> /<p id="total-pages" class=" text-lg px-2" x-text="totalPages"></p>
+		<button
+			x-bind:disabled="currentPage === totalPages"
+			@click="nextPage"
+		>
+			<svg id='chevrons-right_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+					<g transform="matrix(1 0 0 1 12 12)" >
+					<g style="" >
+					<g transform="matrix(1 0 0 1 0 0)" >
+					<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+					</g>
+					<g transform="matrix(1 0 0 1 -2.75 -0.25)" >
+					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+					</g>
+					<g transform="matrix(1 0 0 1 3.25 -0.25)" >
+					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+					</g>
+					</g>
+					</g>
+			</svg>
+		</button>
+	 </div>
+</div>
+				  <!-- Print Template -->
+		  <div id="js-print-template" x-ref="printTemplate" class="hidden">
+			 <div class="py-4 border-b border-stone-500">
+				 <img src="{% static 'media/entete_2.jpg' %}" alt="">
+			 </div>
+			 <h2 class="text-3xl font-bold mb-2 mt-2 pb-2 tracking-wider uppercase text-center border-b border-stone-500">Facture</h2>
+			 <div class="flex justify-between space-x-3 mb-2 ">
+				 <div class="w-1/2 border border-black">
+					 <div class="px-4 py-3 ">		
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">N° Facture.</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceNumber"></div>
+					 </div>				
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Facture</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceDate"></div>
+					 </div>
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Réglement</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceDueDate"></div>
+					 </div>
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Bon de livraison: </label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="AssociatedBL"></div>
+					 </div>
+				 </div>
+				 </div>
+				 <div class="w-1/2 border border-black">										
+					  <div class="px-4 ">
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide"> Client </label>
+								   <span class="mr-4 inline-block">:</span>
+								  <div x-text="client"></div>
+							  </div>
+							  <div class="flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="address"></div>
+							  </div>
+							  <template x-if ="type_client.toLowerCase() != 'client final'">
+							     <div>
+							  		<div class="flex items-center">
+										<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">N°= Rg:</label>
+										<span class="mr-4 inline-block">:</span>
+										<div x-text="num_registre"></div>
+									</div>
+									<div class="flex items-center">
+										<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">NIF </label>
+										<span class="mr-4 inline-block">:</span>
+										<div x-text="nif"></div>
+									</div>
+									<div class="flex items-center">
+										<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">N°= AI </label>
+										<span class="mr-4 inline-block">:</span>
+										<div x-text="nai"></div>
+									</div>
+									<div class="flex items-center">
+										<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">NIS </label>
+										<span class="mr-4 inline-block">:</span>
+										<div x-text="nis"></div>
+									</div>
+										
+							  </template>
+							  <template x-if="type_client.toLowerCase() == 'client final'">
+							  		<div class="mb-1 flex items-center">
+										<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Note </label>
+										<span class="mr-4 inline-block">:</span>
+										<div > Client Final</div>
+									</div>	
+							  </template>				
+						   </div>
+				 </div>
+			 </div>
+			 {% if bon.BonS.reference_pc == '' %}
+			 	<table class="w-full border-collapse border border-black">
+					<thead>
+						<tr class="bg-gray-100">
+							<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+							<th class="border border-black px-1 py-2 text-black uppercase print-td  tracking-wide text-sm font-bold">Designation</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
+						</tr>
+					</thead>
+					<tbody>
+						<template x-for="invoice in toprintbill.variants">
+						<tr class="border border-black">
+							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
+							<td class="border border-black px-1 py-2 text-black print-td  text-xs" x-text="invoice.name"></td>
+							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qty"></td>
+							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.rateLiv"></td>
+							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.totalLiv"></td>
+						</tr>
+						</template>
+					</tbody>
+				</table>
+			 {% else %}	
+				<table class="w-full border-collapse border border-black">
+					<thead>
+						<tr class="bg-gray-100">
+							<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+							<th class="border border-black px-1 py-2 text-black print-td  uppercase tracking-wide text-sm font-bold" colspan="2">Designation</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Qté</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
+						</tr>
+					</thead>
+					<tbody>
+										<template x-for="(invoice, index) in toprintbill.variants">
+											<tr class="-mx-1 py-2 border-b-2 border-black">
+												<!-- Reference column -->
+												<td class="px-1 border-r border-black text-center"  >
+													<p class="text-gray-800" x-text="invoice.reference"></p>
+												</td>
+												<!-- Designation and Products columns -->
+												<td class="px-1 border-r border-black print-td text-center py-2" colspan="2">
+													<p class="text-gray-800 text-left font-bold" x-text="invoice.designation" ></p>
+													<!-- Loop through products array for each variant -->
+													<template x-for="product in invoice.products">
+														<p class="text-gray-800 tex-sm" x-text="'- ' + product.reference"></p>
+													</template>
+												</td>
+												<!-- Additional columns based on your requirements -->
+												<td class="px-1 border-r border-black text-center"  >
+													<p class="text-gray-800" x-text="(parseFloat(invoice.totalPrice) / invoice.quantity).toFixed(2)"></p>
+												</td>
+												<td class="px-1 border-r border-black text-center"  >
+													<p class="text-gray-800" x-text="invoice.quantity"></p>
+												</td>
+												<td class="px-1 border-r border-black text-center"  >
+													<p class="text-gray-800" x-text="(invoice.totalPrice).toFixed(2)"></p>
+												</td>
+											</tr>
+										</template>
+										</tbody>
+				</table>
+			 {% endif %}
+				
+
+			<div class="w-full flex mt-1  space-x-3 ">
+				<div class="w-full flex mt-1  space-x-3 ">
+					<table class="w-1/3 table-auto  border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-gray-700 px-4 ">TVA</th>
+								<th class="border border-gray-700 px-4 ">Total TVA</th>                     
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Sample data rows -->
+							<tr class="border border-gray-700">
+								<td class="border border-gray-700 px-4 ">19 %</td>
+								<td class="border border-gray-700 px-4 "x-text="((netTotalLiv - TotalRemise) * 0.19).toFixed(2)"></td> 
+							</tr>
+							<!-- Add more rows as needed -->
+						</tbody>
+					</table>
+					<table class="w-2/3 h-fit table-auto border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-gray-700 px-4 ">Total HT </th>
+								<th class="border border-gray-700 px-4 ">Total Remise</th>
+								<th class="border border-gray-700 px-4 ">Sous Total HT </th>
+								<th class="border border-gray-700 px-4 ">Sous Total TTC </th>
+								<template x-if="toprintbill.mode_reg == 'Espèce'">
+									<th class="border border-gray-700 px-4 ">Taux Timbre</th>
+								</template>		
+								<template x-if="toprintbill.mode_reg == 'Espèce'">	
+									<th class="border border-gray-700 px-4 ">Net à Payer</th>
+								</template>	
+								<template x-if="toprintbill.mode_reg != 'Espèce'">
+									<th class="border border-gray-700 px-4 ">Net à Payer</th>
+								</template>		
+
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Sample data rows -->
+							<tr class="border border-gray-700">
+								<td class="border border-gray-700 px-4" x-text="netTotalLiv"></td>
+								<td class="border border-gray-700 px-4" x-text="TotalRemise"></td>
+								<td class="border border-gray-700 px-4" x-text="(netTotalLiv - TotalRemise).toFixed(2) +' DA'"></td>
+								<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(2) +' DA'"></td>
+								<template x-if="toprintbill.mode_reg == 'Espèce'">
+									<td class="border border-gray-700 px-4" x-text="(((netTotalLiv - TotalRemise) * 1.19)  * 0.01).toFixed(2)" ></td>
+								</template>	
+								<template x-if="toprintbill.mode_reg == 'Espèce'">
+									<td class="border border-gray-700 px-4" x-text="(((netTotalLiv - TotalRemise) * 1.19)  * 1.01).toFixed(2) +' DA'" ></td>
+								</template>	
+								<template x-if="toprintbill.mode_reg != 'Espèce'">	
+                                	<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(2) +' DA'" ></td>
+								</template>	
+							</tr>
+							<tr>
+								<td class="border border-gray-700 px-4 py-2" colspan="5">
+									<div class="flex space-x-1 items-center">
+										<template x-if = "toprintbill.mode_reg == 'Virement'">
+											<p class="text-center">
+												Condition de règlement : <span class="font-bold uppercase"> VIREMENT - <span x-text="toprintbill.banque"></span></span>
+											</p>
+										</template>
+										<template x-if="toprintbill.mode_reg == 'Chèque'">
+											<p class="text-center">
+												Condition de règlement: <span class="font-bold uppercase"> Chèque -  <span x-text="toprintbill.banque + ' - ' + toprintbill.cheque"></span> </span>
+											</p>
+										</template>
+										<template x-if="toprintbill.mode_reg == 'Espèce'">
+											<p class="text-center">
+												Condition de règlement : <span class="font-bold uppercase"> Espèce </span>
+											</p>
+										</template>
+									</div>
+								</td>
+							</tr>
+							<!-- Add more rows as needed -->
+						</tbody>
+					</table>
+					</div>
+			</div>
+				<div class=" flex justify-between mt-4 mr-0">
+				<div></div>
+				<div class="font-bold">
+					Cachet et Signature
+				</div>
+				</div>
+
+			 <div class="py-4 border-b border-stone-500 page-break">
+				 <img src="{% static 'media/entete_2.jpg' %}" alt="">
+			 </div>
+			 <h2 class="text-3xl font-bold mb-2 mt-2 pb-2 tracking-wider uppercase text-center border-b border-stone-500">Bon De Livraison</h2>
+			 <div class="flex justify-between space-x-3 mb-2 ">
+				 <div class="w-1/2 border border-black">
+					 <div class="px-4 py-3 ">		
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">N° Bon.</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="AssociatedBL"></div>
+					 </div>				
+					 <div class="mb-1 flex items-center">
+						 <label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Bon</label>
+						 <span class="mr-4 inline-block">:</span>
+						 <div x-text="invoiceDate"></div>
+					 </div>
+				 </div>
+				 </div>
+				 <div class="w-1/2 border border-black">										
+					  <div class="px-4 ">
+							  <div class="mb-1 flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide"> Client </label>
+								   <span class="mr-4 inline-block">:</span>
+								  <div x-text="client"></div>
+							  </div>
+							  <div class="flex items-center">
+								  <label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Adresse </label>
+								  <span class="mr-4 inline-block">:</span>
+								  <div x-text="address"></div>
+							  </div>
+							  <template x-if ="type_client.toLowerCase() != 'client final'">
+							     <div>
+							  		<div class="flex items-center">
+										<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">N°= Rg:</label>
+										<span class="mr-4 inline-block">:</span>
+										<div x-text="num_registre"></div>
+									</div>
+									<div class="flex items-center">
+										<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">NIF </label>
+										<span class="mr-4 inline-block">:</span>
+										<div x-text="nif"></div>
+									</div>
+									<div class="flex items-center">
+										<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">N°= AI </label>
+										<span class="mr-4 inline-block">:</span>
+										<div x-text="nai"></div>
+									</div>
+									<div class="flex items-center">
+										<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">NIS </label>
+										<span class="mr-4 inline-block">:</span>
+										<div x-text="nis"></div>
+									</div>
+										
+							  </template>
+							  <template x-if="type_client.toLowerCase() == 'client final'">
+							  		<div class="mb-1 flex items-center">
+										<label class="w-20 text-gray-800 block font-bold text-xs uppercase tracking-wide">Note </label>
+										<span class="mr-4 inline-block">:</span>
+										<div > Client Final</div>
+									</div>	
+							  </template>				
+						   </div>
+				 </div>
+			 </div>
+			 {% if bon.BonS.reference_pc == '' %}
+			 	<table class="w-full border-collapse border border-black">
+					<thead>
+						<tr class="bg-gray-100">
+							<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+							<th class="border border-black px-1 py-2 text-black uppercase print-td  tracking-wide text-sm font-bold">Designation</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
+						</tr>
+					</thead>
+					<tbody>
+						<template x-for="invoice in toprintbill.variants">
+						<tr class="border border-black">
+							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
+							<td class="border border-black px-1 py-2 text-black print-td  text-xs" x-text="invoice.name"></td>
+							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qty"></td>
+							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.rateLiv"></td>
+							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.totalLiv"></td>
+						</tr>
+						</template>
+					</tbody>
+				</table>
+			 {% else %}	
+				<table class="w-full border-collapse border border-black">
+					<thead>
+						<tr class="bg-gray-100">
+							<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+							<th class="border border-black px-1 py-2 text-black print-td  uppercase tracking-wide text-sm font-bold" colspan="2">Designation</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Qté</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
+						</tr>
+					</thead>
+					<tbody>
+										<template x-for="(invoice, index) in toprintbill.variants">
+											<tr class="-mx-1 py-2 border-b-2 border-black">
+												<!-- Reference column -->
+												<td class="px-1 border-r border-black text-center"  >
+													<p class="text-gray-800" x-text="invoice.reference"></p>
+												</td>
+												<!-- Designation and Products columns -->
+												<td class="px-1 border-r border-black print-td text-center py-2" colspan="2">
+													<p class="text-gray-800 text-left font-bold" x-text="invoice.designation" ></p>
+													<!-- Loop through products array for each variant -->
+													<template x-for="product in invoice.products">
+														<p class="text-gray-800 tex-sm" x-text="'- ' + product.reference"></p>
+													</template>
+												</td>
+												<!-- Additional columns based on your requirements -->
+												<td class="px-1 border-r border-black text-center"  >
+													<p class="text-gray-800" x-text="(parseFloat(invoice.totalPrice) / invoice.quantity).toFixed(2)"></p>
+												</td>
+												<td class="px-1 border-r border-black text-center"  >
+													<p class="text-gray-800" x-text="invoice.quantity"></p>
+												</td>
+												<td class="px-1 border-r border-black text-center"  >
+													<p class="text-gray-800" x-text="(invoice.totalPrice).toFixed(2)"></p>
+												</td>
+											</tr>
+										</template>
+										</tbody>
+				</table>
+			 {% endif %}
+				
+
+			<div class="w-full flex mt-1  space-x-3 ">
+				<div class="w-full flex mt-1  space-x-3 ">
+					<table class="w-1/3 table-auto  border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-gray-700 px-4 ">TVA</th>
+								<th class="border border-gray-700 px-4 ">Total TVA</th>                     
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Sample data rows -->
+							<tr class="border border-gray-700">
+								<td class="border border-gray-700 px-4 ">19 %</td>
+								<td class="border border-gray-700 px-4 "x-text="((netTotalLiv - TotalRemise) * 0.19).toFixed(2)"></td> 
+							</tr>
+							<!-- Add more rows as needed -->
+						</tbody>
+					</table>
+					<table class="w-2/3 h-fit table-auto border-collapse border border-black">
+						<thead>
+							<tr class="bg-gray-100">
+								<th class="border border-gray-700 px-4 ">Total HT </th>
+								<th class="border border-gray-700 px-4 ">Total Remise</th>
+								<th class="border border-gray-700 px-4 ">Sous Total HT </th>
+								<th class="border border-gray-700 px-4 ">Sous Total TTC </th>
+								<th class="border border-gray-700 px-4 ">Net à Payer</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Sample data rows -->
+							<tr class="border border-gray-700">
+								<td class="border border-gray-700 px-4" x-text="netTotalLiv"></td>
+								<td class="border border-gray-700 px-4" x-text="TotalRemise"></td>
+								<td class="border border-gray-700 px-4" x-text="(netTotalLiv - TotalRemise).toFixed(2) +' DA'"></td>
+								<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(2) +' DA'"></td>								
+								<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(2) +' DA'" ></td>
+							</tr>
+							<tr>
+								<td class="border border-gray-700 px-4 py-2" colspan="5">
+									<div class="flex space-x-1 items-center">
+										<p class="text-left">
+        								    	Solde : 
+        								    	<span class="font-semibold" > 0 DZD </span>
+        								</p>
+									</div>
+								</td>
+							</tr>
+							<!-- Add more rows as needed -->
+						</tbody>
+					</table>
+					</div>
+			</div>
+				<div class=" flex justify-between mt-4 mr-0">
+				<div></div>
+				<div class="font-bold">
+					Cachet et Signature
+				</div>
+				</div>
+		  </div>
+		  <!-- /Print Template -->
+			   <!-- /Print Template -->
+
+  		  <div x-cloak x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+				<div class="modal bg-gray-50 rounded-lg p-4 max-w-md mx-auto shadow-lg">
+					<p class="text-gray-700 text-lg mb-4">Voulez-vous vraiment supprimer les éléments sélectionné </p>
+					<div class="flex justify-end">
+						<button @click="deletedSelected()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none mr-2">Oui</button>
+						<button @click="annulerSuppression()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 focus:outline-none">Annuler</button>
+					</div>
+				</div>
+		  </div>
+</div>
+<!-- Modal de confirmation -->
+				
+	   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+	   <script>
+				function billscompt(){
+				  return{
+					search: '',
+					selectedFamily: '',
+					products: [],
+					currentPage: 1,
+					showModal:false,
+					selectedFournisseur:'',
+					productReference: '',
+					showClosedTooltip: false,
+					showOpenTooltip: false,
+					pageSize: 10,	
+					items: [],
+					invoiceDate:'',
+					invoiceNumber:'',
+					invoiceDueDate:'',
+					AssociatedBL:'',
+					address:'',
+					num_registre:'',
+					nif:'',
+					nai:'',
+					nis:'',
+					boncomptoir:'',
+					decision:'',
+					totalht:'',
+					totalttc:'',
+					TotalRemise:'',
+					nettotal:'',
+					totalGSTLiv:'',	
+					mode_reglement:'',
+					banque:'',
+					client:'',
+					reference_pc:'',
+					designation_pc:'',
+					netTotalLiv:'',
+					TotalPayLiv:'',
+					cheque:'',
+					type_client:'',
+					toprint_bill:'',
+					renderInformation(idBon){
+						toprintbill = this.products.find((product) => product.reference == idBon)
+						this.toprint_bill = toprintbill
+						const toprint_bill = this.products.find((product) => product.reference == idBon)
+						invoiceDate = toprint_bill.name;
+						invoiceDueDate= toprint_bill.date_reg;
+						invoiceNumber = toprint_bill.reference;
+						AssociatedBL = toprint_bill.bonL;
+						client = toprint_bill.priceachat;
+						address = toprint_bill.address;
+						num_registre = toprint_bill.num_registre;
+						nif=toprint_bill.nif;
+						nai= toprint_bill.nai;
+						nis = toprint_bill.nis;
+						banque=toprint_bill.banque;
+						this.type_client = toprint_bill.type_client;
+						this.reference_pc = toprint_bill.reference_pc;
+						this.designation_pc = toprint_bill.designation_pc;
+						cheque=toprint_bill.cheque;
+						this.mode_reglement = toprint_bill.mode_reg;
+						solde = toprint_bill.client_solde;
+						totalht = toprint_bill.totalHt;
+						totalttc = toprint_bill.totalprice;
+						totalGSTLiv = (toprint_bill.totalHt * 0.19).toFixed(2);
+						TotalRemise = parseFloat(toprint_bill.remise);
+						nettotal = parseFloat(toprint_bill.totalprice) - parseFloat(toprint_bill.remise);
+						console.log(toprint_bill.variants);
+						item= []
+						let currentCPU = null;  // Variable to keep track of the current CPU
+
+						for (const variant of toprint_bill.variants) {
+							if (variant.component === "cpu") {
+								// If the CPU changes, push a new sublist into this.items
+								if (currentCPU !== variant.reference) {
+									currentCPU = toprint_bill.reference_pc[this.items.length];
+									this.items.push({
+										reference: currentCPU,
+										designation: toprint_bill.designation_pc[this.items.length],
+										products: []  // Initialize an empty array for the CPU's variants
+									});
+								}
+							}
+
+							const newItem = {
+								reference: variant.reference,
+								name: variant.name,
+								quantity: variant.quantity,
+								price: variant.price,
+								total: variant.priceachat,
+							};
+
+							// Add the variant to the current sublist in this.items
+							this.items[this.items.length - 1].products.push(newItem);
+
+							// Update the sum of prices for each sublist
+							const currentSublist = this.items[this.items.length - 1];
+							currentSublist.totalPrice = parseFloat(currentSublist.totalPrice) || 0;
+							currentSublist.totalPrice += parseFloat(newItem.total);
+
+							// Update the quantity for the first item in item.products
+							if (currentSublist.products.length === 1) {
+								currentSublist.quantity = currentSublist.products[0].quantity || 0;
+							
+							}
+						}
+						toprintbill.variants = this.items;
+						netTotalLiv = (toprint_bill.totalHt).toFixed(2);
+						TotalPayLiv = ((toprint_bill.totalHt) * 1.19).toFixed(2);
+						console.log(toprintbill.variants);
+						this.printInvoice();
+					},
+					exportExcelDiva() {
+						const array_print = []
+
+							this.filteredProducts.forEach(product => {
+								// Add the product itself
+								array_print.push({
+								    ReferenceFacture: product.reference,
+									DateFacture: product.name,
+									Client: product.priceachat,
+									MontantTTC: product.totalprice,
+									ModeReglement:product.mode_reg,
+									Banque: product.banque == '' ? '/' : product.banque,
+									Cheque: product.cheque == '' ? '/' : product.cheque,
+								});
+							});
+						const ws = XLSX.utils.json_to_sheet(array_print);
+						const wb = XLSX.utils.book_new();
+						XLSX.utils.book_append_sheet(wb, ws, 'Factures');
+						XLSX.writeFile(wb, 'fichiers_liste_Factures.xlsx');
+				    },
+					printInvoice() {
+						var printContents = this.$refs.printTemplate.innerHTML;
+						document.body.innerHTML = printContents;
+						setTimeout(() => {
+							window.print();
+							window.location.reload();
+							this.items = [];
+						}, 50); // Delay for 1 second (adjust as needed)      			
+					},			
+					get totalPages() {
+  						return Math.max(1, Math.ceil(this.filteredProducts.length / this.pageSize));
+  					},
+					
+					datedeb: '',
+    				datefin:'',
+
+					get filteredProducts() {
+						return this.products.filter((product) => {
+							const familyMatch = this.selectedFamily === '' || this.selectedFamily == product.price;
+							const fournisseurMatch = this.selectedFournisseur === '' || this.selectedFournisseur == product.user;
+							const nameMatch = product.reference.toLowerCase().includes(this.search.toLowerCase());
+							const referenceMatch = product.priceachat.toLowerCase().includes(this.search.toLowerCase());
+
+							// Parse the dates from the input fields
+							const startDate = new Date(this.datedeb);
+							const endDate = new Date(this.datefin);
+
+							// Check if the product date is within the selected date range
+							const dateMatch = startDate <= new Date(product.name) && new Date(product.name) <= endDate;
+
+							return (familyMatch && fournisseurMatch) && (nameMatch || referenceMatch) && dateMatch;
+						});
+					},
+
+	  				get filteredAndPaginatedProducts() {
+		  				const start = (this.currentPage - 1) * this.pageSize;
+		  				const end = start + this.pageSize;
+		  				return this.filteredProducts.slice(start, end);
+	  				},
+					prevPage() {
+					  if (this.currentPage > 1) {
+					   this.currentPage -= 1;
+					  }
+					},
+					nextPage() {
+					  if (this.currentPage < this.totalPages) {
+						  this.currentPage += 1;
+					  }
+					},
+					productMatches(search, productName, productReference) {
+					  //  if (productName === null || productReference === null) {
+					  //     return false;
+					  //     }
+					 
+		  				return (
+			 			 productName.toLowerCase().includes(search.toLowerCase()) ||
+			  			 productReference.toLowerCase().includes(search.toLowerCase())
+		  				);
+	    			},
+
+					
+
+					showModal:false,
+					billtodelete:'',
+					selectedItems: [],
+					deletedSelected(){
+                        if (this.selectedItems.length === 0) {
+                            alert("Veuillez Selectionner aumoins un élément pour supprimer!.");
+                            return;
+                        }
+						console.log(this.selectedItems);
+
+						dataObj ={
+							liste_ids: this.selectedItems,                        
+								}
+						axios.post('DeleteFacture/',dataObj, {
+							headers: {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': getCookie('csrftoken'),
+							}
+						})
+							.then(response => {
+								// Check if the deletion was successful
+								if (response.data.success) {            			
+									showModal = false;
+									alert(response.data.message);
+									window.location.reload();
+								} else {
+									alert(response.data.message);
+									window.location.reload();
+								}
+							})
+						.catch(error => {
+						// Handle request errors
+						alert(error);
+						});
+						this.showModal = false;
+						this.selectedItems = [];
+					},
+
+					annulerSuppression() {
+						// Réinitialiser les variables
+						this.showModal = false;
+						this.billtodelete = '';
+					},
+
+					init() {
+						var products = [];
+						{% for bon in factures %}     				      
+							var productData = {
+							id:"{{bon.id}}",
+							reference: "{{bon.codeFacture}}",
+							name: "{{ bon.date_facture }}",
+							date_reg:"{{bon.date_reglement}}",
+							price:"{{ bon.entrepot.name }}",
+							reference_pc:{{bon.BonS.get_references | safe}},
+							designation_pc:{{bon.BonS.get_designations | safe}},
+							priceachat:"{{ bon.client.name }}",
+							address: '{{bon.client.adresse}}',
+							num_registre:'{{bon.client.registreCommerce}}',
+							nif: '{{bon.client.Nif}}',
+							nai: '{{bon.client.num_article}}',
+							type_client:'{{bon.BonS.client.categorie_client.type_desc}}',
+							nis: '{{bon.client.Nis}}',
+							phone:'{{bon.client.phone}}',
+							bonL :"{{bon.BonS.idBon}}",
+							mode_reg :"{{bon.BonS.mode_reglement.label}}",
+							user: "{{bon.user.username }}",
+							banque:'{{bon.BonS.banque_Reglement.code}}',
+							cheque:'{{bon.BonS.num_cheque_reglement}}',
+							totalHt :{{ bon.get_total_price}},
+							totalprice: (parseFloat("{{ bon.get_total_price}}") * 1.19).toFixed(2),
+							prixpayed:"{{ bon.totalprice }}",
+							remise:"{{ bon.Remise }}",
+							valide:"{{ bon.valide }}" == 'True' ? true : false,
+							regle :"{{ bon.regle }}" == 'True' ? true : false,
+							showVariants:false,
+							variants:[],
+							};
+							{% for produit in bon.produits_en_facture.all %}				
+								var variantData ={
+									name: "{{ produit.stock.reference }}",
+									reference: "{{ produit.stock.name }}",
+									component: "{{ produit.stock.category.pc_component }}",
+									price:"{{ produit.unitprice }}",
+									tva:"{{produit.stock.tva}}",
+									priceachat:"{{ produit.totalprice }}",
+									quantity:"{{ produit.quantity }}",	
+								}
+								productData.variants.push(variantData)
+							{% endfor %}
+						// Check if the product already exists in the products array
+						var exists = products.some(function(existingProduct) {
+							return existingProduct.reference === productData.reference;
+						});
+						if (!exists) {
+							products.push(productData);					
+						}
+						{% endfor %}
+
+						// Now, assign the filtered products array to this.products
+						this.products = products;
+						const currentDate = new Date();
+
+                            // Set to the first day of the year
+                            const firstDay = new Date(currentDate.getFullYear(), 0, 1);
+                            
+                            // Set to the last day of the year
+                            const lastDay = new Date(currentDate.getFullYear(), 11, 31);
+                            
+                            // Format the dates
+                            this.datedeb = firstDay.toISOString().split('T')[0];
+                            this.datefin = lastDay.toISOString().split('T')[0];
+					},
+			
+				  }
+				}
+				function getCookie(name) {
+				  var cookieValue = null;
+	  			  if (document.cookie && document.cookie !== '') {
+		  			var cookies = document.cookie.split(';');
+		  			for (var i = 0; i < cookies.length; i++) {
+			  			var cookie = cookies[i].trim();
+			  		// Does this cookie string begin with the name we want?
+			  			if (cookie.substring(0, name.length + 1) === (name + '=')) {
+				  			cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+				  			break;
+			  			}
+		  			}
+	  			 }
+	  				return cookieValue;
+  				}
+			   </script> 
+				
+			  </div>
+			</div>
+		  </div>
+		</div>
+</main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

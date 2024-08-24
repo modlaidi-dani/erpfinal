@@ -1,0 +1,696 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+
+{% block content %}
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="achat" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_achats.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+		 <main class="block w-full h-full px-2 overflow-hidden ">
+				<body class="antialiased sans-serif">
+                   <div class="container mx-auto py-6 px-4" x-data="invoices()" x-init="initData();">
+                        <form action="{% url 'dossier-achat' %}" method="post" id="myForm" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="flex justify-between">
+                                <h2 class="text-2xl font-bold mb-6 pb-2 tracking-wider uppercase">Dossier Achat</h2>
+                                <div>
+                                    {% comment %} <div class="relative mr-4 inline-block">
+                                        <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+                                                <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+                                                <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+                                                <rect x="7" y="13" width="10" height="8" rx="2" />
+                                            </svg>				  
+                                        </div>
+                                        <div x-show.transition="showTooltip" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+                                            Print this invoice!
+                                        </div>
+                                    </div> {% endcomment %}
+                                    <div class="relative inline-block">
+                                    {% comment %} <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip2 = true" @mouseleave="showTooltip2 = false" @click="openPreview=true">
+                                        <svg id='eye_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                        <g transform="matrix(1 0 0 1 12 12)" >
+                                        <g style="" >
+                                        <g transform="matrix(1 0 0 1 0 0)" >
+                                        <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                        </g>
+                                        <g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+                                        <circle style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2" />
+                                        </g>
+                                        <g transform="matrix(1 0 0 1 -0.25 -0.25)" >
+                                        <path style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 22 12 C 19.333 16.667 16 19 12 19 C 8 19 4.667 16.667 2 12 C 4.667 7.333 8 5 12 5 C 16 5 19.333 7.333 22 12" stroke-linecap="round" />
+                                        </g>
+                                        </g>
+                                        </g>
+                                        </svg>		  
+                            </div>
+                            <div x-show.transition="showTooltip2" class="z-40 shadow-lg text-center w-32 block absolute right-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+                                Preview
+                            </div> {% endcomment %}
+                            </div>
+                                    </div>
+                                </div>
+                    
+                            <div class="flex mb-4 justify-between">
+                                <div class="w-2/4">
+                                    <div class="mb-2 md:mb-1 md:flex items-center">
+                                        <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Code Dossier</label>
+                                        <span class="mr-4 inline-block  md:block">:</span>
+                                        <div class="flex-1">
+                                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" placeholder="eg. DOS-100001" x-model="invoiceNumber" name="codedossier">
+                                        </div>
+                                    </div>					
+                                    <div class="mb-2 md:mb-1 md:flex items-center">
+                                        <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Date de Creation </label>
+                                        <span class="mr-4 inline-block  md:block">:</span>
+                                        <div class="flex-1">
+                                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 " type="date" {% if request.session.role != 'manager' %}disabled{% endif %} x-model="invoiceDate" name="datecreation">
+                                        </div>
+                                    </div>
+                                    <div class="mb-2 md:mb-1 md:flex items-center">
+                                        <label class="w-32 text-gray-800 block font-bold text-sm uppercase tracking-wide">Date de Finalisation </label>
+                                        <span class="mr-4 inline-block  md:block">:</span>
+                                        <div class="flex-1">
+                                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 " type="date" {% if request.session.role != 'manager' %}disabled{% endif %} x-model="invoiceDateeND" name="datefinalisation">
+                                        </div>
+                                    </div>
+                                </div>							
+                            </div>                       
+                            <div x-data="{ tab: 1 }" x-cloak class="my-2 antialiased ">
+                                <div class="relative flex flex-col rounded-lg shadow-xs overflow-hidden">         
+                                    <div class="flex space-x-8 bg-white border-b border-gray-200 ">
+                                        <button
+                                            type="button"
+                                            class="focus:outline-none text-black py-2 px-4 border-t-2 text-md tracking-wide font-semibold border-transparent"
+                                            x-on:click="tab =1"
+                                            :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab === 1}"
+                                            >
+                                            Creation
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="focus:outline-none text-black py-2 px-4  border-t-2 text-md tracking-wide font-semibold border-transparent"
+                                            x-on:click="tab =2"
+                                            :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab ===2 }"
+                                            >
+                                            Paiement
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="focus:outline-none text-black py-2 px-4  border-t-2 text-md tracking-wide font-semibold border-transparent"
+                                            x-on:click="tab =3"
+                                            :class="{ 'text-white  border-gray-700 rounded-t-lg bg-gray-700': tab ===3 }"
+                                        >
+                                        Finalisation
+                                        </button>
+                                    </div>     
+                                    <div class="h-full">
+                                        <div x-show="tab === 1">
+                                            <div class="flex flex-wrap justify-between mb-8 py-4">
+                                                <div class="w-full md:w-1/3 mb-2 md:mb-0">
+                                                    <div class="mb-1 ">
+                                                        <label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Fournisseur :</label>
+                                                        <select
+                                                        class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white"
+                                                        id="fournisseur"
+                                                        name="fournisseur"
+                                                        x-model=" billing.name"
+                                                        x-on:change="
+                                                            billing.name=$event.target.value;
+                                                        "
+                                                        required  
+                                                        >
+                                                        <option value="" disabled selected>Fournisseur </option>
+                                                        {% for fournisseur in fournisseurs %}
+                                                            <option value="{{ fournisseur.acronym}}">
+                                                                {{ fournisseur.acronym }} 
+                                                            </option>
+                                                        {% endfor %}
+                                                        </select>											
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2 capitalize" for="echReg">
+                                                            N° Bon de Commande	:
+                                                        </label>
+                                                        <select
+                                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                        id="echReg"
+                                                        name="boncomande"
+                                                        x-on:change="
+                                                            echeance = $event.target.value
+                                                        "
+                                                        required  
+                                                        >
+                                                            <option value="null" disabled selected>Aucun</option>
+                                                            {% for bon in billscomm %}
+                                                                <option value="{{ bon.idBon }}">
+                                                                    {{ bon.idBon }} 
+                                                                </option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+                                                            Facture  (PDF):
+                                                        </label>
+                                                        <input
+                                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                        type = "file"
+                                                        id="modReg"
+                                                        name="facturefile"													  
+                                                        required  
+                                                        >
+                                                        
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="echReg">
+                                                            Date Facture	:
+                                                        </label>
+                                                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 " 
+                                                            type="date" 
+                                                            name="factureDate"
+                                                            x-model="factureDate">
+                                                    </div>
+                                                    <div class="mb-4">
+                                                    <label class="block text-gray-700 font-semibold mb-2" for="remise">
+                                                        Unité Monétaire	:
+                                                    </label>
+                                                    <div class="flex space-x-4 mb-4">
+                                                        <select
+                                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                        id="echReg"
+                                                        name="unitm"
+                                                        x-model="unitm"
+                                                        required  
+                                                            >
+                                                            <option value="" disabled selected>Aucune</option>
+                                                            <option value="dzd" >DZD</option>
+                                                            <option value="eur" >EURO </option>
+                                                            <option value="usd" >USD</option>			
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+                                                            Montant :
+                                                        </label>
+                                                        <input
+                                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                        type = "text"
+                                                        name="montant"													  
+                                                        required  
+                                                        >												
+                                                    </div>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+                                                            Paiement:
+                                                        </label>
+                                                        <select
+                                                            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                            id="modReg"
+                                                            name="paiement"
+                                                            x-model="paiement"
+                                                            x-on:change="
+                                                                ModeReglement = $event.target.selectedOptions[0].value;                     
+                                                                showBanque = $event.target.value == 2;
+                                                            "
+                                                            required  
+                                                            >
+                                                            <option value=""selected > Aucun </option>
+                                                            <option value=""selected > Remise Documentaire </option>
+                                                            <option value=""selected > Transfert Libre </option>
+                                                            <option value=""selected > Credit Documentaire </option>											
+                                                        </select>
+                                                    </div>
+                                                </div>	
+                                            </div>
+                                        </div>     
+                                        <div x-show="tab === 2">
+                                            <div class="w-full py-4 md:w-1/3 mb-2 md:mb-0">
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+                                                            Avis de Debit  (PDF):
+                                                        </label>
+                                                        <input
+                                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                        type = "file"
+                                                        id="modReg"
+                                                        name="debitfile"
+                                                        x-model="debitfile"													  
+                                                        required  
+                                                        >													
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="echReg">
+                                                            Date Debit	:
+                                                        </label>
+                                                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 " 
+                                                        type="date" 
+                                                        name="debitDate"
+                                                        x-model="DebitDate">
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+                                                            Banque:
+                                                        </label>
+                                                        <select
+                                                            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                            id="modReg"
+                                                            name="banque"
+                                                            x-model="banque"
+                                                            x-on:change="
+                                                                ModeReglement = $event.target.selectedOptions[0].value;                     
+                                                                showBanque = $event.target.value == 2;
+                                                            "
+                                                            required  
+                                                            >
+                                                            <option value="" selected > Aucun </option>
+                                                            {% for banque in banques %}
+                                                                <option value="{{banque.label}}" selected> {{banque.label}} </option>																								
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>	
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+                                                            Montant DZ :
+                                                        </label>
+                                                        <input
+                                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                        type = "text"
+                                                        name="montantDZ"													  
+                                                        required  
+                                                        >												
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div x-show="tab === 3">
+                                            <div class="w-full py-4 md:w-1/3 mb-2 md:mb-0">
+                                                    
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="echReg">
+                                                            Date Valeur	:
+                                                        </label>
+                                                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 " 
+                                                        type="date" 
+                                                        name="valeurDate"
+                                                        x-model="ValeurDate">
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+                                                            Date Valeur	  (PDF):
+                                                        </label>
+                                                        <input
+                                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                        type = "file"
+                                                        id="modReg"
+                                                        name="valeurfile"
+                                                        x-model="Valeurfile"													  
+                                                        required  
+                                                        >													
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="echReg">
+                                                            Date Montant	:
+                                                        </label>
+                                                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 " 
+                                                        type="date" 
+                                                        name="montantDate"
+                                                        x-model="MontantDate">
+                                                    </div>	
+                                                    <div class="mb-4">
+                                                        <label class="block text-gray-700 font-semibold mb-2" for="modReg">
+                                                            Taux Echange:
+                                                        </label>
+                                                        <input
+                                                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                        type = "text"
+                                                        name="echange"
+                                                        x-model="echange"													  
+                                                        required  
+                                                        >												
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+							
+							<div class="py-2  ml-auto w-full">
+								<div class="flex justify-between">
+									<div></div>
+									<button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" type="submit">Valider</button>
+								</div>
+							</div>
+					
+							
+
+							<!-- Print Template -->
+							<div id="js-print-template" x-ref="printTemplate" class="hidden">
+								<div class="py-4 border-b border-stone-500">
+									<img src="{% static 'media/divatech-logo.png' %}" alt="">
+								</div>
+										<h2 class="text-3xl text-center font-bold mb-6 pb-2 pt-2 border-b tracking-wider uppercase">Bon de Livraison Fournisseur</h2>					
+								<div class="mb-8 flex justify-between border border-black px-2 py-2">
+									<div class="w-full">
+										<div class="mb-1 flex items-center">
+											<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Numéro de Bon.</label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="invoiceNumber"></div>
+										</div>
+							
+										<div class="mb-1 flex items-center">
+											<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Date de Bon</label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="invoiceDate"></div>
+										</div>
+										<div class="mb-1 flex items-center">
+											<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Fournisseur </label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="billing.name"></div>
+										</div>
+										<div class="mb-1 flex items-center">
+											<label class="w-32 text-gray-800 block font-bold text-xs uppercase tracking-wide">Entrepot </label>
+											<span class="mr-4 inline-block">:</span>
+											<div x-text="billing.name"></div>
+										</div>
+									
+									</div>									
+								</div>
+								<table class="w-full border-collapse border border-black">
+            					<thead>
+                					<tr class="bg-gray-100 rounded-lg">
+                    					<th class=" px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+                    					<th class=" px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Designation</th>
+                    					<th class=" px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+                    					<th class=" px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U.H.T</th>
+                    					<th class=" px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Montant HT</th>
+                        			</tr>
+            					</thead>
+            					<tbody>
+                					<template x-for="invoice in items" :key="invoice.id">
+                  						<tr class="border border-black">
+                      						<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
+                     		    			<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
+                      						<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qty"></td>
+                      						<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="numberFormat(invoice.rate)"></td>
+                      						<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="numberFormat(invoice.total)"></td>
+                  						</tr>
+                					</template>
+            				    </tbody>
+           						</table>
+											
+					
+								<div class="py-2 ml-auto mt-20" style="width: 320px">								
+									<div class="py-2 border-t border-b">
+										<div class="flex justify-between">
+											<div class="text-xl text-gray-700 text-right flex-1">Total HT</div>
+											<div class="text-right w-40">
+												<div class="text-xl text-gray-800 font-bold" x-html="netTotal"></div>
+											</div>											
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /Print Template -->
+					
+                        </form>
+					</div>
+
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+						<script>													
+							function invoices() {
+								return {
+									items: [],
+									invoiceNumber: '{{bill.idBon}}',
+									invoiceDate:  new Date().toISOString().slice(0, 10),
+									openPreview: false,
+									ModeReglement:'',
+									echeance:'',
+									service:'',
+									unitm:'',								
+
+									entrepot:{
+										id:'{{bill.entrepot.id}}',
+										name:'{{bill.entrepot.name}}',
+									},
+									//totalGST: 0,
+									netTotal: 0,
+						
+									item: {
+										id: '',
+										name: '',
+										ref:'',
+										fournisseur:'',
+										qty: 0,
+										rate: 0,
+										total: 0,					
+									},
+					
+									billing: {
+										name: '{{bill.fournisseur.acronym}}',
+										address: '',
+										extra: '',
+										phone:''
+									},
+									
+									handleFileChange(event) {
+										const file = event.target.files[0];
+                						if (file) {
+                    						const reader = new FileReader();
+                    						reader.onload = (e) => {
+                        						const data = new Uint8Array(e.target.result);
+                        						const workbook = XLSX.read(data, { type: 'array' });
+                        						const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                        						const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+                        						console.log(jsonData);
+												for (let i = 1; i < jsonData.length; i++) {
+        										if (jsonData[i].some(cell => cell !== '')) { // Check if any cell in the row is not empty
+            										this.items.push({
+                										id: this.generateUUID(),
+                										ref: jsonData[i][0],
+                										name: jsonData[i][1],
+                										qty: parseFloat(jsonData[i][2]),
+                										rate: parseFloat(jsonData[i][3]),
+                										total: parseFloat(jsonData[i][3]) * parseFloat(jsonData[i][2])
+            										});
+												
+        										}
+   												 }
+													this.itemTotal();
+											this.itemTotalGST();
+                    						};
+                    						reader.readAsArrayBuffer(file);
+                    						this.$refs.fileInput.value = '';
+											
+                						}
+									},
+									showTooltip: false,
+									showTooltip2: false,
+									openModal: false,
+									showQuantity:false,
+					
+									showModal(){
+										document.getElementById('myForm').reset(); 										
+										this.openModal =true;
+									},
+					
+									addItem() {
+										this.items.push({
+											id: this.generateUUID(),
+											name: this.item.name,
+											qty: this.item.qty,
+											rate: this.item.rate,
+											ref: this.item.ref,
+											fournisseur: this.item.fournisseur,
+											//gst: this.calculateGST(this.item.gst, this.item.rate),
+											total: this.item.qty * this.item.rate
+										})
+										console.log(this.item.rate)
+										this.itemTotal();
+
+
+										this.itemTotalGST();
+					
+										this.item.id = '';
+										this.item.name = '';
+										this.item.fournisseur='';
+										this.item.qty = 0;
+										this.item.rate = 0;
+										//this.item.gst = 18;
+										this.item.total = 0;
+										document.getElementById('myForm').reset(); 
+							
+									 
+									},
+					
+									deleteItem(uuid) {
+										this.items = this.items.filter(item => uuid !== item.id);
+					
+										this.itemTotal();
+										//this.itemTotalGST();
+									},
+					
+									itemTotal() {
+										this.netTotal = this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+											return result + item.total;
+										}, 0) : 0);
+									},
+					
+									/*itemTotalGST() {
+															this.totalGST =  this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
+											return result + (item.gst * item.qty);
+										}, 0) : 0);
+									},
+					
+									calculateGST(GSTPercentage, itemRate) {
+										return this.numberFormat((itemRate - (itemRate * (100 / (100 + GSTPercentage)))).toFixed(2));
+									}, */
+					
+									generateUUID() {
+										return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+											var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+											return v.toString(16);
+										});
+									},
+									stocks:[],
+									optionsVisible: false,
+									search: "",
+									
+									filteredOptions() {
+												return this.stocks.filter((option) => {
+													return (option.name.toLowerCase().includes(this.search.toLowerCase()));
+												});
+									},
+									initData(){
+										items= {{items | safe}}
+											console.log(items)
+										for (const item of items) {					  
+											const item_obj = {	
+											id: this.generateUUID(),			
+											name: item.name,
+											ref: item.ref,
+											rate: item.rate,
+											total: item.total,
+											qty: item.qty,						
+											};
+											this.items.push(item_obj);
+										}
+										itemsData={{stock | safe}};
+										for (const itemData of itemsData) {							 
+											const item = {
+												id: this.generateUUID(),
+												name: itemData.name,
+												ref: itemData.reference,
+												rate: itemData.prix_achat,
+											};
+											this.stocks.push(item);
+										}	
+									},
+									generateInvoiceNumber(minimum, maximum) {
+										const randomNumber = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+										this.invoiceNumber = '#BA-'+ randomNumber;
+									},
+					
+									numberFormat(amount) {
+										return amount.toLocaleString("fr-FR", {
+											style: "currency",
+											currency: "DZD"
+										});
+									},
+					
+									printInvoice() {
+										var printContents = this.$refs.printTemplate.innerHTML;
+										var originalContents = document.body.innerHTML;
+										document.body.innerHTML = printContents;
+										window.print();										
+										console.log(originalContents)
+										document.body.innerHTML = originalContents;					
+										this.items=[];
+									},
+									validateBon(){										
+										const numericNetTotal = parseFloat(this.netTotal.replace(/\s/g, '').replace(',', '.'));
+										const dataObj = {
+											idBon : this.invoiceNumber,
+											dateBp:this.invoiceDate,
+											FournisseurInfo:this.billing,
+											total:numericNetTotal,
+											clientInfo:this.billing,
+											produits:this.items,
+											entrepot:this.entrepot.id,	
+											ModeReglement:this.ModeReglement,
+											echeance:this.echeance,
+											service:this.service,
+											unitm:this.unitm,									
+										};
+										axios.post('', {
+												formData: dataObj
+											}, {
+												headers: {
+													'Content-Type': '',
+													'X-CSRFToken': getCookie('csrftoken'),
+												}
+											})
+											.then((response) => {											
+												data= response.data
+					  			                if(data.error){
+									                alert(data.error);
+					 		                	}else{
+									                alert("Bon Validé");
+					  		                	}						
+											})
+											.catch((error) => {
+												alert(error)
+											});
+											
+									},
+									
+								}
+							}
+							function getCookie(name) {
+								var cookieValue = null;
+								if (document.cookie && document.cookie !== '') {
+									var cookies = document.cookie.split(';');
+									for (var i = 0; i < cookies.length; i++) {
+										var cookie = cookies[i].trim();
+										// Does this cookie string begin with the name we want?
+										if (cookie.substring(0, name.length + 1) === (name + '=')) {
+											cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+											break;
+										}
+									}
+								}
+								return cookieValue;
+							}
+						</script>
+					</body>
+        
+				
+				
+		</main>		
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

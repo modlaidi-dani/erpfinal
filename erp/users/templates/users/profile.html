@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+
+
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="home" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+	<main class="block w-full h-full px-2 overflow-hidden ">
+		<div class="h-full  p-8">
+                  <div class="w-full bg-gray-100 rounded-lg shadow-xl mt-4 p-8">
+                        <h4 class="text-xl text-gray-900 font-bold">Traçabilité</h4>
+                        <div class="relative px-4">
+                            <div class="absolute h-full border border-dashed border-opacity-20 border-secondary"></div>
+                            {% for log_entry in audit_logs %}
+                            <!-- start::Timeline item -->
+                            <div class="flex items-center w-full my-6 -ml-1.5">
+                                <div class="w-1/12">
+                                    <div class="w-3.5 h-3.5 bg-primary rounded-full"></div>
+                                </div>
+                                <div class="w-11/12">
+                                     <p class="text-sm"><span class="font-bold text-md">{{log_entry.author}} -</span> {{log_entry.description}}</p>
+                                     <p class="text-xs text-gray-500">{{log_entry.timestamp}}</p>
+                                </div>
+                            </div>                            
+                            {% endfor %}
+                            <!-- end::Timeline item -->
+
+                            <!-- end::Timeline item -->
+                        </div>
+                    </div>
+    
+         </div>  
+       
+    </main>	
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

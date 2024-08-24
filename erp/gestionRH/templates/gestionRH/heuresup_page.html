@@ -1,0 +1,600 @@
+{% extends "base.html" %}
+{% load static  heroicons %}
+
+{% block body_class %}{% endblock %}
+{% block content %}
+
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="eh" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar_grh.html" %}
+  <div class="h-full w-full"  x-data="client()">
+	<!-- Main content header -->
+	<main class="block w-full h-full px-2 overflow-hidden " >
+          <div class="flex flex-col items-start justify-between space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                    
+            <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Liste des Heures Supplémentaire</h1>          
+          </div>          
+          <div class="-mb-2 py-2 flex justify-between border-b">  
+            <div>
+              <input type="search" x-model="search" class="form-input rounded-md bg-gray-50 text-sm text-black  h-10 py-2 pl-4 border-transparent border-none outline-none focus:ring-0 focus:text-black transition-all duration-300 ease-in-out focus:w-72 w-60"
+                    placeholder="Rechercher...">
+            </div>          
+            <div class="inline-block px-4 py-2 h-10 text-sm leading-5 font-medium rounded-md text-black border border-gray-700 hover:bg-gray-700 hover:text-white focus:outline-none focus:shadow-outline cursor-pointer">
+                <button x-on:click="isOpen = true; operation = 'add';">Ajouter Une Heure Supplémentaire</button> 
+            </div>
+          </div>  
+         <div class="flex flex-col mt-5">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+                  <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Nom Complet Salarié
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Date Heure Sup
+                        </th>
+                        
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          TAUX Heure SUP
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Motif
+                        </th>                        
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Ajoute Par
+                        </th>                        
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 uppercase"
+                        >
+                          Etat Validation
+                        </th>                        
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 uppercase"
+                        >
+                     
+                        </th>                              
+                      </tr>
+                    </thead>
+                    
+                    <tbody class="bg-white divide-y divide-gray-200">
+                      <template x-for="(client, index) in filteredAndPaginatedClients" >
+                        <tr class="transition-all hover:bg-gray-100 hover:shadow-lg"
+                         >
+                          <td class="flex items-center px-6 py-4 whitespace-nowrap">
+                            <input class=" border-l-0  border-r-0 text-sm whitespace-nowrap" type="checkbox" :value="client.id" x-model="selectedItems" id="target-row">
+                            <span class="inline-flex px-2 text-sm font-semibold leading-5 rounded-full" x-text="client.salarie"></span>
+                          </td>
+                          
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="inline-flex px-2 text-sm font-semibold leading-5 rounded-full" x-text="formatDate(client.datetimedeb)"></span>
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="inline-flex px-2 text-sm font-semibold leading-5 rounded-full" x-text="client.nbr_heure"></span>
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="inline-flex px-2 text-sm font-semibold leading-5 rounded-full" x-text="client.motif"></span>
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="inline-flex px-2 text-sm font-semibold leading-5 rounded-full" x-text="client.user"></span>
+                          </td>
+                          <td class="px-6 py-4 whitespace-nowrap">
+                            <template x-if="client.valide == 'false'">
+                              <div class="block">
+                          
+                                <span class="inline-flex items-center mx-auto rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-700" >Non-Validée </span>
+                                {% if request.session.role == "DIRECTEUR EXECUTIF" %} 
+                                    <span x-on:click="id_heure = client.id; openModalValide = true" class="hover:underline rounded cursor-pointer">Valider</span>
+                                {% endif %}
+                              </div>
+                            </template>
+                            <template x-if="client.valide == 'true'">
+                              <div class="block">
+                                
+                                <span class="inline-flex items-center mx-auto rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700" >Validée </span>
+                               
+                              </div>
+                            </template>
+                          </td>
+                       
+                          <td class="px-6 py-4 flex whitespace-nowrap">
+                              <a  @click="
+                                    isOpen = true; 
+                                    datetimedeb = formatDate(client.datetimedeb);
+                                    datetimefin = formatDate(client.datetimeend);
+                                    console.log(datetimedeb);
+                                    console.log(client.datetimefin);
+                                    salarie = client.salarie;
+                                    nbrheure = client.nbr_heure;
+                                    motif = client.motif;                                   
+                                    id_heure = client.id;
+                                    operation = 'update';
+                              " class="text-gray-700">{% heroicon_mini "pencil-square" class="cursor-pointer transition-transform" %}</a>
+                          </td>
+
+                        </tr>
+                      </template>                 
+                    </tbody>
+                  </table>
+                  <div x-show="openModalValide" @click.away="openModalValide = false" class="fixed inset-0 z-40 w-full flex items-center justify-center bg-black bg-opacity-50">
+                    <div class="bg-white p-6 rounded shadow-md">
+                      <h3 class="text-lg font-semibold mb-2">Valider l'Heure Supplementaire</h3>
+                      <p class="mb-4">Veuillez Introduire votre mot de passe Pour valider:</p>
+                        <input x-model="password" type="password" class="border rounded px-2 py-1 mb-2">
+                        <button @click="verifyPassword()" class="btn btn-primary">
+                          <span x-show="!verifying">Confirmer</span>
+                          <span x-show="verifying">Verifying...</span>
+                        </button>
+                      <button @click="openModalValide = false" class="btn btn-secondary">Cancel</button>
+                    </div>
+                  </div>	
+                   <div x-cloak x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+                     <div class="modal bg-gray-50 rounded-lg p-4 max-w-md mx-auto shadow-lg">
+                       <p class="text-gray-700 text-lg mb-4">Voulez-vous vraiment supprimer Ce Salarié ? </p>
+                       <div class="flex justify-end">
+                         <button @click="confirmerSuppression" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none mr-2">Oui</button>
+                         <button @click="annulerSuppression()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 focus:outline-none">Annuler</button>
+                       </div>
+                     </div>
+                  </div>
+                 <div class="flex bg-gray-100 justify-between px-4">
+                     <div class="transition-transform cursor-pointer px-5 pl-4 py-1 text-red-500 hover:text-red-700" @click="showModal = true;" >
+                            {% heroicon_mini "trash" %}
+                    </div>
+            	<div class="flex justify-end">
+            		<button
+            			x-bind:disabled="currentPage === 1"
+            			@click="prevPage"
+            		>
+            		<svg id='chevrons-left_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+            				<g transform="matrix(1 0 0 1 12 12)" >
+            				<g style="" >
+            				<g transform="matrix(1 0 0 1 0 0)" >
+            				<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+            				</g>
+            				<g transform="matrix(1 0 0 1 -3.75 -0.25)" >
+            				<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+            				</g>
+            				<g transform="matrix(1 0 0 1 2.25 -0.25)" >
+            				<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="2.5,-5 -2.5,0 2.5,5 " />
+            				</g>
+            				</g>
+            				</g>
+            		</svg>
+            		</button>
+            		<p class=" text-lg px-2" x-text="currentPage"></p> /<p id="total-pages" class=" text-lg px-2" x-text="totalPages"></p>
+            		<button
+            			x-bind:disabled="currentPage === totalPages"
+            			@click="nextPage"
+            		>
+            			<svg id='chevrons-right_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+            					<g transform="matrix(1 0 0 1 12 12)" >
+            					<g style="" >
+            					<g transform="matrix(1 0 0 1 0 0)" >
+            					<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+            					</g>
+            					<g transform="matrix(1 0 0 1 -2.75 -0.25)" >
+            					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+            					</g>
+            					<g transform="matrix(1 0 0 1 3.25 -0.25)" >
+            					<polyline style="stroke: rgb(0,0,0); stroke-width: 1.5; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" points="-2.5,-5 2.5,0 -2.5,5 " />
+            					</g>
+            					</g>
+            					</g>
+            			</svg>
+            		</button>
+            	 </div>
+</div>
+                </div>
+              
+              </div>
+            </div>
+         </div>
+       
+        <div>
+        <!-- Modal -->
+          <div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="isOpen">
+            <div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-0 md:mt-12">
+              <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+                x-on:click="isOpen = false">
+                <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+                </svg>
+              </div>
+              <form action="" id="myForm">
+                  <div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
+                  <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter Heure Supplémentaire</h2>
+                    <div class="form-input">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-semibold mb-2" for="name">
+                            Salarié <span class="text-red-600">*</span>
+                            </label>
+                             <select
+                                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="mode_reg"
+                                name="mode_reg"
+                                x-model="salarie"
+                                x-on:change="
+                                salarie = $event.target.value;
+                                console.log(salarie)
+                                "
+                                required  
+                                >
+                                <option value="" disabled selected>Salarié</option>	
+                                {% for mode in users %}				  
+                                    <option value="{{mode.nom}}">{{mode.nom}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-4 flex space-x-2">
+                          <div>
+                            <label class="block text-gray-700 font-semibold mb-2" for="address">
+                            Date Début 
+                            </label>
+                            <input
+                            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            type="datetime-local"
+                            id="datedeb"
+                            x-model="datetimedeb"
+                            name="datedeb"
+                            >
+                          </div> 
+                          <div>
+                            <label class="block text-gray-700 font-semibold mb-2" for="address">
+                            Date Fin
+                            </label>
+                            <input
+                            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            type="datetime-local"
+                            id="datefin"
+                            x-model="datetimefin"
+                            name="datefin"
+                            >
+                          </div>   
+                        </div>
+                        <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold mb-2" for="phone">
+                           Taux Horaire
+                        </label>
+                        <input
+                            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            type="number"
+                            id="phone"
+                            x-model="nbrheure"
+                            name="phone"
+                            placeholder="Taux Heure Sup . . ."
+                        >
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-semibold mb-2" for="regcom">
+                              Motif D'heure Supplémentaire 
+                            </label>
+                            <textarea class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Motif Heure Sup..." rows="4" cols="50" x-model="motif">                            
+                            </textarea>
+
+                        </div>
+                    
+                      
+                    </div>
+                  <div class="mt-8 text-right">
+                  <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="isOpen = false">
+                    Cancel
+                  </button>	
+                  <button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm"
+                    x-on:click="
+                    if (operation === 'add') {
+                        // Call the 'addClient' method
+                        addClient();
+                        } else if (operation === 'update') {
+                        // Call the 'modifierFournisseur' method
+
+                        modifierFournisseur();
+                    }
+                  ">
+                  <span x-text="operation === 'add' ? 'Ajouter' : 'Modifier'"></span>
+                  </button>	
+                  </div>
+                </div> 
+              </form>
+            </div>
+          </div>
+        <!-- /Modal -->
+
+        <script>
+          function client(){
+            return{
+              operation:'add',        
+              isOpen:false,
+              showModal:false,
+              nbrheure:0,
+              datetimedeb:'',
+              selectedItems:[],
+              salarie:'',
+              motif:'',
+              datetimefin:'',
+              currentPage: 1,
+              pageSize: 10, // Set this to the desired number of items per page
+              search: '',
+              selectedFamily: '',
+              selectedFournisseur: '',
+              verifying:false,
+              id_heure:'',
+              openModalValide: false,
+              success:false,
+              password:'',
+              formatDate(dateString) {
+                  // Assuming dateString is in "yyyy-MM-dd HH:mm:ssZ" format
+                  const date = new Date(dateString);
+                  const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}T${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+                  return formattedDate;
+              },
+              verifyPassword(){
+                  // Set the verifying flag to true to show the loading message
+                    this.verifying = true;                 
+                  // Make an AJAX request to verify the password
+                  dataObj ={
+                    password : this.password,
+                    idheure: this.id_heure,
+
+                }
+                axios.post('VerifyHeureSup/', dataObj, {
+                  headers: {
+                  'Content-Type': '',
+                  'X-CSRFToken': getCookie('csrftoken'),
+                }
+                })
+                .then(response => {
+                  if (response.data.success) {
+                    this.success=true;
+                    this.openModalValide = false;
+                    this.password=""
+                    this.clients.find(item => item.id === this.id_heure).valide= 'true';
+                    
+                  
+                    // Set a timeout to reset this.success after a certain time
+                  setTimeout(() => {
+                    this.success = false;
+                  }, 1000);
+                  } else {
+                  alert("false")
+                  this.verifying = false;
+                  this.openModalValide = false;
+                  this.password=""
+                  }
+                })
+                .catch(error => {
+                  // Handle any errors that occur during the AJAX request
+                  alert(error);
+                  this.verifying = false;
+                
+                });
+              }, 	
+
+              HeureSuppTaux() {
+                // Assuming datetimedeb and datetimefin are valid Date objects
+                var a = new Date(this.datetimedeb);  // Convert to Date object if not already
+                var b = new Date(this.datetimefin);  // Convert to Date object if not already
+
+                // Check if the conversion is successful
+                if (isNaN(a) || isNaN(b)) {
+                  console.log("Invalid date format");
+                  return;  // Exit the function if date format is invalid
+                }
+                var timeDifferenceInMilliseconds = Math.abs(b - a);
+                var timeDifference = Math.abs(b - a);  // Difference in milliseconds
+                var timeDifferenceInHours = timeDifferenceInMilliseconds / (1000 * 60 * 60);  // Convert milliseconds to hours
+
+                  console.log("Time difference in hours:", timeDifferenceInHours);
+                  return timeDifferenceInHours;
+              }, 
+              {% if clients %}
+                clients: {{ clients |safe }}, // Replace with your client data
+              {% endif %}
+
+              filteredClients:[],
+              get totalPages() {
+                  return Math.max(1, Math.ceil(this.filteredClients.length / this.pageSize));
+              },
+
+              get filteredClients() {
+                return this.clients.filter(client => {
+                    const familyMatch = this.selectedFamily === '' || this.selectedFamily == client.client_type;
+                    const fournisseurMatch = this.selectedFournisseur === '' || this.selectedFournisseur == client.client_user;
+                    const nameMatch = client.salarie.toLowerCase().includes(this.search.toLowerCase());
+                    return  (nameMatch);
+                });
+              },
+
+              get filteredAndPaginatedClients() {
+                  const start = (this.currentPage - 1) * this.pageSize;
+                  const end = start + this.pageSize;
+                  return this.filteredClients.slice(start, end);
+              },
+
+              prevPage() {
+                if (this.currentPage > 1) {
+                  this.currentPage -= 1;
+                }
+              },
+
+              nextPage() {
+                  if (this.currentPage < this.totalPages) {
+                        this.currentPage += 1;
+                  }
+              },
+
+              clientMatches(search, clientName, clientAddress) {
+                  return (
+                    (clientName.toLowerCase().includes(search.toLowerCase())) ||
+                    (clientAddress.toLowerCase().includes(search.toLowerCase()))
+                  );
+              },
+
+              addClient(){ 
+                if (!this.motif) {
+                    alert('Veuillez introduire le motif de l\'heure supplementaire.');
+                    return;
+                }
+                if (!this.salarie) {
+                    alert('Veuillez Preciser le salarié Concerné.');
+                    return;
+                }  
+                dataObj={
+                  datetimedeb: this.datetimedeb,
+                  salarie: this.salarie,
+                  motif: this.motif,
+                  datetimefin: this.datetimefin,
+                  tauxHeure: this.nbrheure,
+                }
+                console.log(dataObj);
+                axios.post('', {
+                    formData: dataObj
+                }, {
+                        headers: {
+                        'Content-Type': '',
+                        'X-CSRFToken': getCookie('csrftoken'),
+                        }
+                    })
+                        .then((response) => {
+                        data = response.data
+                        if( data.error){
+                            alert(data.error);
+                        }else{
+                            alert("Heure  supplementaire. Ajouté!");
+                        }
+                        window.location.reload()            
+                        })
+                        .catch((error) => {
+                        alert(error)
+                        window.location.reload() 
+                    });
+              },
+
+              confirmerSuppression() {
+                    dataObj ={
+					  liste_ids: this.selectedItems,                        
+					}
+                    axios.post('supprimerHeureSup/',dataObj, {
+                            headers: {
+                              'Content-Type': 'application/json',
+                              'X-CSRFToken': getCookie('csrftoken'),
+                            }
+                          })
+                    .then(response => {
+                      // Check if the deletion was successful
+                        if (response.data.success) {            			
+                            showModal = false;
+                            alert("Heure Supplémentaire Supprimé !");
+                            window.location.reload();
+                        } else {
+                            alert(response.data.error);
+                        }
+                    })
+                    .catch(error => {
+                        // Handle request errors
+                      alert(error);
+                    });
+                      this.showModal = false;
+                      this.productReference = '';
+              },
+
+              annulerSuppression() {
+                  // Réinitialiser les variables
+                this.showModal = false;
+                this.productReference = '';
+              },
+
+              modifierFournisseur(){
+                dataObj={
+                    datetimedeb: this.datetimedeb,
+                    salarie: this.salarie,
+                    motif: this.motif,
+                    datetimefin: this.datetimefin,
+                    tauxHeure: this.nbrheure,
+                    user_id: this.id_heure,
+                }
+
+                axios.post('editHeureSup/', dataObj, {
+                  headers: {
+                    'Content-Type': '',
+                    'X-CSRFToken': getCookie('csrftoken'),
+                  }
+                })
+                  .then((response) => {
+                    data = response.data
+                    if( data.error){
+                            alert(data.error);
+                        }else{
+                            alert("Informations Modifié!");
+                        }
+                    window.location.reload()            
+                    })
+                    .catch((error) => {
+                      alert(error)
+                      
+                    });
+                    var form = document.getElementById('myForm');
+                    form.reset();
+              },
+            }
+          }
+         
+          function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+              var cookies = document.cookie.split(';');
+              for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+                }
+              }
+            }
+            return cookieValue;
+          }
+        </script>
+  </main> 	
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+{% load custom_filters %}
+{% block body_class %}{% endblock %}
+{% block content %}
+  
+<div 
+x-data="{ 
+	menuOpen: false, 
+	basicSignInModal: false,
+	basicSignUpModal: false,
+	advanceSignInModal: false,
+	advanceSignUpModal: false,
+}" 
+class="flex flex-col min-h-screen custom-scrollbar"
+>
+<!-- start::Black overlay -->
+<div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+<!-- end::Black overlay -->
+ {% include 'header.html' %}
+ {% include 'tabs.html' with active_tab="home" %}
+ <div class=" w-full flex flex-row">
+	{% include "sidebar.html" %}
+  <div class="h-full w-full">
+	<!-- Main content header -->
+		<main class="block w-full h-full px-2 overflow-hidden overflow-y-scroll" x-data="{isOpen :false}">
+          <!-- Main content header -->
+          <div>
+            {% for field in fields %}
+            {% if not field.is_relation %}
+                <div class="form-group">
+                    <label for="{{ field.name }}">{{ field.verbose_name }}</label>
+                    <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ model_instance|get_dynamic_attribute:field.name }}">
+                </div>
+            {% endif %}
+           {% endfor %}
+        
+            <button type="submit">Save</button>
+            </div>
+        
+          
+  <!-- /Modal -->
+  <script>
+    function addBanque(){
+       form =document.getElementById('myForm')
+       const formData = new FormData(form);
+        // Send the data to Django using Axios
+       dataObj={
+        reference : document.getElementById('reference').value,
+        designation : document.getElementById('designation').value,
+        symbole:  document.getElementById('symbole').value,
+        status:  document.getElementById('status').value,
+       }
+       console.log('Adding The devise...',formData);
+       axios.post('', {
+        formData: dataObj
+       }, {
+       headers: {
+       'Content-Type': '',
+       'X-CSRFToken': getCookie('csrftoken'),
+       }
+      })
+     .then((response) => {
+       data = response.data
+       console.log(data.error)
+			 if(data.error){
+						alert(data.error);
+				}else{
+						alert("Banque Ajouté !");
+				}		  
+       window.location.reload()            
+     })
+     .catch((error) => {
+       alert(error)
+       
+     });
+    }
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+  </script>
+</main>
+	<!-- end Main content  -->
+
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

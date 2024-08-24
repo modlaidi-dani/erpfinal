@@ -1,0 +1,106 @@
+ <!-- Loading screen -->
+   <!-- sidebar -->
+  <div class="sidebar max-h-screen top-0 h-screen bg-gray-100  text-white w-60 fixed  left-0 transform transition duration-200 ease-in-out z-1"
+   x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+   :class="open === true ? 'md:translate-x-0 md:sticky ':'-translate-x-full' ">
+   <!-- nav -->
+    <nav class="px-4 pt-4  max-h-[calc(100vh-64px)]" >
+       <ul class="flex flex-col space-y-2">
+           <div class="section border rounded-lg  text-sm text-gray-700 border-gray-700 mb-1 pl-3">
+            Comptoire
+           </div>
+           {% if 'comptoire.can_see_comptoir' in request.session.permissions  %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'comptoire-page'  %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">
+               
+                </div>
+                <div>Comptoire</div>
+             </a>
+           </li>
+           {% endif %}
+        <!-- ITEM -->
+          {% if 'comptoire.can_see_cloture' in request.session.permissions or request.session.role == "DIRECTEUR EXECUTIF" %} 
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'clotures'  %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">        
+                </div>
+                <div> Clôture </div>
+              </a>
+           </li> 
+         {% endif %}
+            {% if 'comptoire.can_see_cloture' in request.session.permissions or request.session.role == "DIRECTEUR EXECUTIF" %} 
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'reglements-comptoire'  %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">        
+                </div>
+                <div> Règlements Comptoire </div>
+              </a>
+           </li> 
+         {% endif %}
+          {% if 'comptoire.can_see_clientfid' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+             <a href="{% url 'fidelites'  %}"
+                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                <div class="pr-2">        
+                </div>
+                <div> Client Fidèlité </div>
+              </a>
+           </li> 
+          {% endif %}
+          <!-- Section Devider -->
+              
+           <div class="section border rounded-lg text-sm text-gray-700 mt-2 border-gray-700 pl-3">
+               Paramètres
+           </div>
+          
+          {% if 'comptoire.can_see_pointsvente' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'points-sell' %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                   </div>
+                   <div>Points de ventes</div>
+               </a>
+           </li>       
+          {% endif %}
+
+          {% if 'comptoire.can_see_caisseusers' in request.session.permissions %}        
+           <li class="text-sm text-gray-500 ">
+               <a href="{% url 'affectations'  %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                   </div>
+                   <div>Caisse/utilisateurs</div>
+               </a>
+           </li> 
+          {% endif %}
+           {% comment %} <li class="text-sm text-gray-500 ">
+               <a href="{% url 'emplacements'  %}"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">
+                   </div>
+                   <div>Emplacements</div>
+               </a>
+           </li>  {% endcomment %}
+          
+
+           {% if 'comptoire.can_see_fidelite' in request.session.permissions %}
+           <li class="text-sm text-gray-500 ">
+               <a href="#"
+                   class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                   <div class="pr-2">                   
+                   </div>
+                   <div>Fidélité</div>
+               </a>
+           </li> 
+          {% endif %}          
+      
+       </ul>
+    </nav>
+  </div>
+  <!-- End sidebar -->  
+  

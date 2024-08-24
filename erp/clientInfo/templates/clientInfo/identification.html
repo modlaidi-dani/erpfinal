@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static heroicons %}
+
+{% block body_class %}{% endblock %}
+
+{% block content %}
+
+<div  class="flex flex-col min-h-screen custom-scrollbar" >
+    <!-- start::Black overlay -->
+    <div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+    <!-- end::Black overlay -->
+    {% include 'header.html' %}
+    {% include 'tabs.html' with active_tab="home" %}
+    <div class=" w-full flex flex-row">
+        {% include "sidebar.html" %}
+            <div class="h-full w-full">
+                <!-- Main content  -->
+                <main class="block w-full px-4">
+                    <div class="flex flex-col w-11/12 ">
+                        <div class="flex-1 bg-gray-50 rounded-lg shadow-xl mt-2 p-8">
+                            <h4 class="text-xl text-gray-900 font-bold">Informations De l'Organisation</h4>
+                            <ul class="mt-2 text-lg text-gray-700 px-4">
+                                <li class="flex space-x-2">
+                                {% heroicon_mini "briefcase" class="transition-transform" %}
+                                <p class="text-gray-900 font-semibold">Entreprise : <span class="text-gray-900 font-bold">{{org_name}}</span></p>
+                                </li>
+                                <li class="flex space-x-2">
+                                {% heroicon_mini "map-pin" class="transition-transform" %}
+                                <p class="text-gray-900 font-semibold">Location : <span class="text-gray-900 font-bold">{{location}}</span></p>
+                                </li>
+                                <li class="flex space-x-2">
+                                {% heroicon_mini "users" class="transition-transform" %}
+                                <p class="text-gray-900 font-semibold">Nombre des employées : <span class="text-gray-900 font-bold">{{employees}}</span></p>
+                                </li>
+                                <li class="flex space-x-2">
+                                {% heroicon_mini "building-library" class="transition-transform" %}
+                                <p class="text-gray-900 font-semibold">Nombre des entrepots : <span class="text-gray-900 font-bold">{{long_entrepot}}</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex-1 bg-gray-50 shadow-xl rounded-lg mt-4 p-8">
+                            <h4 class="text-xl text-gray-900 font-bold pb-2 ">Statistiques de Production de l'organisme</h4>
+                            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mt-4">
+                                <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-sm text-green-600">Total Bon de Vente</span>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-6">
+                                        <div>
+                                            <svg class="w-12 h-12 p-2.5 bg-green-400 bg-opacity-20 rounded-full text-green-600 border border-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <div class="flex items-end">
+                                                <span class="text-xl  text-green-600 font-semibold">{{nbrvente}}</span>
+                                                <div class="flex items-center ml-2 mb-1">
+                                                    <span class="font-bold text-sm text-gray-500 ml-0.5"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-sm text-amber-600">Total Bon de Livraison</span>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-6">
+                                        <div>
+                                            <svg class="w-12 h-12 p-2.5 bg-amber-400 bg-opacity-20 rounded-full text-amber-600 border border-amber-600" id='truck_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                                <g transform="matrix(1 0 0 1 12 12)" >
+                                                <g style="" >
+                                                <g transform="matrix(1 0 0 1 0 0)" >
+                                                <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                                </g>
+                                                <g transform="matrix(1 0 0 1 -5 5)" >
+                                                <circle style="stroke: rgb(217,119,6); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2" />
+                                                </g>
+                                                <g transform="matrix(1 0 0 1 5 5)" >
+                                                <circle style="stroke: rgb(217,119,6); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2" />
+                                                </g>
+                                                <g transform="matrix(1 0 0 1 0 -1)" >
+                                                <path style="stroke: rgb(217,119,6); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -11)" d="M 5 17 L 3 17 L 3 6 C 3 5.447715250169207 3.4477152501692068 5 4 5 L 13 5 L 13 17 M 9 17 L 15 17 M 19 17 L 21 17 L 21 11 L 13 11 M 13 6 L 18 6 L 21 11" stroke-linecap="round" />
+                                                </g>
+                                                </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <div class="flex items-end">
+                                                <span class="text-xl  text-amber-600 font-semibold">{{nbrliv}}</span>
+                                                <div class="flex items-center ml-2 mb-1">
+                                                    <span class="font-bold text-sm text-gray-500 ml-0.5"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-sm text-red-600">Total Bon de Retour</span>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-6">
+                                        <div>
+                                            <svg  class="w-12 h-12 p-2.5 bg-red-400 bg-opacity-20 rounded-full text-red-600 border border-red-600" id='receipt-refund_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                                                <g transform="matrix(1 0 0 1 12 12)" >
+                                                <g style="" >
+                                                <g transform="matrix(1 0 0 1 0 0)" >
+                                                <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                                                </g>
+                                                <g transform="matrix(1 0 0 1 0 0)" >
+                                                <path style="stroke: rgb(246,31,8); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 5 21 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 17 3 C 18.104569499661586 3 19 3.8954305003384126 19 5 L 19 21 L 16 19 L 14 21 L 12 19 L 10 21 L 8 19 L 5 21" stroke-linecap="round" />
+                                                </g>
+                                                <g transform="matrix(1 0 0 1 0 -1)" >
+                                                <path style="stroke: rgb(246,31,8); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -11)" d="M 15 14 L 15 12 C 15 10.895430500338414 14.104569499661586 10 13 10 L 9 10 L 11 8 M 11 12 L 9 10" stroke-linecap="round" />
+                                                </g>
+                                                </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <div class="flex items-end">
+                                                <span class="text-xl  text-red-600 font-semibold">{{nbrretour}}</span>
+                                                <div class="flex items-center ml-2 mb-1">
+                                                    <span class="font-bold text-sm text-gray-500 ml-0.5"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-sm text-blue-600">Base Clientèle</span>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-6">
+                                        <div>
+                                            <svg class="w-12 h-12 p-2.5 bg-blue-400 bg-opacity-20 rounded-full text-blue-600 border border-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <div class="flex items-end">
+                                                <span class="text-xl text-blue-600 font-semibold">{{clients}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if request.session.store == "1" %}
+                                <div class="py-8 text-center mt-8 w-4/5 mx-auto">
+                                    <canvas id="myLineChart" width="400" height="200"></canvas>
+                                    <span class="font-bold mx-auto text-center text-lg text-gray-500 mt-4"> Illustration de nombre de Bons de Vente et Bons de Retour</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <script>
+                        // Sample data for the line chart
+                        var dataline = {
+                            labels: ['January', 'February', 'March', 'April', 'May','June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                            datasets: [{
+                            label: 'Bon Vente',
+                            borderColor: '#FF6384',
+                            data:{{vente_per_month | safe}},
+                            fill: false,
+                            }, {
+                            label: 'Bon Retour',
+                            borderColor: '#36A2EB',
+                            data: {{retour_per_month | safe}},
+                            fill: false,
+                            }]
+                        };
+
+                        // Get the canvas element
+                        var ctxline = document.getElementById('myLineChart').getContext('2d');
+
+                        // Create the line chart
+                        var myLineChart = new Chart(ctxline, {
+                            type: 'line',
+                            data: dataline,
+                        });
+
+                        // Sample data for the pie chart
+
+                        var data = {
+                            labels: ['Label 1', 'Label 2', 'Label 3'],
+                            datasets: [{
+                            data: [30, 50, 20],
+                            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+                            }]
+                        };
+
+                        // Get the canvas element
+                        var ctx = document.getElementById('myPieChart').getContext('2d');
+
+                        // Create the pie chart
+                        var myPieChart = new Chart(ctx, {
+                            type: 'pie',
+                            data: data
+                        });
+
+                    </script>       
+                </main>
+                <!-- end Main content  -->
+            </div>
+    </div>
+</div>
+{% endblock content %}
