@@ -1,0 +1,117 @@
+Not Found: /favicon.ico
+Not Found: /api/
+Not Found: /favicon.ico
+Not Found: /actuator/gateway/routes/
+Forbidden (CSRF token from POST incorrect.): /home/
+Forbidden (CSRF token from POST incorrect.): /home/
+Not Found: /sugar_version.json
+Not Found: /Telerik.Web.UI.WebResource.axd
+Not Found: /js/NewWindow_2_all.js
+Not Found: /cgi-bin/config.exp
+Not Found: /cgi-bin/authLogin.cgi
+Not Found: /cf_scripts/scripts/ajax/ckeditor/ckeditor.js
+Not Found: /favicon.ico
+Not Found: /media/media/document/SACI_INFO_QTSKz79.jpg
+Not Found: /favicon.ico
+Not Found: /static/historypage.js
+Not Found: /owa/
+Not Found: /favicon.ico
+Not Found: /identity/
+Not Found: /showLogin.cc
+Not Found: /zabbix/favicon.ico
+Not Found: /WebInterface/
+Not Found: /solr/
+Not Found: /webfig/
+Not Found: /favicon-32x32.png
+Not Found: /ext-js/app/common/zld_product_spec.js
+Not Found: /admin/
+Not Found: /sitecore/shell/sitecore.version.xml
+Not Found: /remote/login/
+Not Found: /favicon/favicon.ico
+Not Found: /console/
+Not Found: /api/session/properties/
+Not Found: /index.jsp
+Not Found: /aspera/faspex/
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-08-24 13:40:00.079468) while time zone support is active.
+  warnings.warn(
+Not Found: /robots.txt
+Not Found: /cpsess8233649784/scripts12/terminal/
+Not Found: /cpsess1984911709/scripts12/terminal/
+Not Found: /robots.txt
+Not Found: /sitemap.xml
+Not Found: /.well-known/security.txt
+Not Found: /robots.txt
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-08-24 15:18:12.646604) while time zone support is active.
+  warnings.warn(
+Not Found: /.env
+Not Found: /.ssh/id_rsa
+Not Found: /database.sql
+Not Found: /config/database.php
+Not Found: /.svn/wc.db
+Not Found: /web.config
+Not Found: /api/.env
+Not Found: /.git/HEAD
+Not Found: /dump.sql
+Not Found: /.ssh/id_ecdsa
+Not Found: /_vti_pvt/service.pwd
+Not Found: /.ssh/id_ed25519
+Not Found: /.aws/credentials
+Not Found: /wp-config.php
+Not Found: /.env.production
+Not Found: /_vti_pvt/authors.pwd
+Not Found: /cloud-config.yml
+Not Found: /config.php
+Not Found: /docker-compose.yml
+Not Found: /config.yaml
+Not Found: /backup.tar.gz
+Not Found: /backup.sql
+Not Found: /wp-admin/setup-config.php
+Not Found: /config.yml
+Not Found: /_vti_pvt/administrators.pwd
+Not Found: /config.xml
+Not Found: /backup.zip
+Not Found: /config.json
+Not Found: /.vscode/sftp.json
+Not Found: /etc/ssl/private/server.key
+Not Found: /user_secrets.yml
+Not Found: /server.key
+Not Found: /config/production.json
+Not Found: /secrets.json
+Not Found: /phpinfo.php
+Not Found: /.kube/config
+Not Found: /feed/
+Not Found: /etc/shadow/
+Not Found: /server-status/
+Not Found: /cpsess1984911709/scripts7/zone_editor/
+Not Found: /cpsess1984911709/scripts/resbind/
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 75, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 75, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
+Not Found: /favicon.ico
+Not Found: /autodiscover/autodiscover.json
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-08-24 18:59:51.765251) while time zone support is active.
+  warnings.warn(
+Not Found: /favicon.ico
+Not Found: /favicon.ico
