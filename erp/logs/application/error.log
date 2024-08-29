@@ -235,3 +235,37 @@ SystemExit: 1
 [2024-08-29 01:31:16 +0200] [860022] [INFO] Booting worker with pid: 860022
 [2024-08-29 01:31:16 +0200] [860023] [INFO] Booting worker with pid: 860023
 [2024-08-29 01:31:16 +0200] [860024] [INFO] Booting worker with pid: 860024
+[2024-08-29 14:09:50 +0200] [860021] [INFO] Handling signal: term
+[2024-08-29 14:10:00 +0200] [898941] [INFO] Starting gunicorn 23.0.0
+[2024-08-29 14:10:00 +0200] [898941] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-08-29 14:10:00 +0200] [898941] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2024-08-29 14:10:01 +0200] [898941] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-08-29 14:10:01 +0200] [898941] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2024-08-29 14:10:02 +0200] [898941] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-08-29 14:10:02 +0200] [898941] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2024-08-29 14:10:03 +0200] [898941] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-08-29 14:10:03 +0200] [898941] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2024-08-29 14:10:04 +0200] [898941] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-08-29 14:10:04 +0200] [898941] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2024-08-29 12:10:05 +0000] [860022] [INFO] Worker exiting (pid: 860022)
+[2024-08-29 14:10:05 +0200] [898941] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2024-08-29 14:10:06 +0200] [898960] [INFO] Starting gunicorn 23.0.0
+[2024-08-29 14:10:06 +0200] [898960] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-08-29 14:10:06 +0200] [898960] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2024-08-29 14:10:07 +0200] [898960] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-08-29 14:10:07 +0200] [898960] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2024-08-29 14:10:08 +0200] [898960] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-08-29 14:10:08 +0200] [898960] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2024-08-29 14:10:09 +0200] [898960] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-08-29 14:10:09 +0200] [898960] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2024-08-29 14:10:10 +0200] [898960] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2024-08-29 14:10:10 +0200] [898960] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2024-08-29 12:10:10 +0000] [860024] [INFO] Worker exiting (pid: 860024)
+[2024-08-29 12:10:10 +0000] [860023] [INFO] Worker exiting (pid: 860023)
+[2024-08-29 14:10:11 +0200] [898960] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2024-08-29 14:10:12 +0200] [898963] [INFO] Starting gunicorn 23.0.0
+[2024-08-29 14:10:12 +0200] [898963] [INFO] Listening at: http://127.0.0.1:8000 (898963)
+[2024-08-29 14:10:12 +0200] [898963] [INFO] Using worker: sync
+[2024-08-29 14:10:12 +0200] [898964] [INFO] Booting worker with pid: 898964
+[2024-08-29 14:10:12 +0200] [898965] [INFO] Booting worker with pid: 898965
+[2024-08-29 14:10:12 +0200] [898966] [INFO] Booting worker with pid: 898966
