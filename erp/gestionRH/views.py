@@ -1,3 +1,4 @@
+import pytz
 from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
@@ -679,22 +680,26 @@ class ListeCongesView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     def post(self, request, *args, **kwargs):
+        timezone = pytz.timezone('Africa/Algiers')
         data = json.loads(request.body)
         dataInvoice = data.get('formData', '')
         print(dataInvoice)
         with transaction.atomic():  
           if dataInvoice:
             liste_salaries = dataInvoice["list2"]
-            datedeb = ["datetimedeb"]
-            datefin = ["datetimefin"]
+            datedeb =  datetime.strptime(dataInvoice["datetimedeb"]+" 00:00:00" , "%Y-%m-%d %H:%M:%S")
+            datefin = datetime.strptime(dataInvoice["datetimefin"]+" 00:00:00" , "%Y-%m-%d %H:%M:%S")
+            datedeb = timezone.localize(datedeb)
+            datefin = timezone.localize(datefin)
+            
             for salarie in liste_salaries:
                 salarieObject = models.Salarie.objects.filter(nom = salarie["nom"]).first()
                 if salarieObject:
                     conge = models.Conge.objects.create(
                         salarie=salarieObject,
-                        dateDebut=dataInvoice["datetimedeb"],  # Access value using key
+                        dateDebut=datedeb,  # Access value using key
                         type_conge = dataInvoice["type_conge"],
-                        dateFin=dataInvoice["datetimefin"],   # Access value using key
+                        dateFin=datefin,   # Access value using key
                     )
                 else:
                     return JsonResponse({'message': "Salarié Non existant!."})

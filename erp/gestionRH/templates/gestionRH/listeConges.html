@@ -321,6 +321,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
                 <div class="py-4">
                   <img src="{% static 'media/attest_header.png' %}" alt="">
                 </div>
+                
                 <div class="flex justify-between mx-auto mb-10">
                   <div class="w-1/2 px-4"></div>
                   <div class="w-1/2 px-4">
@@ -457,8 +458,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
                 var originalContents = document.body.innerHTML;
                 document.body.innerHTML = printContents;
                 window.print();
-                location.reload(true);
-                document.body.innerHTML = originalContents;
+               // location.reload(true);
+               // document.body.innerHTML = originalContents;
               }, 
 
               isSelected(item) {
@@ -583,6 +584,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
                                 'type': this.type_conge,
                                 'dateFin': this.datetimefin,
                               })
+                              console.log("toprintList toprintList", this.toprintList)
                               this.salaries.push({
                                 'salarie': item.nom,
                                 'date': this.datetimedeb,
@@ -593,7 +595,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
                             });
                             setTimeout(() => {
                               this.printInvoice() 
-                            }, 50); // Delay for 1 second (adjust as needed)                        
+                            }, 1000); // Delay for 1 second (adjust as needed)                        
                         }        
                         })
                         .catch((error) => {
@@ -670,7 +672,10 @@ class="flex flex-col min-h-screen custom-scrollbar"
               },
             }
           }
-         
+           // Add event listener for the after print event
+          window.addEventListener('afterprint', function() {
+            window.location.reload(); // Reload the page after printing
+          });
           function getCookie(name) {
             var cookieValue = null;
             if (document.cookie && document.cookie !== '') {
