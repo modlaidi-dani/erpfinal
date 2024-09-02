@@ -2220,3 +2220,334 @@ Not Found: /robots.txt
   warnings.warn(
 /root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-29 00:00:00) while time zone support is active.
   warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-01 15:08:21.175250) while time zone support is active.
+  warnings.warn(
+Internal Server Error: /sdk
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/sdk/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Not Found: /HNAP1/
+Not Found: /evox/about/
+Forbidden (Referer checking failed - no Referer.): /
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField AvanceSalaire.date received a naive datetime (2024-09-01 00:00:00) while time zone support is active.
+  warnings.warn(
+Not Found: /evox/about/
+Not Found: /HNAP1/
+Internal Server Error: /sdk
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/sdk/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Forbidden (Referer checking failed - no Referer.): /
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-01 15:44:47.262381) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-01 15:51:37.438075) while time zone support is active.
+  warnings.warn(
+Requested Range Not Satisfiable: /static/media/BG2.webp
+Not Found: /.env
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-01 16:02:48.850051) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-01 16:03:09.491007) while time zone support is active.
+  warnings.warn(
+Not Found: /robots.txt
+Not Found: /robots.txt
+Internal Server Error: /reglements/reglements
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /actuator/gateway/routes/
+Not Found: /index.nginx-debian.html
+Not Found: /favicon.ico
+Not Found: /.env
+Forbidden (Referer checking failed - no Referer.): /
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /.git/config
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-01 19:24:46.808688) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-01 19:27:22.313649) while time zone support is active.
+  warnings.warn(
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /.env
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /robots.txt
+Not Found: /actuator;/env;
+Not Found: /robots.txt
+Not Found: /.git/config
+Not Found: /actuator/gateway/routes/
+Not Found: /webui/
+Not Found: /favicon.ico
+Not Found: /.env
+Not Found: /staging/.env
+Not Found: /backend/.env
+Not Found: /app/.env
+Not Found: /api/.env
+Not Found: /app_dev.php/_profiler/phpinfo
+Not Found: /.config
+Not Found: /.config.yaml
+Not Found: /.json
+Not Found: /app/config/parameters.yml
+Not Found: /app_dev.php/_profiler/open
+Not Found: /aws.yml
+Not Found: /client_secrets.json
+Not Found: /conf/.env
+Not Found: /config/aws.yml
+Not Found: /debug/default/view.html
+Not Found: /getcfg.php
+Not Found: /info/
+Not Found: /infos/
+Not Found: /infophp.php
+Not Found: /infos.php
+Not Found: /library/.env
+Not Found: /php-info.php
+Not Found: /pinfo.php
+Not Found: /sites/all/libraries/mailchimp/.env
+Not Found: /tool/view/phpinfo.view.php
+Not Found: /wp-content/.env
+Not Found: /geoserver/web/
+Not Found: /.git/config
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /robots.txt
+Not Found: /sitemap.xml
+Not Found: /.well-known/security.txt
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /.git/config
+Not Found: //cdn.plot.ly/plotly-latest.min.js
+Not Found: //cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js
+Not Found: /dist/htmx.js
+Not Found: //unpkg.com/htmx.org/dist/ext/ws.js
+Not Found: //cdn.js
+Not Found: //unpkg.com/axios/dist/axios.min.js
+Not Found: //unpkg.com/htmx.org/dist/ext/ws.js
+Not Found: /dist/htmx.js
+Not Found: //cdn.plot.ly/plotly-latest.min.js
+Not Found: //cdn.js
+Not Found: //cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js
+Not Found: /dist/cdn.min.js
+Not Found: //unpkg.com/axios/dist/axios.min.js
+Not Found: /static/favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /cpsess2751700353/scripts12/terminal/
+Not Found: /cpsess2121793712/scripts12/terminal/
+Not Found: /autodiscover/autodiscover.json
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
