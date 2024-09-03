@@ -3106,3 +3106,735 @@ Not Found: /public/index.php
 Not Found: /index.php
 Not Found: /index.php
 Not Found: /favicon.ico
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-02 15:49:05.930113) while time zone support is active.
+  warnings.warn(
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-02 16:23:28.051480) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Salarie.datenaiss received a naive datetime (1987-06-20 00:00:00) while time zone support is active.
+  warnings.warn(
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /.git/config
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /favicon.ico
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-02 17:43:21.492803) while time zone support is active.
+  warnings.warn(
+Not Found: /actuator/gateway/routes/
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /dist/cdn.min.js
+Not Found: //cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js
+Not Found: //unpkg.com/axios/dist/axios.min.js
+Not Found: //cdn.js
+Not Found: /dist/htmx.js
+Not Found: //unpkg.com/htmx.org/dist/ext/ws.js
+Not Found: //cdn.plot.ly/plotly-latest.min.js
+Not Found: //unpkg.com/axios/dist/axios.min.js
+Not Found: /dist/htmx.js
+Not Found: //cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js
+Not Found: //unpkg.com/htmx.org/dist/ext/ws.js
+Not Found: /dist/cdn.min.js
+Not Found: //cdn.js
+Not Found: //cdn.plot.ly/plotly-latest.min.js
+Not Found: //cdn.js
+Not Found: //cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js
+Not Found: /dist/htmx.js
+Not Found: //unpkg.com/htmx.org/dist/ext/ws.js
+Not Found: /dist/cdn.min.js
+Not Found: //cdn.plot.ly/plotly-latest.min.js
+Not Found: //unpkg.com/axios/dist/axios.min.js
+Not Found: /dist/htmx.js
+Not Found: /dist/cdn.min.js
+Not Found: //cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js
+Not Found: //cdn.plot.ly/plotly-latest.min.js
+Not Found: //cdn.js
+Not Found: //unpkg.com/htmx.org/dist/ext/ws.js
+Not Found: //unpkg.com/axios/dist/axios.min.js
+Not Found: //unpkg.com/htmx.org/dist/ext/ws.js
+Not Found: /dist/htmx.js
+Not Found: //cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js
+Not Found: /dist/cdn.min.js
+Not Found: //cdn.js
+Not Found: //cdn.plot.ly/plotly-latest.min.js
+Not Found: //unpkg.com/axios/dist/axios.min.js
+Not Found: /cgi-bin/luci/;stok=/locale
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField PrixSocial.date received a naive datetime (2024-10-02 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-02-14 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-02-25 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-02-04 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-02-05 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-02-06 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-02-07 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-02-12 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-02-21 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-02-28 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-02-22 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-10 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-11 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-13 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-14 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-18 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-27 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-28 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-06 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-21 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-24 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-12 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-17 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-31 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-03-26 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-25 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-16 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-01 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-03 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-07 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-15 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-22 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-29 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-14 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-28 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-04 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-21 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-02 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-24 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-30 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-04-23 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-06 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-19 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-21 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-23 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-05 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-12 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-14 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-15 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-20 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-22 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-28 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-29 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-30 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-07 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-08 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-13 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-09 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-16 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-26 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-27 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-05-02 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-02 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-03 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-06 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-11 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-20 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-27 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-04 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-26 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-09 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-12 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-19 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-06-24 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-23 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-01 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-02 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-07 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-09 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-15 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-18 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-24 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-28 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-30 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-31 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-08 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-11 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-14 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-10 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-03 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-04 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-16 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-17 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-21 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-22 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-25 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-07-29 00:00:00) while time zone support is active.
+  warnings.warn(
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.env
+Not Found: /robots.txt
+Not Found: /sitemap.xml
+Not Found: /.well-known/security.txt
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /.git/config
+Not Found: /.env
+Not Found: /.config.yaml
+Not Found: /.env.bak
+Not Found: /.env.example
+Not Found: /.env.prod
+Not Found: /.env.production
+Not Found: /.env.production
+Not Found: /.json
+Not Found: /admin/.env
+Not Found: /api/.env
+Not Found: /api/.env
+Not Found: /app/.env
+Not Found: /app_dev.php/_profiler/open
+Not Found: /app_dev.php/_profiler/phpinfo
+Not Found: /apps/.env
+Not Found: /backend/.env
+Not Found: /client_secrets.json
+Not Found: /config/.env
+Not Found: /core/.env
+Not Found: /demo/.env
+Not Found: /dev/.env
+Not Found: /info/
+Not Found: /infos/
+Not Found: /infophp.php
+Not Found: /library/.env
+Not Found: /new/.env
+Not Found: /phpinfo.php
+Not Found: /phpinfos.php
+Not Found: /pinfo.php
+Not Found: /public/.env
+Not Found: /staging/.env
+Not Found: /tool/view/phpinfo.view.php
+Not Found: /config/php.ini
+Not Found: /index.html
+Not Found: /phpinfo.php
+Not Found: /test.php
+Not Found: /config.properties
+Not Found: /main.js
+Not Found: /.aws/credentials
+Not Found: /app_dev.php/_profiler/phpinfo
+Not Found: /app/etc/env.php
+Not Found: /index.php
+Not Found: /config/constants.js
+Not Found: /secured/phpinfo.php
+Not Found: /application.properties
+Not Found: /config.ini
+Not Found: /config/config.php
+Not Found: /index.php/phpinfo
+Not Found: /.profile
+Not Found: /appsettings.json
+Not Found: /config/index.js
+Not Found: /public/js/main.js
+Not Found: /info.php
+Not Found: /config/config.js
+Not Found: /config.js
+Not Found: /gulpfile.js
+Not Found: /application-dev.properties
+Not Found: /config/default.json
+Not Found: /README.md
+Not Found: /app.js
+Not Found: /env.json
+Not Found: /config/config.ini
+Not Found: /config/environments/production.rb
+Not Found: /environment.ts
+Not Found: /resources/application.conf
+Not Found: /config/aws.json
+Not Found: /app.py
+Not Found: /application/config/constants.php/
+Not Found: /src/config.js
+Not Found: /config/application.yml
+Not Found: /config/services.yaml
+Not Found: /dev/phpinfo.php
+Not Found: /api/config/tsconfig.json
+Not Found: /static/.gitlab-ci.yml
+Not Found: /php_info.php
+Not Found: /server.js
+Not Found: /config/development.json
+Not Found: /test2.php
+Not Found: /test1.php
+Not Found: /wp-config.php
+Not Found: /config/config.json
+Not Found: /frontend_dev.php/$
+Not Found: /storage/logs/laravel.log
+Not Found: /phpversion.php
+Not Found: /settings.json
+Not Found: /src/main/resources/appsettings.yml
+Not Found: /configs/application.ini
+Not Found: /js/config.js
+Not Found: /login/index.php
+Not Found: /src/main/resources/application.properties
+Not Found: /install/index.php
+Not Found: /config.php
+Not Found: /products/.gitlab-ci.yml
+Not Found: /manifest.json
+Not Found: /ecosystem.config.js
+Not Found: /device/device.js
+Not Found: /php-info.php
+Not Found: /config.json
+Not Found: /php.php
+Forbidden (Referer checking failed - no Referer.): /
+Not Found: /.git/config
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /.env
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /robots.txt
+Not Found: /actuator/gateway/routes/
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /+CSCOE+/logon.html
+Not Found: /RDWeb/Pages/
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /static/favicon.ico
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField BonTransport.date_depart received a naive datetime (2024-09-03 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-03 07:42:54.967718) while time zone support is active.
+  warnings.warn(
+Not Found: /robots.txt
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField BonTransport.date_depart received a naive datetime (2024-09-03 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-03 07:59:08.463739) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField BonTransport.date_depart received a naive datetime (2024-09-03 00:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-03 08:00:14.693847) while time zone support is active.
+  warnings.warn(
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /favicon.ico
+Not Found: /webui/
+Not Found: /favicon.ico
+Not Found: /cpsess2121793712/scripts12/terminal/
+Not Found: /robots.txt
+Not Found: /sitemap.xml
+Not Found: /config.json
+Not Found: /geoserver/web/
+Not Found: /.git/config
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-03 08:32:14.185398) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-03 08:33:42.221637) while time zone support is active.
+  warnings.warn(
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /robots.txt
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-03 10:47:59.602260) while time zone support is active.
+  warnings.warn(
+Forbidden (Permission denied): /ventes/edit-bill-diva/2605
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 981, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 226, in get
+    context = self.get_context_data(**kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 884, in get_context_data
+    raise PermissionDenied("Vous avez pas la permission d'accéder au.")
+django.core.exceptions.PermissionDenied: Vous avez pas la permission d'accéder au.
+Not Found: /favicon.ico
+Forbidden (Permission denied): /ventes/edit-bill-diva/2605
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 981, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 226, in get
+    context = self.get_context_data(**kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 884, in get_context_data
+    raise PermissionDenied("Vous avez pas la permission d'accéder au.")
+django.core.exceptions.PermissionDenied: Vous avez pas la permission d'accéder au.
+Forbidden (Permission denied): /ventes/edit-bill-diva/2605
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 981, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 226, in get
+    context = self.get_context_data(**kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 884, in get_context_data
+    raise PermissionDenied("Vous avez pas la permission d'accéder au.")
+django.core.exceptions.PermissionDenied: Vous avez pas la permission d'accéder au.
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /.env
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-03 12:14:26.009055) while time zone support is active.
+  warnings.warn(
+Not Found: /cpsess2121793712/scripts12/terminal/
+Not Found: /favicon.ico
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-03 12:55:27.397033) while time zone support is active.
+  warnings.warn(
+Not Found: /cgi-bin/luci/;stok=/locale
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-03 13:10:05.981183) while time zone support is active.
+  warnings.warn(
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /.git/config
+Not Found: /cgi-bin/luci/;stok=/locale

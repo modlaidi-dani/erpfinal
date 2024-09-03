@@ -2020,3 +2020,411 @@ commercial
 {'IdBon': 'FIG2409-2440', 'dateBp': '2024-09-02', 'clientInfo': {'name': 'Zineddine Farah', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2408/02257', 'time': 1385, 'produits': [{'id': 'd634a5ea-db48-44b4-8a8d-318b83776201', 'name': 'CPU INTEL I5 12600KF BOX', 'ref': 'I5-12600KF', 'qty': 1, 'livre': True, 'rate': 32184.88, 'total': 32184.88, 'numSeries': ['U48L6L4504313']}, {'id': 'e7a663af-8d39-4148-83a3-c321a6bcf964', 'name': 'CARTE MERE MSI PRO Z790-S WIFI', 'ref': 'Z790-S', 'qty': 1, 'livre': True, 'rate': 37731.09, 'total': 37731.09, 'numSeries': ['601-7D88-020B2310014262']}, {'id': 'bc2b0770-d534-46f3-a984-bab43e3bcc43', 'name': 'RAM DDR5 ADATA LANCER BLADE 16GB 5600MHZ WHITE', 'ref': '9JAX5U5600C4616GSLABWH', 'qty': 1, 'livre': True, 'rate': 10588.24, 'total': 10588.24, 'numSeries': ['1O1500916208']}, {'id': '07622826-b166-4579-9302-758fbab3bbf4', 'name': 'SSD ADATA XPG GAMMIX S60 BLADE 1TB PCIE GEN4X4 M.2', 'ref': '9JAGAMMIXS601TCS', 'qty': 1, 'livre': True, 'rate': 17478.99, 'total': 17478.99, 'numSeries': ['2N472L2GG9XH']}, {'id': '27dc23fb-00f3-412a-b4d2-b806d52c0abd', 'name': 'CARTE GRAPIQUE MSI RTX 4070 SUPER 12G GAMING X SLIM WHITE', 'ref': '4070GAMINGXSLIM-WHITE', 'qty': 1, 'livre': True, 'rate': 151176.47, 'total': 151176.47, 'numSeries': ['602-V513-310B2405004197']}, {'id': 'a36ed781-c7c6-4da8-a4ca-b09aebbc43ac', 'name': 'BOITIER LIAN LI LANCOOL 216 RGB / WHITE', 'ref': 'LANCOOL-216-WHT', 'qty': 1, 'livre': True, 'rate': 20756.3, 'total': 20756.3, 'numSeries': ['LCEC05300242']}, {'id': 'cf1dccd6-33a9-4565-b874-2f7f320ed29f', 'name': 'ALIMENTATION MSI MAG A750GL 750 WATTS 80PLUS GOLD PCIE5', 'ref': 'MD3067ZP8B11CE0', 'qty': 1, 'livre': True, 'rate': 15042.02, 'total': 15042.02, 'numSeries': ['3067ZP8B11CE010348003854']}, {'id': '2b62540b-8368-4d0b-9cbb-c492152ca45f', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 1, 'livre': True, 'rate': 36554.62, 'total': 36554.62, 'numSeries': ['CE2M014403548']}, {'id': 'ff7b3035-090d-426d-aece-358f921cccf6', 'name': 'COMBO MSI VIGOR GK30 WHITE', 'ref': 'MDS1104FR306CLA', 'qty': 1, 'livre': True, 'rate': 10504.2, 'total': 10504.2, 'numSeries': ['S1104FR306CLA10419000040']}, {'id': 'd187885e-f9b7-4b56-a398-0de828f86726', 'name': 'WATER COOLING MARS GAMING ML-ONE360 - WHITE\t', 'ref': 'ML-ONE360W\t', 'qty': 1, 'livre': True, 'rate': 12436.98, 'total': 12436.98, 'numSeries': ['ML-ONE360W\t(1)']}, {'id': '579553f1-d838-49be-8cbf-0bc615b31ed8', 'name': 'TAPIS DE SOURIS GLORIOUS LARGE GW-L / WHITE EDITION', 'ref': 'GW-L', 'qty': 1, 'livre': True, 'rate': 3277.31, 'total': 3277.31, 'numSeries': ['GLORIOUS LARGE GW-L / W (1)']}]}
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
 {'IdBon': 'FIG2409-2441', 'dateBp': '2024-09-02', 'clientInfo': {'name': 'EURL BAZAR DU GRAND MAGHREB', 'address': 'DJELFA', 'num_registre': '17/00-0302298B99', 'nif': '09991703022988500000', 'nai': '', 'nis': '', 'phone': '0780837948'}, 'AssociatedBL': 'BL2409/02294', 'time': 1525, 'produits': [{'id': 'a0fe742c-08f6-477f-b9d9-9e0a10e3b5c2', 'name': 'CPU AMD RYZEN 5 3400G BOX', 'ref': '3400G-BOX', 'qty': 10, 'livre': True, 'rate': 13361.35, 'total': 133613.5, 'numSeries': ['9ACS354O40525', '9ACS354O40541', '9ACS354O40526', '9ADE843P40085', '9ACS354O40528', '9ADE843P40098', '9ACS354O40532', '9ACS354O40539', '9ACS354O40542', '9ADE843P40094']}, {'id': 'abbad7de-f86b-4fc4-8ba7-8e4d05bd3c28', 'name': 'CARTE MERE MSI A520M-A PRO', 'ref': 'A520-M-A', 'qty': 10, 'livre': True, 'rate': 11680.67, 'total': 116806.7, 'numSeries': ['601-7C96-120B2401043770', '601-7C96-120B2401043769', '601-7C96-120B2401043768', '601-7C96-120B2401043767', '601-7C96-120B2401043766', '601-7C96-120B2401043765', '601-7C96-120B2401043764', '601-7C96-120B2401043763', '601-7C96-120B2401043762', '601-7C96-120B2401043761']}, {'id': 'c5e6c3c4-ddea-4618-af3a-ff550c0a0d1c', 'name': 'CPU INTEL I5 13600KF', 'ref': 'I5-13600KF', 'qty': 1, 'livre': True, 'rate': 39411.77, 'total': 39411.77, 'numSeries': ['U4071XG903287']}, {'id': 'bb84729a-dfdf-4072-8140-1811d2f97258', 'name': 'ECRAN MSI PRO MP273A - 27INCH - IPS - 100HZ - 1MS', 'ref': 'MP273A-100', 'qty': 1, 'livre': True, 'rate': 22857.14, 'total': 22857.14, 'numSeries': ['PB4HA74400633']}, {'id': '100bef1e-832e-4020-826d-69588e06f8a8', 'name': 'ECRAN AOC 24B2XH - 24INCH - IPS - 75HZ ', 'ref': '24B2XH', 'qty': 2, 'livre': True, 'rate': 15042.02, 'total': 30084.04, 'numSeries': ['AOCWBW22P3000353', 'AOCWBW22P3000373']}, {'id': 'c61a3bca-88b5-4783-ab50-0ff571c9e465', 'name': 'ECRAN MSI MP225 - 21.5 POUCE - 100HZ - IPS - 1MS - BLACK', 'ref': 'MP225', 'qty': 2, 'livre': True, 'rate': 15042.02, 'total': 30084.04, 'numSeries': ['PC6M024201209', 'PC6M024201229']}, {'id': 'c04da31c-282f-4df8-8ad5-d60346134aee', 'name': 'CARTE MERE MSI B550M PRO VDH', 'ref': '911-7C95-066', 'qty': 4, 'livre': True, 'rate': 17563.03, 'total': 70252.12, 'numSeries': ['601-7C95-340B2401007447', '601-7C95-340B2401007448', '601-7C95-340B2401007450', '601-7C95-340B2401007449']}, {'id': '94d61335-16ed-47b0-82e0-83bc5d2eb8bb', 'name': 'CARTE MERE MSI PRO B650M-B', 'ref': '4711377144797', 'qty': 1, 'livre': True, 'rate': 19747.9, 'total': 19747.9, 'numSeries': ['601-7E28-030B2311008387']}, {'id': 'bc481ac0-6d5f-473c-855e-0285353bd99e', 'name': 'CARTE MERE MSI B760M-P DDR5', 'ref': 'MD9117E02011', 'qty': 1, 'livre': True, 'rate': 22352.94, 'total': 22352.94, 'numSeries': ['601-7E02-040B2404000009']}, {'id': 'fa37fd0c-9e7f-4e9f-bc56-ecb824a64af0', 'name': 'CARTE MERE MSI H610M-E DDR5', 'ref': 'H610M-E-DDR5', 'qty': 1, 'livre': True, 'rate': 16722.69, 'total': 16722.69, 'numSeries': ['601-7D48-100B2312001101']}, {'id': '77b8d24c-1bcf-474a-9d7a-a2e969989079', 'name': 'WATER COOLING MARS GAMING ML-ONE240  BLAKC', 'ref': 'ML-ONE240-BLACK', 'qty': 2, 'livre': True, 'rate': 8319.33, 'total': 16638.66, 'numSeries': ['ML-ONE240-BLACK(2)']}, {'id': '064a3f77-c2fc-46d6-9f8b-03edd36a784d', 'name': 'AIR COOLING MARS GAMING MCPU33 ', 'ref': 'MCPU33', 'qty': 5, 'livre': True, 'rate': 3277.31, 'total': 16386.55, 'numSeries': ['MCPU33(5)']}, {'id': '17fa20fe-3a85-4169-b0ad-d73d6f0aca79', 'name': 'AIR COOLING MARS GAMING MCPU44 ', 'ref': 'MCPU44', 'qty': 4, 'livre': True, 'rate': 3781.51, 'total': 15126.04, 'numSeries': ['MCPU44(4)']}, {'id': '2e29f4ad-c359-4db1-9ce0-93bed058a536', 'name': 'ALIMENTATION MSI MAG A750BN 750 WATTS 80+ BRONZE PCIE5', 'ref': 'A750BN-PCIE5', 'qty': 3, 'livre': True, 'rate': 11344.54, 'total': 34033.62, 'numSeries': ['3067ZP2C11CE010350000798', '3067ZP2C11CE010350000794', '3067ZP2C11CE010350000797']}, {'id': '849e5fff-bff2-4231-870b-e8cbafe3dfb9', 'name': 'ALIMENTATION MSI MAG A500DN 500 WATTS 80PLUS', 'ref': 'MD3067ZP6A11809', 'qty': 6, 'livre': True, 'rate': 6050.42, 'total': 36302.52, 'numSeries': ['3067ZP6A1180910403000523', '3067ZP6A1180910403000525', '3067ZP6A1180910403000549', '3067ZP6A1180910403000520', '3067ZP6A1180910403000550', '3067ZP6A1180910403000545']}, {'id': 'f39799c7-562c-47e8-a444-5e2e3945a351', 'name': 'ALIMENTATION MARS GAMING MPB 650W PSU 80PLUS BRONZE WHITE', 'ref': 'MPB650-WHITE', 'qty': 4, 'livre': True, 'rate': 6554.62, 'total': 26218.48, 'numSeries': ['MPB650-WHITE(4)']}, {'id': '15cd5b78-a497-4255-ba1d-bee722689026', 'name': 'BOITIER MSI MAG FORGE M100A\t', 'ref': 'MAG-FORGE-M100A\t', 'qty': 3, 'livre': True, 'rate': 6638.65, 'total': 19915.95, 'numSeries': ['3067G20A2180910411001666', '3067G20A2180910411001679', '3067G20A2180910411001663']}, {'id': 'ea6d39bb-3d6f-4f0b-bd4b-4ed0892d79fa', 'name': 'BOITIER MARS GAMING MC-VIEW BLACK', 'ref': 'MC-VIEW', 'qty': 2, 'livre': True, 'rate': 7478.99, 'total': 14957.98, 'numSeries': ['MC-VIEW(2)']}, {'id': '702483ae-feba-468c-a4c5-158c99cff99d', 'name': 'BOITIER MARS GAMING MC-VIEWW WHITE', 'ref': 'MC-VIEWW', 'qty': 2, 'livre': True, 'rate': 7478.99, 'total': 14957.98, 'numSeries': ['MC-VIEWW(2)']}, {'id': '10cdf7b7-84a6-4f1a-9b81-8084eac8f095', 'name': 'BOITIER MSI MAG FORGE 120A AIRFLOW', 'ref': '120A-AIRFLOW', 'qty': 2, 'livre': True, 'rate': 9159.67, 'total': 18319.34, 'numSeries': ['3067G23A2180910411001957', '3067G23A2180910411002022']}, {'id': '9fbfec39-f1f9-462e-a282-15f8a322770b', 'name': 'BOITIER MARS GAMING MC-C - BLAKC\t', 'ref': 'MC-C\t', 'qty': 1, 'livre': True, 'rate': 8823.53, 'total': 8823.53, 'numSeries': ['MC-C(1)']}, {'id': '238f7635-3058-40cf-9bd9-44f1dede7a25', 'name': 'RAM DDR4 ADATA SPECTRIX D35G RGB 8GB 3600MHZ BLACK', 'ref': '9JAX4U36008G18ISBKD35G', 'qty': 12, 'livre': True, 'rate': 4537.82, 'total': 54453.84, 'numSeries': ['2N4600092223', '2N4600092195', '2N4600092249', '2N4600092346', '2N4600092348', '2N4600092234', '2N4600092259', '2N4600092580', '2N4600091976', '2N4600092576', '2N4600092588', '2N4600092584'], 'selected': False}, {'id': 'a3d7ce8f-6d32-41ab-af7a-0d99dcdf74c3', 'name': 'RAM DDR5 ADATA DDR5  32GB 5600MHZ U-DIMM', 'ref': '32-5600-D5', 'qty': 1, 'livre': True, 'rate': 16386.56, 'total': 16386.56, 'numSeries': ['1O1600730207']}, {'id': '79e4eb80-a818-4e54-8836-5c73017029ce', 'name': 'CARTE MERE MSI PRO A620M-E', 'ref': 'MD9117E28001', 'qty': 2, 'livre': True, 'rate': 16722.69, 'total': 33445.38, 'numSeries': ['601-7E28-010B2404000991', '601-7E28-010B2404000992']}, {'id': '4ed1c136-c98b-4741-8763-5bff23aec9c6', 'name': 'BAFFLE MARS GAMING MS-HW WHITE', 'ref': 'MS-HW', 'qty': 2, 'livre': True, 'rate': 2016.81, 'total': 4033.62, 'numSeries': ['MS-HW(2)']}, {'id': '0c9e8e78-e796-40cc-99f7-ba570c9fa12e', 'name': 'BAFFLE MARS GAMING MS-H BLACK', 'ref': 'MS-H', 'qty': 2, 'livre': True, 'rate': 2016.81, 'total': 4033.62, 'numSeries': ['MS-H(2)']}, {'id': '41ec350f-bbf4-436d-844a-e5405680b9eb', 'name': 'BAFFLE MARS GAMING MS-OM BLACK', 'ref': 'MS-OM', 'qty': 1, 'livre': True, 'rate': 3949.58, 'total': 3949.58, 'numSeries': ['MS-OM(1)']}, {'id': 'c0076cb5-709a-4d52-8288-1fdc496af287', 'name': 'BAFFLE MARS GAMING MS-OMW WHITE', 'ref': 'MS-OMW', 'qty': 1, 'livre': True, 'rate': 3949.58, 'total': 3949.58, 'numSeries': ['MS-OMW(1)']}, {'id': 'fcb5f192-b42b-4915-868d-ee1ff4d9ced9', 'name': 'BAFFLE MARS GAMING MS-BXW WHITE', 'ref': 'MS-BXW', 'qty': 1, 'livre': True, 'rate': 4117.65, 'total': 4117.65, 'numSeries': ['MS-BXW(1)']}, {'id': '5d9dcbcd-7dca-4ac8-a2fb-774eb4fbbbe0', 'name': 'BAFFLE MARS GAMING MS-BX BLACK', 'ref': 'MS-BX', 'qty': 1, 'livre': True, 'rate': 4117.65, 'total': 4117.65, 'numSeries': ['MS-BX(1)']}, {'id': '61befdf6-2a6a-4b86-b32a-d5272e0c6b7a', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL SILVER', 'ref': 'MMPXLS\t', 'qty': 10, 'livre': True, 'rate': 1176.47, 'total': 11764.7, 'numSeries': ['MMPXLS(10)']}, {'id': 'cb18c303-32be-4b9c-984e-baf6c0cc65d3', 'name': 'CASQUE MSI IMMERSE GH20', 'ref': 'MDS372101030SV1', 'qty': 5, 'livre': True, 'rate': 4537.82, 'total': 22689.1, 'numSeries': ['S372101030SV110348002961', 'S372101030SV110348002965', 'S372101030SV110348002964', 'S372101030SV110348002963', 'S372101030SV110348002962']}]}
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2580', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+gestion-stock
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QueryDict: {'csrfmiddlewaretoken': ['mKdGxhoHk4ioJA9nHvEhMAnrE3tjkz50nwIwPdV6piloyFxljwpvLVgv4iOryVBF'], 'billId': ['2616'], 'dateLivraison': ['2024-09-02']}>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2593', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['comptoire.can_see_comptoirtab', 'inventory.can_see_etatreforme', 'ventes.can_see_bonretour', 'target.can_see_equipe', 'reglements.can_see_loyers', 'inventory.can_see_stocktab', 'ventes.can_validate_bv', 'target.can_see_targettab', 'produits.can_see_etatreforme', 'reglements.can_see_reglementstab', 'produits.can_see_producttab', 'reglements.can_see_depense', 'inventory.can_see_bontransfert', 'target.can_see_targets', 'ventes.can_see_ventetab', 'inventory.can_see_bonentres', 'ventes.can_see_bondevis', 'reglements.can_see_etatregbl', 'inventory.can_see_bonretour', 'comptoire.can_see_cloture', 'tiers.can_see_clients', 'reglements.can_see_regbl', 'clientInfo.can_see_identification', 'reglements.can_see_salaries', 'inventory.can_see_bonsreintegration', 'inventory.can_see_invannuel', 'tiers.can_see_tierstab', 'clientInfo.can_see_clientInfo', 'reglements.can_see_etatregfac', 'ventes.can_see_boncomptoires', 'inventory.can_see_bonsorties', 'inventory.can_see_bonreforme', 'ventes.can_see_bongarantie', 'inventory.can_see_etatentres', 'produits.can_see_produits', 'reglements.can_see_divers', 'inventory.can_see_etatsorties', 'ventes.can_see_bonlivraison', 'inventory.can_see_invinitial', 'inventory.can_see_etatreintegration']
+hello ['comptoire.can_see_comptoirtab', 'inventory.can_see_etatreforme', 'ventes.can_see_bonretour', 'target.can_see_equipe', 'reglements.can_see_loyers', 'inventory.can_see_stocktab', 'ventes.can_validate_bv', 'target.can_see_targettab', 'produits.can_see_etatreforme', 'reglements.can_see_reglementstab', 'produits.can_see_producttab', 'reglements.can_see_depense', 'inventory.can_see_bontransfert', 'target.can_see_targets', 'ventes.can_see_ventetab', 'inventory.can_see_bonentres', 'ventes.can_see_bondevis', 'reglements.can_see_etatregbl', 'inventory.can_see_bonretour', 'comptoire.can_see_cloture', 'tiers.can_see_clients', 'reglements.can_see_regbl', 'clientInfo.can_see_identification', 'reglements.can_see_salaries', 'inventory.can_see_bonsreintegration', 'inventory.can_see_invannuel', 'tiers.can_see_tierstab', 'clientInfo.can_see_clientInfo', 'reglements.can_see_etatregfac', 'ventes.can_see_boncomptoires', 'inventory.can_see_bonsorties', 'inventory.can_see_bonreforme', 'ventes.can_see_bongarantie', 'inventory.can_see_etatentres', 'produits.can_see_produits', 'reglements.can_see_divers', 'inventory.can_see_etatsorties', 'ventes.can_see_bonlivraison', 'inventory.can_see_invinitial', 'inventory.can_see_etatreintegration']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['comptoire.can_see_comptoirtab', 'inventory.can_see_etatreforme', 'ventes.can_see_bonretour', 'target.can_see_equipe', 'reglements.can_see_loyers', 'inventory.can_see_stocktab', 'ventes.can_validate_bv', 'target.can_see_targettab', 'produits.can_see_etatreforme', 'reglements.can_see_reglementstab', 'produits.can_see_producttab', 'reglements.can_see_depense', 'inventory.can_see_bontransfert', 'target.can_see_targets', 'ventes.can_see_ventetab', 'inventory.can_see_bonentres', 'ventes.can_see_bondevis', 'reglements.can_see_etatregbl', 'inventory.can_see_bonretour', 'comptoire.can_see_cloture', 'tiers.can_see_clients', 'reglements.can_see_regbl', 'clientInfo.can_see_identification', 'reglements.can_see_salaries', 'inventory.can_see_bonsreintegration', 'inventory.can_see_invannuel', 'tiers.can_see_tierstab', 'clientInfo.can_see_clientInfo', 'reglements.can_see_etatregfac', 'ventes.can_see_boncomptoires', 'inventory.can_see_bonsorties', 'inventory.can_see_bonreforme', 'ventes.can_see_bongarantie', 'inventory.can_see_etatentres', 'produits.can_see_produits', 'reglements.can_see_divers', 'inventory.can_see_etatsorties', 'ventes.can_see_bonlivraison', 'inventory.can_see_invinitial', 'inventory.can_see_etatreintegration']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['ventes.can_see_bonretour', 'inventory.can_see_bonretour', 'tiers.can_see_tierstab', 'produits.can_see_producttab', 'ventes.can_see_bondevis', 'inventory.can_see_stocktab', 'inventory.can_see_bontransfert', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_ventetab', 'target.can_see_targettab', 'ventes.can_see_bonlivraison', 'ventes.can_see_bongarantie', 'inventory.can_see_bonsorties']
+{'IdBon': 'FIG2409-2438', 'dateBp': '2024-09-02', 'clientInfo': {'name': 'Salam Informatique ( Walid )', 'address': 'Cité Oueled Brahem', 'num_registre': '08 A 0473447', 'nif': '177190107062120', 'nai': '19016114041', 'nis': '197719010706238', 'phone': '0661 63 39 90'}, 'AssociatedBL': 'BL2408/02260', 'time': 99, 'produits': [{'id': '62416fca-a817-4258-b43d-09579e961ac2', 'name': 'WATER COOLING ASUS ROG STRIX LC II 360 ARGB\t', 'ref': '90RC00F1-M0UAY0\t', 'qty': 1, 'livre': True, 'rate': 39663.87, 'total': 39663.87, 'numSeries': ['R4RCCG000VXJ']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QueryDict: {'csrfmiddlewaretoken': ['Grc4ONa4SeNvtM9vpCwM2uM9RHj1zdKaoOzuepMpn7o2EI218jmJQxWEcIFvlI1E'], 'billId': ['2617'], 'dateLivraison': ['2024-09-02']}>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QueryDict: {'csrfmiddlewaretoken': ['Iws01i1Iq6trqnVOPtCJJizG8d9cJ4SvGQLo1igMFcH34qdt7NVRffUdVzFoAkTs'], 'billId': ['2620'], 'dateLivraison': ['2024-09-04']}>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2616', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2620', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<QueryDict: {'csrfmiddlewaretoken': ['vJskrhixaofIvrTgNiIz5DTz3ys9ghWDt3LIrhxBputk9ubV5C1HBAe6QUYl7xXA'], 'billId': ['2622'], 'dateLivraison': ['2024-09-04']}>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2623', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2622', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou 
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2621', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2618', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello {'IdBon': 'FIG2409-2436', 'dateBp': '2024-09-02', 'clientInfo': {'name': 'Ghano Store ELITE INFORMATIQUE', 'address': '13 avenue de la République Bordj bou arreridj, Bordj Bou Arreridj, Algeria', 'num_registre': '34/00-2354106A13', 'nif': '191190108066131', 'nai': '', 'nis': '199119010806631', 'phone': '0550 68 27 21'}, 'AssociatedBL': 'BL2408/02230', 'time': 45, 'produits': [{'id': '438b79bd-d5cb-48b7-951a-8f14c5aff7c0', 'name': 'BOITIER MARS GAMING MC-VIEWW WHITE', 'ref': 'MC-VIEWW', 'qty': 10, 'livre': True, 'rate': 7478.99, 'total': 74789.9, 'numSeries': ['MC-VIEWW(10)']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QueryDict: {'csrfmiddlewaretoken': ['Grc4ONa4SeNvtM9vpCwM2uM9RHj1zdKaoOzuepMpn7o2EI218jmJQxWEcIFvlI1E'], 'billId': ['2617'], 'dateLivraison': ['2024-09-02']}>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2617', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+Finance
+Finance
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Finance
+commercial-vente
+<QueryDict: {'csrfmiddlewaretoken': ['Eo2iW2YnVdCJmdIDaeMYH5mylsA99sDjFax8eYvM0rFJbi6BMfxcGqfCLHVhnO9Y'], 'billId': ['2619'], 'dateLivraison': ['2024-09-02']}>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2619', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2587', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+nadjemeddine
+yasmine
+younes
+aya_b
+chawki
+aimen
+sarah
+yasmine
+aimen
+chawki
+aimen
+chawki
+nadjemeddine
+aimen
+nadjemeddine
+chawki
+nadjemeddine
+yasmine
+nadjemeddine
+aimen
+nadjemeddine
+nadjemeddine
+aya_b
+aya_b
+yasmine
+aya_b
+sarah
+aimen
+aimen
+sarah
+chawki
+aya_b
+yasmine
+yasmine
+aya_b
+aimen
+aimen
+aya_b
+aya_b
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+yasmine
+aimen
+01
+sarah
+yasmine
+yasmine
+yasmine
+sarah
+yasmine
+yasmine
+yasmine
+nadjemeddine
+yasmine
+aimen
+yasmine
+yasmine
+nadjemeddine
+toufik
+chawki
+aya_b
+yasmine
+01
+yasmine
+yasmine
+01
+aimen
+aya_b
+sarah
+nadjemeddine
+yasmine
+nadjemeddine
+01
+01
+yasmine
+01
+yasmine
+aimen
+nadjemeddine
+aya_b
+nadjemeddine
+aya_b
+aimen
+sarah
+aya_b
+nadjemeddine
+sarah
+sarah
+sarah
+01
+01
+chawki
+01
+nadjemeddine
+01
+aya_b
+yasmina_descative
+nadjemeddine
+aimen
+aimen
+sarah
+aya_b
+sarah
+nadjemeddine
+yasmine
+sarah
+yasmine
+aya_b
+nadjemeddine
+aya_b
+yasmine
+01
+01
+aimen
+01
+aya_b
+01
+sarah
+nadjemeddine
+nadjemeddine
+aimen
+aya_b
+01
+aya_b
+01
+01
+01
+yasmine
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QueryDict: {'csrfmiddlewaretoken': ['Z1zz8mwGNc3hB0vI1TuZ6rQIoWyhy6c60N4pqi35Sq6hq5TGDUfd5MJMObTpMsIL'], 'billId': ['2623'], 'dateLivraison': ['2024-09-02']}>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QueryDict: {'csrfmiddlewaretoken': ['cycI1ysyTpszoS05VxlSR2VPvwn3zgWnVdZSbzyu3bzZxvMmP8kFwd811BLvCfXQ'], 'billId': ['2624'], 'dateLivraison': ['2024-09-04']}>
+commercial-vente
+commercial-vente
+{'dateReg': '2024-09-02', 'client': 279, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '14438000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00349', 'montantRegle': 0, 'montant': 12982222.71}, {'idBon': 'BL2403/00502', 'montantRegle': 0, 'montant': 1736221.6}, {'idBon': 'BL2404/00781', 'montantRegle': 0, 'montant': 2541951.06}, {'idBon': 'BL2407/01517', 'montantRegle': 0, 'montant': 583729.78}, {'idBon': 'BL2407/01674', 'montantRegle': 0, 'montant': 3255000}, {'idBon': 'BL2408/02222', 'montantRegle': '14438000', 'montant': 24678502.95, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-02', 'client': 293, 'typeReg': 'Paiement', 'modeReg': '5', 'modereglabel': 'Virement', 'montantTotal': '4500000', 'banque': '2', 'note': '', 'chequeInput': '', 'comptes': '10', 'bills': [{'idBon': 'BL2408/02131', 'montantRegle': 3343300.41, 'montant': 3343300.41, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 1156699.5899999999}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+219
+#BA-63487
+[{'produit_ref': 'G255F', 'produit_name': 'ECRAN MSI G255F - 25 POUCE - IPS - 180HZ - 1MS - BLACK ', 'produit_qty': 1470}]
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2624', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-02', 'clientInfo': {'name': 'Mahdi genoun', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '71500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '9199929f-88c9-4db8-be1c-21b1cd51e911', 'name': 'ECRAN MSI PRO MP341CQW WHITE                                  ', 'ref': '9S6-3PB2CT-007', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '71500', 'gst': '0.00', 'total': 71500}]}
+{'IdBon': '', 'dateBp': '2024-09-02', 'clientInfo': {'name': 'Mahdi genoun', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '71500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '9199929f-88c9-4db8-be1c-21b1cd51e911', 'name': 'ECRAN MSI PRO MP341CQW WHITE                                  ', 'ref': '9S6-3PB2CT-007', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '71500', 'gst': '0.00', 'total': 71500}]}
+ECRAN MSI PRO MP341CQW WHITE                                   in PARKMALL SETIF - Quantity: 1 1
+{'id': '9199929f-88c9-4db8-be1c-21b1cd51e911', 'name': 'ECRAN MSI PRO MP341CQW WHITE                                  ', 'ref': '9S6-3PB2CT-007', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '71500', 'gst': '0.00', 'total': 71500}
+commercial-vente
+{'IdBon': '', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'Hanane', 'TotalPay': '8900.00', 'TotalRemise': '4400', 'verssement': False, 'produits': [{'id': '05ee5a46-edcb-4d02-9740-edb05a7dfce4', 'name': 'HIDJAB MHY 0168 new Mix standard', 'ref': '05184Mixstandard', 'availableqte': 95, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}]}
+{'IdBon': '', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'Hanane', 'TotalPay': '8900.00', 'TotalRemise': '4400', 'verssement': False, 'produits': [{'id': '05ee5a46-edcb-4d02-9740-edb05a7dfce4', 'name': 'HIDJAB MHY 0168 new Mix standard', 'ref': '05184Mixstandard', 'availableqte': 95, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}]}
+HIDJAB MHY 0168 new Mix standard in MAG54 ROUIBA - Quantity: 95 1
+{'id': '05ee5a46-edcb-4d02-9740-edb05a7dfce4', 'name': 'HIDJAB MHY 0168 new Mix standard', 'ref': '05184Mixstandard', 'availableqte': 95, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2443', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'Gaming Setif Informatique ( Nasro )', 'address': 'Setif, Cite Berrarma a coté Lycée Kateb Yacine de 1014', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '+213554058158'}, 'AssociatedBL': 'BL2408/02261', 'time': 24, 'produits': [{'id': 'c0bdd1e9-85c6-46aa-a450-b57656668313', 'name': 'CARTE GRAPHIQUE RTX3050 VENTUS 2X 6G OC', 'ref': 'RTX3050-VENTUS-6', 'qty': 5, 'livre': True, 'rate': 37731.1, 'total': 188655.5, 'numSeries': ['602-V812-73SD2405036547', '602-V812-73SD2405036548', '602-V812-73SD2405036545', '602-V812-73SD2405036546', '602-V812-73SD2405036549']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+[{'id': 31, 'date': '2024-08-01', 'datereponse': '2024-08-01', 'objet': 'ERREUR DE POINTAGE ', 'message': "11-07-2024 à 00:00:00\n15-07-2024 à 00:00:00\nJ'ETAI PRESENT ", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 27, 'date': '2024-07-31', 'datereponse': '2024-07-31', 'objet': 'DEMANDE DE PRET ', 'message': 'Monsieur BRIK Toufik,\nJe me permets de vous adresser cette lettre afin de solliciter un prêt de la part de l’entreprise. Après avoir pris en compte ma situation financière actuelle et les besoins que je rencontre, je souhaiterais obtenir un prêt de 150 000.00 DA.\nLa raison de cette demande est (payé le loyer annuel de la maison que j’occupe actuellement) J’ai bien réfléchi à cette demande et je m’engage à rembourser ce prêt selon les modalités que vous jugerez appropriées.\nJe propose de rembourser ce prêt par [déduction mensuelle sur salaire 12500da/mois], et je suis prêt à discuter des conditions précises avec vous pour convenir d’un plan de remboursement qui convient aux deux parties.\nJe reste à votre disposition pour toute information complémentaire ou pour discuter de cette demande en personne.\nJe vous remercie par avance pour l’attention que vous porterez à cette demande et pour votre compréhension.\nJe vous prie d’agréer, Monsieur le Directeur, l’expression de mes salutations distinguées.\n', 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 26, 'date': '2024-07-22', 'datereponse': '2024-07-22', 'objet': 'DEMANDE DE FICHE DE PAYE ', 'message': "BONSOIR ,\nSvp monsieur le directeur veuillez voir avec le comptable pour nous remettre les fiches de pays de l'année 2024 \nJANVIER-FEVRIER-MARS-AVRIL-JUIN.\nAcceptez monsieur mes salutation \n ", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 18, 'date': '2024-06-10', 'datereponse': '2024-06-19', 'objet': 'RECLAMATION DE SALAIRE ', 'message': "voici mon calcule pour mon salaire du moi de mai \nj'aimerais avoir + de détaille svp  \n\nLES RETARDS   : 3 JOURS (1440MIN)   -5000DA\nCHIFRE D'AFFAIRE  REALISE : 26 000 000.00 DA  (67000.00)\nHEURS SUP :  19 HEURS  ( 4900.00DA ) \n Demande de fiche de paye détaillé avec la réception de salaire svp .", 'reponse': "Nous avons pris soin de votre préoccupation et réglé votre situation. En cas d'ambiguïté ou d'ambiguïté, veuillez contacter nos centres d'intérêt pour obtenir des éclaircissements.", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'chawki'}]
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'montant': '00', 'date': '2024-09-02'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-02', 'client': 1009, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '202000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2406/01318', 'montantRegle': 0, 'montant': 0.18}, {'idBon': 'BL2407/01481', 'montantRegle': 0, 'montant': 0.17}, {'idBon': 'BL2407/01521', 'montantRegle': 0, 'montant': 0.43}, {'idBon': 'BL2407/01662', 'montantRegle': 0, 'montant': 0.1}, {'idBon': 'BL2407/01713', 'montantRegle': 0, 'montant': 17650.13}, {'idBon': 'BL2407/01976', 'montantRegle': 0, 'montant': 300.1}, {'idBon': 'BL2408/02107', 'montantRegle': 0, 'montant': 850.25}, {'idBon': 'BL2408/02244', 'montantRegle': '202000', 'montant': 202000.15, 'regle': True}, {'idBon': 'BL2409/02279', 'montantRegle': 0, 'montant': 137800}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'IdBon': '#BE-875242', 'dateBp': '2024-08-25', 'FournisseurInfo': '34', 'clientInfo': {'name': 'Depot principal Reghaia', 'address': '', 'extra': ''}, 'produits': [{'id': '2271c847-e012-41fa-80da-f47d4bdece0a', 'name': 'ECRAN MSI G255F - 25 POUCE - IPS - 180HZ - 1MS - BLACK ', 'ref': 'G255F', 'qty': 1470}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2444', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'Gaming Setif Informatique ( Nasro )', 'address': 'Setif, Cite Berrarma a coté Lycée Kateb Yacine de 1014', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '+213554058158'}, 'AssociatedBL': 'BL2408/02272', 'time': 13, 'produits': [{'id': '25061a98-3a10-44e1-bca2-75cec1357783', 'name': 'CPU INTEL I5 12600KF BOX', 'ref': 'I5-12600KF', 'qty': 1, 'livre': True, 'rate': 29327.73, 'total': 29327.73, 'numSeries': ['U4MM678500809']}]}
+MARKETING
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Vendeuse
+commercial-vente
+{'IdBon': 'FIG2409-2446', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'info genie constantine', 'address': 'constantine', 'num_registre': '25/00-0392223/A/17', 'nif': '18925011167652', 'nai': '25069244118', 'nis': '198925011167619', 'phone': '+213 552 14 72 49'}, 'AssociatedBL': 'BL2408/02194', 'time': 288, 'produits': [{'id': '0c7bccba-83dc-48df-9b23-2394e9f4faea', 'name': 'BOITIER MSI MAG FORGE 120A AIRFLOW', 'ref': '120A-AIRFLOW', 'qty': 7, 'livre': True, 'rate': 9159.67, 'total': 64117.69, 'numSeries': ['3067G23A2180910411001556', '3067G23A2180910411001691', '3067G23A2180910411001547', '3067G23A2180910411001856', '3067G23A2180910411002157', '3067G23A2180910411002181', '3067G23A2180910411001728']}, {'id': '92c0bf7c-c183-4181-9077-8eb9475a71d3', 'name': 'BOITIER MSI MAG FORGE M100A\t', 'ref': 'MAG-FORGE-M100A\t', 'qty': 5, 'livre': True, 'rate': 6638.65, 'total': 33193.25, 'numSeries': ['3067G20A2180910411001320', '3067G20A2180910411001213', '3067G20A2180910411001694', '3067G20A2180910411001330', '3067G20A2180910411001498']}, {'id': '0a26124a-8293-450a-b253-f6877c8a53a6', 'name': 'SOURIS MSI FOTGR GM300 BLACK', 'ref': 'FORGE-GM300', 'qty': 10, 'livre': True, 'rate': 2436.98, 'total': 24369.8, 'numSeries': ['S120402300HH910411002524', 'S120402300HH910411002548', 'S120402300HH910411002546', 'S120402300HH910411002523', 'S120402300HH910411002501', 'S120402300HH910411002547', 'S120402300HH910411002502', 'S120402300HH910411002554', 'S120402300HH910411002504', 'S120402300HH910411002545']}, {'id': '924d495b-bc2e-4a38-b51e-1b53d4efd1f1', 'name': 'ALIMENTATION MSI A550BNL', 'ref': 'MAG-A500BNL', 'qty': 2, 'livre': True, 'rate': 6974.79, 'total': 13949.58, 'numSeries': ['3067ZPAY1180910403000185', '3067ZPAY1180910403000190']}, {'id': '63e80aea-7526-4300-907d-3fa658894d43', 'name': 'ALIMENTATION MSI MAG A650BNL 650 WATTS 80+ BRONZE ', 'ref': 'A650BNL', 'qty': 2, 'livre': True, 'rate': 8235.3, 'total': 16470.6, 'numSeries': ['3067ZPAX1180910352000270', '3067ZPAX1180910352000269']}, {'id': 'aa536e8d-c53a-42b6-85e4-b0b156d4a300', 'name': 'ECRAN MSI PRO MP275P - 27 POUCE - 100HZ - IPS -1MS - ADJUSTABLE', 'ref': 'MP275P', 'qty': 2, 'livre': True, 'rate': 27647.06, 'total': 55294.12, 'numSeries': ['PC3M404400833', 'PC3M404400067']}, {'id': '9c55d7da-2df1-4af0-b546-3776823044cc', 'name': 'RAM DDR5 ADATA DDR5   8GB 4800MHZ U-DIMM', 'ref': '8-4800-D5', 'qty': 4, 'livre': True, 'rate': 5294.12, 'total': 21176.48, 'numSeries': ['1O1200850185', '1O1200850191', '1O1200850194', '1O1200850234']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+['comptoire.can_see_comptoirtab', 'ventes.can_see_bonlivraison', 'ventes.can_see_bondevis', 'inventory.can_see_bonretour', 'inventory.can_create_echange_bill', 'comptoire.can_see_cloture', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'inventory.can_see_bontransfert', 'comptoire.can_see_comptoir', 'inventory.can_see_bonsreintegration', 'tiers.can_see_tierstab', 'ventes.can_see_boncomptoires', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties', 'target.can_see_targettab', 'inventory.can_see_bonreforme', 'ventes.can_see_bongarantie', 'produits.can_see_produits', 'produits.can_see_producttab', 'target.can_see_targets', 'ventes.can_see_ventetab', 'inventory.can_see_bonentres']
+{'dateReg': '2024-09-02', 'client': 238, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '528000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2405/00926', 'montantRegle': 0, 'montant': 0.06}, {'idBon': 'BL2405/01057', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2407/01506', 'montantRegle': 0, 'montant': 1000.07}, {'idBon': 'BL2408/02144', 'montantRegle': 0, 'montant': 1450.01}, {'idBon': 'BL2408/02265', 'montantRegle': '528000', 'montant': 528000.02, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-02', 'client': 1517, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '1055000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2409/02294', 'montantRegle': '1055000', 'montant': 1055000.18, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-02', 'client': 635, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '1241200', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2404/00611', 'montantRegle': 0, 'montant': 0.09}, {'idBon': 'BL2404/00641', 'montantRegle': 0, 'montant': 0.12}, {'idBon': 'BL2404/00701', 'montantRegle': 0, 'montant': 0.08}, {'idBon': 'BL2405/00836', 'montantRegle': 0, 'montant': 0.12}, {'idBon': 'BL2405/00947', 'montantRegle': 0, 'montant': 0.1}, {'idBon': 'BL2406/01415', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2408/02030', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2408/02247', 'montantRegle': '1241200', 'montant': 1241200.06, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '#BA-63487', 'dateBp': '2024-08-25', 'FournisseurInfo': {'name': 'ASBIS', 'address': '', 'extra': '', 'phone': ''}, 'total': 29874692.4, 'clientInfo': {'name': 'ASBIS', 'address': '', 'extra': '', 'phone': ''}, 'produits': [{'id': '263fc2fb-a9b2-46ef-be1b-de86a6d2a6e6', 'name': 'ECRAN MSI G255F - 25 POUCE - IPS - 180HZ - 1MS - BLACK ', 'qty': '1470', 'rate': '20322.92', 'ref': 'G255F', 'fournisseur': '', 'total': 29874692.4}], 'entrepot': '12', 'ModeReglement': '', 'echeance': '', 'service': 'Vente', 'unitm': ''}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-02', 'client': 293, 'typeReg': 'Paiement', 'modeReg': '5', 'modereglabel': 'Virement', 'montantTotal': '4500000', 'banque': '2', 'note': '', 'chequeInput': '', 'comptes': '10', 'bills': [{'idBon': 'BL2408/02131', 'montantRegle': 0, 'montant': 3343300.41}, {'idBon': 'BL2409/02302', 'montantRegle': '4500000', 'montant': 44651247.21, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'formData': {'id': '2504', 'invoiceNumber': '', 'client': '279', 'typeReg': 'Paiement', 'date': '2024-09-02', 'modeReglement': '1', 'montant': '15438000.00', 'compteEntreprise': '8', 'bons': 'BL2408/02222'}}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2442', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'Gaming Setif Informatique ( Nasro )', 'address': 'Setif, Cite Berrarma a coté Lycée Kateb Yacine de 1014', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '+213554058158'}, 'AssociatedBL': 'BL2408/02240', 'time': 498, 'produits': [{'id': '093669af-bea3-43a5-aec5-2d587b65f6c9', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC WHITE EDITION\t', 'ref': 'RTX4060-VNTS-WHITE\t', 'qty': 24, 'livre': True, 'rate': 60420.17, 'total': 1450084.08, 'numSeries': ['602-V516-070B2404005844', '602-V516-070B2404005849', '602-V516-070B2404005845', '602-V516-070B2404005846', '602-V516-070B2404005847', '602-V516-070B2404005848', '602-V516-070B2404005766', '602-V516-070B2404005771', '602-V516-070B2404005767', '602-V516-070B2404005768', '602-V516-070B2404005769', '602-V516-070B2404005770', '602-V516-070B2404005778', '602-V516-070B2404005783', '602-V516-070B2404005779', '602-V516-070B2404005780', '602-V516-070B2404005781', '602-V516-070B2404005782', '602-V516-070B2404005724', '602-V516-070B2404005729', '602-V516-070B2404005725', '602-V516-070B2404005726', '602-V516-070B2404005727', '602-V516-070B2404005728']}, {'id': '51c7ccfb-922f-4cc0-93a2-7f392c89a90d', 'name': 'ECRAN MSI G27C4X - 250HZ - 1MS - 1500R CURVED\t', 'ref': 'MSIG27C4X\t', 'qty': 20, 'livre': True, 'rate': 33529.41, 'total': 670588.2, 'numSeries': ['CA9T914404502', 'CA9T914404647', 'CA9T914404660', 'CA9T914404365', 'CA9T914403847', 'CA9T914404969', 'CA9T914404363', 'CA9T914404958', 'CA9T914404364', 'CA9T914404508', 'CA9T914403912', 'CA9T914404002', 'CA9T914404031', 'CA9T914404684', 'CA9T914404724', 'CA9T914404712', 'CA9T914404707', 'CA9T914404722', 'CA9T914404674', 'CA9T914404723']}, {'id': 'e2121378-e7b9-4a09-a860-a3bc86327020', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 20, 'livre': True, 'rate': 32689.08, 'total': 653781.6, 'numSeries': ['CE2M014403646', 'CE2M014404012', 'CE2M014404029', 'CE2M014403998', 'CE2M014403049', 'CE2M014403951', 'CE2M014403515', 'CE2M014403624', 'CE2M014402657', 'CE2M014403582', 'CE2M014403641', 'CE2M014402666', 'CE2M014403979', 'CE2M014402721', 'CE2M014402782', 'CE2M014402770', 'CE2M014402802', 'CE2M014403395', 'CE2M014403301', 'CE2M014402676']}, {'id': '00ce995f-fa27-48dd-b8de-71abb74c7ef3', 'name': 'ECRAN MSI G272QPF E2 ', 'ref': 'G272QPF-E2 ', 'qty': 20, 'livre': True, 'rate': 46134.46, 'total': 922689.2, 'numSeries': []}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '26800.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '080d47fd-a649-4ac4-b2a8-f1f849203817', 'name': 'ROBE 2P ARN 2203  bei standard', 'ref': '05124beistandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '18900', 'gst': '0.00', 'total': 18900}, {'id': '01f2280d-cbba-4ead-a928-1d8de00c02c5', 'name': 'HIDJAB  clrt 247201 noi standard', 'ref': '05046noistandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '26800.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '080d47fd-a649-4ac4-b2a8-f1f849203817', 'name': 'ROBE 2P ARN 2203  bei standard', 'ref': '05124beistandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '18900', 'gst': '0.00', 'total': 18900}, {'id': '01f2280d-cbba-4ead-a928-1d8de00c02c5', 'name': 'HIDJAB  clrt 247201 noi standard', 'ref': '05046noistandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+ROBE 2P ARN 2203  bei standard in MAG54 ROUIBA - Quantity: 9 1
+HIDJAB  clrt 247201 noi standard in MAG54 ROUIBA - Quantity: 6 1
+{'IdBon': 'FIG2409-2445', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'Salam Informatique ( Walid )', 'address': 'Cité Oueled Brahem', 'num_registre': '08 A 0473447', 'nif': '177190107062120', 'nai': '19016114041', 'nis': '197719010706238', 'phone': '0661 63 39 90'}, 'AssociatedBL': 'BL2408/02253', 'time': 71, 'produits': [{'id': '4dc2dc85-bb24-4dbe-b64d-8340cefa3ea9', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 5, 'livre': True, 'rate': 32689.08, 'total': 163445.4, 'numSeries': ['CE2M014403922', 'CE2M014403569', 'CE2M014403543', 'CE2M014403792', 'CE2M014403689']}, {'id': '6794fc20-0418-4fbd-9db7-2dddfa8355a3', 'name': 'CARTE MERE MSI PRO B760M-P\t DDR4', 'ref': 'MD9117E02006\t', 'qty': 10, 'livre': True, 'rate': 17563.03, 'total': 175630.3, 'numSeries': ['601-7E02-050B2402000611', '601-7E02-050B2402000620', '601-7E02-050B2402000612', '601-7E02-050B2402000613', '601-7E02-050B2402000614', '601-7E02-050B2402000615', '601-7E02-050B2402000616', '601-7E02-050B2402000617', '601-7E02-050B2402000618', '601-7E02-050B2402000619']}, {'id': '79dff7e1-030b-4bd6-a4a1-78aea6ced50e', 'name': 'CARTE MERE MSI B760M-P DDR5', 'ref': 'MD9117E02011', 'qty': 3, 'livre': True, 'rate': 22352.94, 'total': 67058.82, 'numSeries': ['601-7E02-040B2404000008', '601-7E02-040B2404000007', '601-7E02-040B2404000006']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '13500.00', 'TotalRemise': '1000', 'verssement': False, 'produits': [{'id': 'dfceb6e7-081d-4a75-86ee-a2cafd86bbec', 'name': 'HIDJAB MHY 0168 new Mix standard', 'ref': '05184Mixstandard', 'availableqte': 94, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}, {'id': '46dbaf7e-6e89-4daa-a93e-b50ea8a49dc7', 'name': 'TUNIQUE BK 24141  Mix standard', 'ref': '05177Mixstandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}]}
+{'IdBon': '', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '13500.00', 'TotalRemise': '1000', 'verssement': False, 'produits': [{'id': 'dfceb6e7-081d-4a75-86ee-a2cafd86bbec', 'name': 'HIDJAB MHY 0168 new Mix standard', 'ref': '05184Mixstandard', 'availableqte': 94, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}, {'id': '46dbaf7e-6e89-4daa-a93e-b50ea8a49dc7', 'name': 'TUNIQUE BK 24141  Mix standard', 'ref': '05177Mixstandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}]}
+HIDJAB MHY 0168 new Mix standard in MAG54 ROUIBA - Quantity: 94 1
+TUNIQUE BK 24141  Mix standard in MAG54 ROUIBA - Quantity: 2 1
+{'id': 'dfceb6e7-081d-4a75-86ee-a2cafd86bbec', 'name': 'HIDJAB MHY 0168 new Mix standard', 'ref': '05184Mixstandard', 'availableqte': 94, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}
+{'id': '46dbaf7e-6e89-4daa-a93e-b50ea8a49dc7', 'name': 'TUNIQUE BK 24141  Mix standard', 'ref': '05177Mixstandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '29560ee6-e0fc-4e1f-933d-a689ddaab6ab', 'name': 'ROBE CLRT 237158 ver standard', 'ref': '05008verstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '29560ee6-e0fc-4e1f-933d-a689ddaab6ab', 'name': 'ROBE CLRT 237158 ver standard', 'ref': '05008verstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+ROBE CLRT 237158 ver standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': '29560ee6-e0fc-4e1f-933d-a689ddaab6ab', 'name': 'ROBE CLRT 237158 ver standard', 'ref': '05008verstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+DIRECTEUR EXECUTIF
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2626', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<QueryDict: {'csrfmiddlewaretoken': ['amLxhmLP5wL25xzedmFBk1K0I3XQWPnQL5PYJeMtxZndrXdDlc8eo16OrPquLpay'], 'billId': ['2627'], 'dateLivraison': ['2024-09-05']}>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2447', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'info genie constantine', 'address': 'constantine', 'num_registre': '25/00-0392223/A/17', 'nif': '18925011167652', 'nai': '25069244118', 'nis': '198925011167619', 'phone': '+213 552 14 72 49'}, 'AssociatedBL': 'BL2408/02248', 'time': 750, 'produits': [{'id': 'f524db99-79c0-480d-8104-bfae6c2007ce', 'name': 'TAPIS DE SOURIS REDRAGON XEON P041', 'ref': 'P041', 'qty': 5, 'livre': True, 'rate': 2352.94, 'total': 11764.7, 'numSeries': ['P041(5)']}, {'id': 'fb894d91-2a2e-4e64-8b42-6ad6bb07939e', 'name': 'SOURIS REDRAGON PREDATOR M612 RGB', 'ref': 'M612-RGB', 'qty': 1, 'livre': False, 'rate': 2773.11, 'total': 2773.11, 'numSeries': []}, {'id': 'f8d9589f-ec5e-4e3f-848f-a62441f90316', 'name': 'SOURIS REDRAGON M987-K', 'ref': 'M987-K\t', 'qty': 5, 'livre': True, 'rate': 2773.11, 'total': 13865.55, 'numSeries': ['RDM987-K23093000961', 'RDM987-K23093000968', 'RDM987-K23093000962', 'RDM987-K23093000974', 'RDM987-K23093000975']}, {'id': '68ea1b97-05e7-4ad6-a8be-c61df5f33141', 'name': 'BOITIER MARS GAMING MC-VIEWW WHITE', 'ref': 'MC-VIEWW', 'qty': 2, 'livre': True, 'rate': 7478.99, 'total': 14957.98, 'numSeries': ['MC-VIEWW(2)']}, {'id': '1d0f0f1e-ddd8-4fbb-b55e-78be4acc4d88', 'name': 'BOITIER MARS GAMING MC-VIEW BLACK', 'ref': 'MC-VIEW', 'qty': 2, 'livre': True, 'rate': 7478.99, 'total': 14957.98, 'numSeries': ['MC-VIEW(2)']}, {'id': 'e6476d99-b049-4e25-87a4-ac7c5bf8873b', 'name': 'MICROHPONE MARS GAMING MMIC-XT ULTRA-HIGH DEF ARGB \t', 'ref': 'MMIC-XT\t', 'qty': 1, 'livre': True, 'rate': 13361.35, 'total': 13361.35, 'numSeries': ['MMIC-XT(1)']}, {'id': '275f1172-5d89-43c7-a7af-a27c09bcddf1', 'name': 'FANS PACK MARS GAMING MFDUO - WHITE', 'ref': 'MFDUOW', 'qty': 3, 'livre': True, 'rate': 2016.81, 'total': 6050.43, 'numSeries': ['MFDUOW(3)']}, {'id': '997e3b7d-f885-4f52-a2de-b11150f3e63d', 'name': 'FANS PACK MARS GAMING MFDUO  - BLACK\t', 'ref': 'MFDUO\t', 'qty': 3, 'livre': True, 'rate': 2016.81, 'total': 6050.43, 'numSeries': ['MFDUO(3)']}, {'id': '1b2c6b76-76b6-4365-b16f-f248892bd0a9', 'name': 'ECRAN MSI PRO MP341CQW WHITE                                  ', 'ref': '9S6-3PB2CT-007', 'qty': 1, 'livre': True, 'rate': 53697.48, 'total': 53697.48, 'numSeries': ['PB2T074400216']}, {'id': '3c1b7123-cfed-4938-9739-88a81b08a12a', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC WHITE EDITION\t', 'ref': 'RTX4060-VNTS-WHITE\t', 'qty': 2, 'livre': True, 'rate': 60420.17, 'total': 120840.34, 'numSeries': ['602-V516-070B2404000208', '602-V516-070B2404000210']}, {'id': 'eb5f994d-157b-48f7-b00f-accb1a0b304c', 'name': 'ECRAN MSI PRO MP251P - 24INCH - IPS - 100HZ - 1MS - ADJUSTABLE STAND ', 'ref': 'MP251P-100', 'qty': 4, 'livre': True, 'rate': 20840.34, 'total': 83361.36, 'numSeries': ['PC2M164400838', 'PC2M164400734', 'PC2M164400826', 'PC2M164400737']}, {'id': 'ba5e7252-efef-427e-bd2d-ffd2c01b0c61', 'name': 'ECRAN MSI MP252 - 25INCH - 100HZ - IPS - 1MS ', 'ref': 'MP252', 'qty': 4, 'livre': True, 'rate': 17563.03, 'total': 70252.12, 'numSeries': ['PC4T014402159', 'PC4T014402178', 'PC4T014402147', 'PC4T014402158']}, {'id': '88499d5c-5d2f-43af-8154-08fa03fbf6b8', 'name': 'CARTE GRAPHIQUE RTX3050 VENTUS 2X 6G OC', 'ref': 'RTX3050-VENTUS-6', 'qty': 1, 'livre': True, 'rate': 37731.1, 'total': 37731.1, 'numSeries': ['602-V812-73SD2405036537']}, {'id': '2ecebc83-6588-44c5-86c8-975eb4b69b18', 'name': 'CARTE MERE MSI PRO A620M-E', 'ref': 'MD9117E28001', 'qty': 1, 'livre': True, 'rate': 16722.69, 'total': 16722.69, 'numSeries': ['601-7E28-010B2404000996']}, {'id': '01383b4b-fd9c-4a6d-b755-a3b5134e03f3', 'name': 'CPU INTEL I3 14100F BOX', 'ref': 'INB71514100FSRMX1', 'qty': 1, 'livre': True, 'rate': 19075.63, 'total': 19075.63, 'numSeries': ['U3825QH201750']}, {'id': 'a9c69843-eb83-4bed-a1f4-ce760e4e0715', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL SILVER', 'ref': 'MMPXLS\t', 'qty': 10, 'livre': True, 'rate': 1176.47, 'total': 11764.7, 'numSeries': ['MMPXLS(10)']}, {'id': '75a5d63c-7453-43a1-a93f-6882450cbbc5', 'name': 'MICROPHONE MARS GAMING MMICPRO BLACK', 'ref': 'MMICPRO', 'qty': 3, 'livre': True, 'rate': 5714.29, 'total': 17142.87, 'numSeries': ['MMICPRO(3)']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2627', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'id': '080d47fd-a649-4ac4-b2a8-f1f849203817', 'name': 'ROBE 2P ARN 2203  bei standard', 'ref': '05124beistandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '18900', 'gst': '0.00', 'total': 18900}
+{'id': '01f2280d-cbba-4ead-a928-1d8de00c02c5', 'name': 'HIDJAB  clrt 247201 noi standard', 'ref': '05046noistandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2448', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'ronin tek 1', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2408/02249', 'time': 363, 'produits': [{'id': '29dffed5-cbdc-4d8a-846f-2cd308ca7cfe', 'name': 'B650M PROJECT ZERO', 'ref': '4711377126649', 'qty': 2, 'livre': True, 'rate': 36050.42, 'total': 72100.84, 'numSeries': ['601-7E09-040B2404002891', '601-7E09-040B2404002892']}, {'id': 'e1570625-6286-468f-a48e-ffc06aa10a89', 'name': 'BOITIER MSI MAG PANO M100R PZ WHITE', 'ref': 'PANO-M100R-WHITE', 'qty': 2, 'livre': True, 'rate': 19243.7, 'total': 38487.4, 'numSeries': ['3067G24W28HH910422000033', '3067G24W28HH910422000139']}, {'id': '41c82df5-f487-4f29-95ce-4d046e764be3', 'name': 'ALIMENTATION MSI MAG A750GL 750 WATTS 80PLUS GOLD PCIE5', 'ref': 'MD3067ZP8B11CE0', 'qty': 3, 'livre': True, 'rate': 13025.21, 'total': 39075.63, 'numSeries': ['3067ZP8B11CE010348003838', '3067ZP8B11CE010348003836', '3067ZP8B11CE010348003840']}, {'id': '5fbcc492-425f-45fb-a24b-463748e753cf', 'name': 'ALIMENTATION MSI MAG A750BN 750 WATTS 80+ BRONZE PCIE5', 'ref': 'A750BN-PCIE5', 'qty': 3, 'livre': True, 'rate': 11344.54, 'total': 34033.62, 'numSeries': ['3067ZP2C11CE010350000834', '3067ZP2C11CE010350000831', '3067ZP2C11CE010350000833']}, {'id': 'd1d3bd25-16bc-4cfc-a60a-055975ab7ecf', 'name': 'ALIMENTATION MSI A550BNL', 'ref': 'MAG-A500BNL', 'qty': 1, 'livre': True, 'rate': 6974.79, 'total': 6974.79, 'numSeries': ['3067ZPAY1180910403000221']}, {'id': '7410e3ad-d9ca-4c7c-a93e-944177876d6e', 'name': 'CARTE MERE MSI B760M GAMING PLUS WIFI ', 'ref': '4711377154017', 'qty': 3, 'livre': True, 'rate': 29327.73, 'total': 87983.19, 'numSeries': ['601-7D99-130B2404003075', '601-7D99-130B2404003074', '601-7D99-130B2404003080']}, {'id': '45f7f77d-e563-4e90-b6c4-75ca08d7b94a', 'name': 'ECRAN MSI PRO MP273A - 27INCH - IPS - 100HZ - 1MS', 'ref': 'MP273A-100', 'qty': 5, 'livre': True, 'rate': 22857.14, 'total': 114285.7, 'numSeries': ['PB4HA74400615', 'PB4HA74400614', 'PB4HA74400616', 'PB4HA74400618', 'PB4HA74400613']}, {'id': 'f10ca5a6-9f09-4d1e-88d2-c1767adad20a', 'name': 'ECRAN MSI PRO MP341CQ BLACK', 'ref': '9S6-3PB2CT-002', 'qty': 2, 'livre': True, 'rate': 53697.48, 'total': 107394.96, 'numSeries': ['PB2T024401087', 'PB2T024400988']}, {'id': 'b5ac422c-b0b4-4b09-8bed-fd22d502148a', 'name': 'ECRAN MSI PRO MP341CQW WHITE                                  ', 'ref': '9S6-3PB2CT-007', 'qty': 2, 'livre': True, 'rate': 53697.48, 'total': 107394.96, 'numSeries': ['PB2T074400215', 'PB2T074400464']}, {'id': '4a666905-029f-4661-b85f-c4e983b338bd', 'name': 'ECRAN MSI G272QPF E2 ', 'ref': 'G272QPF-E2 ', 'qty': 2, 'livre': True, 'rate': 46134.46, 'total': 92268.92, 'numSeries': ['CD3T144402180', 'CD3T144402182']}]}
+commercial
+commercial
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2454', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'EURL INOVASIGN ALGERIA IMPORT EXPORT', 'address': 'LOTISS CHAHAT RABEH N82 SECT 03 STAOUELI', 'num_registre': '16/01-1007414B13', 'nif': '001316100741442716001', 'nai': '16450430314', 'nis': '001316450143649001', 'phone': '+213 661 63 11 55'}, 'AssociatedBL': 'BL2409/02303', 'time': 462, 'produits': [{'id': 'f148efdd-9b12-431d-9ad6-25c681a41b0f', 'name': 'BOITIER MSI MAG FORGE 120A AIRFLOW', 'ref': '120A-AIRFLOW', 'qty': 1, 'livre': True, 'rate': 9159.67, 'total': 9159.67, 'numSeries': ['3067G23A2180910411001726']}, {'id': 'f982534e-bfb9-4095-a5f5-da2a3c38a0c0', 'name': 'CARTE MERE MSI PRO B650M-B', 'ref': '4711377144797', 'qty': 1, 'livre': True, 'rate': 19747.9, 'total': 19747.9, 'numSeries': ['601-7E28-030B2311008386']}, {'id': 'a1def443-39d4-44ca-8570-7a0d7b1dde6d', 'name': 'CPU AMD RYZEN 5 8600G MPK', 'ref': '8600G-MPK', 'qty': 1, 'livre': True, 'rate': 36554.62, 'total': 36554.62, 'numSeries': ['9ACK536M40458']}, {'id': '3bd77b37-ff4d-4c28-aa74-b5dffc8a9aac', 'name': 'AIR COOLING MARS GAMING MCPU-PRO ', 'ref': 'MCPU-PRO', 'qty': 1, 'livre': True, 'rate': 4117.65, 'total': 4117.65, 'numSeries': ['MCPU-PRO (1)']}, {'id': '73bc6492-8b9a-4c93-8787-3ddd9db3b986', 'name': 'RAM DDR5 ADATA LANCER RGB 16GB 6400MHZ - BLACK', 'ref': 'LCR16-6400-B', 'qty': 2, 'livre': True, 'rate': 13025.21, 'total': 26050.42, 'numSeries': ['1O0100795351', '1O0100795350']}, {'id': '2ceb9603-8b1e-42fe-9113-2a6227e7ab9c', 'name': 'SSD ADATA XPG GAMMIX S70 BLADE 1TB PCIE GEN4X4 M.2', 'ref': '9JAGAMMIXS70B1TCS', 'qty': 1, 'livre': True, 'rate': 18319.33, 'total': 18319.33, 'numSeries': ['2N4829A69AUL']}, {'id': 'ef5f643e-ba46-4545-b1a4-147084896961', 'name': 'ALIMENTATION MSI MAG A500DN 500 WATTS 80PLUS', 'ref': 'MD3067ZP6A11809', 'qty': 1, 'livre': True, 'rate': 6050.42, 'total': 6050.42, 'numSeries': ['3067ZP6A1180910403000494']}, {'id': '644b7a15-1ac9-449c-a1db-19a69265e9bb', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL SILVER', 'ref': 'MMPXLS\t', 'qty': 2, 'livre': True, 'rate': 1176.47, 'total': 2352.94, 'numSeries': ['MMPXLS (2)']}, {'id': '0a12c2b6-a8f3-4d1f-9f37-f69154a93174', 'name': 'CLAVIER MARSGAMING MK220 H-MECH BLACK', 'ref': 'MK220-BLACK', 'qty': 1, 'livre': True, 'rate': 2773.11, 'total': 2773.11, 'numSeries': ['MK220-BLACK\t (1)']}, {'id': '95b04103-8f15-409d-ae61-ef4b39061dad', 'name': 'SOURIS MARS GAMING MM-XT MOUSE BLACK', 'ref': 'MMXT-BLACK', 'qty': 1, 'livre': True, 'rate': 2941.18, 'total': 2941.18, 'numSeries': ['MMXT-BLACK\t(1)']}]}
+manager mag54
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QueryDict: {'csrfmiddlewaretoken': ['LovcwM8tbkinBrQHRaM5hpdqcMsfmZ1wm7zDYE97DNUyXRu6Z0fIlpzeVyVTbzOe'], 'billId': ['2632'], 'dateLivraison': ['2024-09-05']}>
+hello ['comptoire.can_see_comptoirtab', 'ventes.can_see_bonlivraison', 'ventes.can_see_bondevis', 'inventory.can_see_bonretour', 'inventory.can_create_echange_bill', 'comptoire.can_see_cloture', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'inventory.can_see_bontransfert', 'comptoire.can_see_comptoir', 'inventory.can_see_bonsreintegration', 'tiers.can_see_tierstab', 'ventes.can_see_boncomptoires', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties', 'target.can_see_targettab', 'inventory.can_see_bonreforme', 'ventes.can_see_bongarantie', 'produits.can_see_produits', 'produits.can_see_producttab', 'target.can_see_targets', 'ventes.can_see_ventetab', 'inventory.can_see_bonentres']
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2631', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+MARKETING
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2633', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+DIRECTEUR EXECUTIF
+hello ['comptoire.can_see_comptoirtab', 'achats.can_see_bonscommandesachat', 'inventory.can_see_etatreforme', 'achats.can_see_avoirsachats', 'clientInfo.can_see_tax_douan', 'tiers.can_see_agences', 'reglements.can_see_typereg', 'target.can_see_equipe', 'reglements.can_see_loyers', 'tiers.can_see_comptesBancaire', 'produits.can_see_etatreforme', 'achats.can_see_bonreception', 'clientInfo.can_see_tablebases', 'reglements.can_see_echreg', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'users.can_see_users', 'inventory.can_see_bontransfert', 'target.can_see_targets', 'reglements.can_see_regfaccli', 'inventory.can_see_bonretour', 'produits.can_see_archives', 'tiers.can_see_clients', 'reglements.can_see_regbl', 'clientInfo.can_see_identification', 'reglements.can_see_salaries', 'clientInfo.can_see_units', 'inventory.can_see_invannuel', 'tiers.can_see_tierstab', 'clientInfo.can_see_clientInfo', 'produits.can_see_liasion_entrepotproduit', 'clientInfo.can_see_type_client', 'inventory.can_see_bonsorties', 'clientInfo.can_see_compteEntreprise', 'ventes.can_see_bongarantie', 'tiers.can_see_banques', 'comptoire.can_see_clientfid', 'inventory.can_see_etatentres', 'produits.can_see_produits', 'inventory.can_see_etatsorties', 'clientInfo.can_see_devises', 'comptoire.can_see_caisseusers', 'inventory.can_see_bonslivraisonachat', 'comptoire.can_see_fidelite', 'ventes.can_see_bonlivraison', 'users.can_see_grp_users', 'inventory.can_see_repartition', 'inventory.can_see_etatreintegration', 'achats.can_see_bonslivraisonachat', 'comptoire.can_see_tableaubord', 'tiers.can_see_marques', 'ventes.can_see_bonretour', 'ventes.can_see_avoir', 'comptoire.can_see_comptoir', 'inventory.can_see_stocktab', 'target.can_see_targettab', 'tiers.can_see_fournisseurs', 'reglements.can_see_reglementstab', 'clientInfo.can_see_societe', 'produits.can_see_producttab', 'reglements.can_see_avoir', 'users.can_see_users_perm', 'ventes.can_see_ventetab', 'clientInfo.can_see_tax_tva', 'inventory.can_see_bonentres', 'ventes.can_see_bondevis', 'comptoire.can_see_pointsvente', 'tiers.can_see_constructeur', 'comptoire.can_see_cloture', 'achats.can_see_facturesachats', 'inventory.can_see_entrepots', 'inventory.can_see_bonsreintegration', 'ventes.can_see_factures', 'ventes.can_see_boncomptoires', 'reglements.can_see_etatregfac', 'inventory.can_see_bonreforme', 'produits.can_see_produits_familles', 'achats.can_see_achattab', 'reglements.can_see_etattres', 'reglements.can_see_divers', 'inventory.can_see_invinitial', 'reglements.can_see_etatregbl']
+{'IdBon': 'FIG2409-2449', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'salah seghier (wiam tech)', 'address': 'laghouat حي 156 قطعة الوئام', 'num_registre': '20A5897364-00/03', 'nif': '191030101392124', 'nai': '03010320217', 'nis': '', 'phone': '0660689393'}, 'AssociatedBL': 'BL2409/02284', 'time': 165, 'produits': [{'id': 'b0b727f8-cd45-4d8a-aa6d-747312a77707', 'name': 'CARTE MERE MSI A520M-A PRO', 'ref': 'A520-M-A', 'qty': 10, 'livre': True, 'rate': 11680.67, 'total': 116806.7, 'numSeries': ['601-7C96-120B2401043771', '601-7C96-120B2401043776', '601-7C96-120B2401043775', '601-7C96-120B2401043780', '601-7C96-120B2401043779', '601-7C96-120B2401043772', '601-7C96-120B2401043774', '601-7C96-120B2401043773', '601-7C96-120B2401043778', '601-7C96-120B2401043777']}, {'id': '12cd157f-d731-4f81-8498-724b1605c632', 'name': 'CPU AMD RYZEN 5 3400G BOX', 'ref': '3400G-BOX', 'qty': 10, 'livre': True, 'rate': 13361.35, 'total': 133613.5, 'numSeries': ['9LN8824T20228', '9LN8824T20237', '9LN8824T20229', '9LN8824T20224', '9LP3881U20094', '9LN8824T20231', '9LN8824T20221', '9ACS354O40794', '9ACS267O40653', '9LN8824T20227']}, {'id': '9c179681-0552-4ce5-893b-6c9f4e0c72b3', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC WHITE EDITION\t', 'ref': 'RTX4060-VNTS-WHITE\t', 'qty': 1, 'livre': True, 'rate': 60420.17, 'total': 60420.17, 'numSeries': ['602-V516-070B2403004355']}, {'id': 'cfb1eeb1-ade4-4386-9012-6d75f05c9608', 'name': 'CARTE GRAPHIQUE RTX3050 VENTUS 2X 6G OC', 'ref': 'RTX3050-VENTUS-6', 'qty': 1, 'livre': True, 'rate': 37731.1, 'total': 37731.1, 'numSeries': ['602-V812-73SD2405036538']}, {'id': 'dc79dd6e-bad2-45c9-aa53-70ac4e9b510f', 'name': 'ALIMENTATION MSI MAG A850GL 850 WATTS 80PLUS GOLD PCIE5 BLACK', 'ref': 'MD3067ZP8A11CE0', 'qty': 6, 'livre': True, 'rate': 15042.02, 'total': 90252.12, 'numSeries': ['3067ZP8A11CE010408005197', '3067ZP8A11CE010408005202', '3067ZP8A11CE010408005198', '3067ZP8A11CE010408005199', '3067ZP8A11CE010408005200', '3067ZP8A11CE010408005201']}, {'id': '8fb17d11-821c-4387-a529-5e7fb4da571c', 'name': 'WATER COOLING MSI MAG CORELIQUID M360', 'ref': 'MD3067ZW4R24813', 'qty': 1, 'livre': True, 'rate': 15882.35, 'total': 15882.35, 'numSeries': ['3067ZW4R2481310407000699']}, {'id': '4dfe5e67-81ca-40f9-8673-ac4ca8f2f57a', 'name': 'WATER COOLING MSI MAG CORELIQUID M240 ', 'ref': 'MD3067ZW4R14813', 'qty': 1, 'livre': True, 'rate': 12857.14, 'total': 12857.14, 'numSeries': ['3067ZW4R1481310349001280']}, {'id': '8d570997-791f-4473-8e94-82a44181d668', 'name': 'ECRAN MSI PRO MP273A - 27INCH - IPS - 100HZ - 1MS', 'ref': 'MP273A-100', 'qty': 5, 'livre': True, 'rate': 22857.14, 'total': 114285.7, 'numSeries': ['PB4HA74400597', 'PB4HA74400611', 'PB4HA74400601', 'PB4HA74400006', 'PB4HA74400297']}, {'id': '7eb92883-4905-48f0-99b6-9ed3a80f72f7', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 1, 'livre': True, 'rate': 32689.08, 'total': 32689.08, 'numSeries': ['CE2M014403558']}, {'id': '3414ecae-c584-4c61-9ccb-f942929ff88d', 'name': 'ECRAN MSI MP252 - 25INCH - 100HZ - IPS - 1MS ', 'ref': 'MP252', 'qty': 5, 'livre': True, 'rate': 17563.03, 'total': 87815.15, 'numSeries': ['PC4T014402156', 'PC4T014402157', 'PC4T014402851', 'PC4T014402149', 'PC4T014402150']}, {'id': '6278fc25-d6e8-4f9f-9bb9-d16ddcff16bb', 'name': 'SSD NVME M.2 MSI SPATIUM M450 500GB PCIE 4.0 ', 'ref': '47111377022477', 'qty': 1, 'livre': True, 'rate': 9075.63, 'total': 9075.63, 'numSeries': ['S78440K220P8310349018125']}, {'id': 'd9952294-190e-45c8-aac8-d76b7ab6545b', 'name': 'TAPIS DE SOURIS MSI AGILITY GD70', 'ref': 'AGILITY-GD70', 'qty': 1, 'livre': True, 'rate': 4957.99, 'total': 4957.99, 'numSeries': ['J02VXXXXX1EB910352000573']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+DIRECTEUR EXECUTIF
+{'IdBon': 'FIG2409-2452', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'NG HARDWARE', 'address': 'DJELFA', 'num_registre': '17/02-1537587A12', 'nif': '16817010122513501702', 'nai': '17014019527', 'nis': '196817010122541', 'phone': '+213 778 25 63 60'}, 'AssociatedBL': 'BL2408/02246', 'time': 22, 'produits': [{'id': 'ede02bfe-9bfc-49e2-b962-25be9b085f43', 'name': 'CARTE MERE MSI PRO B650M-B', 'ref': '4711377144797', 'qty': 1, 'livre': True, 'rate': 19747.9, 'total': 19747.9, 'numSeries': ['601-7E28-030B2311008379']}, {'id': '68691fb0-b76d-4e4e-aa50-a2fd0a45da95', 'name': 'CARTE MERE MSI PRO A620M-E', 'ref': 'MD9117E28001', 'qty': 1, 'livre': True, 'rate': 16722.69, 'total': 16722.69, 'numSeries': ['601-7E28-010B2404000995']}, {'id': 'd670b477-f58b-43d2-befe-b70c90703ee9', 'name': 'CARTE MERE MSI PRO B760M-P\t DDR4', 'ref': 'MD9117E02006\t', 'qty': 2, 'livre': True, 'rate': 17563.03, 'total': 35126.06, 'numSeries': ['601-7E02-050B2402000920', '601-7E02-050B2402000919']}]}
+{'IdBon': '', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '17500.00', 'TotalRemise': '500', 'verssement': False, 'produits': [{'id': '02e08ef7-060b-4036-a7f6-20a212de94df', 'name': 'ROBE SOIREE ARN 949 noi standard', 'ref': '05135noistandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}]}
+{'IdBon': '', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '17500.00', 'TotalRemise': '500', 'verssement': False, 'produits': [{'id': '02e08ef7-060b-4036-a7f6-20a212de94df', 'name': 'ROBE SOIREE ARN 949 noi standard', 'ref': '05135noistandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}]}
+ROBE SOIREE ARN 949 noi standard in MAG54 ROUIBA - Quantity: 3 1
+{'id': '02e08ef7-060b-4036-a7f6-20a212de94df', 'name': 'ROBE SOIREE ARN 949 noi standard', 'ref': '05135noistandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2453', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'EURL INOVASIGN ALGERIA IMPORT EXPORT', 'address': 'LOTISS CHAHAT RABEH N82 SECT 03 STAOUELI', 'num_registre': '16/01-1007414B13', 'nif': '001316100741442716001', 'nai': '16450430314', 'nis': '001316450143649001', 'phone': '+213 661 63 11 55'}, 'AssociatedBL': 'BL2409/02298', 'time': 58, 'produits': [{'id': '65d1431b-0ca8-4fb5-818b-782c72fbc90f', 'name': 'SSD ADATA XPG GAMMIX S70 BLADE 1TB PCIE GEN4X4 M.2', 'ref': '9JAGAMMIXS70B1TCS', 'qty': 1, 'livre': True, 'rate': 18319.33, 'total': 18319.33, 'numSeries': ['2N4829A6N1LP']}]}
+hello ['produits.can_see_produits', 'produits.can_see_producttab', 'tiers.can_see_clients', 'tiers.can_see_tierstab']
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2628', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2605', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2605', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+hello ['target.can_see_targettab', 'inventory.can_see_bonsorties', 'inventory.can_see_bontransfert', 'tiers.can_see_clients', 'inventory.can_see_bonretour', 'produits.can_see_produits', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'tiers.can_see_tierstab', 'produits.can_see_producttab', 'target.can_see_targets', 'ventes.can_see_bonretour', 'ventes.can_see_bongarantie', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab']
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2632', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+manager
+{'IdBon': 'FIG2409-2450', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'HICHEM TECHNOLOGY', 'address': 'DJASR KASENTINA ', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0662347348'}, 'AssociatedBL': 'BL2409/02296', 'time': 258, 'produits': [{'id': 'a957b170-5edf-461a-96ab-7b86e1dba8cf', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC WHITE EDITION\t', 'ref': 'RTX4060-VNTS-WHITE\t', 'qty': 20, 'livre': True, 'rate': 60420.17, 'total': 1208403.4, 'numSeries': ['602-V516-070B2404005652', '602-V516-070B2404005657', '602-V516-070B2404005653', '602-V516-070B2404005654', '602-V516-070B2404005655', '602-V516-070B2404005656', '602-V516-070B2404005646', '602-V516-070B2404005651', '602-V516-070B2404005647', '602-V516-070B2404005648', '602-V516-070B2404005649', '602-V516-070B2404005650', '602-V516-070B2406005615', '602-V516-070B2406005620', '602-V516-070B2406005616', '602-V516-070B2406005617', '602-V516-070B2406005618', '602-V516-070B2406005619', '602-V516-070B2404005830', '602-V516-070B2404005831']}]}
+<QueryDict: {'csrfmiddlewaretoken': ['jSxKbdMCsc0Sq9qZecy9lSAQnSfIsaYtEAH53tDmXTauHgGxyGkc2HDy268zaKcb'], 'billId': ['2628'], 'dateLivraison': ['2024-09-04']}>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2451', 'dateBp': '2024-09-03', 'clientInfo': {'name': 'NG HARDWARE', 'address': 'DJELFA', 'num_registre': '17/02-1537587A12', 'nif': '16817010122513501702', 'nai': '17014019527', 'nis': '196817010122541', 'phone': '+213 778 25 63 60'}, 'AssociatedBL': 'BL2408/02228', 'time': 253, 'produits': [{'id': 'd402b004-ec95-4da3-affc-6323d97338e3', 'name': 'CLAVIER MARS GAMING MK60 MECHANICAL 60%  - BLACK', 'ref': 'MK60\t', 'qty': 10, 'livre': True, 'rate': 4495.8, 'total': 44958, 'numSeries': ['MK60(10)']}, {'id': '48eeae3f-e5d3-4ea2-9700-ae7c3e3d820e', 'name': 'CLAVIER MARS GAMING MK422 BLACK\t', 'ref': 'MK422', 'qty': 10, 'livre': True, 'rate': 4957.99, 'total': 49579.9, 'numSeries': ['MK422(10)']}, {'id': '236e372c-bec0-46d9-904a-751d9d7ded95', 'name': 'ECRAN MSI PRO MP273A - 27INCH - IPS - 100HZ - 1MS', 'ref': 'MP273A-100', 'qty': 4, 'livre': True, 'rate': 22857.14, 'total': 91428.56, 'numSeries': ['PB4HA74400605', 'PB4HA74400591', 'PB4HA74400604', 'PB4HA74400619']}, {'id': '8db5002d-a898-4179-9168-cfe954a34a2d', 'name': 'CLAVIER MARS GAMING MKMINI WHITE ', 'ref': 'MKMINI-WHITE', 'qty': 2, 'livre': True, 'rate': 5714.29, 'total': 11428.58, 'numSeries': ['MKMINI-WHITE(2)']}, {'id': '68583c9f-b0f5-41c1-8d9a-fa5c77eeb2e1', 'name': 'MARS GAMING MKMINI RGB MECHANICAL 60% BLACK', 'ref': 'MKMINI-BLACK', 'qty': 3, 'livre': True, 'rate': 5714.29, 'total': 17142.87, 'numSeries': ['MKMINI-BLACK(3)']}, {'id': '14903278-35f1-4e69-8033-1219f1b93e74', 'name': 'CPU INTEL I5-12400F BOX', 'ref': 'BX8071512400FSRL5Z', 'qty': 3, 'livre': True, 'rate': 19243.7, 'total': 57731.1, 'numSeries': ['U4SR149103842', 'U4X14E3500496', 'U4AA761002825']}, {'id': '875b1899-069e-45e4-ac4d-0818d7fc21cd', 'name': 'CPU AMD RYZEN 5 3400G BOX', 'ref': '3400G-BOX', 'qty': 2, 'livre': True, 'rate': 13361.35, 'total': 26722.7, 'numSeries': ['9ACS267O40652', '9ACS354O40859']}]}
+hello ['produits.can_see_produits', 'produits.can_see_producttab', 'tiers.can_see_clients', 'tiers.can_see_tierstab']
+<QueryDict: {'csrfmiddlewaretoken': ['KFagVfJddGAMjdJJIGFozgq2ZotGxRm4TbDCiJ6eRG2hLZ7pdiV1pdcg2yU3FxZo'], 'billId': ['2630'], 'dateLivraison': ['2024-09-04']}>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2630', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+toufik 
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2629', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
