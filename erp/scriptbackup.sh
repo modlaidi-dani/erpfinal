@@ -1,11 +1,7 @@
 #!/bin/bash
-
 while true; do
-    # Obtenir le jour de la semaine et l'heure actuelle
     current_day=$(date +%u)  # 1 = lundi, 2 = mardi, ..., 7 = dimanche
     current_hour=$(date +%H)  # Heure en format 24h (00 à 23)
-
-    # Vérifier si c'est vendredi (5) ou samedi (6)
     if [[ "$current_day" -eq 5 || "$current_day" -eq 6 ]]; then
         echo "C'est vendredi ou samedi. Le script ne s'exécute pas."
         next_run=$(date -d "next sunday 08:00" +%s)  # Attendre jusqu'à dimanche matin à 8h

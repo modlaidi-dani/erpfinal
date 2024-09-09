@@ -3218,3 +3218,707 @@ commercial-vente
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
 afifa_arg azerty7890##
 {'password': 'azerty7890##', 'idBon': '2653', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+manager
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+{'IdBon': 'FIG2409-2507', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'ZARA ABDELRAOUF NEXT GEN', 'address': 'Boumerdes', 'num_registre': '35/00-3668743A15', 'nif': '188182200136137', 'nai': '35010850114', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2409/02332', 'time': 147, 'produits': [{'id': '44ac090b-6d0c-440f-bea8-07875cb195d5', 'name': 'CPU INTEL I7 13700KF BOX', 'ref': 'I7-13700KF-BOX', 'qty': 2, 'livre': True, 'rate': 51680.67, 'total': 103361.34, 'numSeries': ['U31Y2A7502607', 'U31Y2A7502422']}, {'id': '620abe47-c4f3-44a6-8977-36f2767f3cd1', 'name': 'CARTE MERE MSI PRO Z790-S WIFI', 'ref': 'Z790-S', 'qty': 2, 'livre': True, 'rate': 33529.41, 'total': 67058.82, 'numSeries': ['601-7D88-020B2310014421', '601-7D88-020B2310014422']}, {'id': '866ec2d3-823d-4596-8ccf-8b69526a150f', 'name': 'WATER COOLING MSI MAG CORELIQUID 240R V2 BLACK', 'ref': 'MD3067ZW1B41813', 'qty': 2, 'livre': True, 'rate': 13781.51, 'total': 27563.02, 'numSeries': ['3067ZW1B4181310344002974', '3067ZW1B4181310344002971']}, {'id': '4068bdd1-c613-4a34-a148-5d70077af555', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC WHITE EDITION\t', 'ref': 'RTX4060-VNTS-WHITE\t', 'qty': 1, 'livre': True, 'rate': 60420.17, 'total': 60420.17, 'numSeries': ['602-V516-070B2404005659']}, {'id': 'd6491d01-c68c-4e4e-a19d-213626e4fbee', 'name': 'RAM DDR5 ADATA LANCER BLADE 16GB 5600MHZ BLACK', 'ref': '9JAX5U5600C4616GSLABBK', 'qty': 4, 'livre': True, 'rate': 9663.87, 'total': 38655.48, 'numSeries': ['2O1400053786', '2O1400053776', '2O1400053780', '2O1400054935']}, {'id': '1770a428-8918-492b-823b-00072069cff5', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 2, 'livre': True, 'rate': 32689.08, 'total': 65378.16, 'numSeries': ['CE2M014403966', 'CE2M014404014']}, {'id': '32b25e35-04e8-467b-958d-d5c9f0655ef2', 'name': 'COMBO MSI VIGOR GK30 BLACK', 'ref': 'MDS1104FR237CLA', 'qty': 2, 'livre': True, 'rate': 8319.33, 'total': 16638.66, 'numSeries': ['S1104FR237CLA10419000285', 'S1104FR237CLA10419000226']}, {'id': 'e8dc0fdd-b748-4a52-ade3-1d06f6d019bd', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL SILVER', 'ref': 'MMPXLS\t', 'qty': 2, 'livre': True, 'rate': 1176.47, 'total': 2352.94, 'numSeries': ['MMPXLS\t (2)'], 'selected': False}]}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2654', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+{'IdBon': 'FIG2409-2508', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'Zineddine Farah', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2409/02337', 'time': 43, 'produits': [{'id': '98d2428a-117f-44e4-8c19-81d5757d1d9a', 'name': 'MANETTE MSI FORCE GC30 V2 WHITE\t', 'ref': 'S10-43G0040-EC4\t', 'qty': 1, 'livre': True, 'rate': 7478.99, 'total': 7478.99, 'numSeries': ['S1043G0040EC410411002870']}]}
+{'IdBon': 'FIG2409-2508', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'MARK COMPUTER', 'address': 'BLIDA', 'num_registre': '09/00-0812049B23', 'nif': '002309081204983', 'nai': '09054499164', 'nis': '', 'phone': '0542651986'}, 'AssociatedBL': 'BL2409/02328', 'time': 193, 'produits': [{'id': 'c70dce53-1cf5-4884-bd33-54b8b3d66bcd', 'name': 'CARTE MERE MSI B550M PRO VDH', 'ref': '911-7C95-066', 'qty': 3, 'livre': True, 'rate': 17563.03, 'total': 52689.09, 'numSeries': ['601-7C95-340B2401007745', '601-7C95-340B2401007746', '601-7C95-340B2401007747']}, {'id': 'a1bf8043-da4e-4d31-b315-939425648c54', 'name': 'CARTE MERE MSI B760M-P DDR5', 'ref': 'MD9117E02011', 'qty': 1, 'livre': True, 'rate': 22352.94, 'total': 22352.94, 'numSeries': ['601-7E02-040B2404000030']}, {'id': 'e4459fa1-bf0a-445f-be38-33855ae2a5d1', 'name': 'CARTE MERE MSI PRO A620M-E', 'ref': 'MD9117E28001', 'qty': 1, 'livre': True, 'rate': 16722.69, 'total': 16722.69, 'numSeries': ['601-7E28-010B2404000986']}, {'id': '1c188998-0fca-4683-b533-7f8db6958271', 'name': 'B760M PROJECT ZERO', 'ref': '4711377143660', 'qty': 2, 'livre': True, 'rate': 36050.42, 'total': 72100.84, 'numSeries': ['601-7E14-010B2405000034', '601-7E14-010B2405000035']}, {'id': 'd44caa09-499f-40bf-9957-1a317f88b2a1', 'name': 'B650M PROJECT ZERO', 'ref': '4711377126649', 'qty': 2, 'livre': True, 'rate': 36050.42, 'total': 72100.84, 'numSeries': ['601-7E09-040B2404002882', '601-7E09-040B2404002897']}, {'id': 'fe0c7a06-59d2-4c3e-a93f-4e65ec0194e6', 'name': 'BOITIER MSI MAG PANO M100R PZ BLACK', 'ref': 'PANO-M100R-BLACK', 'qty': 2, 'livre': True, 'rate': 19243.7, 'total': 38487.4, 'numSeries': ['3067G24R25HH910423000152', '3067G24R25HH910423000170']}, {'id': 'c15c8966-03a9-4d0f-a9c2-d3a91237edec', 'name': 'BOITIER MSI MAG PANO M100R PZ WHITE', 'ref': 'PANO-M100R-WHITE', 'qty': 2, 'livre': True, 'rate': 19243.7, 'total': 38487.4, 'numSeries': ['3067G24W28HH910422000080', '3067G24W28HH910422000027']}, {'id': '4e31b657-6f66-4428-a834-cc5f32a5b7ad', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC WHITE EDITION\t', 'ref': 'RTX4060-VNTS-WHITE\t', 'qty': 1, 'livre': True, 'rate': 60420.17, 'total': 60420.17, 'numSeries': ['602-V516-070B2404005658']}, {'id': '079a9cfa-dc3a-4a65-9e50-7bf54ddfb382', 'name': 'ALIMENTATION MSI MAG A750GL 750 WATTS 80PLUS GOLD PCIE5', 'ref': 'MD3067ZP8B11CE0', 'qty': 5, 'livre': True, 'rate': 13025.21, 'total': 65126.05, 'numSeries': ['3067ZP8B11CE010348003738', '3067ZP8B11CE010348003736', '3067ZP8B11CE010348003733', '3067ZP8B11CE010348003737', '3067ZP8B11CE010348003735']}, {'id': '3a1ea919-0fcf-4620-a236-b97c55263890', 'name': 'SOURIS MSI FOTGR GM300 BLACK', 'ref': 'FORGE-GM300', 'qty': 5, 'livre': True, 'rate': 2436.98, 'total': 12184.9, 'numSeries': ['S120402300HH910411002598', 'S120402300HH910411002596', 'S120402300HH910411002592', 'S120402300HH910411002588', 'S120402300HH910411002590']}, {'id': '70b9530e-71f2-4457-88f4-867429f244a5', 'name': 'BOITIER MSI MPG GUNGNIR 110R BLACK\t', 'ref': 'MPG-GUNGNIR-110R-BLACK\t', 'qty': 1, 'livre': True, 'rate': 16638.65, 'total': 16638.65, 'numSeries': ['3067G10R21W5710414001833']}, {'id': '9b449030-a57e-4e11-90ad-7ad7b571030d', 'name': 'BOITIER MSI MPG GUNGNIR 110R WHITE\t', 'ref': 'MPG-GUNGNIR-110R-WHITE\t', 'qty': 1, 'livre': True, 'rate': 16638.65, 'total': 16638.65, 'numSeries': ['non livré']}, {'id': 'a6b38e71-9273-4c29-8978-e5430505dad1', 'name': 'BOITIER MSI MAG FORGE 112R\t', 'ref': 'MAG-FORGE-112R\t', 'qty': 1, 'livre': True, 'rate': 10000, 'total': 10000, 'numSeries': ['3067G16X2380910411000736']}, {'id': '2e6146ac-952b-439a-8ea1-c409bd693f8d', 'name': 'BOITIER MSI MPG VELOX 100R BLACK', 'ref': 'MPG-VELOX-100R\t', 'qty': 1, 'livre': True, 'rate': 19243.7, 'total': 19243.7, 'numSeries': ['non livré']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a9ed80d7-536f-417f-90e8-6b35c094b1f6', 'name': 'CHEMISE OZLEM MOTIF Mix standard', 'ref': '03374Mixstandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a9ed80d7-536f-417f-90e8-6b35c094b1f6', 'name': 'CHEMISE OZLEM MOTIF Mix standard', 'ref': '03374Mixstandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+CHEMISE OZLEM MOTIF Mix standard in MAG54 ROUIBA - Quantity: 10 1
+{'id': 'a9ed80d7-536f-417f-90e8-6b35c094b1f6', 'name': 'CHEMISE OZLEM MOTIF Mix standard', 'ref': '03374Mixstandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '487cac3a-7171-4b7e-97da-d646765817ec', 'name': 'TUNIQUE clrt 237164 noi standard', 'ref': '05022noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '487cac3a-7171-4b7e-97da-d646765817ec', 'name': 'TUNIQUE clrt 237164 noi standard', 'ref': '05022noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+TUNIQUE clrt 237164 noi standard in MAG54 ROUIBA - Quantity: 5 1
+{'id': '487cac3a-7171-4b7e-97da-d646765817ec', 'name': 'TUNIQUE clrt 237164 noi standard', 'ref': '05022noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '69615332-a255-4515-905b-55566daaba27', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 37, 'qty': '2', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 7800}]}
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '69615332-a255-4515-905b-55566daaba27', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 37, 'qty': '2', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 7800}]}
+LIQUETTE ZMRT-BK-ALABA  Mix standard in MAG54 ROUIBA - Quantity: 37 2
+{'id': '69615332-a255-4515-905b-55566daaba27', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 37, 'qty': '2', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 7800}
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2300.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '7398e992-a9ac-446c-8d64-80b025f0ec18', 'name': 'HAUT STK SM 0565 noi standard', 'ref': '05219noistandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '2300', 'gst': '0.00', 'total': 2300}]}
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2300.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '7398e992-a9ac-446c-8d64-80b025f0ec18', 'name': 'HAUT STK SM 0565 noi standard', 'ref': '05219noistandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '2300', 'gst': '0.00', 'total': 2300}]}
+HAUT STK SM 0565 noi standard in MAG54 MOHAMMADIA MALL - Quantity: 6 1
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2650', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2655', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+Vendeuse
+commercial-vente
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+manager
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2656', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2658', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+commercial-vente
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2652', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+hello ['inventory.can_see_bonentres', 'produits.can_see_produits', 'inventory.can_create_echange_bill', 'inventory.can_see_bonreforme', 'comptoire.can_see_comptoir', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'target.can_see_targettab', 'inventory.can_see_bonretour', 'inventory.can_see_bonsorties', 'produits.can_see_producttab', 'comptoire.can_see_cloture', 'ventes.can_see_bondevis', 'tiers.can_see_tierstab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'ventes.can_see_ventetab', 'target.can_see_targets', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'comptoire.can_see_comptoirtab', 'ventes.can_see_bongarantie', 'ventes.can_see_boncomptoires']
+{'IdBon': 'FIG2409-2508', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'MARK COMPUTER', 'address': 'BLIDA', 'num_registre': '09/00-0812049B23', 'nif': '002309081204983', 'nai': '09054499164', 'nis': '', 'phone': '0542651986'}, 'AssociatedBL': 'BL2409/02328', 'time': 193, 'produits': [{'id': 'c70dce53-1cf5-4884-bd33-54b8b3d66bcd', 'name': 'CARTE MERE MSI B550M PRO VDH', 'ref': '911-7C95-066', 'qty': 3, 'livre': True, 'rate': 17563.03, 'total': 52689.09, 'numSeries': ['601-7C95-340B2401007745', '601-7C95-340B2401007746', '601-7C95-340B2401007747']}, {'id': 'a1bf8043-da4e-4d31-b315-939425648c54', 'name': 'CARTE MERE MSI B760M-P DDR5', 'ref': 'MD9117E02011', 'qty': 1, 'livre': True, 'rate': 22352.94, 'total': 22352.94, 'numSeries': ['601-7E02-040B2404000030']}, {'id': 'e4459fa1-bf0a-445f-be38-33855ae2a5d1', 'name': 'CARTE MERE MSI PRO A620M-E', 'ref': 'MD9117E28001', 'qty': 1, 'livre': True, 'rate': 16722.69, 'total': 16722.69, 'numSeries': ['601-7E28-010B2404000986']}, {'id': '1c188998-0fca-4683-b533-7f8db6958271', 'name': 'B760M PROJECT ZERO', 'ref': '4711377143660', 'qty': 2, 'livre': True, 'rate': 36050.42, 'total': 72100.84, 'numSeries': ['601-7E14-010B2405000034', '601-7E14-010B2405000035']}, {'id': 'd44caa09-499f-40bf-9957-1a317f88b2a1', 'name': 'B650M PROJECT ZERO', 'ref': '4711377126649', 'qty': 2, 'livre': True, 'rate': 36050.42, 'total': 72100.84, 'numSeries': ['601-7E09-040B2404002882', '601-7E09-040B2404002897']}, {'id': 'fe0c7a06-59d2-4c3e-a93f-4e65ec0194e6', 'name': 'BOITIER MSI MAG PANO M100R PZ BLACK', 'ref': 'PANO-M100R-BLACK', 'qty': 2, 'livre': True, 'rate': 19243.7, 'total': 38487.4, 'numSeries': ['3067G24R25HH910423000152', '3067G24R25HH910423000170']}, {'id': 'c15c8966-03a9-4d0f-a9c2-d3a91237edec', 'name': 'BOITIER MSI MAG PANO M100R PZ WHITE', 'ref': 'PANO-M100R-WHITE', 'qty': 2, 'livre': True, 'rate': 19243.7, 'total': 38487.4, 'numSeries': ['3067G24W28HH910422000080', '3067G24W28HH910422000027']}, {'id': '4e31b657-6f66-4428-a834-cc5f32a5b7ad', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC WHITE EDITION\t', 'ref': 'RTX4060-VNTS-WHITE\t', 'qty': 1, 'livre': True, 'rate': 60420.17, 'total': 60420.17, 'numSeries': ['602-V516-070B2404005658']}, {'id': '079a9cfa-dc3a-4a65-9e50-7bf54ddfb382', 'name': 'ALIMENTATION MSI MAG A750GL 750 WATTS 80PLUS GOLD PCIE5', 'ref': 'MD3067ZP8B11CE0', 'qty': 5, 'livre': True, 'rate': 13025.21, 'total': 65126.05, 'numSeries': ['3067ZP8B11CE010348003738', '3067ZP8B11CE010348003736', '3067ZP8B11CE010348003733', '3067ZP8B11CE010348003737', '3067ZP8B11CE010348003735']}, {'id': '3a1ea919-0fcf-4620-a236-b97c55263890', 'name': 'SOURIS MSI FOTGR GM300 BLACK', 'ref': 'FORGE-GM300', 'qty': 5, 'livre': True, 'rate': 2436.98, 'total': 12184.9, 'numSeries': ['S120402300HH910411002598', 'S120402300HH910411002596', 'S120402300HH910411002592', 'S120402300HH910411002588', 'S120402300HH910411002590']}, {'id': '70b9530e-71f2-4457-88f4-867429f244a5', 'name': 'BOITIER MSI MPG GUNGNIR 110R BLACK\t', 'ref': 'MPG-GUNGNIR-110R-BLACK\t', 'qty': 1, 'livre': True, 'rate': 16638.65, 'total': 16638.65, 'numSeries': ['3067G10R21W5710414001833']}, {'id': '9b449030-a57e-4e11-90ad-7ad7b571030d', 'name': 'BOITIER MSI MPG GUNGNIR 110R WHITE\t', 'ref': 'MPG-GUNGNIR-110R-WHITE\t', 'qty': 1, 'livre': True, 'rate': 16638.65, 'total': 16638.65, 'numSeries': ['non livré']}, {'id': 'a6b38e71-9273-4c29-8978-e5430505dad1', 'name': 'BOITIER MSI MAG FORGE 112R\t', 'ref': 'MAG-FORGE-112R\t', 'qty': 1, 'livre': True, 'rate': 10000, 'total': 10000, 'numSeries': ['3067G16X2380910411000736']}, {'id': '2e6146ac-952b-439a-8ea1-c409bd693f8d', 'name': 'BOITIER MSI MPG VELOX 100R BLACK', 'ref': 'MPG-VELOX-100R\t', 'qty': 1, 'livre': True, 'rate': 19243.7, 'total': 19243.7, 'numSeries': ['non livré']}]}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2511', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'Gaming Setif Informatique ( Nasro )', 'address': 'Setif, Cite Berrarma a coté Lycée Kateb Yacine de 1014', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '+213554058158'}, 'AssociatedBL': 'BL2409/02327', 'time': 461, 'produits': [{'id': '4043787e-ff0e-4e41-b2b4-c6476dcbd1f1', 'name': 'CARTE MERE MSI PRO B650M-B', 'ref': '4711377144797', 'qty': 4, 'livre': True, 'rate': 19747.9, 'total': 78991.6, 'numSeries': ['601-7E28-030B2311008374', '601-7E28-030B2311008375', '601-7E28-030B2311008376', '601-7E28-030B2311008380']}, {'id': 'd324febd-1688-44b5-bc28-405aff06d485', 'name': 'CARTE MERE MSI PRO B650M-P\t', 'ref': 'MD9117E27001\t', 'qty': 2, 'livre': True, 'rate': 23109.25, 'total': 46218.5, 'numSeries': ['601-7E27-010B2404002581', '601-7E27-010B2404002582']}, {'id': 'd0e625e7-0e1d-4fad-8569-1a665b63b538', 'name': 'CARTE MERE MSI PRO A620M-E', 'ref': 'MD9117E28001', 'qty': 4, 'livre': True, 'rate': 16722.69, 'total': 66890.76, 'numSeries': ['601-7E28-010B2404000990', '601-7E28-010B2404000989', '601-7E28-010B2404000987', '601-7E28-010B2404000988']}, {'id': '6bb71f10-36fc-4585-91d5-9e9d7e2b5817', 'name': 'WATER COOLING MSI MPG CORELIQUID D360', 'ref': 'MD9366A1521001', 'qty': 1, 'livre': True, 'rate': 37731.09, 'total': 37731.09, 'numSeries': ['MS6A15NAS01000755']}, {'id': 'c6d2f230-7cf5-4a59-bfe5-f69c0bbfe2f8', 'name': 'CARTE GRAPIQUE MSI RTX 4070 SUPER 12G GAMING X SLIM WHITE', 'ref': '4070GAMINGXSLIM-WHITE', 'qty': 2, 'livre': True, 'rate': 137731.09, 'total': 275462.18, 'numSeries': ['602-V513-310B2405004200', '602-V513-310B2405004199']}, {'id': 'b0ce3124-9350-4880-a1cd-89d97061d581', 'name': 'CPU AMD RYZEN 5 7600 MPK\t', 'ref': '7600-MPK', 'qty': 1, 'livre': True, 'rate': 30672.27, 'total': 30672.27, 'numSeries': ['YB04777P40082_100-000001015']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Vendeuse
+manager
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2657', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<QueryDict: {'csrfmiddlewaretoken': ['SXRI9kgy2KMaQ7uVGaEnifxTQgzVMFjkTJmyrgNX7YPaFcSTibpBhAqXgvU301PZ'], 'billId': ['2659'], 'dateLivraison': ['2024-09-05']}>
+hello ['inventory.can_see_bonentres', 'produits.can_see_produits', 'inventory.can_create_echange_bill', 'inventory.can_see_bonreforme', 'comptoire.can_see_comptoir', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'target.can_see_targettab', 'inventory.can_see_bonretour', 'inventory.can_see_bonsorties', 'produits.can_see_producttab', 'comptoire.can_see_cloture', 'ventes.can_see_bondevis', 'tiers.can_see_tierstab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'ventes.can_see_ventetab', 'target.can_see_targets', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'comptoire.can_see_comptoirtab', 'ventes.can_see_bongarantie', 'ventes.can_see_boncomptoires']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QueryDict: {'csrfmiddlewaretoken': ['tdNRItKA7xQhSP8pfJlVqfL4FlNKPnvfuZiH0phZcLThHUwnRK69pAE85A8S3J1U'], 'billId': ['2661'], 'dateLivraison': ['2024-09-05']}>
+commercial-vente
+Vendeuse
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '6360c721-abf1-436f-9001-f57951185d90', 'name': 'HAUT VIA APPIA 1 ros standard', 'ref': '04926rosstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}]}
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '6360c721-abf1-436f-9001-f57951185d90', 'name': 'HAUT VIA APPIA 1 ros standard', 'ref': '04926rosstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}]}
+HAUT VIA APPIA 1 ros standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': '6360c721-abf1-436f-9001-f57951185d90', 'name': 'HAUT VIA APPIA 1 ros standard', 'ref': '04926rosstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+commercial-vente
+{'nomClient': 'Brahimi ayoub', 'adresse': '', 'phone': '0551132114', 'catclient': '1'}
+{'IdBon': '', 'dateBp': '2024-09-06', 'clientInfo': {'name': 'Brahimi ayoub', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c63f7b73-5ff8-4514-b172-39cd6dd795dd', 'name': 'SOURIS CANYON GM-211 BLACK', 'ref': 'GM211-BLACK', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '2200', 'gst': '0.00', 'total': 2200}]}
+{'IdBon': '', 'dateBp': '2024-09-06', 'clientInfo': {'name': 'Brahimi ayoub', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c63f7b73-5ff8-4514-b172-39cd6dd795dd', 'name': 'SOURIS CANYON GM-211 BLACK', 'ref': 'GM211-BLACK', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '2200', 'gst': '0.00', 'total': 2200}]}
+SOURIS CANYON GM-211 BLACK in PARKMALL SETIF - Quantity: 3 1
+{'id': 'c63f7b73-5ff8-4514-b172-39cd6dd795dd', 'name': 'SOURIS CANYON GM-211 BLACK', 'ref': 'GM211-BLACK', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '2200', 'gst': '0.00', 'total': 2200}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-07', 'client': 297, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '634700', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '9', 'bills': [{'idBon': 'BL2401/00055', 'montantRegle': 0, 'montant': 329000.01}, {'idBon': 'BL2401/00056', 'montantRegle': 0, 'montant': 124000.02}, {'idBon': 'BL2401/00081', 'montantRegle': 0, 'montant': 124000.02}, {'idBon': 'BL2403/00554', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2405/00899', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2407/01870', 'montantRegle': 0, 'montant': 352700.75}, {'idBon': 'BL2407/01885', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2407/01931', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2408/02238', 'montantRegle': 0, 'montant': 275700}, {'idBon': 'BL2408/02240', 'montantRegle': 0, 'montant': 99600.27}, {'idBon': 'BL2408/02261', 'montantRegle': 0, 'montant': 224500.04}, {'idBon': 'BL2408/02272', 'montantRegle': 0, 'montant': 34900}, {'idBon': 'BL2409/02327', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'avance', 'montant': 0, 'montantRegle': '634700'}]}
+{'dateReg': '2024-09-07', 'client': 1500, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '207000', 'banque': '', 'note': 'Remise de 800 Da', 'chequeInput': '', 'comptes': '9', 'bills': [{'idBon': 'BL2408/02223', 'montantRegle': 0, 'montant': 207800.04}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+{'dateReg': '2024-09-04', 'client': 608, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '176200', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00381', 'montantRegle': 0, 'montant': 240300.02}, {'idBon': 'BL2403/00406', 'montantRegle': 0, 'montant': 261000.01}, {'idBon': 'BL2404/00665', 'montantRegle': 0, 'montant': 17200}, {'idBon': 'BL2404/00764', 'montantRegle': 0, 'montant': 30900.02}, {'idBon': 'BL2406/01080', 'montantRegle': 0, 'montant': 0.16}, {'idBon': 'BL2406/01184', 'montantRegle': 0, 'montant': 0.03}, {'idBon': 'BL2406/01284', 'montantRegle': 0, 'montant': 0.03}, {'idBon': 'BL2407/01562', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2407/01749', 'montantRegle': 0, 'montant': 53700.04}, {'idBon': 'BL2407/01805', 'montantRegle': 0, 'montant': 5999.99}, {'idBon': 'BL2407/01884', 'montantRegle': 0, 'montant': 0.04}, {'idBon': 'BL2408/02045', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2408/02127', 'montantRegle': 0, 'montant': 0.06}, {'idBon': 'BL2408/02206', 'montantRegle': 0, 'montant': 4000.02}, {'idBon': 'BL2408/02267', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2409/02288', 'montantRegle': 176200, 'montant': 176200, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-07', 'client': 224, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '348500', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2402/00187', 'montantRegle': 0, 'montant': 500.01}, {'idBon': 'BL2403/00374', 'montantRegle': 0, 'montant': 294150.22}, {'idBon': 'BL2403/00495', 'montantRegle': 0, 'montant': 56800}, {'idBon': 'BL2407/01625', 'montantRegle': 0, 'montant': 38700.02}, {'idBon': 'BL2408/02032', 'montantRegle': 0, 'montant': 400.05}, {'idBon': 'BL2408/02054', 'montantRegle': 0, 'montant': 202800.14}, {'idBon': 'BL2408/02070', 'montantRegle': 0, 'montant': 20500.03}, {'idBon': 'BL2408/02266', 'montantRegle': 315600, 'montant': 315600.01, 'regle': True}, {'idBon': 'BL2409/02291', 'montantRegle': 32900, 'montant': 32900, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': 'c31ae669-a8f6-4d92-902c-418bb75728ac', 'name': 'CHEMISE HLM 11843 bei standard', 'ref': '03189beistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '5500', 'gst': '0.00', 'total': 5500}, {'id': '2f7158a6-ddd6-460b-bb38-9ac988667890', 'name': 'JUPE EXLT COTON  noi standard', 'ref': '05207noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}]}
+{'IdBon': '', 'dateBp': '2024-09-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': 'c31ae669-a8f6-4d92-902c-418bb75728ac', 'name': 'CHEMISE HLM 11843 bei standard', 'ref': '03189beistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '5500', 'gst': '0.00', 'total': 5500}, {'id': '2f7158a6-ddd6-460b-bb38-9ac988667890', 'name': 'JUPE EXLT COTON  noi standard', 'ref': '05207noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}]}
+CHEMISE HLM 11843 bei standard in MAG54 MOHAMMADIA MALL - Quantity: 2 1
+JUPE EXLT COTON  noi standard in MAG54 MOHAMMADIA MALL - Quantity: 5 1
+{'id': 'c31ae669-a8f6-4d92-902c-418bb75728ac', 'name': 'CHEMISE HLM 11843 bei standard', 'ref': '03189beistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '5500', 'gst': '0.00', 'total': 5500}
+{'id': '2f7158a6-ddd6-460b-bb38-9ac988667890', 'name': 'JUPE EXLT COTON  noi standard', 'ref': '05207noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}
+{'montant': '35800', 'date': '2024-09-05'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['inventory.can_see_bonentres', 'produits.can_see_produits', 'inventory.can_create_echange_bill', 'inventory.can_see_bonreforme', 'comptoire.can_see_comptoir', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'target.can_see_targettab', 'inventory.can_see_bonretour', 'inventory.can_see_bonsorties', 'produits.can_see_producttab', 'comptoire.can_see_cloture', 'ventes.can_see_bondevis', 'tiers.can_see_tierstab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'ventes.can_see_ventetab', 'target.can_see_targets', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'comptoire.can_see_comptoirtab', 'ventes.can_see_bongarantie', 'ventes.can_see_boncomptoires']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'nomClient': 'Bedoui Lokmane', 'adresse': '', 'phone': '', 'catclient': '1'}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2512', 'dateBp': '2024-09-06', 'clientInfo': {'name': 'Brahimi ayoub', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0551132114'}, 'AssociatedBL': 'VC24/02616', 'time': 121, 'produits': [{'id': '2e739013-d481-4e85-8187-f5876bb578fd', 'name': 'SOURIS CANYON GM-211 BLACK', 'ref': 'GM211-BLACK', 'qty': 1, 'rate': 2200, 'total': 2200, 'numSeries': ['I140125300301']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-07', 'client': 1500, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '207000', 'banque': '', 'note': 'Remise de 800 Da', 'chequeInput': '', 'comptes': '9', 'bills': [{'idBon': 'BL2408/02223', 'montantRegle': '207000', 'montant': 207800.04, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+commercial-vente
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-04', 'client': 217, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '1632500', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00275', 'montantRegle': 0, 'montant': 399.87}, {'idBon': 'BL2404/00685', 'montantRegle': 0, 'montant': 0.16}, {'idBon': 'BL2406/01079', 'montantRegle': 0, 'montant': 1500.33}, {'idBon': 'BL2406/01188', 'montantRegle': 0, 'montant': 952300.21}, {'idBon': 'BL2406/01357', 'montantRegle': 0, 'montant': 0.92}, {'idBon': 'BL2407/01457', 'montantRegle': 0, 'montant': 0.27}, {'idBon': 'BL2407/01552', 'montantRegle': 0, 'montant': 179600.11}, {'idBon': 'BL2407/01554', 'montantRegle': 0, 'montant': 0.48}, {'idBon': 'BL2407/01556', 'montantRegle': 0, 'montant': 529000.1}, {'idBon': 'BL2407/01849', 'montantRegle': 0, 'montant': 0.04}, {'idBon': 'BL2407/01851', 'montantRegle': 0, 'montant': 0.14}, {'idBon': 'BL2408/02065', 'montantRegle': 0, 'montant': 231800.1}, {'idBon': 'BL2408/02169', 'montantRegle': 0, 'montant': 1098.16}, {'idBon': 'BL2408/02211', 'montantRegle': 0, 'montant': 74999.99}, {'idBon': 'BL2409/02280', 'montantRegle': 199499.99, 'montant': 199499.99, 'regle': True}, {'idBon': 'BL2409/02296', 'montantRegle': 1433000.01, 'montant': 1438000.05, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-04', 'client': 239, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '2236500', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2401/00007', 'montantRegle': 0, 'montant': 1200.45}, {'idBon': 'BL2401/00108', 'montantRegle': 0, 'montant': 506900}, {'idBon': 'BL2401/00110', 'montantRegle': 0, 'montant': 51800.01}, {'idBon': 'BL2401/00120', 'montantRegle': 0, 'montant': 70899.99}, {'idBon': 'BL2403/00267', 'montantRegle': 0, 'montant': 1727900.46}, {'idBon': 'BL2403/00362', 'montantRegle': 0, 'montant': 806900.35}, {'idBon': 'BL2403/00549', 'montantRegle': 0, 'montant': 91850.07}, {'idBon': 'BL2404/00686', 'montantRegle': 0, 'montant': 6100.14}, {'idBon': 'BL2406/01125', 'montantRegle': 0, 'montant': 3800.2}, {'idBon': 'BL2407/01806', 'montantRegle': 418799.6900000003, 'montant': 425399.99, 'regle': True}, {'idBon': 'BL2407/01926', 'montantRegle': 679000.08, 'montant': 679000.08, 'regle': True}, {'idBon': 'BL2408/02109', 'montantRegle': 402800.16, 'montant': 402800.16, 'regle': True}, {'idBon': 'BL2408/02220', 'montantRegle': 735900.07, 'montant': 735900.07, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-05', 'client': 662, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '680600', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2404/00676', 'montantRegle': 0, 'montant': 0.05}, {'idBon': 'BL2405/00857', 'montantRegle': 0, 'montant': 25500.21}, {'idBon': 'BL2406/01173', 'montantRegle': 0, 'montant': 1950.01}, {'idBon': 'BL2406/01220', 'montantRegle': 0, 'montant': 30200.01}, {'idBon': 'BL2406/01288', 'montantRegle': 0, 'montant': 500.01}, {'idBon': 'BL2407/01505', 'montantRegle': 0, 'montant': 800.03}, {'idBon': 'BL2407/01578', 'montantRegle': 0, 'montant': 0.1}, {'idBon': 'BL2407/01847', 'montantRegle': 0, 'montant': 0.04}, {'idBon': 'BL2408/02165', 'montantRegle': 0, 'montant': 300.06}, {'idBon': 'BL2409/02305', 'montantRegle': '680600', 'montant': 680600.08, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'id': '7398e992-a9ac-446c-8d64-80b025f0ec18', 'name': 'HAUT STK SM 0565 noi standard', 'ref': '05219noistandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '2300', 'gst': '0.00', 'total': 2300}
+manager mag54
+{'montant': '68800', 'date': '2024-09-05'}
+Vendeuse
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-06', 'clientInfo': {'name': 'Bedoui Lokmane', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '6075e036-0c74-4af9-b5aa-a2da38dbb080', 'name': 'SOURIS MSI FOTGR GM300 BLACK', 'ref': 'FORGE-GM300', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-09-06', 'clientInfo': {'name': 'Bedoui Lokmane', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '6075e036-0c74-4af9-b5aa-a2da38dbb080', 'name': 'SOURIS MSI FOTGR GM300 BLACK', 'ref': 'FORGE-GM300', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+SOURIS MSI FOTGR GM300 BLACK in PARKMALL SETIF - Quantity: 10 1
+{'id': '6075e036-0c74-4af9-b5aa-a2da38dbb080', 'name': 'SOURIS MSI FOTGR GM300 BLACK', 'ref': 'FORGE-GM300', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2512', 'dateBp': '2024-09-06', 'clientInfo': {'name': 'Brahimi ayoub', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0551132114'}, 'AssociatedBL': 'VC24/02616', 'time': 121, 'produits': [{'id': '2e739013-d481-4e85-8187-f5876bb578fd', 'name': 'SOURIS CANYON GM-211 BLACK', 'ref': 'GM211-BLACK', 'qty': 1, 'rate': 2200, 'total': 2200, 'numSeries': ['I140125300301']}]}
+{'IdBon': 'FIG2409-2512', 'dateBp': '2024-09-06', 'clientInfo': {'name': 'Brahimi ayoub', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0551132114'}, 'AssociatedBL': 'VC24/02616', 'time': 121, 'produits': [{'id': '2e739013-d481-4e85-8187-f5876bb578fd', 'name': 'SOURIS CANYON GM-211 BLACK', 'ref': 'GM211-BLACK', 'qty': 1, 'rate': 2200, 'total': 2200, 'numSeries': ['I140125300301']}]}
+{'IdBon': 'FIG2409-2512', 'dateBp': '2024-09-06', 'clientInfo': {'name': 'Brahimi ayoub', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0551132114'}, 'AssociatedBL': 'VC24/02616', 'time': 121, 'produits': [{'id': '2e739013-d481-4e85-8187-f5876bb578fd', 'name': 'SOURIS CANYON GM-211 BLACK', 'ref': 'GM211-BLACK', 'qty': 1, 'rate': 2200, 'total': 2200, 'numSeries': ['I140125300301']}]}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-07', 'client': 297, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '637800', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '9', 'bills': [{'idBon': 'BL2401/00055', 'montantRegle': 0, 'montant': 329000.01}, {'idBon': 'BL2401/00056', 'montantRegle': 0, 'montant': 124000.02}, {'idBon': 'BL2401/00081', 'montantRegle': 0, 'montant': 124000.02}, {'idBon': 'BL2403/00554', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2405/00899', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2407/01870', 'montantRegle': 0, 'montant': 352700.75}, {'idBon': 'BL2407/01885', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2407/01931', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2408/02238', 'montantRegle': 0, 'montant': 275700}, {'idBon': 'BL2408/02240', 'montantRegle': 0, 'montant': 99600.27}, {'idBon': 'BL2408/02261', 'montantRegle': 0, 'montant': 224500.04}, {'idBon': 'BL2408/02272', 'montantRegle': 0, 'montant': 34900}, {'idBon': 'BL2409/02327', 'montantRegle': '637800', 'montant': 637800.02, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'nomClient': 'Mami Dalil Hakim ', 'adresse': '', 'phone': '0553841155', 'catclient': '1'}
+{'IdBon': '', 'dateBp': '2024-09-07', 'clientInfo': {'name': 'Mami Dalil Hakim ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '43500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '9a54cc02-d385-4b52-bcfe-5e27e6149dd5', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '43500', 'gst': '0.00', 'total': 43500}]}
+{'IdBon': '', 'dateBp': '2024-09-07', 'clientInfo': {'name': 'Mami Dalil Hakim ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '43500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '9a54cc02-d385-4b52-bcfe-5e27e6149dd5', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '43500', 'gst': '0.00', 'total': 43500}]}
+ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS  in PARKMALL SETIF - Quantity: 4 1
+{'id': '9a54cc02-d385-4b52-bcfe-5e27e6149dd5', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '43500', 'gst': '0.00', 'total': 43500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-04', 'client': 1524, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '200000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2409/02326', 'montantRegle': '200000', 'montant': 390400.02, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-05', 'client': 625, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '5263300', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00394', 'montantRegle': 0, 'montant': 1450900.06}, {'idBon': 'BL2403/00435', 'montantRegle': 0, 'montant': 0.18}, {'idBon': 'BL2406/01221', 'montantRegle': 0, 'montant': 22000.25}, {'idBon': 'BL2407/01644', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2407/01797', 'montantRegle': 0, 'montant': 4400.06}, {'idBon': 'BL2407/01932', 'montantRegle': 0, 'montant': 2664.29}, {'idBon': 'BL2408/02215', 'montantRegle': 119699.74999999953, 'montant': 445436.57, 'regle': True}, {'idBon': 'BL2408/02264', 'montantRegle': 4073500.23, 'montant': 4073500.23, 'regle': True}, {'idBon': 'BL2409/02300', 'montantRegle': 766600.03, 'montant': 766600.03, 'regle': True}, {'idBon': 'BL2409/02312', 'montantRegle': 303499.99, 'montant': 303499.99, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-05', 'client': 1096, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '250800', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2405/00984', 'montantRegle': 0, 'montant': 0.09}, {'idBon': 'BL2407/01694', 'montantRegle': 0, 'montant': 12400.07}, {'idBon': 'BL2409/02293', 'montantRegle': '250800', 'montant': 250800.02, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-05', 'client': 1260, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '359100', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2406/01310', 'montantRegle': 0, 'montant': 100.23}, {'idBon': 'BL2407/01482', 'montantRegle': 0, 'montant': 0.06}, {'idBon': 'BL2407/01551', 'montantRegle': 0, 'montant': 6300.25}, {'idBon': 'BL2408/02150', 'montantRegle': 0, 'montant': 800.28}, {'idBon': 'BL2408/02156', 'montantRegle': 0, 'montant': 39000.01}, {'idBon': 'BL2409/02283', 'montantRegle': 320599.95, 'montant': 320599.95, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'formData': {'id': '2534', 'invoiceNumber': '', 'client': '224', 'typeReg': 'Paiement', 'date': '2024-09-04', 'modeReglement': '1', 'montant': '32900.00', 'compteEntreprise': '8', 'bons': 'BL2409/02291'}}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2662', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2661', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2660', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2659', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2625', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['inventory.can_see_bonslivraisonachat', 'inventory.can_see_entrepots', 'produits.can_see_archives', 'produits.can_see_produits_familles', 'inventory.can_see_invannuel', 'inventory.can_see_etatsorties', 'inventory.can_see_etatreintegration', 'achats.can_see_facturesachats', 'inventory.can_see_repartition', 'reglements.can_see_etattres', 'achats.can_see_bonslivraisonachat', 'target.can_see_targets', 'tiers.can_see_agences', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'tiers.can_see_marques', 'comptoire.can_see_comptoirtab', 'inventory.can_see_etatreforme', 'users.can_see_grp_users', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bonreforme', 'reglements.can_see_regbl', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'inventory.can_see_bonretour', 'clientInfo.can_see_tax_douan', 'clientInfo.can_see_type_client', 'comptoire.can_see_pointsvente', 'reglements.can_see_etatregbl', 'tiers.can_see_clients', 'clientInfo.can_see_societe', 'ventes.can_see_bonretour', 'clientInfo.can_see_tax_tva', 'ventes.can_see_bongarantie', 'tiers.can_see_comptesBancaire', 'clientInfo.can_see_identification', 'produits.can_see_liasion_entrepotproduit', 'achats.can_see_bonreception', 'reglements.can_see_loyers', 'achats.can_see_bonscommandesachat', 'produits.can_see_produits', 'clientInfo.can_see_compteEntreprise', 'target.can_see_equipe', 'clientInfo.can_see_tablebases', 'produits.can_see_etatreforme', 'achats.can_see_avoirsachats', 'produits.can_see_producttab', 'comptoire.can_see_tableaubord', 'ventes.can_see_bondevis', 'reglements.can_see_divers', 'tiers.can_see_tierstab', 'tiers.can_see_banques', 'reglements.can_see_avoir', 'reglements.can_see_salaries', 'clientInfo.can_see_valeur_devis', 'ventes.can_see_avoir', 'ventes.can_see_boncomptoires', 'inventory.can_see_bonentres', 'ventes.can_see_factures', 'comptoire.can_see_fidelite', 'reglements.can_see_echreg', 'comptoire.can_see_comptoir', 'inventory.can_see_bontransfert', 'target.can_see_targettab', 'inventory.can_see_invinitial', 'clientInfo.can_see_units', 'achats.can_see_achattab', 'inventory.can_see_bonsorties', 'comptoire.can_see_clientfid', 'comptoire.can_see_cloture', 'tiers.can_see_fournisseurs', 'reglements.can_see_etatregfac', 'reglements.can_see_depense', 'ventes.can_see_ventetab', 'clientInfo.can_see_devises', 'users.can_see_users', 'tiers.can_see_constructeur', 'reglements.can_see_reglementstab', 'inventory.can_see_etatentres', 'comptoire.can_see_caisseusers', 'reglements.can_see_typereg', 'reglements.can_see_regfaccli']
+[{'name': 'rahou', 'id': 15, 'username': 'rahou', 'lname': 'mohamed', 'email': 'rmohamed@divatech.dz', 'role': 'manager'}, {'name': 'amine', 'id': 28, 'username': 'amine', 'lname': 'amine', 'email': '', 'role': 'commercial'}, {'name': 'ouahrani', 'id': 29, 'username': 'younes', 'lname': 'younes', 'email': '', 'role': 'Finance'}, {'name': 'chawki', 'id': 30, 'username': 'chawki', 'lname': 'benredjim', 'email': '', 'role': 'commercial'}, {'name': 'mahmah', 'id': 31, 'username': 'desactive', 'lname': 'abderahmane', 'email': '', 'role': 'commercial'}, {'name': 'nadjemeddine', 'id': 32, 'username': 'nadjemeddine', 'lname': 'nadjemeddine', 'email': '', 'role': 'commercial-vente'}, {'name': 'yasmine', 'id': 33, 'username': 'yasmine', 'lname': 'yasmine', 'email': '', 'role': 'commercial-vente'}, {'name': 'fares', 'id': 34, 'username': 'fares', 'lname': 'fares', 'email': '', 'role': 'gestion-stock'}, {'name': 'billel', 'id': 35, 'username': 'billel', 'lname': 'billel', 'email': '', 'role': 'gestion-stock'}, {'name': 'aimen', 'id': 36, 'username': 'aimen', 'lname': 'aimen', 'email': '', 'role': 'commercial-vente'}, {'name': 'sofian', 'id': 37, 'username': 'sofian', 'lname': 'sofian', 'email': '', 'role': '  Veille Concurentielle'}, {'name': 'Ryma', 'id': 38, 'username': 'ryma', 'lname': 'Ryma', 'email': '', 'role': 'MARKETING'}, {'name': 'Brik', 'id': 40, 'username': 'toufik', 'lname': 'Toufik', 'email': '', 'role': 'DIRECTEUR EXECUTIF'}, {'name': 'aya', 'id': 41, 'username': 'aya_b', 'lname': 'bouaziz', 'email': '', 'role': 'commercial'}, {'name': 'Hichem', 'id': 43, 'username': 'hichem', 'lname': 'Hichem', 'email': '', 'role': 'Maintenance'}, {'name': 'sarah', 'id': 44, 'username': 'sarah', 'lname': 'sarah', 'email': '', 'role': 'commercial'}, {'name': 'aucun', 'id': 46, 'username': '01', 'lname': 'Aucun', 'email': '', 'role': 'commercial'}, {'name': 'Direction', 'id': 47, 'username': 'assistante_direction', 'lname': 'Assistante', 'email': '', 'role': 'assistante'}, {'name': 'Abdelalim', 'id': 49, 'username': 'walid', 'lname': 'Moumeni', 'email': '', 'role': 'Chauffeur'}, {'name': 'Omar', 'id': 50, 'username': 'omar', 'lname': 'Mohamedi', 'email': '', 'role': 'Chauffeur'}, {'name': 'Larbi', 'id': 51, 'username': 'larbi', 'lname': 'Feddaoui', 'email': '', 'role': 'Chauffeur'}, {'name': 'inconnu', 'id': 52, 'username': 'yasmina_descative', 'lname': 'inconnu', 'email': '', 'role': ''}, {'name': 'Oussama', 'id': 53, 'username': 'oussama', 'lname': 'Benaouicha', 'email': 'benaouicha113@gmail.com', 'role': 'Divers'}, {'name': 'Mohamed', 'id': 54, 'username': 'mohamed', 'lname': 'Boumendjel', 'email': '', 'role': 'Divers'}]
+hello ['inventory.can_see_bonentres', 'produits.can_see_produits', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'inventory.can_see_bonretour', 'inventory.can_see_bonsorties', 'produits.can_see_etatreforme', 'produits.can_see_producttab', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'ventes.can_see_ventetab', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'inventory.can_see_etatentres', 'inventory.can_see_etatreforme']
+aya_b
+sarah
+yasmine
+aya_b
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+nadjemeddine
+yasmine
+younes
+aya_b
+chawki
+aimen
+sarah
+yasmine
+aimen
+chawki
+aimen
+chawki
+nadjemeddine
+aimen
+nadjemeddine
+chawki
+nadjemeddine
+yasmine
+nadjemeddine
+aimen
+nadjemeddine
+nadjemeddine
+aya_b
+aya_b
+yasmine
+aya_b
+sarah
+aimen
+aimen
+sarah
+chawki
+aya_b
+yasmine
+yasmine
+aya_b
+aimen
+aimen
+aya_b
+aya_b
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+yasmine
+aimen
+01{'dateReg': '2024-09-04', 'client': 303, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '1903500', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2401/00070', 'montantRegle': 0, 'montant': 150.17}, {'idBon': 'BL2401/00106', 'montantRegle': 0, 'montant': 124700}, {'idBon': 'BL2402/00206', 'montantRegle': 0, 'montant': 35099.99}, {'idBon': 'BL2403/00420', 'montantRegle': 0, 'montant': 61000}, {'idBon': 'BL2403/00444', 'montantRegle': 0, 'montant': 30300.02}, {'idBon': 'BL2403/00445', 'montantRegle': 0, 'montant': 20200.01}, {'idBon': 'BL2403/00483', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2404/00597', 'montantRegle': 0, 'montant': 22800.02}, {'idBon': 'BL2404/00659', 'montantRegle': 0, 'montant': 0.03}, {'idBon': 'BL2404/00660', 'montantRegle': 0, 'montant': 400.01}, {'idBon': 'BL2404/00692', 'montantRegle': 0, 'montant': 0.14}, {'idBon': 'BL2404/00763', 'montantRegle': 0, 'montant': 23700.02}, {'idBon': 'BL2404/00807', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2404/00818', 'montantRegle': 0, 'montant': 182900.11}, {'idBon': 'BL2406/01100', 'montantRegle': 0, 'montant': 87400.03}, {'idBon': 'BL2406/01107', 'montantRegle': 0, 'montant': 157400.01}, {'idBon': 'BL2406/01276', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2406/01283', 'montantRegle': 0, 'montant': 1200.48}, {'idBon': 'BL2406/01382', 'montantRegle': 0, 'montant': 0.04}, {'idBon': 'BL2407/01520', 'montantRegle': 0, 'montant': 0.1}, {'idBon': 'BL2407/01859', 'montantRegle': 0, 'montant': 140800}, {'idBon': 'BL2407/01875', 'montantRegle': 0, 'montant': 151100.18}, {'idBon': 'BL2407/01995', 'montantRegle': 0, 'montant': 2000.17}, {'idBon': 'BL2408/02067', 'montantRegle': 0, 'montant': 0.12}, {'idBon': 'BL2408/02190', 'montantRegle': 0, 'montant': 2000.11}, {'idBon': 'BL2408/02252', 'montantRegle': 1286300.1, 'montant': 1286300.1, 'regle': True}, {'idBon': 'BL2409/02278', 'montantRegle': 8400, 'montant': 8400, 'regle': True}, {'idBon': 'BL2409/02286', 'montantRegle': 273800.01, 'montant': 273800.01, 'regle': True}, {'idBon': 'BL2409/02287', 'montantRegle': 17800, 'montant': 17800, 'regle': True}, {'idBon': 'BL2409/02301', 'montantRegle': 205800, 'montant': 205800, 'regle': True}, {'idBon': 'BL2409/02317', 'montantRegle': 111399.8899999999, 'montant': 518400.06, 'regle': True}, {'idBon': 'BL2409/02334', 'montantRegle': 0, 'montant': 347100.03}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-04', 'client': 585, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '441000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2405/00849', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2406/01152', 'montantRegle': 0, 'montant': 0.18}, {'idBon': 'BL2406/01414', 'montantRegle': 0, 'montant': 0.04}, {'idBon': 'BL2408/02228', 'montantRegle': 355800.13, 'montant': 355800.13, 'regle': True}, {'idBon': 'BL2408/02246', 'montantRegle': 85199.87, 'montant': 85200.01, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-04', 'client': 1511, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '20500', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2408/02269', 'montantRegle': 20500, 'montant': 20500, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-05', 'client': 228, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '596000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00388', 'montantRegle': 0, 'montant': 265000.11}, {'idBon': 'BL2403/00511', 'montantRegle': 0, 'montant': 425400.05}, {'idBon': 'BL2404/00647', 'montantRegle': 0, 'montant': 1800.02}, {'idBon': 'BL2404/00654', 'montantRegle': 0, 'montant': 39500}, {'idBon': 'BL2405/00835', 'montantRegle': 0, 'montant': 4800.09}, {'idBon': 'BL2405/01026', 'montantRegle': 0, 'montant': 10100.05}, {'idBon': 'BL2406/01101', 'montantRegle': 0, 'montant': 84300.12}, {'idBon': 'BL2407/01968', 'montantRegle': 0, 'montant': 100200.03}, {'idBon': 'BL2407/01971', 'montantRegle': 0, 'montant': 103500}, {'idBon': 'BL2408/02111', 'montantRegle': 0, 'montant': 249700}, {'idBon': 'BL2408/02229', 'montantRegle': 0, 'montant': 25400.02}, {'idBon': 'BL2409/02289', 'montantRegle': '596000', 'montant': 618200.04, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'formData': {'id': '2533', 'invoiceNumber': '', 'client': '224', 'typeReg': 'Paiement', 'date': '2024-09-04', 'modeReglement': '1', 'montant': '315600.00', 'compteEntreprise': '8', 'bons': 'BL2408/02266'}}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-05', 'client': 1260, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '359100', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2406/01310', 'montantRegle': 0, 'montant': 100.23}, {'idBon': 'BL2407/01482', 'montantRegle': 0, 'montant': 0.06}, {'idBon': 'BL2407/01551', 'montantRegle': 0, 'montant': 6300.25}, {'idBon': 'BL2408/02150', 'montantRegle': 0, 'montant': 800.28}, {'idBon': 'BL2408/02156', 'montantRegle': 38500.04999999999, 'montant': 39000.01, 'regle': True}, {'idBon': 'BL2409/02283', 'montantRegle': 320599.95, 'montant': 320599.95, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'date': '2024-08-28', 'salarie': 'Feddaoui Larbi ', 'motif': 'avance salaire', 'montant': '11000'}
+{'date': '2024-08-28', 'salarie': 'Feddaoui Larbi ', 'motif': 'avance salaire', 'montant': '11000'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2663', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+MARKETING
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+  Veille Concurentielle
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+aya_b
+sarah
+yasmine
+aya_b
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+nadjemeddine
+yasmine
+younes
+aya_b
+chawki
+aimen
+sarah
+yasmine
+aimen
+chawki
+aimen
+chawki
+nadjemeddine
+aimen
+nadjemeddine
+chawki
+nadjemeddine
+yasmine
+nadjemeddine
+aimen
+nadjemeddine
+nadjemeddine
+aya_b
+aya_b
+yasmine
+aya_b
+sarah
+aimen
+aimen
+sarah
+chawki
+aya_b
+yasmine
+yasmine
+aya_b
+aimen
+aimen
+aya_b
+aya_b
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+yasmine
+aimen
+01
+sarah
+yasmine
+yasmine
+yasmine
+sarah
+yasmine
+yasmine
+yasmine
+nadjemeddine
+yasmine
+aimen
+yasmine
+yasmine
+nadjemeddine
+toufik
+chawki
+aya_b
+yasmine
+01
+yasmine
+yasmine
+01
+aimen
+aya_b
+sarah
+nadjemeddine
+yasmine
+nadjemeddine
+01
+01
+yasmine
+01
+yasmine
+aimen
+nadjemeddine
+aya_b
+nadjemeddine
+aya_b
+aimen
+sarah
+aya_b
+nadjemeddine
+sarah
+sarah
+sarah
+01
+01
+chawki
+01
+nadjemeddine
+01
+aya_b
+yasmina_descative
+nadjemeddine
+aimen
+aimen
+sarah
+aya_b
+sarah
+nadjemeddine
+yasmine
+sarah
+yasmine
+aya_b
+nadjemeddine
+aya_b
+yasmine
+01
+01
+aimen
+01
+aya_b
+01
+sarah
+nadjemeddine
+nadjemeddine
+aimen
+aya_b
+01
+aya_b
+01
+01
+01
+yasmine
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+  Veille Concurentielle
+{'IdBon': 'FIG2409-2517', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'sohieb laieb', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0554305747'}, 'AssociatedBL': 'BL2409/02335', 'time': 14, 'produits': [{'id': 'fdb08a86-29a0-4d11-8bbb-35ccdd155cf9', 'name': 'ALIMENTATION MSI MAG A850GL 850 WATTS 80PLUS GOLD PCIE5 BLACK', 'ref': 'MD3067ZP8A11CE0', 'qty': 1, 'livre': True, 'rate': 17226.89, 'total': 17226.89, 'numSeries': ['3067ZP8A11CE010408005212']}]}
+{'dateReg': '2024-09-05', 'client': 232, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '610700', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2405/00939', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2407/01850', 'montantRegle': 0, 'montant': 0.06}, {'idBon': 'BL2409/02328', 'montantRegle': '610700', 'montant': 610700.05, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-05', 'client': 1277, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '453900', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2407/01776', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2409/02332', 'montantRegle': '453900', 'montant': 453900.02, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-05', 'client': 234, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '535400', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00296', 'montantRegle': 0, 'montant': 295499.9}, {'idBon': 'BL2403-00395', 'montantRegle': 0, 'montant': 297850.04}, {'idBon': 'BL2403/00441', 'montantRegle': 0, 'montant': 0.11}, {'idBon': 'BL2403/00556', 'montantRegle': 0, 'montant': 149.99}, {'idBon': 'BL2405/01037', 'montantRegle': 0, 'montant': 63900.9}, {'idBon': 'BL2407/01873', 'montantRegle': 0, 'montant': 13300.07}, {'idBon': 'BL2407/01891', 'montantRegle': 0, 'montant': 174499.99}, {'idBon': 'BL2409/02299', 'montantRegle': '535400', 'montant': 535400.03, 'regle': True}, {'idBon': 'BL2409/02329', 'montantRegle': 0, 'montant': 359200.07}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-05', 'client': 591, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '1006300', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00463', 'montantRegle': 0, 'montant': 0.14}, {'idBon': 'BL2404/00666', 'montantRegle': 0, 'montant': 0.19}, {'idBon': 'BL2405/00988', 'montantRegle': 0, 'montant': 10000}, {'idBon': 'BL2405/01046', 'montantRegle': 0, 'montant': 200.1}, {'idBon': 'BL2406/01138', 'montantRegle': 0, 'montant': 203400.04}, {'idBon': 'BL2406/01156', 'montantRegle': 0, 'montant': 199.8}, {'idBon': 'BL2406/01222', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2407/01579', 'montantRegle': 0, 'montant': 0.1}, {'idBon': 'BL2407/01814', 'montantRegle': 0, 'montant': 0.07}, {'idBon': 'BL2408/02051', 'montantRegle': 0, 'montant': 0.06}, {'idBon': 'BL2408/02192', 'montantRegle': 0, 'montant': 0.03}, {'idBon': 'BL2409/02325', 'montantRegle': '1006300', 'montant': 1008300.16, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+DIRECTEUR EXECUTIF
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+gestion-stock
+MARKETING
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+DIRECTEUR EXECUTIF
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['inventory.can_see_bonentres', 'produits.can_see_produits', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'inventory.can_see_bonretour', 'inventory.can_see_bonsorties', 'produits.can_see_etatreforme', 'produits.can_see_producttab', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'ventes.can_see_ventetab', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'inventory.can_see_etatentres', 'inventory.can_see_etatreforme']
+hello ['inventory.can_see_bonentres', 'produits.can_see_produits', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'inventory.can_see_bonretour', 'inventory.can_see_bonsorties', 'produits.can_see_etatreforme', 'produits.can_see_producttab', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'ventes.can_see_ventetab', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'inventory.can_see_etatentres', 'inventory.can_see_etatreforme']
+hello ['produits.can_see_producttab', 'ventes.can_see_bondevis', 'produits.can_see_produits', 'tiers.can_see_tierstab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'ventes.can_see_ventetab', 'target.can_see_targets', 'inventory.can_see_bontransfert', 'target.can_see_targettab', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'inventory.can_see_bonretour', 'ventes.can_see_bongarantie', 'inventory.can_see_bonsorties']
+{'IdBon': 'FIG2409-2521', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'GCS STORE BAB EZZOUAR', 'address': 'bab ezzouar', 'num_registre': '16/00-5127213A18', 'nif': '', 'nai': '', 'nis': '', 'phone': '0550 07 28 30'}, 'AssociatedBL': 'BL2409/02336', 'time': 89, 'produits': [{'id': '1108aab8-2224-47e8-aa27-2c47bd21f655', 'name': 'CARTE MERE MSI PRO B650M-P\t', 'ref': 'MD9117E27001\t', 'qty': 1, 'livre': True, 'rate': 23109.25, 'total': 23109.25, 'numSeries': ['601-7E27-010B2404002583']}, {'id': 'a3aec321-2657-42ff-b0d4-eabf53064db0', 'name': 'CPU AMD RYZEN 5 7600 MPK\t', 'ref': '7600-MPK', 'qty': 1, 'livre': True, 'rate': 30672.27, 'total': 30672.27, 'numSeries': ['YB04777P40081_100-000001015']}, {'id': '0453c79a-21d4-4435-8e8f-0c012f8da290', 'name': 'RAM DDR5 ADATA LANCER BLADE 16GB 5600MHZ WHITE', 'ref': '9JAX5U5600C4616GSLABWH', 'qty': 1, 'livre': True, 'rate': 9663.87, 'total': 9663.87, 'numSeries': ['1O1500917153']}, {'id': '8b48d4f4-7442-411b-8e8a-05aafcd31852', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 1, 'livre': True, 'rate': 32689.08, 'total': 32689.08, 'numSeries': ['CE2M014404018']}, {'id': '138d9a67-793a-44f5-8b52-84c3d4a10185', 'name': 'COMBO MSI VIGOR GK30 BLACK', 'ref': 'MDS1104FR237CLA', 'qty': 1, 'livre': True, 'rate': 8319.33, 'total': 8319.33, 'numSeries': ['S1104FR237CLA10419000227']}, {'id': '86b340cd-8208-4cfa-896a-0066e6b26703', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC WHITE EDITION\t', 'ref': 'RTX4060-VNTS-WHITE\t', 'qty': 1, 'livre': True, 'rate': 60420.17, 'total': 60420.17, 'numSeries': ['602-V516-070B2404005714']}]}
+manager mag54
+gestion-stock
+DIRECTEUR EXECUTIF
+  Veille Concurentielle
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '19500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '8deb9151-7b7e-4005-be1a-b7f1c5cfc992', 'name': 'TWINS BY ILLA 155  Mix standard', 'ref': '03292Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}, {'id': 'ad2c75e3-55d2-4ed3-b496-5af7b5554610', 'name': 'PANTALON CLASSIQUE CARRE EXLT   noi standard', 'ref': '05196noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}, {'id': 'b779ece2-6f35-470e-bb03-5c5f40b87dd0', 'name': 'TUNIQUE BK 24141  Mix standard', 'ref': '05177Mixstandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}, {'id': '6cca922e-2647-4fab-9bc5-aa254c3fdc2d', 'name': 'pince 100 Mix standard', 'ref': '05514Mixstandard', 'availableqte': 86, 'qty': '1', 'ent': '', 'rate': '100', 'gst': '0.00', 'total': 100}]}
+{'IdBon': 'FIG2409-2517', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'sohieb laieb', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0554305747'}, 'AssociatedBL': 'BL2409/02335', 'time': 14, 'produits': [{'id': 'fdb08a86-29a0-4d11-8bbb-35ccdd155cf9', 'name': 'ALIMENTATION MSI MAG A850GL 850 WATTS 80PLUS GOLD PCIE5 BLACK', 'ref': 'MD3067ZP8A11CE0', 'qty': 1, 'livre': True, 'rate': 17226.89, 'total': 17226.89, 'numSeries': ['3067ZP8A11CE010408005212']}]}
+{'IdBon': 'FIG2409-2519', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'ronin tek 1', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2409/02331', 'time': 31, 'produits': [{'id': '33865517-7f62-41a2-bad8-3f494d1cf30a', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 3, 'livre': True, 'rate': 32689.08, 'total': 98067.24, 'numSeries': ['CE2M014403967', 'CE2M014403963', 'CE2M014403982']}, {'id': '340ce0a1-b351-4362-845d-050d101e66ac', 'name': 'ECRAN MSI MP252 - 25INCH - 100HZ - IPS - 1MS ', 'ref': 'MP252', 'qty': 3, 'livre': True, 'rate': 17563.03, 'total': 52689.09, 'numSeries': ['PC4T014402025', 'PC4T014402021', 'PC4T014402024']}]}
+commercial-vente
+{'IdBon': 'FIG2409-2520', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'CAMPUS INFORMATIQUE', 'address': 'Alger Centre', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0551300300'}, 'AssociatedBL': 'BL2409/02329', 'time': 33, 'produits': [{'id': '557aa59f-2eb0-40f6-8137-8b8e2cacd6f1', 'name': 'CARTE GRAPHIQUE RTX3050 VENTUS 2X 6G OC', 'ref': 'RTX3050-VENTUS-6', 'qty': 8, 'livre': True, 'rate': 37731.1, 'total': 301848.8, 'numSeries': ['602-V812-73SD2405036983', '602-V812-73SD2405036984', '602-V812-73SD2405036982', '602-V812-73SD2405036251', '602-V812-73SD2405036258', '602-V812-73SD2405036260', '602-V812-73SD2405036249', '602-V812-73SD2405036257']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Vendeuse
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '0f2f0411-937f-4938-870d-aa1cf37e892d', 'name': 'PANTALON MAG CARRE OLD  Mix standard', 'ref': '05525Mixstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '0f2f0411-937f-4938-870d-aa1cf37e892d', 'name': 'PANTALON MAG CARRE OLD  Mix standard', 'ref': '05525Mixstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}]}
+PANTALON MAG CARRE OLD  Mix standard in MAG54 MOHAMMADIA MALL - Quantity: 15 1
+{'id': '0f2f0411-937f-4938-870d-aa1cf37e892d', 'name': 'PANTALON MAG CARRE OLD  Mix standard', 'ref': '05525Mixstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2524', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'Pc click + ( Blida )', 'address': 'Blida', 'num_registre': '09/00 - 4101280A22', 'nif': '1900907005251890', 'nai': '09076408085', 'nis': '', 'phone': '+213 776 21 39 32'}, 'AssociatedBL': 'BL2409/02334', 'time': 260, 'produits': [{'id': '7b9bf4dd-5e90-4b53-839d-f01ac32d841c', 'name': 'RAM DDR5 ADATA DDR5  16GB 5600MHZ U-DIMM', 'ref': '16-5600-D5', 'qty': 20, 'livre': True, 'rate': 8823.53, 'total': 176470.6, 'numSeries': ['1O1200375458', '1O1200375459', '1O1200375461', '1O1200375460', '1O1200375417', '1O1200375467', '1O1200375463', '1O1200375462', '1O1200375464', '1O1200375465', '1O1200871850', '1O1200871854', '1O1200871855', '1O1200871839', '1O1200375397', '1O1200375393', '1O1200375396', '1O1200375394', '1O1200375391', '1O1200375387']}, {'id': '1b556b7c-8c11-409f-a24d-4268f744db8a', 'name': 'RAM DDR5 ADATA LANCER 16GB 6000MHZ - BLACK', 'ref': 'LC16-6000-B', 'qty': 6, 'livre': True, 'rate': 11344.54, 'total': 68067.24, 'numSeries': ['2O1300161492', '2O1300161270', '2O1300161480', '2O1300161290', '2O1300161476', '2O1300161444']}, {'id': 'c91e5414-f971-4151-a1fe-511c53e13eaa', 'name': 'CARTE MERE MSI PRO B650M-B', 'ref': '4711377144797', 'qty': 1, 'livre': True, 'rate': 19747.9, 'total': 19747.9, 'numSeries': ['601-7E28-030B2311008384']}, {'id': '90f0d740-2386-4749-8323-dbcf3616583b', 'name': 'CPU AMD RYZEN 5 7500F MPK', 'ref': '7500F-MPK', 'qty': 1, 'livre': True, 'rate': 27394.96, 'total': 27394.96, 'numSeries': ['9MF1586P40456_100-000000597']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'bb5370af-33d7-4f5f-93a3-6eff5f466fce', 'name': 'PANTALON CARRE COTON EXLT  marr standard', 'ref': '05203marrstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'bb5370af-33d7-4f5f-93a3-6eff5f466fce', 'name': 'PANTALON CARRE COTON EXLT  marr standard', 'ref': '05203marrstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+PANTALON CARRE COTON EXLT  marr standard in MAG54 ROUIBA - Quantity: 15 1
+{'id': 'bb5370af-33d7-4f5f-93a3-6eff5f466fce', 'name': 'PANTALON CARRE COTON EXLT  marr standard', 'ref': '05203marrstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+manager
+<QueryDict: {'csrfmiddlewaretoken': ['80S2ZIpftg3bCgfGPPLH30i0uFRGJ8tQhwlomcMg7gvG42Dmkr1kTX4exPi3RO6a'], 'billId': ['2667'], 'dateLivraison': ['2024-09-11']}>
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '20700.00', 'TotalRemise': '700', 'verssement': False, 'produits': [{'id': '14d985ef-9ab3-4676-956f-aeeddfc99cf1', 'name': 'PANTALON KLKC 2370 noi standard', 'ref': '05087noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}, {'id': '5e81b28e-4988-4159-8bde-85fcdf097a72', 'name': 'TUNIQUE clrt 237169 noi standard', 'ref': '05040noistandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}, {'id': '651ccb06-6856-47ad-b399-47ace109b2fa', 'name': 'GILET CLRT 247214 bei standard', 'ref': '05005beistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '20700.00', 'TotalRemise': '700', 'verssement': False, 'produits': [{'id': '14d985ef-9ab3-4676-956f-aeeddfc99cf1', 'name': 'PANTALON KLKC 2370 noi standard', 'ref': '05087noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}, {'id': '5e81b28e-4988-4159-8bde-85fcdf097a72', 'name': 'TUNIQUE clrt 237169 noi standard', 'ref': '05040noistandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}, {'id': '651ccb06-6856-47ad-b399-47ace109b2fa', 'name': 'GILET CLRT 247214 bei standard', 'ref': '05005beistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+PANTALON KLKC 2370 noi standard in MAG54 ROUIBA - Quantity: 1 1
+TUNIQUE clrt 237169 noi standard in MAG54 ROUIBA - Quantity: 6 1
+GILET CLRT 247214 bei standard in MAG54 ROUIBA - Quantity: 7 1
+{'id': '14d985ef-9ab3-4676-956f-aeeddfc99cf1', 'name': 'PANTALON KLKC 2370 noi standard', 'ref': '05087noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '19500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '8deb9151-7b7e-4005-be1a-b7f1c5cfc992', 'name': 'TWINS BY ILLA 155  Mix standard', 'ref': '03292Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}, {'id': 'ad2c75e3-55d2-4ed3-b496-5af7b5554610', 'name': 'PANTALON CLASSIQUE CARRE EXLT   noi standard', 'ref': '05196noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}, {'id': 'b779ece2-6f35-470e-bb03-5c5f40b87dd0', 'name': 'TUNIQUE BK 24141  Mix standard', 'ref': '05177Mixstandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}, {'id': '6cca922e-2647-4fab-9bc5-aa254c3fdc2d', 'name': 'pince 100 Mix standard', 'ref': '05514Mixstandard', 'availableqte': 86, 'qty': '1', 'ent': '', 'rate': '100', 'gst': '0.00', 'total': 100}]}
+TWINS BY ILLA 155  Mix standard in MAG54 ROUIBA - Quantity: 6 1
+PANTALON CLASSIQUE CARRE EXLT   noi standard in MAG54 ROUIBA - Quantity: 15 1
+TUNIQUE BK 24141  Mix standard in MAG54 ROUIBA - Quantity: 1 1
+pince 100 Mix standard in MAG54 ROUIBA - Quantity: 86 1
+{'id': '8deb9151-7b7e-4005-be1a-b7f1c5cfc992', 'name': 'TWINS BY ILLA 155  Mix standard', 'ref': '03292Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}
+{'id': 'ad2c75e3-55d2-4ed3-b496-5af7b5554610', 'name': 'PANTALON CLASSIQUE CARRE EXLT   noi standard', 'ref': '05196noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+{'id': 'b779ece2-6f35-470e-bb03-5c5f40b87dd0', 'name': 'TUNIQUE BK 24141  Mix standard', 'ref': '05177Mixstandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}
+{'id': '6cca922e-2647-4fab-9bc5-aa254c3fdc2d', 'name': 'pince 100 Mix standard', 'ref': '05514Mixstandard', 'availableqte': 86, 'qty': '1', 'ent': '', 'rate': '100', 'gst': '0.00', 'total': 100}
+{'IdBon': 'FIG2409-2523', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'MINI INFORMATIQUE ', 'address': 'BLIDA ', 'num_registre': '09/004044156a06', 'nif': '196909100097227', 'nai': '', 'nis': '', 'phone': '+213 554 32 00 95'}, 'AssociatedBL': 'BL2409/02339', 'time': 147, 'produits': [{'id': '04b86c49-c189-4aa5-b72c-829c6d808abe', 'name': 'BOITIER MSI MAG FORGE M100A\t', 'ref': 'MAG-FORGE-M100A\t', 'qty': 6, 'livre': True, 'rate': 6638.65, 'total': 39831.9, 'numSeries': ['3067G20A2180910411001212', '3067G20A2180910411001921', '3067G20A2180910411001919', '3067G20A2180910411001218', '3067G20A2180910411001724', '3067G20A2180910411001705']}, {'id': '887c1959-2328-412e-a39f-5b5ea7a7417a', 'name': 'BOITIER MSI MAG FORGE 120A AIRFLOW', 'ref': '120A-AIRFLOW', 'qty': 2, 'livre': True, 'rate': 9159.67, 'total': 18319.34, 'numSeries': ['3067G23A2180910411002170', '3067G23A2180910411001987']}, {'id': '8c8a22ad-a413-4b7c-ba73-e080a808c956', 'name': 'BOITIER MSI MAG FORGE 112R\t', 'ref': 'MAG-FORGE-112R\t', 'qty': 2, 'livre': True, 'rate': 10000, 'total': 20000, 'numSeries': ['3067G16X2380910411000698', '3067G16X2380910411000368']}, {'id': 'ae5d5099-f1f7-420a-ac2d-3c30c833b002', 'name': 'ALIMENTATION MSI MAG A750GL 750 WATTS 80PLUS GOLD PCIE5', 'ref': 'MD3067ZP8B11CE0', 'qty': 1, 'livre': True, 'rate': 13025.21, 'total': 13025.21, 'numSeries': ['3067ZP8B11CE010348003734']}, {'id': '6ccadab9-36b1-45ed-a88e-db4a29bdacd2', 'name': 'ALIMENTATION MSI MAG A750BN 750 WATTS 80+ BRONZE PCIE5', 'ref': 'A750BN-PCIE5', 'qty': 1, 'livre': True, 'rate': 11344.54, 'total': 11344.54, 'numSeries': ['3067ZP2C11CE010350000829']}, {'id': 'ed44cfb3-7e3d-4e5c-b9ce-44983a317033', 'name': 'ALIMENTATION MSI MAG A650GL 80+ GOLD FULL MODULAR', 'ref': 'A650GL', 'qty': 2, 'livre': True, 'rate': 11680.67, 'total': 23361.34, 'numSeries': ['3067ZP8C11CE010348000589', '3067ZP8C11CE010348000592']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8100.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': '8efab52e-8bfc-4c6b-b8e2-4f3dbe40e334', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 35, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}, {'id': '4ecbfb8c-98ff-479f-b4a0-61853da677c3', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 71, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8100.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': '8efab52e-8bfc-4c6b-b8e2-4f3dbe40e334', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 35, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}, {'id': '4ecbfb8c-98ff-479f-b4a0-61853da677c3', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 71, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+LIQUETTE ZMRT-BK-ALABA  Mix standard in MAG54 ROUIBA - Quantity: 35 1
+PANTALON CLASSIQUE BUDAK new Mix standard in MAG54 ROUIBA - Quantity: 71 1
+{'id': '8efab52e-8bfc-4c6b-b8e2-4f3dbe40e334', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 35, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+{'id': '4ecbfb8c-98ff-479f-b4a0-61853da677c3', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 71, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+hello ['target.can_see_targettab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+gestion-stock
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2665', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '15800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c98b9145-3781-4d37-91af-406b6bf9e5bd', 'name': 'TUNIQUE clrt 237164 noi standard', 'ref': '05022noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}, {'id': '234f0416-74f2-4c00-8944-bf13c16c5cf5', 'name': 'HIDJAB CLRT 247195 ver standard', 'ref': '05013verstandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '15800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c98b9145-3781-4d37-91af-406b6bf9e5bd', 'name': 'TUNIQUE clrt 237164 noi standard', 'ref': '05022noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}, {'id': '234f0416-74f2-4c00-8944-bf13c16c5cf5', 'name': 'HIDJAB CLRT 247195 ver standard', 'ref': '05013verstandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+TUNIQUE clrt 237164 noi standard in MAG54 ROUIBA - Quantity: 4 1
+HIDJAB CLRT 247195 ver standard in MAG54 ROUIBA - Quantity: 7 1
+{'id': 'c98b9145-3781-4d37-91af-406b6bf9e5bd', 'name': 'TUNIQUE clrt 237164 noi standard', 'ref': '05022noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+
+sarah
+yasmine
+yasmine
+yasmine
+sarah
+yasmine
+yasmine
+yasmine
+nadjemeddine
+yasmine
+aimen
+yasmine
+yasmine
+nadjemeddine
+toufik
+chawki
+aya_b
+yasmine
+01
+yasmine
+yasmine
+01
+aimen
+aya_b
+sarah
+nadjemeddine
+yasmine
+nadjemeddine
+01
+01
+yasmine
+01
+yasmine
+aimen
+nadjemeddine
+aya_b
+nadjemeddine
+aya_b
+aimen
+sarah
+aya_b
+nadjemeddine
+sarah
+sarah
+sarah
+01
+01
+chawki
+01
+nadjemeddine
+01
+aya_b
+yasmina_descative
+nadjemeddine
+aimen
+aimen
+sarah
+aya_b
+sarah
+nadjemeddine
+yasmine
+sarah
+yasmine
+aya_b
+nadjemeddine
+aya_b
+yasmine
+01
+01
+aimen
+01
+aya_b
+01
+sarah
+nadjemeddine
+nadjemeddine
+aimen
+aya_b
+01
+aya_b
+01
+01
+01
+yasmine
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+{'IdBon': 'FIG2409-2516', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'ADMINE INFORMATIQUE', 'address': '42 Rue Yacef Lahcen El Makaria Hussein Dey  ALGER ', 'num_registre': '16/00-4884932A10', 'nif': '181161707760133', 'nai': '16310941042', 'nis': '198116170776027', 'phone': '0771784851'}, 'AssociatedBL': 'BL2409/02340', 'time': 427, 'produits': [{'id': '84d279ce-e41b-40cd-88d9-b908103c768d', 'name': 'RAM DDR5 ADATA DDR5  16GB 5600MHZ U-DIMM', 'ref': '16-5600-D5', 'qty': 4, 'livre': True, 'rate': 8823.53, 'total': 35294.12, 'numSeries': ['1O1200871853', '1O1200375487', '1O1200871863', '1O1200871842']}, {'id': '4170537e-23b1-4084-8f60-85af4af69e7b', 'name': 'RAM DDR5 ADATA LANCER BLADE 16GB 5600MHZ BLACK', 'ref': '9JAX5U5600C4616GSLABBK', 'qty': 4, 'livre': True, 'rate': 9663.87, 'total': 38655.48, 'numSeries': ['2O1400054281', '2O1400054287', '2O1400054247', '2O1400054331']}, {'id': 'bcdda4a7-c3f1-41b9-834a-859ae3cfbbba', 'name': 'RAM DDR5 ADATA LANCER RGB 16GB 6400MHZ - BLACK', 'ref': 'LCR16-6400-B', 'qty': 4, 'livre': True, 'rate': 13025.21, 'total': 52100.84, 'numSeries': ['1O0100795429', '1O0100795439', '1O0100795451', '1O0100795432']}, {'id': 'e302d44a-241e-42ec-a48a-dc1685076460', 'name': 'RAM DDR4 ADATA SPECTRIX D35G RGB 8GB 3600MHZ BLACK', 'ref': '9JAX4U36008G18ISBKD35G', 'qty': 10, 'livre': True, 'rate': 4537.82, 'total': 45378.2, 'numSeries': ['2N4600092263', '2N4600092073', '2N4600092319', '2N4600092069', '2N4600092240', '2N4600092544', '2N4600092071', '2N4600092063', '2N4600092065', '2N4600092359']}, {'id': '6a7d96f5-8e89-48cf-8045-1e60536f4b1a', 'name': 'ECRAN MSI PRO MP251P - 24INCH - IPS - 100HZ - 1MS - ADJUSTABLE STAND ', 'ref': 'MP251P-100', 'qty': 2, 'livre': True, 'rate': 20840.34, 'total': 41680.68, 'numSeries': ['PC2M164400862', 'PC2M164400858']}]}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2522', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'hb information technology', 'address': 'cite frerie 01 lot 15, El hamiz Dar el Beida', 'num_registre': '11A6239984-16/00', 'nif': '183470601067124', 'nai': '16204891025', 'nis': '19547060016115811600', 'phone': '+213 557 30 34 04'}, 'AssociatedBL': 'BL2409/02338', 'time': 102, 'produits': [{'id': 'b4148bd1-1b2d-42d1-8ce6-54d9a3969c94', 'name': 'BOITIER MSI MAG FORGE M100A\t', 'ref': 'MAG-FORGE-M100A\t', 'qty': 3, 'livre': True, 'rate': 6638.65, 'total': 19915.95, 'numSeries': ['3067G20A2180910411001917', '3067G20A2180910411001696', '3067G20A2180910411001688']}, {'id': '868b034c-2668-48f5-a456-c01682e82b89', 'name': 'BOITIER MARS GAMING MC-U3 BLACK', 'ref': 'MCU3-BLACK', 'qty': 1, 'livre': True, 'rate': 7478.99, 'total': 7478.99, 'numSeries': ['MCU3-BLACK\t(1)']}, {'id': '195f7b80-09a1-46e9-b168-6605a471f87a', 'name': 'BOITIER MARS GAMING MC-U3 WHITE', 'ref': 'MCU3-WHITE', 'qty': 1, 'livre': True, 'rate': 7478.99, 'total': 7478.99, 'numSeries': ['MCU3-WHITE\t(1)']}]}
+DIRECTEUR EXECUTIF
+gestion-stock
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2664', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+hello ['target.can_see_targettab', 'inventory.can_see_bonsorties', 'inventory.can_see_bontransfert', 'tiers.can_see_clients', 'inventory.can_see_bonretour', 'produits.can_see_produits', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'tiers.can_see_tierstab', 'produits.can_see_producttab', 'target.can_see_targets', 'ventes.can_see_bonretour', 'ventes.can_see_bongarantie', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab']
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4000.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '2606f470-083c-42d0-9bd2-d41ef664cb7e', 'name': 'PANTALON CLASSIQUE UZN OLD  Mix standard', 'ref': '05523Mixstandard', 'availableqte': 11, 'qty': '1', 'ent': '', 'rate': '4000', 'gst': '0.00', 'total': 4000}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4000.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '2606f470-083c-42d0-9bd2-d41ef664cb7e', 'name': 'PANTALON CLASSIQUE UZN OLD  Mix standard', 'ref': '05523Mixstandard', 'availableqte': 11, 'qty': '1', 'ent': '', 'rate': '4000', 'gst': '0.00', 'total': 4000}]}
+PANTALON CLASSIQUE UZN OLD  Mix standard in MAG54 ROUIBA - Quantity: 11 1
+{'id': '2606f470-083c-42d0-9bd2-d41ef664cb7e', 'name': 'PANTALON CLASSIQUE UZN OLD  Mix standard', 'ref': '05523Mixstandard', 'availableqte': 11, 'qty': '1', 'ent': '', 'rate': '4000', 'gst': '0.00', 'total': 4000}
+gestion-stock
+manager
+{'id': '5e81b28e-4988-4159-8bde-85fcdf097a72', 'name': 'TUNIQUE clrt 237169 noi standard', 'ref': '05040noistandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+{'id': '651ccb06-6856-47ad-b399-47ace109b2fa', 'name': 'GILET CLRT 247214 bei standard', 'ref': '05005beistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '7b138cfb-b01c-44fc-8688-b68fb02693ad', 'name': 'TUNIQUE GVC 7064 noi standard', 'ref': '05162noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '7b138cfb-b01c-44fc-8688-b68fb02693ad', 'name': 'TUNIQUE GVC 7064 noi standard', 'ref': '05162noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}]}
+TUNIQUE GVC 7064 noi standard in MAG54 MOHAMMADIA MALL - Quantity: 15 1
+{'id': '7b138cfb-b01c-44fc-8688-b68fb02693ad', 'name': 'TUNIQUE GVC 7064 noi standard', 'ref': '05162noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}
+{'IdBon': 'FIG2409-2525', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'LAOURIT ABDOU', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0553115692'}, 'AssociatedBL': 'BL2409/02341', 'time': 25, 'produits': [{'id': '33b378e5-4f3d-4135-bb07-68fcf81327db', 'name': 'CPU INTEL I7 13700KF BOX', 'ref': 'I7-13700KF-BOX', 'qty': 1, 'livre': True, 'rate': 51680.67, 'total': 51680.67, 'numSeries': ['U31Y2A7502431']}]}
+gestion-stock
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2666', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2667', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+hello ['produits.can_see_producttab', 'ventes.can_see_bondevis', 'produits.can_see_produits', 'tiers.can_see_tierstab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'ventes.can_see_ventetab', 'target.can_see_targets', 'inventory.can_see_bontransfert', 'target.can_see_targettab', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'inventory.can_see_bonretour', 'ventes.can_see_bongarantie', 'inventory.can_see_bonsorties']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+hello ['produits.can_see_producttab', 'ventes.can_see_bondevis', 'produits.can_see_produits', 'tiers.can_see_tierstab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'ventes.can_see_ventetab', 'target.can_see_targets', 'inventory.can_see_bontransfert', 'target.can_see_targettab', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'inventory.can_see_bonretour', 'ventes.can_see_bongarantie', 'inventory.can_see_bonsorties']
+<QueryDict: {'csrfmiddlewaretoken': ['qjP39U7JaFb3UgpN3ia6cku6wQV176NTWJoGHFNXFizU305zaPjClSVYiEQzonBN'], 'billId': ['2669'], 'dateLivraison': ['2024-09-10']}>
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'Alem Islam', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '23750.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c42ff450-d129-468a-9771-528a63eaa232', 'name': 'RAM DDR4 ADATA GAMMIX D35 8GB 3600MHZ BLACK', 'ref': '9JAX4U36008G18ISBKD35', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '5450', 'gst': '0.00', 'total': 5450}, {'id': '9fecd1f2-6e1a-44c3-be6e-4759e7cb6270', 'name': 'MICROHPONE MARS GAMING MMIC-XT ULTRA-HIGH DEF ARGB \t', 'ref': 'MMIC-XT\t', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '18300', 'gst': '0.00', 'total': 18300}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'Alem Islam', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '23750.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c42ff450-d129-468a-9771-528a63eaa232', 'name': 'RAM DDR4 ADATA GAMMIX D35 8GB 3600MHZ BLACK', 'ref': '9JAX4U36008G18ISBKD35', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '5450', 'gst': '0.00', 'total': 5450}, {'id': '9fecd1f2-6e1a-44c3-be6e-4759e7cb6270', 'name': 'MICROHPONE MARS GAMING MMIC-XT ULTRA-HIGH DEF ARGB \t', 'ref': 'MMIC-XT\t', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '18300', 'gst': '0.00', 'total': 18300}]}
+RAM DDR4 ADATA GAMMIX D35 8GB 3600MHZ BLACK in PARKMALL SETIF - Quantity: 3 1
+MICROHPONE MARS GAMING MMIC-XT ULTRA-HIGH DEF ARGB 	 in PARKMALL SETIF - Quantity: 4 1
+{'id': 'c42ff450-d129-468a-9771-528a63eaa232', 'name': 'RAM DDR4 ADATA GAMMIX D35 8GB 3600MHZ BLACK', 'ref': '9JAX4U36008G18ISBKD35', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '5450', 'gst': '0.00', 'total': 5450}
+{'id': '9fecd1f2-6e1a-44c3-be6e-4759e7cb6270', 'name': 'MICROHPONE MARS GAMING MMIC-XT ULTRA-HIGH DEF ARGB \t', 'ref': 'MMIC-XT\t', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '18300', 'gst': '0.00', 'total': 18300}
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+commercial-vente
+<QueryDict: {'csrfmiddlewaretoken': ['Q2lbDMLdsBw09R7hGrcTPRfy28jMKhISFivc4cqplAc4zvkeOiXHSeV639Uu5v4r'], 'billId': ['2670'], 'dateLivraison': ['2024-09-10']}>
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '24800.00', 'TotalRemise': '500', 'verssement': False, 'produits': [{'id': 'd7b23151-1161-4691-96b6-4cffd326c717', 'name': 'ROBE 2P ARN 2203  bei standard', 'ref': '05124beistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '18900', 'gst': '0.00', 'total': 18900}, {'id': '06a08dfb-f2a1-4493-9823-302fdac4751d', 'name': 'CHEMISE STL  43341 ver standard', 'ref': '05091verstandard', 'availableqte': 38, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '24800.00', 'TotalRemise': '500', 'verssement': False, 'produits': [{'id': 'd7b23151-1161-4691-96b6-4cffd326c717', 'name': 'ROBE 2P ARN 2203  bei standard', 'ref': '05124beistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '18900', 'gst': '0.00', 'total': 18900}, {'id': '06a08dfb-f2a1-4493-9823-302fdac4751d', 'name': 'CHEMISE STL  43341 ver standard', 'ref': '05091verstandard', 'availableqte': 38, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+ROBE 2P ARN 2203  bei standard in MAG54 MOHAMMADIA MALL - Quantity: 4 1
+CHEMISE STL  43341 ver standard in MAG54 MOHAMMADIA MALL - Quantity: 38 1
+{'id': 'd7b23151-1161-4691-96b6-4cffd326c717', 'name': 'ROBE 2P ARN 2203  bei standard', 'ref': '05124beistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '18900', 'gst': '0.00', 'total': 18900}
+{'id': '06a08dfb-f2a1-4493-9823-302fdac4751d', 'name': 'CHEMISE STL  43341 ver standard', 'ref': '05091verstandard', 'availableqte': 38, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'id': '234f0416-74f2-4c00-8944-bf13c16c5cf5', 'name': 'HIDJAB CLRT 247195 ver standard', 'ref': '05013verstandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['ventes.can_see_ventetab', 'ventes.can_see_bondevis', 'produits.can_see_producttab', 'inventory.can_see_stocktab', 'reglements.can_see_etatregbl', 'inventory.can_create_echange_bill', 'ventes.can_see_bonretour', 'produits.can_see_produits', 'inventory.can_see_bonretour', 'reglements.can_see_reglementstab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_bongarantie', 'reglements.can_see_regbl', 'tiers.can_see_clients', 'ventes.can_see_bonlivraison']
+hello ['produits.can_see_producttab', 'ventes.can_see_bondevis', 'produits.can_see_produits', 'tiers.can_see_tierstab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'ventes.can_see_ventetab', 'target.can_see_targets', 'inventory.can_see_bontransfert', 'target.can_see_targettab', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'inventory.can_see_bonretour', 'ventes.can_see_bongarantie', 'inventory.can_see_bonsorties']
+commercial
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '605129a7-b201-44a9-a303-8351b6c8e77b', 'name': 'HIJAB CLARITY 247184noistandard', 'ref': '03239noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '605129a7-b201-44a9-a303-8351b6c8e77b', 'name': 'HIJAB CLARITY 247184noistandard', 'ref': '03239noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}]}
+HIJAB CLARITY 247184noistandard in MAG54 MOHAMMADIA MALL - Quantity: 2 1
+{'id': '605129a7-b201-44a9-a303-8351b6c8e77b', 'name': 'HIJAB CLARITY 247184noistandard', 'ref': '03239noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+{'dateReg': '2024-09-08', 'client': 1524, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '190400', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2409/02326', 'montantRegle': '190400', 'montant': 190400.02, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'nomClient': 'Alem Islam', 'adresse': '', 'phone': '0698195901', 'catclient': '1'}
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2669', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'ab356d4a-1260-4913-ad89-6f94407a6267', 'name': 'JUPE EXLT COTON  noi standard', 'ref': '05207noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'ab356d4a-1260-4913-ad89-6f94407a6267', 'name': 'JUPE EXLT COTON  noi standard', 'ref': '05207noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}]}
+JUPE EXLT COTON  noi standard in MAG54 ROUIBA - Quantity: 10 1
+{'id': 'ab356d4a-1260-4913-ad89-6f94407a6267', 'name': 'JUPE EXLT COTON  noi standard', 'ref': '05207noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '16900.00', 'TotalRemise': '400', 'verssement': False, 'produits': [{'id': '9f856387-a2ef-4858-a67e-93321474ae11', 'name': 'PANTALON CLASSIQUE LILIA 4060 noi standard', 'ref': '05188noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4700', 'gst': '0.00', 'total': 4700}, {'id': 'f9401322-755f-49c1-bbdd-547f777d6762', 'name': 'CHEMISE ZRFT 2297  Mix standard', 'ref': '03298Mixstandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}, {'id': '417d7957-e7a4-4c1c-84eb-7b86ce37627e', 'name': 'HAUT ZNZ 523-8 ble standard', 'ref': '05233blestandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}, {'id': '938d2c61-0643-4d21-a5a9-07b8f4d555e8', 'name': 'PANTALON CLASSIQUE UZN194 Mix standard', 'ref': '03383Mixstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-09-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '16900.00', 'TotalRemise': '400', 'verssement': False, 'produits': [{'id': '9f856387-a2ef-4858-a67e-93321474ae11', 'name': 'PANTALON CLASSIQUE LILIA 4060 noi standard', 'ref': '05188noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4700', 'gst': '0.00', 'total': 4700}, {'id': 'f9401322-755f-49c1-bbdd-547f777d6762', 'name': 'CHEMISE ZRFT 2297  Mix standard', 'ref': '03298Mixstandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}, {'id': '417d7957-e7a4-4c1c-84eb-7b86ce37627e', 'name': 'HAUT ZNZ 523-8 ble standard', 'ref': '05233blestandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}, {'id': '938d2c61-0643-4d21-a5a9-07b8f4d555e8', 'name': 'PANTALON CLASSIQUE UZN194 Mix standard', 'ref': '03383Mixstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+PANTALON CLASSIQUE LILIA 4060 noi standard in MAG54 ROUIBA - Quantity: 10 1
+CHEMISE ZRFT 2297  Mix standard in MAG54 ROUIBA - Quantity: 9 1
+HAUT ZNZ 523-8 ble standard in MAG54 ROUIBA - Quantity: 10 1
+PANTALON CLASSIQUE UZN194 Mix standard in MAG54 ROUIBA - Quantity: 3 1
+{'id': '9f856387-a2ef-4858-a67e-93321474ae11', 'name': 'PANTALON CLASSIQUE LILIA 4060 noi standard', 'ref': '05188noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4700', 'gst': '0.00', 'total': 4700}
+{'id': 'f9401322-755f-49c1-bbdd-547f777d6762', 'name': 'CHEMISE ZRFT 2297  Mix standard', 'ref': '03298Mixstandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}
+{'id': '417d7957-e7a4-4c1c-84eb-7b86ce37627e', 'name': 'HAUT ZNZ 523-8 ble standard', 'ref': '05233blestandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}
+{'id': '938d2c61-0643-4d21-a5a9-07b8f4d555e8', 'name': 'PANTALON CLASSIQUE UZN194 Mix standard', 'ref': '03383Mixstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
