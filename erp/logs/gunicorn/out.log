@@ -5316,3 +5316,615 @@ hello ['ventes.can_see_bongarantie', 'ventes.can_see_ventetab', 'inventory.can_s
 {'IdBon': '', 'dateBp': '2024-09-10', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'bd4f0ab8-3c4d-4364-9cd3-f3bf3d032470', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 33, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
 LIQUETTE ZMRT-BK-ALABA  Mix standard in MAG54 ROUIBA - Quantity: 33 1
 {'id': 'bd4f0ab8-3c4d-4364-9cd3-f3bf3d032470', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 33, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+{'IdBon': '', 'dateBp': '2024-09-10', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6000', 'TotalRemise': '600', 'verssement': True, 'produits': [{'id': '93ff8c3b-dcf1-4085-b4b1-5450d43c1767', 'name': 'HIDJAB  clrt 247201 noi standard', 'ref': '05046noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}, {'id': '6f05275d-2220-45d6-ba8f-a1dc8f5d3d6a', 'name': 'CHEMISE GLG 2481  bei standard', 'ref': '05114beistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4500', 'gst': '0.00', 'total': 4500}, {'id': 'fb053aa2-462b-4358-94a3-e51edbf671dc', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 69, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-10', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6000', 'TotalRemise': '600', 'verssement': True, 'produits': [{'id': '93ff8c3b-dcf1-4085-b4b1-5450d43c1767', 'name': 'HIDJAB  clrt 247201 noi standard', 'ref': '05046noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}, {'id': '6f05275d-2220-45d6-ba8f-a1dc8f5d3d6a', 'name': 'CHEMISE GLG 2481  bei standard', 'ref': '05114beistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4500', 'gst': '0.00', 'total': 4500}, {'id': 'fb053aa2-462b-4358-94a3-e51edbf671dc', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 69, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+HIDJAB  clrt 247201 noi standard in MAG54 ROUIBA - Quantity: 5 1
+CHEMISE GLG 2481  bei standard in MAG54 ROUIBA - Quantity: 1 1
+PANTALON CLASSIQUE BUDAK new Mix standard in MAG54 ROUIBA - Quantity: 69 1
+{'id': '93ff8c3b-dcf1-4085-b4b1-5450d43c1767', 'name': 'HIDJAB  clrt 247201 noi standard', 'ref': '05046noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+{'id': '6f05275d-2220-45d6-ba8f-a1dc8f5d3d6a', 'name': 'CHEMISE GLG 2481  bei standard', 'ref': '05114beistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4500', 'gst': '0.00', 'total': 4500}
+{'id': 'fb053aa2-462b-4358-94a3-e51edbf671dc', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 69, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'IdBon': '', 'dateBp': '2024-09-10', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'Hanane', 'TotalPay': '5000', 'TotalRemise': '12500', 'verssement': True, 'produits': [{'id': '4b0fc201-3f93-4f2b-befa-bc47d9311d40', 'name': 'ensemble 2p bisa 7556/1744 bei standard', 'ref': '05118beistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '22500', 'gst': '0.00', 'total': 22500}]}
+{'IdBon': '', 'dateBp': '2024-09-10', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'Hanane', 'TotalPay': '5000', 'TotalRemise': '12500', 'verssement': True, 'produits': [{'id': '4b0fc201-3f93-4f2b-befa-bc47d9311d40', 'name': 'ensemble 2p bisa 7556/1744 bei standard', 'ref': '05118beistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '22500', 'gst': '0.00', 'total': 22500}]}
+ensemble 2p bisa 7556/1744 bei standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': '4b0fc201-3f93-4f2b-befa-bc47d9311d40', 'name': 'ensemble 2p bisa 7556/1744 bei standard', 'ref': '05118beistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '22500', 'gst': '0.00', 'total': 22500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'montant': '64900', 'date': '2024-09-10'}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2684', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2695', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2698', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2700', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2701', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2704', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2705', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2706', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+manager mag54
+  Veille Concurentielle
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['comptoire.can_see_clientfid', 'tiers.can_see_marques', 'reglements.can_see_depense', 'inventory.can_see_bonreforme', 'clientInfo.can_see_tax_douan', 'tiers.can_see_constructeur', 'reglements.can_see_loyers', 'tiers.can_see_fournisseurs', 'inventory.can_see_entrepots', 'clientInfo.can_see_tablebases', 'comptoire.can_see_cloture', 'reglements.can_see_regbl', 'tiers.can_see_clients', 'users.can_see_users', 'produits.can_see_liasion_entrepotproduit', 'clientInfo.can_see_compteEntreprise', 'target.can_see_equipe', 'inventory.can_see_etatreforme', 'ventes.can_see_bonretour', 'achats.can_see_achattab', 'ventes.can_see_bongarantie', 'tiers.can_see_banques', 'ventes.can_see_avoir', 'ventes.can_see_bondevis', 'tiers.can_see_agences', 'clientInfo.can_see_units', 'reglements.can_see_typereg', 'inventory.can_see_invinitial', 'target.can_see_targettab', 'ventes.can_see_boncomptoires', 'achats.can_see_bonreception', 'clientInfo.can_see_valeur_devis', 'clientInfo.can_see_clientInfo', 'tiers.can_see_comptesBancaire', 'reglements.can_see_etattres', 'ventes.can_see_factures', 'inventory.can_see_bonsorties', 'inventory.can_see_etatsorties', 'reglements.can_see_divers', 'inventory.can_see_etatreintegration', 'produits.can_see_archives', 'clientInfo.can_see_societe', 'target.can_see_targets', 'ventes.can_see_ventetab', 'users.can_see_users_perm', 'comptoire.can_see_comptoir', 'achats.can_see_bonslivraisonachat', 'inventory.can_see_stocktab', 'inventory.can_see_bonentres', 'comptoire.can_see_fidelite', 'comptoire.can_see_caisseusers', 'reglements.can_see_avoir', 'ventes.can_see_bonlivraison', 'produits.can_see_produits_familles', 'achats.can_see_avoirsachats', 'reglements.can_see_reglementstab', 'comptoire.can_see_comptoirtab', 'produits.can_see_producttab', 'achats.can_see_facturesachats', 'tiers.can_see_tierstab', 'reglements.can_see_salaries', 'inventory.can_see_repartition', 'comptoire.can_see_tableaubord', 'reglements.can_see_regfaccli', 'clientInfo.can_see_identification', 'reglements.can_see_etatregfac', 'inventory.can_see_bontransfert', 'clientInfo.can_see_tax_tva', 'comptoire.can_see_pointsvente', 'clientInfo.can_see_devises', 'inventory.can_see_bonsreintegration', 'achats.can_see_bonscommandesachat', 'reglements.can_see_etatregbl', 'users.can_see_grp_users', 'produits.can_see_produits', 'inventory.can_see_bonslivraisonachat', 'produits.can_see_etatreforme', 'reglements.can_see_echreg', 'clientInfo.can_see_type_client', 'inventory.can_see_invannuel', 'inventory.can_see_etatentres', 'inventory.can_see_bonretour']
+<QueryDict: {'csrfmiddlewaretoken': ['0eAoL71nIgPiG71fNhHFJ7kvDXSm89FLnCDzC7ZoK8SyZ4Ua9n1JGyQeZFTRkMEc'], 'billId': ['2702'], 'dateLivraison': ['2024-09-10']}>
+MARKETING
+<QueryDict: {'csrfmiddlewaretoken': ['HejyEOE4TcAn7jil1tiM3w4FGGfsTZMEI0OoWKbtYqDnWoGjDu302RXJ6VAA7lij'], 'billId': ['2701'], 'dateLivraison': ['2024-09-10']}>
+{'IdBon': '', 'dateBp': '2024-09-10', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7600.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': '112bbe00-d9fa-47a5-8842-69c951f01cee', 'name': 'GILET HLM 11613 noi standard', 'ref': '03202noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '7600', 'gst': '0.00', 'total': 7600}]}
+{'IdBon': '', 'dateBp': '2024-09-10', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7600.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': '112bbe00-d9fa-47a5-8842-69c951f01cee', 'name': 'GILET HLM 11613 noi standard', 'ref': '03202noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '7600', 'gst': '0.00', 'total': 7600}]}
+GILET HLM 11613 noi standard in MAG54 ROUIBA - Quantity: 1 1
+{'id': '112bbe00-d9fa-47a5-8842-69c951f01cee', 'name': 'GILET HLM 11613 noi standard', 'ref': '03202noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '7600', 'gst': '0.00', 'total': 7600}
+commercial-vente
+{'montant': '00', 'date': '2024-09-10'}
+{'dateReg': '2024-09-10', 'client': 342, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '997000', 'banque': '', 'note': '3000 faux', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2402/00182', 'montantRegle': 0, 'montant': 200000.02}, {'idBon': 'BL2403/00288', 'montantRegle': 0, 'montant': 1170101.09}, {'idBon': 'BL2403/00392', 'montantRegle': 0, 'montant': 307923.22}, {'idBon': 'BL2405/00996', 'montantRegle': 0, 'montant': 19999.99}, {'idBon': 'BL2405/01067', 'montantRegle': 0, 'montant': 1092401.15}, {'idBon': 'BL2409/02285', 'montantRegle': 0, 'montant': 98900.01}, {'idBon': 'BL2409/02295', 'montantRegle': 0, 'montant': 57000}, {'idBon': 'BL2409/02346', 'montantRegle': '997000', 'montant': 1417000.35, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+gestion-stock
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2685', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2686', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2687', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2688', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2702', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2703', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+{'IdBon': 'FIG2409-2550', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'ETS TIZA KAMEL ', 'address': 'TIZI OUZOU', 'num_registre': '0239019A03', 'nif': '172150102344186', 'nai': '15014680008', 'nis': '', 'phone': '0778016730'}, 'AssociatedBL': 'BL2409/02374', 'time': 310, 'produits': [{'id': '6329ecd0-e74f-4fa2-a3b3-8834edc32597', 'name': 'CPU AMD RYZEN 7 5700G MPK\t', 'ref': 'AW100100000263MPK\t', 'qty': 2, 'livre': True, 'rate': 27563.03, 'total': 55126.06, 'numSeries': ['9ADE085P40444_100-000000263', '9ADE085P40445_100-000000263']}, {'id': '4ae059bb-94de-4a59-90c2-695f775643af', 'name': 'CPU INTEL I5 13400F', 'ref': 'I5-13400F', 'qty': 1, 'livre': True, 'rate': 28487.4, 'total': 28487.4, 'numSeries': ['U3888JL300268']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2552', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'hb information technology', 'address': 'cite frerie 01 lot 15, El hamiz Dar el Beida', 'num_registre': '11A6239984-16/00', 'nif': '183470601067124', 'nai': '16204891025', 'nis': '19547060016115811600', 'phone': '+213 557 30 34 04'}, 'AssociatedBL': 'BL2409/02373', 'time': 372, 'produits': [{'id': 'd30d827f-5491-4c13-ae8f-927055f82ea0', 'name': 'BOITIER MARS GAMING MC-VIEW BLACK', 'ref': 'MC-VIEW', 'qty': 2, 'livre': True, 'rate': 7478.99, 'total': 14957.98, 'numSeries': ['MC-VIEW\t (2)']}]}
+gestion-stock
+MARKETING
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['comptoire.can_see_clientfid', 'tiers.can_see_marques', 'reglements.can_see_depense', 'inventory.can_see_bonreforme', 'clientInfo.can_see_tax_douan', 'tiers.can_see_constructeur', 'reglements.can_see_loyers', 'tiers.can_see_fournisseurs', 'inventory.can_see_entrepots', 'clientInfo.can_see_tablebases', 'comptoire.can_see_cloture', 'reglements.can_see_regbl', 'tiers.can_see_clients', 'users.can_see_users', 'produits.can_see_liasion_entrepotproduit', 'clientInfo.can_see_compteEntreprise', 'target.can_see_equipe', 'inventory.can_see_etatreforme', 'ventes.can_see_bonretour', 'achats.can_see_achattab', 'ventes.can_see_bongarantie', 'tiers.can_see_banques', 'ventes.can_see_avoir', 'ventes.can_see_bondevis', 'tiers.can_see_agences', 'clientInfo.can_see_units', 'reglements.can_see_typereg', 'inventory.can_see_invinitial', 'target.can_see_targettab', 'ventes.can_see_boncomptoires', 'achats.can_see_bonreception', 'clientInfo.can_see_valeur_devis', 'clientInfo.can_see_clientInfo', 'tiers.can_see_comptesBancaire', 'reglements.can_see_etattres', 'ventes.can_see_factures', 'inventory.can_see_bonsorties', 'inventory.can_see_etatsorties', 'reglements.can_see_divers', 'inventory.can_see_etatreintegration', 'produits.can_see_archives', 'clientInfo.can_see_societe', 'target.can_see_targets', 'ventes.can_see_ventetab', 'users.can_see_users_perm', 'comptoire.can_see_comptoir', 'achats.can_see_bonslivraisonachat', 'inventory.can_see_stocktab', 'inventory.can_see_bonentres', 'comptoire.can_see_fidelite', 'comptoire.can_see_caisseusers', 'reglements.can_see_avoir', 'ventes.can_see_bonlivraison', 'produits.can_see_produits_familles', 'achats.can_see_avoirsachats', 'reglements.can_see_reglementstab', 'comptoire.can_see_comptoirtab', 'produits.can_see_producttab', 'achats.can_see_facturesachats', 'tiers.can_see_tierstab', 'reglements.can_see_salaries', 'inventory.can_see_repartition', 'comptoire.can_see_tableaubord', 'reglements.can_see_regfaccli', 'clientInfo.can_see_identification', 'reglements.can_see_etatregfac', 'inventory.can_see_bontransfert', 'clientInfo.can_see_tax_tva', 'comptoire.can_see_pointsvente', 'clientInfo.can_see_devises', 'inventory.can_see_bonsreintegration', 'achats.can_see_bonscommandesachat', 'reglements.can_see_etatregbl', 'users.can_see_grp_users', 'produits.can_see_produits', 'inventory.can_see_bonslivraisonachat', 'produits.can_see_etatreforme', 'reglements.can_see_echreg', 'clientInfo.can_see_type_client', 'inventory.can_see_invannuel', 'inventory.can_see_etatentres', 'inventory.can_see_bonretour']
+hello ['produits.can_see_liasion_entrepotproduit', 'tiers.can_see_banques', 'ventes.can_see_bongarantie', 'reglements.can_see_etatregbl', 'users.can_see_users_perm', 'clientInfo.can_see_devises', 'reglements.can_see_avoir', 'ventes.can_see_ventetab', 'clientInfo.can_see_tablebases', 'reglements.can_see_regbl', 'clientInfo.can_see_identification', 'tiers.can_see_agences', 'produits.can_see_produits', 'reglements.can_see_typereg', 'clientInfo.can_see_societe', 'inventory.can_see_etatreforme', 'tiers.can_see_comptesBancaire', 'inventory.can_see_bonretour', 'reglements.can_see_salaries', 'inventory.can_see_etatsorties', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'clientInfo.can_see_valeur_devis', 'inventory.can_see_bontransfert', 'inventory.can_see_invinitial', 'comptoire.can_see_comptoir', 'ventes.can_see_avoir', 'clientInfo.can_see_tax_douan', 'clientInfo.can_see_type_client', 'comptoire.can_see_clientfid', 'target.can_see_equipe', 'inventory.can_see_etatentres', 'ventes.can_see_bondevis', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'achats.can_see_bonreception', 'produits.can_see_producttab', 'comptoire.can_see_fidelite', 'reglements.can_see_depense', 'tiers.can_see_marques', 'ventes.can_see_boncomptoires', 'achats.can_see_achattab', 'clientInfo.can_see_tax_tva', 'inventory.can_see_bonreforme', 'produits.can_see_archives', 'achats.can_see_facturesachats', 'reglements.can_see_regfaccli', 'inventory.can_see_bonsorties', 'reglements.can_see_etattres', 'tiers.can_see_constructeur', 'reglements.can_see_etatregfac', 'produits.can_see_produits_familles', 'tiers.can_see_fournisseurs', 'achats.can_see_bonslivraisonachat', 'comptoire.can_see_caisseusers', 'inventory.can_see_invannuel', 'comptoire.can_see_tableaubord', 'reglements.can_see_reglementstab', 'comptoire.can_see_cloture', 'inventory.can_see_repartition', 'users.can_see_grp_users', 'achats.can_see_avoirsachats', 'reglements.can_see_loyers', 'inventory.can_see_bonslivraisonachat', 'tiers.can_see_tierstab', 'users.can_see_users', 'inventory.can_see_etatreintegration', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'target.can_see_targets', 'reglements.can_see_echreg', 'clientInfo.can_see_clientInfo', 'clientInfo.can_see_compteEntreprise', 'inventory.can_see_stocktab', 'inventory.can_see_bonentres', 'reglements.can_see_divers', 'inventory.can_see_entrepots', 'clientInfo.can_see_units', 'tiers.can_see_clients', 'comptoire.can_see_pointsvente', 'ventes.can_see_factures']
+hello ['produits.can_see_liasion_entrepotproduit', 'tiers.can_see_banques', 'ventes.can_see_bongarantie', 'reglements.can_see_etatregbl', 'users.can_see_users_perm', 'clientInfo.can_see_devises', 'reglements.can_see_avoir', 'ventes.can_see_ventetab', 'clientInfo.can_see_tablebases', 'reglements.can_see_regbl', 'clientInfo.can_see_identification', 'tiers.can_see_agences', 'produits.can_see_produits', 'reglements.can_see_typereg', 'clientInfo.can_see_societe', 'inventory.can_see_etatreforme', 'tiers.can_see_comptesBancaire', 'inventory.can_see_bonretour', 'reglements.can_see_salaries', 'inventory.can_see_etatsorties', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'clientInfo.can_see_valeur_devis', 'inventory.can_see_bontransfert', 'inventory.can_see_invinitial', 'comptoire.can_see_comptoir', 'ventes.can_see_avoir', 'clientInfo.can_see_tax_douan', 'clientInfo.can_see_type_client', 'comptoire.can_see_clientfid', 'target.can_see_equipe', 'inventory.can_see_etatentres', 'ventes.can_see_bondevis', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'achats.can_see_bonreception', 'produits.can_see_producttab', 'comptoire.can_see_fidelite', 'reglements.can_see_depense', 'tiers.can_see_marques', 'ventes.can_see_boncomptoires', 'achats.can_see_achattab', 'clientInfo.can_see_tax_tva', 'inventory.can_see_bonreforme', 'produits.can_see_archives', 'achats.can_see_facturesachats', 'reglements.can_see_regfaccli', 'inventory.can_see_bonsorties', 'reglements.can_see_etattres', 'tiers.can_see_constructeur', 'reglements.can_see_etatregfac', 'produits.can_see_produits_familles', 'tiers.can_see_fournisseurs', 'achats.can_see_bonslivraisonachat', 'comptoire.can_see_caisseusers', 'inventory.can_see_invannuel', 'comptoire.can_see_tableaubord', 'reglements.can_see_reglementstab', 'comptoire.can_see_cloture', 'inventory.can_see_repartition', 'users.can_see_grp_users', 'achats.can_see_avoirsachats', 'reglements.can_see_loyers', 'inventory.can_see_bonslivraisonachat', 'tiers.can_see_tierstab', 'users.can_see_users', 'inventory.can_see_etatreintegration', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'target.can_see_targets', 'reglements.can_see_echreg', 'clientInfo.can_see_clientInfo', 'clientInfo.can_see_compteEntreprise', 'inventory.can_see_stocktab', 'inventory.can_see_bonentres', 'reglements.can_see_divers', 'inventory.can_see_entrepots', 'clientInfo.can_see_units', 'tiers.can_see_clients', 'comptoire.can_see_pointsvente', 'ventes.can_see_factures']
+{'IdBon': 'FIG2409-2554', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'click info', 'address': '', 'num_registre': '22B0118700-00/31', 'nif': '002231011870098', 'nai': '31808830175', 'nis': '', 'phone': '0550122810'}, 'AssociatedBL': 'BL2409/02354', 'time': 221, 'produits': [{'id': '15d225c1-f4e6-45ec-a620-2f771d848757', 'name': 'BOITIER MARS GAMING MC-VIEWW WHITE', 'ref': 'MC-VIEWW', 'qty': 5, 'livre': True, 'rate': 7478.99, 'total': 37394.95, 'numSeries': ['MC-VIEWW (5)']}, {'id': '4ccaa5a5-cfbe-4c01-ba91-010ff9a02c61', 'name': 'BOITIER MARS GAMING MC-XP BLACK', 'ref': 'MC-XP', 'qty': 3, 'livre': True, 'rate': 10000, 'total': 30000, 'numSeries': ['MC-XP (3)']}, {'id': 'd86dc140-677a-4366-88d0-2d483ee06d6e', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL SILVER', 'ref': 'MMPXLS\t', 'qty': 5, 'livre': True, 'rate': 1176.47, 'total': 5882.35, 'numSeries': ['MMPXLS (5)']}, {'id': 'b8b24d3e-bf73-41a8-b725-133d932c3171', 'name': 'CASQUE MSI IMMERSE GH20', 'ref': 'MDS372101030SV1', 'qty': 5, 'livre': True, 'rate': 4537.82, 'total': 22689.1, 'numSeries': ['S372101030SV110348000274', 'S372101030SV110348000273', 'S372101030SV110348000278', 'S372101030SV110348000279', 'S372101030SV110348000280']}, {'id': 'a4da61a5-6b04-4cf6-af7e-40f918726d1e', 'name': 'CPU AMD RYZEN 3 3200G MPK', 'ref': '3200G-MPK', 'qty': 2, 'livre': True, 'rate': 11680.68, 'total': 23361.36, 'numSeries': ['9KT8557R30218_YD3200C5M4MFH', '9KT7117R30399_YD3200C5M4MFH']}, {'id': '4098602c-1232-4db2-9fb7-d49101e21b14', 'name': 'CPU AMD RYZEN 9 7900X3D', 'ref': '7900X3D', 'qty': 1, 'livre': True, 'rate': 83109.25, 'total': 83109.25, 'numSeries': ['9KS5819P30150']}]}
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+[{'id': 31, 'date': '2024-08-01', 'datereponse': '2024-08-01', 'objet': 'ERREUR DE POINTAGE ', 'message': "11-07-2024 à 00:00:00\n15-07-2024 à 00:00:00\nJ'ETAI PRESENT ", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 27, 'date': '2024-07-31', 'datereponse': '2024-07-31', 'objet': 'DEMANDE DE PRET ', 'message': 'Monsieur BRIK Toufik,\nJe me permets de vous adresser cette lettre afin de solliciter un prêt de la part de l’entreprise. Après avoir pris en compte ma situation financière actuelle et les besoins que je rencontre, je souhaiterais obtenir un prêt de 150 000.00 DA.\nLa raison de cette demande est (payé le loyer annuel de la maison que j’occupe actuellement) J’ai bien réfléchi à cette demande et je m’engage à rembourser ce prêt selon les modalités que vous jugerez appropriées.\nJe propose de rembourser ce prêt par [déduction mensuelle sur salaire 12500da/mois], et je suis prêt à discuter des conditions précises avec vous pour convenir d’un plan de remboursement qui convient aux deux parties.\nJe reste à votre disposition pour toute information complémentaire ou pour discuter de cette demande en personne.\nJe vous remercie par avance pour l’attention que vous porterez à cette demande et pour votre compréhension.\nJe vous prie d’agréer, Monsieur le Directeur, l’expression de mes salutations distinguées.\n', 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 26, 'date': '2024-07-22', 'datereponse': '2024-07-22', 'objet': 'DEMANDE DE FICHE DE PAYE ', 'message': "BONSOIR ,\nSvp monsieur le directeur veuillez voir avec le comptable pour nous remettre les fiches de pays de l'année 2024 \nJANVIER-FEVRIER-MARS-AVRIL-JUIN.\nAcceptez monsieur mes salutation \n ", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 25, 'date': '2024-07-16', 'datereponse': '2024-07-17', 'objet': 'concernent le salaire', 'message': "- versement du salaire du ''juin'' \n- les primes du chiffre d'affaire \n- une solution pour le transport (la proposition de faire le travail une version Hybrid)", 'reponse': "En réponse à votre lettre concernant votre salaire mensuel, j'ai l'honneur de vous informer de ce qui suit :\n- Compte tenu de votre situation instable au travail, notamment des nombreuses absences qui sont censées vous être déduites, nous avons pris en compte votre condition de santé particulière (maladie chronique déclarée avant votre embauche), ce qui a fait que l'administration n'a pas procédé à la déduction.\n- Quant à les primes du chiffre d'affaire, pouvez-vous la calculer si elle existe ??!!!!\n- Quant à la proposition relative au travail à distance, elle ne fait pas partie des plans de travail de l'entreprise\nJ'ai également l'honneur de vous informer que vous aurez prévu une séance de travail pour déterminer l'avenir de votre travail au sein de l'entreprise.", 'valide': 'true', 'destinataire': 'executif', 'salarie': '01'}, {'id': 24, 'date': '2024-07-10', 'datereponse': '2024-07-10', 'objet': 'livraison des BL', 'message': 'Lamin info \nBL2407/01462   (July 2, 2024)\nBL2407/01484   (July 3, 2024)\nBL2407/01533    (July 7, 2024)\nhdert m3a  transpoteur :\nTransport hamoda\n0550 22\xa069\xa047\n', 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': '01'}, {'id': 23, 'date': '2024-07-10', 'datereponse': '2024-07-11', 'objet': 'Pointage ', 'message': "Bonjour Mr. Brik je vous informe que j'ai pas pointé la sortie hiere et la sortie avant hiere, par ce que j'ai travaillé au dépôt et j'ai sorti tard. Merci", 'reponse': 'ok', 'valide': 'true', 'destinataire': 'executif', 'salarie': 'oussama'}, {'id': 21, 'date': '2024-07-02', 'datereponse': '2024-07-03', 'objet': 'renouvellement de contrat', 'message': "je souhaite vous informer de ma décision de ne pas renouveler mon contrat à durée déterminée qui prend fin le 10 aout 2024. Je tiens à exprimer ma sincère gratitude pour l'opportunité qui m'a été offerte de travailler au sein de Divatech\n\nCependant, après mûre réflexion, j'ai pris la décision de ne pas renouveler mon contrat actuel. La distance entre mon domicile et le lieu de travail entraîne un temps de trajet excessif de plus de deux heures, matin et soir, chaque jour. Ces longues heures de trajet quotidiennes me privent de temps précieux et ont des répercussions sur ma santé et ma qualité de vie. d'un autre coté, Je tenais à vous remercier sincèrement pour la chambre mise à ma disposition dans l'atelier. Votre geste m'a vraiment aidé et a facilité un peu ma situation. Malheureusement, après y avoir réfléchi et avoir passé du temps dans cette chambre, j'ai réalisé que cette solution ne me convient pas pour plusieurs raisons. Toute cette situation entraîne des problèmes personnels et professionnels. Et affecte ma capacité à remplir efficacement mes fonctions.\n\nJe tiens donc à vous informer avec préavis que ma dernière journée de travail au sein de l'entreprise sera le jeudi 8 aout 2024. en outre, Je souhaiterais convertir mes jours de congé restants en compensation financière au lieu de les prendre avant la fin de mon contrat. je vous prie aussi de prendre toutes les mesures nécessaires pour assurer que tous les documents et formalités administratives soient prêts pour mon départ à cette date. Je vous remercie de votre compréhension et de votre coopération dans cette démarche, et Je reste à votre disposition pour faciliter ce processus.\n", 'reponse': 'En réponse à votre demande  relative au renouvellement de contrat, vous êtes convoqués à vous présenter au siège de la Direction Générale dans les plus brefs délais.', 'valide': 'true', 'destinataire': 'generale', 'salarie': 'billel'}, {'id': 20, 'date': '2024-07-02', 'datereponse': '2024-07-02', 'objet': 'renouvellement de contrat', 'message': "je souhaite vous informer de ma décision de ne pas renouveler mon contrat à durée déterminée qui prend fin le 10 aout 2024. Je tiens à exprimer ma sincère gratitude pour l'opportunité qui m'a été offerte de travailler au sein de Divatech\n\nCependant, après mûre réflexion, j'ai pris la décision de ne pas renouveler mon contrat actuel. La distance entre mon domicile et le lieu de travail entraîne un temps de trajet excessif de plus de deux heures, matin et soir, chaque jour. Ces longues heures de trajet quotidiennes me privent de temps précieux et ont des répercussions sur ma santé et ma qualité de vie. d'un autre coté, Je tenais à vous remercier sincèrement pour la chambre mise à ma disposition dans l'atelier. Votre geste m'a vraiment aidé et a facilité un peu ma situation. Malheureusement, après y avoir réfléchi et avoir passé du temps dans cette chambre, j'ai réalisé que cette solution ne me convient pas pour plusieurs raisons. Toute cette situation entraîne des problèmes personnels et professionnels. Et affecte ma capacité à remplir efficacement mes fonctions.\n\nJe tiens donc à vous informer avec préavis que ma dernière journée de travail au sein de l'entreprise sera le jeudi 8 aout 2024. en outre, Je souhaiterais convertir mes jours de congé restants en compensation financière au lieu de les prendre avant la fin de mon contrat. je vous prie aussi de prendre toutes les mesures nécessaires pour assurer que tous les documents et formalités administratives soient prêts pour mon départ à cette date. Je vous remercie de votre compréhension et de votre coopération dans cette démarche, et Je reste à votre disposition pour faciliter ce processus.", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'billel'}, {'id': 18, 'date': '2024-06-10', 'datereponse': '2024-06-19', 'objet': 'RECLAMATION DE SALAIRE ', 'message': "voici mon calcule pour mon salaire du moi de mai \nj'aimerais avoir + de détaille svp  \n\nLES RETARDS   : 3 JOURS (1440MIN)   -5000DA\nCHIFRE D'AFFAIRE  REALISE : 26 000 000.00 DA  (67000.00)\nHEURS SUP :  19 HEURS  ( 4900.00DA ) \n Demande de fiche de paye détaillé avec la réception de salaire svp .", 'reponse': "Nous avons pris soin de votre préoccupation et réglé votre situation. En cas d'ambiguïté ou d'ambiguïté, veuillez contacter nos centres d'intérêt pour obtenir des éclaircissements.", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 17, 'date': '2024-06-09', 'datereponse': '2024-06-19', 'objet': 'virement de salaire ', 'message': "j'ai pas encor recu mon salaire pour le premier mois", 'reponse': "En réponse à la question relative à l'état de votre salaire mensuel, j'ai l'honneur de vous informer du règlement de votre situation au cours du mois de juin. Vous êtes donc tenu de vous rapprocher de nos intérêts pour prouver la situation. au plus tard le 28/06/2024. Ne pas vous approcher implicitement signifie régler la situation.", 'valide': 'true', 'destinataire': 'executif', 'salarie': '01'}, {'id': 16, 'date': '2024-05-22', 'datereponse': '2024-05-29', 'objet': "Contestation d'erreurs sur mes absences", 'message': "Ayad Hichem\nStidia, Mostaganem, Rus si Zeghloul \n27000, Stidia\nhclarman@gmail.com\n0771712247\nBrick Toufik\nDirecteur Exécutif\nDIVATECH\nLes Bananiers, Mohammadia Mall\n16000, Alger\nMercredi 22 mai 2024\n\nObjet : Contestation d'erreurs sur mes absences\n\nMonsieur,\n\nJe me permets de vous écrire afin de porter à votre attention une erreur concernant les absences enregistrées à mon nom.\nEn consultant mon relevé de présence pour le mois d’avril j'ai constaté plusieurs anomalies. En effet, il y est indiqué que j'étais absent le jeudi 04 avril 2024, alors que j'étais présent et que j'ai rempli mes tâches pour une demi journée. Je souhaite apporter les précisions suivantes :\n1.\tVendredi le 05 avril 2024 : jours ferrier pas de travail le vendredi\n2.\tSamedi 06 avril 2024 : le samedi n’est pas mentionné dans le contrat comme jour de travail \n3.\tDimanche 07 avril 2024 j’était absent sans justification\n4.\tDimanche 14 avril 2024 : absent pour une demi-journée en raison du long trajet pour arriver au travail heure d’arriver 14h:00 \nJe vous demande de bien vouloir vérifier les registres de présence et d'apporter les corrections nécessaires à mon dossier. Ces erreurs pourraient avoir des répercussions négatives sur mon salaire, mes avantages et mon évaluation annuelle, ce que je souhaite éviter.\nJe suis à votre disposition pour fournir toute information supplémentaire ou pour discuter de cette situation plus en détail.\nDans l'attente de votre retour, je vous prie de croire Monsieur, en l'assurance de ma considération distinguée.\n\n Ayad Hichem\n", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'hichem'}, {'id': 14, 'date': '2024-05-21', 'datereponse': '2024-05-29', 'objet': 'Notification de fin de contrat de travail', 'message': " Monsieur,\n\nJe vous écris pour vous informer officiellement que mon contrat de travail à durée déterminée en tant que technicien prendra fin à la date du 22/06/2024, conformément aux termes de ce contrat signé le 28/07/2023.\n\nJe tiens à exprimer ma gratitude pour les opportunités et les expériences enrichissantes que j'ai pu vivre au sein de DIVATECH. Cette période m'a permis de développer mes compétences professionnelles et de travailler avec une équipe dynamique et engagée.\n\nAfin de faciliter mon départ et de garantir une transition en douceur, je vous prie de bien vouloir préparer tous les documents nécessaires relatifs à la cessation de mon contrat de travail, y compris mon certificat de travail et mon solde de tout compte. De plus, je souhaiterais que vous procédiez au règlement de mes jours de congé non pris, conformément aux dispositions légales en vigueur.\n\nJe vous remercie encore une fois pour votre soutien et votre confiance durant mon passage dans votre entreprise.\n\nJe vous prie d'agréer Monsieur, l'expression de mes salutations distinguées.\n\nAyad Hichem\n\n", 'reponse': "\n \n\nEURL DIVATECH \nCENTRE COMMERCIAL MOHAMMADIA MALL \n7ÉME ÉTAGE LOCAL N 1262, MOHAMMADIA                               ALGER LE : 18/05/2024\nTEL : 023 80 49 07 / INFO@DIVATECHDZ.COM\n\n\n\nObjet : Concernant votre démission\n\nM. Ayad Hichem\n\n\nEn réponse à votre lettre concernant votre démission de votre poste de technicien de réparation au niveau de l'entreprise EURL DIVATECH\n\nJ'ai l'honneur de vous informer de l'importance de compléter les jours de congé dus pour la période de service effectif au niveau de l'institution, qui est estimée dans les jours restants à onze jours Du 23/05/2024 au 02/06/2024\nAprès la fin de la période de congé, vous serez contacté afin de compléter les démarches liées à la passation des tâches et des pouvoirs.\n\n\n\nLe Directeur \n\n                                                                                                   Brik toufik\n", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'hichem'}, {'id': 13, 'date': '2024-05-06', 'datereponse': '2024-05-07', 'objet': 'Clarification de la date de début de service et demande de rectification', 'message': "Je me permets de vous contacter concernant un malentendu sur la date de début de mon service au sein de Divatech. Selon les informations que j'ai reçues, il semble y avoir une confusion sur cette date, ce qui a conduit à des problèmes lors de ma demande de jours de congé.\n\nJe tiens à clarifier que j'ai commencé à travailler pour Divatech le 3 septembre 2023, Je suis conscient qu'il peut y avoir eu un retard dans la déclaration d'assurance, mais cela ne change pas ma date de début effective au sein de l'entreprise.\n\nEn conséquence, je vous serais reconnaissant de bien vouloir rectifier mes données dans vos systèmes internes afin que ma date de début de service soit correctement enregistrée comme étant le 3 septembre. Cela facilitera la gestion future de mes congés et autres demandes administratives.\n\nEt donc, compte tenu de ma date de début de service effective au 3 septembre, et conformément à la politique de l'entreprise qui accorde 2,5 jours de congé par mois travaillé, je suis en droit de bénéficier de 20 jours de congé pour l'année en cours. \n\nMais puisque j'ai eu droit à 2 jours de congé avant l'aid, il me reste que 18 jours.\n\nJe souhaiterais donc utiliser ces jours de congé selon le planning suivant :  du 12 Mai 2024 au 29 Mai 2024, soit une durée de 18 jours. Je prévois donc de reprendre le travail le 30 Juin 2024.\n\nJe reste à votre disposition pour toute information supplémentaire. Je vous remercie par avance pour votre attention à cette demande et je me tiens à votre disposition pour discuter de cette question de vive voix si nécessaire.", 'reponse': "En réponse à votre correspondance relative au congé annuel, j'ai l'honneur de vous informer du contenu du règlement intérieur conforme au droit du travail algérien, qui précise les conditions d'octroi, qui représentent essentiellement l'atteinte d'une année effective de travail, ainsi que le calendrier des dates d'ouverture des vacances Sans exception légale prévue par vous, j'ai le regret de vous informer que vous ne pouvez actuellement bénéficier de congés annuelles.", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'billel'}, {'id': 11, 'date': '2024-05-05', 'datereponse': '2024-05-07', 'objet': "Demande d'accompagnement pour la prospection clientes ", 'message': "Dans le cadre de l'élargissement de notre clientèle chez DivaTech et en coordination avec l'expédition prévue demain vers l'ouest et Oran, je vous soumets une liste de clients potentiels dans la wilaya d'Oran.\n\nJe vous prie donc de bien vouloir m'autoriser à accompagner le chauffeur, sans que cela n'affecte le déroulement de mon travail quotidien. En effet, je veillerai à maintenir mon programme d'appels téléphoniques.\n\nLa Liste :\n-Glitch Oran \n-Collosse informatique  \n-New-tech pro \n-Tahadi bureautique et informatique\n-AMZ El \n-MIB Informatique\n-Vision Informatique\n-Micro Land\n-BSM informatique \n-Micro Bil 2\nMerci \nCordialement      ", 'reponse': 'Dans le cas où votre correspondance urgente ne recevrait pas de réponse, un contact direct est nécessaire pour éviter les retards et les accumulations.', 'valide': 'true', 'destinataire': 'executif', 'salarie': 'desactive'}, {'id': 10, 'date': '2024-05-05', 'datereponse': '2024-05-05', 'objet': 'Demande de remplacement de chaise de bureau', 'message': "J'espère que vous allez bien. Je me permets de vous contacter pour vous faire part d'une situation préoccupante au sein du store, Malheureusement, notre chaise de bureau s'est cassée, et cela fait maintenant plus de dix jours que nous sommes contraints de rester debout. \nPourriez-vous, s'il vous plaît, procéder au remplacement de la chaise cassée dans les plus brefs délais?\n Je vous remercie par avance de votre attention à cette demande et espère que nous pourrons compter sur votre aide rapide pour résoudre ce problème.", 'reponse': 'Votre demande a été prise en charge et le matériel vous sera envoyé dans les plus brefs délais', 'valide': 'true', 'destinataire': 'executif', 'salarie': 'yasmine'}, {'id': 9, 'date': '2024-05-05', 'datereponse': '2024-05-05', 'objet': 'confirmation pour le demande de congé ', 'message': "monsieur le directeur, je n'ai toujours pas reçu de confirmation pour ma demande de congé médical étant donné que mes vacances commencent le 9 mai.", 'reponse': 'La demande est acceptée, mais il faut se munir des documents nécessaires au règlement administratif', 'valide': 'true', 'destinataire': 'executif', 'salarie': '01'}, {'id': 8, 'date': '2024-05-05', 'datereponse': '2024-05-29', 'objet': 'Demande de congé du 11 Mai 2024 au 30 Mai 2024. [20 jours] Type de congé: annuel. Cause: Grand besoin de repos ', 'message': "Je me permets par la présente de vous adresser ma demande de congé pour la période du 11 Mai 2024 au 30 Mai 2024, soit une durée de 20 jours. Je prévois donc de reprendre le travail le 2 Juin 2024.\n\nJ'ai planifié mes jours de congé en choisissant de les aligner avec les week-ends à venir, dans le but de maximiser le temps de récupération. Ces dernières semaines ont été particulièrement exigeantes pour moi, et je ressens le besoin impérieux de prendre du recul pour me reposer et recharger mes batteries. Je vous serais donc reconnaissant de bien vouloir considérer ma demande avec bienveillance et de respecter les jours de congé que j'ai soigneusement sélectionnés.\n\n\nDe plus, étant dans une situation financière nécessitant une avance sur mon salaire, je sollicite respectueusement le paiement de mon salaire du mois en cours [Mai] avant ma sortie, soit le 9 Mai 2024. Si cela n'est pas réalisable, je vous demande alors de bien vouloir effectuer un virement de la totalité de mon salaire sur mon compte CCP le plus tôt possible.\n\n\nJe reste à votre disposition pour toute information complémentaire.\n\nCordialement,\n\n\n\nBillel ounesli", 'reponse': "Ce qu'il faut, c'est redéfinir la date exacte car votre période de service effective ne couvre pas les jours de vacances. Le début de service est le 10/11/2023. Le droit aux congés annuels débute à partir d'un an de service effectif. Vous pouvez bénéficier de congés exceptionnels en fonction du besoin ou de la nécessité de service", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'assistante_direction'}, {'id': 6, 'date': '2024-05-05', 'datereponse': '2024-06-09', 'objet': 'Demande validation BL', 'message': "Salam \nSvp Veuillez valider le bon de livraison BL2405/00845/ Bouzourine Abdelkader - Pc Service +  car il y a une expédition aujourd'hui à Blida et le fourgon est sur place.\nMerci \nCordialement ", 'reponse': "Il est nécessaire de contacter via WhatsApp en cas d'urgence", 'valide': 'true', 'destinataire': 'generale', 'salarie': 'desactive'}]hello ['produits.can_see_liasion_entrepotproduit', 'tiers.can_see_banques', 'ventes.can_see_bongarantie', 'reglements.can_see_etatregbl', 'users.can_see_users_perm', 'clientInfo.can_see_devises', 'reglements.can_see_avoir', 'ventes.can_see_ventetab', 'clientInfo.can_see_tablebases', 'reglements.can_see_regbl', 'clientInfo.can_see_identification', 'tiers.can_see_agences', 'produits.can_see_produits', 'reglements.can_see_typereg', 'clientInfo.can_see_societe', 'inventory.can_see_etatreforme', 'tiers.can_see_comptesBancaire', 'inventory.can_see_bonretour', 'reglements.can_see_salaries', 'inventory.can_see_etatsorties', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'clientInfo.can_see_valeur_devis', 'inventory.can_see_bontransfert', 'inventory.can_see_invinitial', 'comptoire.can_see_comptoir', 'ventes.can_see_avoir', 'clientInfo.can_see_tax_douan', 'clientInfo.can_see_type_client', 'comptoire.can_see_clientfid', 'target.can_see_equipe', 'inventory.can_see_etatentres', 'ventes.can_see_bondevis', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'achats.can_see_bonreception', 'produits.can_see_producttab', 'comptoire.can_see_fidelite', 'reglements.can_see_depense', 'tiers.can_see_marques', 'ventes.can_see_boncomptoires', 'achats.can_see_achattab', 'clientInfo.can_see_tax_tva', 'inventory.can_see_bonreforme', 'produits.can_see_archives', 'achats.can_see_facturesachats', 'reglements.can_see_regfaccli', 'inventory.can_see_bonsorties', 'reglements.can_see_etattres', 'tiers.can_see_constructeur', 'reglements.can_see_etatregfac', 'produits.can_see_produits_familles', 'tiers.can_see_fournisseurs', 'achats.can_see_bonslivraisonachat', 'comptoire.can_see_caisseusers', 'inventory.can_see_invannuel', 'comptoire.can_see_tableaubord', 'reglements.can_see_reglementstab', 'comptoire.can_see_cloture', 'inventory.can_see_repartition', 'users.can_see_grp_users', 'achats.can_see_avoirsachats', 'reglements.can_see_loyers', 'inventory.can_see_bonslivraisonachat', 'tiers.can_see_tierstab', 'users.can_see_users', 'inventory.can_see_etatreintegration', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'target.can_see_targets', 'reglements.can_see_echreg', 'clientInfo.can_see_clientInfo', 'clientInfo.can_see_compteEntreprise', 'inventory.can_see_stocktab', 'inventory.can_see_bonentres', 'reglements.can_see_divers', 'inventory.can_see_entrepots', 'clientInfo.can_see_units', 'tiers.can_see_clients', 'comptoire.can_see_pointsvente', 'ventes.can_see_factures']
+yasmine
+aimen
+aimen
+yasmine
+aya_b
+sarah
+yasmine
+aya_b
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+nadjemeddine
+yasmine
+younes
+aya_b
+chawki
+aimen
+sarah
+yasmine
+aimen
+chawki
+aimen
+chawki
+nadjemeddine
+aimen
+nadjemeddine
+chawki
+nadjemeddine
+yasmine
+nadjemeddine
+aimen
+nadjemeddine
+nadjemeddine
+aya_b
+aya_b
+yasmine
+aya_b
+sarah
+aimen
+aimen
+sarah
+chawki
+aya_b
+yasmine
+yasmine
+aya_b
+aimen
+aimen
+aya_b
+aya_b
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+yasmine
+aimen
+01
+sarah
+yasmine
+yasmine
+yasmine
+sarah
+yasmine
+yasmine
+yasmine
+nadjemeddine
+yasmine
+aimen
+yasmine
+yasmine
+nadjemeddine
+toufik
+chawki
+aya_b
+yasmine
+01
+yasmine
+yasmine
+01
+aimen
+aya_b
+sarah
+nadjemeddine
+yasmine
+nadjemeddine
+01
+01
+yasmine
+01
+yasmine
+aimen
+nadjemeddine
+aya_b
+nadjemeddine
+aya_b
+aimen
+sarah
+aya_b
+nadjemeddine
+sarah
+sarah
+sarah
+01
+01
+chawki
+01
+nadjemeddine
+01
+aya_b
+yasmina_descative
+nadjemeddine
+aimen
+aimen
+sarah
+aya_b
+sarah
+nadjemeddine
+yasmine
+sarah
+yasmine
+aya_b
+nadjemeddine
+aya_b
+yasmine
+01
+01
+aimen
+01
+aya_b
+01
+sarah
+nadjemeddine
+nadjemeddine
+aimen
+aya_b
+01
+aya_b
+01
+01
+01
+yasmine
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+hello ['produits.can_see_liasion_entrepotproduit', 'tiers.can_see_banques', 'ventes.can_see_bongarantie', 'reglements.can_see_etatregbl', 'users.can_see_users_perm', 'clientInfo.can_see_devises', 'reglements.can_see_avoir', 'ventes.can_see_ventetab', 'clientInfo.can_see_tablebases', 'reglements.can_see_regbl', 'clientInfo.can_see_identification', 'tiers.can_see_agences', 'produits.can_see_produits', 'reglements.can_see_typereg', 'clientInfo.can_see_societe', 'inventory.can_see_etatreforme', 'tiers.can_see_comptesBancaire', 'inventory.can_see_bonretour', 'reglements.can_see_salaries', 'inventory.can_see_etatsorties', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'clientInfo.can_see_valeur_devis', 'inventory.can_see_bontransfert', 'inventory.can_see_invinitial', 'comptoire.can_see_comptoir', 'ventes.can_see_avoir', 'clientInfo.can_see_tax_douan', 'clientInfo.can_see_type_client', 'comptoire.can_see_clientfid', 'target.can_see_equipe', 'inventory.can_see_etatentres', 'ventes.can_see_bondevis', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'achats.can_see_bonreception', 'produits.can_see_producttab', 'comptoire.can_see_fidelite', 'reglements.can_see_depense', 'tiers.can_see_marques', 'ventes.can_see_boncomptoires', 'achats.can_see_achattab', 'clientInfo.can_see_tax_tva', 'inventory.can_see_bonreforme', 'produits.can_see_archives', 'achats.can_see_facturesachats', 'reglements.can_see_regfaccli', 'inventory.can_see_bonsorties', 'reglements.can_see_etattres', 'tiers.can_see_constructeur', 'reglements.can_see_etatregfac', 'produits.can_see_produits_familles', 'tiers.can_see_fournisseurs', 'achats.can_see_bonslivraisonachat', 'comptoire.can_see_caisseusers', 'inventory.can_see_invannuel', 'comptoire.can_see_tableaubord', 'reglements.can_see_reglementstab', 'comptoire.can_see_cloture', 'inventory.can_see_repartition', 'users.can_see_grp_users', 'achats.can_see_avoirsachats', 'reglements.can_see_loyers', 'inventory.can_see_bonslivraisonachat', 'tiers.can_see_tierstab', 'users.can_see_users', 'inventory.can_see_etatreintegration', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'target.can_see_targets', 'reglements.can_see_echreg', 'clientInfo.can_see_clientInfo', 'clientInfo.can_see_compteEntreprise', 'inventory.can_see_stocktab', 'inventory.can_see_bonentres', 'reglements.can_see_divers', 'inventory.can_see_entrepots', 'clientInfo.can_see_units', 'tiers.can_see_clients', 'comptoire.can_see_pointsvente', 'ventes.can_see_factures']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2556', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'click info', 'address': '', 'num_registre': '22B0118700-00/31', 'nif': '002231011870098', 'nai': '31808830175', 'nis': '', 'phone': '0550122810'}, 'AssociatedBL': 'BL2409/02363', 'time': 103, 'produits': [{'id': '455d8c2f-0d86-4530-8ec4-53afd573d70b', 'name': 'ECRAN MSI PRO MP341CQW WHITE                                  ', 'ref': '9S6-3PB2CT-007', 'qty': 2, 'livre': True, 'rate': 53697.48, 'total': 107394.96, 'numSeries': ['PB2T074400442', 'PB2T074400450']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+commercial-vente
+{'IdBon': 'FIG2409-2558', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'Amarjia choaib', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0774246054'}, 'AssociatedBL': 'BL2409/02361', 'time': 19, 'produits': [{'id': '594682a5-a737-4fc5-8c15-6033ef43b58f', 'name': 'ALIMENTATION MARS GAMING MPB 650W PSU 80PLUS BRONZE WHITE', 'ref': 'MPB650-WHITE', 'qty': 1, 'livre': True, 'rate': 8319.33, 'total': 8319.33, 'numSeries': ['MPB650-WHITE (1)']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Vendeuse
+gestion-stock
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10300.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'bc9950ca-f998-4887-8fb1-6d5284537364', 'name': 'HIJAB CLARITY 247184noistandard', 'ref': '03239noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}, {'id': '6ea69b6d-609e-4c95-b31a-8249bc0e8c56', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 1800}]}
+manager
+hello ['produits.can_see_liasion_entrepotproduit', 'tiers.can_see_banques', 'ventes.can_see_bongarantie', 'reglements.can_see_etatregbl', 'users.can_see_users_perm', 'clientInfo.can_see_devises', 'reglements.can_see_avoir', 'ventes.can_see_ventetab', 'clientInfo.can_see_tablebases', 'reglements.can_see_regbl', 'clientInfo.can_see_identification', 'tiers.can_see_agences', 'produits.can_see_produits', 'reglements.can_see_typereg', 'clientInfo.can_see_societe', 'inventory.can_see_etatreforme', 'tiers.can_see_comptesBancaire', 'inventory.can_see_bonretour', 'reglements.can_see_salaries', 'inventory.can_see_etatsorties', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'clientInfo.can_see_valeur_devis', 'inventory.can_see_bontransfert', 'inventory.can_see_invinitial', 'comptoire.can_see_comptoir', 'ventes.can_see_avoir', 'clientInfo.can_see_tax_douan', 'clientInfo.can_see_type_client', 'comptoire.can_see_clientfid', 'target.can_see_equipe', 'inventory.can_see_etatentres', 'ventes.can_see_bondevis', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'achats.can_see_bonreception', 'produits.can_see_producttab', 'comptoire.can_see_fidelite', 'reglements.can_see_depense', 'tiers.can_see_marques', 'ventes.can_see_boncomptoires', 'achats.can_see_achattab', 'clientInfo.can_see_tax_tva', 'inventory.can_see_bonreforme', 'produits.can_see_archives', 'achats.can_see_facturesachats', 'reglements.can_see_regfaccli', 'inventory.can_see_bonsorties', 'reglements.can_see_etattres', 'tiers.can_see_constructeur', 'reglements.can_see_etatregfac', 'produits.can_see_produits_familles', 'tiers.can_see_fournisseurs', 'achats.can_see_bonslivraisonachat', 'comptoire.can_see_caisseusers', 'inventory.can_see_invannuel', 'comptoire.can_see_tableaubord', 'reglements.can_see_reglementstab', 'comptoire.can_see_cloture', 'inventory.can_see_repartition', 'users.can_see_grp_users', 'achats.can_see_avoirsachats', 'reglements.can_see_loyers', 'inventory.can_see_bonslivraisonachat', 'tiers.can_see_tierstab', 'users.can_see_users', 'inventory.can_see_etatreintegration', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'target.can_see_targets', 'reglements.can_see_echreg', 'clientInfo.can_see_clientInfo', 'clientInfo.can_see_compteEntreprise', 'inventory.can_see_stocktab', 'inventory.can_see_bonentres', 'reglements.can_see_divers', 'inventory.can_see_entrepots', 'clientInfo.can_see_units', 'tiers.can_see_clients', 'comptoire.can_see_pointsvente', 'ventes.can_see_factures']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2555', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'GIGASTORE', 'address': 'oran', 'num_registre': '0', 'nif': '0', 'nai': '0', 'nis': '0', 'phone': '0559362118'}, 'AssociatedBL': 'BL2409/02367', 'time': 462, 'produits': [{'id': 'bf413324-7bc6-489d-9e08-9767411fe2f0', 'name': 'ALIMENTATION MSI MAG A1250GL 80+ GOLD FULL MODULAR', 'ref': 'A1250GL', 'qty': 4, 'livre': True, 'rate': 32352.94, 'total': 129411.76, 'numSeries': ['3067ZP9A11CE010405001253', '3067ZP9A11CE010405001256', '3067ZP9A11CE010405001254', '3067ZP9A11CE010405001255']}, {'id': 'c690c288-e61a-4fc2-8a35-858e460c7f1e', 'name': 'ALIMENTATION MSI MAG A750GL 750 WATTS 80PLUS GOLD PCIE5', 'ref': 'MD3067ZP8B11CE0', 'qty': 4, 'livre': True, 'rate': 13025.21, 'total': 52100.84, 'numSeries': ['3067ZP8B11CE010348003688', '3067ZP8B11CE010348003687', '3067ZP8B11CE010348003689', '3067ZP8B11CE010348003685']}, {'id': 'd485e7e1-3f83-4015-bb84-7a724352c337', 'name': 'CARTE GRAPHIQUE MSI RTX4070TI SUPER 16G GAMING X SLIM', 'ref': '4070TI-S-GAMINGX-', 'qty': 1, 'livre': True, 'rate': 179747.89, 'total': 179747.89, 'numSeries': ['602-V513-195SB2405000872']}, {'id': '0471b69b-2013-43d5-9881-78a0ab49819f', 'name': 'CARTE GRAPHIQUE MSI RTX 4070TI SUPER 12G GAMING X SLIM WHITE', 'ref': '4711377172363', 'qty': 1, 'livre': True, 'rate': 181428.57, 'total': 181428.57, 'numSeries': ['602-V513-197SB2405001258']}, {'id': 'b5b6701d-7cc6-4c62-a688-1ed669bea0b5', 'name': 'RAM DDR5 ADATA LANCER RGB 32GB 6000MHZ WHITE', 'ref': '9JAX5U6000C3032GCLARWH', 'qty': 4, 'livre': True, 'rate': 22268.91, 'total': 89075.64, 'numSeries': ['1O0200937050', '1O0200937356', '1O0200937378', '1O0200937405']}]}
+gestion-stock
+{'IdBon': 'FIG2409-2557', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'BOUALEM DEFNOUN ( ARIG ) ', 'address': 'BAB EL OUED', 'num_registre': '16/00-0024694A98', 'nif': '', 'nai': '16051001182', 'nis': '194016060012846', 'phone': ''}, 'AssociatedBL': 'BL2409/02369', 'time': 144, 'produits': [{'id': '7987f174-8ea1-4738-b543-3c31035647c5', 'name': 'BOITIER MSI MAG FORGE M100A\t', 'ref': 'MAG-FORGE-M100A\t', 'qty': 50, 'livre': True, 'rate': 6638.65, 'total': 331932.5, 'numSeries': ['3067G20A2180910411001589', '3067G20A2180910411001566', '3067G20A2180910411001571', '3067G20A2180910411001150', '3067G20A2180910411000154', '3067G20A2180910411001586', '3067G20A2180910411001574', '3067G20A2180910411001190', '3067G20A2180910411001729', '3067G20A2180910411001597', '3067G20A2180910411000161', '3067G20A2180910411001580', '3067G20A2180910411000156', '3067G20A2180910411001708', '3067G20A2180910411001725', '3067G20A2180910411001581', '3067G20A2180910411001193', '3067G20A2180910411001816', '3067G20A2180910411000147', '3067G20A2180910411001584', '3067G20A2180910411001601', '3067G20A2180910411000142', '3067G20A2180910411001171', '3067G20A2180910411001583', '3067G20A2180910411001181', '3067G20A2180910411001177', '3067G20A2180910411001175', '3067G20A2180910411001179', '3067G20A2180910411001174', '3067G20A2180910411001585', '3067G20A2180910411001201', '3067G20A2180910411001176', '3067G20A2180910411001599', '3067G20A2180910411001591', '3067G20A2180910411001561', '3067G20A2180910411001594', '3067G20A2180910411001182', '3067G20A2180910411001169', '3067G20A2180910411000145', '3067G20A2180910411001592', '3067G20A2180910411001168', '3067G20A2180910411001598', '3067G20A2180910411001200', '3067G20A2180910411001590', '3067G20A2180910411001572', '3067G20A2180910411001595', '3067G20A2180910411001178', '3067G20A2180910411001593', '3067G20A2180910411001180', '3067G20A2180910411000159']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+{'IdBon': 'FIG2409-2559', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'seddik mouad ( BRUTE FORCE )', 'address': 'constantine', 'num_registre': '25/00-0101979A20', 'nif': '194250010091012502500', 'nai': '', 'nis': '', 'phone': '0541136784'}, 'AssociatedBL': 'BL2409/02376', 'time': 14, 'produits': [{'id': 'd2651960-2963-4ea6-841d-618ce9a80eff', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060TI X2 8GB OC\t', 'ref': 'MD912V515017\t', 'qty': 1, 'livre': True, 'rate': 77226.89, 'total': 77226.89, 'numSeries': ['602-V512-08SB2404010226']}]}
+manager
+manager
+<QueryDict: {'csrfmiddlewaretoken': ['GFIojF759FgYdaancYAKTBtIEAYM4X0EHrdeBBEueTjY2fylOZlYSWmM4PjUijwj'], 'billId': ['2709'], 'dateLivraison': ['2024-09-11']}>
+manager
+{'IdBon': '', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10300.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'bc9950ca-f998-4887-8fb1-6d5284537364', 'name': 'HIJAB CLARITY 247184noistandard', 'ref': '03239noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}, {'id': '6ea69b6d-609e-4c95-b31a-8249bc0e8c56', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 1800}]}
+HIJAB CLARITY 247184noistandard in MAG54 MOHAMMADIA MALL - Quantity: 1 1
+FUSEAU LD BS noi standard in MAG54 MOHAMMADIA MALL - Quantity: 15 1
+{'id': 'bc9950ca-f998-4887-8fb1-6d5284537364', 'name': 'HIJAB CLARITY 247184noistandard', 'ref': '03239noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}
+{'id': '6ea69b6d-609e-4c95-b31a-8249bc0e8c56', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 1800}
+gestion-stock
+{'IdBon': '', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '8629a90f-6ff7-415a-93f4-78faca5c88ab', 'name': 'CHEMISE GLG 2484 ver standard', 'ref': '05106verstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '4500', 'gst': '0.00', 'total': 4500}, {'id': 'dca51d78-eb4c-4066-bb57-acdc803a1f24', 'name': 'PANTALON CLASSIQUE EXLT GUCCI Mix standard', 'ref': '03387Mixstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '8629a90f-6ff7-415a-93f4-78faca5c88ab', 'name': 'CHEMISE GLG 2484 ver standard', 'ref': '05106verstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '4500', 'gst': '0.00', 'total': 4500}, {'id': 'dca51d78-eb4c-4066-bb57-acdc803a1f24', 'name': 'PANTALON CLASSIQUE EXLT GUCCI Mix standard', 'ref': '03387Mixstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+CHEMISE GLG 2484 ver standard in MAG54 MOHAMMADIA MALL - Quantity: 15 1
+PANTALON CLASSIQUE EXLT GUCCI Mix standard in MAG54 MOHAMMADIA MALL - Quantity: 15 1
+{'id': '8629a90f-6ff7-415a-93f4-78faca5c88ab', 'name': 'CHEMISE GLG 2484 ver standard', 'ref': '05106verstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '4500', 'gst': '0.00', 'total': 4500}
+{'id': 'dca51d78-eb4c-4066-bb57-acdc803a1f24', 'name': 'PANTALON CLASSIQUE EXLT GUCCI Mix standard', 'ref': '03387Mixstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+manager
+commercial-vente
+{'dateReg': '2024-09-11', 'client': 1094, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '200600', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2405/00981', 'montantRegle': 0, 'montant': 0.05}, {'idBon': 'BL2409/02351', 'montantRegle': 200600, 'montant': 200600, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+gestion-stock
+gestion-stock
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'tiers.can_see_clients', 'inventory.can_see_etatentres', 'ventes.can_see_bonretour', 'produits.can_see_produits', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonsorties', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bontransfert']
+hello ['produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'tiers.can_see_clients', 'inventory.can_see_etatentres', 'ventes.can_see_bonretour', 'produits.can_see_produits', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonsorties', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bontransfert']
+yasmine
+aimen
+aimen
+yasmine
+aya_b
+sarah
+yasmine
+aya_b
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+nadjemeddine
+yasmine
+younes
+aya_b
+chawki
+aimen
+sarah
+yasmine
+aimen
+chawki
+aimen
+chawki
+nadjemeddine
+aimen
+nadjemeddine
+chawki
+nadjemeddine
+yasmine
+nadjemeddine
+aimen
+nadjemeddine
+nadjemeddine
+aya_b
+aya_b
+yasmine
+aya_b
+sarah
+aimen
+aimen
+sarah
+chawki
+aya_b
+yasmine
+yasmine
+aya_b
+aimen
+aimen
+aya_b
+aya_b
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+yasmine
+aimen
+01
+sarah
+yasmine
+yasmine
+yasmine
+sarah
+yasmine
+yasmine
+yasmine
+nadjemeddine
+yasmine
+aimen
+yasmine
+yasmine
+nadjemeddine
+toufik
+chawki
+aya_b
+yasmine
+01
+yasmine
+yasmine
+01
+aimen
+aya_b
+sarah
+nadjemeddine
+yasmine
+nadjemeddine
+01
+01
+yasmine
+01
+yasmine
+aimen
+nadjemeddine
+aya_b
+nadjemeddine
+aya_b
+aimen
+sarah
+aya_b
+nadjemeddine
+sarah
+sarah
+sarah
+01
+01
+chawki
+01
+nadjemeddine
+01
+aya_b
+yasmina_descative
+nadjemeddine
+aimen
+aimen
+sarah
+aya_b
+sarah
+nadjemeddine
+yasmine
+sarah
+yasmine
+aya_b
+nadjemeddine
+aya_b
+yasmine
+01
+01
+aimen
+01
+aya_b
+01
+sarah
+nadjemeddine
+nadjemeddine
+aimen
+aya_b
+01
+aya_b
+01
+01
+01
+yasmine
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+hello ['produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'tiers.can_see_clients', 'inventory.can_see_etatentres', 'ventes.can_see_bonretour', 'produits.can_see_produits', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonsorties', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bontransfert']
+hello ['produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'tiers.can_see_clients', 'inventory.can_see_etatentres', 'ventes.can_see_bonretour', 'produits.can_see_produits', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonsorties', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bontransfert']
+yasmine
+aimen
+aimen
+yasmine
+aya_b
+sarah
+yasmine
+aya_b
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+nadjemeddine
+yasmine
+younes
+aya_b
+chawki
+aimen
+sarah
+yasmine
+aimen
+chawki
+aimen
+chawki
+nadjemeddine
+aimen
+nadjemeddine
+chawki
+nadjemeddine
+yasmine
+nadjemeddine
+aimen
+nadjemeddine
+nadjemeddine
+aya_b
+aya_b
+yasmine
+aya_b
+sarah
+aimen
+aimen
+sarah
+chawki
+aya_b
+yasmine
+yasmine
+aya_b
+aimen
+aimen
+aya_b
+aya_b
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+yasmine
+aimen
+01
+sarah
+yasmine
+yasmine
+yasmine
+sarah
+yasmine
+yasmine
+yasmine
+nadjemeddine
+yasmine
+aimen
+yasmine
+yasmine
+nadjemeddine
+toufik
+chawki
+aya_b
+yasmine
+01
+yasmine
+yasmine
+01
+aimen
+aya_b
+sarah
+nadjemeddine
+yasmine
+nadjemeddine
+01
+01
+yasmine
+01
+yasmine
+aimen
+nadjemeddine
+aya_b
+nadjemeddine
+aya_b
+aimen
+sarah
+aya_b
+nadjemeddine
+sarah
+sarah
+sarah
+01
+01
+chawki
+01
+nadjemeddine
+01
+aya_b
+yasmina_descative
+nadjemeddine
+aimen
+aimen
+sarah
+aya_b
+sarah
+nadjemeddine
+yasmine
+sarah
+yasmine
+aya_b
+nadjemeddine
+aya_b
+yasmine
+01
+01
+aimen
+01
+aya_b
+01
+sarah
+nadjemeddine
+nadjemeddine
+aimen
+aya_b
+01
+aya_b
+01
+01
+01
+yasmine
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-11', 'client': 1064, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '171600', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2405/01030', 'montantRegle': 0, 'montant': 0.05}, {'idBon': 'BL2406/01234', 'montantRegle': 0, 'montant': 0.05}, {'idBon': 'BL2406/01348', 'montantRegle': 0, 'montant': 0.05}, {'idBon': 'BL2407/01543', 'montantRegle': 0, 'montant': 0.03}, {'idBon': 'BL2407/01725', 'montantRegle': 0, 'montant': 800.01}, {'idBon': 'BL2407/01896', 'montantRegle': 0, 'montant': 3700.1}, {'idBon': 'BL2408/02268', 'montantRegle': '171600', 'montant': 171600.02, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+hello ['produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'tiers.can_see_clients', 'inventory.can_see_etatentres', 'ventes.can_see_bonretour', 'produits.can_see_produits', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonsorties', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bontransfert']
+yasmine
+aimen
+aimen
+yasmine
+aya_b
+sarah
+yasmine
+aya_b
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+{'IdBon': 'FIG2409-2560', 'dateBp': '2024-09-11', 'clientInfo': {'name': 'islam nxtstore', 'address': '', 'num_registre': '05/01-1200624A20', 'nif': '198203010190537', 'nai': '03010320661', 'nis': '1982030101905379', 'phone': ''}, 'AssociatedBL': 'BL2409/02375', 'time': 215, 'produits': [{'id': 'dbc9981f-d438-4391-9448-57b7763f861e', 'name': 'CARTE MERE MSI B760M-P DDR5', 'ref': 'MD9117E02011', 'qty': 1, 'livre': True, 'rate': 22352.94, 'total': 22352.94, 'numSeries': ['601-7E02-040B2404000010']}, {'id': 'd0852709-2206-4b83-98ab-5ae7ecbf921e', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060TI X2 8GB OC\t', 'ref': 'MD912V515017\t', 'qty': 1, 'livre': True, 'rate': 77226.89, 'total': 77226.89, 'numSeries': ['602-V512-08SB2404010224']}]}
+gestion-stock
+  Veille Concurentielle
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'tiers.can_see_clients', 'inventory.can_see_etatentres', 'ventes.can_see_bonretour', 'produits.can_see_produits', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonsorties', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bontransfert']
+hello ['produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'tiers.can_see_clients', 'inventory.can_see_etatentres', 'ventes.can_see_bonretour', 'produits.can_see_produits', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonsorties', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bontransfert']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-11', 'client': 310, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '2500000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2401/00031', 'montantRegle': 0, 'montant': 1692501.25}, {'idBon': 'BL2402/00193', 'montantRegle': 0, 'montant': 60000}, {'idBon': 'BL2403-00285', 'montantRegle': 0, 'montant': 727000.54, 'regle': True}, {'idBon': 'BL2408/02173', 'montantRegle': 1595651.85, 'montant': 1595651.85, 'regle': True}, {'idBon': 'BL2408/02242', 'montantRegle': 862200.05, 'montant': 862200.05, 'regle': True}, {'idBon': 'BL2409/02345', 'montantRegle': 42148.09999999986, 'montant': 1198799.98, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+hello ['produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'tiers.can_see_clients', 'inventory.can_see_etatentres', 'ventes.can_see_bonretour', 'produits.can_see_produits', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonsorties', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bontransfert']
+hello ['produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'tiers.can_see_clients', 'inventory.can_see_etatentres', 'ventes.can_see_bonretour', 'produits.can_see_produits', 'inventory.can_see_etatsorties', 'tiers.can_see_tierstab', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonsorties', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bontransfert']
+{'dateReg': '2024-09-11', 'client': 1112, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '196200', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2405/01009', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2405/01031', 'montantRegle': 0, 'montant': 200}, {'idBon': 'BL2406/01085', 'montantRegle': 0, 'montant': 9200.02}, {'idBon': 'BL2406/01121', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2406/01129', 'montantRegle': 0, 'montant': 22600}, {'idBon': 'BL2406/01209', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2406/01370', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2406/01407', 'montantRegle': 0, 'montant': 200.02}, {'idBon': 'BL2407/01697', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2407/01837', 'montantRegle': 0, 'montant': 9900}, {'idBon': 'BL2408/02145', 'montantRegle': 0, 'montant': 64900.01}, {'idBon': 'BL2409/02336', 'montantRegle': '196200', 'montant': 196200.02, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-11', 'client': 234, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '488600', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00296', 'montantRegle': 0, 'montant': 295499.9}, {'idBon': 'BL2403-00395', 'montantRegle': 0, 'montant': 297850.04}, {'idBon': 'BL2403/00441', 'montantRegle': 0, 'montant': 0.11}, {'idBon': 'BL2403/00556', 'montantRegle': 0, 'montant': 149.99}, {'idBon': 'BL2405/01037', 'montantRegle': 0, 'montant': 63900.9}, {'idBon': 'BL2407/01873', 'montantRegle': 0, 'montant': 13300.07}, {'idBon': 'BL2407/01891', 'montantRegle': 129399.93, 'montant': 174499.99, 'regle': True}, {'idBon': 'BL2409/02299', 'montantRegle': 0, 'montant': 0.03}, {'idBon': 'BL2409/02329', 'montantRegle': 359200.07, 'montant': 359200.07, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-11', 'client': 1009, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '1103502', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2406/01318', 'montantRegle': 0, 'montant': 0.18}, {'idBon': 'BL2407/01481', 'montantRegle': 0, 'montant': 0.17}, {'idBon': 'BL2407/01521', 'montantRegle': 0, 'montant': 0.43}, {'idBon': 'BL2407/01662', 'montantRegle': 0, 'montant': 0.1}, {'idBon': 'BL2407/01713', 'montantRegle': 0, 'montant': 17650.13}, {'idBon': 'BL2407/01976', 'montantRegle': 0, 'montant': 300.1}, {'idBon': 'BL2408/02107', 'montantRegle': 0, 'montant': 850.25}, {'idBon': 'BL2408/02244', 'montantRegle': 0, 'montant': 0.15}, {'idBon': 'BL2409/02279', 'montantRegle': 137002.05000000005, 'montant': 137800, 'regle': True}, {'idBon': 'BL2409/02316', 'montantRegle': 966499.95, 'montant': 966499.95, 'regle': True}, {'idBon': 'BL2409/02372', 'montantRegle': 0, 'montant': 827600.16}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-11', 'client': 258, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '350000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2401/00050', 'montantRegle': 0, 'montant': 399500.08}, {'idBon': 'BL2403/00311', 'montantRegle': 0, 'montant': 1087300.16}, {'idBon': 'BL2405/00895', 'montantRegle': 0, 'montant': 37800.14}, {'idBon': 'BL2406/01334', 'montantRegle': 0, 'montant': 0.03}, {'idBon': 'BL2406/01388', 'montantRegle': 0, 'montant': 300.01}, {'idBon': 'BL2407/01893', 'montantRegle': 0, 'montant': 239299.7}, {'idBon': 'BL2408/02055', 'montantRegle': 0, 'montant': 27000.11}, {'idBon': 'BL2409/02320', 'montantRegle': '350000', 'montant': 380900.08, 'regle': True}, {'idBon': 'BL2409/02364', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
