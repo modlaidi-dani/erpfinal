@@ -1849,3 +1849,14 @@ SystemExit: 1
 [2024-09-12 12:17:57 +0200] [1800907] [INFO] Booting worker with pid: 1800907
 [2024-09-12 12:17:57 +0200] [1800908] [INFO] Booting worker with pid: 1800908
 [2024-09-12 12:17:57 +0200] [1800909] [INFO] Booting worker with pid: 1800909
+[2024-09-14 00:24:35 +0200] [1800906] [INFO] Handling signal: term
+[2024-09-13 22:24:35 +0000] [1800908] [INFO] Worker exiting (pid: 1800908)
+[2024-09-13 22:24:35 +0000] [1800909] [INFO] Worker exiting (pid: 1800909)
+[2024-09-13 22:24:35 +0000] [1800907] [INFO] Worker exiting (pid: 1800907)
+[2024-09-14 00:24:38 +0200] [1800906] [INFO] Shutting down: Master
+[2024-09-14 00:24:39 +0200] [1892337] [INFO] Starting gunicorn 23.0.0
+[2024-09-14 00:24:39 +0200] [1892337] [INFO] Listening at: http://127.0.0.1:8000 (1892337)
+[2024-09-14 00:24:39 +0200] [1892337] [INFO] Using worker: sync
+[2024-09-14 00:24:39 +0200] [1892338] [INFO] Booting worker with pid: 1892338
+[2024-09-14 00:24:39 +0200] [1892339] [INFO] Booting worker with pid: 1892339
+[2024-09-14 00:24:40 +0200] [1892340] [INFO] Booting worker with pid: 1892340
