@@ -752,12 +752,13 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						</tbody>
 					</table>
 					</div>
-					<div class=" flex justify-between mt-12 mr-0">
-						<div></div>
-						<div class="font-bold">
-						Cachet et Signature
+					
+                     						<div class=" flex justify-between mt-12 mr-0">
+							<div></div>
+							<div class="font-bold">
+								Cachet et Signature
+							</div>
 						</div>
-					</div>
 			   </div>
 			   <!-- /Print Template -->
 				
@@ -1248,6 +1249,70 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						},
 				  }
 				}
+
+				function numberToWordsFrench(num) {
+    const ones = ["", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"];
+    const teens = ["dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"];
+    const tens = ["", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt"];
+    const thousands = ["", "mille", "million", "milliard"];
+
+    if (num === 0) return "zéro";
+
+    let word = '';
+    let i = 0;
+
+    while (num > 0) {
+        let tempNumber = num % 1000;
+
+        if (tempNumber !== 0) {
+            let str = '';
+
+            // Handle numbers from 71 to 79 and 91 to 99
+            if (tempNumber % 100 >= 71 && tempNumber % 100 <= 79) {
+                str = 'soixante-' + teens[tempNumber % 10] + ' ';
+                tempNumber = Math.floor(tempNumber / 100);
+            } else if (tempNumber % 100 >= 91 && tempNumber % 100 <= 99) {
+                str = 'quatre-vingt-' + teens[tempNumber % 10] + ' ';
+                tempNumber = Math.floor(tempNumber / 100);
+            } 
+            // Handle teens (10 to 19)
+            else if (tempNumber % 100 < 20 && tempNumber % 100 >= 10) {
+                str = teens[tempNumber % 10] + ' ';
+                tempNumber = Math.floor(tempNumber / 100);
+            } 
+            // Handle ones and tens
+            else {
+                if (tempNumber % 10 > 0) {
+                    str = ones[tempNumber % 10] + ' ';
+                }
+                tempNumber = Math.floor(tempNumber / 10);
+                if (tempNumber % 10 > 0) {
+                    str = tens[tempNumber % 10] + (tempNumber % 10 === 7 || tempNumber % 10 === 9 ? '-' : ' ') + str;
+                }
+                tempNumber = Math.floor(tempNumber / 10);
+            }
+
+            // Handle hundreds
+            if (tempNumber > 0) {
+                str = (tempNumber === 1 ? 'cent' : ones[tempNumber] + ' cent') + (str.trim() ? ' ' + str : '');
+            }
+
+            // Handle thousands, millions, etc.
+            if (i === 1 && tempNumber === 0) {
+                str = str.trim() ? str + ' ' + thousands[i] : thousands[i];
+            } else if (i > 0) {
+                str = str.trim() + ' ' + thousands[i];
+            }
+
+            word = str.trim() + ' ' + word;
+        }
+
+        num = Math.floor(num / 1000);
+        i++;
+    }
+
+    return word.trim();
+}
 				function getCookie(name) {
 					var cookieValue = null;
 					if (document.cookie && document.cookie !== '') {

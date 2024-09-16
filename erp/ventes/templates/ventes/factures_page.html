@@ -505,12 +505,18 @@ class="flex flex-col min-h-screen custom-scrollbar"
 					</table>
 					</div>
 			</div>
-				<div class=" flex justify-between mt-4 mr-0">
-				<div></div>
-				<div class="font-bold">
-					Cachet et Signature
-				</div>
-				</div>
+		
+
+			<div class=" flex justify-between mt-5 mr-0">
+<div x-data="{ netTotalLiv, TotalRemise, tva: 1.19, totalAmount: 0 }" x-init="totalAmount = ((netTotalLiv - TotalRemise) *tva).toFixed(2)">
+    <p>Arrêtée de la présente facture à la somme de: <br> <span x-text="numberToWordsFrench(parseFloat(totalAmount))"></span>
+    </p>
+</div>
+ <div class="font-bold">
+   Cachet et Signature
+   </div>
+   </div></div>
+
 
 			 <div class="py-4 border-b border-stone-500 page-break">
 				 <img src="{% static 'media/entete_2.jpg' %}" alt="">
@@ -1026,6 +1032,80 @@ class="flex flex-col min-h-screen custom-scrollbar"
 			
 				  }
 				}
+
+
+function numberToWordsFrench(num, isCentimes = false) {
+    const ones = ["", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"];
+    const teens = ["dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"];
+    const tens = ["", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt"];
+    const thousands = ["", "mille", "million", "milliard"];
+
+    if (num === 0) return "zéro";
+
+    const [wholePart, decimalPart] = num.toFixed(2).split('.').map(Number);
+
+    let word = '';
+    let i = 0;
+    let tempNumber = wholePart;
+
+    // Handle the main number part
+    while (tempNumber > 0) {
+        let currentChunk = tempNumber % 1000;
+
+        if (currentChunk !== 0) {
+            let str = '';
+
+            if (currentChunk % 100 >= 71 && currentChunk % 100 <= 79) {
+                str = 'soixante-' + teens[currentChunk % 10] + ' ';
+                currentChunk = Math.floor(currentChunk / 100);
+            } else if (currentChunk % 100 >= 91 && currentChunk % 100 <= 99) {
+                str = 'quatre-vingt-' + teens[currentChunk % 10] + ' ';
+                currentChunk = Math.floor(currentChunk / 100);
+            } else if (currentChunk % 100 < 20 && currentChunk % 100 >= 10) {
+                str = teens[currentChunk % 10] + ' ';
+                currentChunk = Math.floor(currentChunk / 100);
+            } else {
+                if (currentChunk % 10 > 0) {
+                    str = ones[currentChunk % 10] + ' ';
+                }
+                currentChunk = Math.floor(currentChunk / 10);
+                if (currentChunk % 10 > 0) {
+                    str = tens[currentChunk % 10] + (currentChunk % 10 === 7 || currentChunk % 10 === 9 ? '-' : ' ') + str;
+                }
+                currentChunk = Math.floor(currentChunk / 10);
+            }
+
+            if (currentChunk > 0) {
+                str = (currentChunk === 1 ? 'cent' : ones[currentChunk] + ' cent') + (str.trim() ? ' ' + str : '');
+            }
+
+            if (i === 1 && currentChunk === 0) {
+                str = str.trim() ? str + ' ' + thousands[i] : thousands[i];
+            } else if (i > 0) {
+                str = str.trim() + ' ' + thousands[i];
+            }
+
+            word = str.trim() + ' ' + word;
+        }
+
+        tempNumber = Math.floor(tempNumber / 1000);
+        i++;
+    }
+
+    word = word.trim();
+
+    // Handle the decimal part (centimes)
+    let centimesWord = '';
+    if (decimalPart > 0) {
+        centimesWord = numberToWordsFrench(decimalPart, true) + ' centime' + (decimalPart > 1 ? 's' : '');
+    }
+
+    // Only append "dzd" if we're not processing centimes
+    return isCentimes ? word : word + ' Dinars' + (centimesWord ? ' et ' + centimesWord : '');
+}
+
+         
+              
 				function getCookie(name) {
 				  var cookieValue = null;
 	  			  if (document.cookie && document.cookie !== '') {
