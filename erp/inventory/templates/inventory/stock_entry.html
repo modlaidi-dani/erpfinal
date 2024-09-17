@@ -5,11 +5,11 @@
 {% block content %}
 <div 
 x-data="{ 
-	menuOpen: false, 
-	basicSignInModal: false,
-	basicSignUpModal: false,
-	advanceSignInModal: false,
-	advanceSignUpModal: false,
+    menuOpen: false, 
+    basicSignInModal: false,
+    basicSignUpModal: false,
+    advanceSignInModal: false,
+    advanceSignUpModal: false,
 }" 
 class="flex flex-col min-h-screen custom-scrollbar"
 >
@@ -19,227 +19,342 @@ class="flex flex-col min-h-screen custom-scrollbar"
  {% include 'header.html' %}
  {% include 'tabs.html' with active_tab="stock" %}
  <div class=" w-full flex flex-row">
-	{% include "sidebar_stock.html" %}
+    {% include "sidebar_stock.html" %}
   <div class="w-full h-full ">
-	<!-- Main content header -->
-	<main class="block w-full h-full px-4 " x-data="products()" x-init="init()">
-		 <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                                                                                                                 
+    <!-- Main content header -->
+    <main class="block w-full h-full px-4 " x-data="products()" x-init="init()">
+         <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"  >                                                                                                                                                                                                                                                                 
             <h1 class="text-2xl font-semibold whitespace-nowrap pt-4">Etat Stock Entrée</h1>          
           </div>
-		<div class="flex flex-wrap flex-grow justify-between border-b">
-		  <div class="md:w-1/3 py-2">
-			<input type="search"  x-model="search" class="w-full pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none border-gray-700 text-gray-600 font-medium" placeholder="Search...">
-			<div class="absolute top-0 left-0 inline-flex items-center p-2 py-4">
-			  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6  text-gray-400" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-				<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-				<circle cx="10" cy="10" r="7" />
-				<line x1="21" y1="21" x2="15" y2="15" />
-			  </svg>
-			</div>
-		  </div>
-		  
-		</div>
-								 
-		<div class="flex flex-col mt-5">	
-			<div class="w-full  overflow-x-auto">	  
-				<table class=" w-full divide-y divide-gray-200">
-				  <thead class="bg-gray-50">
-					<tr>
-					  <th
-						scope="col"
-						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-					  >
-						Référence
-					  </th>					 
-					  <th
-						scope="col"
-						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-					  >
-						Désignation
-					  </th>	
-					   <th
-						scope="col"
-						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-					  >
-						Fournisseur
-					  </th>
-					  <th
-						scope="col"
-						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-					  >
-						BonEntry ID
-					  </th>
-					 
-					  <th
-						scope="col"
-						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-					  >
-						Quantité
-					  </th>
-					  <th
-						scope="col"
-						class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-					  >
-						Prix Achat
-					  </th>
-					</tr>
-				  </thead>
-				  <tbody class="bg-white divide-y divide-gray-200">
-					<template x-for="product in filteredAndPaginatedProducts">
-					  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" x-show="productMatches(search, product.name, product.reference)">
-						<td class="px-6 py-4 whitespace-nowrap">
-						  <div class="flex items-center">                            
-							<div class="ml-4">
-							  <div class="text-sm font-medium text-gray-900">
-								<p x-text="product.reference"></p>
-							  </div>                               
-							</div>
-						  </div>
-						</td>
-						
-						<td class="px-6 py-4 whitespace-nowrap">
-						  <span
-							class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
-						  >
-						  <p x-text="product.name"></p>
-						  </span>
-						</td>
-						<td class="px-6 py-4 whitespace-nowrap">
-						  <span
-							class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
-						  >
-						  <p x-text="product.fournisseur"></p>
-						  </span>
-						</td>
-						<td class="px-6 py-4 whitespace-nowrap">
-						  <span
-							class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
-						  >
-						  <p x-text="product.bonId"></p>
-						  </span>
-						</td>
-						
-						<td class="px-6 py-4 whitespace-nowrap">
-						  <span
-							class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
-						  >
-						  <p x-text="product.quantity"></p>
-						  </span>
-						</td>
-						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"> <p x-text="product.prix_achat"></p></td>
-						
-					  </tr>
-					</template>
-				  </tbody>
-				</table>
-			</div>
-				<div class="flex justify-end mt-4">
-				  <button
-					  x-bind:disabled="currentPage === 1"
-					  @click="prevPage"
-				  >
-				  <<
-				  </button>
-				  <p x-text="currentPage"></p>
-				  <button
-					  x-bind:disabled="currentPage === totalPages"
-					  @click="nextPage"
-				  >
-					  >>
-				  </button>
-			    </div>
-		</div>
-		<script>
-				function products(){
-				  return{
-					search: '',
-					selectedFamily: '',
-					products: [],
-					currentPage: 1,
-					pageSize: 10,
-					get totalPages() {
+          <div class="flex flex-wrap justify-start border-b  py-2">
+            <div class="flex flex-wrap justify-start space-x-2 border-r  px-2 py-2">
+                <div class=" py-2 ">
+                 <input type="search" x-model="search" class="form-input rounded-md bg-gray-50 text-sm text-black  h-10 py-2 pl-4 border-transparent border-none outline-none focus:ring-0 focus:text-black transition-all duration-300 ease-in-out focus:w-72 w-60"
+                     placeholder="Rechercher...">
+             </div>
+         
+             <div class="py-2">
+                 <select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+                 x-model="selectedFamily">
+                 <option value="">Tous les entrepôts</option>
+                 {% for ent in entrepots%}
+                 <option value="{{ ent.name }}">{{ ent.name }}</option>
+                 {% endfor %}
+                 </select>
+             </div>
+             <div class="py-2">
+                 <select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+                 x-model="selectedFournisseur">
+                 <option value="">Tous les Familles</option>
+                 {% for f in familles %}
+                 <option value="{{ f.Libellé }}">{{ f.Libellé }}</option>
+                 {% endfor %}
+                 </select>
+             </div>
+             <div class="py-2">
+                <select class="text-black/70 bg-gray-50 px-3 py-2 transition-all cursor-pointer hover:border-gray-700 border border-gray-200 rounded-lg outline-gray-700  invalid:text-black/30 w-64"
+                x-model="entFournisseur">
+                <option value="">Tous les forniseurs</option>
+                {% for four in fonrnisseurs %}
+                <option value="{{ four.acronym  }}">{{ four.acronym  }}</option>
+                {% endfor %}
+                </select>
+            </div>
+         
+             
+             
+           </div>
+           <div class="flex items-center justify-start space-x-3 px-4 ">
+                 <div class="flex items-center space-x-2">
+                     <label for="startDate" class="text-sm">Date début:</label>
+                     <input type="date" x-model="datedeb" id="startDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                 </div>
+                 <div class="flex items-center space-x-2">
+                     <label for="endDate" class="text-sm">Date Fin:</label>
+                     <input type="date" x-model="datefin" id="endDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                 </div>
+                 <div class="relative mr-4 inline-block ">
+                      <div class="text-gray-500 cursor-pointer w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip1 = true" @mouseleave="showTooltip1 = false" @click="exportExcelDiva">
+                         <svg id='file-spreadsheet_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                             <g transform="matrix(1 0 0 1 12 12)" >
+                             <g style="" >
+                             <g transform="matrix(1 0 0 1 0 0)" >
+                             <path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" />
+                             </g>
+                             <g transform="matrix(1 0 0 1 4 -7)" >
+                             <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-16.5, -5.5)" d="M 14 3 L 14 7 C 14 7.552284749830793 14.447715250169207 8 15 8 L 19 8" stroke-linecap="round" />
+                             </g>
+                             <g transform="matrix(1 0 0 1 -0.5 -0.5)" >
+                             <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 17 21 L 7 21 C 5.8954305003384135 21 5 20.104569499661586 5 19 L 5 5 C 5 3.895430500338413 5.8954305003384135 3 7 3 L 14 3 L 19 8 L 19 19 C 19 20.104569499661586 18.104569499661586 21 17 21 z" stroke-linecap="round" />
+                             </g>
+                             <g transform="matrix(1 0 0 1 -0.5 2)" >
+                             <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -14.5)" d="M 8 11 L 16 11 L 16 18 L 8 18 z" stroke-linecap="round" />
+                             </g>
+                             <g transform="matrix(1 0 0 1 -0.5 2.5)" >
+                             <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -15)" d="M 8 15 L 16 15" stroke-linecap="round" />
+                             </g>
+                             <g transform="matrix(1 0 0 1 -1.5 2)" >
+                             <path style="stroke: rgb(17,156,29); stroke-width: 1; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-11, -14.5)" d="M 11 11 L 11 18" stroke-linecap="round" />
+                             </g>
+                             </g>
+                             </g>
+                         </svg>           
+                      </div>
+                      <div x-show.transition="showTooltip1" class="z-40 shadow-lg text-center w-32 block absolute left-0 top-0 p-2 mt-12 rounded-lg bg-gray-800 text-white text-xs">
+                         Exporter Ficher Etat D'entreees!
+                      </div>
+                  </div>
+             </div>
+          
+        </div>
+                                 
+        <div class="flex flex-col mt-5">    
+            <div class="w-full  overflow-x-auto">     
+                <table class=" w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        Référence
+                      </th>                  
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        Désignation
+                      </th> 
+                       <th
+                        scope="col"
+                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        Fournisseur
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        BonEntry ID
+                      </th>
+                     
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        Quantité
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        Prix Achat
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <template x-for="product in filteredAndPaginatedProducts">
+                      <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" x-show="productMatches(search, product.name, product.reference)">
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">                            
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900">
+                                <p x-text="product.reference"></p>
+                              </div>                               
+                            </div>
+                          </div>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <span
+                            class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
+                          >
+                          <p x-text="product.name"></p>
+                          </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <span
+                            class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
+                          >
+                          <p x-text="product.fournisseur"></p>
+                          </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <span
+                            class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
+                          >
+                          <p x-text="product.bonId"></p>
+                          </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <span
+                            class="inline-flex px-2 text-xs font-semibold leading-5  rounded-full"
+                          >
+                          <p x-text="product.quantity"></p>
+                          </span>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"> <p x-text="product.prix_achat"></p></td>
+                        
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+            </div>
+                <div class="flex justify-end mt-4">
+                  <button
+                      x-bind:disabled="currentPage === 1"
+                      @click="prevPage"
+                  >
+                  <<
+                  </button>
+                  <p x-text="currentPage"></p>
+                  <button
+                      x-bind:disabled="currentPage === totalPages"
+                      @click="nextPage"
+                  >
+                      >>
+                  </button>
+                </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+        <script>
+                function products(){
+                  return{
+                    search: '',
+                    selectedFamily: '',
+                    products: [],
+                    currentPage: 1,
+                    pageSize: 10,
+                    datedeb: '',
+                    datefin:'',
+                    selectedFournisseur:'',
+                    entFournisseur:'',
+                    productReference: '',
+                    fonrnisseurs:'',
+                    get totalPages() {
                         return Math.max(1, Math.ceil(this.filteredProducts.length / this.pageSize));
                     },
+                    exportExcelDiva() {
+                        const array_print = [];
 
-					get filteredProducts() {
-					  return this.products.filter((product) => {
-				        if (
-				            (this.selectedFamily !== '' && this.selectedFamily != product.family) ||
-				          (!product.name.toLowerCase().includes(this.search.toLowerCase()) &&
-				          !product.reference.toLowerCase().includes(this.search.toLowerCase()))
-			           ) {
-				          return false;
-			        }
+                        this.filteredProducts.forEach(product => {
+                            // Add the product itself
+                            array_print.push({
+                                date: product.date,
+                               
+                                name: product.name,
+                                quantity: product.quantity,
+                                bonId: product.bonId,
+                                entrepot: product.entrepot,
+                          
+                            });
+                        });
+                      
+                        // Sort the array by client
 
-			         return true;
-		             });
-	  			},
-	  			get filteredAndPaginatedProducts() {
-		  			const start = (this.currentPage - 1) * this.pageSize;
-		  			const end = start + this.pageSize;
-		  			return this.filteredProducts.slice(start, end);
-	  			},
-					prevPage() {
-					  if (this.currentPage > 1) {
-					   this.currentPage -= 1;
-					  }
-					},
-					nextPage() {
-					  if (this.currentPage < this.totalPages) {
-						  this.currentPage += 1;
-					  }
-					},
-					productMatches(search, productName, productReference) {
-					  //  if (productName === null || productReference === null) {
-					  //     return false;
-					  //     }
-					 
-		  return (
-			  productName.toLowerCase().includes(search.toLowerCase()) ||
-			  productReference.toLowerCase().includes(search.toLowerCase())
-		  );
-	  		},
-				init() {
-					var products = [];
+                        const ws = XLSX.utils.json_to_sheet(array_print);
+                        const wb = XLSX.utils.book_new();
+                        XLSX.utils.book_append_sheet(wb, ws, 'Products');
+                        XLSX.writeFile(wb, 'fichiers_etat_Sortie.xlsx');
+                    },
+                    get filteredProducts() {
+                        
+                        return this.products.filter((product) => {
+                            
+                            const familyMatch = this.selectedFamily === '' || this.selectedFamily == product.entrepot;
+                            const entfourniseursMatch = this.entFournisseur === '' || this.entFournisseur == product.fournisseur;
 
-    				{% for product in product_summary %}
+                            const fournisseurMatch = this.selectedFournisseur === '' || product.family.includes(this.selectedFournisseur);
+                            const nameMatch = product.name.toLowerCase().includes(this.search.toLowerCase());
+                            const referenceMatch = product.reference.toLowerCase().includes(this.search.toLowerCase());
+
+                            // Parse the dates from the input fields
+                            const startDate = new Date(this.datedeb);
+                            const endDate = new Date(this.datefin);
+                            // Check if the product date is within the selected date range
+                            const dateMatch = startDate <= new Date(product.date) && new Date(product.date) <= endDate;
+                            // If regle is not 'true' or 'false', return all products without regle filter
+                            return (familyMatch && fournisseurMatch && entfourniseursMatch) && (nameMatch || referenceMatch) && dateMatch;
+                            
+                        });
+                    },
+                    
+
+                get filteredAndPaginatedProducts() {
+                    const start = (this.currentPage - 1) * this.pageSize;
+                    const end = start + this.pageSize;
+                    return this.filteredProducts.slice(start, end);
+                },
+                    prevPage() {
+                      if (this.currentPage > 1) {
+                       this.currentPage -= 1;
+                      }
+                    },
+                    nextPage() {
+                      if (this.currentPage < this.totalPages) {
+                          this.currentPage += 1;
+                      }
+                    },
+                    productMatches(search, productName, productReference) {
+                      //  if (productName === null || productReference === null) {
+                      //     return false;
+                      //     }
+                     
+          return (
+              productName.toLowerCase().includes(search.toLowerCase()) ||
+              productReference.toLowerCase().includes(search.toLowerCase())
+          );
+            },
+                init() {
+                    var products = [];
+
+                    {% for product in product_summary %}
+                    
        
-        	var productData = {
-            name: "{{ product.stock__name }}",
-            reference: "{{ product.stock__reference }}",
-			bonId: "{{ product.BonNo__idBon}}",
-			fournisseur: "{{ product.BonNo__fournisseur__acronym }}",			
+            var productData = {
+            name: "{{ product.product_name }}",
+            reference: "{{ product.product_reference }}",
+            bonId: "{{ product.bill}}",
+            fournisseur: "{{ product.fournisseur}}",            
             quantity: "{{ product.quantity }}",
-            prix_achat: "{{ product.stock__prix_achat }}"
-        	};
+            prix_achat: "{{ product.prix_achat }}",
+            entrepot:"{{ product.entrepot}}",
+            date:"{{product.date}}",
+            codeean:"{{product.codeEAN}}",
 
-        	// Check if the product already exists in the products array
-        	var exists = products.some(function(existingProduct) {
+            family:{{product.category|safe}},
+            };
+
+            // Check if the product already exists in the products array
+            var exists = products.some(function(existingProduct) {
             return existingProduct.name === productData.name;
-        	});
+            });
 
-        	if (!exists) {
+            if (!exists) {
             products.push(productData);
-        	}
-   			 {% endfor %}
+            
+            }
+             {% endfor %}
+            
 
-    		console.log(products);
-
-    		// Now, assign the filtered products array to this.products
-    		this.products = products;
-				  },
-		   
-				  }
-				}
-		</script> 
-				
-			 
-		</div>
+            // Now, assign the filtered products array to this.products
+            this.products = products;
+			console.log(products)
+        },
+           
+                  }
+                }
+        </script> 
+                
+             
+        </div>
     </main>
-	<!-- end Main content  -->
+    <!-- end Main content  -->
   </div>
 </div>
 </div>
 </div>
 
 {% endblock content %}
+
