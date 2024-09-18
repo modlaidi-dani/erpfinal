@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import Http404, JsonResponse
+from tiers.models import Fournisseur
 import json
 from django.db import transaction,  IntegrityError
 from django.contrib.auth.decorators import login_required
@@ -3977,11 +3978,41 @@ class ListEntryStockView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(*args, **kwargs)
         store_id = self.request.session["store"]
         CurrentStore = store.objects.get(pk=store_id)    
-        product_summary = models.ProduitsEnBonEntry.objects.filter(BonNo__store=CurrentStore).values('stock__name', 'stock__reference', 'stock__TotalQte', 'BonNo__idBon', 'BonNo__fournisseur__acronym', 'stock__prix_achat', 'quantity').annotate(
-        total_quantity_in_bonEntry=Sum('quantity')
-        )
-        context["product_summary"]=product_summary
-        print(context["product_summary"])
+        product_summary = models.ProduitsEnBonEntry.objects.filter(BonNo__store=CurrentStore)
+        bilan_data = {}
+        for entry in product_summary:
+            key = entry.stock.id
+            bilan_info = {
+                "id": entry.id,
+                "product_name": entry.stock.name,
+                "product_reference": entry.stock.reference,
+                "codeean": entry.stock.get_codeEA,
+                # "product_category":entry.stock.category.pc_component,
+                "category":entry.stock.ancestor_categories,
+                "bill": entry.BonNo.idBon,
+                "date": entry.BonNo.dateBon.strftime("%Y-%m-%d"),
+                "entrepot": entry.BonNo.entrepot,
+                "quantity": entry.quantity,
+                "prix_achat":entry.stock.prix_achat,
+                "fournisseur":entry.BonNo.fournisseur.acronym,
+                
+              
+            }
+            if key in bilan_data:
+                bilan_data[key].append(bilan_info)
+            else:
+                bilan_data[key] = [bilan_info]
+        context["product_summary"]=[item for sublist in bilan_data.values() for item in sublist]
+        
+        entrepots = models.Entrepot.objects.filter(store = CurrentStore )
+        context["entrepots"] = entrepots
+        
+        familles = Category.objects.filter(store = CurrentStore)
+        context["familles"] = familles
+        fonrnisseurs=Fournisseur.objects.filter(store=CurrentStore)
+        context["fonrnisseurs"]=fonrnisseurs
+       
+        
         return context
  
 class ListSortieStockView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
@@ -4023,6 +4054,8 @@ class ListSortieStockView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
                 "entrepot": entry.BonNo.monentrepot,
                 "quantity": entry.quantity,
                 "prix_vente": float(entry.totalprice),
+                "fournisseur":entry.BonNo.fournisseur.acronym
+                
             }
 
             # Check if key is already in bilan_data
@@ -4048,6 +4081,7 @@ class ListSortieStockView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
                 "quantity": entry.quantity,
                 "prix_vente": float(entry.totalprice),
                 "NumSeries":entry.getnumSeries,
+                
             }
 
             # Check if key is already in bilan_data
@@ -4055,6 +4089,8 @@ class ListSortieStockView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
                 bilan_data[key].append(bilan_info)
             else:
                 bilan_data[key] = [bilan_info]
+        fonrnisseurs=Fournisseur.objects.filter(store=CurrentStore)
+        context["fonrnisseurs"]=fonrnisseurs
         entrepots = models.Entrepot.objects.filter(store = CurrentStore )
         context["entrepots"] = entrepots
         
@@ -4062,7 +4098,10 @@ class ListSortieStockView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
         context["familles"] = familles
         # Convert dictionary values to a flat list
         context["products"] = [item for sublist in bilan_data.values() for item in sublist]
+      
         return context
+   
+
    
 class ListReformeStockView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     template_name = "inventory/stock_reforme.html"

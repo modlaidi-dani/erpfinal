@@ -282,7 +282,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
          {% endif %}
           
           <div class="py-4  flex mx-auto ">
-            {% if request.session.store == '1' and request.session.role == 'manager' %}
+            {% if  request.session.role == 'manager' %}
     			<a :href="'/produits/modifier-product/' + product.id" class="text-gray-700 cursor-pointer">
     				{% heroicon_mini "pencil-square" class="transition-transform" %}
     			</a>

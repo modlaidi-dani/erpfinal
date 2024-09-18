@@ -899,7 +899,7 @@ class stockState(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         product_families = models.Category.objects.filter(store=selected_store)
         fournisseurs = Fournisseur.objects.filter(store=selected_store)
         entrepots = Entrepot.objects.filter(store=selected_store)
-        stocks_all = Stock.objects.filter(product__store=selected_store, entrepot__name = "Depot principal Reghaia")
+        stocks_all = Stock.objects.filter(product__store=selected_store)
         stock_list = []
 
         for stock in stocks_all:
