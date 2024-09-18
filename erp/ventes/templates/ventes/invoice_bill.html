@@ -1380,9 +1380,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							},
 							totalPCHt(index){
 								var item = this.items_pc[index-1]
-								console.log(this.items_pc);
-								console.log(index);
-								console.log(item);
+
 
 								if (item.items && item.items.length > 0) {
 									const itemRateLivSum = item.items.reduce((acc, product) => {
@@ -1440,7 +1438,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									{ label: { value: 'extras6', display: 'Extras' }, products: '' },
 								];
 								
-								console.log(this.items_pc);
+					
 							},
 
 							generateRandomString() {
@@ -1461,11 +1459,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
 
 							validerModification(){
 								const existingPcIndex = this.items_pc.findIndex(item => item.reference_pc === this.referencePCedit);
-								console.log(existingPcIndex);
-								console.log(this.referencePCedit);
 								existingPC = this.items_pc[existingPcIndex];
-								console.log(existingPC);
-								console.log(this.itemedit);
+
 							
 								PcProduct = existingPC.items[this.category];
 								console.log(PcProduct);
@@ -1489,7 +1484,6 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								this.items_pc[existingPcIndex].items[this.category].tax=this.itemedit.tax,
 								this.items_pc[existingPcIndex].items[this.category].total= this.itemedit.qty * this.itemedit.rate,
 								this.items_pc[existingPcIndex].items[this.category].totalLiv= this.itemedit.qty * this.itemedit.rateLiv
-								console.log(this.items_pc);
 								var fr_liv = parseFloat(this.fraisLivraison);
 								var livraison_prix = parseFloat(this.itemedit.livraison_prix);
 								
