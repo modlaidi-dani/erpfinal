@@ -235,7 +235,82 @@ class="flex flex-col min-h-screen custom-scrollbar"
 												</div>
 												<div class="mb-4 border-b">
 													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
-														Taux de change	:
+														Transport	:
+													</label>
+													<input
+														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+														type="text"
+														id="tauxtransport"
+														name="tauxtransport"
+														x-model="tauxtransport"
+													>
+												</div>
+												<div class="mb-4 border-b">
+													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
+														 Charges	:
+													</label>
+													<input
+														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+														type="text"
+														id="tauxcharges"
+														name="tauxcharges"
+														x-model="tauxcharges"
+													>
+												</div>
+
+												<div class="mb-4 border-b">
+													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
+														Montant total devis 	:
+													</label>
+													<input
+														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+														type="text"
+														id="devistotal"
+														name="devistotal"
+														x-model="devistotal"
+													>
+												</div>
+
+												<div class="mb-4 border-b">
+													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
+														% Transport	:
+													</label>
+													<input
+														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+														type="text"
+														id="pourcentagetransport"
+
+														name="pourcentagetransport"
+														x-model="(pourcentagetransport=tauxtransport/devistotal)*100"
+													>
+												</div>
+												<div class="mb-4 border-b">
+													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
+														% Charges	:
+													</label>
+													<input
+														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+														type="text"
+														id="pourcentagecharges"
+														name="pourcentagecharges"
+														x-model="(pourcentagecharges=tauxcharges/devistotal)*100"
+													>
+												</div>
+												<div class="mb-4 border-b">
+													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
+														% Intermidiere :
+													</label>
+													<input
+														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+														type="number"
+														id="intermidiere"
+														name="intermidiere"
+														x-model="intermidiere"
+													>
+												</div>
+												<div class="mb-4 border-b">
+													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
+														change USD to DZ	:
 													</label>
 													<input
 														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -247,104 +322,93 @@ class="flex flex-col min-h-screen custom-scrollbar"
 												</div>
 												<div class="mb-4 border-b">
 													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
-														Estimation des Charges	:
+														D.D	:
 													</label>
-													<input
+													<select
 														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 														type="text"
-														id="chargesApproximatively"
-														name="chargesApproximatively"
-														x-model="chargesApproximatively"
+														id="DD"
+														name=DD""
+														x-model="DD"
 													>
+													<option value="5">5%</option>
+													<option value="30">30%</option>
+													</select>
 												</div>
-												
-												<h2 class="block text-gray-700 text-lg font-bold mb-2">Taxes</h2>
-												<div class="mb-4">
-													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
-														TVA	:
-													</label>
-													<input
-														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-														type="number"
-														id="tva"
-														name="tva"
-														x-model="tva"
-													>												
-												</div>
-												<div class="">
-													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
-														DD	:
-													</label>
-													<input
-														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-														type="number"
-														id="dd"
-														name="dd"
-														x-model="dd"
-													>
-													
-												</div>
-												<div class="">
-													<label class="block text-gray-700 font-semibold mb-2" for="echReg">
-														TCS	:
-													</label>
-													<input
-														class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-														type="number"
-														id="tcs"
-														name="tcs"
-														x-model="tcs"
-													>											
-												</div>							   
+
+						   
 											</div>	
 											</div>
 										
 										</div>
 										<div x-show="tab === 2">
-											<table class="w-full divide-y divide-gray-200">
-												<thead class="bg-gray-50">
-													<tr>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Des</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ref</th>											
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Qty</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">PU USD</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total USD</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">PU DZ</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total DZ</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transport %</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transport Prix</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tax %</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Tax</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Charges %</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Charges</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Charges</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Anda</th>
-														<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Droit Réalisation</th>
-													</tr>
-												</thead>
-												<tbody class="bg-white divide-y divide-gray-200">
-													<template x-for="item in items">
+											<div class="overflow-x-auto">
+												<table class="min-w-full divide-y divide-gray-200 px-4">
+													<thead class="bg-gray-50">
 														<tr>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.name"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.ref"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.qty"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.prixUnitairUSD"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.totalPriceUSD"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.prixUnitaireDZ"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.totalPriceDZ"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.transportPercent"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.transportPrice"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.taxPercent"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.totalTax"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.chargesPercent"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.charges"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.Totalcharges"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.anda"></td>
-															<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.DroitRealisation"></td>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Des</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ref</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Qty</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">PU USD</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total USD</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">TR U</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total TR</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">MI U</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total MI</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">PI U</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total PI</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">PU DZ</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total DZ</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CH U </th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total CH</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">%DD</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">DD U</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total DD</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">TCS U</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total TCS</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">TVA U</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total TVA</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">TAX U</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total TAX</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">PF U</th>
+															<th class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total PF</th>
 														</tr>
-													</template>
-												</tbody>
-											</table>
+													</thead>
+													<tbody class="bg-white divide-y divide-gray-200">
+														<template x-for="item in items">
+															<tr>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.name"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.ref"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.quantity"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.prixUnitairUSD"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.totalPriceUSD"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.transportUnitaire"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.transportPrice"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.margeUnitaire"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.margetotal"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.prixUnitaireintermidiere"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.prixtotalintermidiere"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.prixUnitaireDZ"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.totalPriceDZ"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.chargeunitaire"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.chargetotal"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.dd"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.ddunitaire"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.ddtotal"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.tcs"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.tcstotal"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.tva"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.tvatotal"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.tax"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.taxtotal"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.prixUnitaireFinal"></td>
+																<td class="px-2 py-4 whitespace-nowrap text-sm text-gray-500" x-text="item.prixTotalFinal"></td>
+															</tr>
+														</template>
+													</tbody>
+												</table>
+											</div>
+											
 											<button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" x-on:click="openModal = !openModal">
 												Ajouter produits au bon
 											</button>
@@ -357,19 +421,30 @@ class="flex flex-col min-h-screen custom-scrollbar"
 														<thead class="bg-gray-50">
 															<tr>
 																<th class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Total Prix USD</th>
-																<th class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Total Prix DZ</th>
-																<th class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Total Charges</th>
 																<th class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Total Prix Transport</th>
+
+																<th class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Total Prix DZ</th>
+
+																<th class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Total Charges</th>
+																<th class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Total Marge Intermediaire</th>
+
 																<th class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Total Taxe</th>
+																<th class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Total Prix Final</th>
+
 															</tr>
 														</thead>
 														<tbody class="bg-white divide-y divide-gray-200">
 															<tr>														
-																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="totalPriceUSD"></td>														
-																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="totalPriceDZ"></td>													
-																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="totalCharges"></td>												
-																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="totalTransportPrice"></td>												
-																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="totalTax"></td>
+																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="bontotalPriceUSD"></td>														
+																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="bontotalTransportPrice"></td>												
+
+																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="bontotalPriceDZ"></td>													
+																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="bontotalCharges"></td>
+																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="bontotalintermidiere"></td>												
+
+																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="bontotalTax"></td>
+																<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right" x-text="bontotalPriceFinal"></td>
+
 															</tr>
 														</tbody>
 													</table>
@@ -378,7 +453,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 										
 										<div class="flex justify-between">
 											<div></div>
-											<button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" type="submit" x-on:click="validateBon">Valider le Bon & imprimer</button>
+											<button class="mt-6 bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm border border-gray-300 rounded shadow-sm" type="submit" x-on:click="validateBon"> <a href="{% url 'list-commandes' %}">Valider le Bon & imprimer</a> </button>
 										</div>
 								
 								</div>
@@ -449,66 +524,123 @@ class="flex flex-col min-h-screen custom-scrollbar"
 											<div class="flex">
 												<div class="mb-4 w-full mr-2">
 													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Prix.U USD</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.prixUnitairUSD">
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.prixUnitairUSD" >
 												</div>
 												<div class="mb-4 w-full mr-2">
 													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Prix Total USD</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.totalPriceUSD">
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.totalPriceUSD=item.quantity*item.prixUnitairUSD" disabled>
 												</div>
 											</div>
+											<div class="flex">
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Transport Unitaire</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.transportUnitaire=item.prixUnitairUSD*pourcentagetransport" disabled>
+												</div>
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Transport total</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.transportPrice=item.transportUnitaire*item.quantity" disabled>
+												</div>
+											</div>
+											<div class="flex">
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Marge intermidiere unitaire</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.margeUnitaire=(parseFloat(intermidiere)*parseFloat(item.prixUnitairUSD))/100" disabe>
+												</div>
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Marge intermidiere  total</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.margetotal=item.margeUnitaire*item.quantity" disabled>
+												</div>
+											</div>
+											<div class="flex">
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Prix  USD Intermidiaire</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" :value=" item.prixUnitaireintermidiere=((parseFloat(intermidiere)*parseFloat(item.prixUnitairUSD))/100) + (parseFloat(item.prixUnitairUSD))"  disabled>
+												</div>
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Prix Total USD Intermidiaire</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.prixtotalintermidiere=item.margetotal+item.totalPriceUSD" disabled>
+												</div>
+
+
+											</div>
+
 											<div class="flex">
 												<div class="mb-4 w-full mr-2">
 													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Prix.U DZ</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.prixUnitaireDZ">
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.prixUnitaireDZ=(item.transportUnitaire+item.prixUnitaireintermidiere)*tauxchange" disabled>
 												</div>
 												<div class="mb-4 w-full mr-2">
 													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Prix Total DZ</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.totalPriceDZ">
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.totalPriceDZ=(item.prixtotalintermidiere+item.transportPrice)*tauxchange" disabled>
 												</div>
 											</div>
 											<div class="flex">
 												<div class="mb-4 w-full mr-2">
-													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">% Transport</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.transportPercent">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Charge Unitaire</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.chargeunitaire=pourcentagecharges*item.prixUnitaireDZ" disabled>
 												</div>
 												<div class="mb-4 w-full mr-2">
-													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Prix Transport</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.transportPrice">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Charge total </label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.chargetotal=item.chargeunitaire*item.quantity" disabled>
+												</div>
+											</div>
+
+
+											<div class="flex">
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">D.D  : </label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.dd=DD"  >
+												</div>
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">D.D unitaire : </label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.ddunitaire=(item.prixUnitaireDZ*item.dd)/100" disabled>
+												</div>
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">D.D Total :</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.ddtotal=item.ddunitaire*item.quantity" disabled>
+												</div>
+											</div>
+
+											<div class="flex">
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">TCS</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.tcs=item.prixUnitaireDZ*2/100" disabled>
+												</div>
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">TCS TOTAL</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.tcstotal=item.tcs*item.quantity"  disabled>
 												</div>
 											</div>
 											<div class="flex">
 												<div class="mb-4 w-full mr-2">
-													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">% Tax</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.taxPercent">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">% TVA</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.tva=(item.prixUnitaireDZ+item.tcs+item.ddunitaire)*19/100" disabled>
 												</div>
 												<div class="mb-4 w-full mr-2">
-													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Taxe Totale</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-text="calculateItemTax(item.taxPercent)">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">TVA Totale</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.tvatotal=item.tva*item.quantity" disabled>
 												</div>
 											</div>
 											<div class="flex">
 												<div class="mb-4 w-full mr-2">
-													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">% Charges</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.chargesPercent">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">% TAX</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.tax=item.prixUnitaireDZ/(item.tcs+item.ddunitaire+item.tva)" disabled>
 												</div>
 												<div class="mb-4 w-full mr-2">
-													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Charges</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.charges">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">TAX Totale</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.taxtotal=item.tax*item.quantity" disabled>
+												</div>
+											</div>
+											<div class="flex">
+												<div class="mb-4 w-full mr-2">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Pris final unitaire</label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.prixUnitaireFinal=item.prixUnitaireDZ+item.tax+item.chargeunitaire" disabled>
 												</div>
 												<div class="mb-4 w-full mr-2">
-													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Charges Totales</label>
-													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.Totalcharges">
+													<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">TOtal Pris final  </label>
+													<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.prixTotalFinal=item.quantity*item.prixUnitaireFinal" disabled>
 												</div>
 											</div>
-											<div class="mb-4 w-full mr-2">
-												<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Anda</label>
-												<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.anda">
-											</div>
-											<div class="mb-4 w-full mr-2">
-												<label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">Droit de Réalisation</label>
-												<input class="text-left mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" x-model="item.DroitRealisation">
-											</div>
-										</div>
 										<div class="mt-8 text-right">
 											<button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded shadow-sm mr-2" @click="openModal = !openModal">
 												Annuler
@@ -544,23 +676,53 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									monnaie: '',
 									destinataire: '',
 									netTotal: 0,
+									devistotal:0,
+									pourcentagetransport:0,
+									pourcentagecharges:0,
+									tauxtransport:0,
+									intermidiere:0,
+									BontotalPriceUSD:0,
+									BontotalPriceDZ:0,
+									BontotalCharges:0,
+									BontotalTransportPrice:0,
+									BontotalTax:0,
+
+
 
 									// Add fields for all x-models
-									chargesApproximatively: 0,
+									tauxcharges: 0,
 									TransportApproximatively: 0,
 									tauxchange: 0,
-									dd: 0,
+
+									DD: 5,
+									
 									tcs: 0,
 									tva: 0,
 									totalTax: 0,
 									// Add any additional fields if needed
+									pourcentageTransport(){
+										const  devistotal= parseFloat(this.devistotal);
+										const  tauxtransport= parseFloat(this.tauxtransport);
+										this.pourcentagetransport=tauxtransport/devistotal ;
+
+										return this.pourcentagetransport
+										
+									},
+
+									calculateUSD(){
+										const  margeUnitaire= parseFloat(this.margeUnitaire);
+										const  prixUnitairUSD= parseFloat(this.prixUnitairUSD);
+										this.prixUnitaireintermidiere=margeUnitaire+prixUnitairUSD ;
+                                        console.log(this.prixUnitaireintermidiere)
+										return this.prixUnitaireintermidiere
+									},
 
 									// Method to calculate total tax
 									calculateTotalTax() {
 										const dd = parseFloat(this.dd) || 0;
 										const tcs = parseFloat(this.tcs) || 0;
 										const tva = parseFloat(this.tva) || 0;
-										this.totalTax = (dd + tcs) * tva;
+										returthis.totalTax = (dd + tcs) * tva;
 										
 									},
 									calculateItemTax(itemPercent){
@@ -577,25 +739,42 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									},
 
 									item: {
+										prixUnitairProduction:0,
+										margeIntermidier:0,
+										pourcentageIntermidier:0,
+										ddunitaire:0,
+										ddtotal:0,
 										id: '',
+										dd:0,
 										name: '',
+										taxtotal:0,
 										ref: '',
 										fournisseur: '',
 										qty: 0,
+										quantity:0,
 										prixUnitairUSD: 0,
 										totalPriceUSD: 0,
 										prixUnitaireDZ: 0,
 										totalPriceDZ: 0,
 										transportPercent: 0,
-										transportPrice: 0,
 										taxPercent: 0,
 										totalTax: 0,
 										chargesPercent: 0,
 										charges: 0,
 										Totalcharges: 0,
+										dd:0,
 										anda: 0,
-										DroitRealisation: 0,			
+										DroitRealisation: 0,
+										transportUnitaire:0,	
+										margeUnitaire:0,	
+										margetotal:0,	
+										prixUnitaireintermidiere:0,
+										prixtotalintermidiere:0,
+										ddunitaire:0,
+										ddtotal:0,
 									},
+
+									
 					
 									billing: {
 										name: '',
@@ -615,29 +794,157 @@ class="flex flex-col min-h-screen custom-scrollbar"
 										
 										this.openModal =true;
 									},
-					
+									bontotalPriceUSD(){
+										let BontotalPriceUSD=0
+										
+										this.items.forEach((item)=>{
+											
+											BontotalPriceUSD+=parseFloat(item.totalPriceUSD)
+											
+										 
+										} )
+										return BontotalPriceUSD
+									},
+									bontotalPriceDZ(){
+										let BontotalPriceDZ=0
+										
+										this.items.forEach((item)=>{
+											
+											BontotalPriceDZ+=parseFloat(item.totalPriceDZ)
+											
+										 
+										} )
+										return BontotalPriceDZ
+									},
+									bontotalCharges(){
+										let BontotalCharges=0
+										
+										this.items.forEach((item)=>{
+											
+											BontotalCharges+=parseFloat(item.chargetotal)
+											
+										 
+										} )
+										return BontotalCharges
+									},
+									bontotalTransportPrice(){
+										let BontotalTransportPrice=0
+										
+										this.items.forEach((item)=>{
+											
+											BontotalTransportPrice+=parseFloat(item.transportPrice)
+											
+										 
+										} )
+										return BontotalTransportPrice
+									},
+									bontotalTax(){
+										let BontotalTax=0
+										
+										this.items.forEach((item)=>{
+											
+											BontotalTax+=parseFloat(item.taxtotal)
+											
+										 
+										} )
+										return BontotalTax
+									},
+									bontotalPriceFinal(){
+										let BontotalPriceFinal=0
+										
+										this.items.forEach((item)=>{
+											
+											BontotalPriceFinal+=parseFloat(item.prixTotalFinal)
+											
+										 
+										} )
+										return BontotalPriceFinal
+									},
+									bontotalintermidiere(){
+										let Bontotalintermidiere=0
+										
+										this.items.forEach((item)=>{
+											
+											Bontotalintermidiere+=parseFloat(item.prixtotalintermidiere)
+											
+										 
+										} )
+										return Bontotalintermidiere
+									},
+									// ma
+									// margeintermidiaire(){
+									// 	const  intermidiere= parseFloat(this.intermidiere);
+									// 	console.log(intermidiere )
+									// 	this.items.forEach((item)=>{
+											
+									// 		console.log(" hello" , item)
+									// 		this.margeUnitaire=intermidiere*parseFloat(item.prixUnitairUSD)
+									// 	})
+								
+									// 	// return this.margeUnitaire
+									// },
+
 									addItem() {
-										this.items.push({
-											id: this.generateUUID(),
+										   
+											Object.keys(this.item).forEach(it=> console.log(it,this.item[it]))
+										this.items.push({						
 											name: this.item.name,
-											qty: this.item.qty,
-											rate: this.item.rate,
 											ref: this.item.ref,
 											fournisseur: this.item.fournisseur,
-											//gst: this.calculateGST(this.item.gst, this.item.rate),
-											total: this.item.qty * this.item.rate
-										})
-							
-					
+											quantity: this.item.quantity,
+											dd: this.item.dd ,
+											transportUnitaire:this.item.transportUnitaire,
+											transportPrice:this.item.transportPrice,
+											margeUnitaire:this.item.margeUnitaire,
+											margetotal:this.item.margetotal,
+											prixUnitaireintermidiere:this.item.prixUnitaireintermidiere,
+											prixtotalintermidiere:this.item.prixtotalintermidiere,
+											prixUnitaireDZ:this.item.prixUnitaireDZ,
+											totalPriceDZ:this.item.totalPriceDZ,
+											chargeunitaire:this.item.chargeunitaire,
+											chargetotal:this.item.chargetotal,
+											dd:this.item.dd,
+											ddunitaire:this.item.ddunitaire,
+											ddtotal:this.item.ddtotal,
+											tcs:this.item.tcs,
+											tcstotal:this.item.tcstotal,
+											tva:this.item.tva,
+											tvatotal:this.item.tvatotal,
+											tax:this.item.tax,
+											taxtotal:this.item.taxtotal,
+											prixUnitaireFinal:this.item.prixUnitaireFinal,
+											prixTotalFinal:this.item.prixTotalFinal,
+											prixUnitairUSD:this.item.prixUnitairUSD,
+											totalPriceUSD:this.item.totalPriceUSD,
+											
+										});
+
+										// Réinitialisation des champs après l'ajout
 										this.item.id = '';
 										this.item.name = '';
-										this.item.fournisseur='';
+										this.item.ref = '';
+										this.item.fournisseur = '';
 										this.item.qty = 0;
+										this.item.quantity=0;
 										this.item.rate = 0;
-										//this.item.gst = 18;
 										this.item.total = 0;
-										document.getElementById('myForm').reset(); 
+										this.item.DD = 0;
+										this.item.DDtotal = 0;
+										this.item.prixUnitairUSD = 0;
+										this.item.totalPriceUSD = 0;
+										this.item.prixUnitaireDZ = 0;
+										this.item.totalPriceDZ = 0;
+										this.item.transportPercent = 0;
+										this.item.transportPrice = 0;
+										this.item.taxPercent = 0;
+										this.item.totalTax = 0;
+										this.item.chargesPercent = 0;
+										this.item.charges = 0;
+										this.item.Totalcharges = 0;
+										this.item.anda = 0;
+										this.item.DroitRealisation = 0;
 
+										// document.getElementById('myForm').reset();
 									},
 									stocks:[],
 									selected:'',
@@ -658,7 +965,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 											};
 											this.stocks.push(item);
 										}	
-										console.log(this.stocks)	
+										
 									},
 									printInvoice() {
 										var printContents = this.$refs.printTemplate.innerHTML;
@@ -673,6 +980,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									},
 									validateBon(){										
 										
+										
 										const dataObj = {
 											IdBon : this.invoiceNumber,
 											dateBp:this.invoiceDate,
@@ -686,23 +994,40 @@ class="flex flex-col min-h-screen custom-scrollbar"
 											echeanceReg:this.echeanceReg,
 											tva:this.tva,
 											monnaie:this.monnaie,
-										};
+											total:0,
+											tauxtransport:this.tauxtransport,  
+											tauxcharges:this.tauxcharges,
+											devistotal:this.devistotal,
+											pourcentagetransport:this.pourcentagetransport*100,
+											pourcentagecharges:this.pourcentagecharges*100,
+											intermidiere:this.intermidiere,
+											bontotalPriceUSD:this.bontotalPriceUSD(),
+											bontotalTransportPrice:this.bontotalTransportPrice(),
+											bontotalPriceDZ:this.bontotalPriceDZ(),
+											bontotalCharges:this.bontotalCharges(),
+											bontotalintermidiere:this.bontotalintermidiere(),
+											bontotalTax:this.bontotalTax(),
+											bontotalPriceFinal:this.bontotalPriceFinal(),
 
-										 axios.post('', {
-												formData: dataObj
-											}, {
-												headers: {
-													'Content-Type': '',
-													'X-CSRFToken': getCookie('csrftoken'),
-												}
-											})
-											.then((response) => {
-												// {# response.data.message #}�
-												alert(response)							
-											})
-											.catch((error) => {
-												alert(error)
-											});
+										};
+										
+
+									axios.post('', {
+
+										formData: dataObj
+										}, {
+										headers: {
+											'X-CSRFToken': getCookie('csrftoken'),
+										}
+									})
+									.then((response) => {
+										console.log("respense ", response);
+										alert(response.data.message || "Succès !");
+									})
+									.catch((error) => {
+										console.error(error);
+										alert("Erreur lors de la soumission : " + error.message);
+									});
 											
 									},
 									
