@@ -8598,3 +8598,54 @@ Vendeuse
 {'montant': '0000', 'date': '2024-09-17'}
 {'montant': '0000', 'date': '2024-09-17'}
 manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Finance
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+Finance
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Vendeuse
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-18', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'Hanane', 'TotalPay': '5500.00', 'TotalRemise': '5500', 'verssement': False, 'produits': [{'id': 'b42b6803-b579-4867-94d4-bdc7030e2ad7', 'name': 'chale cazz couleurs  Mix standard', 'ref': '05729Mixstandard', 'availableqte': 23, 'qty': '1', 'ent': '', 'rate': '1200', 'gst': '0.00', 'total': 1200}, {'id': '8bb37ee5-63df-4a11-b612-5414a9b9d515', 'name': 'pantalon toile lilia jau48', 'ref': '01471jau48', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4300', 'gst': '0.00', 'total': 4300}]}
+{'IdBon': '', 'dateBp': '2024-09-18', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'Hanane', 'TotalPay': '5500.00', 'TotalRemise': '5500', 'verssement': False, 'produits': [{'id': 'b42b6803-b579-4867-94d4-bdc7030e2ad7', 'name': 'chale cazz couleurs  Mix standard', 'ref': '05729Mixstandard', 'availableqte': 23, 'qty': '1', 'ent': '', 'rate': '1200', 'gst': '0.00', 'total': 1200}, {'id': '8bb37ee5-63df-4a11-b612-5414a9b9d515', 'name': 'pantalon toile lilia jau48', 'ref': '01471jau48', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4300', 'gst': '0.00', 'total': 4300}]}
+chale cazz couleurs  Mix standard in MAG54 ROUIBA - Quantity: 23 1
+pantalon toile lilia jau48 in MAG54 ROUIBA - Quantity: 1 1
+{'id': 'b42b6803-b579-4867-94d4-bdc7030e2ad7', 'name': 'chale cazz couleurs  Mix standard', 'ref': '05729Mixstandard', 'availableqte': 23, 'qty': '1', 'ent': '', 'rate': '1200', 'gst': '0.00', 'total': 1200}
+{'id': '8bb37ee5-63df-4a11-b612-5414a9b9d515', 'name': 'pantalon toile lilia jau48', 'ref': '01471jau48', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4300', 'gst': '0.00', 'total': 4300}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+  Veille Concurentielle
+MARKETING
+MARKETING
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Facturation
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+MARKETING
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+[]
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QueryDict: {'csrfmiddlewaretoken': ['p2lyKrP02k217sRXCWfNZMz6gog013b4M4Jp24KSH8h5sqtvFs1FXgWnhBHUZik5'], 'billId': ['2771'], 'dateLivraison': ['2024-09-18']}>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
