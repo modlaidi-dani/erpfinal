@@ -201,14 +201,18 @@ class="flex flex-col min-h-screen custom-scrollbar"
                   </tbody>
                 </table>
             </div>
-                <div class="flex justify-end mt-4">
+                <div class="flex gap-10 justify-end">
                   <button
                       x-bind:disabled="currentPage === 1"
                       @click="prevPage"
                   >
                   <<
                   </button>
-                  <p x-text="currentPage"></p>
+             
+                    <p>
+                      <span x-text="currentPage"></span> - <span x-text="totalPages"></span>
+                    </p>
+                    
                   <button
                       x-bind:disabled="currentPage === totalPages"
                       @click="nextPage"
@@ -340,7 +344,15 @@ class="flex flex-col min-h-screen custom-scrollbar"
 
             // Now, assign the filtered products array to this.products
             this.products = products;
-			console.log(products)
+	           
+
+            const currentDate = new Date();
+            const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 2);
+            const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+
+            this.datedeb = firstDayOfMonth.toISOString().split('T')[0];
+            this.datefin = lastDayOfMonth.toISOString().split('T')[0];
+
         },
            
                   }
