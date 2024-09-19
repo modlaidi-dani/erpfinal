@@ -14512,3 +14512,351 @@ Not Found: /aab8/
 Not Found: /jquery-3.3.1.slim.min.js
 Not Found: /aab9/
 Not Found: /jquery-3.3.2.slim.min.js
+Not Found: /.env
+Not Found: /.env
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /images/logo.blu.png
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 76, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /robots.txt
+Not Found: /.env
+Forbidden (Referer checking failed - no Referer.): /
+Not Found: /_profiler/phpinfo/
+Not Found: /phpinfo.php
+Not Found: /info.php
+Not Found: /aws.yml
+Not Found: /.env.bak
+Not Found: /config/aws.yml
+Not Found: /symfony/_profiler/phpinfo/
+Not Found: /phpinfo/
+Not Found: /login/
+Not Found: /.aws/credentials
+Not Found: /config.js
+Not Found: /helpers/utility.js
+Not Found: /config/config.json
+Not Found: /sms.py
+Not Found: /php.php
+Not Found: /infophp.php
+Not Found: /php_info.php
+Not Found: /test.php
+Not Found: /i.php
+Not Found: /asdf.php
+Not Found: /pinfo.php
+Not Found: /phpversion.php
+Not Found: /time.php
+Not Found: /index.php
+Not Found: /temp.php
+Not Found: /old_phpinfo.php
+Not Found: /infos.php
+Not Found: /linusadmin-phpinfo.php
+Not Found: /php-info.php
+Not Found: /dashboard/phpinfo.php
+Not Found: /a.php
+Not Found: /php1.php
+Not Found: /adminphp.php/configuration.php
+Not Found: /123.php
+Not Found: /infophp.php
+Not Found: /isadmin.php
+Not Found: /jo.php
+Not Found: /lindex.php
+Not Found: /new.php
+Not Found: /phpinfo.php3
+Not Found: /phpinfo.php4
+Not Found: /phpinfo.php5
+Not Found: /phpinfos.php
+Not Found: /phptest.php
+Not Found: /pi.php
+Not Found: /pi.php5
+Not Found: /qq.php
+Not Found: /test0.php
+Not Found: /test1/
+Not Found: /test1.php
+Not Found: /test123.php
+Not Found: /wp-config.old
+Not Found: /test2.php
+Not Found: /test3.php
+Not Found: /test4.php
+Not Found: /test5.php
+Not Found: /test6.php
+Not Found: /test7.php
+Not Found: /test8.php
+Not Found: /test9.php
+Not Found: /up.php
+Not Found: /w.php
+Not Found: /wp.php
+Not Found: /apache.php
+Not Found: /php.ini
+Not Found: /web.php
+Not Found: /token.php
+Not Found: /main.yml
+Not Found: /.travis.yml
+Not Found: /s3.js
+Not Found: /server/s3.js
+Not Found: /aws-secret.yaml
+Not Found: /config/cache.php
+Not Found: /cache.php
+Not Found: /env.template
+Not Found: /wp-config.php.bak
+Not Found: /wp-config.txt
+Not Found: /wpp-config.php~
+Not Found: /wp-config.php.backup
+Not Found: /settings.py
+Not Found: /in.php
+Not Found: /dev.php
+Not Found: /devs.php
+Not Found: /ini.php
+Not Found: /apache2.php
+Not Found: /developer.php
+Not Found: /phpinfodev.php
+Not Found: /x.php
+Not Found: /of.php
+Not Found: /l.php
+Not Found: /phpinfo/phpinfo.php
+Not Found: /phpinfo/info.php
+Not Found: /phpinfo.html
+Not Found: /phpinfo.txt
+Not Found: /_profiler/phpinfo/phpinfo.php
+Not Found: /_profiler/phpinfo/info.php
+Not Found: /index1.php
+Not Found: /phpcustom_info/phpinfo.php
+Not Found: /php52/phpinfo.php
+Not Found: /apache/phpinfo.php
+Not Found: /apache/info.php
+Not Found: /apache/i.php
+Not Found: /rest.php
+Not Found: /inf.php
+Not Found: /info1.php
+Not Found: /info2.php
+Not Found: /info3.php
+Not Found: /info4.php
+Not Found: /phpinfo1.php
+Not Found: /phpinfo2.php
+Not Found: /phpinfo3.php
+Not Found: /phpinfo4.php
+Not Found: /o.php
+Not Found: /test_info.php
+Not Found: /test_info2.php
+Not Found: /test_info1.php
+Not Found: /test_info3.php
+Not Found: /test_info4.php
+Not Found: /test_info5.php
+Not Found: /test_phpinfo.php
+Not Found: /test_phpinfo1.php
+Not Found: /test_phpinfo2.php
+Not Found: /test_phpinfo3.php
+Not Found: /test_phpinfo4.php
+Not Found: /test_phpinfo5.php
+Not Found: /dashboard/info.php
+Not Found: /dashboard/test.php
+Not Found: /dashboard/i.php
+Not Found: /p.php
+Not Found: /ocp.php
+Not Found: /phpsysinfo/
+Not Found: /phpsysinfo.php
+Not Found: /phpsysinfo/info.php
+Not Found: /phpsysinfo/phpinfo.php
+Not Found: /phpsysinfo/phpsysinfo.php
+Not Found: /.phpinfo
+Not Found: /deploy.php
+Not Found: /dep.php
+Not Found: /main.php
+Not Found: /tz.php
+Not Found: /admin/phpinfo.php
+Not Found: /admin/info.php
+Not Found: /u.php
+Not Found: /q.php
+Not Found: /testing.php
+Not Found: /tester.php
+Not Found: /build.php
+Not Found: /robots.txt
+Not Found: /autodiscover/autodiscover.json
+Not Found: /.env
+Not Found: /robots.txt
+Internal Server Error: /dns-query
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/dns-query/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /dns-query
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/dns-query/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /query
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/query/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /query
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/query/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /resolve
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/resolve/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /resolve
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/resolve/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Forbidden (Referer checking failed - no Referer.): /
+Forbidden (Referer checking failed - no Referer.): /
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /robots.txt
+Not Found: /login/
+Not Found: /login/
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /.env
+Not Found: /robots.txt
+Not Found: /cpsess4588578078/
+Not Found: /cpsess4588578078/scripts5/file_and_directory_restoration/
+Not Found: /cpsess4588578078/scripts/command/
+Not Found: /.git/config
+Not Found: /robots.txt
+Not Found: /sitemap.xml
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /reglements/reglements
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 76, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
+Not Found: /cpsess4588578078/
+Not Found: /cpsess4588578078/scripts12/terminal/
+Not Found: /cpsess4588578078/scripts7/nginx-manager/
+Not Found: /cpsess4588578078/scripts/command/
+Not Found: /cpsess4588578078/scripts2/multiphp_ini_editor/
+Not Found: /cpsess4588578078/scripts7/multiphp-manager/
+Not Found: /cpsess4588578078/scripts6/get_appconfig_application_list/
+Not Found: /cpsess4588578078/scripts6/managehooks/
+Not Found: /.git/config

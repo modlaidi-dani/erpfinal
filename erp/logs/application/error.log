@@ -2289,3 +2289,36 @@ SystemExit: 1
 [2024-09-18 13:01:46 +0200] [61158] [INFO] Booting worker with pid: 61158
 [2024-09-18 13:01:47 +0200] [61159] [INFO] Booting worker with pid: 61159
 [2024-09-18 13:01:47 +0200] [61160] [INFO] Booting worker with pid: 61160
+[2024-09-18 15:54:23 +0200] [61157] [INFO] Handling signal: term
+[2024-09-18 13:54:23 +0000] [61158] [INFO] Worker exiting (pid: 61158)
+[2024-09-18 13:54:23 +0000] [61159] [INFO] Worker exiting (pid: 61159)
+[2024-09-18 13:54:23 +0000] [61160] [INFO] Worker exiting (pid: 61160)
+[2024-09-18 15:54:24 +0200] [61157] [INFO] Shutting down: Master
+[2024-09-18 15:54:24 +0200] [67617] [INFO] Starting gunicorn 23.0.0
+[2024-09-18 15:54:24 +0200] [67617] [INFO] Listening at: http://127.0.0.1:8000 (67617)
+[2024-09-18 15:54:24 +0200] [67617] [INFO] Using worker: sync
+[2024-09-18 15:54:24 +0200] [67618] [INFO] Booting worker with pid: 67618
+[2024-09-18 15:54:24 +0200] [67619] [INFO] Booting worker with pid: 67619
+[2024-09-18 15:54:24 +0200] [67620] [INFO] Booting worker with pid: 67620
+[2024-09-18 16:38:35 +0200] [67617] [INFO] Handling signal: term
+[2024-09-18 14:38:35 +0000] [67619] [INFO] Worker exiting (pid: 67619)
+[2024-09-18 14:38:35 +0000] [67618] [INFO] Worker exiting (pid: 67618)
+[2024-09-18 14:38:35 +0000] [67620] [INFO] Worker exiting (pid: 67620)
+[2024-09-18 16:38:37 +0200] [67617] [INFO] Shutting down: Master
+[2024-09-18 16:38:37 +0200] [69707] [INFO] Starting gunicorn 23.0.0
+[2024-09-18 16:38:37 +0200] [69707] [INFO] Listening at: http://127.0.0.1:8000 (69707)
+[2024-09-18 16:38:37 +0200] [69707] [INFO] Using worker: sync
+[2024-09-18 16:38:37 +0200] [69708] [INFO] Booting worker with pid: 69708
+[2024-09-18 16:38:37 +0200] [69709] [INFO] Booting worker with pid: 69709
+[2024-09-18 16:38:37 +0200] [69710] [INFO] Booting worker with pid: 69710
+[2024-09-19 10:29:58 +0200] [69707] [INFO] Handling signal: term
+[2024-09-19 08:29:58 +0000] [69708] [INFO] Worker exiting (pid: 69708)
+[2024-09-19 08:29:58 +0000] [69709] [INFO] Worker exiting (pid: 69709)
+[2024-09-19 08:29:58 +0000] [69710] [INFO] Worker exiting (pid: 69710)
+[2024-09-19 10:30:03 +0200] [69707] [INFO] Shutting down: Master
+[2024-09-19 10:30:04 +0200] [120767] [INFO] Starting gunicorn 23.0.0
+[2024-09-19 10:30:04 +0200] [120767] [INFO] Listening at: http://127.0.0.1:8000 (120767)
+[2024-09-19 10:30:04 +0200] [120767] [INFO] Using worker: sync
+[2024-09-19 10:30:04 +0200] [120770] [INFO] Booting worker with pid: 120770
+[2024-09-19 10:30:04 +0200] [120771] [INFO] Booting worker with pid: 120771
+[2024-09-19 10:30:04 +0200] [120772] [INFO] Booting worker with pid: 120772
