@@ -8758,3 +8758,134 @@ JUPE CLASSIQUE EXLT new marr standard in MAG54 ROUIBA - Quantity: 4 1
 {'id': '287fad1d-2ec9-4ca7-97d5-6f681ce9d612', 'name': 'JUPE CLASSIQUE EXLT new marr standard', 'ref': '05212marrstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
 commercial-vente
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
+Facturation
+manager
+Finance
+MARKETING
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+{'IdBon': 'FIG2409-2578', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'BUSINESS CHALENG ', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2409/02390', 'time': 111, 'produits': [{'id': '4cbdf9e6-25cf-4817-b985-3b06c5b38402', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 1, 'livre': True, 'rate': 36554.62, 'total': 36554.62, 'numSeries': ['CE2M014403960']}]}
+hello ['produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bondevis', 'target.can_see_targettab', 'ventes.can_see_bonretour', 'inventory.can_see_bontransfert', 'inventory.can_see_stocktab', 'tiers.can_see_tierstab', 'inventory.can_see_bonsorties', 'ventes.can_see_bongarantie', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'ventes.can_see_ventetab']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Facturation
+Finance
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '21800.00', 'TotalRemise': '2800', 'verssement': False, 'produits': [{'id': '07cb1005-c955-4f52-b4f8-690a3acaca50', 'name': 'ENSEMBLE 2P 10 18 1014 bei standard', 'ref': '04921beistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '11900', 'gst': '0.00', 'total': 11900}, {'id': '0b772529-f8a2-4057-a837-e9ae5856f456', 'name': 'ENSEMBLE 2P HLM 11738 noi standard', 'ref': '03183noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '21800.00', 'TotalRemise': '2800', 'verssement': False, 'produits': [{'id': '07cb1005-c955-4f52-b4f8-690a3acaca50', 'name': 'ENSEMBLE 2P 10 18 1014 bei standard', 'ref': '04921beistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '11900', 'gst': '0.00', 'total': 11900}, {'id': '0b772529-f8a2-4057-a837-e9ae5856f456', 'name': 'ENSEMBLE 2P HLM 11738 noi standard', 'ref': '03183noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}]}
+ENSEMBLE 2P 10 18 1014 bei standard in MAG54 ROUIBA - Quantity: 2 1
+ENSEMBLE 2P HLM 11738 noi standard in MAG54 ROUIBA - Quantity: 2 1
+{'id': '07cb1005-c955-4f52-b4f8-690a3acaca50', 'name': 'ENSEMBLE 2P 10 18 1014 bei standard', 'ref': '04921beistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '11900', 'gst': '0.00', 'total': 11900}
+{'id': '0b772529-f8a2-4057-a837-e9ae5856f456', 'name': 'ENSEMBLE 2P HLM 11738 noi standard', 'ref': '03183noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}
+gestion-stock
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c25bc49b-9fd5-4335-954f-28756a940909', 'name': 'PANTALON CLASSIQUE EXLT GUCCI Mix standard', 'ref': '03387Mixstandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c25bc49b-9fd5-4335-954f-28756a940909', 'name': 'PANTALON CLASSIQUE EXLT GUCCI Mix standard', 'ref': '03387Mixstandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+PANTALON CLASSIQUE EXLT GUCCI Mix standard in MAG54 MOHAMMADIA MALL - Quantity: 14 1
+{'id': 'c25bc49b-9fd5-4335-954f-28756a940909', 'name': 'PANTALON CLASSIQUE EXLT GUCCI Mix standard', 'ref': '03387Mixstandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-19', 'client': 296, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '13500', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '9', 'bills': [{'idBon': 'BL2407/01553', 'montantRegle': 13500, 'montant': 13500, 'regle': True}, {'idBon': 'BL2409/02389', 'montantRegle': 56500, 'montant': 56500, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-19', 'client': 1543, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '37300', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '9', 'bills': [{'idBon': 'BL2409/02377', 'montantRegle': 37300, 'montant': 37300, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+hello ['inventory.can_see_stocktab', 'ventes.can_see_ventetab', 'comptoire.can_see_cloture', 'inventory.can_see_bonsorties', 'inventory.can_create_echange_bill', 'produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_bontransfert', 'ventes.can_see_bongarantie', 'ventes.can_see_boncomptoires', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonreforme', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_comptoir', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonlivraison', 'target.can_see_targets', 'ventes.can_see_bonretour', 'ventes.can_see_bondevis', 'target.can_see_targettab', 'tiers.can_see_tierstab']
+hello ['inventory.can_see_stocktab', 'ventes.can_see_ventetab', 'comptoire.can_see_cloture', 'inventory.can_see_bonsorties', 'inventory.can_create_echange_bill', 'produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_bontransfert', 'ventes.can_see_bongarantie', 'ventes.can_see_boncomptoires', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonreforme', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_comptoir', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonlivraison', 'target.can_see_targets', 'ventes.can_see_bonretour', 'ventes.can_see_bondevis', 'target.can_see_targettab', 'tiers.can_see_tierstab']
+  Veille Concurentielle
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bondevis', 'target.can_see_targettab', 'ventes.can_see_bonretour', 'inventory.can_see_bontransfert', 'inventory.can_see_stocktab', 'tiers.can_see_tierstab', 'inventory.can_see_bonsorties', 'ventes.can_see_bongarantie', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'ventes.can_see_ventetab']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Finance
+gestion-stock
+gestion-stock
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+gestion-stock
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-19', 'client': 1539, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '23400', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '9', 'bills': [{'idBon': 'BL2409/02357', 'montantRegle': '23400', 'montant': 23400.01, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-19', 'client': 1469, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '29900', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '9', 'bills': [{'idBon': 'BL2409/02360', 'montantRegle': 29900, 'montant': 29900, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+gestion-stock
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Facturation
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Vendeuse
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+{'dateReg': '2024-09-19', 'client': 1566, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '210400', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2409/02396', 'montantRegle': '210400', 'montant': 210400.02, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+gestion-stock
+Facturation
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+gestion-stock
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'ventes.can_see_bongarantie', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'produits.can_see_producttab', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'tiers.can_see_clients', 'ventes.can_see_bonlivraison', 'produits.can_see_produits', 'inventory.can_see_bonsorties', 'target.can_see_targets']
+{'dateReg': '2024-09-19', 'client': 1540, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '9900', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '9', 'bills': [{'idBon': 'BL2409/02361', 'montantRegle': 9900, 'montant': 9900, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '20600.00', 'TotalRemise': '2600', 'verssement': False, 'produits': [{'id': '7f8acb58-ce45-4d74-b359-d6e45c068529', 'name': 'CHEMISE OZLEM  Mix standard', 'ref': '03300Mixstandard', 'availableqte': 16, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': '37256873-5aef-4a56-beaf-de5d2182ddbe', 'name': 'LIQUETTE BK23208  Mix standard', 'ref': '03349Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}, {'id': '56266949-6794-4380-a545-febcc25f8d9c', 'name': 'ROBE clrt 247215 marr standard', 'ref': '05036marrstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '9800', 'gst': '0.00', 'total': 9800}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '20600.00', 'TotalRemise': '2600', 'verssement': False, 'produits': [{'id': '7f8acb58-ce45-4d74-b359-d6e45c068529', 'name': 'CHEMISE OZLEM  Mix standard', 'ref': '03300Mixstandard', 'availableqte': 16, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': '37256873-5aef-4a56-beaf-de5d2182ddbe', 'name': 'LIQUETTE BK23208  Mix standard', 'ref': '03349Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}, {'id': '56266949-6794-4380-a545-febcc25f8d9c', 'name': 'ROBE clrt 247215 marr standard', 'ref': '05036marrstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '9800', 'gst': '0.00', 'total': 9800}]}
+CHEMISE OZLEM  Mix standard in MAG54 ROUIBA - Quantity: 16 1
+LIQUETTE BK23208  Mix standard in MAG54 ROUIBA - Quantity: 6 1
+ROBE clrt 247215 marr standard in MAG54 ROUIBA - Quantity: 3 1
+{'id': '7f8acb58-ce45-4d74-b359-d6e45c068529', 'name': 'CHEMISE OZLEM  Mix standard', 'ref': '03300Mixstandard', 'availableqte': 16, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'id': '37256873-5aef-4a56-beaf-de5d2182ddbe', 'name': 'LIQUETTE BK23208  Mix standard', 'ref': '03349Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+{'id': '56266949-6794-4380-a545-febcc25f8d9c', 'name': 'ROBE clrt 247215 marr standard', 'ref': '05036marrstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '9800', 'gst': '0.00', 'total': 9800}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '20600.00', 'TotalRemise': '2600', 'verssement': False, 'produits': [{'id': '7f8acb58-ce45-4d74-b359-d6e45c068529', 'name': 'CHEMISE OZLEM  Mix standard', 'ref': '03300Mixstandard', 'availableqte': 16, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': '37256873-5aef-4a56-beaf-de5d2182ddbe', 'name': 'LIQUETTE BK23208  Mix standard', 'ref': '03349Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}, {'id': '56266949-6794-4380-a545-febcc25f8d9c', 'name': 'ROBE clrt 247215 marr standard', 'ref': '05036marrstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '9800', 'gst': '0.00', 'total': 9800}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '20600.00', 'TotalRemise': '2600', 'verssement': False, 'produits': [{'id': '7f8acb58-ce45-4d74-b359-d6e45c068529', 'name': 'CHEMISE OZLEM  Mix standard', 'ref': '03300Mixstandard', 'availableqte': 16, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': '37256873-5aef-4a56-beaf-de5d2182ddbe', 'name': 'LIQUETTE BK23208  Mix standard', 'ref': '03349Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}, {'id': '56266949-6794-4380-a545-febcc25f8d9c', 'name': 'ROBE clrt 247215 marr standard', 'ref': '05036marrstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '9800', 'gst': '0.00', 'total': 9800}]}
+CHEMISE OZLEM  Mix standard in MAG54 ROUIBA - Quantity: 15 1
+LIQUETTE BK23208  Mix standard in MAG54 ROUIBA - Quantity: 5 1
+ROBE clrt 247215 marr standard in MAG54 ROUIBA - Quantity: 2 1
+{'id': '7f8acb58-ce45-4d74-b359-d6e45c068529', 'name': 'CHEMISE OZLEM  Mix standard', 'ref': '03300Mixstandard', 'availableqte': 16, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'id': '37256873-5aef-4a56-beaf-de5d2182ddbe', 'name': 'LIQUETTE BK23208  Mix standard', 'ref': '03349Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+{'id': '56266949-6794-4380-a545-febcc25f8d9c', 'name': 'ROBE clrt 247215 marr standard', 'ref': '05036marrstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '9800', 'gst': '0.00', 'total': 9800}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2773', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c78eaa8a-dc9b-4109-a835-a5e57459d26b', 'name': 'PANTALON TOILE / JEAN LILIA  Mix standard', 'ref': '03391Mixstandard', 'availableqte': 52, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c78eaa8a-dc9b-4109-a835-a5e57459d26b', 'name': 'PANTALON TOILE / JEAN LILIA  Mix standard', 'ref': '03391Mixstandard', 'availableqte': 52, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+PANTALON TOILE / JEAN LILIA  Mix standard in MAG54 ROUIBA - Quantity: 52 1
+{'id': 'c78eaa8a-dc9b-4109-a835-a5e57459d26b', 'name': 'PANTALON TOILE / JEAN LILIA  Mix standard', 'ref': '03391Mixstandard', 'availableqte': 52, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': '1200', 'verssement': False, 'produits': [{'id': '1e0d7caa-ef13-4ca0-ba80-dcf942f7d743', 'name': 'ROBE AVEC BOUTON EXLT  Mix standard', 'ref': '03302Mixstandard', 'availableqte': 17, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': '1200', 'verssement': False, 'produits': [{'id': '1e0d7caa-ef13-4ca0-ba80-dcf942f7d743', 'name': 'ROBE AVEC BOUTON EXLT  Mix standard', 'ref': '03302Mixstandard', 'availableqte': 17, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+ROBE AVEC BOUTON EXLT  Mix standard in MAG54 ROUIBA - Quantity: 17 1
+{'id': '1e0d7caa-ef13-4ca0-ba80-dcf942f7d743', 'name': 'ROBE AVEC BOUTON EXLT  Mix standard', 'ref': '03302Mixstandard', 'availableqte': 17, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': '1900', 'verssement': False, 'produits': [{'id': '2c98f428-6290-47f5-ac16-4a35beb7d1d8', 'name': 'PANTALON CLASSIQUE ERODNIK Mix standard', 'ref': '05531Mixstandard', 'availableqte': 39, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2772', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2770', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'd98f2053-5f9a-49b9-bd59-8f6a9b209370', 'name': 'LEGGING GNG EXLT Mix standard', 'ref': '03406Mixstandard', 'availableqte': 10, 'qty': '2', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 6800}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'd98f2053-5f9a-49b9-bd59-8f6a9b209370', 'name': 'LEGGING GNG EXLT Mix standard', 'ref': '03406Mixstandard', 'availableqte': 10, 'qty': '2', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 6800}]}
+LEGGING GNG EXLT Mix standard in MAG54 ROUIBA - Quantity: 10 2
+{'id': 'd98f2053-5f9a-49b9-bd59-8f6a9b209370', 'name': 'LEGGING GNG EXLT Mix standard', 'ref': '03406Mixstandard', 'availableqte': 10, 'qty': '2', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 6800}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '8d5e159b-3627-4beb-bfc3-5ebbbb90a259', 'name': 'GILET CLRT 247214 bei standard', 'ref': '05005beistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '8d5e159b-3627-4beb-bfc3-5ebbbb90a259', 'name': 'GILET CLRT 247214 bei standard', 'ref': '05005beistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+GILET CLRT 247214 bei standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': '8d5e159b-3627-4beb-bfc3-5ebbbb90a259', 'name': 'GILET CLRT 247214 bei standard', 'ref': '05005beistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde', 'TotalPay': '3900.00', 'TotalRemise': '1900', 'verssement': False, 'produits': [{'id': 'bbbb20d8-8aed-415f-b47f-8596fb278ab6', 'name': 'PANTALON CLASSIQUE LILIA  Mix standard', 'ref': '03385Mixstandard', 'availableqte': 63, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde', 'TotalPay': '3900.00', 'TotalRemise': '1900', 'verssement': False, 'produits': [{'id': 'bbbb20d8-8aed-415f-b47f-8596fb278ab6', 'name': 'PANTALON CLASSIQUE LILIA  Mix standard', 'ref': '03385Mixstandard', 'availableqte': 63, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+PANTALON CLASSIQUE LILIA  Mix standard in MAG54 ROUIBA - Quantity: 63 1
+{'id': 'bbbb20d8-8aed-415f-b47f-8596fb278ab6', 'name': 'PANTALON CLASSIQUE LILIA  Mix standard', 'ref': '03385Mixstandard', 'availableqte': 63, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3200.00', 'TotalRemise': '1000', 'verssement': False, 'produits': [{'id': '3f2d526a-e2e1-420b-9ca2-6e397d6c52ac', 'name': 'BALERINE ALUSO 1203 Mix standard', 'ref': '05787Mixstandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '3200', 'gst': '0.00', 'total': 3200}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3200.00', 'TotalRemise': '1000', 'verssement': False, 'produits': [{'id': '3f2d526a-e2e1-420b-9ca2-6e397d6c52ac', 'name': 'BALERINE ALUSO 1203 Mix standard', 'ref': '05787Mixstandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '3200', 'gst': '0.00', 'total': 3200}]}
+BALERINE ALUSO 1203 Mix standard in MAG54 ROUIBA - Quantity: 8 1
+{'id': '3f2d526a-e2e1-420b-9ca2-6e397d6c52ac', 'name': 'BALERINE ALUSO 1203 Mix standard', 'ref': '05787Mixstandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '3200', 'gst': '0.00', 'total': 3200}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1000', 'TotalRemise': 0, 'verssement': True, 'produits': [{'id': 'c9fc6e2c-1926-4f2f-94a7-6c21b7ab7ef4', 'name': 'PYJAMA LD BS Mix standard', 'ref': '03267Mixstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1000', 'TotalRemise': 0, 'verssement': True, 'produits': [{'id': 'c9fc6e2c-1926-4f2f-94a7-6c21b7ab7ef4', 'name': 'PYJAMA LD BS Mix standard', 'ref': '03267Mixstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+PYJAMA LD BS Mix standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': 'c9fc6e2c-1926-4f2f-94a7-6c21b7ab7ef4', 'name': 'PYJAMA LD BS Mix standard', 'ref': '03267Mixstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'd5094890-11f4-41fe-8b9f-6f633d7cea82', 'name': 'CHEMISE HLM 11905 bei standard', 'ref': '05063beistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'd5094890-11f4-41fe-8b9f-6f633d7cea82', 'name': 'CHEMISE HLM 11905 bei standard', 'ref': '05063beistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+CHEMISE HLM 11905 bei standard in MAG54 MOHAMMADIA MALL - Quantity: 5 1
+{'id': 'd5094890-11f4-41fe-8b9f-6f633d7cea82', 'name': 'CHEMISE HLM 11905 bei standard', 'ref': '05063beistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '12100.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': '6e76702d-434d-4e07-8d10-28c0cdc81b18', 'name': 'PANTALON TOILE / JEAN LILIA  Mix standard', 'ref': '03391Mixstandard', 'availableqte': 50, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '59c53160-82b7-44bb-a6cf-aa87b82d2aed', 'name': 'ROBE CLARITY 227132 mou standard', 'ref': '03260moustandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
