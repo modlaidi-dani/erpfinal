@@ -9065,3 +9065,955 @@ commercial-vente
 {'categorieP': '287', 'libFamille': 'PATHE THERMIQUE', 'kit': False, 'component': 'extras', 'list2': []}
 {'categorieP': '287', 'libFamille': 'WEBCAM', 'kit': False, 'component': 'extras', 'list2': []}
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'bonComptoir': 'VC24/02636', 'monantintroduit': '2900'}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '3a232196-4473-4844-9531-a8f1c0fd3e2c', 'name': 'TUNIQUE clrt 237169 noi standard', 'ref': '05040noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '3a232196-4473-4844-9531-a8f1c0fd3e2c', 'name': 'TUNIQUE clrt 237169 noi standard', 'ref': '05040noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+TUNIQUE clrt 237169 noi standard in MAG54 ROUIBA - Quantity: 2 1
+{'id': '3a232196-4473-4844-9531-a8f1c0fd3e2c', 'name': 'TUNIQUE clrt 237169 noi standard', 'ref': '05040noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '11300.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '86f52df1-341f-4031-be07-36f62ef211e2', 'name': 'CHEMISE LONGUE HLM 11712 noi standard', 'ref': '05075noistandard', 'availableqte': 25, 'qty': '1', 'ent': '', 'rate': '6400', 'gst': '0.00', 'total': 6400}, {'id': '9539c666-0d08-4f3b-b98c-1d196f69ab4c', 'name': 'PANTALON CLASSIQUE CARRE EXLT   noi standard', 'ref': '05196noistandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '11300.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '86f52df1-341f-4031-be07-36f62ef211e2', 'name': 'CHEMISE LONGUE HLM 11712 noi standard', 'ref': '05075noistandard', 'availableqte': 25, 'qty': '1', 'ent': '', 'rate': '6400', 'gst': '0.00', 'total': 6400}, {'id': '9539c666-0d08-4f3b-b98c-1d196f69ab4c', 'name': 'PANTALON CLASSIQUE CARRE EXLT   noi standard', 'ref': '05196noistandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+CHEMISE LONGUE HLM 11712 noi standard in MAG54 ROUIBA - Quantity: 25 1
+PANTALON CLASSIQUE CARRE EXLT   noi standard in MAG54 ROUIBA - Quantity: 14 1
+{'id': '86f52df1-341f-4031-be07-36f62ef211e2', 'name': 'CHEMISE LONGUE HLM 11712 noi standard', 'ref': '05075noistandard', 'availableqte': 25, 'qty': '1', 'ent': '', 'rate': '6400', 'gst': '0.00', 'total': 6400}
+{'id': '9539c666-0d08-4f3b-b98c-1d196f69ab4c', 'name': 'PANTALON CLASSIQUE CARRE EXLT   noi standard', 'ref': '05196noistandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'Laeouissi Abdelmalek', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e933794c-b7e4-4da0-87c4-13ef9a44ccfa', 'name': 'CASQUE MSI IMMERSE GH20', 'ref': 'MDS372101030SV1', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '6800', 'gst': '0.00', 'total': 6800}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'Laeouissi Abdelmalek', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e933794c-b7e4-4da0-87c4-13ef9a44ccfa', 'name': 'CASQUE MSI IMMERSE GH20', 'ref': 'MDS372101030SV1', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '6800', 'gst': '0.00', 'total': 6800}]}
+CASQUE MSI IMMERSE GH20 in PARKMALL SETIF - Quantity: 2 1
+{'id': 'e933794c-b7e4-4da0-87c4-13ef9a44ccfa', 'name': 'CASQUE MSI IMMERSE GH20', 'ref': 'MDS372101030SV1', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '6800', 'gst': '0.00', 'total': 6800}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'b417e2ce-cb4b-4e49-9f33-650640f5278e', 'name': 'SOUS PULL ILKAN NEWnoixl', 'ref': '01755noixl', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'b417e2ce-cb4b-4e49-9f33-650640f5278e', 'name': 'SOUS PULL ILKAN NEWnoixl', 'ref': '01755noixl', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}]}
+SOUS PULL ILKAN NEWnoixl in MAG54 ROUIBA - Quantity: 9 1
+{'id': 'b417e2ce-cb4b-4e49-9f33-650640f5278e', 'name': 'SOUS PULL ILKAN NEWnoixl', 'ref': '01755noixl', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde 30', 'TotalPay': '2900.00', 'TotalRemise': '900', 'verssement': False, 'produits': [{'id': 'e1df44a1-af6f-4331-9de4-2a90fe8d4407', 'name': 'PANTALON CARRE SHMD  bla standard', 'ref': '05521blastandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '2900', 'gst': '0.00', 'total': 2900}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde 30', 'TotalPay': '2900.00', 'TotalRemise': '900', 'verssement': False, 'produits': [{'id': 'e1df44a1-af6f-4331-9de4-2a90fe8d4407', 'name': 'PANTALON CARRE SHMD  bla standard', 'ref': '05521blastandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '2900', 'gst': '0.00', 'total': 2900}]}
+PANTALON CARRE SHMD  bla standard in MAG54 ROUIBA - Quantity: 8 1
+{'id': 'e1df44a1-af6f-4331-9de4-2a90fe8d4407', 'name': 'PANTALON CARRE SHMD  bla standard', 'ref': '05521blastandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '2900', 'gst': '0.00', 'total': 2900}
+{'categorieP': '287', 'libFamille': 'CARTABLE ET SAC A DOS', 'kit': False, 'component': 'extras', 'list2': []}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+{'nomClient': 'MMAHMOUDI FATIMA ZAHRA', 'adresse': 'BORDJ ELBAHRI', 'phone': '0797619786', 'catclient': '9'}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'MMAHMOUDI FATIMA ZAHRA', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4000', 'TotalRemise': '500', 'verssement': True, 'produits': [{'id': '9a8c8b12-6fff-4955-bed1-0d6d17c271cf', 'name': 'ROBE SOIREE ARN  949B noi standard', 'ref': '05127noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'MMAHMOUDI FATIMA ZAHRA', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4000', 'TotalRemise': '500', 'verssement': True, 'produits': [{'id': '9a8c8b12-6fff-4955-bed1-0d6d17c271cf', 'name': 'ROBE SOIREE ARN  949B noi standard', 'ref': '05127noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}]}
+ROBE SOIREE ARN  949B noi standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': '9a8c8b12-6fff-4955-bed1-0d6d17c271cf', 'name': 'ROBE SOIREE ARN  949B noi standard', 'ref': '05127noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}
+{'IdBon': 'FIG2409-2579', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'Bessem zaki', 'address': 'Sidi\xa0amar', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0540310125'}, 'AssociatedBL': 'BL2409/02397', 'time': 23, 'produits': [{'id': 'fee7295b-d6aa-4089-b02a-e2eadf0c8a12', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 1, 'livre': True, 'rate': 36554.62, 'total': 36554.62, 'numSeries': ['CE2M014403888']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'categorieP': '', 'libFamille': 'PROCESSEUR INTEL', 'kit': False, 'component': 'cpu', 'list2': []}
+{'categorieP': '233', 'libFamille': 'PROCESSEUR INTEL', 'kit': False, 'component': 'cpu', 'list2': []}
+{'categorieP': '236', 'libFamille': 'CARTE MERE AMD', 'kit': False, 'component': 'mb', 'list2': []}
+{'categorieP': '', 'libFamille': 'REFROIDISSEMENT CPU', 'kit': False, 'component': 'cpuc', 'list2': []}
+{'categorieP': '242', 'libFamille': 'AIR COOLING CPU', 'kit': False, 'component': 'cpuc', 'list2': []}
+{'id': '252', 'categorieP': '249', 'libFamille': 'SSD NVME GEN 3', 'descFamille': '', 'component': 'ssd', 'kit': False, 'list2': []}
+{'categorieP': '249', 'libFamille': 'SSD NVME GEN 5', 'kit': False, 'component': 'ssd', 'list2': []}
+{'categorieP': '', 'libFamille': 'BOITIER', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '258', 'libFamille': 'MINI TOWER', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '', 'libFamille': 'ECRAN', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '265', 'libFamille': 'ECRAN PRO', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '266', 'libFamille': 'ECRAN PRO DALLE IPS', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '270', 'libFamille': 'ECRAN PRO DALLE IPS 30 POUCE ET PLUS', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '265', 'libFamille': 'ECRAN GAMING', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '275', 'libFamille': 'ECRAN GAMING CURVED 24 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '274', 'libFamille': 'ECRAN GAMING IPS', 'kit': False, 'component': 'moniteur', 'list2': []}
+commercial-vente
+{'categorieP': '274', 'libFamille': 'ECRAN GAMING OLED', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '283', 'libFamille': 'ECRAN GAMING OLED 27 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '283', 'libFamille': 'ECRAN GAMING OLED 30 POUCE ET PLUS', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '265', 'libFamille': 'DATA SHOW', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '287', 'libFamille': 'CLAVIER', 'kit': False, 'component': 'claviers', 'list2': []}
+{'categorieP': '288', 'libFamille': 'CLAVIER MEMBRANE', 'kit': False, 'component': 'claviers', 'list2': []}
+{'categorieP': '290', 'libFamille': 'CLAVIER MECHANIQUE WIRED', 'kit': False, 'component': 'claviers', 'list2': []}
+{'categorieP': '290', 'libFamille': 'CLAVIER MECHANIQUE WIRELESS', 'kit': False, 'component': 'claviers', 'list2': []}
+{'categorieP': '287', 'libFamille': 'TAPIS DE SOURIS', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '287', 'libFamille': 'BAFFLE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '287', 'libFamille': 'MICROPHONE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '287', 'libFamille': 'SUPPORT ECRAN', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '287', 'libFamille': 'SUPPORT CARTE GRAPHIQUE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '287', 'libFamille': 'MANETTE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '287', 'libFamille': 'ACCESSOIRE', 'kit': False, 'component': 'extras', 'list2': []}
+{'id': '202', 'categorieP': '', 'libFamille': 'ACCESSOIRE', 'descFamille': '', 'component': 'extras', 'kit': True, 'list2': []}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Vendeuse
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+{'nomClient': 'Laeouissi Abdelmalek', 'adresse': '', 'phone': '', 'catclient': '1'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '17500.00', 'TotalRemise': '500', 'verssement': False, 'produits': [{'id': 'b0bb4fad-0c4b-4302-a027-16705ee625a8', 'name': 'ROBE SOIREE ARN 972 noi standard', 'ref': '05129noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '17500.00', 'TotalRemise': '500', 'verssement': False, 'produits': [{'id': 'b0bb4fad-0c4b-4302-a027-16705ee625a8', 'name': 'ROBE SOIREE ARN 972 noi standard', 'ref': '05129noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}]}
+ROBE SOIREE ARN 972 noi standard in MAG54 ROUIBA - Quantity: 1 1
+{'id': 'b0bb4fad-0c4b-4302-a027-16705ee625a8', 'name': 'ROBE SOIREE ARN 972 noi standard', 'ref': '05129noistandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}
+manager
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2300.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e20e5722-9bf5-47f5-8604-5ec5f246016d', 'name': 'HAUT STK SM 0565 noi standard', 'ref': '05219noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '2300', 'gst': '0.00', 'total': 2300}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2300.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e20e5722-9bf5-47f5-8604-5ec5f246016d', 'name': 'HAUT STK SM 0565 noi standard', 'ref': '05219noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '2300', 'gst': '0.00', 'total': 2300}]}
+HAUT STK SM 0565 noi standard in MAG54 MOHAMMADIA MALL - Quantity: 5 1
+{'id': 'e20e5722-9bf5-47f5-8604-5ec5f246016d', 'name': 'HAUT STK SM 0565 noi standard', 'ref': '05219noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '2300', 'gst': '0.00', 'total': 2300}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '60c87a3c-4e51-4414-add0-b600caacca90', 'name': 'robe longue she mode 224569 ble standard', 'ref': '05120blestandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '60c87a3c-4e51-4414-add0-b600caacca90', 'name': 'robe longue she mode 224569 ble standard', 'ref': '05120blestandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+robe longue she mode 224569 ble standard in MAG54 ROUIBA - Quantity: 5 1
+{'id': '60c87a3c-4e51-4414-add0-b600caacca90', 'name': 'robe longue she mode 224569 ble standard', 'ref': '05120blestandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Vendeuse
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'ae7edd92-5b6b-4144-8a1e-f50f538b265c', 'name': 'JUPE EXLT COTON  cre standard', 'ref': '05207crestandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'ae7edd92-5b6b-4144-8a1e-f50f538b265c', 'name': 'JUPE EXLT COTON  cre standard', 'ref': '05207crestandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}]}
+JUPE EXLT COTON  cre standard in MAG54 ROUIBA - Quantity: 14 1
+{'id': 'ae7edd92-5b6b-4144-8a1e-f50f538b265c', 'name': 'JUPE EXLT COTON  cre standard', 'ref': '05207crestandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '14000.00', 'TotalRemise': '2200', 'verssement': False, 'produits': [{'id': '98962f47-6d73-47b0-a421-8e1a70e7ce2d', 'name': 'CHEMISE ZRFT 2297  Mix standard', 'ref': '03298Mixstandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}, {'id': '9f56f1ae-d2c2-4469-b51a-928adeb3d13c', 'name': 'ROBE BK 23237 Mixstandard', 'ref': '03308Mixstandard', 'availableqte': 28, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': 'dc7db158-55f4-47bd-ade5-eccbdfaa67f7', 'name': 'PANTALON CARRE ELASTIQUE exlt marr standard', 'ref': '05192marrstandard', 'availableqte': 19, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '14000.00', 'TotalRemise': '2200', 'verssement': False, 'produits': [{'id': '98962f47-6d73-47b0-a421-8e1a70e7ce2d', 'name': 'CHEMISE ZRFT 2297  Mix standard', 'ref': '03298Mixstandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}, {'id': '9f56f1ae-d2c2-4469-b51a-928adeb3d13c', 'name': 'ROBE BK 23237 Mixstandard', 'ref': '03308Mixstandard', 'availableqte': 28, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': 'dc7db158-55f4-47bd-ade5-eccbdfaa67f7', 'name': 'PANTALON CARRE ELASTIQUE exlt marr standard', 'ref': '05192marrstandard', 'availableqte': 19, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+CHEMISE ZRFT 2297  Mix standard in MAG54 ROUIBA - Quantity: 14 1
+ROBE BK 23237 Mixstandard in MAG54 ROUIBA - Quantity: 28 1
+PANTALON CARRE ELASTIQUE exlt marr standard in MAG54 ROUIBA - Quantity: 19 1
+{'id': '98962f47-6d73-47b0-a421-8e1a70e7ce2d', 'name': 'CHEMISE ZRFT 2297  Mix standard', 'ref': '03298Mixstandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '4600', 'gst': '0.00', 'total': 4600}
+{'id': '9f56f1ae-d2c2-4469-b51a-928adeb3d13c', 'name': 'ROBE BK 23237 Mixstandard', 'ref': '03308Mixstandard', 'availableqte': 28, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'id': 'dc7db158-55f4-47bd-ade5-eccbdfaa67f7', 'name': 'PANTALON CARRE ELASTIQUE exlt marr standard', 'ref': '05192marrstandard', 'availableqte': 19, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '0e14afcc-679e-4ffc-882b-cf8a7de9d40b', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 65, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '0e14afcc-679e-4ffc-882b-cf8a7de9d40b', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 65, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+PANTALON CLASSIQUE BUDAK new Mix standard in MAG54 ROUIBA - Quantity: 65 1
+{'id': '0e14afcc-679e-4ffc-882b-cf8a7de9d40b', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 65, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': '900', 'verssement': False, 'produits': [{'id': '1e2361ff-5d13-43c3-8556-6aac5c4a8dc5', 'name': 'robe longue she mode 224569 ble standard', 'ref': '05120blestandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': '900', 'verssement': False, 'produits': [{'id': '1e2361ff-5d13-43c3-8556-6aac5c4a8dc5', 'name': 'robe longue she mode 224569 ble standard', 'ref': '05120blestandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+robe longue she mode 224569 ble standard in MAG54 ROUIBA - Quantity: 5 1
+{'id': '1e2361ff-5d13-43c3-8556-6aac5c4a8dc5', 'name': 'robe longue she mode 224569 ble standard', 'ref': '05120blestandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '17500.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': 'e9b6f5ae-60ed-4fea-807d-f862dbdef1bb', 'name': 'ROBE SOIREE ARN 946 noi standard', 'ref': '05133noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '17500.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': 'e9b6f5ae-60ed-4fea-807d-f862dbdef1bb', 'name': 'ROBE SOIREE ARN 946 noi standard', 'ref': '05133noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}]}
+ROBE SOIREE ARN 946 noi standard in MAG54 ROUIBA - Quantity: 2 1
+{'id': 'e9b6f5ae-60ed-4fea-807d-f862dbdef1bb', 'name': 'ROBE SOIREE ARN 946 noi standard', 'ref': '05133noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '17500', 'gst': '0.00', 'total': 17500}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '96c6cfa5-827c-4e95-b69d-c545db051725', 'name': 'PULL LOVE FREE Mixstandard', 'ref': '00914Mixstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '96c6cfa5-827c-4e95-b69d-c545db051725', 'name': 'PULL LOVE FREE Mixstandard', 'ref': '00914Mixstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+PULL LOVE FREE Mixstandard in MAG54 ROUIBA - Quantity: 4 1
+{'id': '96c6cfa5-827c-4e95-b69d-c545db051725', 'name': 'PULL LOVE FREE Mixstandard', 'ref': '00914Mixstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'reference': 'AENEAS-GB-76', 'name': 'CARTABLE REDRAGON AENEAS GAMING BACKPACK', 'category': 'CARTABLE ET SAC A DOS'}
+{'reference': 'ADIEMUS-GS560', 'name': 'BAFFLE REDRAGON GS560 ADIEMUS GAMING SPEAKER ', 'category': 'BAFFLE '}
+{'reference': 'MSCUBEP', 'name': 'BAFFLE MARS GAMING MSCUBE PINK PREMIUM CUBE', 'category': 'BAFFLE '}
+{'reference': 'MSRGB\t', 'name': 'BAFFLE MARS GAMING MSRGB BLACK 15W USB, JACK+BLUETOOTH\t', 'category': 'BAFFLE '}
+{'reference': 'MSDUOW\t', 'name': 'MARS GAMING MSDUO RGB SOUNDBAR ± 2.0 SPEAKERS 15W\tWHITE', 'category': 'BAFFLE '}
+{'reference': 'MCA-16\t', 'name': 'CABLE MARS GAMING MCA-16 PREMIUM 16PIN (8+8) VGA POWER ', 'category': 'CABLE'}
+{'reference': 'MCA-24\t', 'name': 'CABLE MARS GAMING MCA-24 PREMIUM 24PIN MB POWER ', 'category': 'CABLE'}
+{'reference': 'RISER-MPG-4\t', 'name': 'CABLE RISER MSI MPG 140MM PCIE 4.0\t', 'category': 'CABLE'}
+{'reference': 'MCA-WT\t', 'name': 'TUBE MARS GAMING MCA-WT PREMIUM 2X ARGB WATERCOOLING ', 'category': 'CABLE'}
+{'reference': '90YH02R1-B1UA00\t', 'name': 'CASQUE ASUS ROG STRIX GO CORE\t', 'category': 'CASQUE '}
+{'reference': '90YH0391-B3UA00\t', 'name': 'CASQUE ASUS TUF GAMING H1 WIRELESS\t', 'category': 'CASQUE '}
+{'reference': '90YH02AR-B1UA00\t', 'name': 'CASQUE ASUS TUF GAMING H3 RED\t', 'category': 'CASQUE '}
+{'reference': '90YH02ZG-B3UA00', 'name': 'CASQUE ASUS TUF GAMING H3 WIRELESS\t', 'category': 'CASQUE '}
+{'reference': 'MH-752\t', 'name': 'CASQUE COOLER MASTER MH752 - BLACK', 'category': 'CASQUE '}
+{'reference': 'MHAXP', 'name': 'CASQUE MARS GAMING MHAX PINK RGB HEADPHONES', 'category': 'CASQUE '}
+{'reference': 'S37-2100911-SV1\t', 'name': 'CASQUE MSI DS502 GAMING\t', 'category': 'CASQUE '}
+{'reference': 'MDS370400150SV1', 'name': 'CASQUE MSI IMMERSE GH40 ENC\t', 'category': 'CASQUE '}
+{'reference': 'S37-0400110-SV1\t', 'name': 'CASQUE MSI IMMERSE GH50\t', 'category': 'CASQUE '}
+{'reference': 'MDS374300010SV', 'name': 'CASQUE MSI IMMERSE GH50 WIRELESS\t', 'category': 'CASQUE '}
+{'reference': 'PANDORA-H350RGB\t', 'name': 'CASQUE REDRAGON H350 PANDORA RGB', 'category': 'CASQUE '}
+{'reference': 'H848-Black\t', 'name': 'CASQUE REDRAGON IRE PRO ULTRA-LIGHT WIRELESS BLACK ', 'category': 'CASQUE '}
+{'reference': 'H848-GREY', 'name': 'CASQUE REDRAGON IRE PRO ULTRA-LIGHT WIRELESS GREY', 'category': 'CASQUE '}
+{'reference': 'H510-RGB\t', 'name': 'CASQUE REDRAGON ZEUS-X H510 RGB', 'category': 'CASQUE '}
+{'reference': 'MH222', 'name': 'CASQUE MARS GAMING MH222 RGB HEADPHONES+MIC, HIFI', 'category': 'CASQUE '}
+{'reference': 'ZEUS-2-H510-1', 'name': 'CASQUE REDRAGON ZEUS-2 H510 7.1 SURROUND SOUND', 'category': 'CASQUE '}
+{'reference': 'H510-WL-ZEUS-X\t', 'name': 'CASQUE REDRAGON ZEUS-X H510 WIRELESS', 'category': 'CASQUE '}
+{'reference': '90MP01Y0-BKFA01\t', 'name': 'CLAVIER ASUS M601 ROG FALCHION\t', 'category': 'CLAVIER'}
+{'reference': '90MP01X0-BKFA00\t', 'name': 'CLAVIER ASUS RA04 TUF GAMING K1 / FR\t', 'category': 'CLAVIER'}
+{'reference': '90MP01Q1-BKFA00\t', 'name': 'CLAVIER ASUS RA05 TUF GAMING K3 /BN/FR\t', 'category': 'CLAVIER'}
+{'reference': 'SK-622-GKTL1-US\t', 'name': 'CLAVIER COOLER MASTER SK622 WIRELESS - BLACK', 'category': 'CLAVIER'}
+{'reference': 'MK60\t', 'name': 'CLAVIER MARS GAMING MK60 MECHANICAL 60%  - BLACK', 'category': 'CLAVIER'}
+{'reference': 'MK422', 'name': 'CLAVIER MARS GAMING MK422 BLACK', 'category': 'CLAVIER'}
+{'reference': 'MDS1104FR234CLA', 'name': 'CLAVIER MSI GK71 RED SONIC\t', 'category': 'CLAVIER'}
+{'reference': 'S11-04FR233-CLA ', 'name': 'CLAVIER MSI VIGOR GK20 FR', 'category': 'CLAVIER'}
+{'reference': 'MDS1104FR243CLA', 'name': 'CLAVIER MSI VIGOR GK41', 'category': 'CLAVIER'}
+{'reference': 'S11-04FR231-CLA ', 'name': 'CLAVIER MSI VIGOR GK50 ELITE BW FR\t', 'category': 'CLAVIER'}
+{'reference': 'Draconic-K530RGB\t', 'name': 'CLAVIER REDRAGON DRACONIC K530 RGB WIRELESS - BLACK ', 'category': 'CLAVIER'}
+{'reference': 'Clavier Redragon K596 Vishnu 2.4G Wireless/Wired RGB Mechanical Gami\t', 'name': 'CLAVIER REDRAGON VISHNU K596 WIRELESS - BLACK ', 'category': 'CLAVIER'}
+{'reference': 'Clavier Redragon KUMARA Wired Mechanical Keyboard - Black\t', 'name': 'CLAVIER REDRAGON KUMARA K552-2 - BLACK', 'category': 'CLAVIER'}
+{'reference': 'K632NB-RGB-PRO\t', 'name': 'CLAVIER REDRAGON NOTICS PRO K632 BLUETOOTH 2.4G - BLACK', 'category': 'CLAVIER'}
+{'reference': 'MDS1104FR237CLA\t', 'name': 'COMBO MSI CLAVIER &amp;amp;amp;amp;amp;amp; SOURIS VIGOR GK30 BLACK\t', 'category': 'COMBO'}
+{'reference': '9L90DQ0435UA221KZ\t', 'name': 'LECTEUR ASUS SDRW-08D2S-U LITE BLACK\t', 'category': 'LECTEUR CD / DVD'}
+{'reference': '9L90DD0114M29000', 'name': 'LECTEUR ASUS SDRW-08U5S-PINK\t', 'category': 'LECTEUR CD / DVD'}
+{'reference': '9L90DD0112M29000', 'name': 'LECTEUR ASUS SDRW-08U5S-SILVER\t', 'category': 'LECTEUR CD / DVD'}
+{'reference': '9L90DD02A0M29000', 'name': 'LECTEUR ASUS SDRW-09U9M-BLACK\t', 'category': 'LECTEUR CD / DVD'}
+{'reference': '9L90DD02A5M29000\t', 'name': 'LECTEUR ASUS SDRW-09U9M-GOLD\t', 'category': 'LECTEUR CD / DVD'}
+{'reference': '9L90DD02A2M29000', 'name': 'LECTEUR ASUS SDRW-09U9M-SILVER\t', 'category': 'LECTEUR CD / DVD'}
+{'reference': 'S10-43G0080-EC4\t', 'name': 'MANETTE MSI FORCE GC30 V2 BLACK\t', 'category': 'MANETTE'}
+{'reference': 'S10-43G0040-EC4\t', 'name': 'MANETTE MSI FORCE GC30 V2 WHITE\t', 'category': 'MANETTE'}
+{'reference': 'MMIC-XT\t', 'name': 'MICROHPONE MARS GAMING MMIC-XT ULTRA-HIGH DEF ARGB \t', 'category': 'MICROPHONE '}
+{'reference': 'MMIC', 'name': 'MICROPHHE MARS GAMING MMIC BLACK ', 'category': 'MICROPHONE '}
+{'reference': 'MMICW', 'name': 'MICROPHONE MARS GAMING MMIC WHITE ', 'category': 'MICROPHONE '}
+{'reference': 'MDOS3XXXX031000', 'name': 'MICROPHONE MSI IMMERSE GV60', 'category': 'MICROPHONE '}
+{'reference': 'GM200-1', 'name': 'MICROPHONE REDRAGON GM200 ', 'category': 'MICROPHONE '}
+{'reference': 'BLAZAR-GM300', 'name': 'MICROPHONE REDRAGON BLAZAR GM300', 'category': 'MICROPHONE '}
+{'reference': 'MT0', 'name': 'PATE THERMIQUE MARS GAMING MT0 , HIGH-EFFICIENCY 6W\t', 'category': 'PATHE THERMIQUE'}
+{'reference': 'MT1', 'name': 'PATE THERMIQUE MARS GAMING MT1 - PASTA TERMICA - ULTRA EFI\t', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-A-001-RS\t', 'name': 'PATE THERMIQUE THERMAL GRIZZLY AERONAUT HIGH PERFORMANCE - 1G', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-H-100-R\t', 'name': 'PATE THERMIQUE THERMAL GRIZZLY HYDRONAUT - 26G', 'category': 'PATHE THERMIQUE'}
+{'reference': 'MMAXW', 'name': 'SOUIRS MARS GAMING MMAX WHITE', 'category': 'SOURIS WIRED'}
+{'reference': '9L9OMPO1JOBOUA00', 'name': 'SOURIS ASUS P305 TUF M3\t', 'category': 'SOURIS WIRED'}
+{'reference': '90MP02K0-BMUA00\t', 'name': 'SOURIS ASUS P307 TUF GAMING M4 AIR\t', 'category': 'SOURIS WIRED'}
+{'reference': '90MP01P0-BMUA00\t', 'name': 'SOURIS ASUS P510 ROG STRIX IMPACT II WL\t', 'category': 'SOURIS WIRELESS'}
+{'reference': 'MM-831-KKOH1\t', 'name': 'SOURIS COOLER MASTER MM831 WL', 'category': 'SOURIS WIRELESS'}
+{'reference': 'MM55 ', 'name': 'SOURIS MARS GAMING MM55 BLACK ', 'category': 'SOURIS WIRED'}
+{'reference': 'MM55W', 'name': 'SOURIS MARS GAMING MM55 WHITE ', 'category': 'SOURIS WIRED'}
+{'reference': 'MMEXW', 'name': 'SOURIS MARSGAMING MMEX WHITE', 'category': 'SOURIS WIRED'}
+{'reference': 'MMPROP', 'name': 'SOURIS MARSGAMING MMPRO PINK ', 'category': 'SOURIS WIRED'}
+{'reference': 'S12-0402010-CLA\t', 'name': 'SOURIS MSI CLUTCH DM07\t', 'category': 'SOURIS WIRED'}
+{'reference': 'S12-0400D20-C54\t', 'name': 'SOURIS MSI CLUTCH GM41 LIGHTWEIGHT V2\t', 'category': 'SOURIS WIRED'}
+{'reference': 'MDS120402180C54', 'name': 'SOURIS MSI CLUTCH GM51 LIGHTWEIGHT\t', 'category': 'SOURIS WIRED'}
+{'reference': 'MDS124300080C54\t', 'name': 'SOURIS MSI CLUTCH GM51 LIGHTWEIGHT WIRELESS\t', 'category': 'SOURIS WIRELESS'}
+{'reference': 'SNIPER-PRO-M801P-RGB', 'name': 'SOURIS REDRAGON SNIPER PRO M801P WIRELESS', 'category': 'SOURIS WIRELESS'}
+{'reference': 'IMPACT-M908\t', 'name': 'SOURIS REDRAGON IMPACT M908 RGB', 'category': 'SOURIS WIRED'}
+{'reference': 'M987-K\t', 'name': 'SOURIS REDRAGON M987-K', 'category': 'SOURIS WIRED'}
+{'reference': 'STORM-ELITE-M988-RGB\t', 'name': 'SOURIS REDRAGON STORM ELITE M988-RGB', 'category': 'SOURIS WIRED'}
+{'reference': '90DA0020-B09000\t', 'name': 'SUPPORT GPU ASUS XH01 ROG HERCULX GRAPHICS CARD HOLDER\t', 'category': 'SUPPORT CARTE GRAPHIQUE'}
+{'reference': 'MHHPRO', 'name': 'SUPPORT CASQUE MARS GAMING MHHPRO BLACK ', 'category': 'SUPPORT CASQUE '}
+{'reference': 'E22-GA60011-CLA\t', 'name': 'SUPPORT CASQUE MSI IMMERSE HS01 ', 'category': 'SUPPORT CASQUE '}
+{'reference': 'S98-0700020-CLA\t', 'name': 'SUPPORT CASQUE MSI IMMERSE HS01 Combo\t', 'category': 'SUPPORT CASQUE '}
+{'reference': 'SCEPTER-ELITE-HA311\t', 'name': 'SUPPORT CASQUE REDRAGON SCEPTER ELITE HA311\t', 'category': 'SUPPORT CASQUE '}
+{'reference': 'MARM2', 'name': 'SUPPORT ECRAN MARS GAMING MARM2 BLACK\t', 'category': 'SUPPORT ECRAN'}
+{'reference': 'MARM2W', 'name': 'SUPPORT ECRAN MARS GAMING MARM2 WHITE\t', 'category': 'SUPPORT ECRAN'}
+{'reference': 'MGS', 'name': 'SUPPORT ECRAN MARS GAMING MGS ', 'category': 'SUPPORT ECRAN'}
+{'reference': 'MGSONE', 'name': 'SUPPORT ECRAN MARS GAMING MGSONE BLACK\t', 'category': 'SUPPORT ECRAN'}
+{'reference': 'MGSONEW', 'name': 'SUPPORT ECRAN MARS GAMING MGSONE WHITE\t', 'category': 'SUPPORT ECRAN'}
+{'reference': 'MMPXLS\t', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL SILVER', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'EPEIUS-P009\t', 'name': 'TAPIS DE SOURIS REDRAGON EPEIUS P009', 'category': 'TAPIS DE SOURIS '}
+{'reference': '90MP00T0-B0UA00\t', 'name': 'TAPIS DE SOURIS ASUS NC03 ROG STRIX EDGE\t', 'category': 'TAPIS DE SOURIS '}
+{'reference': '90MP02G0-BPUA00\t', 'name': 'TAPIS DE SOURIS ASUS NC13 TUF GAMING P1\t', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'MMPRGBLS', 'name': 'TAPIS DE SOURIS MARS GAMING MMPRGBL SILVER ', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'MMPRGBL\t', 'name': 'TAPIS DE SOURIS MARS GAMING MMPRGBL BLACK\t', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'MMPXL\t', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL BLACK\t', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'J02-VXXXXX2-EB9\t', 'name': 'TAPIS DE SOURIS MSI AGILITY GD30\t', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'J02-VXXXX12-EB9\t', 'name': 'TAPIS DE SOURIS MSI AGILITY GD80\t', 'category': 'TAPIS DE SOURIS '}
+{'reference': '90MP01C0-B0UA00\t', 'name': 'TAPIS DE SOURIS NC05 TUF GAMING P3\t', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'SUZAKU-P003\t', 'name': 'TAPIS DE SOURIS REDRAGON SUZAKU P003', 'category': 'TAPIS DE SOURIS '}
+{'reference': '9L90LJ00J3B01070\t', 'name': 'PROJECTEUR ASUS ZENBEAM ER1\t', 'category': 'DATA SHOW'}
+{'reference': 'MWPRO ', 'name': 'WEBCAM MARS GAMING MWPRO PRO - BLACK', 'category': 'WEBCAM'}
+{'reference': '90YH0350-B2UA00\t', 'name': 'WEBCAM ASUS ROG EYE S\t', 'category': 'WEBCAM'}
+{'reference': 'HITMAN-GW800\t', 'name': 'WEBCAM REDRAGON HITMAN GW800', 'category': 'WEBCAM'}
+{'reference': '9L90YE00N3B0NA00', 'name': 'ALIMENTATION ASUS ROG LOKI 850P PLATINUM BLACK\t', 'category': 'ALIMENTATION '}
+{'reference': '9L90YE00N2B0NA00\t', 'name': 'ALIMENTATION ASUS ROG LOKI 850P PLATINUM WHITE\t', 'category': 'ALIMENTATION '}
+{'reference': 'MPB1000', 'name': 'ALIMENTATION MARS GAMING MPB 1000W 80PLUS GOLD ', 'category': 'ALIMENTATION '}
+{'reference': 'MD3067ZP6A1180', 'name': 'ALIMENTATION MSI MAG A500DN 500WATTS\t', 'category': 'ALIMENTATION '}
+{'reference': '16 306-7ZP2A11-CEO\t', 'name': 'ALIMENTATION MSI MAG A550BN\t', 'category': 'ALIMENTATION '}
+{'reference': 'MD3067ZP8A110E0', 'name': 'ALIMENTATION MSI MAG A850GL 850WATTS\t', 'category': 'ALIMENTATION '}
+{'reference': '306-7ZP7C11-CE0\t', 'name': 'ALIMENTATION MSI MPG A1000G PCIE5\t', 'category': 'ALIMENTATION '}
+{'reference': 'MD3067ZP6B11809', 'name': 'BLOC D&amp;#x27;ALIMENTATION MSI MAG A600DN\t', 'category': 'ALIMENTATION '}
+{'reference': '9L90DC00H0B09000\t', 'name': 'BOITIER ASUS PRIME A21 SANS VENTILLO\t', 'category': 'MINI TOWER'}
+{'reference': 'MCM-H500-MCNN-S01\t', 'name': 'BOITIER COLLER MASTER H500 ARGB\t', 'category': 'MID TOWER'}
+{'reference': 'MCM-H500P-MGNN-S11\t', 'name': 'BOITIER COOLER MASTER H500P RGB\t', 'category': 'MID TOWER'}
+{'reference': 'LANCOOL III-W-RGB\t', 'name': 'BOITIER LIAN LI LANCOOL III-W RGB - WHITE', 'category': 'MID TOWER'}
+{'reference': 'O11D-EVO-A\t', 'name': 'BOITIER LIAN LI O11 DYNAMIC EVO - SILVER ', 'category': 'MID TOWER'}
+{'reference': 'O11-DYNAMIC-MINI-BLACK', 'name': 'BOITIER LIAN LI DYNAMIC MINI - BLACK', 'category': 'MINI TOWER'}
+{'reference': 'O11-DYNAMIC-MINI-WHITE', 'name': 'BOITIER LIAN LI DYNAMIC MINI - WHITE', 'category': 'MINI TOWER'}
+{'reference': 'O11-DYNAMIC-BLACK', 'name': 'BOITIER LIAN LI O11 DYNAMIC - BLACK', 'category': 'MID TOWER'}
+{'reference': 'MC-NOVA\t', 'name': 'BOITIER MARS GAMING MC-NOVA XXL PREMIUM CUSTOM ALUMINUM\t', 'category': 'MID TOWER'}
+{'reference': 'MC-ULTRAW\t', 'name': 'BOITIER MARS GAMING MC-ULTRA XXL PREMIUM CUSTOM E-ATX CASE - WHITE', 'category': 'MID TOWER'}
+{'reference': 'MC-ULTRA\t', 'name': 'BOITIER MARS GAMING MC-ULTRA XXL PREMIUM CUSTOM E-ATX CASE - BLACK ', 'category': 'MID TOWER'}
+{'reference': 'MCPRO2\t', 'name': 'BOITIER MARS GAMING MCPRO2 BLACK\t', 'category': 'MID TOWER'}
+{'reference': 'MCV4', 'name': 'BOITIER MARS GAMING MCV4 BLACK\t', 'category': 'MID TOWER'}
+{'reference': 'MCV4P\t', 'name': 'BOITIER MARS GAMING MCV4 PINK\t', 'category': 'MID TOWER'}
+{'reference': 'MAG-FORGE-112R\t', 'name': 'BOITIER MSI MAG FORGE 112R\t', 'category': 'MID TOWER'}
+{'reference': 'MAG-FORGE-M100R\t', 'name': 'BOITIER MSI MAG FORGE M100R\t', 'category': 'MID TOWER'}
+{'reference': 'MEG-PROSPECT-700R', 'name': 'BOITIER MSI MEG PROSPECT 700R\t', 'category': 'MID TOWER'}
+{'reference': 'MPG-GUNGNIR-110R-BLACK\t', 'name': 'BOITIER MSI MPG GUNGNIR 110R BLACK\t', 'category': 'MID TOWER'}
+{'reference': 'MPG-GUNGNIR-110R-WHITE\t', 'name': 'BOITIER MSI MPG GUNGNIR 110R WHITE\t', 'category': 'MID TOWER'}
+{'reference': 'MPG-VELOX-100R\t', 'name': 'BOITIER MSI MPG VELOX 100R\t', 'category': 'MID TOWER'}
+{'reference': 'MC-CW\t', 'name': 'MARS GAMING MC-C WHITE', 'category': 'MID TOWER'}
+{'reference': 'MCV3W\t', 'name': 'MARS GAMING MCV3 XXL PREMIUM CUSTOM E-ATX CASE - WHITE\t', 'category': 'MID TOWER'}
+{'reference': 'MD912V8093831', 'name': 'CARTE GRAPHIQUE MSI GTX1650 VENTUS OC 4G\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'MD912V511099\t', 'name': 'CARTE GRAPHIQUE MSI RTX4080 GAMING X TRIO BLACK\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'MD912V516004\t', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'RTX4060-VNTS-WHITE\t', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC WHITE EDITION\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'MD912V513249', 'name': 'MSI RTX4070TI VENTUS 3X 12G OC GDDR6X\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'MD9117C56049\t', 'name': 'CARTE MERE MSI MPG B550 GAMING PLUS\t', 'category': 'CARTE MERE AMD'}
+{'reference': 'MD9117E28001\t', 'name': 'CARTE MERE MSI PRO A620M-E\t', 'category': 'CARTE MERE AMD'}
+{'reference': 'MD9117E27001\t', 'name': 'CARTE MERE MSI PRO B650M-P\t', 'category': 'CARTE MERE AMD'}
+{'reference': '9L9OMB1EFOMOEAY0\t', 'name': 'CARTE MERE ASUS PRIME B760-PLUS DDR5\t', 'category': 'CARTE MERE INTEL'}
+{'reference': '9L90MB1D50M0EAY0', 'name': 'CARTE MERE ASUS TUF GAMING H770-PRO WIFI DDR5\t', 'category': 'CARTE MERE INTEL'}
+{'reference': '911-7D98-007\t', 'name': 'CARTE MERE MSI B760 GAMING PLUS WIFI DDR5\t', 'category': 'CARTE MERE INTEL'}
+{'reference': '911-7D48-012\t', 'name': 'CARTE MERE MSI PRO H610M-E DDR4\t', 'category': 'CARTE MERE INTEL'}
+{'reference': 'MD9117E07003', 'name': 'CARTE MERE MSI PRO Z790-A WIFI\t', 'category': 'CARTE MERE INTEL'}
+{'reference': '911-7E06-010\t', 'name': 'CARTE MERE MSI PRO Z790-P WIFI\t', 'category': 'CARTE MERE INTEL'}
+{'reference': 'MD9117D91030', 'name': 'CARTE MERE MSI Z790 TOMAHAWK WIFI\t', 'category': 'CARTE MERE INTEL'}
+{'reference': 'MD9117E01039', 'name': 'MSI B760 MORTAR WIFI DDR5\t', 'category': 'CARTE MERE INTEL'}
+{'reference': 'AW100100000252MPK', 'name': 'CPU AMD RYZEN 5 5600G MPK', 'category': 'PROCESSEUR AMD'}
+{'reference': 'RYZEN5-7600', 'name': 'CPU AMD RYZEN 5 7600 BOX', 'category': 'PROCESSEUR AMD'}
+{'reference': '7600-MPK', 'name': 'CPU AMD RYZEN 5 7600 MPK\t', 'category': 'PROCESSEUR AMD'}
+{'reference': 'RYZEN5-7600X\t', 'name': 'CPU AMD RYZEN 5 7600X\t', 'category': 'PROCESSEUR AMD'}
+{'reference': 'AW100100000263MPK\t', 'name': 'CPU AMD RYZEN 7 5700G MPK\t', 'category': 'PROCESSEUR AMD'}
+{'reference': 'RYZEN9-7950X\t', 'name': 'CPU AMD RYZEN 9 7950X\t', 'category': 'PROCESSEUR AMD'}
+{'reference': '100-100000252BOX\t', 'name': 'CPU RYZEN 5 5600G BOX\t', 'category': 'PROCESSEUR AMD'}
+{'reference': 'INB71512100FSRL63\t', 'name': 'CPU INTEL I3 12100F BOX\t', 'category': 'PROCESSEUR INTEL'}
+{'reference': '13100F-BOX\t', 'name': 'CPU INTEL I3 13100F BOX\t', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'I5-14600KF\t', 'name': 'CPU INTEL I5 14600KF\t', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'BX8071512400FSRL5Z', 'name': 'CPU INTEL I5-12400F BOX', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'I7-14700K\t', 'name': 'CPU INTEL I7 14700K\t', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'I9-13900KF\t', 'name': 'CPU INTEL I9 13900KF\t', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'I9-14900K\t', 'name': 'CPU INTEL I9 14900K\t', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'I9-14900KF\t', 'name': 'CPU INTEL I9 14900KF\t', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'LEXAR-NQ100\t', 'name': 'SSD SATA III LEXAR NQ100 240GB\t', 'category': 'SSD SATA'}
+{'reference': '47111377022477', 'name': 'SSD NVME M.2 MSI SPATIUM M450 500GB PCIE 4.0 ', 'category': 'SSD NVME GEN 4'}
+{'reference': '4711377062404', 'name': 'SSD NVME M.2 MSI SPATIUM M461 1000GB PCIE 4.0 ', 'category': 'SSD NVME GEN 4'}
+{'reference': '4711377105590', 'name': 'SSD NVME M.2 MSI SPATIUM M480 PRO 1000GB PCIE 4.0 ', 'category': 'SSD NVME GEN 4'}
+{'reference': 'LEXAR-8UDIMM3200\t', 'name': 'RAM DDR4 LEXAR UDIMM 8G 3200MHZ\t', 'category': 'RAM DDR4'}
+{'reference': 'ARES-32-6000-RGB\t', 'name': 'RAM DDR5  LEXAR ARES 32GB 6000MHZ CL34 KIT 2X16GB RGB\t', 'category': 'RAM DDR5'}
+{'reference': 'VENOM-32GB-7200-RGB\t', 'name': 'RAM DDR5 PATRIOT VENOM 32GB KIT 16GBX2 7200MHZ CL34 RGB\t', 'category': 'RAM DDR5'}
+{'reference': 'PSP48G320081H1', 'name': 'RAM DDR4 PATRIOT SL PREM WITH HEATHSINK 8G 3200MHZ - BLACK', 'category': 'RAM DDR4'}
+{'reference': 'PVE2416G400C0', 'name': 'RAM DDR4 VIPER ELITE II CL20 SIBGLE 16GB 4000MHZ', 'category': 'RAM DDR4'}
+{'reference': 'PVS48G320C6\t', 'name': 'RAM DDR4 VIPER STEEL CL16 8GB 3200MHZ ', 'category': 'RAM DDR4'}
+{'reference': 'PVS48G360C8\t', 'name': 'RAM DDR4 VIPER STEEL CL18 8GB 3600MHZ', 'category': 'RAM DDR4'}
+{'reference': 'PVSR48G320C8', 'name': 'RAM DDR4 VIPER STEEL CL18 8GB 3200MHZ RGB ', 'category': 'RAM DDR4'}
+{'reference': 'PVSR48G360C0\t', 'name': 'RAM DDR4 VIPER STEEL CL20 8GB 3600MHZ RGB ', 'category': 'RAM DDR4'}
+{'reference': 'MCPU120', 'name': 'AIR COOLING MARS GAMING MCPU120', 'category': 'AIR COOLING CPU'}
+{'reference': 'ML-ONE240W\t', 'name': 'WATER COOLING MARS GAMING ML-ONE240 - WHITE ', 'category': 'WATER COOLING CPU'}
+{'reference': 'MLULTRA240', 'name': 'WATER COOLING MARS GAMIN ML-ULTRA240 - BLACK', 'category': 'WATER COOLING CPU'}
+{'reference': 'MLULTRA360\t', 'name': 'WATER COOLING MARS GAMING ML-ULTRA360 - BLACK', 'category': 'WATER COOLING CPU'}
+{'reference': 'ML-ONE360\t', 'name': 'WATER COOLING MARS GAMING ML-ONE360  - BLACK\t', 'category': 'WATER COOLING CPU'}
+{'reference': 'MLULTRA360W', 'name': 'WATER COOLING MARS GAMING ML-ULTRA360 - WHITE', 'category': 'WATER COOLING CPU'}
+{'reference': 'ML-ONE360W\t', 'name': 'WATER COOLING MARS GAMING M-LONE360 - WHITE\t', 'category': 'WATER COOLING CPU'}
+{'reference': '306-7ZWlB50-813\t', 'name': 'WATER COOLING MSI MAG CORELIQUID 240R V2 WHITE\t', 'category': 'WATER COOLING CPU'}
+{'reference': '306-7ZWlC41-813\t', 'name': 'WATER COOLING MSI MAG CORELIQUID 360R V2 - BLACK', 'category': 'WATER COOLING CPU'}
+{'reference': '306-7ZWlB53-813\t', 'name': 'WATER COOLING MSI MAG CORELIQUID 360R V2 - WHITE\t', 'category': 'WATER COOLING CPU'}
+{'reference': '306-7ZW2R31-813\t', 'name': 'WTER COOLING MSI MAG CORELIQUID C360\t', 'category': 'WATER COOLING CPU'}
+{'reference': 'MF-3D\t', 'name': 'FAN MARS GAMING MF-3D - BLACK', 'category': 'FANS'}
+{'reference': 'MF-3DW\t', 'name': 'FAN MARS GAMING MF-3D - WHITE', 'category': 'FANS'}
+{'reference': 'MAX-F20A\t', 'name': 'FAN MSI MAX F20A\t', 'category': 'FANS'}
+{'reference': '9L90DA0030B09000\t', 'name': 'FANS ASUS TUF GAMING TF120 ARGB - BLACK', 'category': 'FANS'}
+{'reference': '9L90DA0033B09000', 'name': 'FANS ASUS TUF GAMING TF120 ARGB - WHITE\t', 'category': 'FANS'}
+{'reference': 'MF-3DKIT\t', 'name': 'FANS PACK MARS GAMING MF-3DKIT - BLACK', 'category': 'PACK FANS'}
+{'reference': 'MAX-F12A\t', 'name': 'FANS PACK MSI  MAX F12A-3', 'category': 'PACK FANS'}
+{'reference': 'MAX-F12A-3H\t', 'name': 'FANS PACK MSI MAX F12A- 3H\t', 'category': 'PACK FANS'}
+{'reference': 'MF-3DP\t', 'name': 'FAN MARS GAMING MF-3D - PINK', 'category': 'FANS'}
+{'reference': 'MFD', 'name': 'FAN MARS GAMING MFD - TRANSPARENT ', 'category': 'FANS'}
+{'reference': 'MFXW', 'name': 'FAN MARS GAMING MFX - WHITE ', 'category': 'FANS'}
+{'reference': 'MFXKITW', 'name': 'FANS PACK MARS GAMING MFXKIT- WHITE\t', 'category': 'PACK FANS'}
+{'reference': '9L90DA00401300000\t', 'name': 'FAN ASUS AF120A2R-SI ARGB\t', 'category': 'FANS'}
+{'reference': 'MFDUO\t', 'name': 'FANS PACK MARS GAMING MFDUO  - BLACK\t', 'category': 'PACK FANS'}
+{'reference': '90DA0010-B09000\t', 'name': 'FAN ASUS ROG STRIX XF120/K\t', 'category': 'FANS'}
+{'reference': 'MP243X-B', 'name': 'ECRAM MSI PRO MP243X BLACK - IPS - 100HZ - 1MS\t', 'category': 'ECRAN'}
+{'reference': 'AOC-24B1XH2\t', 'name': 'ECRAN AOC 24B1XH2\t', 'category': 'ECRAN'}
+{'reference': '24G4', 'name': 'ECRAN AOC 24G4 - IPS - 180HZ - 1MS - STAND ADJUSTABLE\t', 'category': 'ECRAN'}
+{'reference': '27B1H2\t', 'name': 'ECRAN AOC 27B1H2 - IPS - 100HZ', 'category': 'ECRAN'}
+{'reference': '27G4', 'name': 'ECRAN AOC 27G4 - IPS - 180HZ - 1MS - STADN ADJUSTABLE\t', 'category': 'ECRAN'}
+{'reference': '9L9OLMO7L0B01370', 'name': 'ECRAN ASUS TUF GAMING VG32AQL1A IPS 170HZ QHD 2560X1440', 'category': 'ECRAN'}
+{'reference': 'G244F', 'name': 'ECRAN MSI G244F - IPS - 170HZ - 1MS\t', 'category': 'ECRAN'}
+{'reference': 'MD9S63CC29H045', 'name': 'ECRAN MSI MAG 274UPF IPS - 4K - 144HZ - 1MS\t', 'category': 'ECRAN'}
+{'reference': '120A-AIRFLOW', 'name': 'BOITIER MSI MAG FORGE 120A AIRFLOW', 'category': 'MID TOWER'}
+{'reference': '320R-AIRFLOW', 'name': 'BOITIER MSI MAG FORGE 320R AIRFLOW', 'category': 'MID TOWER'}
+{'reference': '90YH028G-B1UA00', 'name': 'CASQUE ASUS TUF GAMING H3 GUN METAL', 'category': 'CASQUE '}
+{'reference': 'MHAX', 'name': 'CASQUE MARS GAMING MHAX BLACK ', 'category': 'CASQUE '}
+{'reference': 'MMICKIT', 'name': 'MICROPHONE MARS GAMING MMICKIT 7in1 PROFESSIONAL MICROPHONE\t', 'category': 'MICROPHONE '}
+{'reference': 'MMAXP', 'name': 'SOURI SMARSGAMING MMAX MOUSE PINK', 'category': 'SOURIS WIRED'}
+{'reference': '10 306-7ZP2B11-CEO\t', 'name': 'ALIMENTATION MSI MAG A650BN\t', 'category': 'ALIMENTATION '}
+{'reference': 'MC-KXW\t', 'name': 'BOITIER MARS GAMING MC-KX WHITE', 'category': 'MID TOWER'}
+{'reference': 'MD912V397677\t', 'name': 'CARTE GRAPHIQUE MSI RTX3060 VENTUS 3X 12GB OC\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'MLONE120P\t', 'name': 'WATER COOLING MARS GAMING MLONE120 PINK\t', 'category': 'WATER COOLING CPU'}
+{'reference': 'MSIG27C4X\t', 'name': 'ECRAN MSI G27C4X - 250HZ - 1MS - 1500R CURVED\t', 'category': 'ECRAN'}
+{'reference': 'C27G2ZE', 'name': 'AOC C27G2ZE CURVED 27INCH 240HZ 0.5MS ', 'category': 'ECRAN GAMING CURVED 27 POUCE '}
+{'reference': 'C32G2ZE ', 'name': 'AOC C32G2ZE CURVED 32INCH 200HZ 0.5MS ', 'category': 'ECRAN GAMING CURVED 30 POUCE ET PLUS  '}
+{'reference': 'AOC-CU34G3S', 'name': 'ECRAN AOC CU34G3S - ULTRA WIDE WQHD 2K CURVED 165HZ 1MS', 'category': 'ECRAN'}
+{'reference': 'MC-KX', 'name': 'BOITIER MARS GAMING MC-KX BLACK', 'category': 'MID TOWER'}
+{'reference': '90DC0040-B49000', 'name': 'BOITIER ASUS TUF GT301', 'category': 'MID TOWER'}
+{'reference': '90DA0030-B09030\t', 'name': 'FANS PACK ASUS TUF GAMING TF120 ARGB 3IN1 - BLACK', 'category': 'PACK FANS'}
+{'reference': 'I5-13400F', 'name': 'CPU INTEL I5 13400F', 'category': 'PROCESSEUR INTEL'}
+{'reference': '911-7D99-007', 'name': 'CARTE MERE MSI PRO B760M-A WIFI', 'category': 'CARTE MERE INTEL'}
+{'reference': 'MD912V517010', 'name': 'CARTE GRAPHIQUE MSI GAMING X RTX4060TI 16GB', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'MLONE120W', 'name': 'WATER COOLING MARS GAMING MLONE120 WHITE', 'category': 'WATER COOLING CPU'}
+{'reference': 'MCPUVRW', 'name': 'CPU FAN MARS GAMING MCPU-VR CPU COOLER, DUAL INFINITE - WHITE', 'category': 'AIR COOLING CPU'}
+{'reference': 'MFDUOW', 'name': 'FANS PACK MARS GAMING MFDUO - WHITE', 'category': 'PACK FANS'}
+{'reference': 'MMEX', 'name': 'SOURIS MARS GAMING MMEX BLACK', 'category': 'SOURIS WIRED'}
+{'reference': 'MMPRO ', 'name': 'SOURIS MARS GAMING MMPRO BLACK', 'category': 'SOURIS WIRED'}
+{'reference': 'MMGX', 'name': 'SOUIRS MARS GAMING MMGX MOUSE, 10.000DPI, ULTRALIGHT 89G,', 'category': 'SOURIS WIRED'}
+{'reference': 'MM218 ', 'name': 'SOURIS MARS GAMING MM218 GAMING MOUSE, 10.000DPI 3325PRO,', 'category': 'SOURIS WIRED'}
+{'reference': 'MSRGBW', 'name': 'BAFFLE MARS GAMING MSRGB WHITE 15W USB, JACK+BLUETOOTH', 'category': 'BAFFLE '}
+{'reference': 'MHRGB ', 'name': 'CASQUE MARS GAMING MHRGB BLACK CHROMA 360 HEADPHONES+MIC, ULTRA', 'category': 'CASQUE '}
+{'reference': 'MSBXW', 'name': 'BAFFLE MARS GAMING MSBX WHITE RGB 10W USB', 'category': 'BAFFLE '}
+{'reference': 'MSDUO', 'name': 'BAFFLE MARS GAMING MSDUO RGB SOUNDBAR + 2.0 15W', 'category': 'BAFFLE '}
+{'reference': 'MSBX', 'name': 'BAFLLE MARS GAMING MSBX BLACK RGB 10W USB', 'category': 'BAFFLE '}
+{'reference': 'STRIMER-PLUS-24PINV2', 'name': 'CABLE LIAN LI PW24-V2 ADDRESSABLE RGB STRIMER PLUS 24-PIN', 'category': 'CABLE'}
+{'reference': '90YH03A1-B1UA00', 'name': 'CASQUE ASUS TUF GAMING H1', 'category': 'CASQUE '}
+{'reference': '90YH025S-B1UA00', 'name': 'CASQUE ASUS TUF GAMING H3 SILVER', 'category': 'CASQUE '}
+{'reference': 'MH120', 'name': 'CASQUE MARS GAMING MH120 HEADSET+MICROPHONE, SUPERBASS', 'category': 'CASQUE '}
+{'reference': 'MH220', 'name': 'CASQUE MARS GAMING MH220 ARGB FLOW HEADSET + MICROPHONE', 'category': 'CASQUE '}
+{'reference': 'MH4X', 'name': 'CASQUE MARS GAMING MH4X 7.1 HEADPHONES+MIC, SENSUS, RGB', 'category': 'CASQUE '}
+{'reference': 'MHRGBW', 'name': 'CASQUE MARS GAMING MHRGB WHITE CHROMA 360 HEADPHONES+MIC, ULTRA', 'category': 'CASQUE '}
+{'reference': 'S37-2101001-SV1', 'name': 'CASQUE MSI Immerse GH30 V2', 'category': 'CASQUE '}
+{'reference': 'MH222W', 'name': 'CASQUE MARS GAMING MH222 RGB HEADPHONES+MIC, HIFI, NOISE', 'category': 'CASQUE '}
+{'reference': 'MHW-100W', 'name': 'CASQUE MARS GAMING MHW-100 WRLS ARGB HEADPHONES, DETA', 'category': 'CLAVIER'}
+{'reference': '90MP0240-BKFA00', 'name': 'CLAVIER ASUS XA05 ROG STRIX SCOPE RX', 'category': 'CLAVIER'}
+{'reference': 'MK80W', 'name': 'CLAVIER MARS GAMING MK80 MECHANICAL TKL KEYBOARD, FRGB CHR', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'MKMINI', 'name': 'CLAVIER MARS GAMING MKMINI BLACK', 'category': 'CLAVIER'}
+{'reference': 'MK02', 'name': 'CLAVIER MARSSAMING MK02 BLACK', 'category': 'CLAVIER'}
+{'reference': 'K628RGB-PRO-BRW', 'name': 'CLAVIER REDRAGON K628RGB-PRO POLLUX WRLS', 'category': 'CLAVIER'}
+{'reference': 'S11-04FR306-CLA', 'name': 'COMBO MSI CLAVIER &amp; SOURIS VIGORGK30 COMBO WHITE FR', 'category': 'COMBO'}
+{'reference': 'MCPXW', 'name': 'COMBO MARS GAMING MCPX WHITE GAMING 3IN1 RGB, KEYBOARD, MOUSE, MOUSEPAD', 'category': 'COMBO'}
+{'reference': 'MCPRGB2', 'name': 'COMBO MARSGAMING MCPRGB2 GAMING 4IN1 RGB, HEADSET, KEYBOARD, MOUSE, MOUSEPAD', 'category': 'COMBO'}
+{'reference': 'MMICX', 'name': 'MICROHPONE MARS GAMING MMICX BLACK PRO STUDIO MICROPHONE', 'category': 'MICROPHONE '}
+{'reference': 'MMICPRO', 'name': 'MICROPHONE MARS GAMING MMICPRO ULTRA-HIGH DEF MICROPHONE', 'category': 'MICROPHONE '}
+{'reference': 'MMICXW', 'name': 'MIIROPHONE MARS GAMING MMICX WHITE PRO STUDIO MICROPHONE', 'category': 'MICROPHONE '}
+{'reference': 'TG-A-030-R', 'name': 'THERMAL GRIZZLY AERONAUT THERMAL GREASE 3,0 ML / 7.8 GRAMS', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-CA-38-38-02-R', 'name': 'THERMAL GRIZZLY CARBONAUT THERMAL PAD 38X38X0,2 MM', 'category': 'PATHE THERMIQUE'}
+{'reference': 'MM118', 'name': 'SOURIS MARS GAMING MM118 GAMING MOUSE 9800 DPI, CHROMA RGB', 'category': 'SOURIS WIRED'}
+{'reference': 'MMPROW', 'name': 'SOURIS MARS GAMING MMPRO WHITE', 'category': 'SOURIS WIRED'}
+{'reference': 'MMVW', 'name': 'SOURIS MARS GAMING MMV WHITE', 'category': 'SOURIS WIRED'}
+{'reference': 'MMPRO', 'name': 'SOURIS MARSGAMING MMPRO BLACK MOUSE, ULTRALIGHT, 32000DPI, RGB', 'category': 'SOURIS WIRED'}
+{'reference': 'M901-K-2', 'name': 'SOURIS REDRAGON PERDITION 24000DPI MMO RGB WIRED GAMING MOUSE', 'category': 'SOURIS WIRED'}
+{'reference': 'SCEPTER-PRO-HA300', 'name': 'SUPPORT CASQUE REDRAGON HA300SCEPTER PRO HEADSET STAND', 'category': 'SUPPORT CASQUE '}
+{'reference': 'TM-54-C012-W', 'name': 'SUPPORT ECRAN TWISTED MINDS DUAL TM-54-C012-W-  WHITE', 'category': 'SUPPORT ECRAN'}
+{'reference': 'TM-20-C06P', 'name': 'SUPPORT ECRAN TWISTED MINDS SINGLE ALUMINIUM SLIM POLEMOUNTED MONITOR ARM', 'category': 'SUPPORT ECRAN'}
+{'reference': 'TM-54-C06-W', 'name': 'SUPPORT ECRAN TWISTED MINDS TM-54-C06-W / WHITE', 'category': 'SUPPORT ECRAN'}
+{'reference': 'TM-26-C06U', 'name': 'SUPPORT ECRAN TWISTED MINDS SINGLE MONITOR ALUMUNIUMSLIM ARM - BLACK', 'category': 'SUPPORT ECRAN'}
+{'reference': 'J02-VXXXXXl-EB9', 'name': 'TAPIS DE SOURIS MSI AGILITY GD70', 'category': 'TAPIS DE SOURIS '}
+{'reference': '90YE00A3-B0NA00', 'name': 'ALIMENTATION ASUS ROG STRIX 850G 850WATTS 80+ GOLD', 'category': 'ALIMENTATION '}
+{'reference': '90YE00A0-B0NA00', 'name': 'ALIMENTATION ASUS ROG-STRIX-750G 750 WATTS', 'category': 'ALIMENTATION '}
+{'reference': '90YE00L3-B0NA00', 'name': 'ALIMENTATION ASUS ROG-THOR-1000P2-EVA-GAMING', 'category': 'ALIMENTATION '}
+{'reference': 'MPE-5501-ACAAB-UK', 'name': 'ALIMENTATION COOLER MASTER MWE550 BRONZE V2 80PLUS BRONZE 550WATTS', 'category': 'ALIMENTATION '}
+{'reference': 'MD3067ZP8A110E', 'name': 'ALIMENTATION MSI MAG A750GL 750WATTS', 'category': 'ALIMENTATION '}
+{'reference': 'lc-400w-gris', 'name': 'BLOC D&amp;#x27;ALIMENTAION LC POWER 400W / GRIS', 'category': 'ALIMENTATION '}
+{'reference': 'NX360', 'name': 'BOITIER ANTEC GAMING CASE NX360 NX Series-Mid Tower - Black', 'category': 'MID TOWER'}
+{'reference': 'NX800', 'name': 'BOITIER ANTEC GAMING CASE NX800 NX Series-Mid Tower - Black', 'category': 'MID TOWER'}
+{'reference': 'NX290', 'name': 'BOITIER ANTEC GAMING CASE NX Series NX290 Mid-Tower ATX Gaming Case', 'category': 'MID TOWER'}
+{'reference': '9L90DC00F0B39000', 'name': 'BOITIER ASUS ROG GR701 HYPERION', 'category': 'FULL TOWER'}
+{'reference': 'Lancool205M Mesh-X', 'name': 'Boitier Lian Li Lancool 205 Mini Mesh Tempered Glass ATX Mid Tower- Black', 'category': 'MINI TOWER'}
+{'reference': 'Lancool205M Mesh-W', 'name': 'Boitier Lian Li Lancool 205 Mini Mesh Tempered Glass ATX Mid Tower- white', 'category': 'MINI TOWER'}
+{'reference': 'MCF', 'name': 'BOITIER MARS GAMING MCF BLACK', 'category': 'MID TOWER'}
+{'reference': 'MCFW', 'name': 'BOITIER MARS GAMING MCF WHITE', 'category': 'MID TOWER'}
+{'reference': 'MCK', 'name': 'BOITIER MARS GAMING MCK BLACK ATX CASE, TRIPLE FRONT LINE', 'category': 'MID TOWER'}
+{'reference': 'barbone-blanc', 'name': 'BOITIER SIMPLE / COULEUR BLANC', 'category': 'MINI TOWER'}
+{'reference': '9L90YV0HH0M0NA00', 'name': 'CARTE GRAPHIQUE ASUS DUAL RTX3050 O8G', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '90YVC0CV2-M0NA00', 'name': 'CARTE GRAPHIQUE ASUS DUAL-GTX1650-O4G', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '90YV0GB7-M0NA00', 'name': 'CARTE GRAPHIQUE ASUS DUAL-RTX3060-O8G-WHITE', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'PH1650-O4GD6-P', 'name': 'CARTE GRAPHIQUE ASUS PH GTX1650 O4GD6-P', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '90YV0G1A-M0NA00', 'name': 'CARTE GRAPHIQUE ASUS TUF-RTX3060TI O8G-V2', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'PH-1660S', 'name': 'CARTE GRAPHIQUE ASUS PH-GTX1660S-6G', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'PH-1660S-O', 'name': 'CARTE GRAPHIQUE ASUS PH-GTX1660S-O6G', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '90MB0TV0-M0EAY0', 'name': 'CARTE MERE ASUS PRIME A320M-K', 'category': 'CARTE MERE AMD'}
+{'reference': '90MB1510-M0EAY0', 'name': 'CARTE MERE ASUS PRIME A520M-E', 'category': 'CARTE MERE AMD'}
+{'reference': '90MB1500MOEAYO', 'name': 'CARTE MERE ASUS PRIME A520M-K', 'category': 'CARTE MERE AMD'}
+{'reference': '9L9OMB15ZOMOEAY0', 'name': 'CARTE MERE ASUS PRIME B450M-A II', 'category': 'CARTE MERE AMD'}
+{'reference': '90MB1BV0-M0EAY0', 'name': 'CARTE MERE ASUS PRIME X670-P -B', 'category': 'CARTE MERE AMD'}
+{'reference': '90MB1BZ0-M0EAY0', 'name': 'CARTE MERE ASUS TUF GAMING B650-PLUS -B', 'category': 'CARTE MERE AMD'}
+{'reference': '911-7C52-030', 'name': 'CARTE MERE MSI B450M-A PRO MAX', 'category': 'CARTE MERE AMD'}
+{'reference': 'MD9117C52036', 'name': 'CARTE MERE MSI B450M-A PRO MAX II', 'category': 'CARTE MERE AMD'}
+{'reference': 'MD9117D70004', 'name': 'CARTE MERE MSI MPG X670E CARBON WIFI', 'category': 'CARTE MERE AMD'}
+{'reference': '90MB1950-M0EAY0', 'name': 'CARTE MERE ASUS PRIME B660M-K D4', 'category': 'CARTE MERE INTEL'}
+{'reference': '9L90MB1EL0M0EAY0', 'name': 'CARTE MERE ASUS PRIME B760M-A B DDR5', 'category': 'CARTE MERE INTEL'}
+{'reference': '9L9OMB1DSOMOEAY0', 'name': 'CARTE MERE ASUS PRIME B760M-K', 'category': 'CARTE MERE INTEL'}
+{'reference': '9L90MB1A10M0EAY0', 'name': 'CARTE MERE ASUS PRIME H610M-K', 'category': 'CARTE MERE INTEL'}
+{'reference': '90MB18W0-M0EAY0', 'name': 'CARTE MERE ASUS PRIME H670-PLUS D4', 'category': 'CARTE MERE INTEL'}
+{'reference': '90MB18N0-M0EAY0', 'name': 'CARTE MERE ASUS PRIME Z690-P WIFI D4', 'category': 'CARTE MERE INTEL'}
+{'reference': '9L90MB1CJ0M0EAY0', 'name': 'CARTE MERE ASUS PRIME Z790-P B DDR5', 'category': 'CARTE MERE INTEL'}
+{'reference': '90MB1D20-M0EAY0', 'name': 'CARTE MERE ASUS PRIME Z790M-PLUS D4', 'category': 'CARTE MERE INTEL'}
+{'reference': 'ROG-B660-A-W', 'name': 'CARTE MERE ASUS ROG STRIX B660-A GAMING WIFI D4', 'category': 'CARTE MERE INTEL'}
+{'reference': '90MB1D80-M0EAY0', 'name': 'CARTE MERE ASUS TUF GAMING Z790-PLUS D5-B', 'category': 'CARTE MERE INTEL'}
+{'reference': 'TUF-Z590', 'name': 'CARTE MERE ASUS TUF Z590-PLUS', 'category': 'CARTE MERE INTEL'}
+{'reference': 'MD9117E02006', 'name': 'CARTE MERE MSI PRO B760M-P DDR4', 'category': 'CARTE MERE INTEL'}
+{'reference': 'AW100100000263BOX', 'name': 'CPU AMD RYZEN 7 5700G', 'category': 'PROCESSEUR AMD'}
+{'reference': '100-100000143MPK', 'name': 'CPU RYZEN 5 PRO 4650G', 'category': 'PROCESSEUR AMD'}
+{'reference': 'I7-12700K', 'name': 'CPU INTEL I7 12700K', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'I9-12900K', 'name': 'CPU INTEL I9 12900K', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'ssd-st-60gb', 'name': 'SSD SATA 2.5 / 60GB', 'category': 'SSD SATA'}
+{'reference': 'PATRIOT-60GB', 'name': 'SSD SATA 2.5 ¨PATRIOT - 60GB', 'category': 'SSD SATA'}
+{'reference': 'PATRIOT-4GB-2666', 'name': 'RAM 4GB 2666MHZ UDIMM PATRIOT - BLACK', 'category': 'RAM DDR4'}
+{'reference': '4gb-3200-udimm', 'name': 'RAM 4GB 3200MHZ UDIMM', 'category': 'RAM DDR4'}
+{'reference': 'MCPU-VR', 'name': 'CPU FAN MARS GAMING MCPU-VR CPU COOLER, DUAL INFINITE - BLACK', 'category': 'AIR COOLING CPU'}
+{'reference': 'MCPU33', 'name': 'CPU FAN MARS GAMING MCPU33 CPU COOLER, DUAL FRGB, SILENT P', 'category': 'AIR COOLING CPU'}
+{'reference': 'MCPU44', 'name': 'CPU FAN MARS GAMING MCPU44 CPU COOLER, DUAL ARGB, SILENT', 'category': 'AIR COOLING CPU'}
+{'reference': 'MCPU66', 'name': 'CPU FAN MARS GAMING MCPU66 CPU COOLER, DUAL ARGB, DUAL 12C', 'category': 'AIR COOLING CPU'}
+{'reference': 'MCPUBK', 'name': 'CPU FAN MARS GAMING MCPUBK CPU COOLER, BLACK STYLE, SILENT - BLACK', 'category': 'AIR COOLING CPU'}
+{'reference': 'MCPUARGB', 'name': 'CPU FAN MARSGAMING MCPUARGB CPU COOLER, CHROMA AUTO RGB, 1', 'category': 'AIR COOLING CPU'}
+{'reference': 'MFX', 'name': 'VENTILLO MARS GAMING MFX 12CM FAN, DUAL ARGB, 12CM PWM FAN,', 'category': 'FANS'}
+{'reference': 'MFXKIT', 'name': 'VENTILLO MARS GAMING MFXKIT, 3X12CM FAN, 10C CONTROL BOX', 'category': 'PACK FANS'}
+{'reference': 'MLULTRAW', 'name': 'WATER COOLING MARS GAMING ML-ULTRA240 WATERCOOLING AIO, FULL ARGB - WHITE', 'category': 'WATER COOLING CPU'}
+{'reference': '306-7ZWlB41-813', 'name': 'WATER COOLING MSI MAG CORELIQUID 240R V2', 'category': 'WATER COOLING CPU'}
+{'reference': 'ML360W', 'name': 'WATER-COOLING MARS GAMING ML360 WHITE ARGB WATERCOOLING AIO, TDP 550W', 'category': 'WATER COOLING CPU'}
+{'reference': 'AG493UCX2', 'name': 'ECRAN AOC AG493UCX2 CURVED 49INCH 165HZ 1MS 5K 5120X1440', 'category': 'ECRAN'}
+{'reference': 'CQ32G2E', 'name': 'ECRAN AOC CQ32G2E CURVED 32 INCH 155HZ 1MS 2K 2560X1440', 'category': 'ECRAN'}
+{'reference': '24B2XH', 'name': 'ECRAN AOC 24B2XH - IPS - 75HZ - LOW BLUE LIGHT - 3 SIDES FRAMLESS', 'category': 'ECRAN'}
+{'reference': '24B3HM', 'name': 'ECRAN AOC 24B3HM - VA - 75HZ - 4MS - ADAPTIVE SYNC', 'category': 'ECRAN'}
+{'reference': '24G2SP', 'name': 'ECRAN AOC 24G2SP - 165HZ - 1MS - IPS - ADJUSTABLE STAND', 'category': 'ECRAN'}
+{'reference': '24G2SPE', 'name': 'ECRAN AOC 24G2SPE - 165HZ - 1MS - IPS -', 'category': 'ECRAN'}
+{'reference': '27B2H', 'name': 'ECRAN AOC 27B2H - IPS - 75HZ - LOW BLUE LIGHT - 3 SIDES FRAMLESS', 'category': 'ECRAN'}
+{'reference': '27G2SP', 'name': 'ECRAN AOC 27G2SP - IPS - 165HZ - 1MS - ADJUSTABLE STAND', 'category': 'ECRAN'}
+{'reference': '27G2SPE', 'name': 'ECRAN AOC 27G2SPE - IPS - 165HZ - 1MS', 'category': 'ECRAN'}
+{'reference': 'AOC-27V2Q', 'name': 'ECRAN AOC 27V2Q - IPS 16:9 3 SIDES FRAMELESS', 'category': 'ECRAN'}
+{'reference': 'AOC-C27G2Z', 'name': 'ECRAN AOC C27G2Z CURVED 240HZ - 0.5MS', 'category': 'ECRAN'}
+{'reference': 'AOC-CQ32G3SE', 'name': 'ECRAN AOC CQ32G3SE - QHD 2K CURVED 1MS 165HZ', 'category': 'ECRAN'}
+{'reference': 'Q27G2S', 'name': 'ECRAN AOC Q27G2S - 27INCH - IPS - 2K - 165HZ - 1MS - ADJUSTABLE STAND', 'category': 'ECRAN'}
+{'reference': 'AOC-U28P2U', 'name': 'ECRAN AOC U28P2U - 4K IPS ADJUSTABLE STAND', 'category': 'ECRAN'}
+{'reference': '9L90LM06Q0B01370', 'name': 'ECRAN ASUS PA278CV', 'category': 'ECRAN'}
+{'reference': '9L9011AO700B01E70', 'name': 'ECRAN ASUS TUF GAMING VG30VQL1A CURVED ULTRA WIDE WFHD 2560X1080 200HZ 1MS', 'category': 'ECRAN'}
+{'reference': '90LM05V1-B01E70', 'name': 'ECRAN ASUS TUF VG249Q1R IPS 165HZ 1MS', 'category': 'ECRAN'}
+{'reference': '90LM0691-B01170', 'name': 'ECRAN ASUS TUF VG27VH1B CURVED 165HZ 1MS', 'category': 'ECRAN'}
+{'reference': '9L90LM04101303170', 'name': 'ECRAN ASUS TUF VG32VQR 165HZ CURVED WQHD 2560X1440', 'category': 'ECRAN'}
+{'reference': 'VA27EHE-BLK', 'name': 'ECRAN ASUS VA27EHE BLACK', 'category': 'ECRAN'}
+{'reference': '90LM05X0-B01170', 'name': 'ECRAN ASUS VG279Q1A', 'category': 'ECRAN'}
+{'reference': '90LM06D0-B01170', 'name': 'ECRAN ASUS VY279HE BLACK EYE CARE MONITOR 75HZ IPS 1MS', 'category': 'ECRAN'}
+{'reference': '9L90LMO6D2B01170', 'name': 'ECRAN ASUS VY279HE-W WHITE EYE CARE MONITOR 75HZ IPS 1MS', 'category': 'ECRAN'}
+{'reference': 'MD9S63BA41T066', 'name': 'ECRAN MSI G2412 - 24 Inch- Ips- 170Mhz- 1Ms', 'category': 'ECRAN'}
+{'reference': 'MD9S63CB51T060', 'name': 'ECRAN MSI G2712 - 27 Inch- 170mhz - IPS - 1Ms', 'category': 'ECRAN'}
+{'reference': 'CMB-CL-S\t', 'name': 'COMBO CLAVIER &amp; SOURIS AZERTY- NOIR\t', 'category': 'COMBO'}
+{'reference': 'DATO-4GB-2666', 'name': 'RAM DATO UDIMM 4GB 2666MHZ ', 'category': 'RAM DDR4'}
+{'reference': 'DATO-60GB', 'name': 'SSD DATO SATA 2.5 - 60GB ', 'category': 'SSD SATA'}
+{'reference': 'DATO-120GB', 'name': 'SSD DATO SATA 2.5 120GB', 'category': 'SSD SATA'}
+{'reference': 'PILOT-350WT', 'name': 'ALIMENTATION PILOT 350 WATT', 'category': 'ALIMENTATION '}
+{'reference': 'PILOT-BLK', 'name': 'BOITIER PILOT', 'category': 'MINI TOWER'}
+{'reference': 'MCA-16', 'name': 'CABLE MARS GAMING MCA-16 PREMIUM 16PIN (8+8) VGA POWER', 'category': 'CABLE'}
+{'reference': 'MCA-24', 'name': 'CABLE MARS GAMING MCA-24 PREMIUM 24PIN MB POWER', 'category': 'CABLE'}
+{'reference': 'H848-Black', 'name': 'CASQUE REDRAGON IRE PRO H848 ULTRA-LIGHT WIRELESS BLACK', 'category': 'CASQUE'}
+{'reference': 'MDS1104FR233CLA', 'name': 'CLAVIER MSI VIGOR GK20', 'category': 'CLAVIER MEMBRANE'}
+{'reference': 'Draconic-K530RGB', 'name': 'CLAVIER REDRAGON DRACONIC K530 RGB WIRELESS - BLACK', 'category': 'CLAVIER MECHANIQUE WIRELESS'}
+{'reference': 'K552-2-BLACK', 'name': 'CLAVIER REDRAGON KUMARA K552-2 / BLACK', 'category': 'CLAVIER MECHANIQUE WIRED'}
+{'reference': 'MDS1104FR237CLA', 'name': 'COMBO MSI VIGOR GK30 BLACK', 'category': 'COMBO'}
+{'reference': 'M801-RGB', 'name': 'SOURIS REDRAGON SNIPER M801 RGB WIRELESS', 'category': 'SOURIS WIRELESS'}
+{'reference': 'MD3067ZP6A11809', 'name': 'ALIMENTATION MSI MAG A500DN 500 WATTS 80PLUS', 'category': 'ALIMENTATION'}
+{'reference': 'MD3067ZP2A11CE0', 'name': 'ALIMENTATION MSI MAG A550BN 550 WATTS 80PLUS BRONZE', 'category': 'ALIMENTATION'}
+{'reference': 'MD3067ZP8A11CE0', 'name': 'ALIMENTATION MSI MAG A850GL 850 WATTS 80PLUS GOLD PCIE5 BLACK', 'category': 'ALIMENTATION'}
+{'reference': 'MD9117E28001', 'name': 'CARTE MERE MSI PRO A620M-E', 'category': 'CARTE MERE AMD'}
+{'reference': 'MD9117E27001', 'name': 'CARTE MERE MSI PRO B650M-P', 'category': 'CARTE MERE AMD'}
+{'reference': 'MD9117E06031', 'name': 'CARTE MERE MSI PRO Z790-P WIFI', 'category': 'CARTE MERE INTEL'}
+{'reference': 'I5-14600KF', 'name': 'CPU INTEL I5 14600KF BOX', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'I9-14900KF', 'name': 'CPU INTEL I9 14900KF', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'MD3067ZW1B50812', 'name': 'WATER COOLING MSI MAG CORELIQUID 240R V2 WHITE', 'category': 'WATER COOLING CPU'}
+{'reference': 'MD3067ZP2B11CE0', 'name': 'ALIMENTATION MSI MAG A650BN 650 WATTS 80PLUS BRONZE', 'category': 'ALIMENTATION'}
+{'reference': 'MD912V397677', 'name': 'CARTE GRAPHIQUE MSI RTX3060 VENTUS 3X 12GB OC', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'MS-BXW', 'name': 'BAFFLE MARS GAMING MS-BXW WHITE', 'category': 'BAFFLE'}
+{'reference': 'MS-BX', 'name': 'BAFFLE MARS GAMING MS-BX BLACK', 'category': 'BAFFLE'}
+{'reference': 'MDS372101080SV1', 'name': 'CASQUE MSI IMMERSE GH30 V2', 'category': 'CASQUE'}
+{'reference': 'MK-80W', 'name': 'CLAVIER MARS GAMING MK80W RED SWITCH - WHITE', 'category': 'CLAVIER MECHANIQUE WIRED'}
+{'reference': 'K628RGB-PRO-WL', 'name': 'CLAVIER REDRAGON POLLUX K628RGB-PRO -BRW WIRELESS', 'category': 'CLAVIER MECHANIQUE WIRELESS'}
+{'reference': 'MDS1104FR306CLA', 'name': 'COMBO MSI VIGOR GK30 WHITE', 'category': 'COMBO'}
+{'reference': 'M901-PERDITION', 'name': 'SOURIS REDRAGON M901 PERDITION', 'category': 'SOURIS WIRED'}
+{'reference': 'MD3067ZP8B11CE0', 'name': 'ALIMENTATION MSI MAG A750GL 750 WATTS 80PLUS GOLD PCIE5', 'category': 'ALIMENTATION'}
+{'reference': 'NX360-ELITE-BLK', 'name': 'BOITIER ANTEC NX360 ELITE MESH ARGB / BLACK', 'category': 'MID TOWER'}
+{'reference': 'NX290-BLK', 'name': 'BOITIER ANTEC NX290 / BLACK', 'category': 'MID TOWER'}
+{'reference': 'MD3067ZW1B41813', 'name': 'WATER COOLING MSI MAG CORELIQUID 240R V2 BLACK', 'category': 'WATER COOLING CPU'}
+{'reference': '4070S-GAMING-X', 'name': 'CARTE GRAPHIQUE MSI RTX4070 SUPER 12G GAMING X SLIM', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4070S-VENTUS-2X', 'name': 'CARTE GRAPHIQUE MIS RTX4070 SUPER 12G VENTUS 2X OC', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4080S-VENTUS-3X', 'name': 'CARTE GRAPHIQUE MSI RTX4080 SUPER 16G VENTUS 3X OC', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4070TI-S-VENTUS-2X', 'name': 'CARTE GRAPHIQUE MSI RTX4070TI SUPER 16G VENTUS 2X', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4070TI-S-GAMINGX-', 'name': 'CARTE GRAPHIQUE MSI RTX4070TI SUPER 16G GAMING X SLIM', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'GTX1650-XS', 'name': 'CARTE GRAPHIQUE MSI GTX1650 D6 VENTUS XS OC', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4711377022484', 'name': 'SSD NVME M.2 MSI SPATIUM M450 1000GB PCIE 4.0', 'category': 'SSD NVME GEN 4'}
+{'reference': 'MPB-550', 'name': 'ALIMENTATION MARS GAMING MPB 550WATTS 80PLUS BRONZE', 'category': 'ALIMENTATION '}
+{'reference': 'MPB-650', 'name': 'ALIMENTATION MARS GAMING MPB 650WATTS 80PLUS BRONZE', 'category': 'ALIMENTATION '}
+{'reference': 'ML-PRO240', 'name': 'WATER COOLING MARS GAMING ML-PRO240 BLACK', 'category': 'WATER COOLING CPU'}
+{'reference': 'MCPU-66', 'name': 'AIR COOLING MARS GAMING MCPU-66', 'category': 'AIR COOLING CPU'}
+{'reference': 'MF-PWMX2W', 'name': 'PACK FANS X2 MARS GAMING MF-PWMX2W WHITE', 'category': 'PACK FANS'}
+{'reference': 'MF-LINKFINITYKIT', 'name': 'PACK FANS X3 MARS GAMING MF-LINKFINITYKIT BLACK', 'category': 'PACK FANS'}
+{'reference': 'MF-LINKFINITYKITW', 'name': 'PACK FANS X3 MARS GAMING MF-LINKFINITYKITW WHITE', 'category': 'PACK FANS'}
+{'reference': 'MCA-GCB', 'name': 'SUPPORT CARTE GRAPHIQUE MARS GAMING MCA-GCB BLACK', 'category': 'SUPPORT CARTE GRAPHIQUE'}
+{'reference': 'MCA-GCBW', 'name': 'SUPPORT CARTE GRAPHIQUE MARS GAMING MCA-GCBW WHITE', 'category': 'SUPPORT CARTE GRAPHIQUE'}
+{'reference': 'MCA-L24', 'name': 'SUPPORT CARTE MERE MARS GAMING 24PIN MCA-L24', 'category': 'CABLE'}
+{'reference': 'MM-P2', 'name': 'TAPIS DE SOURIS MARS GAMINNG MMP2', 'category': 'TAPIS DE SOURIS'}
+{'reference': 'MH-122', 'name': 'CASQUE MARS GAMING MH122 BLACK', 'category': 'CASQUE '}
+{'reference': 'MH-222W', 'name': 'CASQUE MARS GAMING MH222W WHITE', 'category': 'CASQUE '}
+{'reference': 'MH-RGBW', 'name': 'CASQUE MARS GAMING MHRGBW WHITE', 'category': 'CASQUE '}
+{'reference': 'MHAXW', 'name': 'CASQUE MARS GAMING MHAX WHITE', 'category': 'CASQUE '}
+{'reference': 'MCP-RGB3', 'name': 'COMBO 4IN1 MARS GAMING CLAVIER - SOURIS - TAPIS DE SOURIS - CASQUE MARS GAMING MCP-RGB3 BLACK', 'category': 'COMBO'}
+{'reference': 'MCP-RGB3W', 'name': 'COMBO 4IN1 MARS GAMING CLAVIER - SOURIS - TAPIS DE SOURIS - CASQUE MARS GAMING MCP-RGB3W WHITE', 'category': 'COMBO'}
+{'reference': 'MK-023', 'name': 'CLAVIER MARS GAMING MK023 BLACK', 'category': 'CLAVIER MEMBRANE '}
+{'reference': 'MK-023W', 'name': 'CLAVIER MARS GAMING MK023W WHITE', 'category': 'CLAVIER MEMBRANE '}
+{'reference': 'MK-XTKL', 'name': 'CLAVIER MARS GAMING MKXTKL BLACK', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'MK-422W', 'name': 'CLAVIER MARS GAMING MK422W RED SWITCH - WHITE', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'MHHPROW', 'name': 'SUPPORT CASQUE MARSGAMING MHHPRO WHITE', 'category': 'SUPPORT CASQUE '}
+{'reference': 'MMIC-SE', 'name': 'MICROPHONE MARS GAMING MMIC-SE BLACK', 'category': 'MICROPHONE '}
+{'reference': 'MMIC-SEW', 'name': 'MICROPHONE MARS GAMING MMIC-SEW WHITE', 'category': 'MICROPHONE '}
+{'reference': 'MS-H', 'name': 'BAFFLE MARS GAMING MS-H BLACK', 'category': 'BAFFLE '}
+{'reference': 'MS-HW', 'name': 'BAFFLE MARS GAMING MS-HW WHITE', 'category': 'BAFFLE '}
+{'reference': 'MS-OM', 'name': 'BAFFLE MARS GAMING MS-OM BLACK', 'category': 'BAFFLE '}
+{'reference': 'MS-OMW', 'name': 'BAFFLE MARS GAMING MS-OMW WHITE', 'category': 'BAFFLE '}
+{'reference': 'MC-Q3', 'name': 'BOITIER MARS GAMING MC-Q3 BLACK', 'category': 'MID TOWER'}
+{'reference': 'MC-XP', 'name': 'BOITIER MARS GAMING MC-XP BLACK', 'category': 'MID TOWER'}
+{'reference': 'MC-XPW', 'name': 'BOITIER MARS GAMING MC-XPW WHITE', 'category': 'MID TOWER'}
+{'reference': 'MC-VIEW', 'name': 'BOITIER MARS GAMING MC-VIEW BLACK', 'category': 'MID TOWER'}
+{'reference': 'MC-VIEWW', 'name': 'BOITIER MARS GAMING MC-VIEWW WHITE', 'category': 'MID TOWER'}
+{'reference': 'MWPROW', 'name': 'WEBCAM MARS GAMING MWPRO PRO - WHITE', 'category': 'WEBCAM'}
+{'reference': '9JAGAMMIXS601TCS', 'name': 'SSD ADATA XPG GAMMIX S60 BLADE 1TB PCIE GEN4X4 M.2', 'category': 'SSD NVME GEN 4'}
+{'reference': '9JAGAMMIXS60512GCS', 'name': 'SSD ADATA XPG GAMMIX S60 BLADE 512GB PCIE GEN4X4 M.2', 'category': 'SSD NVME GEN 4'}
+{'reference': '9JAGAMMIXS70B1TCS', 'name': 'SSD ADATA XPG GAMMIX S70 BLADE 1TB PCIE GEN4X4 M.2', 'category': 'SSD NVME GEN 4'}
+{'reference': '9JAGAMMIXS70B2TCS', 'name': 'SSD ADATA XPG GAMMIX S70 BLADE 2TB PCIE GEN4X4 M.2', 'category': 'SSD NVME GEN 4'}
+{'reference': '9JAGAMMIXS70B512GCS', 'name': 'SSD ADATA XPG GAMMIX S70 BLADE 512GB PCIE GEN4X4 M.2', 'category': 'SSD NVME GEN 4'}
+{'reference': '9JALEG960M1TCS', 'name': 'SSD ADATA LEGEND 960 MAX 1TB PCIE GEN4X4 M.2', 'category': 'SSD NVME GEN 4'}
+{'reference': '9JSLEG9701000GCI', 'name': 'SSD ADATA LEGEND 970 1TB PCIE GEN5X4 M.2', 'category': 'SSD NVME GEN 5'}
+{'reference': '9JAX4U36008G18ISBKD35', 'name': 'RAM DDR4 ADATA GAMMIX D35 8GB 3600MHZ BLACK', 'category': 'RAM DDR4'}
+{'reference': '9JAX4U36008G18ISWHD35', 'name': 'RAM DDR4 ADATA GAMMIX D35 8GB 3600MHZ WHITE', 'category': 'RAM DDR4'}
+{'reference': '9JAX4U36008G18ISBKD35G', 'name': 'RAM DDR4 ADATA SPECTRIX D35G RGB 8GB 3600MHZ BLACK', 'category': 'RAM DDR4'}
+{'reference': '9JAX4U36008G18ISWHD35G', 'name': 'RAM DDR4 ADATA SPECTRIX RGB D35G 8GB 3600MHZ WHITE', 'category': 'RAM DDR4'}
+{'reference': '9JAX4U36008G18IST50', 'name': 'RAM DDR4 ADATA SPECTRIX RGB D50 8GB 3600MHZ GREY', 'category': 'RAM DDR4'}
+{'reference': '9JAX4U36008G18ISW50', 'name': 'RAM DDR4 ADATA SPECTRIX RGB D50 8GB 3600MHZ WHITE', 'category': 'RAM DDR4'}
+{'reference': '9JAX4U360016G18IST50', 'name': 'RAM DDR4 ADATA SPECTRIX RGB D50 16GB 3600MHZ GREY', 'category': 'RAM DDR4'}
+{'reference': '9JAX4U360016G18ISW50', 'name': 'RAM DDR4 ADATA SPECTRIX RGB D50 16GB 3600MHZ WHITE', 'category': 'RAM DDR4'}
+{'reference': '9JAX4U360032G18IST50', 'name': 'RAM DDR4 ADATA SPECTRIX RGB D50 32GB 3600MHZ GREY', 'category': 'RAM DDR4'}
+{'reference': '9JAX4U360032G18ISW50', 'name': 'RAM DDR4 ADATA SPECTRIX RGB D50 32GB 3600MHZ WHITE', 'category': 'RAM DDR4'}
+{'reference': '9JAX5U5600C4616GSLABBK', 'name': 'RAM DDR5 ADATA LANCER BLADE 16GB 5600MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': '9JAX5U5600C4616GSLABWH', 'name': 'RAM DDR5 ADATA LANCER BLADE 16GB 5600MHZ WHITE', 'category': 'RAM DDR5'}
+{'reference': '9JAX5U6000C3016GCLARBK', 'name': 'RAM DDR5 ADATA LANCER RGB 16GB 6000MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': '9JAX5U6000C3016GCLARWH', 'name': 'RAM DDR5 ADATA LANCER RGB 16GB 6000MHZ WHITE', 'category': 'RAM DDR5'}
+{'reference': '9JAX5U6000C3032GCLARBK', 'name': 'RAM DDR5 ADATA LANCER RGB 32GB 6000MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': '9JAX5U6000C3032GCLARWH', 'name': 'RAM DDR5 ADATA LANCER RGB 32GB 6000MHZ WHITE', 'category': 'RAM DDR5'}
+{'reference': '9JAX5U6400C3232GCLARBK', 'name': 'RAM DDR5 ADATA LANCER RGB 32GB 6400MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': '9JAX5U6400C3232GCLARWH', 'name': 'RAM DDR5 ADATA LANCER RGB 32GB 6400MHZ WHITE', 'category': 'RAM DDR5'}
+{'reference': '9JAX5U6400C3216GCCARGY', 'name': 'RAM DDR5 ADATA CASTER RGB 16GB 6400MHZ', 'category': 'RAM DDR5'}
+{'reference': 'MD3067ZP8A24CE0', 'name': 'ALIMENTATION MSI MAG A850GL 850 WATTS 80PLUS GOLD PCIE5 WHITE', 'category': 'ALIMENTATION '}
+{'reference': 'MD3067ZW4R14813', 'name': 'WATER COOLING MSI MAG CORELIQUID M240', 'category': 'WATER COOLING CPU'}
+{'reference': 'MD3067ZW4R24813', 'name': 'WATER COOLING MSI MAG CORELIQUID M360', 'category': 'WATER COOLING CPU'}
+{'reference': 'MD9117E02011', 'name': 'CARTE MERE MSI B760M-P DDR5', 'category': 'CARTE MERE INTEL'}
+{'reference': 'MD9117E06028', 'name': 'CARTE MERE MSI Z790 GAMING PLUS WIFI', 'category': 'CARTE MERE INTEL'}
+{'reference': 'MD9366A1521001', 'name': 'WATER COOLING MSI MPG CORELIQUID D360', 'category': 'WATER COOLING CPU'}
+{'reference': 'MD9S63PC3CM002', 'name': 'ECRAN MSI PRO MP275', 'category': 'ECRAN PRO DALLE IPS 27 POUCE '}
+{'reference': 'MDJ02VXXXXX6V34', 'name': 'TAPIS DE SOURIS MSI AGILITY GD21', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'MDS120401800CLA', 'name': 'SOURIS MSI CLUTCH GM08', 'category': 'SOURIS WIRED'}
+{'reference': 'MDS372101030SV1', 'name': 'CASQUE MSI IMMERSE GH20', 'category': 'CASQUE '}
+{'reference': 'ARCHON2-RGB', 'name': 'BOITIER COUGAR ARCHON 2 RGB BLACK', 'category': 'MID TOWER'}
+{'reference': 'ARCHON2-RGB-MESH', 'name': 'BOITIER COUGAR ARCHON 2 MESH RGB BLACK', 'category': 'MID TOWER'}
+{'reference': 'PURITY-RGB', 'name': 'BOITIER COUGAR PURITY RGB BLACK', 'category': 'MID TOWER'}
+{'reference': 'DUOFACE-BLACK', 'name': 'BOITIER COUGAR DUOFACE RGB BLACK', 'category': 'MID TOWER'}
+{'reference': 'DUOFACE-WHITE', 'name': 'BOITIER COUGAR DUOFACE RGB WHITE', 'category': 'MID TOWER'}
+{'reference': 'ATLAS-600', 'name': 'ALIMENTATION COUGAR ATLAS 600 WATT 80PLUS BRONZE', 'category': 'ALIMENTATION '}
+{'reference': 'ATLAS-700', 'name': 'ALIMENTATION COUGAR ATLAS 750 WATT 80PLUS BRONZE', 'category': 'ALIMENTATION '}
+{'reference': 'AIRBLADER', 'name': 'SOURIS COUGAR AIRBLADER', 'category': 'SOURIS WIRED'}
+{'reference': 'HKB6-FR', 'name': 'CLAVIER CANYON HKB6 - FR', 'category': 'CLAVIER MEMBRANE '}
+{'reference': 'HKBW2-FR', 'name': 'CLAVIER CANYON HKBW2 - FR', 'category': 'CLAVIER MECHANIQUE WIRELESS'}
+{'reference': 'GH3A', 'name': 'CASQUE CANYON FOBOS GH-3A BLACK', 'category': 'CASQUE '}
+{'reference': 'MW7', 'name': 'SOURIS CANYON MW-7 BLACK', 'category': 'SOURIS WIRELESS'}
+{'reference': 'GK6-US', 'name': 'CLAVIER CANYON GK-6 - US', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'GK7-US', 'name': 'CLAVIER CANYON GK-7 - US', 'category': 'CLAVIER MECHANIQUE'}
+{'reference': 'TYPE C-40GB-BLACK', 'name': 'CABLE TYPE C TO TYPE C 40GB - 120HZ - 240W / BLACK', 'category': 'CABLE'}
+{'reference': 'TYEPR C-40GB-WHITE', 'name': 'CABLE TYPE C TO TYPE C 40GB - 120HZ - 240W / WHITE', 'category': 'CABLE'}
+{'reference': 'GM211-BLACK', 'name': 'SOURIS CANYON GM-211 BLACK', 'category': 'SOURIS WIRED'}
+{'reference': 'GM3-BLACK', 'name': 'SOURIS CANYON GM-3 BLACK', 'category': 'SOURIS WIRED'}
+{'reference': 'BTHS3-BLACK', 'name': 'CASQUE CANYON BTHS-3 DARK GREY', 'category': 'CASQUE '}
+{'reference': 'GM11', 'name': 'SOURIS CANYON GM-11', 'category': 'SOURIS WIRED'}
+{'reference': 'GH6B', 'name': 'CASQUE CANYON GH-6B / BLACK', 'category': 'CASQUE '}
+{'reference': 'GH6W', 'name': 'CASQUE CANYON GH-6W / WHITE', 'category': 'CASQUE '}
+{'reference': 'GH9A', 'name': 'CASQUE CANYON GH-9A / BLACK', 'category': 'CASQUE '}
+{'reference': 'GM321', 'name': 'SOURIS CANYON GM-321 BLACK', 'category': 'SOURIS WIRED'}
+{'reference': 'GK4', 'name': 'CLAVIER CANYON GK-4 BLACK', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'ATLAS-650', 'name': 'ALIMENTATION COUGAR ATLAS 650 WATTS 80PLUS BRONZE', 'category': 'ALIMENTATION '}
+{'reference': 'XTC-550', 'name': 'ALIMENTATION COUGAR XTC 550 WATTS ARGB 80PLUS WHITE', 'category': 'ALIMENTATION '}
+{'reference': 'AW100000000143', 'name': 'CPU AMD RYZEN 5 4650G TRAY', 'category': 'PROCESSEUR AMD'}
+{'reference': 'AW100000000252', 'name': 'CPU AMD RYZEN 5 5600G TRAY', 'category': 'PROCESSEUR AMD'}
+{'reference': 'INB71514100SRMX1', 'name': 'CPU INTEL I3 14100 BOX', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'INB71514100FSRMX1', 'name': 'CPU INTEL I3 14100F BOX', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'INCM71505092207SRMX2', 'name': 'CPU INTEL I3 14100F TRAY', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'INB71514400FSRN47', 'name': 'CPU INTEL I5 14400F BOX', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'INCM71504821113SRN47', 'name': 'CPU INTEL I5 14400F TRAY', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'INCM71504820722SRN3Y', 'name': 'CPU INTEL I7 14700KF TRAY', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'I7-14700KF', 'name': 'CPU INTEL I7 14700KF BOX', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'MD9117A38066', 'name': 'CARTE MERE MSI B450M PRO VDH', 'category': 'CARTE MERE AMD'}
+{'reference': 'TM-26-C012U', 'name': 'SUPPORT ECRAN TWISTED MINDS DUAL / TM-26-C012U / BLACK', 'category': 'SUPPORT ECRAN'}
+{'reference': 'TM-49-C06-W', 'name': 'SUPPORT ECRAN TWISTED MINDS SINGLE / TM-49-C06-W / WHITE', 'category': 'SUPPORT ECRAN'}
+{'reference': 'TM-49-C06-G', 'name': 'SUPPORT ECRAN TWISTED MINDS SINGLE / TM-49-C06-G / GREY', 'category': 'SUPPORT ECRAN'}
+{'reference': 'TM-54-C06-G', 'name': 'SUPPORT ECRAN TWISTED MINDS SINGLE - RGB / TM-54-C06-G / GREY', 'category': 'SUPPORT ECRAN'}
+{'reference': 'TM-71-C06', 'name': 'SUPPORT ECRAN TWISTED MINDS SINGLE / TM-71-C06 / BLACK', 'category': 'SUPPORT ECRAN'}
+{'reference': 'TM-71-C012', 'name': 'SUPPORT ECRAN TWISTED MINDS DUAL / TM-71-C012 / BLACK', 'category': 'SUPPORT ECRAN'}
+{'reference': 'W104', 'name': 'MICROPHONE TWISTED MINDS W104 BLACK', 'category': 'MICROPHONE '}
+{'reference': 'M612-RGB', 'name': 'SOURIS REDRAGON PREDATOR M612 RGB', 'category': 'SOURIS WIRED'}
+{'reference': 'M808-PRO', 'name': 'SOURIS REDRAGON M808 STROM PRO', 'category': 'SOURIS WIRED'}
+{'reference': 'K552W-RGB', 'name': 'CLAVIER REDRAGON KUMARA K552W-RGB / WHITE', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'K617-R-WP', 'name': 'CLAVIER REDRAGON FIZZ RAINBOW K617-R / WHITE-PINK', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'K617-RGB-WG', 'name': 'CLAVIER REDRAGON FIZZ RGB K617-RGB / WHITE-GREY', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'K617-RGB-WP', 'name': 'CLAVIER REDRAGON FIZZ RGB K617-RGB / WHITE-PINK', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'K628RGB-PRO', 'name': 'CLAVIER REDRAGON POLLUX K628RGB-PRO', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'K631RGB-PRO-WL', 'name': 'CLAVIER REDRAGON CASTOR K631RGB-PRO-BRW WIRELESS', 'category': 'CLAVIER MECHANIQUE WIRELESS'}
+{'reference': 'H112', 'name': 'CASQUE REDRAGON H112', 'category': 'CASQUE '}
+{'reference': 'H120', 'name': 'CASQUE REDRAGON ARES H120', 'category': 'CASQUE '}
+{'reference': 'P032', 'name': 'TAPIS DE SOURIS REDRAGON P032 LICK XL', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'P006A-L', 'name': 'TAPIS DE SOURIS REDRAGON KUNLUN P006A L', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'P041', 'name': 'TAPIS DE SOURIS REDRAGON XEON P041', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'GM100', 'name': 'MICROPHONE REDRAGON SEYFERT GM100', 'category': 'MICROPHONE '}
+{'reference': 'TG-A-100-R', 'name': 'PATE THERMIQUE THERMAL GRIZZLY AERONAUT TG-A-100-R / 26G - 10ML', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-CE-001-R', 'name': 'PATE THERMIQUE THERMAL GRIZZLY CONDUCTONAUT EXTREME TG-CE-001-R / 1G', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-H001-RS', 'name': 'PATE THERMIQUE THERMAL GRIZZLY HYDRONAUT HIGH PERFORMANCE TG-H001-RS / 1G', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-K-001-RS', 'name': 'PATE THERMIQUE THERMAL GRIZZLY KRYONAUT TG-K-001-RS / 1G', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-KE-002-R', 'name': 'PATE THERMIQUE THERMAL GRIZZLY KRYONAUT EXTREME TG-KE-002-R / 2G', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-KS-33-33', 'name': 'PAD THERMIQUE THERMAL GRIZZLY KRYOSHEET TG-KS-33-33 / 33X33 MM', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-KS-38-38', 'name': 'PAD THERMIQUE THERMAL GRIZZLY KRYOSHEET TG-KS-38-38 / 38X38 MM', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-MP8-30-30-05-1R', 'name': 'PAD THERMIQUE THERMAL GRIZZLY MINUS PAD 8 TG-MP8-30-30-05-1R / 30X30X0.5 MM', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-MP8-30-30-15-1R', 'name': 'PAD THERMIQUE THERMAL GRIZZLY MINUS PAD 8 TG-MP8-30-30-15-1R / 30X30X1.0 MM', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-MP8-30-30-20-1R', 'name': 'PAD THERMIQUE THERMAL GRIZZLY MINUS PAD 8 TG-MP8-30-30-20-1R / 30X30X2.0 MM', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-MP8-120-20-30-1R', 'name': 'PAD THERMIQUE THERMAL GRIZZLY MINUS PAD 8 TG-MP8-120-20-30-1R / 120X20X3.0 MM', 'category': 'PATHE THERMIQUE'}
+{'reference': 'TG-AR-100', 'name': 'NETOOYEUR PATE THERMIQUE THERMAL GRIZZLY TG-AR-100 / 10ML', 'category': 'PATHE THERMIQUE'}
+{'reference': 'SHIELD - 5ML', 'name': 'LIQUIDE DE PROTECTION THERMAL GRIZZLY SHIELD - 5ML', 'category': 'PATHE THERMIQUE'}
+{'reference': 'MODEL-O-2/BLK', 'name': 'SOURIS GLORIOUS MODEL O WIRED 2 / MATTE BLACK', 'category': 'SOURIS WIRED'}
+{'reference': 'MODEL-O-2/WHT', 'name': 'SOURIS GLORIOUS MODEL O WIRED 2 / MATTE WHITE', 'category': 'SOURIS WIRED'}
+{'reference': 'MODEL-O/BLK', 'name': 'SOURIS GLORIOUS MODEL O / MATTE BLACK', 'category': 'SOURIS WIRED'}
+{'reference': 'MODEL-D/WHT', 'name': 'SOURIS GLORIOUS MODEL D / MATTE WHITE', 'category': 'SOURIS WIRED'}
+{'reference': 'MODEL-I/BLK', 'name': 'SOURIS GLORIOUS MODEL I / MATTE BLACK', 'category': 'SOURIS WIRED'}
+{'reference': 'MODEL-I/WHT', 'name': 'SOURIS GLORIOUS MODEL I / MATTE WHITE', 'category': 'SOURIS WIRED'}
+{'reference': 'EXTENDED G-P', 'name': 'TAPIS DE SOURIS GLORIOUS EXTENDED XL G-P / BLACK', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'G-L', 'name': 'TAPIS DE SOURIS GLORIOUS LARGE G-L / BLACK', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'GW-L', 'name': 'TAPIS DE SOURIS GLORIOUS LARGE GW-L / WHITE EDITION', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'HEAVY-GW-HXL', 'name': 'TAPIS DE SOURIS GLORIOUS HEAVY SL GW-HXL / WHITE', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'GMMK-V2-BLK-65', 'name': 'CLAVIER GLORIOUS GMMK V2 65% / BLACK', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'GMMK-V2-WHT-65', 'name': 'CLAVIER GLORIOUS GMMK V2 65% / WHITE', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'GMMK-V2-BLK', 'name': 'CLAVIER GLORIOUS GMMK 2 FULL SIZE / BLACK', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'GMMK-V2-WHT', 'name': 'CLAVIER GLORIOUS GMMK 2 FULL SIZE / WHITE', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'LUBE-BRUSH', 'name': 'LUBE BRUSH GLORIOUS', 'category': 'ACCESSOIRE'}
+{'reference': 'PULLER', 'name': 'PREMIUM SWITCH PULLER GLORIOUS', 'category': 'ACCESSOIRE'}
+{'reference': 'KEYCAP', 'name': 'KEYCAP PULLER GLORIOUS', 'category': 'ACCESSOIRE'}
+{'reference': 'G-LUBE', 'name': 'G-LUBE GLORIOUS', 'category': 'ACCESSOIRE'}
+{'reference': 'PANDA', 'name': 'PANDA TOY GLORIOUS', 'category': 'ACCESSOIRE'}
+{'reference': 'FOX', 'name': 'FOX TOY GLORIOUS', 'category': 'ACCESSOIRE'}
+{'reference': 'LYNX', 'name': 'LYNX TOY GLORIOUS', 'category': 'ACCESSOIRE'}
+{'reference': 'SWITCH-OPENER', 'name': 'SWITCH OPENER GLORIOUS', 'category': 'ACCESSOIRE'}
+{'reference': 'O11D-EVO-XL-BLK', 'name': 'BOITIER LIAN LI O11 DYNAMIC EVO XL / BLACK', 'category': 'FULL TOWER'}
+{'reference': 'O11D-EVO-XL-WHT', 'name': 'BOITIER LIAN LI O11 DYNAMIC EVO XL / WHITE', 'category': 'FULL TOWER'}
+{'reference': 'O11D-EVO-BLK', 'name': 'BOITIER LIAN LI O11 DYNAMIC EVO / BLACK', 'category': 'FULL TOWER'}
+{'reference': 'O11D-EVO-WHT', 'name': 'BOITIER LIAN LI O11 DYNAMIC EVO / WHITE', 'category': 'FULL TOWER'}
+{'reference': 'LANCOOL-205-BLK', 'name': 'BOITIER LIAN LI LANCOOL 205 / BLACK', 'category': 'MID TOWER'}
+{'reference': 'LANCOOL-205-MESH-BLK', 'name': 'BOITIER LIAN LI LANCOOL 205 MESH (TYOE C) / BLACK', 'category': 'MID TOWER'}
+{'reference': 'LANCOOL-205-MESH-WHT', 'name': 'BOITIER LIAN LI LANCOOL 205 MESH (TYPE C) / White', 'category': 'MID TOWER'}
+{'reference': 'LANCOOL-205M-MESH-WHT', 'name': 'BOITIER LIAN LI LANCOOL 205 MINI MESH / WHITE', 'category': 'MID TOWER'}
+{'reference': 'LANCOOL-216-WHT', 'name': 'BOITIER LIAN LI LANCOOL 216 RGB / WHITE', 'category': 'MID TOWER'}
+{'reference': 'LANCOOL-II-BLK', 'name': 'BOITIER LIAN LI LANCOOL II MESH / BLACK', 'category': 'MID TOWER'}
+{'reference': 'LANCOOL-II-WHT', 'name': 'BOITIER LIAN LI LANCOOL II MESH / WHITE', 'category': 'MID TOWER'}
+{'reference': 'LANCOOL-III-BLK', 'name': 'BOTIER LIAN LI LANCOOL III RGB / BLACK', 'category': 'FULL TOWER'}
+{'reference': 'SP750-BLK', 'name': 'ALIMENTATION LIAN LI SP750 - 750 WATS 80PLUS GOLD -SFX / BLACK', 'category': 'ALIMENTATION '}
+{'reference': 'SP750-WHT', 'name': 'ALIMENTATION LIAN LI SP750 - 750 WATS 80PLUS GOLD -SFX / WHITE', 'category': 'ALIMENTATION '}
+{'reference': 'SP850-BLK', 'name': 'ALIMENTATION LIAN LI SP850 - 850 WATS 80PLUS GOLD -SFX / BLACK', 'category': 'ALIMENTATION '}
+{'reference': 'SP850-WHT', 'name': 'ALIMENTATION LIAN LI SP850 - 850 WATS 80PLUS GOLD -SFX / WHITE', 'category': 'ALIMENTATION '}
+{'reference': 'SL120V2-BLK', 'name': 'FAN LIAN LI SL120V2 / BLACK', 'category': 'FANS'}
+{'reference': 'SL-IN120-BLK', 'name': 'FAN LIAN LI SL INFINITY 120 / BLACK', 'category': 'FANS'}
+{'reference': 'SL-IN120-X3-BLK', 'name': 'PACK FANS X3 LIAN LI SL INFINITY 120 / BLACK', 'category': 'PACK FANS'}
+{'reference': 'SL-IN120-WHT', 'name': 'FAN LIAN LI SL INFINITY 120 / WHITE', 'category': 'FANS'}
+{'reference': 'SL-IN120-X3-WHT', 'name': 'PACK FANS X3 LIAN LI SL INFINITY 120 / WHITE', 'category': 'PACK FANS'}
+{'reference': 'AL210V2-BLK', 'name': 'FAN LIAN LI AL120 V2 / BLACK', 'category': 'FANS'}
+{'reference': 'AL210V2-X3-BLK', 'name': 'PACK FANS X3 LIAN LI AL120 V2 / BLACK', 'category': 'PACK FANS'}
+{'reference': 'AL120V2-WHT', 'name': 'FAN LIAN LI AL120 V2 / WHITE', 'category': 'FANS'}
+{'reference': 'AL120V2-X3-WHT', 'name': 'PACK FANS X3 LIAN LI AL120 V2 / WHITE', 'category': 'PACK FANS'}
+{'reference': 'GALAHAD III-LCD-360-BLK', 'name': 'WATER COOLING LIAN LI GALAHAD II LCD 360 ARGB / BLACK', 'category': 'WATER COOLING CPU'}
+{'reference': 'GALAHAD III-LCD-360-WHT', 'name': 'WATER COOLING LIAN LI GALAHAD II LCD 360 ARGB / WHITE', 'category': 'WATER COOLING CPU'}
+{'reference': 'GALAHAD III-LCD-SL-360-BLK', 'name': 'WATER COONLING LIAN LI GALAHAD II LCD 360 SL-INFINITY / BLACK', 'category': 'WATER COOLING CPU'}
+{'reference': 'GALAHAD III-LCD-SL-360-WHT', 'name': 'WATER COONLING LIAN LI GALAHAD II LCD 360 SL-INFINITY / WHITE', 'category': 'WATER COOLING CPU'}
+{'reference': 'GALAHAD III-SL-360-BLK', 'name': 'WATER COONLING LIAN LI GALAHAD II 360 SL-INFINITY / BLACK', 'category': 'WATER COOLING CPU'}
+{'reference': 'GALAHAD III-SL-360-WHT', 'name': 'WATER COONLING LIAN LI GALAHAD II 360 SL-INFINITY / WHITE', 'category': 'WATER COOLING CPU'}
+{'reference': '12VHPWR-8/(12+4 TO 12+4 PIN)', 'name': 'CABLE D&amp;#x27;EXTENSION LIAN LI STRIMER PLUS V2 12VHPWR (12+4 TO 12+4 PIN) 8 LIGHTS', 'category': 'CABLE'}
+{'reference': '12VHPWR-12/(12+4 TO 12+4 PIN)', 'name': 'CABLE D&amp;#x27;EXTENSION LIAN LI STRIMER PLUS V2 12VHPWR (12+4 TO 12+4 PIN) 12 LIGHTS', 'category': 'CABLE'}
+{'reference': '12VHPWR-8/(12+4 TO 3X8 PIN)', 'name': 'CABLE D&amp;#x27;EXTENSION LIAN LI STRIMER PLUS V2 12VHPWR (12+4 TO 3X8 PIN) 8 LIGHTS', 'category': 'CABLE'}
+{'reference': 'PW24-V2 ARGB 24 PIN', 'name': 'CABLE D&amp;#x27;EXTENSION LIAN LI STRIMER PLUS V2 PW24-V2 ARGB 24 PIN', 'category': 'CABLE'}
+{'reference': 'L-CONNECT 3', 'name': 'CONTROLEUR LIAN LI STRIMER PLUS V2 L-CONNECT 3', 'category': 'CABLE'}
+{'reference': 'LIANLI RISER-900-BLK', 'name': 'CABLE RISER LIAN LI PCOE 4.0 - 900MM / BLACK', 'category': 'CABLE'}
+{'reference': 'LIANLI RISER-900-WHT', 'name': 'CABLE RISER LIAN LI PCOE 4.0 - 900MM / WHITE', 'category': 'CABLE'}
+{'reference': 'LIANLI RISER-600-BLK', 'name': 'CABLE RISER LIAN LI PCOE 4.0 - 600MM / BLACK', 'category': 'CABLE'}
+{'reference': 'LIANLI RISER-600-WHT', 'name': 'CABLE RISER LIAN LI PCOE 4.0 - 600MM / WHITE', 'category': 'CABLE'}
+{'reference': 'SP-GPU-O11DEVOXL-BLK', 'name': 'SUPPORT CARTE GRAPHIQUE LIAN LI O11D EVO XL / BLACK', 'category': 'SUPPORT CARTE GRAPHIQUE'}
+{'reference': 'SP-GPU-O11DEVOXL-WHT', 'name': 'SUPPORT CARTE GRAPHIQUE LIAN LI O11D EVO XL / WHITE', 'category': 'SUPPORT CARTE GRAPHIQUE'}
+{'reference': 'SP-GPU-RISER-O11DMINI-BLK', 'name': 'SUPPORT CARTE GRAPHIQUE VERTICAL PCIE 4.0 LIAN LI O11D MINI / BLACK', 'category': 'SUPPORT CARTE GRAPHIQUE'}
+{'reference': 'SP-GPU-RISER-O11DMINI-WHT', 'name': 'SUPPORT CARTE GRAPHIQUE VERTICAL PCIE 4.0 LIAN LI O11D MINI / WHITE', 'category': 'SUPPORT CARTE GRAPHIQUE'}
+{'reference': 'AX51-BLK', 'name': 'BOITIER ANTEC AX51 / BLACK', 'category': 'MID TOWER'}
+{'reference': 'AX61-ELITE-BLK', 'name': 'BOITIER ANTEC AX61 ELITE / BLACK', 'category': 'MID TOWER'}
+{'reference': 'NX291-BLK', 'name': 'BOITIER ANTEC NX291 / BLACK', 'category': 'MID TOWER'}
+{'reference': 'NX292-BLK', 'name': 'BOITIER ANTEC NX292 / BLACK', 'category': 'MID TOWER'}
+{'reference': 'KUMARA-K552RGB-1', 'name': 'CLAVIER REDRAGON KUMARA K552-RGB / BLACK', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'LAMIA-2-H320RGB-A-W', 'name': 'COMBO REDRAGON CASQUE + SUPPORT CASQUE - LAMIA 2 / WHITE', 'category': 'COMBO'}
+{'reference': 'LAMIA-2-H320RGB-1', 'name': 'COMBO REDRAGON CASQUE + SUPPORT CASQUE - LAMIA 2 / BLACK', 'category': 'COMBO'}
+{'reference': 'DARKENTS-GS570', 'name': 'BAFFLE REDRAGON DARKNETS GS570 BT SPEAKER', 'category': 'BAFFLE '}
+{'reference': 'EXTENDED G-E', 'name': 'TAPIS DE SOURIS GLORIOUS EXTENDED G-E / BLACK', 'category': 'TAPIS DE SOURIS '}
+{'reference': 'AW100100001237BOX', 'name': 'CPU AMD RYZEN 5 8600G BOX', 'category': 'PROCESSEUR AMD'}
+{'reference': 'AW10010001236BOX', 'name': 'CPU AMD RYZEN 7 8700G BOX', 'category': 'PROCESSEUR AMD'}
+{'reference': 'AW100100001489BOX', 'name': 'CPU AMD RYZEN 5 5500GT BOX', 'category': 'PROCESSEUR AMD'}
+{'reference': '911-7C95-066', 'name': 'CARTE MERE MSI B550M PRO VDH', 'category': 'CARTE MERE AMD'}
+{'reference': '911-7D96-013', 'name': 'CARTE MERE MSI MAG B760 TOMAHAWK WIFI', 'category': 'CARTE MERE INTEL'}
+{'reference': 'MD9117C56050', 'name': 'CARTE MERE MSI B550-A PRO', 'category': 'CARTE MERE AMD'}
+{'reference': '911-7E16-003', 'name': 'CARTE MERE MSI X670E GAMING PLUS WIFI', 'category': 'CARTE MERE AMD'}
+{'reference': 'MD912V397214', 'name': 'MSI RTX3060 VENTUS 2X BLACK 12G OC GDDR6', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'MD912V515017', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060TI X2 8GB OC', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'RTX4070-VENTUS/X2-WHITE', 'name': 'CARTE GRAPHIQUE MSI RTX4070 VENTUS 2X E 12GB OC WHITE', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'RTX4070-VENTUS/X2-BLACK', 'name': 'CARTE GRAPHIQUE MSI RTX4070 VENTUS 2X E 12GB OC BLACK', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'RTX4070TI-SUPER-VENTUS/X2-WHITE', 'name': 'CARTE GRAPHIQUE MSI RTX4070TI SUPER VENTUS X2 16GB OC WHITE', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'RTX4080-SUPER-SUPRIMX', 'name': 'CARTE GRAPHIQUE MSI RTX4080 SUPER 16GB SUPRIM X', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'RTX4090-VENTUS/X3-BLACK', 'name': 'CARTE GRAPHIQUE MSI RTX4090 VENTUS 3X E24GB OC', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'S78-440E350-P83\t', 'name': 'SSD MSI SATA III SPATIUM S270 480GB\t', 'category': 'SSD SATA'}
+{'reference': 'RTX3050-VENTUS-6\t', 'name': 'CARTE GRAPHIQUE RTX3050 VENTUS 2X 6G OC\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'G2422C-180', 'name': 'ECRAN MSI G2422C - 24INCH - CURVED - 180HZ - 1MS', 'category': 'ECRAN GAMING CURVED 24 POUCE '}
+{'reference': 'G244FE2-180', 'name': 'ECRAN MSI G244F E2 - 24INCH - IPS - 180HZ - 1MS', 'category': 'ECRAN GAMING IPS 24 POUCE '}
+{'reference': 'G274F-180', 'name': 'ECRAN MSI G274F - 27INCH - IPS - 180HZ - 1MS', 'category': 'ECRAN GAMING IPS 27 POUCE '}
+{'reference': 'MP2412-100', 'name': 'ECRAN MSI PRO MP2412 - 24INCH - VA - 100HZ - 1MS', 'category': 'ECRAN PRO DALLE VA 24 POUCE '}
+{'reference': 'MP273A-100', 'name': 'ECRAN MSI PRO MP273A - 27INCH - IPS - 100HZ - 1MS', 'category': 'ECRAN PRO DALLE IPS 27 POUCE '}
+{'reference': 'MP251P-100', 'name': 'ECRAN MSI PRO MP251P - 24INCH - IPS - 100HZ - 1MS - ADJUSTABLE STAND', 'category': 'ECRAN PRO DALLE IPS 24 POUCE '}
+{'reference': 'MP251-100', 'name': 'ECRAN MSI PRO MP251 - 24INCH - IPS - 100HZ - 1MS', 'category': 'ECRAN PRO DALLE IPS 24 POUCE '}
+{'reference': 'Z790-A-MAX-WL', 'name': 'CARTE MERE MSI PRO Z790-A MAX WL', 'category': 'CARTE MERE INTEL'}
+{'reference': 'B760-P-DDR4', 'name': 'CARTE MERE MSI PRO B760-P DDR4 WL', 'category': 'CARTE MERE INTEL'}
+{'reference': 'H610M-E-DDR5', 'name': 'CARTE MERE MSI H610M-E DDR5', 'category': 'CARTE MERE INTEL'}
+{'reference': 'B650-TMHW-WL', 'name': 'CARTE MERE MSI MAG B650 TOMAHAWK WL', 'category': 'CARTE MERE AMD'}
+{'reference': 'B650-GP-WL', 'name': 'CARTE MERE MSI B650 GAMING PLUS WL', 'category': 'CARTE MERE AMD'}
+{'reference': 'A520-M-A\t', 'name': 'CARTE MERE MSI A520M-A PRO\t', 'category': 'CARTE MERE AMD'}
+{'reference': 'MAG401QR', 'name': 'ECRAN MSI MAG401QR - 40INCH - IPS - 155HZ - 2K - ULTRAWIDE - 1MS', 'category': 'ECRAN GAMING IPS 30 POUCE ET PLUS '}
+{'reference': 'MD271UL', 'name': 'ECRAN MSI MODERN MD271UL - 27INCH - IPS - 4K', 'category': 'ECRAN PRO DALLE IPS 27 POUCE '}
+{'reference': 'G244PF-E2-180\t', 'name': 'ECRAN MSI G244PF E2 - 24INCH - IPS - 180HZ - 1MS - ADJUSTABLE STAND', 'category': 'ECRAN GAMING IPS 24 POUCE '}
+{'reference': 'G2412-180', 'name': 'ECRAN MSI G2412F - 24INCH - IPS - 180HZ - 1MZ', 'category': 'ECRAN GAMING IPS 24 POUCE '}
+{'reference': 'MP223-100\t', 'name': 'ECRAN MSI PRO MP223 - 22INCH - VA - 100HZ - 1MS', 'category': 'ECRAN PRO DALLE VA 24 POUCE '}
+{'reference': '7950X3D', 'name': 'CPU AMD RYZEN 9 7950X3D\t', 'category': 'PROCESSEUR AMD'}
+{'reference': '7900X3D', 'name': 'CPU AMD RYZEN 9 7900X3D\t', 'category': 'PROCESSEUR AMD'}
+{'reference': '8500G-BOX\t', 'name': 'CPU AMD RYZEN 5 8500G BOX', 'category': 'PROCESSEUR AMD'}
+{'reference': '3200G-MPK\t', 'name': 'CPU AMD RYZEN 3 3200G MPK\t', 'category': 'PROCESSEUR AMD'}
+{'reference': 'DDR5-8G52', 'name': 'RAM DATO DDR5 8GB 5200MHZ', 'category': 'RAM DDR5'}
+{'reference': 'COMBO-CAPSYS', 'name': 'COMBO CLAVIER - SOURIS - TAPISE DE SOURIS CAPSYS', 'category': 'COMBO'}
+{'reference': 'PILOT-NW-GR', 'name': 'BOITIER PILOT NEW - GRIS METAL', 'category': 'BOITIER PRO'}
+{'reference': 'PILOT-350W-GR', 'name': 'ALIMENTATION PILOT 350 WATT - GRIS', 'category': 'ALIMENTATION '}
+{'reference': '4711377144797', 'name': 'CARTE MERE MSI PRO B650M-B\t', 'category': 'CARTE MERE AMD'}
+{'reference': '4711377012881', 'name': 'CARTE MERE MSI MPG Z790 CARBON WL DDR5\t', 'category': 'CARTE MERE INTEL'}
+{'reference': 'G255PF-E2\t', 'name': 'ECRAN MSI G255PF E2 - FAST IPS - 25INCH - 180HZ - 1MS - ADAPTIVE SYNC - ADJUSTABLE STAND', 'category': 'ECRAN GAMING IPS 24 POUCE '}
+{'reference': 'MP242A\t', 'name': 'ECRAN MSI PRO MP242A - IPS -23.8INCH - 100HZ - 1MS - TÜV CERTIFIED - EYESERGO TECHNOLOGY', 'category': 'ECRAN PRO DALLE IPS 24 POUCE '}
+{'reference': 'U27G3X', 'name': 'ECRAN AOC U27G3X - IPS - 27INCH - 4K - 3840-2160 UHD -HDR400 - 1MS - 160HZ - ADJUSTABLE STAND', 'category': 'ECRAN GAMING IPS 27 POUCE '}
+{'reference': 'U27V4', 'name': 'ECRAN AOC U27V4 - IPS - 27INCH - 4K - 3840-2160 UHD - HDR MODE - 3 SIDE FRAMLESS - ADJUSTABLE STAND', 'category': 'ECRAN PRO DALLE IPS 27 POUCE '}
+{'reference': 'U34G3X', 'name': 'ECRAN AOC U34G3X - IPS - 34 INCH - ULTRAWIDE -3440X1440 WQHD -HDR10 - 1MS - 144HZ', 'category': 'ECRAN GAMING IPS 30 POUCE ET PLUS '}
+{'reference': 'PC124F306', 'name': 'I5 12400F - H610 - RTX3060 - 512GB - 16GB - 500WATT - ECRAN MSI 24 - COMBO MSI ', 'category': 'ACCESSOIRE'}
+{'reference': 'A750BN-PCIE5', 'name': 'ALIMENTATION MSI MAG A750BN 750 WATTS 80+ BRONZE PCIE5\t', 'category': 'ALIMENTATION '}
+{'reference': 'A650BNL', 'name': 'ALIMENTATION MSI MAG A650BNL 650 WATTS 80+ BRONZE\t', 'category': 'ALIMENTATION '}
+{'reference': '4711377154017\t', 'name': 'CARTE MERE MSI B760M GAMING PLUS WL', 'category': 'CARTE MERE INTEL'}
+{'reference': '4526541045837', 'name': 'CARTE MERE MSI MAG X670E TOMAHAWK WIFI\t', 'category': 'CARTE MERE AMD'}
+{'reference': '601-7E24-010\t', 'name': 'CARTE MERE MSI B650M GAMING PLUS WL', 'category': 'CARTE MERE AMD'}
+{'reference': '4526541048005', 'name': 'CARTE MERE MSI MPG Z790 EDGE TI MAX WIFI\t', 'category': 'CARTE MERE INTEL'}
+{'reference': '4526541047992', 'name': 'CARTE MERE MSI MAG Z790 TOMAHAWK MAX WIFI\t', 'category': 'CARTE MERE INTEL'}
+{'reference': 'MSI-GM11\t', 'name': 'SOURIS MSI CLUTCH GM11\t', 'category': 'SOURIS WIRED'}
+{'reference': 'MKMINI-WHITE\t', 'name': 'CLAVIER MARS GAMING MKMINI WHITE\t', 'category': 'CLAVIER MECHANIQUE'}
+{'reference': 'MPZE750M-WHITE\t', 'name': 'ALIMENTATION MARS GAMING MPZE750M 750W FULL-MODULAR 80PLUS SILVER\t', 'category': 'ALIMENTATION '}
+{'reference': 'MPB850M', 'name': 'ALIMENTATION MARS GAMING MPB850M FULL MODULAR 80PLUS BRONZE\t', 'category': 'ALIMENTATION '}
+{'reference': 'MMXT-BLACK\t', 'name': 'SOURIS MARS GAMING MM-XT MOUSE BLACK\t', 'category': 'SOURIS WIRED'}
+{'reference': 'MMXT-WHITE\t', 'name': 'SOURIS MARS GAMING MM-XT MOUSE WHITE\t', 'category': 'SOURIS WIRED'}
+{'reference': 'MPB650-WHITE\t', 'name': 'ALIMENTATION MARS GAMING MPB 650W PSU 80PLUS BRONZE WHITE\t', 'category': 'ALIMENTATION '}
+{'reference': 'MPB750M', 'name': 'ALIMENTATION MARS GAMING MPB750M FULL MODULAR PSU 80PLUS BRONZE\t', 'category': 'ALIMENTATION '}
+{'reference': 'MCPU-PRO\t', 'name': 'AIR COOLING MARS GAMING MCPU-PRO\t', 'category': 'AIR COOLING CPU'}
+{'reference': 'ML-ONE240-BLACK\t', 'name': 'WATER COOLING MARS GAMING ML-ONE240 BLAKC\t', 'category': 'WATER COOLING CPU'}
+{'reference': 'MK220-BLACK\t', 'name': 'CLAVIER MARSGAMING MK220 H-MECH BLACK\t', 'category': 'CLAVIER MEMBRANE '}
+{'reference': 'MK220-WHITE\t', 'name': 'CLAVIER MARSGAMING MK220 H-MECH WHITE\t', 'category': 'CLAVIER MEMBRANE '}
+{'reference': 'MKULTRA-BLACK\t', 'name': 'CLAVIER MARS GAMING MKULTRA BLACK MECHANICAL 96%\t', 'category': 'CLAVIER MECHANIQUE WIRED '}
+{'reference': 'MC400-BLACK\t', 'name': 'BOITIER MARS GAMING MC400 BLACK\t', 'category': 'MINI TOWER'}
+{'reference': 'MC400-WHITE\t', 'name': 'BOITIER MARS GAMING MC400 WHITE\t', 'category': 'MINI TOWER'}
+{'reference': 'MCART-BLACK\t', 'name': 'BOITIER MARS GAMING MC-ART BLACK\t', 'category': 'MID TOWER'}
+{'reference': 'MCART-WHITE\t', 'name': 'BOITIER MARS GAMING MC-ART WHITE\t', 'category': 'MID TOWER'}
+{'reference': 'MC-C\t', 'name': 'BOITIER MARS GAMING MC-C - BLAKC\t', 'category': 'MID TOWER'}
+{'reference': 'MCIPRO-WHITE\t', 'name': 'BOITIER MARS GAMING MC-IPRO WHITE\t', 'category': 'MID TOWER'}
+{'reference': 'MCMASTER-BLACK\t', 'name': 'BOITIER MARS GAMING MC-MASTER BLACK\t', 'category': 'MID TOWER'}
+{'reference': 'MCU3-BLACK\t', 'name': 'BOITIER MARS GAMING MC-U3 BLACK\t', 'category': 'MID TOWER'}
+{'reference': 'MCU3-WHITE\t', 'name': 'BOITIER MARS GAMING MC-U3 WHITE\t', 'category': 'MID TOWER'}
+{'reference': 'MCV4-WHITE\t', 'name': 'BOITIER MARS GAMING MCV4 XXL WHITE\t', 'category': 'MID TOWER'}
+{'reference': '912-V513-839', 'name': 'CARTE GRAPHIQUE MSI RTX4070 SUPER VENTUS 3X 12GB OC', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '912-V513-614', 'name': 'CARTE GRAPHIQUE MSI RTX4070TI SUPER VENTUS 3X 16GB OC', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'PREMIER-DDR4', 'name': 'RAM ADATA DDR4  PREMIER 8GB 3200MHZ U-DIMM', 'category': 'RAM DDR4'}
+{'reference': '8-4800-D5', 'name': 'RAM ADATA DDR5   8GB 4800MHZ U-DIMM', 'category': 'RAM DDR5'}
+{'reference': '16-5600-D5', 'name': 'RAM ADATA DDR5  16GB 5600MHZ U-DIMM', 'category': 'RAM DDR5'}
+{'reference': '8-5600-D5', 'name': 'RAM ADATA DDR5  8GB 5600MHZ U-DIMM', 'category': 'RAM DDR5'}
+{'reference': 'LC8-5200-B', 'name': 'RAM ADATA LANCER DDR5  8GB 5200MHZ  BLACK', 'category': 'RAM DDR5'}
+{'reference': 'LC8-5200-W', 'name': 'RAM ADATA LANCER DDR5  8GB 5200MHZ WHITE', 'category': 'RAM DDR5'}
+{'reference': 'LC16-6000-B', 'name': 'RAM ADATA LANCER  DDR5  16GB 6000MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': 'LC16-6000-W', 'name': 'RAM ADATA LANCER  DDR5  16GB 6000MHZ WHITE', 'category': 'RAM DDR5'}
+{'reference': 'LC16-6400-B', 'name': 'RAM ADATA LANCER DDR5 16GB 6400MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': 'LC16-6400-W', 'name': 'RAM ADATA  LANCER  DDR5  16GB 6400MHZ WHITE', 'category': 'RAM DDR5'}
+{'reference': 'LC32-6000-B', 'name': 'RAM ADATA LANCER  DDR5  32GB 6000MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': 'LC32-6000-W', 'name': 'RAM ADATA  LANCER DDR5  32GB 6000MHZ WHITE ', 'category': 'RAM DDR5'}
+{'reference': 'LC32-6400-B', 'name': 'RAM ADATA  LANCER  DDR5 32GB 6400MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': 'LC32-6400-W', 'name': 'RAM ADATA  LANCER  DDR5  32GB 6400MHZ WHITE', 'category': 'RAM DDR5'}
+{'reference': 'LCR16-5600-B', 'name': 'RAM ADATA LANCER RGB DDR5  16GB 5600MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': 'LCR16-5600-W', 'name': 'RAM ADATA LANCER RGB DDR5  16GB 5600MHZ WHITE', 'category': 'RAM DDR5'}
+{'reference': 'LCR16-6400-B', 'name': 'RAM ADATA  LANCER  RGB DDR5  16GB 6400MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': 'LCR16-6400-W', 'name': 'RAM ADATA  LANCER  RGB DDR5  16GB 6400MHZ  WHITE', 'category': 'RAM DDR5'}
+{'reference': 'LCR16-6800-B', 'name': 'RAM ADATA  LANCER  DDR5  RGB 16GB 6800MHZ  BLACK', 'category': 'RAM DDR5'}
+{'reference': 'LCR16-6800-W', 'name': 'RAM ADATA  LANCER  DDR5  RGB 16GB 6800MHZ  WHITE', 'category': 'RAM DDR5'}
+{'reference': 'LCR16-7200-B', 'name': 'RAM ADATA  LANCER  DDR5  RGB 16GB 7200MHZ  BLACK', 'category': 'RAM DDR5'}
+{'reference': 'LCR16-7200-W', 'name': 'RAM ADATA  LANCER  DDR5  RGB 16GB 7200MHZ  WHITE', 'category': 'RAM DDR5'}
+{'reference': 'LCR21-5600-B', 'name': 'RAM ADATA LANCER RGB DDR5  32GB 5600MHZ BLACK', 'category': 'RAM DDR5'}
+{'reference': 'LEGEND710-256', 'name': 'SSD ADATA LEGEND 710 256GB GEN3X4', 'category': 'SSD NVME GEN 3'}
+{'reference': 'LEGEND850-512', 'name': 'SSD ADATA LEGEND 850 512GB GEN4X4', 'category': 'SSD NVME GEN 4'}
+{'reference': 'S40G-512', 'name': 'SSD ADATA XPG SPECTRIX S40G 512GB GEN3X4', 'category': 'SSD NVME GEN 3'}
+{'reference': 'SU650-256', 'name': 'SSD ADATA ULTIMATE SU650 256GB SATA', 'category': 'SSD SATA'}
+{'reference': '32-5600-D5', 'name': 'RAM ADATA DDR5  32GB 5600MHZ U-DIMM', 'category': 'RAM DDR5'}
+{'reference': 'MP243XW', 'name': 'ECRAM MSI PRO MP243XW WHITE - IPS - 100HZ - 1MS\t', 'category': 'ECRAN PRO DALLE IPS 24 POUCE '}
+{'reference': 'ENGM-60', 'name': 'SSD ENIGMA 60GB', 'category': 'SSD SATA'}
+{'reference': 'ENGM-4', 'name': 'RAM ENIGMA 4GB 266MHZ', 'category': 'RAM DDR4'}
+{'reference': 'G6900-TR', 'name': 'CPU INTEL G6900 TRAY', 'category': 'PROCESSEUR INTEL'}
+{'reference': '3000G-TR', 'name': 'CPU AMD ATHLON 3000G TRAY', 'category': 'PROCESSEUR AMD'}
+{'reference': 'MAG-FORGE-M100A\t', 'name': 'BOITIER MSI MAG FORGE M100A\t', 'category': 'MID TOWER'}
+{'reference': 'shield301', 'name': 'BOITIER MSI MAG SHIELD M301', 'category': 'BOITIER PRO'}
+{'reference': 'MEG-1300\t', 'name': 'ALIMENTATION MSI MEG AI1300P PCIE5\t', 'category': 'ALIMENTATION '}
+{'reference': 'MAG-A500BNL\t', 'name': 'ALIMENTATION MSI A550BNL\t', 'category': 'ALIMENTATION '}
+{'reference': 'Z790-S\t', 'name': 'CARTE MERE MSI PRO Z790-S WL', 'category': 'CARTE MERE INTEL'}
+{'reference': '4070TI-S-EXPERT\t', 'name': 'CARTE GRAPHIQUE MSI RTX4070TI SUPER 16GB EXPERT\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4060TI-GAMINGX-8\t', 'name': 'CARTE GRAPHIQUE MSI RTX4060TI GAMING X SLIM 8G\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4060TI-VENTUS-3X8G\t', 'name': 'CARTE GRAPHIQUE MSI RTX4060TI VENTUS 3X E 8G OC\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '274QRFW\t', 'name': 'ECRAN MSI MAG 274QRFW - 27INCH - IPS - 180HZ - 1MS - WQHD - WHITE\t', 'category': 'ECRAN GAMING IPS 27 POUCE '}
+{'reference': 'MD2412PW\t', 'name': 'ECRAN MSI MODERN MD2412PW - IPS - 100HZ - USB TYPE C - ADJUSTABLE - WHITE\t', 'category': 'ECRAN PRO DALLE IPS 24 POUCE '}
+{'reference': 'MP275P\t', 'name': 'ECRAN MSI PRO MP275P - 27 POUCE - 100HZ - IPS -1MS - ADJUSTABLE\t', 'category': 'ECRAN PRO DALLE IPS 27 POUCE '}
+{'reference': 'MP225\t', 'name': 'ECRAN MSI MP225 - 21.5 POUCE - 100HZ - IPS - 1MS - BLACK\t', 'category': 'ECRAN PRO DALLE IPS 24 POUCE '}
+{'reference': 'FORGE-GM300\t', 'name': 'SOURIS MSI FOTGR GM300 BLACK\t', 'category': 'SOURIS WIRED'}
+{'reference': 'G255F', 'name': 'ECRAN MSI G255F - 25 POUCE - IPS - 180HZ - 1MS - BLACK\t', 'category': 'ECRAN GAMING IPS 24 POUCE '}
+{'reference': '24G4E', 'name': 'ECRAN AOC 24G4E - 24 POUCE - 180HZ - FAST IPS - 0.5 MS - HDR10 - ADAPTIVE SYNC\t', 'category': 'ECRAN GAMING IPS 24 POUCE '}
+{'reference': '27G4E', 'name': 'ECRAN AOC 27G4E - 27 POUCE - 180HZ - FAST IPS - 0.5 MS - HDR10 - ADAPTIVE SYNC\t', 'category': 'ECRAN GAMING IPS 27 POUCE '}
+{'reference': '3400G-BOX\t', 'name': 'CPU AMD RYZEN 5 3400G BOX\t', 'category': 'PROCESSEUR AMD'}
+{'reference': 'I5-12600KF\t', 'name': 'CPU INTEL I5 12600KF BOX\t', 'category': 'PROCESSEUR INTEL'}
+{'reference': '4711377170680\t', 'name': 'CARTE GRAPHIQUE MSI RTX 4080 SUPER 16G GAMING X SLIM\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4080SUPER-EXPERT\t', 'name': 'CARTE GRAPHIQUE MSI RTX 4080 SUPER 16G EXPERT\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4711377174053\t', 'name': 'CARTE GRAPHIQUE MSI RTX4080 SUPER 16G GAMING X TRIO\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4080SUPER-GAMINGXSLIM-WHITE\t', 'name': 'CARTE GRAPHIQUE MSI RTX 4080 SUPER 16G GAMING X SLIM WHITE\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4711377172363', 'name': 'CARTE GRAPHIQUE MSI RTX 4070TI SUPER 12G GAMING X SLIM WHITE\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4070GAMINGXSLIM-WHITE\t', 'name': 'CARTE GRAPIQUE MSI RTX 4070 SUPER 12G GAMING X SLIM WHITE\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '3050-8G\t', 'name': 'CARTE GRAPHIQUE RTX3050 VENTUS 2X 8G OC\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': '4711377176828\t', 'name': 'CARTE GRAPHIQUE RTX3050 LP 6G OC\t', 'category': 'CARTE GRAPHIQUE NVIDIA'}
+{'reference': 'I5-12400-BOX', 'name': 'CPU INTEL I5 12400 BOX ', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'I7-13700KF-BOX', 'name': 'CPU INTEL I7 13700KF BOX', 'category': 'PROCESSEUR INTEL'}
+{'reference': 'I5-14400-BOX', 'name': 'CPU INTEL I5 14400 BOX', 'category': 'PROCESSEUR INTEL'}
+{'reference': '4711377143660', 'name': 'B760M PROJECT ZERO', 'category': 'CARTE MERE INTEL'}
+{'reference': '4711377126649', 'name': 'B650M PROJECT ZERO', 'category': 'CARTE MERE AMD'}
+{'reference': '4711377154024', 'name': 'Z790 PROJECT ZERO', 'category': 'CARTE MERE INTEL'}
+{'reference': 'G272QPF-E2 ', 'name': 'ECRAN MSI G272QPF E2 ', 'category': 'ECRAN'}
+{'reference': '9S6-3DB91A-013', 'name': 'ECRAN MSI G321Q', 'category': 'ECRAN'}
+{'reference': '491CQP-QD-OLED', 'name': 'ECRAN MSI MPG 491CQP QD-OLED', 'category': 'ECRAN'}
+{'reference': '9S6-3PB2CT-002', 'name': 'ECRAN MSI PRO MP341CQ BLACK', 'category': 'ECRAN PRO DALLE IPS 30 POUCE ET PLUS'}
+{'reference': '9S6-3PB2CT-007', 'name': 'ECRAN MSI PRO MP341CQW WHITE                                  ', 'category': 'ECRAN PRO DALLE IPS 30 POUCE ET PLUS'}
+{'reference': 'E240-WHITE', 'name': 'WATER COOLING MSI MAG CORLIQUID E240 WHITE', 'category': 'WATER COOLING CPU'}
+{'reference': '5650G-MPK', 'name': 'CPU AMD RYZEN 5 5650G MPK', 'category': 'PROCESSEUR AMD'}
+{'reference': '7500F-MPK', 'name': 'CPU AMD RYZEN 5 7500F MPK', 'category': 'PROCESSEUR AMD'}
+{'reference': '8500G-MPK', 'name': 'CPU AMD RYZEN 5 8500G MPK', 'category': 'PROCESSEUR AMD'}
+{'reference': '8600G-MPK', 'name': 'CPU AMD RYZEN 5 8600G MPK', 'category': 'PROCESSEUR AMD'}
+{'reference': '8400F-BOX', 'name': 'CPU AMD RYZNE 5 8400F BOX', 'category': 'PROCESSEUR AMD'}
+{'reference': 'G275F', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'category': 'ECRAN'}
+{'reference': 'MP252', 'name': 'ECRAN MSI MP252 - 25INCH - 100HZ - IPS - 1MS ', 'category': 'ECRAN'}
+{'reference': 'A650GL', 'name': 'ALIMENTATION MSI MAG A650GL 80+ GOLD FULL MODULAR', 'category': 'ALIMENTATION '}
+{'reference': 'A1250GL', 'name': 'ALIMENTATION MSI MAG A1250GL 80+ GOLD FULL MODULAR', 'category': 'ALIMENTATION '}
+{'reference': 'VELOX-100R-WHITE', 'name': 'BOITIER MSI MPG VELOX 100R WHITE', 'category': 'MID TOWER'}
+{'reference': 'PANO-M100R-BLACK', 'name': 'BOITIER MSI MAG PANO M100R PZ BLACK', 'category': 'MID TOWER'}
+{'reference': 'PANO-M100R-WHITE', 'name': 'BOITIER MSI MAG PANO M100R PZ WHITE', 'category': 'MID TOWER'}
