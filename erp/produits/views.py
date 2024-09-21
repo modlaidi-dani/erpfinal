@@ -501,13 +501,11 @@ def importProductFamilly(request):
       product_ins = models.Product.objects.filter(reference = prod_data['reference'], store=current_store)
       if product_ins is None :
           return JsonResponse({'message':f'Produit referance:{prod_data["reference"]} ,name:{prod_data["name"]}  Not existant!'})
-      else:
-          for product in product_ins:
-          
-            if "category" in prod_data:
-                category = models.Category.objects.filter(Libellé = prod_data["category"]).first()
-                product.category = category
-                product.save()
+      else:          
+        if "category" in prod_data:
+            category = models.Category.objects.filter(Libellé = prod_data["category"]).first()
+            product_ins.category = category
+            product_ins.save()
 
 
    return JsonResponse({'message':'Produits Importé!'})
