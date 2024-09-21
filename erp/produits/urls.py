@@ -27,7 +27,10 @@ urlpatterns = [
     path('importProduct/', views.ImportProducts, name='import-product'),
     path('importProductPrice/', views.ImportProductsPrice, name='import-product-price'),
     path('importProductPriceCarton/', views.importProductPriceCarton, name='import-product-priceCart'),
+    path('importProductPriceFamilly/', views.importProductFamilly, name='import-product-familly'),
+
     path('LoadOtherProducts', views.loadallProducts, name='load-products'),
     path('UpdateRepartition', views.UpdateRepartition, name='update-repartition'),
     path('LaunchPromotion', views.LaunchPromotion, name='lancer-promotion'),
 ]
+
