@@ -490,7 +490,25 @@ def importProductPriceCarton(request):
             )
           product_ins.save()
    return JsonResponse({'message':'Produits Importé!'})
-   
+def importProductFamilly(request):
+   data = json.loads(request.body)
+   products_list = data["products"]
+   store_id = request.session["store"]
+   current_store = store.objects.get(pk=store_id)
+   for prod_data in products_list:
+      product_ins = models.Product.objects.filter(reference = prod_data['reference'], store = current_store).first()
+      if product_ins is None :
+          return JsonResponse({'message':'Produit Not existant!'})
+      else:
+          if "category" in prod_data:
+              product_ins.category = prod_data["category"]
+              product_ins.save()
+
+   return JsonResponse({'message':'Produits Importé!'})
+
+
+
+
 class PrixListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     template_name = "produits/liste_prix.html"
     login_url = 'home' 
@@ -1093,11 +1111,16 @@ class ProduitsView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         store_id = self.kwargs.get('store_id')
+        print(store_id)
         selected_store = store.objects.get(pk=self.request.session["store"])
+        print(store_id)
+        
         if self.request.session["store"] == '2' :
             products = models.Product.objects.filter(store=selected_store, parent_product__isnull= True)
         else:
             products = models.Product.objects.filter(store=selected_store, parent_product__isnull= True)[:150]
+        # for product in products:
+        #     print(product.store)
         product_families = models.Category.objects.filter(store=selected_store)
         context["product_families"]=product_families
         fournisseurs = Fournisseur.objects.filter(store=selected_store)
@@ -1522,3 +1545,4 @@ class ArchiveListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         
         context["archives"]=archives
         return context
+
