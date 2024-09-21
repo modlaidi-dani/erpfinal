@@ -8889,3 +8889,179 @@ PYJAMA LD BS Mix standard in MAG54 ROUIBA - Quantity: 4 1
 CHEMISE HLM 11905 bei standard in MAG54 MOHAMMADIA MALL - Quantity: 5 1
 {'id': 'd5094890-11f4-41fe-8b9f-6f633d7cea82', 'name': 'CHEMISE HLM 11905 bei standard', 'ref': '05063beistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
 {'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '12100.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': '6e76702d-434d-4e07-8d10-28c0cdc81b18', 'name': 'PANTALON TOILE / JEAN LILIA  Mix standard', 'ref': '03391Mixstandard', 'availableqte': 50, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '59c53160-82b7-44bb-a6cf-aa87b82d2aed', 'name': 'ROBE CLARITY 227132 mou standard', 'ref': '03260moustandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+manager
+manager
+rahou 
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2769', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2768', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '9e2913e7-18d2-475e-9af2-e1935c8ffe46', 'name': 'PANTALON CLASSIQUE CARRE EXLT   ver standard', 'ref': '05196verstandard', 'availableqte': 27, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}, {'id': 'b38f33c8-1433-4de3-b0c5-7683546596d8', 'name': 'PANTALON CLASSIQUE CARRE EXLT   ros standard', 'ref': '05196rosstandard', 'availableqte': 30, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '9e2913e7-18d2-475e-9af2-e1935c8ffe46', 'name': 'PANTALON CLASSIQUE CARRE EXLT   ver standard', 'ref': '05196verstandard', 'availableqte': 27, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}, {'id': 'b38f33c8-1433-4de3-b0c5-7683546596d8', 'name': 'PANTALON CLASSIQUE CARRE EXLT   ros standard', 'ref': '05196rosstandard', 'availableqte': 30, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+PANTALON CLASSIQUE CARRE EXLT   ver standard in MAG54 ROUIBA - Quantity: 27 1
+PANTALON CLASSIQUE CARRE EXLT   ros standard in MAG54 ROUIBA - Quantity: 30 1
+{'id': '9e2913e7-18d2-475e-9af2-e1935c8ffe46', 'name': 'PANTALON CLASSIQUE CARRE EXLT   ver standard', 'ref': '05196verstandard', 'availableqte': 27, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+{'id': 'b38f33c8-1433-4de3-b0c5-7683546596d8', 'name': 'PANTALON CLASSIQUE CARRE EXLT   ros standard', 'ref': '05196rosstandard', 'availableqte': 30, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+{'bonComptoir': 'VC24/02726', 'monantintroduit': '17800'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8500.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '5c917f1e-4908-41dc-955c-d15371fca7f8', 'name': 'HIJAB CLARITY 247184noistandard', 'ref': '03239noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8500.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '5c917f1e-4908-41dc-955c-d15371fca7f8', 'name': 'HIJAB CLARITY 247184noistandard', 'ref': '03239noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}]}
+HIJAB CLARITY 247184noistandard in MAG54 ROUIBA - Quantity: 5 1
+{'id': '5c917f1e-4908-41dc-955c-d15371fca7f8', 'name': 'HIJAB CLARITY 247184noistandard', 'ref': '03239noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde pantalon 50', 'TotalPay': '19600.00', 'TotalRemise': '3800', 'verssement': False, 'produits': [{'id': '1bb0c590-6767-48ec-b99c-6e6064454fd0', 'name': 'CHEEMISE STL 43121beistandard', 'ref': '05096beistandard', 'availableqte': 38, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': 'a0e43e77-a2b8-474f-9670-15f53704a955', 'name': 'CHEEMISE STL 43121verstandard', 'ref': '05096verstandard', 'availableqte': 42, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': 'e0ac8a20-14c0-49bc-98da-2808f2107f9c', 'name': 'PANTALON CLASSIQUE MAG OLD  Mix standard', 'ref': '05533Mixstandard', 'availableqte': 81, 'qty': '2', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 7800}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde pantalon 50', 'TotalPay': '19600.00', 'TotalRemise': '3800', 'verssement': False, 'produits': [{'id': '1bb0c590-6767-48ec-b99c-6e6064454fd0', 'name': 'CHEEMISE STL 43121beistandard', 'ref': '05096beistandard', 'availableqte': 38, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': 'a0e43e77-a2b8-474f-9670-15f53704a955', 'name': 'CHEEMISE STL 43121verstandard', 'ref': '05096verstandard', 'availableqte': 42, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': 'e0ac8a20-14c0-49bc-98da-2808f2107f9c', 'name': 'PANTALON CLASSIQUE MAG OLD  Mix standard', 'ref': '05533Mixstandard', 'availableqte': 81, 'qty': '2', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 7800}]}
+CHEEMISE STL 43121beistandard in MAG54 ROUIBA - Quantity: 38 1
+CHEEMISE STL 43121verstandard in MAG54 ROUIBA - Quantity: 42 1
+PANTALON CLASSIQUE MAG OLD  Mix standard in MAG54 ROUIBA - Quantity: 81 2
+{'id': '1bb0c590-6767-48ec-b99c-6e6064454fd0', 'name': 'CHEEMISE STL 43121beistandard', 'ref': '05096beistandard', 'availableqte': 38, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'id': 'a0e43e77-a2b8-474f-9670-15f53704a955', 'name': 'CHEEMISE STL 43121verstandard', 'ref': '05096verstandard', 'availableqte': 42, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'id': 'e0ac8a20-14c0-49bc-98da-2808f2107f9c', 'name': 'PANTALON CLASSIQUE MAG OLD  Mix standard', 'ref': '05533Mixstandard', 'availableqte': 81, 'qty': '2', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 7800}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '3330da3d-8201-4074-9bfe-cdc1083956e3', 'name': 'FUSEAU art 369/371 noi standard', 'ref': '05231noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '3330da3d-8201-4074-9bfe-cdc1083956e3', 'name': 'FUSEAU art 369/371 noi standard', 'ref': '05231noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+FUSEAU art 369/371 noi standard in MAG54 ROUIBA - Quantity: 10 1
+{'id': '3330da3d-8201-4074-9bfe-cdc1083956e3', 'name': 'FUSEAU art 369/371 noi standard', 'ref': '05231noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'montant': '142300', 'date': '2024-09-19'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2774', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+{'nomClient': 'Bendjeloul abd errahmane', 'adresse': '', 'phone': '0791077644', 'catclient': '1'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '12100.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': '6e76702d-434d-4e07-8d10-28c0cdc81b18', 'name': 'PANTALON TOILE / JEAN LILIA  Mix standard', 'ref': '03391Mixstandard', 'availableqte': 50, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '59c53160-82b7-44bb-a6cf-aa87b82d2aed', 'name': 'ROBE CLARITY 227132 mou standard', 'ref': '03260moustandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+PANTALON TOILE / JEAN LILIA  Mix standard in MAG54 ROUIBA - Quantity: 50 1
+ROBE CLARITY 227132 mou standard in MAG54 ROUIBA - Quantity: 5 1
+{'id': '6e76702d-434d-4e07-8d10-28c0cdc81b18', 'name': 'PANTALON TOILE / JEAN LILIA  Mix standard', 'ref': '03391Mixstandard', 'availableqte': 50, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'id': '59c53160-82b7-44bb-a6cf-aa87b82d2aed', 'name': 'ROBE CLARITY 227132 mou standard', 'ref': '03260moustandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Finance
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-20', 'clientInfo': {'name': 'Seghirou Zakaria', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '19f9977a-7c7a-45ee-b305-40929adb2586', 'name': 'CLAVIER CANYON GK-4 BLACK', 'ref': 'GK4', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '6500', 'gst': '0.00', 'total': 6500}]}
+{'IdBon': '', 'dateBp': '2024-09-20', 'clientInfo': {'name': 'Seghirou Zakaria', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '19f9977a-7c7a-45ee-b305-40929adb2586', 'name': 'CLAVIER CANYON GK-4 BLACK', 'ref': 'GK4', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '6500', 'gst': '0.00', 'total': 6500}]}
+CLAVIER CANYON GK-4 BLACK in PARKMALL SETIF - Quantity: 4 1
+{'id': '19f9977a-7c7a-45ee-b305-40929adb2586', 'name': 'CLAVIER CANYON GK-4 BLACK', 'ref': 'GK4', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '6500', 'gst': '0.00', 'total': 6500}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-20', 'clientInfo': {'name': 'Bendjeloul abd errahmane', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '33cb2389-9528-46b8-b45e-d228e9a1d891', 'name': 'TAPIS DE SOURIS REDRAGON PLUTO P026 RGB', 'ref': 'PLUTO-P026\t', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '2900', 'gst': '0.00', 'total': 2900}]}
+{'IdBon': '', 'dateBp': '2024-09-20', 'clientInfo': {'name': 'Bendjeloul abd errahmane', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '33cb2389-9528-46b8-b45e-d228e9a1d891', 'name': 'TAPIS DE SOURIS REDRAGON PLUTO P026 RGB', 'ref': 'PLUTO-P026\t', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '2900', 'gst': '0.00', 'total': 2900}]}
+TAPIS DE SOURIS REDRAGON PLUTO P026 RGB in PARKMALL SETIF - Quantity: 3 1
+{'id': '33cb2389-9528-46b8-b45e-d228e9a1d891', 'name': 'TAPIS DE SOURIS REDRAGON PLUTO P026 RGB', 'ref': 'PLUTO-P026\t', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '2900', 'gst': '0.00', 'total': 2900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+{'categorieP': '', 'libFamille': 'PROCESSEUR', 'kit': False, 'component': 'cpu', 'list2': []}
+{'categorieP': '233', 'libFamille': 'PROCESSEUR AMD', 'kit': False, 'component': 'cpu', 'list2': []}
+{'categorieP': '', 'libFamille': 'CARTE MERE', 'kit': False, 'component': 'mb', 'list2': []}
+{'categorieP': '236', 'libFamille': 'CARTE MERE INTEL', 'kit': False, 'component': 'mb', 'list2': []}
+{'categorieP': '239', 'libFamille': 'CARTE GRAPHIQUE AMD', 'kit': False, 'component': 'gpu', 'list2': []}
+{'categorieP': '242', 'libFamille': 'WATER COOLING CPU', 'kit': False, 'component': 'cpuc', 'list2': []}
+{'categorieP': '246', 'libFamille': 'RAM DDR4', 'kit': False, 'component': 'ram', 'list2': []}
+{'categorieP': '246', 'libFamille': 'RAM DDR5', 'kit': False, 'component': 'ram', 'list2': []}
+{'categorieP': '', 'libFamille': 'DISQUE DUR', 'kit': False, 'component': 'ssd', 'list2': []}
+{'categorieP': '249', 'libFamille': 'HDD', 'kit': False, 'component': 'ssd', 'list2': []}
+{'categorieP': '249', 'libFamille': 'SSD SATA', 'kit': False, 'component': 'ssd', 'list2': []}
+{'id': '253', 'categorieP': '249', 'libFamille': 'SSD NVME GEN 4', 'descFamille': '', 'component': 'ssd', 'kit': False, 'list2': []}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6900.00', 'TotalRemise': '1900', 'verssement': False, 'produits': [{'id': '1fe344f0-0e74-469d-a774-b9aaedddc695', 'name': 'ENSEMBLE 2P BK 23270  ver standard', 'ref': '03290verstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}]}
+{'IdBon': '', 'dateBp': '2024-09-21', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6900.00', 'TotalRemise': '1900', 'verssement': False, 'produits': [{'id': '1fe344f0-0e74-469d-a774-b9aaedddc695', 'name': 'ENSEMBLE 2P BK 23270  ver standard', 'ref': '03290verstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}]}
+ENSEMBLE 2P BK 23270  ver standard in MAG54 ROUIBA - Quantity: 6 1
+{'id': '1fe344f0-0e74-469d-a774-b9aaedddc695', 'name': 'ENSEMBLE 2P BK 23270  ver standard', 'ref': '03290verstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}
+{'categorieP': '255', 'libFamille': 'BOITIER PRO', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '255', 'libFamille': 'BOITIER GAMING', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '258', 'libFamille': 'FULL TOWER', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '262', 'libFamille': 'FANS', 'kit': False, 'component': 'casef', 'list2': []}
+{'categorieP': '262', 'libFamille': 'PACK FANS', 'kit': False, 'component': 'casef', 'list2': []}
+{'categorieP': '267', 'libFamille': 'ECRAN PRO DALLE VA 24 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '270', 'libFamille': 'ECRAN PRO DALLE IPS 27 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '274', 'libFamille': 'ECRAN GAMING CURVED', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '275', 'libFamille': 'ECRAN GAMING CURVED 30 POUCE ET PLUS', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '279', 'libFamille': 'ECRAN GAMING IPS 24 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '', 'libFamille': 'ACCESSOIRE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '288', 'libFamille': 'CLAVIER MECHANIQUE', 'kit': False, 'component': 'claviers', 'list2': []}
+{'categorieP': '293', 'libFamille': 'SOURIS WIRED', 'kit': False, 'component': 'souris', 'list2': []}
+{'categorieP': '287', 'libFamille': 'COMBO', 'kit': False, 'component': 'claviers', 'list2': []}
+{'categorieP': '287', 'libFamille': 'CASQUE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '287', 'libFamille': 'SUPPORT CASQUE', 'kit': False, 'component': 'extras', 'list2': []}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': '1900', 'verssement': False, 'produits': [{'id': '2c98f428-6290-47f5-ac16-4a35beb7d1d8', 'name': 'PANTALON CLASSIQUE ERODNIK Mix standard', 'ref': '05531Mixstandard', 'availableqte': 39, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+PANTALON CLASSIQUE ERODNIK Mix standard in MAG54 ROUIBA - Quantity: 39 1
+{'id': '2c98f428-6290-47f5-ac16-4a35beb7d1d8', 'name': 'PANTALON CLASSIQUE ERODNIK Mix standard', 'ref': '05531Mixstandard', 'availableqte': 39, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+{'nomClient': 'Boulehia Zakaria ', 'adresse': '', 'phone': '0559234697', 'catclient': '1'}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'Boulehia Zakaria ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'b3971f40-3d47-43aa-a060-30acf6c9d389', 'name': 'TAPIS DE SOURIS MARS GAMINNG MMP2', 'ref': 'MM-P2', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'Boulehia Zakaria ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'b3971f40-3d47-43aa-a060-30acf6c9d389', 'name': 'TAPIS DE SOURIS MARS GAMINNG MMP2', 'ref': 'MM-P2', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}]}
+TAPIS DE SOURIS MARS GAMINNG MMP2 in PARKMALL SETIF - Quantity: 3 1
+{'id': 'b3971f40-3d47-43aa-a060-30acf6c9d389', 'name': 'TAPIS DE SOURIS MARS GAMINNG MMP2', 'ref': 'MM-P2', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}
+commercial-vente
+[]
+[]
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '47a1de83-cac2-4c57-bd97-bf112772aabf', 'name': 'PANTALON TOILE / JEAN LILIA  Mix standard', 'ref': '03391Mixstandard', 'availableqte': 51, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '47a1de83-cac2-4c57-bd97-bf112772aabf', 'name': 'PANTALON TOILE / JEAN LILIA  Mix standard', 'ref': '03391Mixstandard', 'availableqte': 51, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+PANTALON TOILE / JEAN LILIA  Mix standard in MAG54 ROUIBA - Quantity: 51 1
+{'id': '47a1de83-cac2-4c57-bd97-bf112772aabf', 'name': 'PANTALON TOILE / JEAN LILIA  Mix standard', 'ref': '03391Mixstandard', 'availableqte': 51, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c54b68cc-285b-4cb6-af98-a9fc02834830', 'name': 'chale cazz couleurs  Mix standard', 'ref': '05729Mixstandard', 'availableqte': 22, 'qty': '1', 'ent': '', 'rate': '1200', 'gst': '0.00', 'total': 1200}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c54b68cc-285b-4cb6-af98-a9fc02834830', 'name': 'chale cazz couleurs  Mix standard', 'ref': '05729Mixstandard', 'availableqte': 22, 'qty': '1', 'ent': '', 'rate': '1200', 'gst': '0.00', 'total': 1200}]}
+chale cazz couleurs  Mix standard in MAG54 ROUIBA - Quantity: 22 1
+{'id': 'c54b68cc-285b-4cb6-af98-a9fc02834830', 'name': 'chale cazz couleurs  Mix standard', 'ref': '05729Mixstandard', 'availableqte': 22, 'qty': '1', 'ent': '', 'rate': '1200', 'gst': '0.00', 'total': 1200}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '562c7b90-d4dc-4862-ade5-375bca37045e', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 61, 'qty': '1', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 1800}]}
+{'IdBon': '', 'dateBp': '2024-09-19', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '562c7b90-d4dc-4862-ade5-375bca37045e', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 61, 'qty': '1', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 1800}]}
+FUSEAU LD BS noi standard in MAG54 ROUIBA - Quantity: 61 1
+{'id': '562c7b90-d4dc-4862-ade5-375bca37045e', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 61, 'qty': '1', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 1800}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+commercial-vente
+{'montant': '9800', 'date': '2024-09-19'}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'nomClient': 'Seghirou Zakaria', 'adresse': '', 'phone': '', 'catclient': '1'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'categorieP': '', 'libFamille': 'CARTE GRAPHIQUE', 'kit': False, 'component': 'gpu', 'list2': []}
+{'categorieP': '239', 'libFamille': 'CARTE GRAPHIQUE NVIDIA', 'kit': False, 'component': 'gpu', 'list2': []}
+{'categorieP': '', 'libFamille': 'ALIMENTATION', 'kit': False, 'component': 'psu', 'list2': []}
+{'categorieP': '', 'libFamille': 'MEMOIRE RAM', 'kit': False, 'component': 'ram', 'list2': []}
+{'categorieP': '251', 'libFamille': 'SSD NVME GEN 3', 'kit': False, 'component': 'ssd', 'list2': []}
+{'categorieP': '251', 'libFamille': 'SSD NVME GEN 4', 'kit': False, 'component': 'ssd', 'list2': []}
+{'categorieP': '', 'libFamille': 'BOITIER GAMING', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '258', 'libFamille': 'MID TOWER', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '', 'libFamille': 'REFROIDISSEMENT BOITIER', 'kit': False, 'component': 'casef', 'list2': []}
+{'categorieP': '266', 'libFamille': 'ECRAN PRO DALLE VA', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '267', 'libFamille': 'ECRAN PRO DALLE VA 27 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '270', 'libFamille': 'ECRAN PRO DALLE IPS 24 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '275', 'libFamille': 'ECRAN GAMING CURVED 27 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '279', 'libFamille': 'ECRAN GAMING IPS 27 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '279', 'libFamille': 'ECRAN GAMING IPS 30 POUCE ET PLUS', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '287', 'libFamille': 'SOURIS', 'kit': False, 'component': 'souris', 'list2': []}
+{'categorieP': '293', 'libFamille': 'SOURIS WIRELESS', 'kit': False, 'component': 'souris', 'list2': []}
+{'categorieP': '287', 'libFamille': 'CABLE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '287', 'libFamille': 'LECTEUR CD / DVD', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '287', 'libFamille': 'PATHE THERMIQUE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '287', 'libFamille': 'WEBCAM', 'kit': False, 'component': 'extras', 'list2': []}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
