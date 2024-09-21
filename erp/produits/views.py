@@ -498,7 +498,7 @@ def importProductFamilly(request):
    for prod_data in products_list:
       print(prod_data)
       
-      product_ins = models.Product.objects.filter(reference = prod_data['reference'], store=current_store)
+      product_ins = models.Product.objects.filter(reference = prod_data['reference'], store=current_store).first()
       if product_ins is None :
           return JsonResponse({'message':f'Produit referance:{prod_data["reference"]} ,name:{prod_data["name"]}  Not existant!'})
       else:
