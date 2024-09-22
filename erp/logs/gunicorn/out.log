@@ -10852,3 +10852,39 @@ None
 commercial
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+Facturation
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['produits.can_see_producttab', 'ventes.can_see_factures', 'tiers.can_see_clients', 'ventes.can_see_bonlivraison', 'produits.can_see_produits', 'tiers.can_see_tierstab', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab']
+Finance
+Facturation
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Facturation
+hello ['produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bondevis', 'target.can_see_targettab', 'ventes.can_see_bonretour', 'inventory.can_see_bontransfert', 'inventory.can_see_stocktab', 'tiers.can_see_tierstab', 'inventory.can_see_bonsorties', 'ventes.can_see_bongarantie', 'inventory.can_see_bonretour', 'target.can_see_targets', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'ventes.can_see_ventetab']
+{'IdBon': 'FIG2409-2581', 'dateBp': '2024-09-22', 'clientInfo': {'name': 'promo tech  bab ezzouar', 'address': 'bab ezzouar', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '+213 555 78 85 06'}, 'AssociatedBL': 'BL2409/02395', 'time': 119, 'produits': [{'id': 'ed1f76c8-f7e9-49a8-9dd6-44296a763ae2', 'name': 'RAM DDR4 ADATA GAMMIX D35 8GB 3600MHZ BLACK', 'ref': '9JAX4U36008G18ISBKD35', 'qty': 10, 'livre': True, 'rate': 4201.68, 'total': 42016.8, 'numSeries': ['2N5100412815', '2N5100412823', '2N5100412914', '2N5100412840', '2N5100412838', '2N5100412893', '2N5100413023', '2N5100413039', '2N5100412846', '2N5100413031']}, {'id': '505f40aa-5fb4-4a2f-ba1d-a76e12d7e817', 'name': 'RAM DDR4 ADATA GAMMIX D35 8GB 3600MHZ WHITE', 'ref': '9JAX4U36008G18ISWHD35', 'qty': 10, 'livre': True, 'rate': 4201.68, 'total': 42016.8, 'numSeries': ['2N2300081833', '2N2300081835', '2N2300080883', '2N2300081593', '2N2300081597', '2N2300082124', '2N2300082122', '2N2300081545', '2N2300081547', '2N2300081543']}]}
+{'IdBon': 'FIG2409-2582', 'dateBp': '2024-09-22', 'clientInfo': {'name': 'REGUIEG ABDERRAHMANE R COMPUTER', 'address': 'RUE BOUGHEDOU RDC LOCAL N°11 DOUERA', 'num_registre': '16/00-4927324A12', 'nif': '188164800883137', 'nai': '16540035850', 'nis': '1 988 1654 00883\xa012', 'phone': '0551045675'}, 'AssociatedBL': 'BL2409/02392', 'time': 367, 'produits': [{'id': '13ac54d6-c21f-46fd-9bc0-2f8bf340c0a4', 'name': 'WATER COOLING MARS GAMING ML-ONE240  BLAKC', 'ref': 'ML-ONE240-BLACK', 'qty': 4, 'livre': True, 'rate': 8319.33, 'total': 33277.32, 'numSeries': ['ML-ONE240-BLACK (4)']}, {'id': 'fa82ae28-cac5-49ab-8d61-3750cc408acb', 'name': 'AIR COOLING MARS GAMING MCPU44 ', 'ref': 'MCPU44', 'qty': 2, 'livre': True, 'rate': 3781.51, 'total': 7563.02, 'numSeries': ['MCPU44 (2)']}, {'id': '89ade241-98ae-4a6a-8874-087ee175099f', 'name': 'CPU FAN MARS GAMING MCPU-VR CPU COOLER, DUAL INFINITE - WHITE', 'ref': 'MCPUVRW', 'qty': 2, 'livre': True, 'rate': 4537.82, 'total': 9075.64, 'numSeries': ['MCPUVRW (2)']}, {'id': 'cb31bef2-e30e-4061-9bbb-c74cc1383666', 'name': 'AIR COOLING MARS GAMING MCPU-VR BLACK', 'ref': 'MCPU-VR', 'qty': 2, 'livre': True, 'rate': 4537.82, 'total': 9075.64, 'numSeries': ['MCPU-VR (2)']}, {'id': 'dd3d345e-630b-475b-b00e-b12d1051c211', 'name': 'AIR COOLING MARS GAMING MCPU-PRO ', 'ref': 'MCPU-PRO', 'qty': 4, 'livre': True, 'rate': 4117.65, 'total': 16470.6, 'numSeries': ['MCPU-PRO (4)']}, {'id': 'ce0bd925-c81c-4cb2-805f-d3330501f9dd', 'name': 'MARS GAMING MKMINI RGB MECHANICAL 60% BLACK', 'ref': 'MKMINI-BLACK', 'qty': 2, 'livre': True, 'rate': 5714.29, 'total': 11428.58, 'numSeries': ['MKMINI-BLACK (2)']}, {'id': '33a6177a-64e9-43e8-9f3a-bd6e18862ca0', 'name': 'CLAVIER MARS GAMING MK80 BLACK', 'ref': 'MK80-BLACK', 'qty': 2, 'livre': True, 'rate': 4873.95, 'total': 9747.9, 'numSeries': ['MK80-BLACK (2)']}, {'id': '95d65478-5c1f-49f7-b2f1-32637b56a31a', 'name': 'CLAVIER MARS GAMING MK60 MECHANICAL 60%  - BLACK', 'ref': 'MK60\t', 'qty': 2, 'livre': True, 'rate': 4495.8, 'total': 8991.6, 'numSeries': ['MK60 (2)']}]}
+{'IdBon': 'FIG2409-2583', 'dateBp': '2024-09-22', 'clientInfo': {'name': 'KECHAR', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0550652348'}, 'AssociatedBL': 'BL2409/02396', 'time': 653, 'produits': [{'id': 'a87ab3de-b7a9-4dd3-acb8-0e16db4571c1', 'name': 'CPU AMD RYZEN 7 8700G BOX', 'ref': 'AW10010001236BOX', 'qty': 1, 'livre': True, 'rate': 58739.5, 'total': 58739.5, 'numSeries': ['9ACG929M40248']}, {'id': 'b46a7e9b-9e0d-4f86-8ae7-2bffa7b00339', 'name': 'CARTE MERE MSI PRO B650M-P\t', 'ref': 'MD9117E27001\t', 'qty': 1, 'livre': True, 'rate': 25378.15, 'total': 25378.15, 'numSeries': ['601-7E27-010B2404002587']}, {'id': 'f8b9236e-a9bf-466d-a81a-0cca31e14aa0', 'name': 'RAM DDR5 ADATA LANCER BLADE 16GB 5600MHZ BLACK', 'ref': '9JAX5U5600C4616GSLABBK', 'qty': 1, 'livre': True, 'rate': 10588.24, 'total': 10588.24, 'numSeries': ['201400053770']}, {'id': '232460ff-3361-4113-830b-a6b6b4900dc0', 'name': 'SSD ADATA XPG GAMMIX S70 BLADE 2TB PCIE GEN4X4 M.2', 'ref': '9JAGAMMIXS70B2TCS', 'qty': 1, 'livre': True, 'rate': 34873.95, 'total': 34873.95, 'numSeries': ['2O032LQ9N6WE']}, {'id': '6891a52a-f85b-4f63-a44c-2ae891354686', 'name': 'ALIMENTATION MSI MAG A650GL 80+ GOLD FULL MODULAR', 'ref': 'A650GL', 'qty': 1, 'livre': True, 'rate': 13277.31, 'total': 13277.31, 'numSeries': ['3067ZP8C11CE010348000608']}, {'id': 'f1ef59ff-4b75-40a7-bd4b-2c626e0311eb', 'name': 'BOITIER MSI MAG FORGE 120A AIRFLOW', 'ref': '120A-AIRFLOW', 'qty': 1, 'livre': True, 'rate': 10840.34, 'total': 10840.34, 'numSeries': ['3067G23A2180910411000157']}, {'id': 'd43228b2-ae6e-42c8-bfac-6a8484fb1389', 'name': 'ECRAN MSI PRO MP251P - 24INCH - IPS - 100HZ - 1MS - ADJUSTABLE STAND ', 'ref': 'MP251P-100', 'qty': 1, 'livre': True, 'rate': 23109.25, 'total': 23109.25, 'numSeries': ['PC2M164400570']}]}
+None
+None
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+DIRECTEUR EXECUTIF
+DIRECTEUR EXECUTIF
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Facturation
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello 

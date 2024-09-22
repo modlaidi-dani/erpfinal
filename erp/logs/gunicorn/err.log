@@ -16608,3 +16608,7 @@ Traceback (most recent call last):
 KeyError: 'store'
 Not Found: /favicon.ico
 Not Found: /cpsess0536250439/scripts12/terminal/
+Forbidden (CSRF token from POST incorrect.): /home/
+Not Found: /favicon.ico
+Forbidden (CSRF token from POST incorrect.): /home/
+Not Found: /actuator/gateway/routes/
