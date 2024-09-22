@@ -8,84 +8,62 @@ cursor_source = conn_source.cursor()
 conn_dest = sqlite3.connect('db.sqlite3')
 cursor_dest = conn_dest.cursor()
 
-# Fonction pour vérifier si un ID existe déjà dans la table de destination
-def id_exists(cursor, table, row_id):
-    query = f"SELECT 1 FROM {table} WHERE id = ? LIMIT 1"
+# Fonction pour récupérer l'enregistrement existant dans la table de destination
+def get_existing_row(cursor, table, row_id):
+    query = f"SELECT * FROM {table} WHERE id = ? LIMIT 1"
     cursor.execute(query, (row_id,))
-    return cursor.fetchone() is not None
+    return cursor.fetchone()
 
-# Étape 1: Récupérer et insérer les données de la table `comptoire_boncomptoire`
-query_boncomptoire = '''SELECT * FROM comptoire_boncomptoire'''
-cursor_source.execute(query_boncomptoire)
-data_boncomptoire = cursor_source.fetchall()
+# Fonction pour vérifier si deux lignes sont identiques (excluant la date)
+def rows_are_equal(row1, row2):
+    return row1[:-1] == row2[:-1]  # Exclure la dernière colonne (date)
 
-if data_boncomptoire:
-    query_insert_boncomptoire = '''
-        INSERT INTO comptoire_boncomptoire
-        VALUES ({})
-    '''.format(', '.join(['?'] * len(data_boncomptoire[0])))
-
-    for row in data_boncomptoire:
-        row_id = row[0]  # On suppose que l'ID est dans la première colonne
-        if id_exists(cursor_dest, 'comptoire_boncomptoire', row_id):
-            print(f"ID {row_id} existe déjà dans `comptoire_boncomptoire`, saut de l'insertion.")
-            continue
-        cursor_dest.execute(query_insert_boncomptoire, row)
-
-    conn_dest.commit()
-    print("Données de `comptoire_boncomptoire` transférées avec succès.")
-else:
-    print("Aucune donnée trouvée dans `comptoire_boncomptoire`.")
-
-# Étape 2: Récupérer et insérer les données de la table `comptoire_cloture`
+# Étape 2 : Récupérer les données de la table `comptoire_cloture` de la source
 query_cloture = '''SELECT * FROM comptoire_cloture'''
 cursor_source.execute(query_cloture)
 data_cloture = cursor_source.fetchall()
 
 if data_cloture:
-    query_insert_cloture = '''
-        INSERT INTO comptoire_cloture
-        VALUES ({})
-    '''.format(', '.join(['?'] * len(data_cloture[0])))
-
     for row in data_cloture:
-        row_id = row[0]
-        if id_exists(cursor_dest, 'comptoire_cloture', row_id):
-            print(f"ID {row_id} existe déjà dans `comptoire_cloture`, saut de l'insertion.")
-            continue
-        cursor_dest.execute(query_insert_cloture, row)
+        row_id = row[0]  # L'ID est supposé être dans la première colonne
 
+        # Vérifier si l'enregistrement existe dans la destination
+        existing_row = get_existing_row(cursor_dest, 'comptoire_cloture', row_id)
+        if existing_row:
+            # Vérifier si la date n'est pas égale à 2024-09-22
+            if existing_row[-1] == '2024-09-22':  # Date dans la dernière colonne
+                print(f"ID {row_id} ignoré, car la date est égale à 2024-09-22.")
+                continue
+            
+            # Si les données ne sont pas identiques, effectuer la mise à jour
+            if not rows_are_equal(existing_row, row):
+                query_update_cloture = '''
+                    UPDATE comptoire_cloture
+                    SET montant = ?, collected = ?, store_id = ?, utilisateur_id = ?, date = ?
+                    WHERE id = ?
+                '''
+                # Exécuter la mise à jour en excluant l'ID de row
+                cursor_dest.execute(query_update_cloture, (*row[1:], row_id))
+                print(f"ID {row_id} mis à jour dans `comptoire_cloture`.")
+            else:
+                print(f"ID {row_id} déjà à jour dans `comptoire_cloture`, aucune modification nécessaire.")
+        else:
+            # Insérer la nouvelle ligne
+            query_insert_cloture = '''
+                INSERT INTO comptoire_cloture (id, montant, collected, store_id, utilisateur_id, date)
+                VALUES (?, ?, ?, ?, ?, ?)
+            '''
+            cursor_dest.execute(query_insert_cloture, row)
+            print(f"ID {row_id} inséré dans `comptoire_cloture`.")
+
+    # Commit pour valider les modifications
     conn_dest.commit()
-    print("Données de `comptoire_cloture` transférées avec succès.")
+    print("Données de `comptoire_cloture` traitées avec succès.")
 else:
     print("Aucune donnée trouvée dans `comptoire_cloture`.")
-
-# Étape 3: Récupérer et insérer les données de la table `comptoire_produitsenboncomptoir`
-query_produitsenboncomptoir = '''SELECT * FROM comptoire_produitsenboncomptoir'''
-cursor_source.execute(query_produitsenboncomptoir)
-data_produitsenboncomptoir = cursor_source.fetchall()
-
-if data_produitsenboncomptoir:
-    query_insert_produitsenboncomptoir = '''
-        INSERT INTO comptoire_produitsenboncomptoir
-        VALUES ({})
-    '''.format(', '.join(['?'] * len(data_produitsenboncomptoir[0])))
-
-    for row in data_produitsenboncomptoir:
-        row_id = row[0]
-        if id_exists(cursor_dest, 'comptoire_produitsenboncomptoir', row_id):
-            print(f"ID {row_id} existe déjà dans `comptoire_produitsenboncomptoir`, saut de l'insertion.")
-            continue
-        cursor_dest.execute(query_insert_produitsenboncomptoir, row)
-
-    conn_dest.commit()
-    print("Données de `comptoire_produitsenboncomptoir` transférées avec succès.")
-else:
-    print("Aucune donnée trouvée dans `comptoire_produitsenboncomptoir`.")
 
 # Fermer les connexions
 cursor_source.close()
 conn_source.close()
-
 cursor_dest.close()
 conn_dest.close()
