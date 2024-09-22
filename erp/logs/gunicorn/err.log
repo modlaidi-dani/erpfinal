@@ -16462,3 +16462,7 @@ KeyError: 'store'
 Not Found: /robots.txt
 Not Found: /prebuilt/
 Not Found: /show-distributor/revotec/
+Not Found: /.well-known/traffic-advice
+Not Found: /.well-known/traffic-advice
+Not Found: /webui/
+Not Found: /favicon.ico
