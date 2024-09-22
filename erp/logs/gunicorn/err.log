@@ -16423,3 +16423,42 @@ Not Found: /favicon.ico
 Not Found: /cgi-bin/luci/;stok=/locale
 Not Found: /static/media/erplogo.png
 Not Found: /.git/config
+Not Found: /HNAP1/
+Not Found: /sqlite/main.php
+Not Found: /sqlitemanager/main.php
+Not Found: /SQLiteManager/main.php
+Not Found: /SQLite/main.php
+Not Found: /SQlite/main.php
+Not Found: /main.php
+Not Found: /test/sqlite/SQLiteManager-1.2.0/SQLiteManager-1.2.0/main.php
+Not Found: /SQLiteManager-1.2.4/main.php
+Not Found: /agSearch/SQlite/main.php
+Not Found: /robots.txt
+Not Found: /show-distributor/wak-computer/
+Not Found: /.git/config
+Not Found: /robots.txt
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 76, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 76, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
+Not Found: /robots.txt
+Not Found: /prebuilt/
+Not Found: /show-distributor/revotec/
