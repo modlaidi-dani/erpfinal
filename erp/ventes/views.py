@@ -3976,7 +3976,7 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 if s.quantity =>int(product["qty"]):
                     new_quantity = s.quantity - int(product["qty"])
                 else: 
-                    new_quantity = 0                
+                    new_quantity = s.quantity                
                 s.quantity = new_quantity
                 s.save()
                 p.TotalQte -= int(product["qty"])
