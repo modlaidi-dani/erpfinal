@@ -918,7 +918,7 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
              items.append(produit_dict)
           
         context["bill"] = invoice
-
+        print(context["bill"])
         context["items"]=items
         if(myuser.role =='manager'):
           bons_retour = BonRetour.objects.filter(store=CurrentStore)
@@ -974,6 +974,7 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
             })  
         context["typespercents"] = typescl_info        
         context["stocks"] = stock_data
+        
         return context
     
     @method_decorator(login_required)
@@ -3966,6 +3967,11 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             if "ref" in product:
                 p = Product.objects.get(reference=product["ref"], store = CurrentStore)
                 s = Stock.objects.get(product = p, entrepot = currentEntrepot )
+                print("------------------------------------------------------------------------------------------")
+                print(p.ref)
+                print(p.name)
+                print("------------------------------------------------------------------------------------------")
+                
                 new_quantity = s.quantity - int(product["qty"]) ## la quantité dans l'entrepot qui convient
                 s.quantity = new_quantity
                 s.save()
@@ -4676,3 +4682,67 @@ class StockSellUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
          except Exception as e:
             return JsonResponse({'error': str(e)})
       return JsonResponse({'message': "Product Added successfully."})
+import requests
+# class BonLivrison_gamingzone(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+#         template_name = "ventes/bonlivrison_gamingzone.html"
+#     login_url = 'home' 
+#     raise_exception = True  # Set to True to raise a PermissionDenied exception
+
+#     def test_func(self):
+#         # Define the custom test function
+#         myuser=CustomUser.objects.get(username=self.request.user.username)
+#         return 'ventes.can_see_bonlivraison' in self.request.session.get('permissions', [])
+
+#     def handle_no_permission(self):
+#          # Redirect users without permission to the "noaccess" page
+#         return HttpResponseRedirect(reverse_lazy('noaccess'))  
+        
+#     def get_context_data(self, *args, **kwargs):
+#         context = super().get_context_data(**kwargs)       
+#         # store_id = self.kwargs.get('store_id')
+#         selected_store = get_object_or_404(store, pk=self.request.session["store"])
+        
+#         Currentuser = self.request.user
+#         myuser  = CustomUser.objects.get(username=Currentuser.username)
+#         current_month = datetime.now().month
+#         if(myuser.role =='manager') or (myuser.role == 'Finance') or (myuser.role=='DIRECTEUR EXECUTIF') :
+#             today = datetime.today()
+#             first_day_current_month = today.replace(day=1)
+#             # Get the first day of the past month
+#             first_day_past_month = (first_day_current_month - timedelta(days=1)).replace(day=1)
+            
+#             # Filter objects with dateBon greater than or equal to the first day of the past month
+#             bons_sorties = models.BonSortie.objects.filter(
+#                 store=selected_store
+#             ).exclude(
+#                 Q(typebl="KIT") | Q(typebl="carton")
+#             ).order_by('-id')
+            
+#             context["bons_sorties"] = bons_sorties
+#         elif myuser.role=='gestion-stock':
+#             bons_sorties = models.BonSortie.objects.filter(
+#                 store=selected_store,
+#                 valide = True,
+#                 reference_pc__exact='',
+#                 entrepot__name ="Depot principal Reghaia"
+#             ).exclude(client__name="Annulé --- Annulé").filter(Q(bon_garantie__isnull=True)).exclude(Q(typebl="KIT") | Q(typebl="carton")).order_by('-id')  # Sort by date in descending order
+#             context["bons_sorties"] = bons_sorties
+            
+#         else:
+#           bons_sorties = models.BonSortie.objects.filter(store=selected_store, user=myuser).exclude(Q(typebl="KIT") | Q(typebl="carton")).order_by('-id')     
+#           context["bons_sorties"] =bons_sorties
+#         entrepots = Entrepot.objects.filter(store=selected_store)
+#         context["entrepots"] = entrepots
+#         users_bills = CustomUser.objects.filter(EmployeeAt=selected_store)
+#         context["users"]=users_bills
+#         modeReg = ModeReglement.objects.filter(store= selected_store) 
+#         context["modeReg"]=modeReg  
+#         echeances = EcheanceReglement.objects.filter(store= selected_store)
+#         context["echeances"] = echeances 
+#         banques= Banque.objects.filter(store= selected_store)
+#         context["banques"] = banques
+#         return context 
+    
+
+    
+    
