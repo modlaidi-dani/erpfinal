@@ -3968,11 +3968,15 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 p = Product.objects.get(reference=product["ref"], store = CurrentStore)
                 s = Stock.objects.get(product = p, entrepot = currentEntrepot )
                 print("------------------------------------------------------------------------------------------")
-                print(p.ref)
+                print(p.reference)
+               
+                
                 print(p.name)
                 print("------------------------------------------------------------------------------------------")
-                
-                new_quantity = s.quantity - int(product["qty"]) ## la quantité dans l'entrepot qui convient
+                if s.quantity =>int(product["qty"]):
+                    new_quantity = s.quantity - int(product["qty"])
+                else: 
+                    new_quantity = 0                
                 s.quantity = new_quantity
                 s.save()
                 p.TotalQte -= int(product["qty"])
