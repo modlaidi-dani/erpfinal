@@ -3973,8 +3973,10 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 
                 print(p.name)
                 print("------------------------------------------------------------------------------------------")
-                
-                new_quantity = s.quantity - int(product["qty"]) ## la quantité dans l'entrepot qui convient
+                if s.quantity =>int(product["qty"]):
+                    new_quantity = s.quantity - int(product["qty"])
+                else: 
+                    new_quantity = 0                
                 s.quantity = new_quantity
                 s.save()
                 p.TotalQte -= int(product["qty"])
