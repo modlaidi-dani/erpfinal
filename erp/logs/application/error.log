@@ -2364,6 +2364,8 @@ SystemExit: 1
 [2024-09-22 11:28:13 +0200] [326533] [INFO] Booting worker with pid: 326533
 [2024-09-22 11:28:13 +0200] [326534] [INFO] Booting worker with pid: 326534
 [2024-09-22 11:28:13 +0200] [326535] [INFO] Booting worker with pid: 326535
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [2024-09-23 11:18:11 +0000] [394045] [INFO] Worker exiting (pid: 394045)
 [2024-09-23 11:18:11 +0000] [394047] [INFO] Worker exiting (pid: 394047)
 [2024-09-23 11:18:11 +0000] [394046] [INFO] Worker exiting (pid: 394046)
@@ -14200,3 +14202,32 @@ SyntaxError: invalid syntax
 [2024-09-23 14:11:36 +0200] [396796] [INFO] Booting worker with pid: 396796
 [2024-09-23 14:11:37 +0200] [396798] [INFO] Booting worker with pid: 396798
 [2024-09-23 14:11:37 +0200] [396797] [INFO] Booting worker with pid: 396797
+=======
+=======
+>>>>>>> Stashed changes
+[2024-09-23 12:44:27 +0200] [326532] [INFO] Handling signal: term
+[2024-09-23 10:44:27 +0000] [326534] [INFO] Worker exiting (pid: 326534)
+[2024-09-23 10:44:27 +0000] [326533] [INFO] Worker exiting (pid: 326533)
+[2024-09-23 10:44:27 +0000] [326535] [INFO] Worker exiting (pid: 326535)
+[2024-09-23 12:44:29 +0200] [326532] [INFO] Shutting down: Master
+[2024-09-23 12:44:29 +0200] [393320] [INFO] Starting gunicorn 23.0.0
+[2024-09-23 12:44:29 +0200] [393320] [INFO] Listening at: http://127.0.0.1:8000 (393320)
+[2024-09-23 12:44:29 +0200] [393320] [INFO] Using worker: sync
+[2024-09-23 12:44:29 +0200] [393321] [INFO] Booting worker with pid: 393321
+[2024-09-23 12:44:30 +0200] [393322] [INFO] Booting worker with pid: 393322
+[2024-09-23 12:44:30 +0200] [393323] [INFO] Booting worker with pid: 393323
+[2024-09-23 13:01:46 +0200] [393320] [INFO] Handling signal: term
+[2024-09-23 11:01:46 +0000] [393322] [INFO] Worker exiting (pid: 393322)
+[2024-09-23 11:01:46 +0000] [393323] [INFO] Worker exiting (pid: 393323)
+[2024-09-23 11:01:46 +0000] [393321] [INFO] Worker exiting (pid: 393321)
+[2024-09-23 13:01:48 +0200] [393320] [INFO] Shutting down: Master
+[2024-09-23 13:01:48 +0200] [394044] [INFO] Starting gunicorn 23.0.0
+[2024-09-23 13:01:48 +0200] [394044] [INFO] Listening at: http://127.0.0.1:8000 (394044)
+[2024-09-23 13:01:48 +0200] [394044] [INFO] Using worker: sync
+[2024-09-23 13:01:48 +0200] [394045] [INFO] Booting worker with pid: 394045
+[2024-09-23 13:01:48 +0200] [394046] [INFO] Booting worker with pid: 394046
+[2024-09-23 13:01:48 +0200] [394047] [INFO] Booting worker with pid: 394047
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes

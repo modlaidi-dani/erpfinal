@@ -11848,6 +11848,8 @@ None
 {'reference': 'mt-2in1-blk', 'name': 'COMBO 2IN1 Clavier - Souris meetion/noir-filaire ', 'category': 'COMBO'}
 None
 None
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 manager
 manager
 hello ['achats.can_see_bonscommandesachat', 'comptoire.can_see_comptoir', 'clientInfo.can_see_units', 'reglements.can_see_loyers', 'clientInfo.can_see_tax_douan', 'comptoire.can_see_caisseusers', 'tiers.can_see_tierstab', 'target.can_see_targettab', 'ventes.can_see_bondevis', 'inventory.can_see_bonreforme', 'ventes.can_see_bongarantie', 'inventory.can_see_bontransfert', 'inventory.can_see_invinitial', 'reglements.can_see_salaries', 'ventes.can_see_bonlivraison', 'ventes.can_see_bonretour', 'comptoire.can_see_pointsvente', 'reglements.can_see_divers', 'inventory.can_see_entrepots', 'clientInfo.can_see_compteEntreprise', 'users.can_see_users', 'tiers.can_see_constructeur', 'achats.can_see_avoirsachats', 'inventory.can_see_bonretour', 'reglements.can_see_etattres', 'ventes.can_see_boncomptoires', 'ventes.can_see_factures', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_etatregbl', 'target.can_see_equipe', 'ventes.can_see_ventetab', 'achats.can_see_bonslivraisonachat', 'inventory.can_see_bonslivraisonachat', 'reglements.can_see_regfaccli', 'inventory.can_see_bonsorties', 'reglements.can_see_avoir', 'inventory.can_see_etatreforme', 'clientInfo.can_see_tax_tva', 'tiers.can_see_marques', 'clientInfo.can_see_type_client', 'inventory.can_see_bonentres', 'comptoire.can_see_cloture', 'inventory.can_see_repartition', 'target.can_see_targets', 'reglements.can_see_reglementstab', 'reglements.can_see_echreg', 'comptoire.can_see_fidelite', 'comptoire.can_see_comptoirtab', 'tiers.can_see_agences', 'reglements.can_see_typereg', 'inventory.can_see_etatreintegration', 'produits.can_see_etatreforme', 'inventory.can_see_bonsreintegration', 'produits.can_see_produits', 'tiers.can_see_fournisseurs', 'inventory.can_see_etatentres', 'clientInfo.can_see_valeur_devis', 'inventory.can_see_etatsorties', 'ventes.can_see_avoir', 'comptoire.can_see_tableaubord', 'produits.can_see_produits_familles', 'reglements.can_see_regbl', 'users.can_see_grp_users', 'reglements.can_see_etatregfac', 'tiers.can_see_clients', 'clientInfo.can_see_societe', 'tiers.can_see_banques', 'clientInfo.can_see_identification', 'users.can_see_users_perm', 'reglements.can_see_depense', 'achats.can_see_achattab', 'clientInfo.can_see_tablebases', 'inventory.can_see_invannuel', 'comptoire.can_see_clientfid', 'produits.can_see_producttab', 'achats.can_see_facturesachats', 'clientInfo.can_see_clientInfo', 'produits.can_see_archives', 'tiers.can_see_comptesBancaire', 'inventory.can_see_stocktab', 'achats.can_see_bonreception', 'clientInfo.can_see_devises']
@@ -11858,3 +11860,382 @@ Vendeuse
 Finance
 manager
 manager
+=======
+=======
+>>>>>>> Stashed changes
+{'categorieP': '324', 'libFamille': 'RAM DDR4', 'kit': False, 'component': 'ram', 'list2': []}
+{'categorieP': '327', 'libFamille': 'SSD NVME GEN 3', 'kit': False, 'component': 'ssd', 'list2': []}
+{'categorieP': '327', 'libFamille': 'SSD NVME GEN 4', 'kit': False, 'component': 'ssd', 'list2': []}
+{'categorieP': '333', 'libFamille': 'BOITIER PRO', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '', 'libFamille': 'REFROIDISSEMENT BOITIER', 'kit': False, 'component': 'casef', 'list2': []}
+{'categorieP': '339', 'libFamille': 'PACK FANS', 'kit': False, 'component': 'casef', 'list2': []}
+{'categorieP': '', 'libFamille': 'ECRAN', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '342', 'libFamille': 'ECRAN PRO', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '344', 'libFamille': 'ECRAN PRO DALLE VA 24 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '351', 'libFamille': 'ECRAN GAMING CURVED', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '352', 'libFamille': 'ECRAN GAMING CURVED 27 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '351', 'libFamille': 'ECRAN GAMING IPS', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '356', 'libFamille': 'ECRAN GAMING IPS 24 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '342', 'libFamille': 'DATA SHOW', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '365', 'libFamille': 'CLAVIER MECHANIQUE', 'kit': False, 'component': 'claviers', 'list2': []}
+{'categorieP': '', 'libFamille': 'SOURIS', 'kit': False, 'component': 'souris', 'list2': []}
+{'categorieP': '370', 'libFamille': 'SOURIS WIRELESS', 'kit': False, 'component': 'souris', 'list2': []}
+{'id': '365', 'categorieP': '364', 'libFamille': 'CLAVIER', 'descFamille': '', 'component': 'claviers', 'kit': False, 'list2': []}
+{'categorieP': '364', 'libFamille': 'BAFFLE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '364', 'libFamille': 'CABLE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '364', 'libFamille': 'LECTEUR CD / DVD', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '364', 'libFamille': 'CARTABLE ET SAC A DOS', 'kit': False, 'component': 'extras', 'list2': []}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+1095 PRINCIPAL
+1095
+parkmall 
+ParkMall GZ
+1095 PRINCIPAL
+1095
+Z790-S	
+entrepot dep reghaia
+store_depart Reghaia
+store_arrive 
+entrepot_arrive parkmall 
+MARKETING
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['reglements.can_see_divers', 'target.can_see_equipe', 'clientInfo.can_see_compteEntreprise', 'users.can_see_grp_users', 'comptoire.can_see_comptoirtab', 'inventory.can_see_stocktab', 'reglements.can_see_reglementstab', 'reglements.can_see_regbl', 'target.can_see_targets', 'comptoire.can_see_tableaubord', 'inventory.can_see_etatsorties', 'reglements.can_see_etattres', 'comptoire.can_see_pointsvente', 'clientInfo.can_see_units', 'achats.can_see_bonslivraisonachat', 'tiers.can_see_marques', 'inventory.can_see_etatreintegration', 'produits.can_see_etatreforme', 'comptoire.can_see_clientfid', 'ventes.can_see_bonlivraison', 'produits.can_see_produits', 'reglements.can_see_echreg', 'clientInfo.can_see_tax_tva', 'inventory.can_see_etatentres', 'reglements.can_see_salaries', 'comptoire.can_see_caisseusers', 'produits.can_see_produits_familles', 'inventory.can_see_bontransfert', 'tiers.can_see_constructeur', 'clientInfo.can_see_type_client', 'inventory.can_see_repartition', 'inventory.can_see_etatreforme', 'achats.can_see_bonscommandesachat', 'ventes.can_see_bondevis', 'tiers.can_see_fournisseurs', 'reglements.can_see_etatregbl', 'tiers.can_see_banques', 'reglements.can_see_etatregfac', 'ventes.can_see_avoir', 'clientInfo.can_see_devises', 'users.can_see_users_perm', 'reglements.can_see_loyers', 'inventory.can_see_invinitial', 'target.can_see_targettab', 'achats.can_see_avoirsachats', 'inventory.can_see_invannuel', 'tiers.can_see_clients', 'clientInfo.can_see_tax_douan', 'inventory.can_see_bonsreintegration', 'achats.can_see_facturesachats', 'achats.can_see_bonreception', 'users.can_see_users', 'ventes.can_see_bongarantie', 'comptoire.can_see_cloture', 'reglements.can_see_typereg', 'tiers.can_see_tierstab', 'comptoire.can_see_comptoir', 'clientInfo.can_see_valeur_devis', 'inventory.can_see_bonslivraisonachat', 'produits.can_see_archives', 'achats.can_see_achattab', 'clientInfo.can_see_identification', 'reglements.can_see_depense', 'clientInfo.can_see_tablebases', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'ventes.can_see_ventetab', 'ventes.can_see_bonretour', 'clientInfo.can_see_clientInfo', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regfaccli', 'inventory.can_see_entrepots', 'produits.can_see_producttab', 'ventes.can_see_factures', 'comptoire.can_see_fidelite', 'ventes.can_see_boncomptoires', 'tiers.can_see_agences', 'tiers.can_see_comptesBancaire', 'inventory.can_see_bonreforme', 'reglements.can_see_avoir', 'clientInfo.can_see_societe', 'inventory.can_see_bonsorties']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+[]
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-23', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9900.00', 'TotalRemise': '2600', 'verssement': False, 'produits': [{'id': '4babdfd5-cf5c-4156-8b67-e2eb1e583aa7', 'name': 'ENSEMBLE 2P HLM 11813 noi standard', 'ref': '03185noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}]}
+{'IdBon': '', 'dateBp': '2024-09-23', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9900.00', 'TotalRemise': '2600', 'verssement': False, 'produits': [{'id': '4babdfd5-cf5c-4156-8b67-e2eb1e583aa7', 'name': 'ENSEMBLE 2P HLM 11813 noi standard', 'ref': '03185noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}]}
+ENSEMBLE 2P HLM 11813 noi standard in MAG54 ROUIBA - Quantity: 5 1
+{'id': '4babdfd5-cf5c-4156-8b67-e2eb1e583aa7', 'name': 'ENSEMBLE 2P HLM 11813 noi standard', 'ref': '03185noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+1095 PRINCIPAL
+1095
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+parkmall 
+ParkMall GZ
+1095 PRINCIPAL
+1095
+1095 PRINCIPAL
+1095
+parkmall 
+ParkMall GZ
+mt-2in1-blk
+entrepot dep reghaia
+store_depart Reghaia
+store_arrive Mohamadia Alger
+entrepot_arrive 1095 PRINCIPAL
+MARKETING
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+Finance
+[]
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+MARKETING
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+commercial
+commercial
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+gestion-stock
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-22', 'client': 228, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '8000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00388', 'montantRegle': 0, 'montant': 265000.11}, {'idBon': 'BL2403/00511', 'montantRegle': 0, 'montant': 425400.05}, {'idBon': 'BL2404/00647', 'montantRegle': 0, 'montant': 1800.02}, {'idBon': 'BL2404/00654', 'montantRegle': 0, 'montant': 39500}, {'idBon': 'BL2405/00835', 'montantRegle': 0, 'montant': 4800.09}, {'idBon': 'BL2405/01026', 'montantRegle': 0, 'montant': 10100.05}, {'idBon': 'BL2406/01101', 'montantRegle': 0, 'montant': 84300.12}, {'idBon': 'BL2407/01968', 'montantRegle': 0, 'montant': 100200.03}, {'idBon': 'BL2407/01971', 'montantRegle': 0, 'montant': 103500}, {'idBon': 'BL2408/02111', 'montantRegle': 0, 'montant': 249700}, {'idBon': 'BL2408/02229', 'montantRegle': 0, 'montant': 25400.02}, {'idBon': 'BL2409/02289', 'montantRegle': 0, 'montant': 22200.04}, {'idBon': 'avance', 'montant': 0, 'montantRegle': '8000'}]}
+Vendeuse
+{'formData': {'id': '2631', 'invoiceNumber': '', 'client': '733', 'typeReg': 'Paiement', 'date': '2024-09-22', 'modeReglement': '1', 'montant': '14000.00', 'compteEntreprise': '8', 'bons': ''}}
+{'montant': '9600', 'date': '2024-09-22'}
+gestion-stock
+{'nomClient': 'Khaled Arbouchu', 'adresse': '', 'phone': '0552990726', 'catclient': '1'}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+commercial-vente
+commercial-vente
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-22', 'clientInfo': {'name': 'Khaled Arbouchu', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e4f6a8a4-2310-4c09-8692-6e715161db7b', 'name': 'TAPIS DE SOURIS MSI AGILITY GD70', 'ref': 'AGILITY-GD70', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+{'IdBon': '', 'dateBp': '2024-09-22', 'clientInfo': {'name': 'Khaled Arbouchu', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e4f6a8a4-2310-4c09-8692-6e715161db7b', 'name': 'TAPIS DE SOURIS MSI AGILITY GD70', 'ref': 'AGILITY-GD70', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+TAPIS DE SOURIS MSI AGILITY GD70 in PARKMALL SETIF - Quantity: 4 1
+{'id': 'e4f6a8a4-2310-4c09-8692-6e715161db7b', 'name': 'TAPIS DE SOURIS MSI AGILITY GD70', 'ref': 'AGILITY-GD70', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'nomClient': 'Saadi Abderrahmen ', 'adresse': '', 'phone': '0551504664', 'catclient': '1'}
+manager
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'categorieP': '', 'libFamille': 'ALIMENTATION', 'kit': False, 'component': 'psu', 'list2': []}
+{'categorieP': '324', 'libFamille': 'RAM DDR5', 'kit': False, 'component': 'ram', 'list2': []}
+{'categorieP': '327', 'libFamille': 'HDD', 'kit': False, 'component': 'ssd', 'list2': []}
+{'categorieP': '327', 'libFamille': 'SSD SATA', 'kit': False, 'component': 'ssd', 'list2': []}
+{'categorieP': '', 'libFamille': 'BOITIER', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '335', 'libFamille': 'FULL TOWER', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '335', 'libFamille': 'MINI TOWER', 'kit': False, 'component': 'case', 'list2': []}
+{'categorieP': '343', 'libFamille': 'ECRAN PRO DALLE VA', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '347', 'libFamille': 'ECRAN PRO DALLE IPS 24 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '342', 'libFamille': 'ECRAN GAMING', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '352', 'libFamille': 'ECRAN GAMING CURVED 24 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '352', 'libFamille': 'ECRAN GAMING CURVED 30 POUCE ET PLUS', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '356', 'libFamille': 'ECRAN GAMING IPS 27 POUCE', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '351', 'libFamille': 'ECRAN GAMING OLED', 'kit': False, 'component': 'moniteur', 'list2': []}
+{'categorieP': '365', 'libFamille': 'CLAVIER MEMBRANE', 'kit': False, 'component': 'claviers', 'list2': []}
+{'categorieP': '367', 'libFamille': 'CLAVIER MECHANIQUE WIRELESS', 'kit': False, 'component': 'claviers', 'list2': []}
+{'categorieP': '', 'libFamille': 'TAPIS DE SOURIS', 'kit': False, 'component': 'extras', 'list2': []}
+{'id': '374', 'categorieP': '364', 'libFamille': 'TAPIS DE SOURIS', 'descFamille': '', 'component': 'extras', 'kit': False, 'list2': []}
+{'categorieP': '364', 'libFamille': 'CASQUE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '364', 'libFamille': 'SUPPORT CARTE GRAPHIQUE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '364', 'libFamille': 'MANETTE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '364', 'libFamille': 'PATHE THERMIQUE', 'kit': False, 'component': 'extras', 'list2': []}
+{'categorieP': '364', 'libFamille': 'WEBCAM', 'kit': False, 'component': 'extras', 'list2': []}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+parkmall 
+ParkMall GZ
+None
+None
+MARKETING
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['produits.can_see_producttab', 'inventory.can_see_bontransfert', 'ventes.can_see_bondevis', 'target.can_see_targets', 'tiers.can_see_clients', 'ventes.can_see_bongarantie', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'produits.can_see_produits', 'ventes.can_see_ventetab', 'ventes.can_see_bonretour', 'tiers.can_see_tierstab', 'target.can_see_targettab', 'inventory.can_see_stocktab', 'inventory.can_see_bonsorties']
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+DIRECTEUR EXECUTIF
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+hello ['inventory.can_see_stocktab', 'ventes.can_see_ventetab', 'inventory.can_see_bonsorties', 'produits.can_see_producttab', 'inventory.can_see_bonentres', 'inventory.can_see_bonretour', 'inventory.can_see_etatreforme', 'inventory.can_see_bontransfert', 'inventory.can_see_bonsreintegration', 'produits.can_see_etatreforme', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bonlivraison', 'inventory.can_see_etatsorties', 'ventes.can_see_bonretour', 'inventory.can_see_etatentres', 'tiers.can_see_tierstab']
+------------------------------------------------------------------------------------------
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QuerySet [<BonTransfert: Bon no: BT-299791>, <BonTransfert: Bon no: BT-231185>, <BonTransfert: Bon no: BT-732938>, <BonTransfert: Bon no: BT-629094>, <BonTransfert: Bon no: BT-444235>, <BonTransfert: Bon no: BT-208835>, <BonTransfert: Bon no: BT-395912>, <BonTransfert: Bon no: BT-685836>, <BonTransfert: Bon no: BT-672328>, <BonTransfert: Bon no: BT-426412>, <BonTransfert: Bon no: BT-902219>, <BonTransfert: Bon no: BT-616663>, <BonTransfert: Bon no: BT-149130>, <BonTransfert: Bon no: BT-980839>, <BonTransfert: Bon no: BT-738528>, <BonTransfert: Bon no: BT-637463>, <BonTransfert: Bon no: BT-218119>, <BonTransfert: Bon no: BT-874549>, <BonTransfert: Bon no: BT24-00001>, <BonTransfert: Bon no: BT-297584>, '...(remaining elements truncated)...']>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02399CLient store: 1BL Store : 1
+toufik BRIKBRIK2015
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2777', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2776', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+------------------------------------------------------------------------------------------
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02398CLient store: 1BL Store : 1
+toufik BRIKBRIK2015
+------------------------------------------------------------------------------------------
+AW100000000252
+CPU AMD RYZEN 5 5600G TRAY
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+MD9117C52036
+CARTE MERE MSI B450M-A PRO MAX II
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+9JAX4U36008G18ISWHD35G
+RAM DDR4 ADATA SPECTRIX RGB D35G 8GB 3600MHZ WHITE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+MCPUVRW
+CPU FAN MARS GAMING MCPU-VR CPU COOLER, DUAL INFINITE - WHITE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+PATRIOT-60GB
+SSD SATA 2.5 ¨PATRIOT - 60GB
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ATLAS-650
+ALIMENTATION COUGAR ATLAS 650 WATTS 80PLUS BRONZE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ARCHON2-RGB-MESH
+BOITIER COUGAR ARCHON 2 MESH RGB BLACK
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+HKB6-FR
+CLAVIER CANYON HKB6 - FR
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+GM3-BLACK
+SOURIS CANYON GM-3 BLACK
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+AW100000000252
+CPU AMD RYZEN 5 5600G TRAY
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+MD9117C52036
+CARTE MERE MSI B450M-A PRO MAX II
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+9JAX4U36008G18ISWHD35G
+RAM DDR4 ADATA SPECTRIX RGB D35G 8GB 3600MHZ WHITE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+MCPUVRW
+CPU FAN MARS GAMING MCPU-VR CPU COOLER, DUAL INFINITE - WHITE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+PATRIOT-60GB
+SSD SATA 2.5 ¨PATRIOT - 60GB
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ATLAS-650
+ALIMENTATION COUGAR ATLAS 650 WATTS 80PLUS BRONZE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ARCHON2-RGB-MESH
+BOITIER COUGAR ARCHON 2 MESH RGB BLACK
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+HKB6-FR
+CLAVIER CANYON HKB6 - FR
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+GM3-BLACK
+SOURIS CANYON GM-3 BLACK
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+AW100000000143
+CPU AMD RYZEN 5 4650G TRAY
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+MD9117C52036
+CARTE MERE MSI B450M-A PRO MAX II
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+AW100000000252
+CPU AMD RYZEN 5 5600G TRAY
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+MD9117C52036
+CARTE MERE MSI B450M-A PRO MAX II
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+9JAX4U36008G18ISWHD35G
+RAM DDR4 ADATA SPECTRIX RGB D35G 8GB 3600MHZ WHITE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+MCPUVRW
+CPU FAN MARS GAMING MCPU-VR CPU COOLER, DUAL INFINITE - WHITE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+PATRIOT-60GB
+SSD SATA 2.5 ¨PATRIOT - 60GB
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ATLAS-650
+ALIMENTATION COUGAR ATLAS 650 WATTS 80PLUS BRONZE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ARCHON2-RGB-MESH
+BOITIER COUGAR ARCHON 2 MESH RGB BLACK
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+HKB6-FR
+CLAVIER CANYON HKB6 - FR
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+GM3-BLACK
+SOURIS CANYON GM-3 BLACK
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+AW100000000252
+CPU AMD RYZEN 5 5600G TRAY
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+MD9117C52036
+CARTE MERE MSI B450M-A PRO MAX II
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+9JAX4U36008G18ISWHD35G
+RAM DDR4 ADATA SPECTRIX RGB D35G 8GB 3600MHZ WHITE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+MCPUVRW
+CPU FAN MARS GAMING MCPU-VR CPU COOLER, DUAL INFINITE - WHITE
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+PATRIOT-60GB
+SSD SATA 2.5 ¨PATRIOT - 60GB
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ATLAS-650
+ALIMENTATION COUGAR ATLAS 650 WATTS 80PLUS BRONZE
+------------------------------------------------------------------------------------------
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes

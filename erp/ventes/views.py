@@ -3967,12 +3967,6 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             if "ref" in product:
                 p = Product.objects.get(reference=product["ref"], store = CurrentStore)
                 s = Stock.objects.get(product = p, entrepot = currentEntrepot )
-                print("------------------------------------------------------------------------------------------")
-                print(p.reference)
-               
-                
-                print(p.name)
-                print("------------------------------------------------------------------------------------------")                
                 new_quantity = s.quantity - int(product["qty"])
                 s.quantity = new_quantity
                 s.save()
