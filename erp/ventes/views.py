@@ -3973,7 +3973,7 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 
                 print(p.name)
                 print("------------------------------------------------------------------------------------------")
-                if s.quantity =>int(product["qty"]):
+                if s.quantity >=int(product["qty"]):
                     new_quantity = s.quantity - int(product["qty"])
                 else: 
                     new_quantity = s.quantity                
