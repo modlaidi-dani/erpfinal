@@ -3969,7 +3969,7 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 s = Stock.objects.get(product = p, entrepot = currentEntrepot )
                 print("------------------------------------------------------------------------------------------")
                 print(p.reference)
-                print("------------------------------------------------------------------------------------------")
+               
                 
                 print(p.name)
                 print("------------------------------------------------------------------------------------------")
