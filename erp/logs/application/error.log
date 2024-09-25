@@ -14240,3 +14240,25 @@ SyntaxError: invalid syntax
 [2024-09-23 20:59:38 +0200] [413526] [INFO] Booting worker with pid: 413526
 [2024-09-23 20:59:38 +0200] [413527] [INFO] Booting worker with pid: 413527
 [2024-09-23 20:59:39 +0200] [413528] [INFO] Booting worker with pid: 413528
+[2024-09-25 11:58:14 +0200] [413525] [INFO] Handling signal: term
+[2024-09-25 09:58:14 +0000] [413527] [INFO] Worker exiting (pid: 413527)
+[2024-09-25 09:58:14 +0000] [413526] [INFO] Worker exiting (pid: 413526)
+[2024-09-25 09:58:14 +0000] [413528] [INFO] Worker exiting (pid: 413528)
+[2024-09-25 11:58:19 +0200] [413525] [INFO] Shutting down: Master
+[2024-09-25 11:58:20 +0200] [526131] [INFO] Starting gunicorn 23.0.0
+[2024-09-25 11:58:20 +0200] [526131] [INFO] Listening at: http://127.0.0.1:8000 (526131)
+[2024-09-25 11:58:20 +0200] [526131] [INFO] Using worker: sync
+[2024-09-25 11:58:20 +0200] [526132] [INFO] Booting worker with pid: 526132
+[2024-09-25 11:58:20 +0200] [526133] [INFO] Booting worker with pid: 526133
+[2024-09-25 11:58:21 +0200] [526135] [INFO] Booting worker with pid: 526135
+[2024-09-25 12:34:54 +0200] [526131] [INFO] Handling signal: term
+[2024-09-25 10:34:54 +0000] [526132] [INFO] Worker exiting (pid: 526132)
+[2024-09-25 10:34:54 +0000] [526135] [INFO] Worker exiting (pid: 526135)
+[2024-09-25 10:34:54 +0000] [526133] [INFO] Worker exiting (pid: 526133)
+[2024-09-25 12:34:56 +0200] [526131] [INFO] Shutting down: Master
+[2024-09-25 12:34:57 +0200] [528207] [INFO] Starting gunicorn 23.0.0
+[2024-09-25 12:34:57 +0200] [528207] [INFO] Listening at: http://127.0.0.1:8000 (528207)
+[2024-09-25 12:34:57 +0200] [528207] [INFO] Using worker: sync
+[2024-09-25 12:34:57 +0200] [528208] [INFO] Booting worker with pid: 528208
+[2024-09-25 12:34:57 +0200] [528209] [INFO] Booting worker with pid: 528209
+[2024-09-25 12:34:57 +0200] [528210] [INFO] Booting worker with pid: 528210
