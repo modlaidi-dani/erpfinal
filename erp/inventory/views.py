@@ -4054,7 +4054,7 @@ class ListSortieStockView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
                 "entrepot": entry.BonNo.monentrepot,
                 "quantity": entry.quantity,
                 "prix_vente": float(entry.totalprice),
-   
+                # "fournisseur":entry.BonNo.fournisseur.acronym
                 
             }
 
