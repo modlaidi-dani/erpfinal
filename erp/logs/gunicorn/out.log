@@ -12446,3 +12446,47 @@ None
 hello ['tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'inventory.can_see_stocktab', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'ventes.can_see_bonretour', 'ventes.can_see_bongarantie', 'produits.can_see_producttab', 'ventes.can_see_ventetab', 'target.can_see_targets', 'produits.can_see_produits', 'tiers.can_see_clients', 'ventes.can_see_bondevis']
 Finance
 commercial
+DIRECTEUR EXECUTIF
+{'IdBon': 'FIG2409-2589', 'dateBp': '2024-09-25', 'clientInfo': {'name': 'Ghano Store ELITE INFORMATIQUE', 'address': '13 avenue de la République Bordj bou arreridj, Bordj Bou Arreridj, Algeria', 'num_registre': '34/00-2354106A13', 'nif': '191190108066131', 'nai': '', 'nis': '199119010806631', 'phone': '0550 68 27 21'}, 'AssociatedBL': 'BL2409/02347', 'time': 100, 'produits': [{'id': '13eb6486-c5ad-4444-a0c1-5aef220e7e02', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 3, 'livre': True, 'rate': 32689.08, 'total': 98067.24, 'numSeries': ['CE2M014403151', 'CE2M014402953', 'CE2M014403096']}]}
+{'dateReg': '2024-09-25', 'client': 226, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '135000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2402/00222', 'montantRegle': 0, 'montant': 900.01}, {'idBon': 'BL2403/00399', 'montantRegle': 0, 'montant': 0.09}, {'idBon': 'BL2404/00737', 'montantRegle': 0, 'montant': 0.35}, {'idBon': 'BL2405/01049', 'montantRegle': 0, 'montant': 250.14}, {'idBon': 'BL2406/01127', 'montantRegle': 0, 'montant': 106300.04}, {'idBon': 'BL2406/01261', 'montantRegle': 0, 'montant': 0.05}, {'idBon': 'BL2408/02198', 'montantRegle': '135000', 'montant': 136100.01, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'IdBon': '', 'dateBp': '2024-09-25', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5500.00', 'TotalRemise': '1100', 'verssement': False, 'produits': [{'id': 'fb2e6d90-1527-4ecb-b9ed-9e9e250e34d5', 'name': 'CHEMISE HLM 11768 ble standard', 'ref': '03170blestandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '5500', 'gst': '0.00', 'total': 5500}]}
+{'IdBon': '', 'dateBp': '2024-09-25', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5500.00', 'TotalRemise': '1100', 'verssement': False, 'produits': [{'id': 'fb2e6d90-1527-4ecb-b9ed-9e9e250e34d5', 'name': 'CHEMISE HLM 11768 ble standard', 'ref': '03170blestandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '5500', 'gst': '0.00', 'total': 5500}]}
+CHEMISE HLM 11768 ble standard in MAG54 ROUIBA - Quantity: 3 1
+{'id': 'fb2e6d90-1527-4ecb-b9ed-9e9e250e34d5', 'name': 'CHEMISE HLM 11768 ble standard', 'ref': '03170blestandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '5500', 'gst': '0.00', 'total': 5500}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2590', 'dateBp': '2024-09-25', 'clientInfo': {'name': 'Ghano Store ELITE INFORMATIQUE', 'address': '13 avenue de la République Bordj bou arreridj, Bordj Bou Arreridj, Algeria', 'num_registre': '34/00-2354106A13', 'nif': '191190108066131', 'nai': '', 'nis': '199119010806631', 'phone': '0550 68 27 21'}, 'AssociatedBL': 'BL2409/02371', 'time': 166, 'produits': [{'id': '028682aa-6b38-4338-9c40-fa6caf5e7b74', 'name': 'CARTE MERE MSI B550M PRO VDH', 'ref': '911-7C95-066', 'qty': 3, 'livre': True, 'rate': 17563.03, 'total': 52689.09, 'numSeries': ['601-7C95-340B2401007146', '601-7C95-340B2401007501', '601-7C95-340B2401007716']}, {'id': '3450aca2-3d91-46ce-b41b-2426e3ac677e', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 3, 'livre': True, 'rate': 32689.08, 'total': 98067.24, 'numSeries': ['CE2M014403135', 'CE2M014403807', 'CE2M014403297']}, {'id': '69290cdf-2689-407c-a1e9-f30b17fd235d', 'name': 'ECRAN MSI PRO MP273A - 27INCH - IPS - 100HZ - 1MS', 'ref': 'MP273A-100', 'qty': 5, 'livre': True, 'rate': 22857.14, 'total': 114285.7, 'numSeries': ['PB4HA74400480', 'PB4HA74400481', 'PB4HA74400564', 'PB4HA74400479', 'PB4HA74400561']}, {'id': 'c43e3c08-72a6-46eb-8943-64a5ee922229', 'name': 'WATER COOLING MSI MAG CORELIQUID M240 ', 'ref': 'MD3067ZW4R14813', 'qty': 2, 'livre': True, 'rate': 12857.14, 'total': 25714.28, 'numSeries': ['3067ZW4R1481310349001177', '3067ZW4R1481310349001178']}, {'id': '40447136-8ce7-4e06-b03e-be6cd7202691', 'name': 'ALIMENTATION MSI MAG A500DN 500 WATTS 80PLUS', 'ref': 'MD3067ZP6A11809', 'qty': 6, 'livre': True, 'rate': 6050.42, 'total': 36302.52, 'numSeries': ['3067ZP6A1180910403000506', '3067ZP6A1180910411001627', '3067ZP6A1180910411001626', '3067ZP6A1180910411001621', '3067ZP6A1180910403000502', '3067ZP6A1180910403000501']}]}
+{'IdBon': '', 'dateBp': '2024-09-25', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2500.00', 'TotalRemise': '500', 'verssement': False, 'produits': [{'id': 'd819ae2a-8d33-4ae6-8ee7-c43f94c43245', 'name': 'PANTALON MAG CARRE OLD  Mix standard', 'ref': '05525Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}]}
+{'IdBon': '', 'dateBp': '2024-09-25', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2500.00', 'TotalRemise': '500', 'verssement': False, 'produits': [{'id': 'd819ae2a-8d33-4ae6-8ee7-c43f94c43245', 'name': 'PANTALON MAG CARRE OLD  Mix standard', 'ref': '05525Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}]}
+PANTALON MAG CARRE OLD  Mix standard in MAG54 ROUIBA - Quantity: 12 1
+{'id': 'd819ae2a-8d33-4ae6-8ee7-c43f94c43245', 'name': 'PANTALON MAG CARRE OLD  Mix standard', 'ref': '05525Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}
+{'IdBon': '', 'dateBp': '2024-09-25', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': 'ddd55a90-c88c-4043-8769-f6c170ac27f9', 'name': 'pantalon classique liliable60', 'ref': '01341ble60', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-25', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': 'ddd55a90-c88c-4043-8769-f6c170ac27f9', 'name': 'pantalon classique liliable60', 'ref': '01341ble60', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+pantalon classique liliable60 in MAG54 ROUIBA - Quantity: 2 1
+{'id': 'ddd55a90-c88c-4043-8769-f6c170ac27f9', 'name': 'pantalon classique liliable60', 'ref': '01341ble60', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+hello ['ventes.can_see_bonlivraison', 'target.can_see_targets', 'inventory.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_clients', 'inventory.can_create_echange_bill', 'ventes.can_see_bonretour', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bonreforme', 'comptoire.can_see_comptoirtab', 'ventes.can_see_bongarantie', 'inventory.can_see_stocktab', 'ventes.can_see_ventetab', 'ventes.can_see_bondevis', 'target.can_see_targettab', 'comptoire.can_see_cloture', 'inventory.can_see_bonentres', 'inventory.can_see_bontransfert', 'tiers.can_see_tierstab', 'comptoire.can_see_comptoir', 'produits.can_see_produits', 'inventory.can_see_bonsorties', 'ventes.can_see_boncomptoires']
+hello ['ventes.can_see_bonlivraison', 'target.can_see_targets', 'inventory.can_see_bonretour', 'produits.can_see_producttab', 'tiers.can_see_clients', 'inventory.can_create_echange_bill', 'ventes.can_see_bonretour', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bonreforme', 'comptoire.can_see_comptoirtab', 'ventes.can_see_bongarantie', 'inventory.can_see_stocktab', 'ventes.can_see_ventetab', 'ventes.can_see_bondevis', 'target.can_see_targettab', 'comptoire.can_see_cloture', 'inventory.can_see_bonentres', 'inventory.can_see_bontransfert', 'tiers.can_see_tierstab', 'comptoire.can_see_comptoir', 'produits.can_see_produits', 'inventory.can_see_bonsorties', 'ventes.can_see_boncomptoires']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
