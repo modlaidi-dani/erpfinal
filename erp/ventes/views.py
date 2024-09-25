@@ -1469,7 +1469,7 @@ class ComptoirUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                "prdouit_totalPrice":float(product.totalprice)            
               }
             items.append(produit_dict)
-          
+        
         context["idBon"] = idBon
         context["dateBon"] = dateBon
         context['verssement'] = invoice.par_verssement
@@ -1543,7 +1543,9 @@ class ComptoirUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 bon_comptoir.client = client_instance
                 bon_comptoir.totalprice = data.get('totalprice', bon_comptoir.totalprice)
                 bon_comptoir.totalremise = data.get('totalremise', bon_comptoir.totalremise)
+                bon_comptoir.dateBon=data.get('dateBp')
                 myentrepot = Entrepot.objects.get(name = data["entrepotBon"], store = CurrentStore)
+                
                 # Save the updated BonComptoir
                 for product in data["produits"]:            
                     p = Stock.objects.select_for_update().get( Q(product__name=product["name"]) & Q(entrepot=myentrepot))
@@ -1555,6 +1557,8 @@ class ComptoirUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                     p.save()  
                     
                 bon_comptoir.save()
+                
+
                     
                 for produit in data["produits"]:
                     print(produit)
