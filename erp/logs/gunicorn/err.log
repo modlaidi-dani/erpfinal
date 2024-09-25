@@ -19600,3 +19600,6 @@ Traceback (most recent call last):
     "fournisseur":entry.BonNo.fournisseur.acronym
 AttributeError: 'BonComptoire' object has no attribute 'fournisseur'
 Not Found: /favicon.ico
+Not Found: /cpsess4013849786/
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-25 08:24:04.299780) while time zone support is active.
+  warnings.warn(
