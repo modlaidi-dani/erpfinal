@@ -19908,3 +19908,84 @@ Traceback (most recent call last):
   File "/root/Erps/erpfinal/erp/inventory/views.py", line 3435, in post
     prod_total_price = p.prix_vente * int(product["qty"])
 ValueError: invalid literal for int() with base 10: ''
+Not Found: /robots.txt
+Not Found: /static/media/erplogo.png
+Internal Server Error: /_ignition/execute-solution
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/_ignition/execute-solution/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /_ignition/execute-solution
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/_ignition/execute-solution/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /_ignition/execute-solution
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/_ignition/execute-solution/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /_ignition/execute-solution
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/_ignition/execute-solution/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /_ignition/execute-solution
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/_ignition/execute-solution/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /_ignition/execute-solution
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 38.242.243.169/_ignition/execute-solution/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-25 13:23:08.431108) while time zone support is active.
+  warnings.warn(
+Not Found: /hom...e/userHome/
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /cgi-bin/luci/;stok=/locale
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-25 14:20:15.324341) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-25 14:33:54.807258) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-25 14:36:44.107737) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-25 14:44:32.623106) while time zone support is active.
+  warnings.warn(
