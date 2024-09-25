@@ -7,11 +7,8 @@ database_path = 'db.sqlite3'
 conn = sqlite3.connect(database_path)
 cursor = conn.cursor()
 
-# Requête SQL pour supprimer les lignes où utilisateur_id = 8
-delete_query = "DELETE FROM comptoire_cloture WHERE utilisateur_id = ?"
-
-# Exécution de la requête
-cursor.execute(delete_query, (8,))
+update_query = "UPDATE comptoire_cloture SET utilisateur_id = 48 WHERE utilisateur_id = 8"
+cursor.execute(update_query)
 
 # Validation des modifications dans la base de données
 conn.commit()
@@ -21,7 +18,7 @@ cursor.execute("SELECT * FROM comptoire_cloture WHERE utilisateur_id = 8")
 rows = cursor.fetchall()
 
 if not rows:
-    print("Les lignes avec utilisateur_id = 8 ont été supprimées.")
+    print("Les lignes avec utilisateur_id = 8 ont été modiffié.")
 else:
     print("La suppression a échoué ou il n'y avait aucune ligne correspondante.")
 
