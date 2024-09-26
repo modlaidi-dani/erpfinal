@@ -20485,3 +20485,17 @@ Not Found: /cgi-bin/luci/;stok=/locale
 Not Found: /cpsess3196269235/scripts12/terminal/
 Not Found: /cpsess1305929078/scripts12/terminal/
 Not Found: /cpsess9980191387/scripts12/terminal/
+Internal Server Error: /ventes/DeleteInvoiceBill/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 526, in deleteInvoiceBill
+    bon_c = models.BonSortie.objects.get(idBon=id_bon, store=CurrentStore)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+ventes.models.BonSortie.DoesNotExist: BonSortie matching query does not exist.
+Not Found: /.git/config
