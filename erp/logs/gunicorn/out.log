@@ -15293,3 +15293,369 @@ hello ['ventes.can_see_ventetab', 'ventes.can_see_bonretour', 'inventory.can_see
 <QuerySet []>
 <QuerySet [<BonSortie: Bon no: BL2409/02357CLient store: 1BL Store : 1>]>
 <QuerySet [<BonSortie: Bon no: BL2409/02361CLient store: 1BL Store : 1>]>
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde twins 20%', 'TotalPay': '14600.00', 'TotalRemise': '1900', 'verssement': False, 'produits': [{'id': 'c3d51546-050e-4943-bb11-2ce039401e30', 'name': 'PANTALON CLASSIQUE LILIA 4060 noi standard', 'ref': '05188noistandard', 'availableqte': 11, 'qty': '1', 'ent': '', 'rate': '4700', 'gst': '0.00', 'total': 4700}, {'id': '287cae05-dcfe-4c74-a48f-0fb38aab40d8', 'name': 'TWINS BY ILLA 155  Mix standard', 'ref': '03292Mixstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde twins 20%', 'TotalPay': '14600.00', 'TotalRemise': '1900', 'verssement': False, 'produits': [{'id': 'c3d51546-050e-4943-bb11-2ce039401e30', 'name': 'PANTALON CLASSIQUE LILIA 4060 noi standard', 'ref': '05188noistandard', 'availableqte': 11, 'qty': '1', 'ent': '', 'rate': '4700', 'gst': '0.00', 'total': 4700}, {'id': '287cae05-dcfe-4c74-a48f-0fb38aab40d8', 'name': 'TWINS BY ILLA 155  Mix standard', 'ref': '03292Mixstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}]}
+PANTALON CLASSIQUE LILIA 4060 noi standard in MAG54 ROUIBA - Quantity: 11 1
+TWINS BY ILLA 155  Mix standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': 'c3d51546-050e-4943-bb11-2ce039401e30', 'name': 'PANTALON CLASSIQUE LILIA 4060 noi standard', 'ref': '05188noistandard', 'availableqte': 11, 'qty': '1', 'ent': '', 'rate': '4700', 'gst': '0.00', 'total': 4700}
+{'id': '287cae05-dcfe-4c74-a48f-0fb38aab40d8', 'name': 'TWINS BY ILLA 155  Mix standard', 'ref': '03292Mixstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '3abb3c5c-fab9-47ab-97f7-79bcfb7a98ff', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 68, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '3abb3c5c-fab9-47ab-97f7-79bcfb7a98ff', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 68, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+PANTALON CLASSIQUE BUDAK new Mix standard in MAG54 ROUIBA - Quantity: 68 1
+{'id': '3abb3c5c-fab9-47ab-97f7-79bcfb7a98ff', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 68, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '800b9d45-dc34-430e-ace2-722744d6998f', 'name': 'CHEMISE HLM 11905 noi standard', 'ref': '05063noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '800b9d45-dc34-430e-ace2-722744d6998f', 'name': 'CHEMISE HLM 11905 noi standard', 'ref': '05063noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+CHEMISE HLM 11905 noi standard in MAG54 ROUIBA - Quantity: 15 1
+{'id': '800b9d45-dc34-430e-ace2-722744d6998f', 'name': 'CHEMISE HLM 11905 noi standard', 'ref': '05063noistandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '698015eb-8d7a-4f92-959f-02a3ee222786', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 66, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '698015eb-8d7a-4f92-959f-02a3ee222786', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 66, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+PANTALON CLASSIQUE BUDAK new Mix standard in MAG54 ROUIBA - Quantity: 66 1
+{'id': '698015eb-8d7a-4f92-959f-02a3ee222786', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 66, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+  Veille Concurentielle
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+MARKETING
+MARKETING
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+manager
+Bon no: BL2409/02381CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<QueryDict: {'csrfmiddlewaretoken': ['us1TIOFuwDr1LPy8c7fJfSytG2bOf0knRN2go51Ocb5AjNAN038uhfVcun3tUScb'], 'billId': ['2803'], 'dateLivraison': ['2024-09-30']}>
+<QueryDict: {'csrfmiddlewaretoken': ['XoF5msEcF6MhfaUCVyAPzAt8L4mWRkh0kJGs2J0wlEqQN8WhJutABXQRzpeBwc9O'], 'billId': ['2805'], 'dateLivraison': ['2024-09-30']}>
+None
+None
+nadjemeddine
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+chawki
+aya_b
+yasmine
+aimen
+yasmine
+aimen
+aimen
+yasmine
+aya_b
+sarah
+yasmine
+aya_b
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+nadjemeddine
+yasmine
+younes
+aya_b
+chawki
+aimen
+sarah
+yasmine
+aimen
+chawki
+aimen
+chawki
+nadjemeddine
+aimen
+nadjemeddine
+chawki
+nadjemeddine
+yasmine
+nadjemeddine
+aimen
+nadjemeddine
+nadjemeddine
+aya_b
+aya_b
+yasmine
+aya_b
+sarah
+aimen
+aimen
+sarah
+chawki
+aya_b
+yasmine
+yasmine
+aya_b
+aimen
+aimen
+aya_b
+aya_b
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+yasmine
+aimen
+01
+sarah
+yasmine
+yasmine
+yasmine
+sarah
+yasmine
+yasmine
+yasmine
+nadjemeddine
+yasmine
+aimen
+yasmine
+yasmine
+nadjemeddine
+toufik
+chawki
+aya_b
+yasmine
+01
+yasmine
+yasmine
+01
+aimen
+aya_b
+sarah
+nadjemeddine
+yasmine
+nadjemeddine
+01
+01
+yasmine
+01
+yasmine
+aimen
+nadjemeddine
+aya_b
+nadjemeddine
+aya_b
+aimen
+sarah
+aya_b
+nadjemeddine
+sarah
+sarah
+sarah
+01
+01
+chawki
+01
+nadjemeddine
+01
+aya_b
+yasmina_descative
+nadjemeddine
+aimen
+aimen
+sarah
+aya_b
+sarah
+nadjemeddine
+yasmine
+sarah
+yasmine
+aya_b
+nadjemeddine
+aya_b
+yasmine
+01
+01
+aimen
+01
+aya_b
+01
+sarah
+nadjemeddine
+nadjemeddine
+aimen
+aya_b
+01
+aya_b
+01
+01
+01
+yasmine
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+  Veille Concurentielle
+<QuerySet [<BonSortie: Bon no: BL2409/02362CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02377CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02385CLient store: 1BL Store : 1>]>
+<QuerySet [<BonSortie: Bon no: BL2409/02386CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02409CLient store: 1BL Store : 1>]>
+<QuerySet [<BonSortie: Bon no: BL2409/02388CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02396CLient store: 1BL Store : 1>]>
+<QuerySet [<BonSortie: Bon no: BL2409/02397CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02408CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02411CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+['reglements.can_see_reglementstab', 'comptoire.can_see_clientfid', 'produits.can_see_etatreforme', 'tiers.can_see_marques', 'achats.can_see_achattab', 'ventes.can_see_ventetab', 'ventes.can_see_bonretour', 'inventory.can_see_bonreforme', 'reglements.can_see_etatregfac', 'comptoire.can_see_pointsvente', 'produits.can_see_archives', 'reglements.can_see_typereg', 'comptoire.can_see_comptoir', 'users.can_see_grp_users', 'reglements.can_see_depense', 'achats.can_see_avoirsachats', 'produits.can_see_liasion_entrepotproduit', 'clientInfo.can_see_units', 'clientInfo.can_see_societe', 'target.can_see_targets', 'comptoire.can_see_cloture', 'inventory.can_see_etatreintegration', 'target.can_see_targettab', 'reglements.can_see_divers', 'ventes.can_see_avoir', 'comptoire.can_see_comptoirtab', 'produits.can_see_producttab', 'comptoire.can_see_fidelite', 'reglements.can_see_regbl', 'users.can_see_users_perm', 'inventory.can_see_invinitial', 'clientInfo.can_see_type_client', 'tiers.can_see_agences', 'achats.can_see_bonslivraisonachat', 'clientInfo.can_see_identification', 'inventory.can_see_bonentres', 'inventory.can_see_bonsreintegration', 'reglements.can_see_avoir', 'tiers.can_see_banques', 'reglements.can_see_salaries', 'produits.can_see_produits', 'ventes.can_see_boncomptoires', 'clientInfo.can_see_tablebases', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'clientInfo.can_see_clientInfo', 'tiers.can_see_fournisseurs', 'achats.can_see_facturesachats', 'target.can_see_equipe', 'reglements.can_see_loyers', 'produits.can_see_produits_familles', 'tiers.can_see_comptesBancaire', 'reglements.can_see_regfaccli', 'achats.can_see_bonscommandesachat', 'comptoire.can_see_tableaubord', 'achats.can_see_bonreception', 'inventory.can_see_repartition', 'inventory.can_see_invannuel', 'clientInfo.can_see_tax_douan', 'inventory.can_see_stocktab', 'inventory.can_see_etatreforme', 'users.can_see_users', 'reglements.can_see_echreg', 'inventory.can_see_bonslivraisonachat', 'reglements.can_see_etatregbl', 'inventory.can_see_bonsorties', 'ventes.can_see_factures', 'inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_constructeur', 'comptoire.can_see_caisseusers', 'tiers.can_see_tierstab', 'clientInfo.can_see_devises', 'ventes.can_see_bongarantie', 'clientInfo.can_see_valeur_devis', 'inventory.can_see_etatentres', 'clientInfo.can_see_compteEntreprise', 'ventes.can_see_bonlivraison', 'clientInfo.can_see_tax_tva', 'inventory.can_see_entrepots', 'reglements.can_see_etattres', 'inventory.can_see_etatsorties']
+None
+None
+Vendeuse
+Bon no: BL2409/02383CLient store: 1BL Store : 1
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2716', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+Bon no: BL2409/02381CLient store: 1BL Store : 1
+None
+None
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2709', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['produits.can_see_produits', 'inventory.can_see_bonsorties', 'inventory.can_see_bonretour', 'produits.can_see_etatreforme', 'ventes.can_see_ventetab', 'produits.can_see_producttab', 'ventes.can_see_bonretour', 'inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'inventory.can_see_etatentres', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bonentres', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'inventory.can_see_etatreforme', 'inventory.can_see_etatsorties']
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'cabb8acb-5678-4e5d-8089-324fc5270d8b', 'name': 'hidjab HMY 0068', 'ref': '04689', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'cabb8acb-5678-4e5d-8089-324fc5270d8b', 'name': 'hidjab HMY 0068', 'ref': '04689', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+hidjab HMY 0068 in MAG54 ROUIBA - Quantity: 10 1
+{'id': 'cabb8acb-5678-4e5d-8089-324fc5270d8b', 'name': 'hidjab HMY 0068', 'ref': '04689', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Finance
+hello ['clientInfo.can_see_societe', 'tiers.can_see_constructeur', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'achats.can_see_achattab', 'inventory.can_see_invinitial', 'clientInfo.can_see_devises', 'target.can_see_targets', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'reglements.can_see_typereg', 'comptoire.can_see_tableaubord', 'reglements.can_see_echreg', 'produits.can_see_produits_familles', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'inventory.can_see_bonreforme', 'reglements.can_see_salaries', 'inventory.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreforme', 'tiers.can_see_agences', 'ventes.can_see_boncomptoires', 'ventes.can_see_ventetab', 'comptoire.can_see_pointsvente', 'comptoire.can_see_clientfid', 'clientInfo.can_see_tax_tva', 'ventes.can_see_avoir', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'inventory.can_see_entrepots', 'comptoire.can_see_caisseusers', 'ventes.can_see_bondevis', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regbl', 'users.can_see_users', 'achats.can_see_facturesachats', 'achats.can_see_bonslivraisonachat', 'ventes.can_see_bongarantie', 'target.can_see_equipe', 'achats.can_see_avoirsachats', 'produits.can_see_produits', 'produits.can_see_archives', 'inventory.can_see_etatentres', 'clientInfo.can_see_tax_douan', 'inventory.can_see_invannuel', 'comptoire.can_see_cloture', 'inventory.can_see_bonretour', 'reglements.can_see_avoir', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_fidelite', 'clientInfo.can_see_type_client', 'tiers.can_see_marques', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'clientInfo.can_see_tablebases', 'inventory.can_see_etatsorties', 'produits.can_see_producttab', 'comptoire.can_see_comptoir', 'inventory.can_see_bonentres', 'inventory.can_see_etatreintegration', 'reglements.can_see_regfaccli', 'achats.can_see_bonreception', 'ventes.can_see_factures', 'tiers.can_see_comptesBancaire', 'tiers.can_see_clients', 'users.can_see_grp_users', 'reglements.can_see_etattres', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'ventes.can_see_bonretour', 'clientInfo.can_see_units', 'inventory.can_see_repartition', 'clientInfo.can_see_compteEntreprise', 'tiers.can_see_fournisseurs', 'reglements.can_see_loyers', 'reglements.can_see_reglementstab', 'clientInfo.can_see_identification', 'inventory.can_see_bonsorties', 'reglements.can_see_divers', 'reglements.can_see_etatregfac', 'tiers.can_see_banques']
+hello ['clientInfo.can_see_societe', 'tiers.can_see_constructeur', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'achats.can_see_achattab', 'inventory.can_see_invinitial', 'clientInfo.can_see_devises', 'target.can_see_targets', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'reglements.can_see_typereg', 'comptoire.can_see_tableaubord', 'reglements.can_see_echreg', 'produits.can_see_produits_familles', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'inventory.can_see_bonreforme', 'reglements.can_see_salaries', 'inventory.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreforme', 'tiers.can_see_agences', 'ventes.can_see_boncomptoires', 'ventes.can_see_ventetab', 'comptoire.can_see_pointsvente', 'comptoire.can_see_clientfid', 'clientInfo.can_see_tax_tva', 'ventes.can_see_avoir', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'inventory.can_see_entrepots', 'comptoire.can_see_caisseusers', 'ventes.can_see_bondevis', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regbl', 'users.can_see_users', 'achats.can_see_facturesachats', 'achats.can_see_bonslivraisonachat', 'ventes.can_see_bongarantie', 'target.can_see_equipe', 'achats.can_see_avoirsachats', 'produits.can_see_produits', 'produits.can_see_archives', 'inventory.can_see_etatentres', 'clientInfo.can_see_tax_douan', 'inventory.can_see_invannuel', 'comptoire.can_see_cloture', 'inventory.can_see_bonretour', 'reglements.can_see_avoir', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_fidelite', 'clientInfo.can_see_type_client', 'tiers.can_see_marques', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'clientInfo.can_see_tablebases', 'inventory.can_see_etatsorties', 'produits.can_see_producttab', 'comptoire.can_see_comptoir', 'inventory.can_see_bonentres', 'inventory.can_see_etatreintegration', 'reglements.can_see_regfaccli', 'achats.can_see_bonreception', 'ventes.can_see_factures', 'tiers.can_see_comptesBancaire', 'tiers.can_see_clients', 'users.can_see_grp_users', 'reglements.can_see_etattres', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'ventes.can_see_bonretour', 'clientInfo.can_see_units', 'inventory.can_see_repartition', 'clientInfo.can_see_compteEntreprise', 'tiers.can_see_fournisseurs', 'reglements.can_see_loyers', 'reglements.can_see_reglementstab', 'clientInfo.can_see_identification', 'inventory.can_see_bonsorties', 'reglements.can_see_divers', 'reglements.can_see_etatregfac', 'tiers.can_see_banques']
+hello ['clientInfo.can_see_societe', 'tiers.can_see_constructeur', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'achats.can_see_achattab', 'inventory.can_see_invinitial', 'clientInfo.can_see_devises', 'target.can_see_targets', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'reglements.can_see_typereg', 'comptoire.can_see_tableaubord', 'reglements.can_see_echreg', 'produits.can_see_produits_familles', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'inventory.can_see_bonreforme', 'reglements.can_see_salaries', 'inventory.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreforme', 'tiers.can_see_agences', 'ventes.can_see_boncomptoires', 'ventes.can_see_ventetab', 'comptoire.can_see_pointsvente', 'comptoire.can_see_clientfid', 'clientInfo.can_see_tax_tva', 'ventes.can_see_avoir', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'inventory.can_see_entrepots', 'comptoire.can_see_caisseusers', 'ventes.can_see_bondevis', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regbl', 'users.can_see_users', 'achats.can_see_facturesachats', 'achats.can_see_bonslivraisonachat', 'ventes.can_see_bongarantie', 'target.can_see_equipe', 'achats.can_see_avoirsachats', 'produits.can_see_produits', 'produits.can_see_archives', 'inventory.can_see_etatentres', 'clientInfo.can_see_tax_douan', 'inventory.can_see_invannuel', 'comptoire.can_see_cloture', 'inventory.can_see_bonretour', 'reglements.can_see_avoir', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_fidelite', 'clientInfo.can_see_type_client', 'tiers.can_see_marques', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'clientInfo.can_see_tablebases', 'inventory.can_see_etatsorties', 'produits.can_see_producttab', 'comptoire.can_see_comptoir', 'inventory.can_see_bonentres', 'inventory.can_see_etatreintegration', 'reglements.can_see_regfaccli', 'achats.can_see_bonreception', 'ventes.can_see_factures', 'tiers.can_see_comptesBancaire', 'tiers.can_see_clients', 'users.can_see_grp_users', 'reglements.can_see_etattres', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'ventes.can_see_bonretour', 'clientInfo.can_see_units', 'inventory.can_see_repartition', 'clientInfo.can_see_compteEntreprise', 'tiers.can_see_fournisseurs', 'reglements.can_see_loyers', 'reglements.can_see_reglementstab', 'clientInfo.can_see_identification', 'inventory.can_see_bonsorties', 'reglements.can_see_divers', 'reglements.can_see_etatregfac', 'tiers.can_see_banques']
+hello ['clientInfo.can_see_societe', 'tiers.can_see_constructeur', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'achats.can_see_achattab', 'inventory.can_see_invinitial', 'clientInfo.can_see_devises', 'target.can_see_targets', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'reglements.can_see_typereg', 'comptoire.can_see_tableaubord', 'reglements.can_see_echreg', 'produits.can_see_produits_familles', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'inventory.can_see_bonreforme', 'reglements.can_see_salaries', 'inventory.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreforme', 'tiers.can_see_agences', 'ventes.can_see_boncomptoires', 'ventes.can_see_ventetab', 'comptoire.can_see_pointsvente', 'comptoire.can_see_clientfid', 'clientInfo.can_see_tax_tva', 'ventes.can_see_avoir', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'inventory.can_see_entrepots', 'comptoire.can_see_caisseusers', 'ventes.can_see_bondevis', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regbl', 'users.can_see_users', 'achats.can_see_facturesachats', 'achats.can_see_bonslivraisonachat', 'ventes.can_see_bongarantie', 'target.can_see_equipe', 'achats.can_see_avoirsachats', 'produits.can_see_produits', 'produits.can_see_archives', 'inventory.can_see_etatentres', 'clientInfo.can_see_tax_douan', 'inventory.can_see_invannuel', 'comptoire.can_see_cloture', 'inventory.can_see_bonretour', 'reglements.can_see_avoir', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_fidelite', 'clientInfo.can_see_type_client', 'tiers.can_see_marques', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'clientInfo.can_see_tablebases', 'inventory.can_see_etatsorties', 'produits.can_see_producttab', 'comptoire.can_see_comptoir', 'inventory.can_see_bonentres', 'inventory.can_see_etatreintegration', 'reglements.can_see_regfaccli', 'achats.can_see_bonreception', 'ventes.can_see_factures', 'tiers.can_see_comptesBancaire', 'tiers.can_see_clients', 'users.can_see_grp_users', 'reglements.can_see_etattres', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'ventes.can_see_bonretour', 'clientInfo.can_see_units', 'inventory.can_see_repartition', 'clientInfo.can_see_compteEntreprise', 'tiers.can_see_fournisseurs', 'reglements.can_see_loyers', 'reglements.can_see_reglementstab', 'clientInfo.can_see_identification', 'inventory.can_see_bonsorties', 'reglements.can_see_divers', 'reglements.can_see_etatregfac', 'tiers.can_see_banques']
+{'IdBon': 'FIG2409-2598', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'click info', 'address': '', 'num_registre': '22B0118700-00/31', 'nif': '002231011870098', 'nai': '31808830175', 'nis': '', 'phone': '0550122810'}, 'AssociatedBL': 'BL2409/02381', 'time': 17, 'produits': [{'id': 'be830f82-a274-4706-9179-ddb947f11870', 'name': 'ECRAN MSI PRO MP341CQ BLACK', 'ref': '9S6-3PB2CT-002', 'qty': 2, 'livre': True, 'rate': 53697.48, 'total': 107394.96, 'numSeries': ['PB2T024400566', 'PB2T024400563']}, {'id': '83df179a-0f7f-4d07-ba80-a33ac83a0a49', 'name': 'ECRAN MSI PRO MP341CQW WHITE                                  ', 'ref': '9S6-3PB2CT-007', 'qty': 3, 'livre': True, 'rate': 53697.48, 'total': 161092.44, 'numSeries': ['PB2T074400364', 'PB2T074400214', 'PB2T074400196']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'aa271d52-8a69-44ed-a0b0-6ab6e2dfa41d', 'name': 'PANTALON CARRE ELASTIQUE exlt ble standard', 'ref': '05192blestandard', 'availableqte': 22, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'aa271d52-8a69-44ed-a0b0-6ab6e2dfa41d', 'name': 'PANTALON CARRE ELASTIQUE exlt ble standard', 'ref': '05192blestandard', 'availableqte': 22, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+PANTALON CARRE ELASTIQUE exlt ble standard in MAG54 ROUIBA - Quantity: 22 1
+{'id': 'aa271d52-8a69-44ed-a0b0-6ab6e2dfa41d', 'name': 'PANTALON CARRE ELASTIQUE exlt ble standard', 'ref': '05192blestandard', 'availableqte': 22, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3200.00', 'TotalRemise': '1000', 'verssement': False, 'produits': [{'id': 'ab082144-2ae1-4a32-b701-aa98a0cd6f94', 'name': 'BALERINE ALUSO 1203 Mix standard', 'ref': '05787Mixstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '3200', 'gst': '0.00', 'total': 3200}]}
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3200.00', 'TotalRemise': '1000', 'verssement': False, 'produits': [{'id': 'ab082144-2ae1-4a32-b701-aa98a0cd6f94', 'name': 'BALERINE ALUSO 1203 Mix standard', 'ref': '05787Mixstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '3200', 'gst': '0.00', 'total': 3200}]}
+BALERINE ALUSO 1203 Mix standard in MAG54 ROUIBA - Quantity: 15 1
+{'id': 'ab082144-2ae1-4a32-b701-aa98a0cd6f94', 'name': 'BALERINE ALUSO 1203 Mix standard', 'ref': '05787Mixstandard', 'availableqte': 15, 'qty': '1', 'ent': '', 'rate': '3200', 'gst': '0.00', 'total': 3200}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['clientInfo.can_see_societe', 'tiers.can_see_constructeur', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'achats.can_see_achattab', 'inventory.can_see_invinitial', 'clientInfo.can_see_devises', 'target.can_see_targets', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'reglements.can_see_typereg', 'comptoire.can_see_tableaubord', 'reglements.can_see_echreg', 'produits.can_see_produits_familles', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'inventory.can_see_bonreforme', 'reglements.can_see_salaries', 'inventory.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreforme', 'tiers.can_see_agences', 'ventes.can_see_boncomptoires', 'ventes.can_see_ventetab', 'comptoire.can_see_pointsvente', 'comptoire.can_see_clientfid', 'clientInfo.can_see_tax_tva', 'ventes.can_see_avoir', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'inventory.can_see_entrepots', 'comptoire.can_see_caisseusers', 'ventes.can_see_bondevis', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regbl', 'users.can_see_users', 'achats.can_see_facturesachats', 'achats.can_see_bonslivraisonachat', 'ventes.can_see_bongarantie', 'target.can_see_equipe', 'achats.can_see_avoirsachats', 'produits.can_see_produits', 'produits.can_see_archives', 'inventory.can_see_etatentres', 'clientInfo.can_see_tax_douan', 'inventory.can_see_invannuel', 'comptoire.can_see_cloture', 'inventory.can_see_bonretour', 'reglements.can_see_avoir', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_fidelite', 'clientInfo.can_see_type_client', 'tiers.can_see_marques', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'clientInfo.can_see_tablebases', 'inventory.can_see_etatsorties', 'produits.can_see_producttab', 'comptoire.can_see_comptoir', 'inventory.can_see_bonentres', 'inventory.can_see_etatreintegration', 'reglements.can_see_regfaccli', 'achats.can_see_bonreception', 'ventes.can_see_factures', 'tiers.can_see_comptesBancaire', 'tiers.can_see_clients', 'users.can_see_grp_users', 'reglements.can_see_etattres', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'ventes.can_see_bonretour', 'clientInfo.can_see_units', 'inventory.can_see_repartition', 'clientInfo.can_see_compteEntreprise', 'tiers.can_see_fournisseurs', 'reglements.can_see_loyers', 'reglements.can_see_reglementstab', 'clientInfo.can_see_identification', 'inventory.can_see_bonsorties', 'reglements.can_see_divers', 'reglements.can_see_etatregfac', 'tiers.can_see_banques']
+None
+None
+hello ['produits.can_see_produits', 'inventory.can_see_bonsorties', 'inventory.can_see_bonretour', 'produits.can_see_etatreforme', 'ventes.can_see_ventetab', 'produits.can_see_producttab', 'ventes.can_see_bonretour', 'inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'inventory.can_see_etatentres', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bonentres', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab', 'inventory.can_see_etatreforme', 'inventory.can_see_etatsorties']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+hello ['clientInfo.can_see_societe', 'tiers.can_see_constructeur', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'achats.can_see_achattab', 'inventory.can_see_invinitial', 'clientInfo.can_see_devises', 'target.can_see_targets', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'reglements.can_see_typereg', 'comptoire.can_see_tableaubord', 'reglements.can_see_echreg', 'produits.can_see_produits_familles', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'inventory.can_see_bonreforme', 'reglements.can_see_salaries', 'inventory.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreforme', 'tiers.can_see_agences', 'ventes.can_see_boncomptoires', 'ventes.can_see_ventetab', 'comptoire.can_see_pointsvente', 'comptoire.can_see_clientfid', 'clientInfo.can_see_tax_tva', 'ventes.can_see_avoir', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'inventory.can_see_entrepots', 'comptoire.can_see_caisseusers', 'ventes.can_see_bondevis', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regbl', 'users.can_see_users', 'achats.can_see_facturesachats', 'achats.can_see_bonslivraisonachat', 'ventes.can_see_bongarantie', 'target.can_see_equipe', 'achats.can_see_avoirsachats', 'produits.can_see_produits', 'produits.can_see_archives', 'inventory.can_see_etatentres', 'clientInfo.can_see_tax_douan', 'inventory.can_see_invannuel', 'comptoire.can_see_cloture', 'inventory.can_see_bonretour', 'reglements.can_see_avoir', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_fidelite', 'clientInfo.can_see_type_client', 'tiers.can_see_marques', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'clientInfo.can_see_tablebases', 'inventory.can_see_etatsorties', 'produits.can_see_producttab', 'comptoire.can_see_comptoir', 'inventory.can_see_bonentres', 'inventory.can_see_etatreintegration', 'reglements.can_see_regfaccli', 'achats.can_see_bonreception', 'ventes.can_see_factures', 'tiers.can_see_comptesBancaire', 'tiers.can_see_clients', 'users.can_see_grp_users', 'reglements.can_see_etattres', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'ventes.can_see_bonretour', 'clientInfo.can_see_units', 'inventory.can_see_repartition', 'clientInfo.can_see_compteEntreprise', 'tiers.can_see_fournisseurs', 'reglements.can_see_loyers', 'reglements.can_see_reglementstab', 'clientInfo.can_see_identification', 'inventory.can_see_bonsorties', 'reglements.can_see_divers', 'reglements.can_see_etatregfac', 'tiers.can_see_banques']
+hello ['clientInfo.can_see_societe', 'tiers.can_see_constructeur', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'achats.can_see_achattab', 'inventory.can_see_invinitial', 'clientInfo.can_see_devises', 'target.can_see_targets', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'reglements.can_see_typereg', 'comptoire.can_see_tableaubord', 'reglements.can_see_echreg', 'produits.can_see_produits_familles', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'inventory.can_see_bonreforme', 'reglements.can_see_salaries', 'inventory.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreforme', 'tiers.can_see_agences', 'ventes.can_see_boncomptoires', 'ventes.can_see_ventetab', 'comptoire.can_see_pointsvente', 'comptoire.can_see_clientfid', 'clientInfo.can_see_tax_tva', 'ventes.can_see_avoir', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'inventory.can_see_entrepots', 'comptoire.can_see_caisseusers', 'ventes.can_see_bondevis', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regbl', 'users.can_see_users', 'achats.can_see_facturesachats', 'achats.can_see_bonslivraisonachat', 'ventes.can_see_bongarantie', 'target.can_see_equipe', 'achats.can_see_avoirsachats', 'produits.can_see_produits', 'produits.can_see_archives', 'inventory.can_see_etatentres', 'clientInfo.can_see_tax_douan', 'inventory.can_see_invannuel', 'comptoire.can_see_cloture', 'inventory.can_see_bonretour', 'reglements.can_see_avoir', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_fidelite', 'clientInfo.can_see_type_client', 'tiers.can_see_marques', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'clientInfo.can_see_tablebases', 'inventory.can_see_etatsorties', 'produits.can_see_producttab', 'comptoire.can_see_comptoir', 'inventory.can_see_bonentres', 'inventory.can_see_etatreintegration', 'reglements.can_see_regfaccli', 'achats.can_see_bonreception', 'ventes.can_see_factures', 'tiers.can_see_comptesBancaire', 'tiers.can_see_clients', 'users.can_see_grp_users', 'reglements.can_see_etattres', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'ventes.can_see_bonretour', 'clientInfo.can_see_units', 'inventory.can_see_repartition', 'clientInfo.can_see_compteEntreprise', 'tiers.can_see_fournisseurs', 'reglements.can_see_loyers', 'reglements.can_see_reglementstab', 'clientInfo.can_see_identification', 'inventory.can_see_bonsorties', 'reglements.can_see_divers', 'reglements.can_see_etatregfac', 'tiers.can_see_banques']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+[{'id': 31, 'date': '2024-08-01', 'datereponse': '2024-08-01', 'objet': 'ERREUR DE POINTAGE ', 'message': "11-07-2024 à 00:00:00\n15-07-2024 à 00:00:00\nJ'ETAI PRESENT ", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 27, 'date': '2024-07-31', 'datereponse': '2024-07-31', 'objet': 'DEMANDE DE PRET ', 'message': 'Monsieur BRIK Toufik,\nJe me permets de vous adresser cette lettre afin de solliciter un prêt de la part de l’entreprise. Après avoir pris en compte ma situation financière actuelle et les besoins que je rencontre, je souhaiterais obtenir un prêt de 150 000.00 DA.\nLa raison de cette demande est (payé le loyer annuel de la maison que j’occupe actuellement) J’ai bien réfléchi à cette demande et je m’engage à rembourser ce prêt selon les modalités que vous jugerez appropriées.\nJe propose de rembourser ce prêt par [déduction mensuelle sur salaire 12500da/mois], et je suis prêt à discuter des conditions précises avec vous pour convenir d’un plan de remboursement qui convient aux deux parties.\nJe reste à votre disposition pour toute information complémentaire ou pour discuter de cette demande en personne.\nJe vous remercie par avance pour l’attention que vous porterez à cette demande et pour votre compréhension.\nJe vous prie d’agréer, Monsieur le Directeur, l’expression de mes salutations distinguées.\n', 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 26, 'date': '2024-07-22', 'datereponse': '2024-07-22', 'objet': 'DEMANDE DE FICHE DE PAYE ', 'message': "BONSOIR ,\nSvp monsieur le directeur veuillez voir avec le comptable pour nous remettre les fiches de pays de l'année 2024 \nJANVIER-FEVRIER-MARS-AVRIL-JUIN.\nAcceptez monsieur mes salutation \n ", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 18, 'date': '2024-06-10', 'datereponse': '2024-06-19', 'objet': 'RECLAMATION DE SALAIRE ', 'message': "voici mon calcule pour mon salaire du moi de mai \nj'aimerais avoir + de détaille svp  \n\nLES RETARDS   : 3 JOURS (1440MIN)   -5000DA\nCHIFRE D'AFFAIRE  REALISE : 26 000 000.00 DA  (67000.00)\nHEURS SUP :  19 HEURS  ( 4900.00DA ) \n Demande de fiche de paye détaillé avec la réception de salaire svp .", 'reponse': "Nous avons pris soin de votre préoccupation et réglé votre situation. En cas d'ambiguïté ou d'ambiguïté, veuillez contacter nos centres d'intérêt pour obtenir des éclaircissements.", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'chawki'}]
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02415CLient store: 1BL Store : 1
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2807', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2804', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2803', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2802', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+Bon no: BL2409/02416CLient store: 1BL Store : 1
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['clientInfo.can_see_societe', 'tiers.can_see_constructeur', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'achats.can_see_achattab', 'inventory.can_see_invinitial', 'clientInfo.can_see_devises', 'target.can_see_targets', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'reglements.can_see_typereg', 'comptoire.can_see_tableaubord', 'reglements.can_see_echreg', 'produits.can_see_produits_familles', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'inventory.can_see_bonreforme', 'reglements.can_see_salaries', 'inventory.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreforme', 'tiers.can_see_agences', 'ventes.can_see_boncomptoires', 'ventes.can_see_ventetab', 'comptoire.can_see_pointsvente', 'comptoire.can_see_clientfid', 'clientInfo.can_see_tax_tva', 'ventes.can_see_avoir', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'inventory.can_see_entrepots', 'comptoire.can_see_caisseusers', 'ventes.can_see_bondevis', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regbl', 'users.can_see_users', 'achats.can_see_facturesachats', 'achats.can_see_bonslivraisonachat', 'ventes.can_see_bongarantie', 'target.can_see_equipe', 'achats.can_see_avoirsachats', 'produits.can_see_produits', 'produits.can_see_archives', 'inventory.can_see_etatentres', 'clientInfo.can_see_tax_douan', 'inventory.can_see_invannuel', 'comptoire.can_see_cloture', 'inventory.can_see_bonretour', 'reglements.can_see_avoir', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_fidelite', 'clientInfo.can_see_type_client', 'tiers.can_see_marques', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'clientInfo.can_see_tablebases', 'inventory.can_see_etatsorties', 'produits.can_see_producttab', 'comptoire.can_see_comptoir', 'inventory.can_see_bonentres', 'inventory.can_see_etatreintegration', 'reglements.can_see_regfaccli', 'achats.can_see_bonreception', 'ventes.can_see_factures', 'tiers.can_see_comptesBancaire', 'tiers.can_see_clients', 'users.can_see_grp_users', 'reglements.can_see_etattres', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'ventes.can_see_bonretour', 'clientInfo.can_see_units', 'inventory.can_see_repartition', 'clientInfo.can_see_compteEntreprise', 'tiers.can_see_fournisseurs', 'reglements.can_see_loyers', 'reglements.can_see_reglementstab', 'clientInfo.can_see_identification', 'inventory.can_see_bonsorties', 'reglements.can_see_divers', 'reglements.can_see_etatregfac', 'tiers.can_see_banques']
+hello ['clientInfo.can_see_societe', 'tiers.can_see_constructeur', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'achats.can_see_achattab', 'inventory.can_see_invinitial', 'clientInfo.can_see_devises', 'target.can_see_targets', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'reglements.can_see_typereg', 'comptoire.can_see_tableaubord', 'reglements.can_see_echreg', 'produits.can_see_produits_familles', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'inventory.can_see_bonreforme', 'reglements.can_see_salaries', 'inventory.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreforme', 'tiers.can_see_agences', 'ventes.can_see_boncomptoires', 'ventes.can_see_ventetab', 'comptoire.can_see_pointsvente', 'comptoire.can_see_clientfid', 'clientInfo.can_see_tax_tva', 'ventes.can_see_avoir', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'inventory.can_see_entrepots', 'comptoire.can_see_caisseusers', 'ventes.can_see_bondevis', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regbl', 'users.can_see_users', 'achats.can_see_facturesachats', 'achats.can_see_bonslivraisonachat', 'ventes.can_see_bongarantie', 'target.can_see_equipe', 'achats.can_see_avoirsachats', 'produits.can_see_produits', 'produits.can_see_archives', 'inventory.can_see_etatentres', 'clientInfo.can_see_tax_douan', 'inventory.can_see_invannuel', 'comptoire.can_see_cloture', 'inventory.can_see_bonretour', 'reglements.can_see_avoir', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_fidelite', 'clientInfo.can_see_type_client', 'tiers.can_see_marques', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'clientInfo.can_see_tablebases', 'inventory.can_see_etatsorties', 'produits.can_see_producttab', 'comptoire.can_see_comptoir', 'inventory.can_see_bonentres', 'inventory.can_see_etatreintegration', 'reglements.can_see_regfaccli', 'achats.can_see_bonreception', 'ventes.can_see_factures', 'tiers.can_see_comptesBancaire', 'tiers.can_see_clients', 'users.can_see_grp_users', 'reglements.can_see_etattres', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'ventes.can_see_bonretour', 'clientInfo.can_see_units', 'inventory.can_see_repartition', 'clientInfo.can_see_compteEntreprise', 'tiers.can_see_fournisseurs', 'reglements.can_see_loyers', 'reglements.can_see_reglementstab', 'clientInfo.can_see_identification', 'inventory.can_see_bonsorties', 'reglements.can_see_divers', 'reglements.can_see_etatregfac', 'tiers.can_see_banques']
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2806', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+Bon no: BL2409/02415CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2600', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'click info', 'address': '', 'num_registre': '22B0118700-00/31', 'nif': '002231011870098', 'nai': '31808830175', 'nis': '', 'phone': '0550122810'}, 'AssociatedBL': 'BL2409/02416', 'time': 572, 'produits': [{'id': '3fdc0b9f-2698-4c91-95ad-f34642cd1432', 'name': 'CPU AMD RYZEN 5 7600 MPK\t', 'ref': '7600-MPK', 'qty': 2, 'livre': True, 'rate': 30672.27, 'total': 61344.54, 'numSeries': ['YB04777P40077_100-000001015', 'YB04777P40079_100-000001015']}, {'id': 'de78925d-5056-4825-bfe8-708ff3e31c82', 'name': 'CPU AMD RYZNE 5 8400F BOX', 'ref': '8400F-BOX', 'qty': 5, 'livre': True, 'rate': 25630.25, 'total': 128151.25, 'numSeries': ['4639580P40164', '9MC1029O40211', '9ACZ208O40023', '9ACX755O40033', '9ACX755O40276']}, {'id': '5980ec8d-0131-403e-b540-7bc54f8e5f74', 'name': 'CPU AMD RYZEN 5 7500F MPK', 'ref': '7500F-MPK', 'qty': 5, 'livre': True, 'rate': 27394.96, 'total': 136974.8, 'numSeries': ['9MF1586P40455_100-000000597', '9MF1586P40192_100-000000597', '9MF1586P40453_100-000000597', '9MF1586P40452_100-000000597', '9MF1586P40451_100-000000597'], 'selected': False}, {'id': 'af50f02a-f0b0-40a2-845e-0380d23bd281', 'name': 'CPU INTEL I7 13700KF BOX', 'ref': 'I7-13700KF-BOX', 'qty': 3, 'livre': True, 'rate': 51680.67, 'total': 155042.01, 'numSeries': ['U34X6T9403674', 'U3CP339201887', 'U3FM268002674']}, {'id': '029a26bc-45f8-43fa-aab1-917f35319511', 'name': 'CARTE MERE MSI B760M-P DDR5', 'ref': 'MD9117E02011', 'qty': 3, 'livre': True, 'rate': 22352.94, 'total': 67058.82, 'numSeries': ['601-7E02-040B2404000005', '601-7E02-040B2404000004', '601-7E02-040B2404000003']}, {'id': 'bb9ff132-965d-414f-8703-aded85336a0d', 'name': 'ALIMENTATION MSI MAG A750BN 750 WATTS 80+ BRONZE PCIE5', 'ref': 'A750BN-PCIE5', 'qty': 5, 'livre': True, 'rate': 11344.54, 'total': 56722.7, 'numSeries': ['3067ZP2C11CE010350000826', '3067ZP2C11CE010350000823', '3067ZP2C11CE010350000827', '3067ZP2C11CE010350000825', '3067ZP2C11CE010350000828']}, {'id': 'e3ed0bd9-2340-49cc-8968-390f9e40e27e', 'name': 'ALIMENTATION MSI MAG A650GL 80+ GOLD FULL MODULAR', 'ref': 'A650GL', 'qty': 5, 'livre': True, 'rate': 11680.67, 'total': 58403.35, 'numSeries': ['3067ZP8C11CE010348000607', '3067ZP8C11CE010348000610', '3067ZP8C11CE010348000609', '3067ZP8C11CE010348000611', '3067ZP8C11CE010348000612']}, {'id': '35cad276-bc21-4f6c-99ac-5ba078e5bdd2', 'name': 'ALIMENTATION MSI MAG A750GL 750 WATTS 80PLUS GOLD PCIE5', 'ref': 'MD3067ZP8B11CE0', 'qty': 5, 'livre': True, 'rate': 13025.21, 'total': 65126.05, 'numSeries': ['3067ZP8B11CE010348003728', '3067ZP8B11CE010348003732', '3067ZP8B11CE010348003729', '3067ZP8B11CE010348003727', '3067ZP8B11CE010348003730']}, {'id': '67726f2b-dbf2-4190-9210-77c694014484', 'name': 'ALIMENTATION MSI MAG A850GL 850 WATTS 80PLUS GOLD PCIE5 BLACK', 'ref': 'MD3067ZP8A11CE0', 'qty': 5, 'livre': True, 'rate': 15042.02, 'total': 75210.1, 'numSeries': ['3067ZP8A11CE010408005211', '3067ZP8A11CE010408005214', '3067ZP8A11CE010408005210', '3067ZP8A11CE010408005227', '3067ZP8A11CE010408005209']}]}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2602', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'EURL UNITEC UNITED COMPUTER', 'address': 'RDC BLOC N°04 CITE POINT DU JOUR -ORAN', 'num_registre': '31/00-0114554B14', 'nif': '001431011455446', 'nai': '31019304737', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2409/02344', 'time': 63, 'produits': [{'id': '42d922aa-94a7-432e-8510-b570f7e25026', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 3, 'livre': True, 'rate': 32689.08, 'total': 98067.24, 'numSeries': ['CE2M014403084', 'CE2M014403815', 'CE2M014403497']}]}
+gestion-stock
+{'IdBon': 'FIG2409-2603', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'BOUZIDI ZOHEIR (HESORAN)', 'address': '60 RUE HEREDIA CASTOR ORAN ', 'num_registre': '09a0578886', 'nif': '1983311010040639', 'nai': '31813257015', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2409/02415', 'time': 43, 'produits': [{'id': '635c3999-947a-4442-b2b5-9f870facc381', 'name': 'CPU AMD RYZEN 5 7600 MPK\t', 'ref': '7600-MPK', 'qty': 2, 'livre': True, 'rate': 30672.27, 'total': 61344.54, 'numSeries': ['YB04777P40078_100-000001015', 'YB04777P40076_100-000001015']}, {'id': '7c511eab-b531-45b8-a37a-2c586a7489a6', 'name': 'ECRAN MSI G275F - 27INCH - IPS - 180HZ - 0.5MS ', 'ref': 'G275F', 'qty': 3, 'livre': True, 'rate': 32689.08, 'total': 98067.24, 'numSeries': ['CE2M014403473', 'CE2M014403314', 'CE2M014403167']}]}
+gestion-stock
+DIRECTEUR EXECUTIF
+DIRECTEUR EXECUTIF
+DIRECTEUR EXECUTIF
+Bon no: BL2409/02419CLient store: 1BL Store : 1
+Bon no: BL2409/02419CLient store: 1BL Store : 1
+Bon no: BL2409/02418CLient store: 1BL Store : 1
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2809', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}

@@ -21774,3 +21774,94 @@ Traceback (most recent call last):
 KeyError: 'store'
 Not Found: /cpsess4701829434/scripts12/terminal/
 Not Found: /robots.txt
+Not Found: /.git/config
+Not Found: /actuator/gateway/routes/
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /cpsess4701829434/scripts12/terminal/
+Internal Server Error: /ventes/Bondevis
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 2530, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 2544, in post
+    client, created = Client.objects.get_or_create(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 916, in get_or_create
+    return self.get(**kwargs), False
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 640, in get
+    raise self.model.MultipleObjectsReturned(
+tiers.models.Client.MultipleObjectsReturned: get() returned more than one Client -- it returned 2!
+Internal Server Error: /ventes/Bondevis
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 2530, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 2544, in post
+    client, created = Client.objects.get_or_create(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 916, in get_or_create
+    return self.get(**kwargs), False
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 640, in get
+    raise self.model.MultipleObjectsReturned(
+tiers.models.Client.MultipleObjectsReturned: get() returned more than one Client -- it returned 2!
+Not Found: /robots.txt
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /cgi-bin/luci/;stok=/locale
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 76, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
+Not Found: /robots.txt
+Not Found: /favicon.ico
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-29 14:07:59.414426) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-29 14:31:48.708776) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-29 14:39:51.583995) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField CourseLivraison.dateTimeAffectation received a naive datetime (2024-09-29 14:50:27.264932) while time zone support is active.
+  warnings.warn(
+Not Found: /cpsess4701829434/scripts12/terminal/
+Not Found: /cpsess4701829434/scripts12/terminal/
+Not Found: /cpsess3607211035/scripts12/terminal/
