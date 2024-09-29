@@ -56,13 +56,13 @@
                {% endif %} 
             </li>
             {% endif %}
-            {% if  request.session.role == "manager" or request.session.username == "fares" or request.session.username == "toufik" or request.session.role == "Finance" %}
+            {% if  request.session.role == "manager" or request.session.username == "fares" or request.session.username == "toufik" or request.session.role == "Finance" or request.session.username == "sofian"  %}
             <li class="flex-1 px-2 sm:px-4 font-medium py-2 sm:py-2 sm:w-1/6 rounded-t-lg cursor-pointer text-center hover:shadow-inner hover:underline bg-gray-200 {% if active_tab == 'logistique' %}text-white font-semibold sm:w-1/5 text-center rounded-tl-lg bg-slate-800{% endif %}">
                   <a href="{% url 'bons-transport' %}">Logistiques</a>
             </li>
             {% endif %}
             
-            {% if 'reglements.can_see_reglementstab' in request.session.permissions or  request.session.username == "younes" or  request.session.username == "nadjemeddine" %}
+            {% if 'reglements.can_see_reglementstab' in request.session.permissions or request.session.username == "sofian" or  request.session.username == "younes" or  request.session.username == "nadjemeddine" %}
             <li class="flex-1 px-2 sm:px-4 font-medium py-2 sm:py-2 sm:w-1/6 rounded-t-lg cursor-pointer text-center hover:shadow-inner hover:underline bg-gray-200 {% if active_tab == 'reglements' %}text-white font-semibold sm:w-1/5 text-center rounded-tl-lg bg-slate-800{% endif %}">
                     <a href="{% url 'reglements' %}">Règlements</a>
             </li>

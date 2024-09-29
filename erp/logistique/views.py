@@ -50,7 +50,7 @@ class TrackUsersView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_create_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == 'manager'
-        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
+        return self.request.session["username"] == 'fares' or  self.request.session["username"] == 'sofian' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
    
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -195,7 +195,7 @@ class PageCoursesLivraisonView(LoginRequiredMixin, UserPassesTestMixin, Template
     login_url = 'home' 
     raise_exception = True  # Set to True to raise a PermissionDenied exception
     def test_func(self):
-        return self.request.session["role"] == 'manager' or  self.request.session["role"] == 'DIRECTEUR EXECUTIF' or  self.request.session["role"] == 'Finance' or self.request.session["username"] == 'fares'
+        return self.request.session["role"] == 'manager' or  self.request.session["role"] == 'DIRECTEUR EXECUTIF' or  self.request.session["role"] == 'Finance' or self.request.session["username"] == 'fares' or  self.request.session["username"] == 'sofian'
 
     def handle_no_permission(self):
         return HttpResponseRedirect(reverse_lazy('noaccess'))
@@ -239,7 +239,8 @@ class LivraisonCourseView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_create_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == 'manager'
-        return  self.request.session["role"] == 'Finance' or self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
+        return  self.request.session["role"] == 'Finance' or self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or  self.request.session["username"] == 'sofian'
+    
     
     def handle_no_permission(self):
         return HttpResponseRedirect(reverse_lazy('noaccess'))
@@ -377,7 +378,7 @@ class NumerSeriesView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_create_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == 'manager'
-        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
+        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or  self.request.session["username"] == 'sofian'
    
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -456,7 +457,7 @@ class BonTransportView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_create_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == 'manager'
-        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or self.request.session["role"] == 'Finance'
+        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or self.request.session["role"] == 'Finance' or  self.request.session["username"] == 'sofian'
    
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -521,7 +522,7 @@ class RequeteView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_create_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == 'manager'
-        return self.request.session["username"] == 'ziad' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or self.request.session["role"] == 'Finance'
+        return self.request.session["username"] == 'ziad' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or self.request.session["role"] == 'Finance' or  self.request.session["username"] == 'sofian'
    
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -573,7 +574,7 @@ class FicheView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_create_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == 'manager'
-        return self.request.session["username"] == 'ziad' or self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
+        return self.request.session["username"] == 'ziad' or self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or  self.request.session["username"] == 'sofian'
    
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -620,7 +621,7 @@ class EditRequeteView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_create_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == 'manager'
-        return self.request.session["username"] == 'ziad' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
+        return self.request.session["username"] == 'ziad' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or  self.request.session["username"] == 'sofian'
    
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -683,7 +684,7 @@ class ReglementTransportView(LoginRequiredMixin, UserPassesTestMixin, TemplateVi
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_see_regtransport' in self.request.session.get('permissions', []) or self.request.session["role"] == "manager"
-        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
+        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or  self.request.session["username"] == 'sofian'
     def handle_no_permission(self):
          # Redirect users without permission to the "inventory" page
         return HttpResponseRedirect(reverse_lazy('noaccess'))
@@ -759,7 +760,7 @@ class MoyenTransportView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     def test_func(self):
         # Define the custom test function
         # return 'logistique.can_see_moyenstr' in self.request.session.get('permissions', []) or self.request.session["role"] == 'manager'
-        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
+        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or  self.request.session["username"] == 'sofian'
 
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -821,7 +822,7 @@ class BillsNotPreparedView(LoginRequiredMixin, UserPassesTestMixin, TemplateView
     def test_func(self):
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_see_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == "manager"
-        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
+        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or  self.request.session["username"] == 'sofian'
 
     def handle_no_permission(self):
         return HttpResponseRedirect(reverse_lazy('noaccess'))  
@@ -858,7 +859,7 @@ class BonTransportListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView
     def test_func(self):
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_see_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == "manager"
-        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or self.request.session["role"] == 'Finance'
+        return self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or self.request.session["role"] == 'Finance' or  self.request.session["username"] == 'sofian'
 
     def handle_no_permission(self):
         return HttpResponseRedirect(reverse_lazy('noaccess'))  
@@ -888,7 +889,7 @@ class FichesLivraisonView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
     def test_func(self):
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_see_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == "manager"
-        return self.request.session["username"] == 'ziad' or self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
+        return self.request.session["username"] == 'ziad' or self.request.session["username"] == 'fares' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or  self.request.session["username"] == 'sofian'
 
     def handle_no_permission(self):
         return HttpResponseRedirect(reverse_lazy('noaccess'))  
@@ -913,7 +914,7 @@ class RequetesPageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     def test_func(self):
         myuser=CustomUser.objects.get(username=self.request.user.username)
         # return 'logistique.can_see_bontransport' in self.request.session.get('permissions', []) or self.request.session["role"] == "manager"
-        return self.request.session["username"] == 'ziad' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager'
+        return self.request.session["username"] == 'ziad' or self.request.session["role"] == 'DIRECTEUR EXECUTIF' or self.request.session["role"] == 'manager' or  self.request.session["username"] == 'sofian'
 
     def handle_no_permission(self):
         return HttpResponseRedirect(reverse_lazy('noaccess'))  
