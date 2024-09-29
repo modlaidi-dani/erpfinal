@@ -19,9 +19,9 @@
                 <a href="{% url 'customers' %}">Tiers</a>
             </li>
             {% endif %}
-            {% if 'inventory.can_see_stocktab' in request.session.permissions  %}
+            {% if 'inventory.can_see_stocktab' in request.session.permissions or request.session.username == "sofian" %}
             <li class="flex-1 px-2 sm:px-4 font-medium py-2 sm:py-2 sm:w-1/6 rounded-t-lg cursor-pointer text-center hover:shadow-inner hover:underline bg-gray-200 {% if active_tab == 'stock' %}text-white font-semibold sm:w-1/5 text-center rounded-tl-lg bg-slate-800{% endif %}">
-                {% if  request.session.role == "gestion-stock" or request.session.role == "DIRECTEUR EXECUTIF" or request.session.role == "commercial-vente" or request.session.role == "commercial" or request.session.role == "Finance" %} 
+                {% if  request.session.role == "gestion-stock" or request.session.role == "DIRECTEUR EXECUTIF" or request.session.role == "commercial-vente" or request.session.role == "commercial" or request.session.role == "Finance" or request.session.username == "sofian"%} 
                     <a href="{% url 'list-sorties' %}">Stock</a>
                 {% endif %}
                 {% if  request.session.role == "manager" or request.session.store == "2" or request.session.store == "8"     %} 
