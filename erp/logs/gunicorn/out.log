@@ -13802,3 +13802,442 @@ Finance
 <QuerySet []>
 <QuerySet [<BonSortie: Bon no: BL2409/02357CLient store: 1BL Store : 1>]>
 <QuerySet [<BonSortie: Bon no: BL2409/02361CLient store: 1BL Store : 1>]>
+<QuerySet [<BonSortie: Bon no: BL2409/02362CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02377CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02385CLient store: 1BL Store : 1>]>
+<QuerySet [<BonSortie: Bon no: BL2409/02386CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02409CLient store: 1BL Store : 1>]>
+<QuerySet [<BonSortie: Bon no: BL2409/02388CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02396CLient store: 1BL Store : 1>]>
+<QuerySet [<BonSortie: Bon no: BL2409/02397CLient store: 1BL Store : 1>]>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet []>
+<QuerySet [<BonSortie: Bon no: BL2409/02408CLient store: 1BL Store : 1>]>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['comptoire.can_see_pointsvente', 'inventory.can_see_repartition', 'reglements.can_see_loyers', 'ventes.can_see_bonlivraison', 'clientInfo.can_see_tax_douan', 'reglements.can_see_regbl', 'comptoire.can_see_cloture', 'clientInfo.can_see_devises', 'target.can_see_targettab', 'comptoire.can_see_caisseusers', 'achats.can_see_achattab', 'clientInfo.can_see_valeur_devis', 'ventes.can_see_bondevis', 'achats.can_see_facturesachats', 'comptoire.can_see_tableaubord', 'tiers.can_see_marques', 'inventory.can_see_invinitial', 'ventes.can_see_avoir', 'reglements.can_see_avoir', 'inventory.can_see_bonretour', 'achats.can_see_bonscommandesachat', 'reglements.can_see_salaries', 'clientInfo.can_see_units', 'tiers.can_see_banques', 'tiers.can_see_comptesBancaire', 'reglements.can_see_reglementstab', 'users.can_see_users', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_divers', 'inventory.can_see_bonsreintegration', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'reglements.can_see_typereg', 'reglements.can_see_etattres', 'inventory.can_see_bonslivraisonachat', 'produits.can_see_archives', 'comptoire.can_see_clientfid', 'inventory.can_see_etatreintegration', 'ventes.can_see_bonretour', 'tiers.can_see_clients', 'reglements.can_see_depense', 'clientInfo.can_see_compteEntreprise', 'achats.can_see_avoirsachats', 'produits.can_see_producttab', 'clientInfo.can_see_type_client', 'clientInfo.can_see_tax_tva', 'produits.can_see_etatreforme', 'produits.can_see_produits_familles', 'ventes.can_see_boncomptoires', 'clientInfo.can_see_societe', 'comptoire.can_see_comptoir', 'ventes.can_see_bongarantie', 'inventory.can_see_bonentres', 'inventory.can_see_etatentres', 'achats.can_see_bonslivraisonachat', 'produits.can_see_produits', 'ventes.can_see_factures', 'target.can_see_equipe', 'clientInfo.can_see_tablebases', 'inventory.can_see_bontransfert', 'achats.can_see_bonreception', 'tiers.can_see_tierstab', 'target.can_see_targets', 'tiers.can_see_constructeur', 'comptoire.can_see_fidelite', 'inventory.can_see_stocktab', 'clientInfo.can_see_clientInfo', 'users.can_see_grp_users', 'tiers.can_see_fournisseurs', 'inventory.can_see_etatsorties', 'inventory.can_see_bonreforme', 'inventory.can_see_bonsorties', 'users.can_see_users_perm', 'reglements.can_see_etatregfac', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_entrepots', 'reglements.can_see_regfaccli', 'clientInfo.can_see_identification', 'tiers.can_see_agences', 'inventory.can_see_invannuel', 'reglements.can_see_echreg']
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+chawki
+aya_b
+yasmine
+aimen
+yasmine
+aimen
+aimen
+yasmine
+aya_b
+sarah
+yasmine
+aya_b
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+nadjemeddine
+yasmine
+younes
+aya_b
+chawki
+aimen
+sarah
+yasmine
+aimen
+chawki
+aimen
+chawki
+nadjemeddine
+aimen
+nadjemeddine
+chawki
+nadjemeddine
+yasmine
+nadjemeddine
+aimen
+nadjemeddine
+nadjemeddine
+aya_b
+aya_b
+yasmine
+aya_b
+sarah
+aimen
+aimen
+sarah
+chawki
+aya_b
+yasmine
+yasmine
+aya_b
+aimen
+aimen
+aya_b
+aya_b
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+yasmine
+aimen
+01
+sarah
+yasmine
+yasmine
+yasmine
+sarah
+yasmine
+yasmine
+yasmine
+nadjemeddine
+yasmine
+aimen
+yasmine
+yasmine
+nadjemeddine
+toufik
+chawki
+aya_b
+yasmine
+01
+yasmine
+yasmine
+01
+aimen
+aya_b
+sarah
+nadjemeddine
+yasmine
+nadjemeddine
+01
+01
+yasmine
+01
+yasmine
+aimen
+nadjemeddine
+aya_b
+nadjemeddine
+aya_b
+aimen
+sarah
+aya_b
+nadjemeddine
+sarah
+sarah
+sarah
+01
+01
+chawki
+01
+nadjemeddine
+01
+aya_b
+yasmina_descative
+nadjemeddine
+aimen
+aimen
+sarah
+aya_b
+sarah
+nadjemeddine
+yasmine
+sarah
+yasmine
+aya_b
+nadjemeddine
+aya_b
+yasmine
+01
+01
+aimen
+01
+aya_b
+01
+sarah
+nadjemeddine
+nadjemeddine
+aimen
+aya_b
+01
+aya_b
+01
+01
+01
+yasmine
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+Vendeuse
+{'dateReg': '2024-09-26', 'client': 735, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '383200', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00536', 'montantRegle': 0, 'montant': 21751.02}, {'idBon': 'BL2409/02347', 'montantRegle': 0, 'montant': 116700.02}, {'idBon': 'BL2409/02348', 'montantRegle': 0, 'montant': 116700.02}, {'idBon': 'BL2409/02371', 'montantRegle': '383200', 'montant': 389200.01, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-26', 'client': 1391, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '207500', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2409/02406', 'montantRegle': '207500', 'montant': 207500.03, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'montant': '7700', 'date': '2024-09-26'}
+239
+#BA-88365
+[{'produit_ref': '05771roustandard', 'produit_name': 'CHAUSSURE ROUGE 1894  rou standard', 'produit_qty': 5}]
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-26', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': '1000', 'verssement': False, 'produits': [{'id': 'c14536a4-3b4b-4ca5-86aa-9e398723670c', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 43, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-09-26', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': '1000', 'verssement': False, 'produits': [{'id': 'c14536a4-3b4b-4ca5-86aa-9e398723670c', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 43, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+LIQUETTE ZMRT-BK-ALABA  Mix standard in MAG54 ROUIBA - Quantity: 43 1
+{'id': 'c14536a4-3b4b-4ca5-86aa-9e398723670c', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 43, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+{'nomClient': 'zerrari Fouzi ', 'adresse': '', 'phone': '0770309046', 'catclient': '1'}
+{'IdBon': '', 'dateBp': '2024-09-26', 'clientInfo': {'name': 'zerrari Fouzi ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '23900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'fd541f21-fb29-43c5-ab1d-17fba35c3ea2', 'name': 'ECRAN MSI MP252 - 25INCH - 100HZ - IPS - 1MS ', 'ref': 'MP252', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '23900', 'gst': '0.00', 'total': 23900}]}
+{'IdBon': '', 'dateBp': '2024-09-26', 'clientInfo': {'name': 'zerrari Fouzi ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '23900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'fd541f21-fb29-43c5-ab1d-17fba35c3ea2', 'name': 'ECRAN MSI MP252 - 25INCH - 100HZ - IPS - 1MS ', 'ref': 'MP252', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '23900', 'gst': '0.00', 'total': 23900}]}
+ECRAN MSI MP252 - 25INCH - 100HZ - IPS - 1MS  in PARKMALL SETIF - Quantity: 5 1
+{'id': 'fd541f21-fb29-43c5-ab1d-17fba35c3ea2', 'name': 'ECRAN MSI MP252 - 25INCH - 100HZ - IPS - 1MS ', 'ref': 'MP252', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '23900', 'gst': '0.00', 'total': 23900}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['target.can_see_targets', 'produits.can_see_produits', 'ventes.can_see_boncomptoires', 'comptoire.can_see_cloture', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'comptoire.can_see_comptoirtab', 'produits.can_see_producttab', 'ventes.can_see_bonretour', 'inventory.can_see_bonreforme', 'inventory.can_create_echange_bill', 'inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'comptoire.can_see_comptoir', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bonentres', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab']
+hello ['target.can_see_targets', 'produits.can_see_produits', 'ventes.can_see_boncomptoires', 'comptoire.can_see_cloture', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'comptoire.can_see_comptoirtab', 'produits.can_see_producttab', 'ventes.can_see_bonretour', 'inventory.can_see_bonreforme', 'inventory.can_create_echange_bill', 'inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'comptoire.can_see_comptoir', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bonentres', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab']
+{'IdBon': '', 'dateBp': '2024-09-27', 'clientInfo': {'name': 'Hamzaoui Anouar ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a573fb09-bee5-4f3f-adb2-638db5739148', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL SILVER', 'ref': 'MMPXLS\t', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '1700', 'gst': '0.00', 'total': 1700}, {'id': '5dc1f822-eb43-45ec-b1f1-f145e3ff25d1', 'name': 'SOURIS CANYON GM-211 BLACK', 'ref': 'GM211-BLACK', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '2200', 'gst': '0.00', 'total': 2200}, {'id': '7e6786e3-7857-46bf-8f5d-225b21e8a41d', 'name': 'CLAVIER CANYON HKB6 - FR', 'ref': 'HKB6-FR', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}]}
+{'IdBon': '', 'dateBp': '2024-09-27', 'clientInfo': {'name': 'Hamzaoui Anouar ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a573fb09-bee5-4f3f-adb2-638db5739148', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL SILVER', 'ref': 'MMPXLS\t', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '1700', 'gst': '0.00', 'total': 1700}, {'id': '5dc1f822-eb43-45ec-b1f1-f145e3ff25d1', 'name': 'SOURIS CANYON GM-211 BLACK', 'ref': 'GM211-BLACK', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '2200', 'gst': '0.00', 'total': 2200}, {'id': '7e6786e3-7857-46bf-8f5d-225b21e8a41d', 'name': 'CLAVIER CANYON HKB6 - FR', 'ref': 'HKB6-FR', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}]}
+TAPIS DE SOURIS MARS GAMING MMPXL SILVER in PARKMALL SETIF - Quantity: 4 1
+SOURIS CANYON GM-211 BLACK in PARKMALL SETIF - Quantity: 1 1
+CLAVIER CANYON HKB6 - FR in PARKMALL SETIF - Quantity: 3 1
+{'id': 'a573fb09-bee5-4f3f-adb2-638db5739148', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL SILVER', 'ref': 'MMPXLS\t', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '1700', 'gst': '0.00', 'total': 1700}
+{'id': '5dc1f822-eb43-45ec-b1f1-f145e3ff25d1', 'name': 'SOURIS CANYON GM-211 BLACK', 'ref': 'GM211-BLACK', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '2200', 'gst': '0.00', 'total': 2200}
+{'id': '7e6786e3-7857-46bf-8f5d-225b21e8a41d', 'name': 'CLAVIER CANYON HKB6 - FR', 'ref': 'HKB6-FR', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+Bon no: BL2409/02410CLient store: 1BL Store : 1
+commercial-vente
+hello None
+None
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-26', 'client': 1126, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '462200', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2405/01041', 'montantRegle': 0, 'montant': 9400.23}, {'idBon': 'BL2406/01167', 'montantRegle': 0, 'montant': 10699.91}, {'idBon': 'BL2409/02407', 'montantRegle': '462200', 'montant': 462200.05, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+{'nomClient': 'Hamzaoui Anouar ', 'adresse': '', 'phone': '0770080299', 'catclient': '1'}
+None
+None
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2802', 'type': 'bs', 'modif': 'True'}
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2801', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+Bon no: BL2409/02348CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<QuerySet [<BonTransfert: Bon no: BT-299791>, <BonTransfert: Bon no: BT-231185>, <BonTransfert: Bon no: BT-732938>, <BonTransfert: Bon no: BT-629094>, <BonTransfert: Bon no: BT-444235>, <BonTransfert: Bon no: BT-208835>, <BonTransfert: Bon no: BT-395912>, <BonTransfert: Bon no: BT-685836>, <BonTransfert: Bon no: BT-672328>, <BonTransfert: Bon no: BT-426412>, <BonTransfert: Bon no: BT-902219>, <BonTransfert: Bon no: BT-616663>, <BonTransfert: Bon no: BT-149130>, <BonTransfert: Bon no: BT-980839>, <BonTransfert: Bon no: BT-738528>, <BonTransfert: Bon no: BT-637463>, <BonTransfert: Bon no: BT-218119>, <BonTransfert: Bon no: BT-874549>, <BonTransfert: Bon no: BT24-00001>, <BonTransfert: Bon no: BT-297584>, '...(remaining elements truncated)...']>
+manager mag54
+commercial-vente
+Bon no: BL2409/02411CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e5193002-7e15-4f32-b1da-e9619552b216', 'name': 'HIDJAB CLRT 247195 noi standard', 'ref': '05013noistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}, {'id': 'efa3d6e8-6845-473c-8a9a-ea20a663cfa0', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 60, 'qty': '1', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 1800}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e5193002-7e15-4f32-b1da-e9619552b216', 'name': 'HIDJAB CLRT 247195 noi standard', 'ref': '05013noistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}, {'id': 'efa3d6e8-6845-473c-8a9a-ea20a663cfa0', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 60, 'qty': '1', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 1800}]}
+HIDJAB CLRT 247195 noi standard in MAG54 ROUIBA - Quantity: 7 1
+FUSEAU LD BS noi standard in MAG54 ROUIBA - Quantity: 60 1
+{'id': 'e5193002-7e15-4f32-b1da-e9619552b216', 'name': 'HIDJAB CLRT 247195 noi standard', 'ref': '05013noistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+{'id': 'efa3d6e8-6845-473c-8a9a-ea20a663cfa0', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 60, 'qty': '1', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 1800}
+commercial-vente
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '14800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '23f413ad-57ab-428c-825a-10288c4a32bb', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 14, 'qty': '2', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 3600}, {'id': '33b51f69-6f1b-4f32-a59e-b7f5ea9acd3b', 'name': 'FUSEAU art 369/371 noi standard', 'ref': '05231noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}, {'id': '2e6f56d6-0c99-43a4-9bba-b108488b0034', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}, {'id': '66887714-f96f-41d2-9729-9f69dd14d3e7', 'name': 'HAUT GVC1130 ble standard', 'ref': '05170blestandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '14800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '23f413ad-57ab-428c-825a-10288c4a32bb', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 14, 'qty': '2', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 3600}, {'id': '33b51f69-6f1b-4f32-a59e-b7f5ea9acd3b', 'name': 'FUSEAU art 369/371 noi standard', 'ref': '05231noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}, {'id': '2e6f56d6-0c99-43a4-9bba-b108488b0034', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}, {'id': '66887714-f96f-41d2-9729-9f69dd14d3e7', 'name': 'HAUT GVC1130 ble standard', 'ref': '05170blestandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}]}
+FUSEAU LD BS noi standard in MAG54 MOHAMMADIA MALL - Quantity: 14 2
+FUSEAU art 369/371 noi standard in MAG54 MOHAMMADIA MALL - Quantity: 4 1
+PANTALON CARRE COTON EXLT  noi standard in MAG54 MOHAMMADIA MALL - Quantity: 9 1
+HAUT GVC1130 ble standard in MAG54 MOHAMMADIA MALL - Quantity: 2 1
+{'id': '23f413ad-57ab-428c-825a-10288c4a32bb', 'name': 'FUSEAU LD BS noi standard', 'ref': '03269noistandard', 'availableqte': 14, 'qty': '2', 'ent': '', 'rate': '1800', 'gst': '0.00', 'total': 3600}
+{'id': '33b51f69-6f1b-4f32-a59e-b7f5ea9acd3b', 'name': 'FUSEAU art 369/371 noi standard', 'ref': '05231noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+{'id': '2e6f56d6-0c99-43a4-9bba-b108488b0034', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+{'id': '66887714-f96f-41d2-9729-9f69dd14d3e7', 'name': 'HAUT GVC1130 ble standard', 'ref': '05170blestandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde 30%', 'TotalPay': '14900.00', 'TotalRemise': '4900', 'verssement': False, 'produits': [{'id': '328267be-53d4-4f13-92fe-6e88ec35dc45', 'name': 'ENSEMBLE 2P KLKC noi standard', 'ref': '03156noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '14900', 'gst': '0.00', 'total': 14900}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde 30%', 'TotalPay': '14900.00', 'TotalRemise': '4900', 'verssement': False, 'produits': [{'id': '328267be-53d4-4f13-92fe-6e88ec35dc45', 'name': 'ENSEMBLE 2P KLKC noi standard', 'ref': '03156noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '14900', 'gst': '0.00', 'total': 14900}]}
+ENSEMBLE 2P KLKC noi standard in MAG54 ROUIBA - Quantity: 10 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-26', 'client': 231, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '269500', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2401/00002', 'montantRegle': 0, 'montant': 0.16}, {'idBon': 'BL2401/00060', 'montantRegle': 0, 'montant': 0.09}, {'idBon': 'BL2402-00212', 'montantRegle': 0, 'montant': 8684.06}, {'idBon': 'BL2403/00270', 'montantRegle': 0, 'montant': 462200.28}, {'idBon': 'BL2403/00391', 'montantRegle': 0, 'montant': 39950.02}, {'idBon': 'BL2404/00729', 'montantRegle': 0, 'montant': 24500.13}, {'idBon': 'BL2405/00922', 'montantRegle': 0, 'montant': 597250.28}, {'idBon': 'BL2406/01096', 'montantRegle': 0, 'montant': 61800.01}, {'idBon': 'BL2406/01114', 'montantRegle': 0, 'montant': 113000.02}, {'idBon': 'BL2406/01136', 'montantRegle': 0, 'montant': 0.08}, {'idBon': 'BL2406/01316', 'montantRegle': 0, 'montant': 0.25}, {'idBon': 'BL2407/01618', 'montantRegle': 0, 'montant': 4600.08}, {'idBon': 'BL2407/01708', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2407/01857', 'montantRegle': 0, 'montant': 32900.18}, {'idBon': 'BL2408/02130', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2408/02183', 'montantRegle': 0, 'montant': 637699.97}, {'idBon': 'BL2409/02297', 'montantRegle': 0, 'montant': 727700.07}, {'idBon': 'BL2409/02342', 'montantRegle': 0, 'montant': 127800}, {'idBon': 'BL2409/02392', 'montantRegle': '269500', 'montant': 269500.06, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'montant': '35100', 'date': '2024-09-26'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02411CLient store: 1BL Store : 1
+Bon no: BL2409/02411CLient store: 1BL Store : 1
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '11400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '42977079-2aa9-4c9b-89b4-bc11bed469a8', 'name': 'TUNIQUE clrt 237169 bei standard', 'ref': '05040beistandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}, {'id': '5d5953d1-1101-403e-925c-d000ff0612ac', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 21, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '11400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '42977079-2aa9-4c9b-89b4-bc11bed469a8', 'name': 'TUNIQUE clrt 237169 bei standard', 'ref': '05040beistandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}, {'id': '5d5953d1-1101-403e-925c-d000ff0612ac', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 21, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+TUNIQUE clrt 237169 bei standard in MAG54 ROUIBA - Quantity: 8 1
+PANTALON CARRE COTON EXLT  noi standard in MAG54 ROUIBA - Quantity: 21 1
+{'id': '42977079-2aa9-4c9b-89b4-bc11bed469a8', 'name': 'TUNIQUE clrt 237169 bei standard', 'ref': '05040beistandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+{'id': '5d5953d1-1101-403e-925c-d000ff0612ac', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 21, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4300.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '5c89e6f1-73f5-4b74-b7bd-796485da5c75', 'name': 'PANTALON JEAN LILIA  grf 60', 'ref': '01431grf60', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4300', 'gst': '0.00', 'total': 4300}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4300.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '5c89e6f1-73f5-4b74-b7bd-796485da5c75', 'name': 'PANTALON JEAN LILIA  grf 60', 'ref': '01431grf60', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4300', 'gst': '0.00', 'total': 4300}]}
+PANTALON JEAN LILIA  grf 60 in MAG54 ROUIBA - Quantity: 1 1
+{'id': '5c89e6f1-73f5-4b74-b7bd-796485da5c75', 'name': 'PANTALON JEAN LILIA  grf 60', 'ref': '01431grf60', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4300', 'gst': '0.00', 'total': 4300}
+Vendeuse
+manager mag54
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '4a0d83d0-ab20-4a5e-9b6d-05fc141a7d5d', 'name': 'chale cazz couleurs  Mix standard', 'ref': '05729Mixstandard', 'availableqte': 19, 'qty': '1', 'ent': '', 'rate': '1200', 'gst': '0.00', 'total': 1200}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '4a0d83d0-ab20-4a5e-9b6d-05fc141a7d5d', 'name': 'chale cazz couleurs  Mix standard', 'ref': '05729Mixstandard', 'availableqte': 19, 'qty': '1', 'ent': '', 'rate': '1200', 'gst': '0.00', 'total': 1200}]}
+chale cazz couleurs  Mix standard in MAG54 ROUIBA - Quantity: 19 1
+{'id': '4a0d83d0-ab20-4a5e-9b6d-05fc141a7d5d', 'name': 'chale cazz couleurs  Mix standard', 'ref': '05729Mixstandard', 'availableqte': 19, 'qty': '1', 'ent': '', 'rate': '1200', 'gst': '0.00', 'total': 1200}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde 10%', 'TotalPay': '2800.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '2467560d-177a-4429-ab65-e37b14327f14', 'name': 'HAUT MY ANGEL 1 noi standard', 'ref': '04924noistandard', 'availableqte': 20, 'qty': '1', 'ent': '', 'rate': '2800', 'gst': '0.00', 'total': 2800}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde 10%', 'TotalPay': '2800.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '2467560d-177a-4429-ab65-e37b14327f14', 'name': 'HAUT MY ANGEL 1 noi standard', 'ref': '04924noistandard', 'availableqte': 20, 'qty': '1', 'ent': '', 'rate': '2800', 'gst': '0.00', 'total': 2800}]}
+HAUT MY ANGEL 1 noi standard in MAG54 ROUIBA - Quantity: 20 1
+{'id': '2467560d-177a-4429-ab65-e37b14327f14', 'name': 'HAUT MY ANGEL 1 noi standard', 'ref': '04924noistandard', 'availableqte': 20, 'qty': '1', 'ent': '', 'rate': '2800', 'gst': '0.00', 'total': 2800}
+['target.can_see_targets', 'produits.can_see_produits', 'ventes.can_see_boncomptoires', 'comptoire.can_see_cloture', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'comptoire.can_see_comptoirtab', 'produits.can_see_producttab', 'ventes.can_see_bonretour', 'inventory.can_see_bonreforme', 'inventory.can_create_echange_bill', 'inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'comptoire.can_see_comptoir', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bonentres', 'ventes.can_see_bonlivraison', 'inventory.can_see_stocktab']
+manager mag54
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '50188e69-f330-4501-b1a2-ed80726e511a', 'name': 'PANTALON CLASSIQUE EXLT BUDAK Mix standard', 'ref': '03389Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}, {'id': '3408b8ad-3c75-4a48-b77f-0053d821d630', 'name': 'chale madina MD couleurs  Mix standard', 'ref': '05733Mixstandard', 'availableqte': 42, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '50188e69-f330-4501-b1a2-ed80726e511a', 'name': 'PANTALON CLASSIQUE EXLT BUDAK Mix standard', 'ref': '03389Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}, {'id': '3408b8ad-3c75-4a48-b77f-0053d821d630', 'name': 'chale madina MD couleurs  Mix standard', 'ref': '05733Mixstandard', 'availableqte': 42, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}]}
+PANTALON CLASSIQUE EXLT BUDAK Mix standard in MAG54 ROUIBA - Quantity: 12 1
+chale madina MD couleurs  Mix standard in MAG54 ROUIBA - Quantity: 42 1
+{'id': '50188e69-f330-4501-b1a2-ed80726e511a', 'name': 'PANTALON CLASSIQUE EXLT BUDAK Mix standard', 'ref': '03389Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+{'id': '3408b8ad-3c75-4a48-b77f-0053d821d630', 'name': 'chale madina MD couleurs  Mix standard', 'ref': '05733Mixstandard', 'availableqte': 42, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}
+commercial-vente
+manager
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'bonComptoir': 'VC24/02771', 'monantintroduit': '13000'}
+manager mag54
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde 25%', 'TotalPay': '11000.00', 'TotalRemise': '2800', 'verssement': False, 'produits': [{'id': 'e5756ba8-56e5-4c57-855a-8fb98b91494a', 'name': 'ENSEMBLE 3P MNK 006  Mix standard', 'ref': '03328Mixstandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '11000', 'gst': '0.00', 'total': 11000}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde 25%', 'TotalPay': '11000.00', 'TotalRemise': '2800', 'verssement': False, 'produits': [{'id': 'e5756ba8-56e5-4c57-855a-8fb98b91494a', 'name': 'ENSEMBLE 3P MNK 006  Mix standard', 'ref': '03328Mixstandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '11000', 'gst': '0.00', 'total': 11000}]}
+ENSEMBLE 3P MNK 006  Mix standard in MAG54 ROUIBA - Quantity: 1 1
+{'id': 'e5756ba8-56e5-4c57-855a-8fb98b91494a', 'name': 'ENSEMBLE 3P MNK 006  Mix standard', 'ref': '03328Mixstandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '11000', 'gst': '0.00', 'total': 11000}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '1d5b21ef-8c4f-4937-9467-4d33acb67562', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 25, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '1d5b21ef-8c4f-4937-9467-4d33acb67562', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 25, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+PANTALON CLASSIQUE LILIAB 4017 noi standard in MAG54 ROUIBA - Quantity: 25 1
+{'id': '1d5b21ef-8c4f-4937-9467-4d33acb67562', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 25, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '55ecfc05-d978-410a-b555-cf1aee2139c4', 'name': 'PANTALON CLASSIQUE EXLT BD 01 Mix standard', 'ref': '04983Mixstandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '55ecfc05-d978-410a-b555-cf1aee2139c4', 'name': 'PANTALON CLASSIQUE EXLT BD 01 Mix standard', 'ref': '04983Mixstandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+PANTALON CLASSIQUE EXLT BD 01 Mix standard in MAG54 ROUIBA - Quantity: 14 1
+{'id': '55ecfc05-d978-410a-b555-cf1aee2139c4', 'name': 'PANTALON CLASSIQUE EXLT BD 01 Mix standard', 'ref': '04983Mixstandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'date': '2024-09-08', 'salarie': 'Omar Mohamedi', 'motif': 'avance.....rahla ta"e walide', 'montant': '5000'}
+{'date': '2024-09-08', 'salarie': 'Omar Mohamedi', 'motif': 'avance.....rahla ta"e walide', 'montant': '5000'}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '98320f2f-f4be-4316-aad5-75c730ab0977', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 67, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '98320f2f-f4be-4316-aad5-75c730ab0977', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 67, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+PANTALON CLASSIQUE BUDAK new Mix standard in MAG54 ROUIBA - Quantity: 67 1
+{'id': '98320f2f-f4be-4316-aad5-75c730ab0977', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 67, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'Nehawa aymen', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '23900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '502cc073-195d-4423-8171-0cb8c54b27fd', 'name': 'ECRAN MSI MP252 - 25INCH - 100HZ - IPS - 1MS ', 'ref': 'MP252', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '23900', 'gst': '0.00', 'total': 23900}]}
+{'id': '328267be-53d4-4f13-92fe-6e88ec35dc45', 'name': 'ENSEMBLE 2P KLKC noi standard', 'ref': '03156noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '14900', 'gst': '0.00', 'total': 14900}
+manager mag54
+manager mag54
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '16b2acd2-e68f-4634-8318-a6020a32e33b', 'name': 'JUPE HSN  1057  ble standard', 'ref': '05149blestandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 3400}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '16b2acd2-e68f-4634-8318-a6020a32e33b', 'name': 'JUPE HSN  1057  ble standard', 'ref': '05149blestandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 3400}]}
+JUPE HSN  1057  ble standard in MAG54 ROUIBA - Quantity: 1 1
+{'id': '16b2acd2-e68f-4634-8318-a6020a32e33b', 'name': 'JUPE HSN  1057  ble standard', 'ref': '05149blestandard', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 3400}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8100.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '10132efe-34d8-4a6b-8cd7-6c7fa691b9ab', 'name': 'PANTALON CLASSIQUE MAG OLD  Mix standard', 'ref': '05533Mixstandard', 'availableqte': 79, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}, {'id': 'f27519e6-8256-4102-9e0a-e8631d0fea2b', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 69, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8100.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '10132efe-34d8-4a6b-8cd7-6c7fa691b9ab', 'name': 'PANTALON CLASSIQUE MAG OLD  Mix standard', 'ref': '05533Mixstandard', 'availableqte': 79, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}, {'id': 'f27519e6-8256-4102-9e0a-e8631d0fea2b', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 69, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+PANTALON CLASSIQUE MAG OLD  Mix standard in MAG54 ROUIBA - Quantity: 79 1
+PANTALON CLASSIQUE BUDAK new Mix standard in MAG54 ROUIBA - Quantity: 69 1
+{'id': '10132efe-34d8-4a6b-8cd7-6c7fa691b9ab', 'name': 'PANTALON CLASSIQUE MAG OLD  Mix standard', 'ref': '05533Mixstandard', 'availableqte': 79, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+{'id': 'f27519e6-8256-4102-9e0a-e8631d0fea2b', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 69, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '80d9fc7c-a54b-4de8-a97f-0020d1292bc3', 'name': 'CHEEMISE STL 43121blastandard', 'ref': '05096blastandard', 'availableqte': 36, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5900.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '80d9fc7c-a54b-4de8-a97f-0020d1292bc3', 'name': 'CHEEMISE STL 43121blastandard', 'ref': '05096blastandard', 'availableqte': 36, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+CHEEMISE STL 43121blastandard in MAG54 ROUIBA - Quantity: 36 1
+{'id': '80d9fc7c-a54b-4de8-a97f-0020d1292bc3', 'name': 'CHEEMISE STL 43121blastandard', 'ref': '05096blastandard', 'availableqte': 36, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '8ef9c901-7fd1-4785-89eb-c9d7819b6da7', 'name': 'pantalon classique liliable60', 'ref': '01341ble60', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '8ef9c901-7fd1-4785-89eb-c9d7819b6da7', 'name': 'pantalon classique liliable60', 'ref': '01341ble60', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+pantalon classique liliable60 in MAG54 ROUIBA - Quantity: 1 1
+{'id': '8ef9c901-7fd1-4785-89eb-c9d7819b6da7', 'name': 'pantalon classique liliable60', 'ref': '01341ble60', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+DIRECTEUR EXECUTIF
+{'nomClient': 'Nehawa aymen', 'adresse': '', 'phone': '0656673031', 'catclient': '1'}
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'montant': '126900', 'date': '2024-09-28'}
+None
+None
+{'nomClient': 'Sissaoui Ferras ', 'adresse': '', 'phone': '0550019019', 'catclient': '1'}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'Sissaoui Ferras ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '8fcb1ae4-9f82-4d7e-a3a0-a9b96c526f93', 'name': 'CABLE TYPE C TO TYPE C 40GB - 120HZ - 240W / BLACK', 'ref': 'TYPE C-40GB-BLACK', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-09-28', 'clientInfo': {'name': 'Sissaoui Ferras ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '8fcb1ae4-9f82-4d7e-a3a0-a9b96c526f93', 'name': 'CABLE TYPE C TO TYPE C 40GB - 120HZ - 240W / BLACK', 'ref': 'TYPE C-40GB-BLACK', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+CABLE TYPE C TO TYPE C 40GB - 120HZ - 240W / BLACK in PARKMALL SETIF - Quantity: 2 1
+{'id': '8fcb1ae4-9f82-4d7e-a3a0-a9b96c526f93', 'name': 'CABLE TYPE C TO TYPE C 40GB - 120HZ - 240W / BLACK', 'ref': 'TYPE C-40GB-BLACK', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+MARKETING
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello 
