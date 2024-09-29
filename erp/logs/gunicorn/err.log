@@ -21703,3 +21703,74 @@ Not Found: /cpsess2319789266/scripts12/terminal/
 Not Found: /api/v1/system/system-information/
 Not Found: /api/v1/cav/admin/options/
 Not Found: /api/v1/configuration/users/user-roles/user-role/rest-userrole1/web/web-bookmarks/bookmark/
+Not Found: /ab2g/
+Not Found: /ab2h/
+Not Found: /alive.php
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /.env
+Forbidden (Referer checking failed - no Referer.): /
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /robots.txt
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-29 09:36:54.860281) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ConfirmationBl.dateConfirmation received a naive datetime (2024-09-29 09:41:45.469609) while time zone support is active.
+  warnings.warn(
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /cpsess9980191387/scripts12/terminal/
+Not Found: /__down/
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 76, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
+Not Found: /cpsess4701829434/scripts12/terminal/
+Not Found: /robots.txt
