@@ -889,7 +889,7 @@ class EtatRegBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     def test_func(self):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
-        return 'reglements.can_see_etatregbl' in self.request.session.get('permissions', []) or  self.request.session['username'] == "younes"
+        return 'reglements.can_see_etatregbl' in self.request.session.get('permissions', []) or  self.request.session['username'] == "younes" or  self.request.session['username'] == "sofian"
 
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -1086,7 +1086,7 @@ class ReglementNewView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     raise_exception = True  # Set to True to raise a PermissionDenied exception
 
     def test_func(self):
-        return 'reglements.can_see_regbl' in self.request.session.get('permissions', []) or  self.request.session['username'] == "younes" or  self.request.session['username'] == "nadjemeddine"
+        return 'reglements.can_see_regbl' in self.request.session.get('permissions', []) or  self.request.session['username'] == "younes" or self.request.session['username'] == "sofian" or self.request.session['username'] == "nadjemeddine"
 
     def handle_no_permission(self):
         # Redirect users without permission to the "noaccess" page
@@ -1308,7 +1308,7 @@ class ClotureReglementsView(LoginRequiredMixin, UserPassesTestMixin, TemplateVie
     def test_func(self):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
-        return 'reglements.can_see_regbl' in self.request.session.get('permissions', []) or  self.request.session['username'] == "younes" or  self.request.session['username'] == "nadjemeddine"
+        return 'reglements.can_see_regbl' in self.request.session.get('permissions', []) or  self.request.session['username'] == "younes" or self.request.session['username'] == "sofian" or self.request.session['username'] == "nadjemeddine"
 
     def handle_no_permission(self):
          # Redirect users without permission to the "inventory" page
@@ -1685,7 +1685,7 @@ class HistoriqueMontantsView(LoginRequiredMixin, UserPassesTestMixin, TemplateVi
     def test_func(self):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
-        return 'reglements.can_see_regbl' in self.request.session.get('permissions', [])  or  self.request.session['username'] == "younes" or  self.request.session['username'] == "nadjemeddine"
+        return 'reglements.can_see_regbl' in self.request.session.get('permissions', [])  or  self.request.session['username'] == "younes" or self.request.session['username'] == "sofian" or  self.request.session['username'] == "nadjemeddine"
 
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -1732,7 +1732,7 @@ class ReglementsView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     def test_func(self):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
-        return 'reglements.can_see_regbl' in self.request.session.get('permissions', [])  or  self.request.session['username'] == "younes" or  self.request.session['username'] == "nadjemeddine"
+        return 'reglements.can_see_regbl' in self.request.session.get('permissions', [])  or  self.request.session['username'] == "younes" or self.request.session['username'] == "sofian" or  self.request.session['username'] == "nadjemeddine"
 
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -1790,7 +1790,7 @@ class ReglementsEspeceView(LoginRequiredMixin, UserPassesTestMixin, TemplateView
     def test_func(self):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
-        return 'reglements.can_see_regbl' in self.request.session.get('permissions', [])  or  self.request.session['username'] == "younes" or  self.request.session['username'] == "nadjemeddine"
+        return 'reglements.can_see_regbl' in self.request.session.get('permissions', [])  or  self.request.session['username'] == "younes" or self.request.session['username'] == "sofian" or self.request.session['username'] == "nadjemeddine"
 
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -1836,7 +1836,7 @@ class ReglementsChequeView(LoginRequiredMixin, UserPassesTestMixin, TemplateView
     def test_func(self):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
-        return 'reglements.can_see_regbl' in self.request.session.get('permissions', [])  or  self.request.session['username'] == "younes" or  self.request.session['username'] == "nadjemeddine"
+        return 'reglements.can_see_regbl' in self.request.session.get('permissions', [])  or  self.request.session['username'] == "younes" or self.request.session['username'] == "sofian" or  self.request.session['username'] == "nadjemeddine"
 
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page
@@ -1889,7 +1889,7 @@ class ReglementsVirementView(LoginRequiredMixin, UserPassesTestMixin, TemplateVi
     def test_func(self):
         # Define the custom test function
         myuser=CustomUser.objects.get(username=self.request.user.username)
-        return 'reglements.can_see_regbl' in self.request.session.get('permissions', [])  or  self.request.session['username'] == "younes" or  self.request.session['username'] == "nadjemeddine"
+        return 'reglements.can_see_regbl' in self.request.session.get('permissions', [])  or  self.request.session['username'] == "younes" or  self.request.session['username'] == "sofian" or self.request.session['username'] == "nadjemeddine"
 
     def handle_no_permission(self):
          # Redirect users without permission to the "noaccess" page

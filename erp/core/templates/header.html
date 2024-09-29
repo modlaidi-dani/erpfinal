@@ -36,8 +36,8 @@
               </div>
     
               <div class="hidden md:flex items-stretch">
-                  {% if request.session.role == 'manager' or request.session.role == "DIRECTEUR EXECUTIF" or request.session.username == "ziad" %}
-                    <div class="flex items-center px-4 py-2 border-r ">
+                  <!-- {% if request.session.role == 'manager' or request.session.role == "DIRECTEUR EXECUTIF" or request.session.username == "sofian" %} -->
+                    <!-- <div class="flex items-center px-4 py-2 border-r "> -->
            <!--             <div x-data="{ dropdownOpen: false }" class="relative">  -->
            <!--                 <div class="relative  block rounded-md bg-transparent py-2 focus:outline-none">-->
            <!--                     <button @click="dropdownOpen = !dropdownOpen" class="relative  block rounded-md bg-transparent p-2 focus:outline-none">-->
@@ -192,8 +192,8 @@
            <!--                     </div>-->
            <!--                 </div>-->
            <!--             </div>-->
-                    </div>
-                 {% endif %}
+                    <!-- </div> -->
+                 <!-- {% endif %} -->
                 {% if request.session.role == 'manager' or request.session.role == "DIRECTEUR EXECUTIF" %}
                   <header class=" h-full py-2 shadow-lg px-4 md:sticky top-0 bg-gray-800 z-40 border-none" x-data="{open: false}">
                     <!-- logo -->
