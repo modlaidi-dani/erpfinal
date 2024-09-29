@@ -21865,3 +21865,9 @@ Not Found: /favicon.ico
 Not Found: /cpsess4701829434/scripts12/terminal/
 Not Found: /cpsess4701829434/scripts12/terminal/
 Not Found: /cpsess3607211035/scripts12/terminal/
+Not Found: /cgi-bin/login.cgi
+Not Found: /cpsess3607211035/scripts12/terminal/
+Not Found: /cgi-bin/login.cgi
+Requested Range Not Satisfiable: /static/css/core.css
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-09-25 00:00:00) while time zone support is active.
+  warnings.warn(

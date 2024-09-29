@@ -15659,3 +15659,43 @@ Bon no: BL2409/02419CLient store: 1BL Store : 1
 Bon no: BL2409/02418CLient store: 1BL Store : 1
 toufik brikbrik2015
 {'password': 'brikbrik2015', 'idBon': '2809', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+DIRECTEUR EXECUTIF
+Bon no: BL2409/02417CLient store: 1BL Store : 1
+Bon no: BL2409/02414CLient store: 1BL Store : 1
+Bon no: BL2409/02413CLient store: 1BL Store : 1
+commercial
+Bon no: BL2409/02412CLient store: 1BL Store : 1
+Bon no: BL2409/02411CLient store: 1BL Store : 1
+Bon no: BL2409/02416CLient store: 1BL Store : 1
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2808', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2805', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+gestion-stock
+hello ['clientInfo.can_see_societe', 'tiers.can_see_constructeur', 'reglements.can_see_etatregbl', 'comptoire.can_see_comptoirtab', 'achats.can_see_achattab', 'inventory.can_see_invinitial', 'clientInfo.can_see_devises', 'target.can_see_targets', 'users.can_see_users_perm', 'clientInfo.can_see_clientInfo', 'reglements.can_see_typereg', 'comptoire.can_see_tableaubord', 'reglements.can_see_echreg', 'produits.can_see_produits_familles', 'tiers.can_see_tierstab', 'inventory.can_see_bontransfert', 'inventory.can_see_bonreforme', 'reglements.can_see_salaries', 'inventory.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreforme', 'tiers.can_see_agences', 'ventes.can_see_boncomptoires', 'ventes.can_see_ventetab', 'comptoire.can_see_pointsvente', 'comptoire.can_see_clientfid', 'clientInfo.can_see_tax_tva', 'ventes.can_see_avoir', 'clientInfo.can_see_valeur_devis', 'reglements.can_see_depense', 'inventory.can_see_entrepots', 'comptoire.can_see_caisseusers', 'ventes.can_see_bondevis', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_regbl', 'users.can_see_users', 'achats.can_see_facturesachats', 'achats.can_see_bonslivraisonachat', 'ventes.can_see_bongarantie', 'target.can_see_equipe', 'achats.can_see_avoirsachats', 'produits.can_see_produits', 'produits.can_see_archives', 'inventory.can_see_etatentres', 'clientInfo.can_see_tax_douan', 'inventory.can_see_invannuel', 'comptoire.can_see_cloture', 'inventory.can_see_bonretour', 'reglements.can_see_avoir', 'inventory.can_see_bonsreintegration', 'comptoire.can_see_fidelite', 'clientInfo.can_see_type_client', 'tiers.can_see_marques', 'ventes.can_see_bonlivraison', 'achats.can_see_bonscommandesachat', 'clientInfo.can_see_tablebases', 'inventory.can_see_etatsorties', 'produits.can_see_producttab', 'comptoire.can_see_comptoir', 'inventory.can_see_bonentres', 'inventory.can_see_etatreintegration', 'reglements.can_see_regfaccli', 'achats.can_see_bonreception', 'ventes.can_see_factures', 'tiers.can_see_comptesBancaire', 'tiers.can_see_clients', 'users.can_see_grp_users', 'reglements.can_see_etattres', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'ventes.can_see_bonretour', 'clientInfo.can_see_units', 'inventory.can_see_repartition', 'clientInfo.can_see_compteEntreprise', 'tiers.can_see_fournisseurs', 'reglements.can_see_loyers', 'reglements.can_see_reglementstab', 'clientInfo.can_see_identification', 'inventory.can_see_bonsorties', 'reglements.can_see_divers', 'reglements.can_see_etatregfac', 'tiers.can_see_banques']
+[{'name': 'ouahrani', 'id': 42, 'username': 'younes_facturation', 'lname': 'younes', 'email': '', 'role': 'Facturation'}]
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02416CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02416CLient store: 1BL Store : 1
+{'IdBon': 'FIG2409-2601', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'EURL UNITEC UNITED COMPUTER', 'address': 'RDC BLOC N°04 CITE POINT DU JOUR -ORAN', 'num_registre': '31/00-0114554B14', 'nif': '001431011455446', 'nai': '31019304737', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2409/02417', 'time': 234, 'produits': [{'id': '836fb6dd-b78f-4485-89ab-99dea5438c07', 'name': 'CPU INTEL I7 14700KF BOX', 'ref': 'I7-14700KF\t', 'qty': 1, 'livre': True, 'rate': 64285.72, 'total': 64285.72, 'numSeries': ['U4177QQ401451']}, {'id': '2a415e51-a06c-4867-9bf1-4980f68fa565', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060TI X2 8GB OC\t', 'ref': 'MD912V515017\t', 'qty': 1, 'livre': True, 'rate': 77226.89, 'total': 77226.89, 'numSeries': ['602-V512-08SB2404010111']}, {'id': 'ea0c20ad-4a77-4779-ba11-e54378886d0e', 'name': 'ALIMENTATION MSI MAG A1250GL 80+ GOLD FULL MODULAR', 'ref': 'A1250GL', 'qty': 1, 'livre': True, 'rate': 32352.94, 'total': 32352.94, 'numSeries': ['3067ZP9A11CE010405001288']}, {'id': '9dd2ad20-06e1-48ad-a505-eeb02bcf6189', 'name': 'BOITIER MSI MAG FORGE 120A AIRFLOW', 'ref': '120A-AIRFLOW', 'qty': 4, 'livre': True, 'rate': 9159.67, 'total': 36638.68, 'numSeries': ['3067G23A2180910411000174', '3067G23A2180910411000118', '3067G23A2180910411000081', '3067G23A2180910411000109']}, {'id': 'bb1a3cf5-2000-4e55-9581-fbcb6272ae4c', 'name': 'CARTE MERE MSI PRO B760M-P\t DDR4', 'ref': 'MD9117E02006\t', 'qty': 2, 'livre': True, 'rate': 17563.03, 'total': 35126.06, 'numSeries': ['601-7E02-050B2402000914', '601-7E02-050B2402000915']}, {'id': 'fb2aaeb3-b8d7-4d64-9891-a4c639a14ba4', 'name': 'CARTE MERE MSI PRO Z790-S WIFI', 'ref': 'Z790-S', 'qty': 1, 'livre': True, 'rate': 33529.41, 'total': 33529.41, 'numSeries': ['601-7D88-020B2310014419']}, {'id': '2e620325-c6d9-45e3-807b-ada1ead9da28', 'name': 'CARTE MERE MSI Z790 TOMAHAWK WIFI\t', 'ref': 'MD9117D91030', 'qty': 1, 'livre': True, 'rate': 53697.48, 'total': 53697.48, 'numSeries': ['601-7D91-150B2311002430']}, {'id': '3675d945-12b4-4347-aafb-b8f3f3c3e05f', 'name': 'CARTE MERE MSI B760 GAMING PLUS WIFI DDR5\t', 'ref': '911-7D98-007\t', 'qty': 2, 'livre': True, 'rate': 31008.41, 'total': 62016.82, 'numSeries': ['601-7D98-280B2401005997', '601-7D98-280B2401005996']}]}
+gestion-stock
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+manager mag54
+commercial-vente
+Finance
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': '1000', 'verssement': False, 'produits': [{'id': 'd27749b7-6910-4f61-a16b-251db71e7bea', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 42, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': '1000', 'verssement': False, 'produits': [{'id': 'd27749b7-6910-4f61-a16b-251db71e7bea', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 42, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+LIQUETTE ZMRT-BK-ALABA  Mix standard in MAG54 ROUIBA - Quantity: 42 1
+{'id': 'd27749b7-6910-4f61-a16b-251db71e7bea', 'name': 'LIQUETTE ZMRT-BK-ALABA  Mix standard', 'ref': '03347Mixstandard', 'availableqte': 42, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4900.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': 'fcb8a2e0-ee4b-4e2d-8ceb-34e98740989c', 'name': 'CHEMISE OZLEM MOTIF Mix standard', 'ref': '03374Mixstandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4900.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': 'fcb8a2e0-ee4b-4e2d-8ceb-34e98740989c', 'name': 'CHEMISE OZLEM MOTIF Mix standard', 'ref': '03374Mixstandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+CHEMISE OZLEM MOTIF Mix standard in MAG54 ROUIBA - Quantity: 10 1
