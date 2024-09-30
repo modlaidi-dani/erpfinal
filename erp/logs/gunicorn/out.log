@@ -15731,3 +15731,73 @@ toufik BRIKBRIK2015
 Bon no: BL2409/02420CLient store: 1BL Store : 1
 toufik brikbrik2015
 {'password': 'brikbrik2015', 'idBon': '2811', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+{'IdBon': 'FIG2409-2604', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'BOUZIDI ZOHEIR (HESORAN)', 'address': '60 RUE HEREDIA CASTOR ORAN ', 'num_registre': '09a0578886', 'nif': '1983311010040639', 'nai': '31813257015', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2409/02413', 'time': 68, 'produits': [{'id': '2c8c4f07-e4c2-4394-a738-97843a7e74d5', 'name': 'B760M PROJECT ZERO', 'ref': '4711377143660', 'qty': 1, 'livre': True, 'rate': 36050.42, 'total': 36050.42, 'numSeries': ['601-7E14-010B2405000040']}, {'id': '64d6eb64-d25c-443e-912a-cf78049f4b67', 'name': 'Z790 PROJECT ZERO', 'ref': '4711377154024', 'qty': 1, 'livre': True, 'rate': 50336.14, 'total': 50336.14, 'numSeries': ['601-7E23-030B2404001092']}, {'id': 'b3ae7320-b8fe-4c42-bf5d-e9e27e1ca909', 'name': 'BOITIER MSI MAG PANO M100R PZ WHITE', 'ref': 'PANO-M100R-WHITE', 'qty': 2, 'livre': True, 'rate': 19243.7, 'total': 38487.4, 'numSeries': ['3067G24W28HH910422000146', '3067G24W28HH910422000134']}, {'id': 'fdfe0d2b-7e9a-4399-8346-a6e6c1fd5508', 'name': 'ALIMENTATION MSI MAG A750GL 750 WATTS 80PLUS GOLD PCIE5', 'ref': 'MD3067ZP8B11CE0', 'qty': 3, 'livre': True, 'rate': 13025.21, 'total': 39075.63, 'numSeries': ['3067ZP8B11CE010348003711', '3067ZP8B11CE010348003713', '3067ZP8B11CE010348003710']}]}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '4560f186-8d3a-4984-8d82-1ba3b5914bdd', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 65, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '4560f186-8d3a-4984-8d82-1ba3b5914bdd', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 65, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+PANTALON CLASSIQUE BUDAK new Mix standard in MAG54 ROUIBA - Quantity: 65 1
+{'id': '4560f186-8d3a-4984-8d82-1ba3b5914bdd', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 65, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e1466994-d9e3-43dd-807d-c63bfa953c29', 'name': 'HAUT DENTELLE GVC  6081 noi standard', 'ref': '05166noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}]}
+{'IdBon': '', 'dateBp': '2024-09-29', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e1466994-d9e3-43dd-807d-c63bfa953c29', 'name': 'HAUT DENTELLE GVC  6081 noi standard', 'ref': '05166noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}]}
+HAUT DENTELLE GVC  6081 noi standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': 'e1466994-d9e3-43dd-807d-c63bfa953c29', 'name': 'HAUT DENTELLE GVC  6081 noi standard', 'ref': '05166noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02421CLient store: 1BL Store : 1
+{'dateReg': '2024-09-29', 'client': 279, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '1000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2403/00349', 'montantRegle': 0, 'montant': 12982222.71}, {'idBon': 'BL2403/00502', 'montantRegle': 0, 'montant': 1736221.6}, {'idBon': 'BL2404/00781', 'montantRegle': 0, 'montant': 2541951.06}, {'idBon': 'BL2407/01517', 'montantRegle': 0, 'montant': 583729.78}, {'idBon': 'BL2407/01674', 'montantRegle': 0, 'montant': 3255000}, {'idBon': 'BL2408/02222', 'montantRegle': '1000', 'montant': 176502.95, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'montant': '0', 'date': '2024-09-29'}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Vendeuse
+Finance
+Maintenance
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Facturation
+fares O:r-24jC0b\6:s_7
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '23900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '7681316b-ff51-4a41-aa76-3478cc367f4a', 'name': 'ROBE DARA 10011-5noistandard', 'ref': '03220noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '23900', 'gst': '0.00', 'total': 23900}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '23900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '7681316b-ff51-4a41-aa76-3478cc367f4a', 'name': 'ROBE DARA 10011-5noistandard', 'ref': '03220noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '23900', 'gst': '0.00', 'total': 23900}]}
+ROBE DARA 10011-5noistandard in MAG54 ROUIBA - Quantity: 5 1
+{'id': '7681316b-ff51-4a41-aa76-3478cc367f4a', 'name': 'ROBE DARA 10011-5noistandard', 'ref': '03220noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '23900', 'gst': '0.00', 'total': 23900}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'nomClient': 'sara ', 'adresse': 'rouiba', 'phone': '', 'catclient': '9'}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'sara ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3000', 'TotalRemise': '200', 'verssement': True, 'produits': [{'id': 'e297829d-3c62-46a5-936a-6110dd88502b', 'name': 'ROBE clrt 247189 noi standard', 'ref': '05031noistandard', 'availableqte': 11, 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'sara ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3000', 'TotalRemise': '200', 'verssement': True, 'produits': [{'id': 'e297829d-3c62-46a5-936a-6110dd88502b', 'name': 'ROBE clrt 247189 noi standard', 'ref': '05031noistandard', 'availableqte': 11, 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}]}
+ROBE clrt 247189 noi standard in MAG54 ROUIBA - Quantity: 11 1
+{'id': 'e297829d-3c62-46a5-936a-6110dd88502b', 'name': 'ROBE clrt 247189 noi standard', 'ref': '05031noistandard', 'availableqte': 11, 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2814', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+DIRECTEUR EXECUTIF
+DIRECTEUR EXECUTIF
