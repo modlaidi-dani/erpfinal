@@ -15953,3 +15953,158 @@ commercial-vente
 commercial-vente
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9100.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '5b6801ff-d95b-4198-9a09-c685d0602b31', 'name': 'CHEMISE GLG 2484 ros standard', 'ref': '05106rosstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '4500', 'gst': '0.00', 'total': 4500}, {'id': '72b5c0cd-e7a5-4d7a-9c41-842def1d46b6', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 24, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '0ab0387b-272f-4eaa-a5cc-c3b2ae82c601', 'name': 'MANCHES MAG OLD  Mix standard', 'ref': '05284Mixstandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '400', 'gst': '0.00', 'total': 400}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9100.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '5b6801ff-d95b-4198-9a09-c685d0602b31', 'name': 'CHEMISE GLG 2484 ros standard', 'ref': '05106rosstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '4500', 'gst': '0.00', 'total': 4500}, {'id': '72b5c0cd-e7a5-4d7a-9c41-842def1d46b6', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 24, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '0ab0387b-272f-4eaa-a5cc-c3b2ae82c601', 'name': 'MANCHES MAG OLD  Mix standard', 'ref': '05284Mixstandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '400', 'gst': '0.00', 'total': 400}]}
+CHEMISE GLG 2484 ros standard in MAG54 ROUIBA - Quantity: 6 1
+PANTALON CLASSIQUE LILIAB 4017 noi standard in MAG54 ROUIBA - Quantity: 24 1
+MANCHES MAG OLD  Mix standard in MAG54 ROUIBA - Quantity: 10 1
+{'id': '5b6801ff-d95b-4198-9a09-c685d0602b31', 'name': 'CHEMISE GLG 2484 ros standard', 'ref': '05106rosstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '4500', 'gst': '0.00', 'total': 4500}
+{'id': '72b5c0cd-e7a5-4d7a-9c41-842def1d46b6', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 24, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'id': '0ab0387b-272f-4eaa-a5cc-c3b2ae82c601', 'name': 'MANCHES MAG OLD  Mix standard', 'ref': '05284Mixstandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '400', 'gst': '0.00', 'total': 400}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'ghames Akram', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '24d45c52-ec8f-4197-90a5-afea85a22e3a', 'name': 'CLAVIER CANYON GK-7 - US', 'ref': 'GK7-US', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'ghames Akram', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '24d45c52-ec8f-4197-90a5-afea85a22e3a', 'name': 'CLAVIER CANYON GK-7 - US', 'ref': 'GK7-US', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}]}
+CLAVIER CANYON GK-7 - US in PARKMALL SETIF - Quantity: 3 1
+{'id': '24d45c52-ec8f-4197-90a5-afea85a22e3a', 'name': 'CLAVIER CANYON GK-7 - US', 'ref': 'GK7-US', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2607', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'ghames Akram', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0778824952'}, 'AssociatedBL': 'VC24/02865', 'time': 92, 'produits': [{'id': 'dfc5f0bd-0b95-48b1-82bf-5fae1ada6363', 'name': 'CLAVIER CANYON GK-7 - US', 'ref': 'GK7-US', 'qty': 1, 'rate': 8900, 'total': 8900, 'numSeries': ['IU0422300217']}]}
+commercial-vente
+{'montant': '8700', 'date': '2024-09-30'}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '1a4f8007-0b55-4476-8a1e-1ce2832cccbb', 'name': 'pince 100 Mix standard', 'ref': '05514Mixstandard', 'availableqte': 85, 'qty': '2', 'ent': '', 'rate': '100', 'gst': '0.00', 'total': 200}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '1a4f8007-0b55-4476-8a1e-1ce2832cccbb', 'name': 'pince 100 Mix standard', 'ref': '05514Mixstandard', 'availableqte': 85, 'qty': '2', 'ent': '', 'rate': '100', 'gst': '0.00', 'total': 200}]}
+pince 100 Mix standard in MAG54 ROUIBA - Quantity: 85 2
+{'id': '1a4f8007-0b55-4476-8a1e-1ce2832cccbb', 'name': 'pince 100 Mix standard', 'ref': '05514Mixstandard', 'availableqte': 85, 'qty': '2', 'ent': '', 'rate': '100', 'gst': '0.00', 'total': 200}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+MARKETING
+MARKETING
+MARKETING
+None
+None
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8900.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': 'ef169dc0-c97d-4b93-ad00-a5361c7f2e1b', 'name': 'HIJAB HMY 0086 Mix standard', 'ref': '03211Mixstandard', 'availableqte': 21, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8900.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': 'ef169dc0-c97d-4b93-ad00-a5361c7f2e1b', 'name': 'HIJAB HMY 0086 Mix standard', 'ref': '03211Mixstandard', 'availableqte': 21, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}]}
+HIJAB HMY 0086 Mix standard in MAG54 MOHAMMADIA MALL - Quantity: 21 1
+{'id': 'ef169dc0-c97d-4b93-ad00-a5361c7f2e1b', 'name': 'HIJAB HMY 0086 Mix standard', 'ref': '03211Mixstandard', 'availableqte': 21, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a4437ecd-337d-4a79-82ad-426e5888fd6f', 'name': 'ROBE clrt 247189 ble standard', 'ref': '05031blestandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a4437ecd-337d-4a79-82ad-426e5888fd6f', 'name': 'ROBE clrt 247189 ble standard', 'ref': '05031blestandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}]}
+ROBE clrt 247189 ble standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': 'a4437ecd-337d-4a79-82ad-426e5888fd6f', 'name': 'ROBE clrt 247189 ble standard', 'ref': '05031blestandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2000', 'TotalRemise': 0, 'verssement': True, 'produits': [{'id': '243e871d-93c6-488e-9ed6-26dfcd304012', 'name': 'TWINS HLM 11516 cam standard', 'ref': '05069camstandard', 'availableqte': 13, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2000', 'TotalRemise': 0, 'verssement': True, 'produits': [{'id': '243e871d-93c6-488e-9ed6-26dfcd304012', 'name': 'TWINS HLM 11516 cam standard', 'ref': '05069camstandard', 'availableqte': 13, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+TWINS HLM 11516 cam standard in MAG54 ROUIBA - Quantity: 13 1
+{'id': '243e871d-93c6-488e-9ed6-26dfcd304012', 'name': 'TWINS HLM 11516 cam standard', 'ref': '05069camstandard', 'availableqte': 13, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+Facturation
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2500.00', 'TotalRemise': '600', 'verssement': False, 'produits': [{'id': '5a944c7d-b891-4d52-8733-68ccdcc8327a', 'name': 'PANTALON CARRE EXLT1 Mix standard', 'ref': '03434Mixstandard', 'availableqte': 55, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2500.00', 'TotalRemise': '600', 'verssement': False, 'produits': [{'id': '5a944c7d-b891-4d52-8733-68ccdcc8327a', 'name': 'PANTALON CARRE EXLT1 Mix standard', 'ref': '03434Mixstandard', 'availableqte': 55, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}]}
+PANTALON CARRE EXLT1 Mix standard in MAG54 ROUIBA - Quantity: 55 1
+{'id': '5a944c7d-b891-4d52-8733-68ccdcc8327a', 'name': 'PANTALON CARRE EXLT1 Mix standard', 'ref': '03434Mixstandard', 'availableqte': 55, 'qty': '1', 'ent': '', 'rate': '2500', 'gst': '0.00', 'total': 2500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+Bon no: BL2409/02423CLient store: 1BL Store : 1
+MARKETING
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'target.can_see_targets', 'produits.can_see_produits', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'produits.can_see_producttab', 'inventory.can_see_stocktab']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4800.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '7fde8f03-c99a-4711-9f9c-f502ab60f14a', 'name': "ROBE D'INTERIEUR / PYJAMA OLD  Mix standard", 'ref': '05239Mixstandard', 'availableqte': 19, 'qty': '2', 'ent': '', 'rate': '2400', 'gst': '0.00', 'total': 4800}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4800.00', 'TotalRemise': '300', 'verssement': False, 'produits': [{'id': '7fde8f03-c99a-4711-9f9c-f502ab60f14a', 'name': "ROBE D'INTERIEUR / PYJAMA OLD  Mix standard", 'ref': '05239Mixstandard', 'availableqte': 19, 'qty': '2', 'ent': '', 'rate': '2400', 'gst': '0.00', 'total': 4800}]}
+ROBE D'INTERIEUR / PYJAMA OLD  Mix standard in MAG54 ROUIBA - Quantity: 19 2
+{'id': '7fde8f03-c99a-4711-9f9c-f502ab60f14a', 'name': "ROBE D'INTERIEUR / PYJAMA OLD  Mix standard", 'ref': '05239Mixstandard', 'availableqte': 19, 'qty': '2', 'ent': '', 'rate': '2400', 'gst': '0.00', 'total': 4800}
+{'montant': '50700', 'date': '2024-09-30'}
+manager
+{'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '5a802783-669c-4859-9823-436f9639a7f4', 'name': 'HIJAB LONG HSN 6529  noi standard', 'ref': '03316noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}]}
+{'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '5a802783-669c-4859-9823-436f9639a7f4', 'name': 'HIJAB LONG HSN 6529  noi standard', 'ref': '03316noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}]}
+HIJAB LONG HSN 6529  noi standard in MAG54 ROUIBA - Quantity: 2 1
+{'id': '5a802783-669c-4859-9823-436f9639a7f4', 'name': 'HIJAB LONG HSN 6529  noi standard', 'ref': '03316noistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}
+MARKETING
+MARKETING
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'target.can_see_targets', 'produits.can_see_produits', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'produits.can_see_producttab', 'inventory.can_see_stocktab']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+manager
+None
+None
+{'IdBon': 'FIG2410-2610', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'SARL Madisel , Annaba', 'address': '05 boukhtouta Hocine, Annaba ', 'num_registre': '23/00-0365176B10', 'nif': '001023036517695', 'nai': '23014229195', 'nis': '001023010014181', 'phone': '0770001771'}, 'AssociatedBL': 'BL2409/02352', 'time': 114, 'produits': [{'id': '8a6b3909-6cdb-4bc8-98de-6d36e9ba41d7', 'name': 'ALIMENTATION COUGAR ATLAS 650 WATTS 80PLUS BRONZE', 'ref': 'ATLAS-650', 'qty': 1, 'livre': True, 'rate': 8823.53, 'total': 8823.53, 'numSeries': ['12BC08AS65000855']}, {'id': '36c844ff-425d-4872-8de6-b26d044a94ae', 'name': 'ALIMENTATION MSI MAG A750BN 750 WATTS 80+ BRONZE PCIE5', 'ref': 'A750BN-PCIE5', 'qty': 1, 'livre': True, 'rate': 11344.54, 'total': 11344.54, 'numSeries': ['3067ZP2C11CE010350000824']}, {'id': 'f08477d1-f800-43c6-a0c4-eb3e4c98b1f1', 'name': 'RAM DDR5 ADATA LANCER BLADE 16GB 5600MHZ BLACK', 'ref': '9JAX5U5600C4616GSLABBK', 'qty': 2, 'livre': True, 'rate': 9663.87, 'total': 19327.74, 'numSeries': ['2O1400053313', '2O1400053270']}, {'id': '7b15692f-ea26-4f04-8210-06be5fd7e16d', 'name': 'CARTE MERE MSI PRO Z790-S WIFI', 'ref': 'Z790-S', 'qty': 1, 'livre': True, 'rate': 33529.41, 'total': 33529.41, 'numSeries': ['601-7D88-020B2310014261']}, {'id': '29d53ca8-9e37-4760-a21b-13888bfd7397', 'name': 'SSD ADATA XPG GAMMIX S70 BLADE 1TB PCIE GEN4X4 M.2', 'ref': '9JAGAMMIXS70B1TCS', 'qty': 1, 'livre': True, 'rate': 18319.33, 'total': 18319.33, 'numSeries': ['2N4829A82EJR']}]}
+Facturation
+manager mag54
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2410-2608', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'ADMINE INFORMATIQUE', 'address': '42 Rue Yacef Lahcen El Makaria Hussein Dey  ALGER ', 'num_registre': '16/00-4884932A10', 'nif': '181161707760133', 'nai': '16310941042', 'nis': '198116170776027', 'phone': '0771784851'}, 'AssociatedBL': 'BL2409/02421', 'time': 676, 'produits': [{'id': '45121ea7-5356-4489-b197-e25fee992bc2', 'name': 'ALIMENTATION MSI MAG A750GL 750 WATTS 80PLUS GOLD PCIE5', 'ref': 'MD3067ZP8B11CE0', 'qty': 5, 'livre': True, 'rate': 13025.21, 'total': 65126.05, 'numSeries': ['3067ZP8B11CE010348003706', '3067ZP8B11CE010348003708', '3067ZP8B11CE010348003703', '3067ZP8B11CE010348003707', '3067ZP8B11CE010348003705']}, {'id': '2372b367-83ff-46c3-8087-1595e5739dd8', 'name': 'ALIMENTATION MSI MAG A650GL 80+ GOLD FULL MODULAR', 'ref': 'A650GL', 'qty': 5, 'livre': True, 'rate': 11680.67, 'total': 58403.35, 'numSeries': ['3067ZP8C11CE010348000636', '3067ZP8C11CE010348000631', '3067ZP8C11CE010348000634', '3067ZP8C11CE010348000633', '3067ZP8C11CE010348000635']}, {'id': 'be1bf668-91b7-4f80-86fa-342f658c8a78', 'name': 'RAM DDR4 ADATA GAMMIX D35 8GB 3600MHZ BLACK', 'ref': '9JAX4U36008G18ISBKD35', 'qty': 10, 'livre': True, 'rate': 4201.68, 'total': 42016.8, 'numSeries': ['2N5100414325', '2N5100413296', '2N5100413541', '2N5100413308', '2N5100413294', '2N5100413076', '2N5100413032', '2N5100413121', '2N5100413117', '2N5100414313']}, {'id': 'aedbc7db-54e9-4797-903e-607202fe83f6', 'name': 'RAM DDR5 ADATA LANCER RGB 32GB 6400MHZ BLACK', 'ref': '9JAX5U6400C3232GCLARBK', 'qty': 3, 'livre': True, 'rate': 23949.58, 'total': 71848.74, 'numSeries': ['1O0800865255', '1O0800865154', '1O0800865261']}, {'id': 'bace84b6-bc88-459c-b087-127facf539d3', 'name': 'RAM DDR5 ADATA LANCER RGB 16GB 6400MHZ - BLACK', 'ref': 'LCR16-6400-B', 'qty': 6, 'livre': True, 'rate': 13025.21, 'total': 78151.26, 'numSeries': ['1O0100795452', '1O0100795444', '1O0100795427', '1O0100795365', '1O0100795460', '1O0100795367']}, {'id': '3b3bd812-c43a-4095-95f7-760c6d7c954a', 'name': 'RAM DDR5 ADATA LANCER 16GB 6000MHZ - BLACK', 'ref': 'LC16-6000-B', 'qty': 6, 'livre': True, 'rate': 11344.54, 'total': 68067.24, 'numSeries': ['2O1300161294', '2O1300161292', '2O1300161418', '2O1300161421', '2O1300161450', '2O1300161426']}, {'id': 'abf5f757-119d-485e-9507-880919f9b457', 'name': 'RAM DDR5 ADATA LANCER 32GB 6000MHZ - BLACK', 'ref': 'LC32-6000-B', 'qty': 3, 'livre': True, 'rate': 21428.57, 'total': 64285.71, 'numSeries': ['1O0100558784', '1O0100559073', '1O0100559072']}, {'id': 'e6167d70-055d-4bc6-a561-71099285b673', 'name': 'RAM DDR5 ADATA LANCER 32GB 6400MHZ - BLACK', 'ref': 'LC32-6400-B', 'qty': 3, 'livre': True, 'rate': 23109.25, 'total': 69327.75, 'numSeries': ['1O0100743110', '1O0100743118', '1O0100743105']}, {'id': 'b12fb1b4-c6cd-422a-aeb9-d26fd8cf9546', 'name': 'AIR COOLING MARS GAMING MCPU44 ', 'ref': 'MCPU44', 'qty': 5, 'livre': True, 'rate': 3781.51, 'total': 18907.55, 'numSeries': ['MCPU44\t(5)']}, {'id': '8b7660d2-2262-4082-87d5-9a062b2eacc1', 'name': 'AIR COOLING MARS GAMING MCPU-PRO ', 'ref': 'MCPU-PRO', 'qty': 5, 'livre': True, 'rate': 4117.65, 'total': 20588.25, 'numSeries': ['MCPU-PRO\t(5)']}, {'id': '4a6c8b45-2e09-4a13-8557-fb962f7b9f97', 'name': 'ALIMENTATION MARS GAMING MPB850M FULL MODULAR  80PLUS BRONZE', 'ref': 'MPB850M', 'qty': 3, 'livre': True, 'rate': 10504.2, 'total': 31512.6, 'numSeries': ['MPB850M\t(3)']}, {'id': 'e4470f8b-8594-4c7d-92aa-4ef989e0dc44', 'name': 'ALIMENTATION MARS GAMING MPZE750M 750W FULL-MODULAR  80PLUS SILVER', 'ref': 'MPZE750M-WHITE', 'qty': 3, 'livre': True, 'rate': 10840.34, 'total': 32521.02, 'numSeries': ['MPZE750M-WHITE\t(3']}, {'id': 'dd8a845c-0b89-4be7-9b9a-348cf65a123b', 'name': 'ECRAN MSI PRO MP251P - 24INCH - IPS - 100HZ - 1MS - ADJUSTABLE STAND ', 'ref': 'MP251P-100', 'qty': 5, 'livre': True, 'rate': 20840.34, 'total': 104201.7, 'numSeries': ['PC2M164400514', 'PC2M164400505', 'PC2M164400576', 'PC2M164400522', 'PC2M164400571']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Finance
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2410-00184CLient store: 6BL Store : 6
+Bon no: BL2409-00184CLient store: 6BL Store : 6
+MARKETING
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde haut fs', 'TotalPay': '8200.00', 'TotalRemise': '800', 'verssement': False, 'produits': [{'id': '9bc9e212-132e-46f1-91e6-752425bc7df1', 'name': 'HAUT FS ARTLIFE noi standard', 'ref': '03432noistandard', 'availableqte': 40, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}, {'id': '7559ba6a-5d09-4bd2-9a27-f399fc2c25fb', 'name': 'TUNIQUE GVC   7068 noi standard', 'ref': '05164noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}]}
+{'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde haut fs', 'TotalPay': '8200.00', 'TotalRemise': '800', 'verssement': False, 'produits': [{'id': '9bc9e212-132e-46f1-91e6-752425bc7df1', 'name': 'HAUT FS ARTLIFE noi standard', 'ref': '03432noistandard', 'availableqte': 40, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}, {'id': '7559ba6a-5d09-4bd2-9a27-f399fc2c25fb', 'name': 'TUNIQUE GVC   7068 noi standard', 'ref': '05164noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}]}
+HAUT FS ARTLIFE noi standard in MAG54 ROUIBA - Quantity: 40 1
+TUNIQUE GVC   7068 noi standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': '9bc9e212-132e-46f1-91e6-752425bc7df1', 'name': 'HAUT FS ARTLIFE noi standard', 'ref': '03432noistandard', 'availableqte': 40, 'qty': '1', 'ent': '', 'rate': '3800', 'gst': '0.00', 'total': 3800}
+{'id': '7559ba6a-5d09-4bd2-9a27-f399fc2c25fb', 'name': 'TUNIQUE GVC   7068 noi standard', 'ref': '05164noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}
+Bon no: BL2410-00185CLient store: 6BL Store : 6
