@@ -23676,3 +23676,172 @@ Not Found: /robots.txt
 /root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1535: RuntimeWarning: DateTimeField Absence.date received a naive datetime (2024-09-30 00:00:00) while time zone support is active.
   warnings.warn(
 Not Found: /cpsess6680195862/scripts12/terminal/
+Internal Server Error: /ventes/new-sell
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 3818, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 3931, in post
+    new_quantity = p.quantity - int(product["qty"]) ## la quantité dans l'entrepot qui convient
+KeyError: 'qty'
+Internal Server Error: /ventes/new-sell
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 3818, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 3931, in post
+    new_quantity = p.quantity - int(product["qty"]) ## la quantité dans l'entrepot qui convient
+KeyError: 'qty'
+Internal Server Error: /ventes/new-sell
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 3818, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 3931, in post
+    new_quantity = p.quantity - int(product["qty"]) ## la quantité dans l'entrepot qui convient
+KeyError: 'qty'
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField HeureSup.datetimedeb received a naive datetime (2024-09-14 08:00:00) while time zone support is active.
+  warnings.warn(
+/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField HeureSup.datetimeend received a naive datetime (2024-09-14 16:00:00) while time zone support is active.
+  warnings.warn(
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 76, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
+Internal Server Error: /gestionRh/HeureSupPage
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/gestionRH/views.py", line 1299, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/gestionRH/views.py", line 1314, in post
+    salary_depense = models.HeureSup.objects.create(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1821, in execute_sql
+    for sql, params in self.as_sql():
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1745, in as_sql
+    value_rows = [
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1746, in <listcomp>
+    [
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1747, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1686, in prepare_value
+    return field.get_db_prep_save(value, connection=self.connection)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 954, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 1607, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 1585, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 1464, in get_prep_value
+    return self.to_python(value)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 1567, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['“” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format.']
+Internal Server Error: /ventes/new-sell
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 3818, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 3931, in post
+    new_quantity = p.quantity - int(product["qty"]) ## la quantité dans l'entrepot qui convient
+KeyError: 'qty'
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /actuator/gateway/routes/
+Not Found: /cpsess6680195862/scripts12/terminal/
