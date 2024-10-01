@@ -708,9 +708,9 @@ class InvoicePCListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         Currentuser = self.request.user
         myuser  = CustomUser.objects.get(username=Currentuser.username)
         if(myuser.role =='manager') or (myuser.username =='ziad') or (myuser.role=='DIRECTEUR EXECUTIF') or (myuser.role=='gestion-stock') :
-            bons_sorties = models.BonSortie.objects.filter(store=selected_store, reference_pc__isnull=False, reference_pc__gt='').order_by('-id')
+            bons_sorties = models.BonSortie.objects.filter(store=selected_store, reference_pc__isnull=False, reference_pc__gt='').order_by('-idBon')
         else:
-            bons_sorties = models.BonSortie.objects.filter(store=selected_store, user=myuser, reference_pc__isnull=False, reference_pc__gt='').order_by('-id')
+            bons_sorties = models.BonSortie.objects.filter(store=selected_store, user=myuser, reference_pc__isnull=False, reference_pc__gt='').order_by('-idBon')
         context["bons_sorties"] = bons_sorties
         entrepots = Entrepot.objects.filter(store=selected_store)
         context["entrepots"] = entrepots
