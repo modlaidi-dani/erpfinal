@@ -15801,3 +15801,155 @@ None
 None
 DIRECTEUR EXECUTIF
 DIRECTEUR EXECUTIF
+{'id': 'fcb8a2e0-ee4b-4e2d-8ceb-34e98740989c', 'name': 'CHEMISE OZLEM MOTIF Mix standard', 'ref': '03374Mixstandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+toufik BRIKBRIK2015
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2812', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+Finance
+{'dateReg': '2024-09-29', 'client': 239, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '3000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2401/00007', 'montantRegle': 0, 'montant': 1200.45}, {'idBon': 'BL2401/00108', 'montantRegle': 0, 'montant': 506900}, {'idBon': 'BL2401/00110', 'montantRegle': 0, 'montant': 51800.01}, {'idBon': 'BL2401/00120', 'montantRegle': 0, 'montant': 70899.99}, {'idBon': 'BL2403/00267', 'montantRegle': 0, 'montant': 1727900.46}, {'idBon': 'BL2403/00362', 'montantRegle': 0, 'montant': 806900.35}, {'idBon': 'BL2403/00549', 'montantRegle': 0, 'montant': 91850.07}, {'idBon': 'BL2404/00686', 'montantRegle': 0, 'montant': 6100.14}, {'idBon': 'BL2406/01125', 'montantRegle': 0, 'montant': 3800.2}, {'idBon': 'BL2407/01806', 'montantRegle': '3000', 'montant': 6600.3, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'dateReg': '2024-09-29', 'client': 229, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '390000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2401/00011', 'montantRegle': 0, 'montant': 50799.99}, {'idBon': 'BL2401/00068', 'montantRegle': 0, 'montant': 100}, {'idBon': 'BL2402/00203', 'montantRegle': 0, 'montant': 61300.01}, {'idBon': 'BL2402/00218', 'montantRegle': 0, 'montant': 0.05}, {'idBon': 'BL2403/00448', 'montantRegle': 0, 'montant': 0.14}, {'idBon': 'BL2404/00572', 'montantRegle': 0, 'montant': 250.08}, {'idBon': 'BL2404/00591', 'montantRegle': 0, 'montant': 51900.01}, {'idBon': 'BL2405/00904', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2405/01056', 'montantRegle': 0, 'montant': 300.01}, {'idBon': 'BL2406/01324', 'montantRegle': 0, 'montant': 0.04}, {'idBon': 'BL2407/01445', 'montantRegle': 0, 'montant': 0.07}, {'idBon': 'BL2407/01722', 'montantRegle': 0, 'montant': 20.09}, {'idBon': 'BL2408/02060', 'montantRegle': 0, 'montant': 1000.05}, {'idBon': 'BL2408/02100', 'montantRegle': 0, 'montant': 3300.04}, {'idBon': 'BL2409/02398', 'montantRegle': 388500.01, 'montant': 388500.01, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 1499.9899999999907}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+  Veille Concurentielle
+gestion-stock
+MARKETING
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'fbc2a2ac-acff-4ab2-9c63-f016b39bc6c9', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 24, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '29128cb3-dfdb-4d89-8e8c-ec0bac430526', 'name': 'FUSEAU LD PT  noi standard', 'ref': '05237noistandard', 'availableqte': 77, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '5700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'fbc2a2ac-acff-4ab2-9c63-f016b39bc6c9', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 24, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '29128cb3-dfdb-4d89-8e8c-ec0bac430526', 'name': 'FUSEAU LD PT  noi standard', 'ref': '05237noistandard', 'availableqte': 77, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}]}
+PANTALON CLASSIQUE LILIAB 4017 noi standard in MAG54 ROUIBA - Quantity: 24 1
+FUSEAU LD PT  noi standard in MAG54 ROUIBA - Quantity: 77 1
+{'id': 'fbc2a2ac-acff-4ab2-9c63-f016b39bc6c9', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 24, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'id': '29128cb3-dfdb-4d89-8e8c-ec0bac430526', 'name': 'FUSEAU LD PT  noi standard', 'ref': '05237noistandard', 'availableqte': 77, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}
+commercial-vente
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02411CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02411CLient store: 1BL Store : 1
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+Finance
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['inventory.can_see_bonentres', 'inventory.can_see_etatreforme', 'tiers.can_see_tierstab', 'inventory.can_see_etatentres', 'inventory.can_see_bonsreintegration', 'ventes.can_see_ventetab', 'inventory.can_see_stocktab', 'inventory.can_see_bontransfert', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'inventory.can_see_etatsorties', 'inventory.can_see_bonsorties', 'produits.can_see_produits', 'ventes.can_see_bonretour', 'inventory.can_see_bonretour', 'tiers.can_see_clients', 'produits.can_see_etatreforme']
+hello ['inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'target.can_see_targets', 'produits.can_see_produits', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'produits.can_see_producttab', 'inventory.can_see_stocktab']
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2409-2606', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'FOUED TEBIB ', 'address': 'ANNABA', 'num_registre': '23/00-1829312a03', 'nif': '197823010338923', 'nai': '23015437430', 'nis': '', 'phone': '0549799920'}, 'AssociatedBL': 'BL2409/02410', 'time': 126, 'produits': [{'id': 'a648c447-97c1-4367-b9d0-21d708f80c56', 'name': 'CPU INTEL I5 14400 BOX', 'ref': 'I5-14400-BOX', 'qty': 1, 'livre': True, 'rate': 39075.63, 'total': 39075.63, 'numSeries': ['U4FW444600845']}, {'id': '2ff359d6-4553-46d0-b7f8-750f30c34d3e', 'name': 'CARTE MERE MSI PRO Z790-S WIFI', 'ref': 'Z790-S', 'qty': 1, 'livre': True, 'rate': 33529.41, 'total': 33529.41, 'numSeries': ['601-7D88-020B2310014424']}]}
+gestion-stock
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-09-29', 'client': 239, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '4000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2401/00007', 'montantRegle': 0, 'montant': 1200.45}, {'idBon': 'BL2401/00108', 'montantRegle': 0, 'montant': 506900}, {'idBon': 'BL2401/00110', 'montantRegle': 0, 'montant': 51800.01}, {'idBon': 'BL2401/00120', 'montantRegle': 0, 'montant': 70899.99}, {'idBon': 'BL2403/00267', 'montantRegle': 0, 'montant': 1727900.46}, {'idBon': 'BL2403/00362', 'montantRegle': 0, 'montant': 806900.35}, {'idBon': 'BL2403/00549', 'montantRegle': 0, 'montant': 91850.07}, {'idBon': 'BL2404/00686', 'montantRegle': 0, 'montant': 6100.14}, {'idBon': 'BL2406/01125', 'montantRegle': 0, 'montant': 3800.2}, {'idBon': 'BL2407/01806', 'montantRegle': 0, 'montant': 3600.3}, {'idBon': 'avance', 'montant': 0, 'montantRegle': '4000'}]}
+{'montant': '29600', 'date': '2024-09-29'}
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+manager mag54
+Maintenance
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '11900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'ed4d8407-3b87-4ece-a894-9b388f05a638', 'name': 'pantalon classique liliable62', 'ref': '01341ble62', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '70dcfee2-6ef0-466f-a5dc-1a745436977f', 'name': 'ROBE VND 937 ora standard', 'ref': '04798orastandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '7700', 'gst': '0.00', 'total': 7700}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '11900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'ed4d8407-3b87-4ece-a894-9b388f05a638', 'name': 'pantalon classique liliable62', 'ref': '01341ble62', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '70dcfee2-6ef0-466f-a5dc-1a745436977f', 'name': 'ROBE VND 937 ora standard', 'ref': '04798orastandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '7700', 'gst': '0.00', 'total': 7700}]}
+pantalon classique liliable62 in MAG54 ROUIBA - Quantity: 1 1
+ROBE VND 937 ora standard in MAG54 ROUIBA - Quantity: 10 1
+{'id': 'ed4d8407-3b87-4ece-a894-9b388f05a638', 'name': 'pantalon classique liliable62', 'ref': '01341ble62', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'id': '70dcfee2-6ef0-466f-a5dc-1a745436977f', 'name': 'ROBE VND 937 ora standard', 'ref': '04798orastandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '7700', 'gst': '0.00', 'total': 7700}
+gestion-stock
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02411CLient store: 1BL Store : 1
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2802', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02411CLient store: 1BL Store : 1
+commercial-vente
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+Bon no: BL2409/02422CLient store: 1BL Store : 1
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+gestion-stock
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+DIRECTEUR EXECUTIF
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9500.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '7d898402-825e-4ef4-9632-3b374fb08640', 'name': 'ROBE CLRT 217372  Mix standard', 'ref': '03312Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '9500', 'gst': '0.00', 'total': 9500}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9500.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '7d898402-825e-4ef4-9632-3b374fb08640', 'name': 'ROBE CLRT 217372  Mix standard', 'ref': '03312Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '9500', 'gst': '0.00', 'total': 9500}]}
+ROBE CLRT 217372  Mix standard in MAG54 ROUIBA - Quantity: 12 1
+{'id': '7d898402-825e-4ef4-9632-3b374fb08640', 'name': 'ROBE CLRT 217372  Mix standard', 'ref': '03312Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '9500', 'gst': '0.00', 'total': 9500}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '13800.00', 'TotalRemise': '0', 'verssement': False, 'produits': [{'id': '352a2489-c6c6-43ea-8721-3a866812fe9c', 'name': 'PANTALON CLASSIQUE LILIA 4060 noi standard', 'ref': '05188noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4700', 'gst': '0.00', 'total': 4700}, {'id': 'deb9f2f3-7845-4f63-8bf9-b51c887db756', 'name': 'pantalon classique liliaMixstandard', 'ref': '01341Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': 'b6b56700-eea4-425e-9e6f-f8f1dd02c71c', 'name': 'CHEMISE OZLEM MOTIF Mix standard', 'ref': '03374Mixstandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+{'IdBon': '', 'dateBp': '2024-09-30', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '13800.00', 'TotalRemise': '0', 'verssement': False, 'produits': [{'id': '352a2489-c6c6-43ea-8721-3a866812fe9c', 'name': 'PANTALON CLASSIQUE LILIA 4060 noi standard', 'ref': '05188noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4700', 'gst': '0.00', 'total': 4700}, {'id': 'deb9f2f3-7845-4f63-8bf9-b51c887db756', 'name': 'pantalon classique liliaMixstandard', 'ref': '01341Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': 'b6b56700-eea4-425e-9e6f-f8f1dd02c71c', 'name': 'CHEMISE OZLEM MOTIF Mix standard', 'ref': '03374Mixstandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}]}
+PANTALON CLASSIQUE LILIA 4060 noi standard in MAG54 ROUIBA - Quantity: 10 1
+pantalon classique liliaMixstandard in MAG54 ROUIBA - Quantity: 12 1
+CHEMISE OZLEM MOTIF Mix standard in MAG54 ROUIBA - Quantity: 9 1
+{'id': '352a2489-c6c6-43ea-8721-3a866812fe9c', 'name': 'PANTALON CLASSIQUE LILIA 4060 noi standard', 'ref': '05188noistandard', 'availableqte': 10, 'qty': '1', 'ent': '', 'rate': '4700', 'gst': '0.00', 'total': 4700}
+{'id': 'deb9f2f3-7845-4f63-8bf9-b51c887db756', 'name': 'pantalon classique liliaMixstandard', 'ref': '01341Mixstandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'id': 'b6b56700-eea4-425e-9e6f-f8f1dd02c71c', 'name': 'CHEMISE OZLEM MOTIF Mix standard', 'ref': '03374Mixstandard', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '4900', 'gst': '0.00', 'total': 4900}
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
