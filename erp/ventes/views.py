@@ -1450,20 +1450,21 @@ class ComptoirUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         bill_id=self.kwargs.get('bill_id')
     
-        invoice = BonComptoire.objects.get(id=bill_id)
+        invoice = BonRectification.objects.get(id=bill_id)
         idBon = invoice.idBon
         dateBon = invoice.dateBon
         totalPrice=invoice.totalprice
         client_name= invoice.client.name
         client_address = invoice.client.adresse
         client_phone= invoice.client.phone
-        products_enBon = invoice.produits_en_bon_comptoir.all()
+        products_enBon = invoice.produits_en_bon_rectification.all()
+        print(products_enBon)
         items=[]
         for product in products_enBon:
             produit_dict={
                "produit_ref" :product.stock.reference,
                "produit_name" :product.stock.name,
-               "produit_category" :product.stock.category.Libellé,
+               #"produit_category" :product.stock.category.Libellé,
                "produit_qty":int(product.quantity),
                "produit_unitPrice" : float(product.unitprice),
                "prdouit_totalPrice":float(product.totalprice)            
