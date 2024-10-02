@@ -155,11 +155,16 @@ class Product(models.Model):
         
     @property    
     def qty_in_store(self):
-        product_first = Product.objects.filter(reference=self.reference, store__id=1).first()
-        if product_first:
-            return product_first.total_quantity_in_stock
+        product_f = Product.objects.filter( store__id=1)
+        reference=self.reference
+        reference="".join(reference.split())
+        product_firsts = [prod for prod in product_f if "".join(prod.reference.split()) == reference]
+        if product_firsts:
+        
+            for product_first in product_firsts:
+                return product_first.total_quantity_in_stock
         else:
-            return 0
+                return 0
         
     @property
     def get_price_variants(self):
