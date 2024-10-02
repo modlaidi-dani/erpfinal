@@ -16175,3 +16175,161 @@ MICROPHONE MSI IMMERSE GV60 in PARKMALL SETIF - Quantity: 1 1
 {'id': '1498a1d0-5a0c-4bb5-be57-0814b44613d6', 'name': 'MICROPHONE MSI IMMERSE GV60', 'ref': 'MDOS3XXXX031000', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '26900', 'gst': '0.00', 'total': 26900}
 Bon no: BL2410-00008CLient store: 7BL Store : 7
 {'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde', 'TotalPay': '9900.00', 'TotalRemise': '2500', 'verssement': False, 'produits': [{'id': '6b958258-fc3c-4096-8275-718d3400227c', 'name': 'ENSEMBLE 2P HLM 11813 noi standard', 'ref': '03185noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}]}
+{'IdBon': 'FA2409-0185', 'dateFacture': '2024-09-17', 'dateReglement': '2024-09-17', 'modeReglement': 'Chèque', 'BlAssocie': 'BL2409-00185', 'Remise': '109.201', 'remise': {'type': '', 'valeur': ''}, 'etatFacture': 'Règlement Reçu', 'clientInfo': {'id': '1588', 'name': 'SARL SAGC STE ALGERIENNE DES GRANDES CONSTRUCTION', 'address': 'CENTRE COMMERCIAL ET DES AFFAIRES ELDJENINA 5EM ETAGES N1208 MOHAMMADIA', 'num_registre': '02B0021018-00/16', 'nif': '000216002101838', 'nai': '16301150155', 'nis': '000216200784058', 'phone': ''}, 'echeance': '', 'produits': [{'id': '24528f02-a9c2-43f6-9208-7837e607bf98', 'name': 'CPU INTEL I5 12400 BOX ', 'ref': 'I5-12400-BOX', 'component': 'cpu', 'qty': 1, 'rate': 20756.3, 'livraison_prix': 0, 'rateLiv': 20756.3, 'tva': 19, 'gst': '3314.03', 'gstLiv': '3314.03', 'totalLiv': 20756.3, 'total': 20756.3}, {'id': '95793e7e-9cea-4259-a1c7-68d45d26c9f4', 'name': 'CARTE MERE MSI H610M-E DDR5', 'ref': 'H610M-E-DDR5', 'component': 'mb', 'qty': 1, 'rate': 12773.11, 'livraison_prix': 0, 'rateLiv': 12773.11, 'tva': 19, 'gst': '2039.40', 'gstLiv': '2039.40', 'totalLiv': 12773.11, 'total': 12773.11}, {'id': '22aed311-6c7f-4ddd-a484-2760ff0e49cc', 'name': 'RAM DDR4 ADATA SPECTRIX RGB D50 16GB 3600MHZ WHITE', 'ref': '9JAX4U360016G18ISW50', 'component': 'ram', 'qty': 1, 'rate': 7563.03, 'livraison_prix': 0, 'rateLiv': 7563.03, 'tva': 19, 'gst': '1207.54', 'gstLiv': '1207.54', 'totalLiv': 7563.03, 'total': 7563.03}, {'id': '59a453fb-1bca-4fc8-bc0f-16ece2de73d3', 'name': 'CARTE GRAPHIQUE RTX3050 VENTUS 2X 8G OC\t', 'ref': '3050-8G\t', 'component': 'gpu', 'qty': 1, 'rate': 38487.39, 'livraison_prix': 0, 'rateLiv': 38487.39, 'tva': 19, 'gst': '6145.05', 'gstLiv': '6145.05', 'totalLiv': 38487.39, 'total': 38487.39}, {'id': 'a59229a3-be93-4bf9-b053-cf85917bf1d5', 'name': 'SSD ADATA XPG GAMMIX S70 BLADE 2TB PCIE GEN4X4 M.2', 'ref': '9JAGAMMIXS70B2TCS', 'component': 'ssd', 'qty': 1, 'rate': 26470.59, 'livraison_prix': 0, 'rateLiv': 26470.59, 'tva': 19, 'gst': '4226.40', 'gstLiv': '4226.40', 'totalLiv': 26470.59, 'total': 26470.59}, {'id': '313abe1d-cf8f-4241-a5d3-e6c2d4f1d68c', 'name': 'ALIMENTATION MARS GAMING MPB 650W PSU 80PLUS BRONZE WHITE\t', 'ref': 'MPB650-WHITE\t', 'component': 'psu', 'qty': 1, 'rate': 8235.29, 'livraison_prix': 0, 'rateLiv': 8235.29, 'tva': 19, 'gst': '1314.88', 'gstLiv': '1314.88', 'totalLiv': 8235.29, 'total': 8235.29}, {'id': 'ff035a19-de4a-4924-ab71-b2b8f7ca9a65', 'name': 'BOITIER MSI MAG FORGE 120A AIRFLOW', 'ref': '120A-AIRFLOW', 'component': 'case', 'qty': 1, 'rate': 7058.82, 'livraison_prix': 0, 'rateLiv': 7058.82, 'tva': 19, 'gst': '1127.04', 'gstLiv': '1127.04', 'totalLiv': 7058.82, 'total': 7058.82}, {'id': 'fbee3668-6eed-4064-add0-5a8dea4131e5', 'name': 'ECRAN MSI PRO MP275P - 27 POUCE - 100HZ - IPS -1MS - ADJUSTABLE\t', 'ref': 'MP275P\t', 'component': 'moniteur', 'qty': 1, 'rate': 23361.34, 'livraison_prix': 0, 'rateLiv': 23361.34, 'tva': 19, 'gst': '3729.96', 'gstLiv': '3729.96', 'totalLiv': 23361.34, 'total': 23361.34}, {'id': '4572b073-fcd8-4841-89bd-bd7ced8b231d', 'name': 'CLAVIER MARS GAMING MK60 MECHANICAL 60%  - BLACK', 'ref': 'MK60\t', 'component': 'claviers', 'qty': 1, 'rate': 3193.27, 'livraison_prix': 0, 'rateLiv': 3193.27, 'tva': 19, 'gst': '509.85', 'gstLiv': '509.85', 'totalLiv': 3193.27, 'total': 3193.27}, {'id': 'c887d402-72d5-48bc-8661-5e2552a0946a', 'name': 'SOURIS MSI CLUTCH GM51 LIGHTWEIGHT /', 'ref': 'MDS124300080C54\t', 'component': 'souris', 'qty': 1, 'rate': 11596.64, 'livraison_prix': 0, 'rateLiv': 11596.64, 'tva': 19, 'gst': '1851.56', 'gstLiv': '1851.56', 'totalLiv': 11596.64, 'total': 11596.64}, {'id': '9a318d4a-e0f0-4a8a-85f4-82ecf95b99ad', 'name': 'TAPIS DE SOURIS MARS GAMING MMPXL SILVER', 'ref': 'MMPXLS\t', 'component': 'extras', 'qty': 1, 'rate': 865.54, 'livraison_prix': 0, 'rateLiv': 865.54, 'tva': 19, 'gst': '138.20', 'gstLiv': '138.20', 'totalLiv': 865.54, 'total': 865.54}]}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+{'datetimedeb': '2024-09-14T08:00', 'salarie': 'Mohamed Rachid Laidi ', 'motif': 'supp', 'datetimefin': '2024-09-14T16:00', 'tauxHeure': '8'}
+{'datetimedeb': '2024-09-14T08:00', 'salarie': 'Mohamed Rachid Laidi ', 'motif': 'supp', 'datetimefin': '2024-09-14T16:00', 'tauxHeure': '8'}
+commercial-vente
+commercial-vente
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+Bon no: BL2404-00002CLient store: 7BL Store : 7
+{'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '13800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '471f1b99-4e97-4cc9-8a06-1ae2f677a084', 'name': 'CHEEMISE STL 43121blastandard', 'ref': '05096blastandard', 'availableqte': 35, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': '1b7b289b-f4e0-44b5-98c4-a5b5318587a3', 'name': 'ROBE CLARITY 247192 Mix standard', 'ref': '03258Mixstandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+CHEEMISE STL 43121blastandard in MAG54 ROUIBA - Quantity: 35 1
+ROBE CLARITY 247192 Mix standard in MAG54 ROUIBA - Quantity: 8 1
+{'id': '471f1b99-4e97-4cc9-8a06-1ae2f677a084', 'name': 'CHEEMISE STL 43121blastandard', 'ref': '05096blastandard', 'availableqte': 35, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'id': '1b7b289b-f4e0-44b5-98c4-a5b5318587a3', 'name': 'ROBE CLARITY 247192 Mix standard', 'ref': '03258Mixstandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'nomClient': 'Herizi bouzid', 'adresse': '', 'phone': '0553901877', 'catclient': '1'}
+{'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'solde', 'TotalPay': '9900.00', 'TotalRemise': '2500', 'verssement': False, 'produits': [{'id': '6b958258-fc3c-4096-8275-718d3400227c', 'name': 'ENSEMBLE 2P HLM 11813 noi standard', 'ref': '03185noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}]}
+ENSEMBLE 2P HLM 11813 noi standard in MAG54 ROUIBA - Quantity: 4 1
+{'id': '6b958258-fc3c-4096-8275-718d3400227c', 'name': 'ENSEMBLE 2P HLM 11813 noi standard', 'ref': '03185noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '9900', 'gst': '0.00', 'total': 9900}
+{'nomClient': 'Saidani aymen', 'adresse': '', 'phone': '0656203521', 'catclient': '1'}
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': '1900', 'verssement': False, 'produits': [{'id': 'ad0fcf80-b366-49a1-a127-2cfe9cd935b5', 'name': 'PANTALON CLASSIQUE LILIA  Mix standard', 'ref': '03385Mixstandard', 'availableqte': 61, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': '1900', 'verssement': False, 'produits': [{'id': 'ad0fcf80-b366-49a1-a127-2cfe9cd935b5', 'name': 'PANTALON CLASSIQUE LILIA  Mix standard', 'ref': '03385Mixstandard', 'availableqte': 61, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+PANTALON CLASSIQUE LILIA  Mix standard in MAG54 ROUIBA - Quantity: 61 1
+{'id': 'ad0fcf80-b366-49a1-a127-2cfe9cd935b5', 'name': 'PANTALON CLASSIQUE LILIA  Mix standard', 'ref': '03385Mixstandard', 'availableqte': 61, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'target.can_see_targets', 'produits.can_see_produits', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'produits.can_see_producttab', 'inventory.can_see_stocktab']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2410-2612', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'Saidani aymen', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0656203521'}, 'AssociatedBL': 'VC24/02876', 'time': 56, 'produits': [{'id': 'fd730e39-31ba-49e7-a8fa-64296a15a46a', 'name': 'ECRAN MSI PRO MP341CQW WHITE                                  ', 'ref': '9S6-3PB2CT-007', 'qty': 1, 'rate': 71500, 'total': 71500, 'numSeries': ['PB2T074400199']}, {'id': '07e919a5-3da4-4533-af19-db08c6c0338d', 'name': 'SUPPORT ECRAN TWISTED MINDS DUAL - RGB / TM-54-C012-W / WHITE', 'ref': 'TM-54-C012-W', 'qty': 1, 'rate': 34400, 'total': 34400, 'numSeries': ['TM-54-C012-W']}]}
+{'IdBon': 'FIG2410-2612', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'Saidani aymen', 'address': '', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '0656203521'}, 'AssociatedBL': 'VC24/02876', 'time': 56, 'produits': [{'id': 'fd730e39-31ba-49e7-a8fa-64296a15a46a', 'name': 'ECRAN MSI PRO MP341CQW WHITE                                  ', 'ref': '9S6-3PB2CT-007', 'qty': 1, 'rate': 71500, 'total': 71500, 'numSeries': ['PB2T074400199']}, {'id': '07e919a5-3da4-4533-af19-db08c6c0338d', 'name': 'SUPPORT ECRAN TWISTED MINDS DUAL - RGB / TM-54-C012-W / WHITE', 'ref': 'TM-54-C012-W', 'qty': 1, 'rate': 34400, 'total': 34400, 'numSeries': ['TM-54-C012-W']}]}
+Bon no: BL2409/02421CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+manager
+manager
+hello ['inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'target.can_see_targets', 'produits.can_see_produits', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'produits.can_see_producttab', 'inventory.can_see_stocktab']
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+commercial-vente
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'nomClient': 'ziar mabrouk', 'adresse': '', 'phone': '0775244877', 'catclient': '1'}
+{'nomClient': 'ziar mabrouk', 'adresse': '', 'phone': '0775244877', 'catclient': '1'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'ziar mabrouk', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c9230509-79bc-4fd3-8768-5cdb90ef0c44', 'name': 'CARTABLE REDRAGON AENEAS GB-76 BLACK', 'ref': 'AENEAS-GB-76', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-10-01', 'clientInfo': {'name': 'ziar mabrouk', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '4200.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'c9230509-79bc-4fd3-8768-5cdb90ef0c44', 'name': 'CARTABLE REDRAGON AENEAS GB-76 BLACK', 'ref': 'AENEAS-GB-76', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+CARTABLE REDRAGON AENEAS GB-76 BLACK in PARKMALL SETIF - Quantity: 1 1
+{'id': 'c9230509-79bc-4fd3-8768-5cdb90ef0c44', 'name': 'CARTABLE REDRAGON AENEAS GB-76 BLACK', 'ref': 'AENEAS-GB-76', 'availableqte': 1, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
