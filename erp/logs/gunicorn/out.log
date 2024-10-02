@@ -16333,3 +16333,79 @@ None
 None
 None
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+gestion-stock
+{'IdBon': 'FIG2410-2614', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'TWINS MULTIMEDIA', 'address': 'Rue Issat Idir N°03- Commune de Cheraga ', 'num_registre': '02A0090638-16/00', 'nif': '182160501994163', 'nai': '1651745620', 'nis': '', 'phone': '0666018080'}, 'AssociatedBL': 'BL2410/02425', 'time': 262, 'produits': [{'id': '608f17e2-e51b-4ce0-9238-7aa7e0ee63fa', 'name': 'CPU INTEL I7 13700KF BOX', 'ref': 'I7-13700KF-BOX', 'qty': 1, 'livre': True, 'rate': 51680.67, 'total': 51680.67, 'numSeries': []}, {'id': '52dbfbff-36ad-4414-94fd-7f11f259afec', 'name': 'CARTE MERE MSI PRO Z790-S WIFI', 'ref': 'Z790-S', 'qty': 1, 'livre': True, 'rate': 33529.41, 'total': 33529.41, 'numSeries': []}, {'id': '365fc8d1-e8bf-49b3-a06c-3cab0b7e5919', 'name': 'CARTE GRAPHIQUE MSI RTX4070TI SUPER 16G GAMING X SLIM', 'ref': '4070TI-S-GAMINGX-', 'qty': 1, 'livre': True, 'rate': 179747.89, 'total': 179747.89, 'numSeries': []}, {'id': 'cdf4aca2-8918-47c2-8662-36228f42033f', 'name': 'WTER COOLING MSI MAG CORELIQUID C360\t', 'ref': '306-7ZW2R31-813\t', 'qty': 1, 'livre': True, 'rate': 20840.34, 'total': 20840.34, 'numSeries': []}, {'id': '0a8e8b90-18be-4650-be56-5ce619cfa27d', 'name': 'RAM DDR5 ADATA LANCER RGB 16GB 6400MHZ - WHITE', 'ref': 'LCR16-6400-W', 'qty': 2, 'livre': True, 'rate': 13025.21, 'total': 26050.42, 'numSeries': []}, {'id': 'e1e32568-07a1-4732-9830-45b43a445314', 'name': 'SSD ADATA XPG GAMMIX S70 BLADE 1TB PCIE GEN4X4 M.2', 'ref': '9JAGAMMIXS70B1TCS', 'qty': 1, 'livre': True, 'rate': 18319.33, 'total': 18319.33, 'numSeries': []}, {'id': '74af7631-e64f-48b6-96a7-b3d13a7f5679', 'name': 'ALIMENTATION MSI MAG A850GL 850 WATTS 80PLUS GOLD PCIE5 BLACK', 'ref': 'MD3067ZP8A11CE0', 'qty': 1, 'livre': True, 'rate': 15042.02, 'total': 15042.02, 'numSeries': []}, {'id': '6a85f97f-9164-4cff-a5c7-15b6412d2509', 'name': 'BOITIER MSI MPG VELOX 100R WHITE', 'ref': 'VELOX-100R-WHITE', 'qty': 1, 'livre': True, 'rate': 20924.37, 'total': 20924.37, 'numSeries': []}, {'id': 'f6ee4a9c-d957-4404-978b-54ef0e03557e', 'name': 'SOURIS MSI FOTGR GM300 BLACK', 'ref': 'FORGE-GM300', 'qty': 3, 'livre': True, 'rate': 2436.98, 'total': 7310.94, 'numSeries': ['S120402300HH910411001796', 'S120402300HH910411001791', 'S120402300HH910411001773']}, {'id': 'bd79fed5-0249-4df8-935a-9f073479e8a0', 'name': 'CASQUE MSI IMMERSE GH20', 'ref': 'MDS372101030SV1', 'qty': 2, 'livre': True, 'rate': 4537.82, 'total': 9075.64, 'numSeries': ['S372101030SV110348002968', 'S372101030SV110348002966']}, {'id': 'caec084a-6327-4438-94c8-93c13be5f039', 'name': 'COMBO MSI VIGOR GK30 BLACK', 'ref': 'MDS1104FR237CLA', 'qty': 1, 'livre': True, 'rate': 8319.33, 'total': 8319.33, 'numSeries': ['S1104FR237CLA10419000242']}, {'id': '7d344b3c-9f14-4558-b810-f4102f2fce48', 'name': 'COMBO MSI VIGOR GK30 WHITE', 'ref': 'MDS1104FR306CLA', 'qty': 1, 'livre': True, 'rate': 9159.67, 'total': 9159.67, 'numSeries': ['S1104FR306CLA10419000029']}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e1962161-d10e-4faa-82b6-2ffd340d7f3d', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 20, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e1962161-d10e-4faa-82b6-2ffd340d7f3d', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 20, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+PANTALON CARRE COTON EXLT  noi standard in MAG54 ROUIBA - Quantity: 20 1
+{'id': 'e1962161-d10e-4faa-82b6-2ffd340d7f3d', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 20, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e180c1f7-4d07-4d37-a989-36d2c48cea5c', 'name': 'JUPE HSN  1057  ver standard', 'ref': '05149verstandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 3400}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e180c1f7-4d07-4d37-a989-36d2c48cea5c', 'name': 'JUPE HSN  1057  ver standard', 'ref': '05149verstandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 3400}]}
+JUPE HSN  1057  ver standard in MAG54 ROUIBA - Quantity: 2 1
+{'id': 'e180c1f7-4d07-4d37-a989-36d2c48cea5c', 'name': 'JUPE HSN  1057  ver standard', 'ref': '05149verstandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 3400}
+Bon no: BL241-00003CLient store: 4BL Store : 4
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': '0', 'verssement': False, 'produits': [{'id': 'dbc15a9e-1954-40dd-b2bb-434c9285cac7', 'name': 'ROBE CLRT 237158 ver standard', 'ref': '05008verstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': '0', 'verssement': False, 'produits': [{'id': 'dbc15a9e-1954-40dd-b2bb-434c9285cac7', 'name': 'ROBE CLRT 237158 ver standard', 'ref': '05008verstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+ROBE CLRT 237158 ver standard in MAG54 MOHAMMADIA MALL - Quantity: 4 1
+{'id': 'dbc15a9e-1954-40dd-b2bb-434c9285cac7', 'name': 'ROBE CLRT 237158 ver standard', 'ref': '05008verstandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a89a26c2-cb37-4b9b-bb7d-d02a8be98abb', 'name': 'FUSEAU LD PT  noi standard', 'ref': '05237noistandard', 'availableqte': 77, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}, {'id': '02eda123-0f81-4e24-83d4-d89aaa85909b', 'name': 'HIJAB HMY 0269Mixstandard', 'ref': '03214Mixstandard', 'availableqte': 25, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a89a26c2-cb37-4b9b-bb7d-d02a8be98abb', 'name': 'FUSEAU LD PT  noi standard', 'ref': '05237noistandard', 'availableqte': 77, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}, {'id': '02eda123-0f81-4e24-83d4-d89aaa85909b', 'name': 'HIJAB HMY 0269Mixstandard', 'ref': '03214Mixstandard', 'availableqte': 25, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}]}
+FUSEAU LD PT  noi standard in MAG54 ROUIBA - Quantity: 77 1
+HIJAB HMY 0269Mixstandard in MAG54 ROUIBA - Quantity: 25 1
