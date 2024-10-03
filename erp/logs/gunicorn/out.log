@@ -16409,3 +16409,350 @@ ROBE CLRT 237158 ver standard in MAG54 MOHAMMADIA MALL - Quantity: 4 1
 {'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a89a26c2-cb37-4b9b-bb7d-d02a8be98abb', 'name': 'FUSEAU LD PT  noi standard', 'ref': '05237noistandard', 'availableqte': 77, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}, {'id': '02eda123-0f81-4e24-83d4-d89aaa85909b', 'name': 'HIJAB HMY 0269Mixstandard', 'ref': '03214Mixstandard', 'availableqte': 25, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}]}
 FUSEAU LD PT  noi standard in MAG54 ROUIBA - Quantity: 77 1
 HIJAB HMY 0269Mixstandard in MAG54 ROUIBA - Quantity: 25 1
+{'id': 'a89a26c2-cb37-4b9b-bb7d-d02a8be98abb', 'name': 'FUSEAU LD PT  noi standard', 'ref': '05237noistandard', 'availableqte': 77, 'qty': '1', 'ent': '', 'rate': '1500', 'gst': '0.00', 'total': 1500}
+{'id': '02eda123-0f81-4e24-83d4-d89aaa85909b', 'name': 'HIJAB HMY 0269Mixstandard', 'ref': '03214Mixstandard', 'availableqte': 25, 'qty': '1', 'ent': '', 'rate': '8900', 'gst': '0.00', 'total': 8900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['ventes.can_see_ventetab', 'target.can_see_targettab', 'target.can_see_targets', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'ventes.can_see_bonretour', 'inventory.can_see_bonretour', 'produits.can_see_producttab', 'inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'produits.can_see_produits', 'ventes.can_see_bongarantie', 'inventory.can_see_bonsorties', 'inventory.can_see_stocktab']
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2409/02398CLient store: 1BL Store : 1
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2776', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+MARKETING
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+gestion-stock
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10100.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': 'b8da7d10-d25b-4ade-a026-0f204286e1d3', 'name': 'CHEEMISE STL 43121verstandard', 'ref': '05096verstandard', 'availableqte': 41, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': '1777544e-4ccb-418d-a62b-4d985c893592', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 61, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10100.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': 'b8da7d10-d25b-4ade-a026-0f204286e1d3', 'name': 'CHEEMISE STL 43121verstandard', 'ref': '05096verstandard', 'availableqte': 41, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}, {'id': '1777544e-4ccb-418d-a62b-4d985c893592', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 61, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}]}
+CHEEMISE STL 43121verstandard in MAG54 ROUIBA - Quantity: 41 1
+PANTALON CLASSIQUE BUDAK new Mix standard in MAG54 ROUIBA - Quantity: 61 1
+{'id': 'b8da7d10-d25b-4ade-a026-0f204286e1d3', 'name': 'CHEEMISE STL 43121verstandard', 'ref': '05096verstandard', 'availableqte': 41, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+{'id': '1777544e-4ccb-418d-a62b-4d985c893592', 'name': 'PANTALON CLASSIQUE BUDAK new Mix standard', 'ref': '05201Mixstandard', 'availableqte': 61, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+Facturation
+Bon no: BL2410-00001CLient store: 4BL Store : 4
+Bon no: BL241-00002CLient store: 4BL Store : 4
+Bon no: BL2401-00002CLient store: 4BL Store : 4
+Vendeuse
+hello ['ventes.can_see_ventetab', 'target.can_see_targettab', 'target.can_see_targets', 'ventes.can_see_bondevis', 'ventes.can_see_bonlivraison', 'ventes.can_see_bonretour', 'inventory.can_see_bonretour', 'produits.can_see_producttab', 'inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'produits.can_see_produits', 'ventes.can_see_bongarantie', 'inventory.can_see_bonsorties', 'inventory.can_see_stocktab']
+{'dateReg': '2024-10-02', 'client': 1593, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '517000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2410/02426', 'montantRegle': '517000', 'montant': 1034500.14, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+Bon no: BL2409/02398CLient store: 1BL Store : 1
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['inventory.can_see_bontransfert', 'tiers.can_see_clients', 'inventory.can_see_bonretour', 'inventory.can_see_stocktab', 'produits.can_see_produits', 'target.can_see_targets', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'inventory.can_see_bonsorties']
+Vendeuse
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '8bcad7d9-c95a-4154-9ce4-3b8d1ff270ab', 'name': 'CHEMISE LONGUE HLM 11712 noi standard', 'ref': '05075noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '6400', 'gst': '0.00', 'total': 6400}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6400.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '8bcad7d9-c95a-4154-9ce4-3b8d1ff270ab', 'name': 'CHEMISE LONGUE HLM 11712 noi standard', 'ref': '05075noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '6400', 'gst': '0.00', 'total': 6400}]}
+CHEMISE LONGUE HLM 11712 noi standard in MAG54 MOHAMMADIA MALL - Quantity: 4 1
+{'id': '8bcad7d9-c95a-4154-9ce4-3b8d1ff270ab', 'name': 'CHEMISE LONGUE HLM 11712 noi standard', 'ref': '05075noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '6400', 'gst': '0.00', 'total': 6400}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+Bon no: BL2410/02425CLient store: 1BL Store : 1
+MARKETING
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+[]
+[]
+DIRECTEUR EXECUTIF
+[]
+[]
+Finance
+Finance
+Bon no: BL2410/02425CLient store: 1BL Store : 1
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2823', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+Vendeuse
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e8138e26-b81d-44c6-8439-ce159a284b1d', 'name': '', 'ref': 'HIDJAB COURT EXLT 443 MARR 3XL', 'availableqte': '', 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '6900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e8138e26-b81d-44c6-8439-ce159a284b1d', 'name': '', 'ref': 'HIDJAB COURT EXLT 443 MARR 3XL', 'availableqte': '', 'qty': '1', 'ent': '', 'rate': '6900', 'gst': '0.00', 'total': 6900}]}
+manager
+{'bonComptoir': 'VC24/02858', 'monantintroduit': '3700'}
+manager mag54
+Bon no: BL2410-00002CLient store: 4BL Store : 4
+Bon no: BL2410-00003CLient store: 4BL Store : 4
+Bon no: BL2410-00004CLient store: 4BL Store : 4
+manager mag54
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10100.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': '81064298-5cf5-495c-9341-04f929f57457', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 23, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '543bbd57-f275-44b4-9290-f238c0cc6a54', 'name': 'TWINS HLM 11516 noi standard', 'ref': '05069noistandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10100.00', 'TotalRemise': '100', 'verssement': False, 'produits': [{'id': '81064298-5cf5-495c-9341-04f929f57457', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 23, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}, {'id': '543bbd57-f275-44b4-9290-f238c0cc6a54', 'name': 'TWINS HLM 11516 noi standard', 'ref': '05069noistandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}]}
+PANTALON CLASSIQUE LILIAB 4017 noi standard in MAG54 ROUIBA - Quantity: 23 1
+TWINS HLM 11516 noi standard in MAG54 ROUIBA - Quantity: 12 1
+{'id': '81064298-5cf5-495c-9341-04f929f57457', 'name': 'PANTALON CLASSIQUE LILIAB 4017 noi standard', 'ref': '04791noistandard', 'availableqte': 23, 'qty': '1', 'ent': '', 'rate': '4200', 'gst': '0.00', 'total': 4200}
+{'id': '543bbd57-f275-44b4-9290-f238c0cc6a54', 'name': 'TWINS HLM 11516 noi standard', 'ref': '05069noistandard', 'availableqte': 12, 'qty': '1', 'ent': '', 'rate': '5900', 'gst': '0.00', 'total': 5900}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['produits.can_see_produits', 'produits.can_see_producttab', 'tiers.can_see_clients', 'tiers.can_see_tierstab']
+None
+None
+None
+None
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '3b320d87-0516-48d0-8cbe-326fcc6139dd', 'name': 'JUPE EXLT COTON  marr standard', 'ref': '05207marrstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '3b320d87-0516-48d0-8cbe-326fcc6139dd', 'name': 'JUPE EXLT COTON  marr standard', 'ref': '05207marrstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}]}
+JUPE EXLT COTON  marr standard in MAG54 MOHAMMADIA MALL - Quantity: 3 1
+{'id': '3b320d87-0516-48d0-8cbe-326fcc6139dd', 'name': 'JUPE EXLT COTON  marr standard', 'ref': '05207marrstandard', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}
+Vendeuse
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2408-00009CLient store: 7BL Store : 7
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['produits.can_see_produits', 'produits.can_see_producttab', 'tiers.can_see_clients', 'tiers.can_see_tierstab']
+hello ['produits.can_see_produits', 'produits.can_see_producttab', 'tiers.can_see_clients', 'tiers.can_see_tierstab']
+None
+None
+None
+None
+None
+None
+None
+None
+Vendeuse
+Vendeuse
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2401-00009CLient store: 4BL Store : 4
+Vendeuse
+manager
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a5d40628-53f5-4e84-9eb5-b29805342832', 'name': 'HAUT STK 496/502/504B  noi standard', 'ref': '05227noistandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3700.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'a5d40628-53f5-4e84-9eb5-b29805342832', 'name': 'HAUT STK 496/502/504B  noi standard', 'ref': '05227noistandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}]}
+HAUT STK 496/502/504B  noi standard in MAG54 MOHAMMADIA MALL - Quantity: 14 1
+{'id': 'a5d40628-53f5-4e84-9eb5-b29805342832', 'name': 'HAUT STK 496/502/504B  noi standard', 'ref': '05227noistandard', 'availableqte': 14, 'qty': '1', 'ent': '', 'rate': '3700', 'gst': '0.00', 'total': 3700}
+manager mag54
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+Vendeuse
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+[]
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2410-00008CLient store: 4BL Store : 4
+Bon no: BL2410-00009CLient store: 4BL Store : 4
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e1f86acc-63b2-4f62-baff-bf8b503e5702', 'name': 'hidjab HMY 0068', 'ref': '04689', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'e1f86acc-63b2-4f62-baff-bf8b503e5702', 'name': 'hidjab HMY 0068', 'ref': '04689', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+hidjab HMY 0068 in MAG54 ROUIBA - Quantity: 9 1
+{'id': 'e1f86acc-63b2-4f62-baff-bf8b503e5702', 'name': 'hidjab HMY 0068', 'ref': '04689', 'availableqte': 9, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+<QuerySet [<ProduitsEnBonRectif: ProduitsEnBonRectif object (25)>]>
+<QuerySet [<ProduitsEnBonRectif: ProduitsEnBonRectif object (25)>]>
+hello ['inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'target.can_see_targets', 'produits.can_see_produits', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'produits.can_see_producttab', 'inventory.can_see_stocktab']
+commercial
+None
+None
+manager mag54
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2410-00014CLient store: 4BL Store : 4
+Vendeuse
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'MAMRI SAIDA', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10000', 'TotalRemise': 0, 'verssement': True, 'produits': [{'id': '1e82d3c5-5727-4df8-80b5-2f9917711305', 'name': 'ROBE DARA 10017-5beistandard', 'ref': '03223beistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '25900', 'gst': '0.00', 'total': 25900}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'MAMRI SAIDA', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '10000', 'TotalRemise': 0, 'verssement': True, 'produits': [{'id': '1e82d3c5-5727-4df8-80b5-2f9917711305', 'name': 'ROBE DARA 10017-5beistandard', 'ref': '03223beistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '25900', 'gst': '0.00', 'total': 25900}]}
+ROBE DARA 10017-5beistandard in MAG54 MOHAMMADIA MALL - Quantity: 2 1
+{'id': '1e82d3c5-5727-4df8-80b5-2f9917711305', 'name': 'ROBE DARA 10017-5beistandard', 'ref': '03223beistandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '25900', 'gst': '0.00', 'total': 25900}
+manager mag54
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'SOLDE+ NACEREDDINE', 'TotalPay': '19800.00', 'TotalRemise': '4800', 'verssement': False, 'produits': [{'id': 'c3fe24ff-f810-43a9-ac30-7eba4dcfcb41', 'name': 'ROBE SOIREE CR 12177 Mix standard', 'ref': '03418Mixstandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '19800', 'gst': '0.00', 'total': 19800}]}
+{'IdBon': '', 'dateBp': '2024-10-02', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': 'SOLDE+ NACEREDDINE', 'TotalPay': '19800.00', 'TotalRemise': '4800', 'verssement': False, 'produits': [{'id': 'c3fe24ff-f810-43a9-ac30-7eba4dcfcb41', 'name': 'ROBE SOIREE CR 12177 Mix standard', 'ref': '03418Mixstandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '19800', 'gst': '0.00', 'total': 19800}]}
+ROBE SOIREE CR 12177 Mix standard in MAG54 ROUIBA - Quantity: 2 1
+{'id': 'c3fe24ff-f810-43a9-ac30-7eba4dcfcb41', 'name': 'ROBE SOIREE CR 12177 Mix standard', 'ref': '03418Mixstandard', 'availableqte': 2, 'qty': '1', 'ent': '', 'rate': '19800', 'gst': '0.00', 'total': 19800}
+None
+None
+Bon no: BL2410-00011CLient store: 4BL Store : 4
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+MP243X-B
+entrepot dep reghaia
+store_depart Reghaia
+store_arrive Mohamadia Alger
+entrepot_arrive 1095 PRINCIPAL
+Bon no: BL2410-00011CLient store: 4BL Store : 4
+Bon no: BL2410-00012CLient store: 4BL Store : 4
+Bon no: BL2410-00013CLient store: 4BL Store : 4
+{'montant': '63900', 'date': '2024-10-02'}
+commercial-vente
+gestion-stock
+[]
+Vendeuse
+{'nomClient': 'MAMRI SAIDA', 'adresse': 'ELMOHAMMADIA', 'phone': '0662024712', 'catclient': '9'}
+Bon no: BL2410-00010CLient store: 4BL Store : 4
+Bon no: BL2410-00011CLient store: 4BL Store : 4
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'dateReg': '2024-10-02', 'client': 229, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '440000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2401/00011', 'montantRegle': 0, 'montant': 50799.99}, {'idBon': 'BL2401/00068', 'montantRegle': 0, 'montant': 100}, {'idBon': 'BL2402/00203', 'montantRegle': 0, 'montant': 61300.01}, {'idBon': 'BL2402/00218', 'montantRegle': 0, 'montant': 0.05}, {'idBon': 'BL2403/00448', 'montantRegle': 0, 'montant': 0.14}, {'idBon': 'BL2404/00572', 'montantRegle': 0, 'montant': 250.08}, {'idBon': 'BL2404/00591', 'montantRegle': 0, 'montant': 51900.01}, {'idBon': 'BL2405/00904', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2405/01056', 'montantRegle': 0, 'montant': 300.01}, {'idBon': 'BL2406/01324', 'montantRegle': 0, 'montant': 0.04}, {'idBon': 'BL2407/01445', 'montantRegle': 0, 'montant': 0.07}, {'idBon': 'BL2407/01722', 'montantRegle': 0, 'montant': 20.09}, {'idBon': 'BL2408/02060', 'montantRegle': 0, 'montant': 1000.05}, {'idBon': 'BL2408/02100', 'montantRegle': 0, 'montant': 3300.04}, {'idBon': 'BL2410/02425', 'montantRegle': '440000', 'montant': 476000.04, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+{'montant': '38600', 'date': '2024-10-02'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+  Veille Concurentielle

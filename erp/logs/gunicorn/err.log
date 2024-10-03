@@ -27432,3 +27432,340 @@ Traceback (most recent call last):
   File "/root/Erps/erpfinal/erp/ventes/views.py", line 3931, in post
     new_quantity = p.quantity - int(product["qty"]) ## la quantité dans l'entrepot qui convient
 KeyError: 'qty'
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /.env
+Not Found: /+CSCOE+/logon.html
+Not Found: /global-protect/login.esp
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /favicon.ico
+Internal Server Error: /produits/modifier-product/616
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/produits/views.py", line 795, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/produits/views.py", line 845, in post
+    product_variant, created = models.Product.objects.get_or_create(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 916, in get_or_create
+    return self.get(**kwargs), False
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 640, in get
+    raise self.model.MultipleObjectsReturned(
+produits.models.Product.MultipleObjectsReturned: get() returned more than one Product -- it returned 2!
+Not Found: /vpn/index.html
+Internal Server Error: /ventes/edit-comptoire-bill/3728
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 1517, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 226, in get
+    context = self.get_context_data(**kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 1453, in get_context_data
+    invoice = BonRectification.objects.get(id=bill_id)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+comptoire.models.BonRectification.DoesNotExist: BonRectification matching query does not exist.
+Internal Server Error: /ventes/edit-comptoire-bill/3728
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 1517, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/views/generic/base.py", line 226, in get
+    context = self.get_context_data(**kwargs)
+  File "/root/Erps/erpfinal/erp/ventes/views.py", line 1453, in get_context_data
+    invoice = BonRectification.objects.get(id=bill_id)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+comptoire.models.BonRectification.DoesNotExist: BonRectification matching query does not exist.
+Forbidden (CSRF token from POST incorrect.): /home/
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /show-prebuilt/hades/hades-mc-i3f2/
+Not Found: /robots.txt
+Not Found: /menu.jsp
+Not Found: /default.cfm
+Not Found: /home.html
+Not Found: /inicio.jsa
+Not Found: /default.pl
+Not Found: /index.jsa
+Not Found: /readme.txt
+Internal Server Error: /sdk
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to vmi2083988.contaboserver.net/sdk/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Not Found: /admin.shtml
+Not Found: /indice.jsa
+Not Found: /scripts/WPnBr.dll
+Not Found: /admin.php
+Not Found: /menu.cfm
+Not Found: /admin.jsa
+Not Found: /base.pl
+Not Found: /favicon.ico
+Not Found: /menu.jsa
+Not Found: /admin.html
+Not Found: /home.aspx
+Not Found: /admin.cgi
+Not Found: /home.jsa
+Not Found: /main.pl
+Not Found: /localstart.jsa
+Not Found: /pools/default/buckets/
+Not Found: /admin.aspx
+Not Found: /base.inc
+Not Found: /pools/
+Not Found: /index.cgi
+Not Found: /CSS/Miniweb.css
+Not Found: /start.php
+Not Found: /webui/
+Not Found: /base.shtml
+Not Found: /user/
+Not Found: /start.cgi
+Not Found: /Portal0000.htm
+Not Found: /admin.jhtml
+Not Found: /user/
+Not Found: /__Additional/
+Not Found: /indice.jhtml
+Not Found: /default.php
+Not Found: /human.aspx
+Not Found: /indice.shtml
+Not Found: /human.aspx
+Not Found: /localstart.html
+Not Found: /dana-cached/hc/HostCheckerInstaller.osx
+Not Found: /home.cfm
+Not Found: /home.jsp
+Not Found: /dana-na/nc/nc_gina_ver.txt
+Not Found: /base.jsp
+Not Found: /+CSCOE+/logon.html
+Not Found: /home.jhtml
+Not Found: /CFIDE/componentutils/
+Not Found: /main.aspx
+Not Found: /geoserver/index.html
+Not Found: /rest/applinks/1.0/manifest
+Not Found: /base.jsa
+Not Found: /geoserver/
+Not Found: /confluence/rest/applinks/1.0/manifest
+Not Found: /inicio.aspx
+Not Found: /geoserver/web/wicket/bookmarkable/org.geoserver.web.AboutGeoServerPage
+Not Found: /base.cfm
+Not Found: /geoserver/web/wicket/bookmarkable/org.geoserver.web.AboutGeoServerPage
+Not Found: /index.pl
+Not Found: /start.html
+Not Found: /menu.jhtml
+Not Found: /Account/Login/
+Not Found: /cgi-bin/info.cgi
+Not Found: /base.jhtml
+Not Found: /admin.asp
+Not Found: /xml/info.xml
+Not Found: /base.html
+Not Found: /start.jsa
+Not Found: /base.cgi
+Not Found: /base.aspx
+Not Found: /home.shtml
+Not Found: /base.asp
+Not Found: /base.php
+Not Found: /indice.pl
+Not Found: /localstart.cfm
+Not Found: /inicio.jhtml
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /reglements/reglements
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /.well-known/traffic-advice
+Not Found: /autodiscover/autodiscover.json
+Not Found: /+CSCOE+/logon.html
+Not Found: /remote/login/
+Not Found: /robots.txt
+Not Found: /sitemap.xml
+Not Found: /.well-known/security.txt
+Not Found: /actuator/gateway/routes/
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /owa/auth/x.js
+Not Found: /favicon.ico
+Forbidden (Referer checking failed - no Referer.): /
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /index.nginx-debian.html
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /show-distributor/revotec/
+Not Found: /+CSCOE+/logon.html
+Not Found: /global-protect/login.esp
