@@ -3951,11 +3951,12 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         for product in dataInvoice["produits"]:   
           if "ref" in product:               
             p = Stock.objects.select_for_update().get( Q(product__reference=product["ref"]) & Q(entrepot__name=currentEntrepot))
-            new_quantity = p.quantity - int(product["qty"]) ## la quantité dans l'entrepot qui convient
-            if new_quantity < 0:
-                # If any product has insufficient quantity, return a response to inform the user
-                return JsonResponse({'error': f"Insufficient stock for product: {product['ref']}", 'prompt_user': True})            
-
+            try:
+                new_quantity = p.quantity - int(product["qty"]) ## la quantité dans l'entrepot qui convient
+                if new_quantity < 0:
+                    # If any product has insufficient quantity, return a response to inform the user
+                    return JsonResponse({'error': f"Insufficient stock for product: {product['ref']}", 'prompt_user': True})            
+            except: continue
         current_year = timezone.now().year
         current_month = datetime.now().strftime('%m')
         boncomptoirs_this_year = models.BonSortie.objects.filter(dateBon__year = current_year, store= CurrentStore)
@@ -3994,19 +3995,25 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             if "ref" in product:
                 p = Product.objects.get(reference=product["ref"], store = CurrentStore)
                 s = Stock.objects.get(product = p, entrepot = currentEntrepot )
-                new_quantity = s.quantity - int(product["qty"])
+                try:
+                    qt=product["qty"]
+                except: 
+                    qt=0  
+                new_quantity = s.quantity - int(qt)
+
                 s.quantity = new_quantity
                 s.save()
-                p.TotalQte -= int(product["qty"])
+                p.TotalQte -= int(qt)
                 p.save()
                 product_rate = float(product['rateLiv'])
-                prod_total_price = float(product['rateLiv']) * int(product["qty"])
+                
+                prod_total_price = float(product['rateLiv']) * int(qt)
                 entrepot_inst = currentEntrepot
                 models.ProduitsEnBonSortie.objects.create(
                     BonNo=bon_sortie,
                     stock=p,
                     entrepot=entrepot_inst,
-                    quantity=int(product["qty"]),
+                    quantity=int(qt),
                     unitprice=product_rate,
                     totalprice=prod_total_price
                 )
