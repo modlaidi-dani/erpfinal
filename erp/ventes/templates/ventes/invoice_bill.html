@@ -1019,6 +1019,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 																		item.rateLiv = parseFloat(option.prix) + parseFloat(option.tax) + parseFloat(option.livraison_prix);
 																		item.ent = option.ent;
 																		selected = option;
+																		
 																	">
 																	
 																		<span x-text="option.name" :class="{ 'text-blue-500': isSelected(option) }"></span><span class="text-red-500 font-bold" x-text="' -> ' + option.qty_facture"></p>
@@ -1541,6 +1542,14 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								{ label: { value: 'extras4', display: 'Extras' }, products: '' },
 								{ label: { value: 'extras5', display: 'Extras' }, products: '' },
 								{ label: { value: 'extras6', display: 'Extras' }, products: '' },
+								{ label: { value: 'extras7', display: 'Extras' }, products: '' },
+								{ label: { value: 'extras8', display: 'Extras' }, products: '' },
+								{ label: { value: 'extras9', display: 'Extras' }, products: '' },
+								{ label: { value: 'extras10', display: 'Extras' }, products: '' },
+								{ label: { value: 'extras11', display: 'Extras' }, products: '' },
+								{ label: { value: 'extras12', display: 'Extras' }, products: '' },
+								{ label: { value: 'extras13', display: 'Extras' }, products: '' },
+								{ label: { value: 'extras14', display: 'Extras' }, products: '' },
 							],
 
 							stepObject:{
@@ -1937,7 +1946,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								}
 							},
 							addItem() {
-							 console.log(this.totalTTc())
+							 console.log(this.item)
 							 if (this.item.reference){
 								   const newItem = {
 									   id: this.generateUUID(),
@@ -1954,6 +1963,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									   total: this.item.qty * this.item.rate,
 									   totalLiv: this.item.qty * this.item.rateLiv
 								   };
+								   console.log(this.item)
 								   
 								   this.item.id = '';
 								   this.item.name = '';
