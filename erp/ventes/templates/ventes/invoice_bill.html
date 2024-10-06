@@ -485,7 +485,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 														</td>
 													{% endif %}
 													<td class="px-1 text-center">
-														<p class="text-gray-800" x-text="(invoice.products.rateLiv) * 1.19"></p>
+														<p class="text-gray-800" x-text="((invoice.products.rateLiv) * 1.19)*invoice.products.qty"></p>
 													</td>
 													<td class="px-1 text-center">
 														<p class="text-gray-800" x-text="invoice.products.qty"></p>
@@ -1946,7 +1946,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								}
 							},
 							addItem() {
-							 console.log(this.item)
+							
 							 if (this.item.reference){
 								   const newItem = {
 									   id: this.generateUUID(),
@@ -1963,8 +1963,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									   total: this.item.qty * this.item.rate,
 									   totalLiv: this.item.qty * this.item.rateLiv
 								   };
-								   console.log(this.item)
-								   
+								
 								   this.item.id = '';
 								   this.item.name = '';
 								   this.item.reference = '';
