@@ -419,18 +419,6 @@ class="flex flex-col min-h-screen custom-scrollbar"
 											  class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-700"
 									      >
 								</div>	
-								<div
-								<div
-								x-data="{
-									init() {
-										const storedItems = localStorage.getItem('endPcBuild');
-										if (storedItems) {
-											this.items_pc = JSON.parse(storedItems);
-										}
-									},
-	
-								}" 
-								x-init="init()">
 								<template x-for="(item, index) in items_pc" >
 									<table class=" mt-2 border-collapse border-l border-r w-full">
 										<thead class="border-b  bg-gray-100  border-t  py-4">
@@ -497,11 +485,10 @@ class="flex flex-col min-h-screen custom-scrollbar"
 														</td>
 													{% endif %}
 													<td class="px-1 text-center">
-														<p class="text-gray-800" x-text="(((invoice.products.rateLiv) * 1.19)*invoice.products.qty).toFixed(2)"></p>
+														<p class="text-gray-800" x-text="((invoice.products.rateLiv) * 1.19)*invoice.products.qty"></p>
 													</td>
-													<td class="px-1 text-center"> 
+													<td class="px-1 text-center">
 														<p class="text-gray-800" x-text="invoice.products.qty"></p>
-
 													</td>
 													<td class="px-1 text-center" :rowspan="index === 0 ? item.items.length : 1" x-show="index === 0 ">
 														<p class="text-gray-800" x-text="totalPCHt(index)"></p>
@@ -521,7 +508,6 @@ class="flex flex-col min-h-screen custom-scrollbar"
 										</tbody>
 									</table>   
 								</template>
-							</div>
 								<div class="flex justify-between ">
 									<div></div>
 								</div>
@@ -1177,24 +1163,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 										d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
 								</svg>
 							</div>
-							<form action="" id="myForm" x-data="{
-								
-								init() {
-									const savedData = JSON.parse(localStorage.getItem('itemedit'));
-									
-									if (savedData) {
-										this.itemedit.ref = savedData.ref;
-										this.itemedit.name = savedData.name;
-										this.itemedit.rate = savedData.rate;
-										this.itemedit.tax = savedData.tax;
-										this.itemedit.livraison_prix = savedData.livraison_prix;
-										this.itemedit.rateLiv = savedData.rateLiv;
-										this.itemedit.ent	 = savedData.ent;	
-									}
-								},
-							
-								
-							}" x-init="init()">
+							<form action="" id="myForm">
 										<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
 										<h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Modifier Un produit - <span x-text="referencePCedit"></span> </h2>
 										<div class="mb-4 w-full ">			
@@ -1431,7 +1400,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							},
 							endPcBuild(){
 								this.items_pc.push({	
-									'qty':this.qte_requis ,
+									'qty':this.qte_requis,
 									'netTotal':this.netTotal,
 									'netTotalLiv':this.netTotalLiv,
 									'fraisLivraison':this.fraisLivraison,
@@ -1467,18 +1436,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									{ label: { value: 'extras4', display: 'Extras' }, products: '' },
 									{ label: { value: 'extras5', display: 'Extras' }, products: '' },
 									{ label: { value: 'extras6', display: 'Extras' }, products: '' },
-									{ label: { value: 'extras7', display: 'Extras' }, products: '' },
-									{ label: { value: 'extras8', display: 'Extras' }, products: '' },
-									{ label: { value: 'extras9', display: 'Extras' }, products: '' },
-									{ label: { value: 'extras10', display: 'Extras' }, products: '' },
-									{ label: { value: 'extras11', display: 'Extras' }, products: '' },
-									{ label: { value: 'extras12', display: 'Extras' }, products: '' },
-									{ label: { value: 'extras13', display: 'Extras' }, products: '' },
-									{ label: { value: 'extras14', display: 'Extras' }, products: '' },
-
 								];
 								
-								localStorage.setItem('endPcBuild', JSON.stringify(this.items_pc));
 							},
 
 							generateRandomString() {
@@ -1494,18 +1453,11 @@ class="flex flex-col min-h-screen custom-scrollbar"
                                     const randomIndex = Math.floor(Math.random() * characters.length);
                                     productCode += characters[randomIndex];
                                   }
-								  const storedEndPcBuild = localStorage.getItem('endPcBuild');
-                                if (storedEndPcBuild) {
-                                const endPcBuildObj = JSON.parse(storedEndPcBuild);
-
-                              this.reference_pc = endPcBuildObj[0].reference_pc;
-                               } else {
-                                this.reference_pc = productCode;
-                                 }
+								this.reference_pc = productCode;
 							},
 
 							validerModification(){
-								const existingPcIndex = this.items_pc.findIndex(item => item.reference_pc === this.referencePCedit);					
+								const existingPcIndex = this.items_pc.findIndex(item => item.reference_pc === this.referencePCedit);
 								existingPC = this.items_pc[existingPcIndex];
 								PcProduct = existingPC.items[this.category];
 								existingPC.netTotal -= parseFloat(PcProduct.rate) * existingPC.qty
@@ -1515,14 +1467,12 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								const taux_liv = PcProduct.livraison_prix / PcProduct.qty
 								this.tax -= PcProduct.tax *  PcProduct.qty
 								this.fraisLivraison -= taux_liv * this.itemedit.qty
-								console.log(this.items_pc[existingPcIndex].items[this.category].products.totalLiv);
-
 								this.items_pc[existingPcIndex].items[this.category].name = this.itemedit.name,
 								this.items_pc[existingPcIndex].items[this.category].ref= this.itemedit.ref,
-								this.items_pc[existingPcIndex].items[this.category].products.qty= this.itemedit.qty,
+								this.items_pc[existingPcIndex].items[this.category].qty= this.itemedit.qty,
 								this.items_pc[existingPcIndex].items[this.category].ent= this.itemedit.ent,
-								this.items_pc[existingPcIndex].items[this.category].products.rate= this.itemedit.rateLiv,
-								this.items_pc[existingPcIndex].items[this.category].products.rateLiv= this.itemedit.rateLiv,
+								this.items_pc[existingPcIndex].items[this.category].rate= this.itemedit.rate,
+								this.items_pc[existingPcIndex].items[this.category].rateLiv= this.itemedit.rateLiv,
 								this.items_pc[existingPcIndex].items[this.category].tva= 19,
 								this.items_pc[existingPcIndex].items[this.category].gst= this.calculateGST(19, parseFloat(this.itemedit.rate)),
 								this.items_pc[existingPcIndex].items[this.category].gstLiv= this.calculateGST(19, parseFloat(this.itemedit.rateLiv)),
@@ -1534,11 +1484,6 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								var livraison_prix = parseFloat(this.itemedit.livraison_prix);
 								
 								var qty = parseFloat(this.itemedit.qty);
-
-								console.log(this.items_pc[existingPcIndex].items[this.category].products.totalLiv);
-								
-								console.log(this.items_pc[0].items[0].products.qty);
-								console.log(this.items_pc[0].items[0].products.rateLiv);
 
 								this.netTotalLiv += this.itemedit.rateLiv;
 								netTotal_float = parseFloat(this.netTotal)
@@ -1845,26 +1790,22 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								this.stockFiltered = this.stocks.filter(item => item.categorie === category);
 								
 							},
-                            
-							savedData: JSON.parse(localStorage.getItem('itemedit')),
+
 							itemedit:{
-								ref: this.savedData || '',
-								name: this.savedData || '',
-								rate: this.savedData|| '',
-								tax: this.savedData|| '',
-								livraison_prix:this.savedData|| '',
-								rateLiv: this.savedData || '',
-								ent: this.savedData || '',
+								ref: '',
+								name: '',
+								rate: '',
+								tax: '',
+								livraison_prix: '',
+								rateLiv: '',
+								ent: '',
 							},
 
 							openModalModification : false,
-						
 							editItem(invoiceCategory) {
 								const index = this.items.findIndex(item => item.label.value === invoiceCategory.label.value);
-								console.log(index);
 								this.Currentstep = index +1;
 								this.category = index;		
-								console.log(this.category);
 								this.itemedit.ref  = invoiceCategory.products.ref;
 								this.itemedit.name = invoiceCategory.products.name;
 								this.itemedit.rate = invoiceCategory.products.rate;
@@ -1873,8 +1814,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								this.itemedit.rateLiv = invoiceCategory.products.rateLiv;
 								this.itemedit.ent	 = invoiceCategory.products.ent;		
 								this.openModalModification = true ;
-								localStorage.setItem('itemedit', JSON.stringify(this.itemedit));
-							
+								console.log(this.itemedit);
 							},
 
 							getStock(entrepotStock){
@@ -1967,8 +1907,6 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							this.items_pc.forEach(item => {
 								// Check if items have products array and calculate sum if it exists
 								if (item.items && item.items.length > 0) {
-									
-									console.log(item.items);
 									const itemRateLivSum = item.items.reduce((acc, product) => {
 										// Check if product has products object and rateLiv property
 										if (product.products && typeof product.products.rateLiv === 'number') {
@@ -1977,12 +1915,10 @@ class="flex flex-col min-h-screen custom-scrollbar"
 										// Handle missing product or rateLiv (e.g., return 0 or log a warning)
 										return acc;
 										}
-										console.log(itemRateLivSum);
 									}, 0);
 									sumItems += ( itemRateLivSum * item.qty);
-									console.log(this.sumItems);
-		
 								}
+
 								
 							});
 
@@ -1990,29 +1926,25 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							},
 
 							calculateTotalProductsRateLiv() {
-                               const storedEndPcBuild = JSON.parse(localStorage.getItem('endPcBuild'));
+								var qty_required = this.items[0].products.qty || 0;
+								if (this.items && this.items.length > 0) {
+								const sum = this.items.reduce((acc, product) => {
+									if (product.products && typeof product.products.rateLiv === 'number') {
+									return acc + product.products.rateLiv;
+									} else {
+									// Handle missing product or rateLiv (consider logging or throwing an error)
+									console.warn('Missing product or rateLiv property');
+									return acc;
+									}
+								}, 0);
 
-                               if (storedEndPcBuild) {
-                                   return storedEndPcBuild[0].netTotalLiv;
-                               }
-
-                               const qty_required = this.items[0]?.products?.qty || 0;
-
-                               if (this.items && this.items.length > 0) {
-                                   const sum = this.items.reduce((acc, product) => {
-                                       if (product.products && typeof product.products.rateLiv === 'number') {
-                                           return acc + product.products.rateLiv;
-                                       } else {
-                                           console.warn('Missing product or rateLiv property');
-                                           return acc;
-                                       }
-                                   }, 0);
-
-                                   return sum * qty_required;
-                               } else {
-                                   return 0;
-                               }
-                           },
+								// Assuming qty_required represents a valid quantity
+								return sum * qty_required;
+								} else {
+								// Handle case where this.items is empty or missing
+								return 0;
+								}
+							},
 							addItem() {
 							
 							 if (this.item.reference){
@@ -2169,7 +2101,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 										this.productsdifferent.push(product_obj);
 									}									
 								});
-						      localStorage.removeItem('endBuildPc')
+						
 							},
 
 							validateBon(){	
