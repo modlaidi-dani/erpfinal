@@ -17162,3 +17162,329 @@ PANTALON JEAN EXLT OLD ble56 in MAG54 ROUIBA - Quantity: 1 1
 {'nomClient': 'Zouaoui Tarek', 'adresse': '', 'phone': '0557238386', 'catclient': '1'}
 hello ['target.can_see_targettab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'inventory.can_see_bonentres', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'ventes.can_see_bongarantie', 'produits.can_see_produits', 'inventory.can_see_bonsorties', 'inventory.can_create_echange_bill', 'tiers.can_see_tierstab', 'inventory.can_see_stocktab', 'inventory.can_see_bonreforme', 'ventes.can_see_boncomptoires', 'comptoire.can_see_cloture', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'ventes.can_see_bondevis', 'comptoire.can_see_comptoir', 'ventes.can_see_ventetab', 'inventory.can_see_bonretour', 'target.can_see_targets']
 hello 
+Vendeuse
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '4c7a8912-e3e0-4311-a3bd-17d1b37cb9fc', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '4c7a8912-e3e0-4311-a3bd-17d1b37cb9fc', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+PANTALON CARRE COTON EXLT  noi standard in MAG54 MOHAMMADIA MALL - Quantity: 7 1
+{'id': '4c7a8912-e3e0-4311-a3bd-17d1b37cb9fc', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+manager mag54
+{'nomClient': 'tyuk', 'adresse': 'alger', 'phone': '0549677584', 'catclient': '9'}
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'tyuk', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2000', 'TotalRemise': '100', 'verssement': True, 'produits': [{'id': '728b2e16-cdd9-411c-9877-ea5dd1c1e6a2', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'tyuk', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2000', 'TotalRemise': '100', 'verssement': True, 'produits': [{'id': '728b2e16-cdd9-411c-9877-ea5dd1c1e6a2', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+PANTALON CARRE COTON EXLT  noi standard in MAG54 MOHAMMADIA MALL - Quantity: 8 1
+{'id': '728b2e16-cdd9-411c-9877-ea5dd1c1e6a2', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 8, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+{'nomClient': 'ugvgnn', 'adresse': 'rouiba', 'phone': '220020225252', 'catclient': '9'}
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'ugvgnn', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1500', 'TotalRemise': 0, 'verssement': True, 'produits': [{'id': '539d9ab5-f893-4f14-a6d4-8d323a22167e', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'ugvgnn', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '1500', 'TotalRemise': 0, 'verssement': True, 'produits': [{'id': '539d9ab5-f893-4f14-a6d4-8d323a22167e', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+PANTALON CARRE COTON EXLT  noi standard in MAG54 MOHAMMADIA MALL - Quantity: 7 1
+{'id': '539d9ab5-f893-4f14-a6d4-8d323a22167e', 'name': 'PANTALON CARRE COTON EXLT  noi standard', 'ref': '05203noistandard', 'availableqte': 7, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+Vendeuse
+hello ['target.can_see_targettab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'inventory.can_see_bonentres', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'ventes.can_see_bongarantie', 'produits.can_see_produits', 'inventory.can_see_bonsorties', 'inventory.can_create_echange_bill', 'tiers.can_see_tierstab', 'inventory.can_see_stocktab', 'inventory.can_see_bonreforme', 'ventes.can_see_boncomptoires', 'comptoire.can_see_cloture', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'ventes.can_see_bondevis', 'comptoire.can_see_comptoir', 'ventes.can_see_ventetab', 'inventory.can_see_bonretour', 'target.can_see_targets']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': '900', 'verssement': False, 'produits': [{'id': '89657ccc-495c-4386-ad07-0025f404bb37', 'name': 'HAUT BK 23252 noi standard', 'ref': '04709noistandard', 'availableqte': 20, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3900.00', 'TotalRemise': '900', 'verssement': False, 'produits': [{'id': '89657ccc-495c-4386-ad07-0025f404bb37', 'name': 'HAUT BK 23252 noi standard', 'ref': '04709noistandard', 'availableqte': 20, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}]}
+HAUT BK 23252 noi standard in MAG54 ROUIBA - Quantity: 20 1
+{'id': '89657ccc-495c-4386-ad07-0025f404bb37', 'name': 'HAUT BK 23252 noi standard', 'ref': '04709noistandard', 'availableqte': 20, 'qty': '1', 'ent': '', 'rate': '3900', 'gst': '0.00', 'total': 3900}
+manager mag54
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+['target.can_see_targettab', 'tiers.can_see_clients', 'ventes.can_see_bonretour', 'inventory.can_see_bonentres', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'ventes.can_see_bongarantie', 'produits.can_see_produits', 'inventory.can_see_bonsorties', 'inventory.can_create_echange_bill', 'tiers.can_see_tierstab', 'inventory.can_see_stocktab', 'inventory.can_see_bonreforme', 'ventes.can_see_boncomptoires', 'comptoire.can_see_cloture', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'ventes.can_see_bondevis', 'comptoire.can_see_comptoir', 'ventes.can_see_ventetab', 'inventory.can_see_bonretour', 'target.can_see_targets']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'montant': '20200', 'date': '2024-10-05'}
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '39f411a7-dc90-4372-ba28-dd243ea2d372', 'name': 'HIJAB CLARITY 247201 noi standard', 'ref': '03231noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '7900.00', 'TotalRemise': '200', 'verssement': False, 'produits': [{'id': '39f411a7-dc90-4372-ba28-dd243ea2d372', 'name': 'HIJAB CLARITY 247201 noi standard', 'ref': '03231noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}]}
+HIJAB CLARITY 247201 noi standard in MAG54 MOHAMMADIA MALL - Quantity: 5 1
+{'id': '39f411a7-dc90-4372-ba28-dd243ea2d372', 'name': 'HIJAB CLARITY 247201 noi standard', 'ref': '03231noistandard', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '7900', 'gst': '0.00', 'total': 7900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+None
+None
+
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2410-00010CLient store: 7BL Store : 7
+manager mag54
+Vendeuse
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'Zouaoui Tarek', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '11800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '1010df70-0195-49aa-9504-f284b376e208', 'name': 'SUPPORT ECRAN MARS GAMING MGSONE BLACK\t', 'ref': 'MGSONE', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '7400', 'gst': '0.00', 'total': 7400}, {'id': 'ff97a8a6-badf-4840-a55c-37792ee9d464', 'name': 'CASQUE CANYON GH-6B / BLACK', 'ref': 'GH6B', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}]}
+{'IdBon': '', 'dateBp': '2024-10-05', 'clientInfo': {'name': 'Zouaoui Tarek', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '11800.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '1010df70-0195-49aa-9504-f284b376e208', 'name': 'SUPPORT ECRAN MARS GAMING MGSONE BLACK\t', 'ref': 'MGSONE', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '7400', 'gst': '0.00', 'total': 7400}, {'id': 'ff97a8a6-badf-4840-a55c-37792ee9d464', 'name': 'CASQUE CANYON GH-6B / BLACK', 'ref': 'GH6B', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}]}
+SUPPORT ECRAN MARS GAMING MGSONE BLACK	 in PARKMALL SETIF - Quantity: 3 1
+CASQUE CANYON GH-6B / BLACK in PARKMALL SETIF - Quantity: 5 1
+{'id': '1010df70-0195-49aa-9504-f284b376e208', 'name': 'SUPPORT ECRAN MARS GAMING MGSONE BLACK\t', 'ref': 'MGSONE', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '7400', 'gst': '0.00', 'total': 7400}
+{'id': 'ff97a8a6-badf-4840-a55c-37792ee9d464', 'name': 'CASQUE CANYON GH-6B / BLACK', 'ref': 'GH6B', 'availableqte': 5, 'qty': '1', 'ent': '', 'rate': '4400', 'gst': '0.00', 'total': 4400}
+commercial-vente
+None
+None
+Vendeuse
+{'montant': '7700', 'date': '2024-10-05'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+  Veille Concurentielle
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2410-2621', 'dateBp': '2024-10-06', 'clientInfo': {'name': 'BOUZIDI ZOHEIR (HESORAN)', 'address': '60 RUE HEREDIA CASTOR ORAN ', 'num_registre': '09a0578886', 'nif': '1983311010040639', 'nai': '31813257015', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2410/02427', 'time': 8, 'produits': [{'id': '31f24bc8-4808-4e83-bb6e-de44c65a5c14', 'name': 'CARTE MERE MSI PRO B650M-P\t', 'ref': 'MD9117E27001\t', 'qty': 3, 'livre': True, 'rate': 23109.25, 'total': 69327.75, 'numSeries': ['601-7E27-010B2404002588', '601-7E27-010B2404002589', '601-7E27-010B2404002586']}]}
+None
+None
+{'IdBon': 'FIG2410-2622', 'dateBp': '2024-10-06', 'clientInfo': {'name': 'EURL BAZAR DU GRAND MAGHREB', 'address': 'DJELFA', 'num_registre': '17/00-0302298B99', 'nif': '09991703022988500000', 'nai': '', 'nis': '', 'phone': '0780837948'}, 'AssociatedBL': 'BL2409/02420', 'time': 306, 'produits': [{'id': '126806e9-1635-4a55-add6-c9408785bc51', 'name': 'RAM DDR5 ADATA LANCER 16GB 6400MHZ - WHITE', 'ref': 'LC16-6400-W', 'qty': 4, 'livre': True, 'rate': 12184.88, 'total': 48739.52, 'numSeries': ['1O2100819891', '1O2100819922', '1O2100819912', '1O2100819905']}, {'id': '081e6d07-19b6-49a8-8e1e-5300356b9298', 'name': 'RAM DDR5 ADATA LANCER 16GB 6400MHZ - BLACK', 'ref': 'LC16-6400-B', 'qty': 4, 'livre': True, 'rate': 12184.88, 'total': 48739.52, 'numSeries': ['1O0100794206', '1O0100793815', '1O0100794204', '1O0100794046']}, {'id': '91b1baf9-913a-4580-a205-8dcd2dc11171', 'name': 'CPU INTEL I3 13100F BOX\t', 'ref': '13100F-BOX\t', 'qty': 3, 'livre': True, 'rate': 17983.2, 'total': 53949.6, 'numSeries': ['U2NA827501348', 'U2NA827501525', 'U2PN386701862']}, {'id': '1f68a124-6b5b-4120-8a4e-6f46e184ab22', 'name': 'CPU INTEL I5 14400F TRAY', 'ref': 'INCM71504821113SRN47', 'qty': 3, 'livre': True, 'rate': 33529.41, 'total': 100588.23, 'numSeries': ['X344P268(3)']}, {'id': 'db1eaa7b-4f3f-42c4-b3a2-476a9475956f', 'name': 'CPU INTEL I5 13400F', 'ref': 'I5-13400F', 'qty': 3, 'livre': True, 'rate': 28487.4, 'total': 85462.2, 'numSeries': ['U3888JL301417', 'U3888JL300879', 'U3888JL303678']}, {'id': '80c9cea2-d3d5-4ebf-8ae5-c73fb51eb7b9', 'name': 'CPU AMD RYZEN 5 8500G MPK', 'ref': '8500G-MPK', 'qty': 1, 'livre': True, 'rate': 28151.26, 'total': 28151.26, 'numSeries': ['9KY6678W30389_100-000000931']}, {'id': 'ed928d5b-a1dd-4ebc-9cc5-564983cf9788', 'name': 'CPU INTEL I5 13600KF', 'ref': 'I5-13600KF', 'qty': 2, 'livre': True, 'rate': 39411.77, 'total': 78823.54, 'numSeries': ['U30W2U4704375', 'U3XF124101612']}]}
+{'IdBon': 'FIG2410-2622', 'dateBp': '2024-10-06', 'clientInfo': {'name': 'EURL BAZAR DU GRAND MAGHREB', 'address': 'DJELFA', 'num_registre': '17/00-0302298B99', 'nif': '09991703022988500000', 'nai': '', 'nis': '', 'phone': '0780837948'}, 'AssociatedBL': 'BL2409/02420', 'time': 306, 'produits': [{'id': '126806e9-1635-4a55-add6-c9408785bc51', 'name': 'RAM DDR5 ADATA LANCER 16GB 6400MHZ - WHITE', 'ref': 'LC16-6400-W', 'qty': 4, 'livre': True, 'rate': 12184.88, 'total': 48739.52, 'numSeries': ['1O2100819891', '1O2100819922', '1O2100819912', '1O2100819905']}, {'id': '081e6d07-19b6-49a8-8e1e-5300356b9298', 'name': 'RAM DDR5 ADATA LANCER 16GB 6400MHZ - BLACK', 'ref': 'LC16-6400-B', 'qty': 4, 'livre': True, 'rate': 12184.88, 'total': 48739.52, 'numSeries': ['1O0100794206', '1O0100793815', '1O0100794204', '1O0100794046']}, {'id': '91b1baf9-913a-4580-a205-8dcd2dc11171', 'name': 'CPU INTEL I3 13100F BOX\t', 'ref': '13100F-BOX\t', 'qty': 3, 'livre': True, 'rate': 17983.2, 'total': 53949.6, 'numSeries': ['U2NA827501348', 'U2NA827501525', 'U2PN386701862']}, {'id': '1f68a124-6b5b-4120-8a4e-6f46e184ab22', 'name': 'CPU INTEL I5 14400F TRAY', 'ref': 'INCM71504821113SRN47', 'qty': 3, 'livre': True, 'rate': 33529.41, 'total': 100588.23, 'numSeries': ['X344P268(3)']}, {'id': 'db1eaa7b-4f3f-42c4-b3a2-476a9475956f', 'name': 'CPU INTEL I5 13400F', 'ref': 'I5-13400F', 'qty': 3, 'livre': True, 'rate': 28487.4, 'total': 85462.2, 'numSeries': ['U3888JL301417', 'U3888JL300879', 'U3888JL303678']}, {'id': '80c9cea2-d3d5-4ebf-8ae5-c73fb51eb7b9', 'name': 'CPU AMD RYZEN 5 8500G MPK', 'ref': '8500G-MPK', 'qty': 1, 'livre': True, 'rate': 28151.26, 'total': 28151.26, 'numSeries': ['9KY6678W30389_100-000000931']}, {'id': 'ed928d5b-a1dd-4ebc-9cc5-564983cf9788', 'name': 'CPU INTEL I5 13600KF', 'ref': 'I5-13600KF', 'qty': 2, 'livre': True, 'rate': 39411.77, 'total': 78823.54, 'numSeries': ['U30W2U4704375', 'U3XF124101612']}]}
+None
+None
+DIRECTEUR EXECUTIF
+{'datetimedeb': '2024-10-02', 'list2': [{'nom': 'Ounesli Billel', 'fontion': 'Agent de montage '}], 'type_conge': 'paye', 'datetimefin': '2024-10-05'}
+{'IdBon': 'FIG2410-2616', 'dateBp': '2024-10-06', 'clientInfo': {'name': 'VES CONSULTING', 'address': 'ALGER', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '+213 770 30 62 08'}, 'AssociatedBL': 'BL2410/02426', 'time': 2200, 'produits': [{'id': 'c1ceb1f8-c377-492f-9dd5-99fac13156de', 'name': 'CPU INTEL I5 13400F', 'ref': 'I5-13400F', 'qty': 5, 'livre': True, 'rate': 31344.54, 'total': 156722.7, 'numSeries': ['U3888JL302835', 'U3888JL300890', 'U3888JL300791', 'U3888JL301039', 'U3888JL301406']}, {'id': '65f0dc02-29e7-4a4d-8786-42199a760092', 'name': 'CARTE MERE MSI B760M-P DDR5', 'ref': 'MD9117E02011', 'qty': 5, 'livre': True, 'rate': 24873.95, 'total': 124369.75, 'numSeries': ['601-7E02-040B2404000249', '601-7E02-040B2404000248', '601-7E02-040B2404000247', '601-7E02-040B2404000246', '601-7E02-040B2404000250']}, {'id': '49223bcf-20fa-4229-ad55-cb99f7b9429b', 'name': 'BOITIER MSI MAG FORGE 120A AIRFLOW', 'ref': '120A-AIRFLOW', 'qty': 5, 'livre': True, 'rate': 10840.34, 'total': 54201.7, 'numSeries': ['3067G23A2180910411000063', '3067G23A2180910411000250', '3067G23A2180910411000018', '3067G23A2180910411000315', '3067G23A2180910411000884']}, {'id': '67585609-f9de-4c2a-b156-ff657344c3f6', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC\tBLACK', 'ref': 'MD912V516004\t', 'qty': 5, 'livre': True, 'rate': 66806.73, 'total': 334033.65, 'numSeries': ['602-V516-150B2408099885', '602-V516-150B2408099884', '602-V516-150B2408099883', '602-V516-150B2408099882', '602-V516-150B2408099881']}, {'id': '759a5e2e-7ad4-4191-b0fb-77f71971b71a', 'name': 'RAM DDR5 ADATA DDR5   8GB 4800MHZ U-DIMM', 'ref': '8-4800-D5', 'qty': 10, 'livre': True, 'rate': 5798.32, 'total': 57983.2, 'numSeries': ['1O1200850053', '1O1200850199', '1O1200850186', '1O12zz8P0195', '1O1200850197', '1O1200850196', '1O1200850198', '1O1200850200', '1O1200850202', '1O1200850201']}, {'id': 'b9b989bf-b954-4685-b563-44cd8e25a9e5', 'name': 'ALIMENTATION MARS GAMING MPB 650W PSU 80PLUS BRONZE WHITE', 'ref': 'MPB650-WHITE', 'qty': 5, 'livre': True, 'rate': 8319.33, 'total': 41596.65, 'numSeries': ['MPB650-WHITE(5)']}, {'id': 'a7dd218c-6c70-440a-81fb-3f08f82df681', 'name': 'SSD ADATA XPG GAMMIX S70 BLADE 1TB PCIE GEN4X4 M.2', 'ref': '9JAGAMMIXS70B1TCS', 'qty': 5, 'livre': True, 'rate': 20084.04, 'total': 100420.2, 'numSeries': ['2N4829161DTH', '2N4829A6KKY2', '2N482916GKNT', '2N48291J7ADY', '2N4829166NU7']}]}
+{'IdBon': 'FIG2410-2620', 'dateBp': '2024-10-06', 'clientInfo': {'name': 'BOUZIDI ZOHEIR (HESORAN)', 'address': '60 RUE HEREDIA CASTOR ORAN ', 'num_registre': '09a0578886', 'nif': '1983311010040639', 'nai': '31813257015', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2409/02423', 'time': 17, 'produits': [{'id': '2999bec2-1ce7-4a9a-a523-1e6f9469a387', 'name': 'CARTE MERE MSI PRO B650M-P\t', 'ref': 'MD9117E27001\t', 'qty': 2, 'livre': True, 'rate': 23109.25, 'total': 46218.5, 'numSeries': ['601-7E27-010B2404002712', '601-7E27-010B2404002711']}]}
+{'nomClient': 'Abbas ghouzlan', 'adresse': '', 'phone': '0675005052', 'catclient': '1'}
+{'IdBon': '', 'dateBp': '2024-10-06', 'clientInfo': {'name': 'Abbas ghouzlan', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9000.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'b3edfc77-fba9-4ad4-ad9a-d84bbc3f8d91', 'name': 'SOURIS REDRAGON SNIPER M801 RGB WIRELESS', 'ref': 'M801-RGB', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '6100', 'gst': '0.00', 'total': 6100}, {'id': 'f40dc477-cad3-4fc1-a232-b2ae36dec853', 'name': 'BAFFLE MARS GAMING MS-HW WHITE', 'ref': 'MS-HW', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '2900', 'gst': '0.00', 'total': 2900}]}
+{'IdBon': '', 'dateBp': '2024-10-06', 'clientInfo': {'name': 'Abbas ghouzlan', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '9000.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': 'b3edfc77-fba9-4ad4-ad9a-d84bbc3f8d91', 'name': 'SOURIS REDRAGON SNIPER M801 RGB WIRELESS', 'ref': 'M801-RGB', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '6100', 'gst': '0.00', 'total': 6100}, {'id': 'f40dc477-cad3-4fc1-a232-b2ae36dec853', 'name': 'BAFFLE MARS GAMING MS-HW WHITE', 'ref': 'MS-HW', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '2900', 'gst': '0.00', 'total': 2900}]}
+SOURIS REDRAGON SNIPER M801 RGB WIRELESS in PARKMALL SETIF - Quantity: 3 1
+BAFFLE MARS GAMING MS-HW WHITE in PARKMALL SETIF - Quantity: 4 1
+{'id': 'b3edfc77-fba9-4ad4-ad9a-d84bbc3f8d91', 'name': 'SOURIS REDRAGON SNIPER M801 RGB WIRELESS', 'ref': 'M801-RGB', 'availableqte': 3, 'qty': '1', 'ent': '', 'rate': '6100', 'gst': '0.00', 'total': 6100}
+{'id': 'f40dc477-cad3-4fc1-a232-b2ae36dec853', 'name': 'BAFFLE MARS GAMING MS-HW WHITE', 'ref': 'MS-HW', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '2900', 'gst': '0.00', 'total': 2900}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2410/02431CLient store: 1BL Store : 1
+toufik brikbrik2015
+{'password': 'brikbrik2015', 'idBon': '2854', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+{'IdBon': 'FIG2410-2617', 'dateBp': '2024-10-06', 'clientInfo': {'name': 'IFTA', 'address': 'طريق دالي براهيم رقم 2 ب الطابق الثاني بلدية ', 'num_registre': '16/00-0016659B02', 'nif': '000216001665953', 'nai': '31556090235', 'nis': '', 'phone': ''}, 'AssociatedBL': 'BL2410/02421', 'time': 24, 'produits': [{'id': '07f8f5c1-0e5f-482b-b1cf-5aa3d909468e', 'name': 'CARTE GRAPHIQUE MSI RTX4070TI SUPER VENTUS 3X 16GB OC', 'ref': '912-V513-614', 'qty': 1, 'livre': True, 'rate': 172184.88, 'total': 172184.88, 'numSeries': ['602-V513-470B2405000239']}]}
+{'IdBon': 'FIG2410-2618', 'dateBp': '2024-10-06', 'clientInfo': {'name': 'Kouba-Computer', 'address': '57, Avenue des frères Abdeslami, Kouba, Algeria', 'num_registre': '16/00-0978184b07', 'nif': '000716097818494', 'nai': '161882080882', 'nis': '000716180248546', 'phone': '0555619622/0555619620'}, 'AssociatedBL': 'BL2410/02429', 'time': 327, 'produits': [{'id': '8eaf4fa8-56a4-4b9b-b8e9-87af736671ce', 'name': 'BOITIER MSI MAG FORGE 120A AIRFLOW', 'ref': '120A-AIRFLOW', 'qty': 4, 'livre': True, 'rate': 9159.67, 'total': 36638.68, 'numSeries': ['3067G23A2180910411000228', '3067G23A2180910411000040', '3067G23A2180910411000049', '3067G23A2180910411000311']}, {'id': '8773203c-10a6-4e59-9db1-fafa35649e17', 'name': 'CARTE MERE MSI PRO H610M-E DDR4\t', 'ref': '911-7D48-012\t', 'qty': 4, 'livre': True, 'rate': 14201.68, 'total': 56806.72, 'numSeries': ['601-7D48-170B2403032908', '601-7D48-170B2403032907', '601-7D48-170B2403032906', '601-7D48-170B2403032905']}, {'id': 'a44ab994-3a6c-4f58-a7c9-43c4b277c066', 'name': 'CPU INTEL I5 13400F', 'ref': 'I5-13400F', 'qty': 2, 'livre': True, 'rate': 28487.4, 'total': 56974.8, 'numSeries': ['U3888JL301075', 'U3888JL301100']}, {'id': '6f5e0292-6611-469e-bc5d-78fc7f37c8d8', 'name': 'CPU INTEL I5 14400F TRAY', 'ref': 'INCM71504821113SRN47', 'qty': 2, 'livre': True, 'rate': 33529.41, 'total': 67058.82, 'numSeries': ['X344P268(2)']}]}
+{'IdBon': 'FIG2410-2619', 'dateBp': '2024-10-06', 'clientInfo': {'name': 'promo tech  bab ezzouar', 'address': 'bab ezzouar', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '+213 555 78 85 06'}, 'AssociatedBL': 'BL2410/02428', 'time': 175, 'produits': [{'id': '6b86788b-5045-4aef-84f3-881219ba9e2a', 'name': 'RAM DDR5 ADATA LANCER 16GB 6400MHZ - BLACK', 'ref': 'LC16-6400-B', 'qty': 10, 'livre': True, 'rate': 12184.88, 'total': 121848.8, 'numSeries': ['1O0100794016', '1O0100793932', '1O0100794049', '1O0100793902', '1O0100794210', '1O0100793832', '1O0100793874', '1O0100794164', '1O0100794161', '1O0100794163']}, {'id': '0187362b-0586-4961-9ad1-d79467d595e6', 'name': 'RAM DDR5 ADATA LANCER 16GB 6400MHZ - WHITE', 'ref': 'LC16-6400-W', 'qty': 10, 'livre': True, 'rate': 12184.88, 'total': 121848.8, 'numSeries': ['1O2100819884', '1O2100819898', '1O2100819881', '1O2100819880', '1O2100819885', '1O2100819901', '1O2100819876', '1O2100819882', '1O2100819899', '1O2100819902']}, {'id': '4a674c3d-1e4d-4524-8471-f92a2a8892bd', 'name': 'CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC\tBLACK', 'ref': 'MD912V516004\t', 'qty': 2, 'livre': True, 'rate': 60420.17, 'total': 120840.34, 'numSeries': ['602-V516-150B2408099869', '602-V516-150B2408099871']}, {'id': 'dbdb29b8-bc07-49b5-8f53-9358637140c6', 'name': 'CARTE MERE MSI B550M PRO VDH', 'ref': '911-7C95-066', 'qty': 5, 'livre': True, 'rate': 17563.03, 'total': 87815.15, 'numSeries': ['601-7C95-340B2401007139', '601-7C95-340B2401007140', '601-7C95-340B2401007697', '601-7C95-340B2401007694', '601-7C95-340B2401007698']}, {'id': '0ef5ebd1-ec4c-4a35-81e0-00d0ceda1d86', 'name': 'WATER COOLING MSI MAG CORELIQUID 360R V2 - BLACK', 'ref': '306-7ZWlC41-813\t', 'qty': 3, 'livre': True, 'rate': 16722.69, 'total': 50168.07, 'numSeries': ['3067ZW1C4181310413000910', '3067ZW1C4181310413000908', '3067ZW1C4181310413000907']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager
+DIRECTEUR EXECUTIF
+Bon no: BL2409/02366CLient store: 1BL Store : 1
+Bon no: BL2409/02366CLient store: 1BL Store : 1
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2694', 'type': 'bs', 'modif': 'True'}
+Bon no: BL2409/02366CLient store: 1BL Store : 1
+gestion-stock
+Bon no: BL2409/02366CLient store: 1BL Store : 1
+afifa_arg azerty7890##
+{'password': 'azerty7890##', 'idBon': '2694', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['tiers.can_see_clients', 'inventory.can_see_etatsorties', 'ventes.can_see_bonretour', 'inventory.can_see_bonentres', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'produits.can_see_produits', 'inventory.can_see_bonsorties', 'inventory.can_see_etatentres', 'tiers.can_see_tierstab', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bonretour']
+None
+None
+manager
+manager
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+gestion-stock
+gestion-stock
+manager
+Bon no: BL2409/02366CLient store: 1BL Store : 1
+Bon no: BL2409/02366CLient store: 1BL Store : 1
+hello ['tiers.can_see_clients', 'inventory.can_see_etatsorties', 'ventes.can_see_bonretour', 'inventory.can_see_bonentres', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'produits.can_see_produits', 'inventory.can_see_bonsorties', 'inventory.can_see_etatentres', 'tiers.can_see_tierstab', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bonretour']
+aimen
+aya_b
+sarah
+nadjemeddine
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+chawki
+aya_b
+yasmine
+aimen
+yasmine
+aimen
+aimen
+yasmine
+aya_b
+sarah
+yasmine
+aya_b
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+nadjemeddine
+yasmine
+younes
+aya_b
+chawki
+aimen
+sarah
+yasmine
+aimen
+chawki
+aimen
+chawki
+nadjemeddine
+aimen
+nadjemeddine
+chawki
+nadjemeddine
+yasmine
+nadjemeddine
+aimen
+nadjemeddine
+nadjemeddine
+aya_b
+aya_b
+yasmine
+aya_b
+sarah
+aimen
+aimen
+sarah
+chawki
+aya_b
+yasmine
+yasmine
+aya_b
+aimen
+aimen
+aya_b
+aya_b
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+yasmine
+aimen
+01
+sarah
+yasmine
+yasmine
+yasmine
+sarah
+yasmine
+yasmine
+yasmine
+nadjemeddine
+yasmine
+aimen
+yasmine
+yasmine
+nadjemeddine
+toufik
+chawki
+aya_b
+yasmine
+01
+yasmine
+yasmine
+01
+aimen
+aya_b
+sarah
+nadjemeddine
+yasmine
+nadjemeddine
+01
+01
+yasmine
+01
+yasmine
+aimen
+nadjemeddine
+aya_b
+nadjemeddine
+aya_b
+aimen
+sarah
+aya_b
+nadjemeddine
+sarah
+sarah
+sarah
+01
+01
+chawki
+01
+nadjemeddine
+01
+aya_b
+yasmina_descative
+nadjemeddine
+aimen
+aimen
+sarah
+aya_b
+sarah
+nadjemeddine
+yasmine
+sarah
+yasmine
+aya_b
+nadjemeddine
+aya_b
+yasmine
+01
+01
+aimen
+01
+aya_b
+01
+sarah
+nadjemeddine
+nadjemeddine
+aimen
+aya_b
+01
+aya_b
+01
+01
+01
+yasmine
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial
+hello ['clientInfo.can_see_devises', 'clientInfo.can_see_tablebases', 'achats.can_see_bonreception', 'produits.can_see_etatreforme', 'clientInfo.can_see_units', 'comptoire.can_see_comptoir', 'comptoire.can_see_tableaubord', 'tiers.can_see_fournisseurs', 'inventory.can_see_stocktab', 'ventes.can_see_ventetab', 'reglements.can_see_avoir', 'comptoire.can_see_fidelite', 'reglements.can_see_etatregbl', 'reglements.can_see_typereg', 'comptoire.can_see_cloture', 'inventory.can_see_bonsreintegration', 'ventes.can_see_avoir', 'inventory.can_see_invannuel', 'produits.can_see_producttab', 'comptoire.can_see_caisseusers', 'inventory.can_see_invinitial', 'reglements.can_see_depense', 'clientInfo.can_see_identification', 'inventory.can_see_etatentres', 'clientInfo.can_see_societe', 'inventory.can_see_bontransfert', 'ventes.can_see_bondevis', 'inventory.can_see_bonsorties', 'tiers.can_see_clients', 'inventory.can_see_repartition', 'ventes.can_see_boncomptoires', 'ventes.can_see_bonlivraison', 'clientInfo.can_see_compteEntreprise', 'achats.can_see_bonslivraisonachat', 'inventory.can_see_bonslivraisonachat', 'tiers.can_see_tierstab', 'ventes.can_see_factures', 'users.can_see_users', 'inventory.can_see_entrepots', 'produits.can_see_produits_familles', 'tiers.can_see_comptesBancaire', 'achats.can_see_facturesachats', 'ventes.can_see_bongarantie', 'reglements.can_see_regfaccli', 'reglements.can_see_reglementstab', 'inventory.can_see_etatreintegration', 'inventory.can_see_bonentres', 'comptoire.can_see_comptoirtab', 'reglements.can_see_etatregfac', 'users.can_see_users_perm', 'ventes.can_see_bonretour', 'users.can_see_grp_users', 'inventory.can_see_bonreforme', 'produits.can_see_liasion_entrepotproduit', 'clientInfo.can_see_valeur_devis', 'achats.can_see_bonscommandesachat', 'reglements.can_see_etattres', 'produits.can_see_archives', 'inventory.can_see_bonretour', 'tiers.can_see_agences', 'inventory.can_see_etatreforme', 'reglements.can_see_regbl', 'comptoire.can_see_pointsvente', 'achats.can_see_achattab', 'target.can_see_equipe', 'comptoire.can_see_clientfid', 'clientInfo.can_see_clientInfo', 'target.can_see_targets', 'reglements.can_see_salaries', 'tiers.can_see_marques', 'tiers.can_see_banques', 'clientInfo.can_see_tax_douan', 'produits.can_see_produits', 'achats.can_see_avoirsachats', 'clientInfo.can_see_type_client', 'reglements.can_see_echreg', 'reglements.can_see_divers', 'tiers.can_see_constructeur', 'clientInfo.can_see_tax_tva', 'inventory.can_see_etatsorties', 'reglements.can_see_loyers', 'target.can_see_targettab']
+Bon no: BL2409/02366CLient store: 1BL Store : 1
+Bon no: BL2409/02366CLient store: 1BL Store : 1
+Bon no: BL2409/02366CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['tiers.can_see_clients', 'inventory.can_see_etatsorties', 'ventes.can_see_bonretour', 'inventory.can_see_bonentres', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'produits.can_see_produits', 'inventory.can_see_bonsorties', 'inventory.can_see_etatentres', 'tiers.can_see_tierstab', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bonretour']
+hello ['tiers.can_see_clients', 'inventory.can_see_etatsorties', 'ventes.can_see_bonretour', 'inventory.can_see_bonentres', 'inventory.can_see_bonsreintegration', 'inventory.can_see_bontransfert', 'produits.can_see_produits', 'inventory.can_see_bonsorties', 'inventory.can_see_etatentres', 'tiers.can_see_tierstab', 'inventory.can_see_stocktab', 'produits.can_see_etatreforme', 'produits.can_see_producttab', 'ventes.can_see_bonlivraison', 'inventory.can_see_etatreforme', 'ventes.can_see_ventetab', 'inventory.can_see_bonretour']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+DIRECTEUR EXECUTIF
+[{'id': 31, 'date': '2024-08-01', 'datereponse': '2024-08-01', 'objet': 'ERREUR DE POINTAGE ', 'message': "11-07-2024 à 00:00:00\n15-07-2024 à 00:00:00\nJ'ETAI PRESENT ", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 27, 'date': '2024-07-31', 'datereponse': '2024-07-31', 'objet': 'DEMANDE DE PRET ', 'message': 'Monsieur BRIK Toufik,\nJe me permets de vous adresser cette lettre afin de solliciter un prêt de la part de l’entreprise. Après avoir pris en compte ma situation financière actuelle et les besoins que je rencontre, je souhaiterais obtenir un prêt de 150 000.00 DA.\nLa raison de cette demande est (payé le loyer annuel de la maison que j’occupe actuellement) J’ai bien réfléchi à cette demande et je m’engage à rembourser ce prêt selon les modalités que vous jugerez appropriées.\nJe propose de rembourser ce prêt par [déduction mensuelle sur salaire 12500da/mois], et je suis prêt à discuter des conditions précises avec vous pour convenir d’un plan de remboursement qui convient aux deux parties.\nJe reste à votre disposition pour toute information complémentaire ou pour discuter de cette demande en personne.\nJe vous remercie par avance pour l’attention que vous porterez à cette demande et pour votre compréhension.\nJe vous prie d’agréer, Monsieur le Directeur, l’expression de mes salutations distinguées.\n', 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 26, 'date': '2024-07-22', 'datereponse': '2024-07-22', 'objet': 'DEMANDE DE FICHE DE PAYE ', 'message': "BONSOIR ,\nSvp monsieur le directeur veuillez voir avec le comptable pour nous remettre les fiches de pays de l'année 2024 \nJANVIER-FEVRIER-MARS-AVRIL-JUIN.\nAcceptez monsieur mes salutation \n ", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 25, 'date': '2024-07-16', 'datereponse': '2024-07-17', 'objet': 'concernent le salaire', 'message': "- versement du salaire du ''juin'' \n- les primes du chiffre d'affaire \n- une solution pour le transport (la proposition de faire le travail une version Hybrid)", 'reponse': "En réponse à votre lettre concernant votre salaire mensuel, j'ai l'honneur de vous informer de ce qui suit :\n- Compte tenu de votre situation instable au travail, notamment des nombreuses absences qui sont censées vous être déduites, nous avons pris en compte votre condition de santé particulière (maladie chronique déclarée avant votre embauche), ce qui a fait que l'administration n'a pas procédé à la déduction.\n- Quant à les primes du chiffre d'affaire, pouvez-vous la calculer si elle existe ??!!!!\n- Quant à la proposition relative au travail à distance, elle ne fait pas partie des plans de travail de l'entreprise\nJ'ai également l'honneur de vous informer que vous aurez prévu une séance de travail pour déterminer l'avenir de votre travail au sein de l'entreprise.", 'valide': 'true', 'destinataire': 'executif', 'salarie': '01'}, {'id': 24, 'date': '2024-07-10', 'datereponse': '2024-07-10', 'objet': 'livraison des BL', 'message': 'Lamin info \nBL2407/01462   (July 2, 2024)\nBL2407/01484   (July 3, 2024)\nBL2407/01533    (July 7, 2024)\nhdert m3a  transpoteur :\nTransport hamoda\n0550 22\xa069\xa047\n', 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': '01'}, {'id': 23, 'date': '2024-07-10', 'datereponse': '2024-07-11', 'objet': 'Pointage ', 'message': "Bonjour Mr. Brik je vous informe que j'ai pas pointé la sortie hiere et la sortie avant hiere, par ce que j'ai travaillé au dépôt et j'ai sorti tard. Merci", 'reponse': 'ok', 'valide': 'true', 'destinataire': 'executif', 'salarie': 'oussama'}, {'id': 21, 'date': '2024-07-02', 'datereponse': '2024-07-03', 'objet': 'renouvellement de contrat', 'message': "je souhaite vous informer de ma décision de ne pas renouveler mon contrat à durée déterminée qui prend fin le 10 aout 2024. Je tiens à exprimer ma sincère gratitude pour l'opportunité qui m'a été offerte de travailler au sein de Divatech\n\nCependant, après mûre réflexion, j'ai pris la décision de ne pas renouveler mon contrat actuel. La distance entre mon domicile et le lieu de travail entraîne un temps de trajet excessif de plus de deux heures, matin et soir, chaque jour. Ces longues heures de trajet quotidiennes me privent de temps précieux et ont des répercussions sur ma santé et ma qualité de vie. d'un autre coté, Je tenais à vous remercier sincèrement pour la chambre mise à ma disposition dans l'atelier. Votre geste m'a vraiment aidé et a facilité un peu ma situation. Malheureusement, après y avoir réfléchi et avoir passé du temps dans cette chambre, j'ai réalisé que cette solution ne me convient pas pour plusieurs raisons. Toute cette situation entraîne des problèmes personnels et professionnels. Et affecte ma capacité à remplir efficacement mes fonctions.\n\nJe tiens donc à vous informer avec préavis que ma dernière journée de travail au sein de l'entreprise sera le jeudi 8 aout 2024. en outre, Je souhaiterais convertir mes jours de congé restants en compensation financière au lieu de les prendre avant la fin de mon contrat. je vous prie aussi de prendre toutes les mesures nécessaires pour assurer que tous les documents et formalités administratives soient prêts pour mon départ à cette date. Je vous remercie de votre compréhension et de votre coopération dans cette démarche, et Je reste à votre disposition pour faciliter ce processus.\n", 'reponse': 'En réponse à votre demande  relative au renouvellement de contrat, vous êtes convoqués à vous présenter au siège de la Direction Générale dans les plus brefs délais.', 'valide': 'true', 'destinataire': 'generale', 'salarie': 'billel'}, {'id': 20, 'date': '2024-07-02', 'datereponse': '2024-07-02', 'objet': 'renouvellement de contrat', 'message': "je souhaite vous informer de ma décision de ne pas renouveler mon contrat à durée déterminée qui prend fin le 10 aout 2024. Je tiens à exprimer ma sincère gratitude pour l'opportunité qui m'a été offerte de travailler au sein de Divatech\n\nCependant, après mûre réflexion, j'ai pris la décision de ne pas renouveler mon contrat actuel. La distance entre mon domicile et le lieu de travail entraîne un temps de trajet excessif de plus de deux heures, matin et soir, chaque jour. Ces longues heures de trajet quotidiennes me privent de temps précieux et ont des répercussions sur ma santé et ma qualité de vie. d'un autre coté, Je tenais à vous remercier sincèrement pour la chambre mise à ma disposition dans l'atelier. Votre geste m'a vraiment aidé et a facilité un peu ma situation. Malheureusement, après y avoir réfléchi et avoir passé du temps dans cette chambre, j'ai réalisé que cette solution ne me convient pas pour plusieurs raisons. Toute cette situation entraîne des problèmes personnels et professionnels. Et affecte ma capacité à remplir efficacement mes fonctions.\n\nJe tiens donc à vous informer avec préavis que ma dernière journée de travail au sein de l'entreprise sera le jeudi 8 aout 2024. en outre, Je souhaiterais convertir mes jours de congé restants en compensation financière au lieu de les prendre avant la fin de mon contrat. je vous prie aussi de prendre toutes les mesures nécessaires pour assurer que tous les documents et formalités administratives soient prêts pour mon départ à cette date. Je vous remercie de votre compréhension et de votre coopération dans cette démarche, et Je reste à votre disposition pour faciliter ce processus.", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'billel'}, {'id': 18, 'date': '2024-06-10', 'datereponse': '2024-06-19', 'objet': 'RECLAMATION DE SALAIRE ', 'message': "voici mon calcule pour mon salaire du moi de mai \nj'aimerais avoir + de détaille svp  \n\nLES RETARDS   : 3 JOURS (1440MIN)   -5000DA\nCHIFRE D'AFFAIRE  REALISE : 26 000 000.00 DA  (67000.00)\nHEURS SUP :  19 HEURS  ( 4900.00DA ) \n Demande de fiche de paye détaillé avec la réception de salaire svp .", 'reponse': "Nous avons pris soin de votre préoccupation et réglé votre situation. En cas d'ambiguïté ou d'ambiguïté, veuillez contacter nos centres d'intérêt pour obtenir des éclaircissements.", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'chawki'}, {'id': 17, 'date': '2024-06-09', 'datereponse': '2024-06-19', 'objet': 'virement de salaire ', 'message': "j'ai pas encor recu mon salaire pour le premier mois", 'reponse': "En réponse à la question relative à l'état de votre salaire mensuel, j'ai l'honneur de vous informer du règlement de votre situation au cours du mois de juin. Vous êtes donc tenu de vous rapprocher de nos intérêts pour prouver la situation. au plus tard le 28/06/2024. Ne pas vous approcher implicitement signifie régler la situation.", 'valide': 'true', 'destinataire': 'executif', 'salarie': '01'}, {'id': 16, 'date': '2024-05-22', 'datereponse': '2024-05-29', 'objet': "Contestation d'erreurs sur mes absences", 'message': "Ayad Hichem\nStidia, Mostaganem, Rus si Zeghloul \n27000, Stidia\nhclarman@gmail.com\n0771712247\nBrick Toufik\nDirecteur Exécutif\nDIVATECH\nLes Bananiers, Mohammadia Mall\n16000, Alger\nMercredi 22 mai 2024\n\nObjet : Contestation d'erreurs sur mes absences\n\nMonsieur,\n\nJe me permets de vous écrire afin de porter à votre attention une erreur concernant les absences enregistrées à mon nom.\nEn consultant mon relevé de présence pour le mois d’avril j'ai constaté plusieurs anomalies. En effet, il y est indiqué que j'étais absent le jeudi 04 avril 2024, alors que j'étais présent et que j'ai rempli mes tâches pour une demi journée. Je souhaite apporter les précisions suivantes :\n1.\tVendredi le 05 avril 2024 : jours ferrier pas de travail le vendredi\n2.\tSamedi 06 avril 2024 : le samedi n’est pas mentionné dans le contrat comme jour de travail \n3.\tDimanche 07 avril 2024 j’était absent sans justification\n4.\tDimanche 14 avril 2024 : absent pour une demi-journée en raison du long trajet pour arriver au travail heure d’arriver 14h:00 \nJe vous demande de bien vouloir vérifier les registres de présence et d'apporter les corrections nécessaires à mon dossier. Ces erreurs pourraient avoir des répercussions négatives sur mon salaire, mes avantages et mon évaluation annuelle, ce que je souhaite éviter.\nJe suis à votre disposition pour fournir toute information supplémentaire ou pour discuter de cette situation plus en détail.\nDans l'attente de votre retour, je vous prie de croire Monsieur, en l'assurance de ma considération distinguée.\n\n Ayad Hichem\n", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'hichem'}, {'id': 14, 'date': '2024-05-21', 'datereponse': '2024-05-29', 'objet': 'Notification de fin de contrat de travail', 'message': " Monsieur,\n\nJe vous écris pour vous informer officiellement que mon contrat de travail à durée déterminée en tant que technicien prendra fin à la date du 22/06/2024, conformément aux termes de ce contrat signé le 28/07/2023.\n\nJe tiens à exprimer ma gratitude pour les opportunités et les expériences enrichissantes que j'ai pu vivre au sein de DIVATECH. Cette période m'a permis de développer mes compétences professionnelles et de travailler avec une équipe dynamique et engagée.\n\nAfin de faciliter mon départ et de garantir une transition en douceur, je vous prie de bien vouloir préparer tous les documents nécessaires relatifs à la cessation de mon contrat de travail, y compris mon certificat de travail et mon solde de tout compte. De plus, je souhaiterais que vous procédiez au règlement de mes jours de congé non pris, conformément aux dispositions légales en vigueur.\n\nJe vous remercie encore une fois pour votre soutien et votre confiance durant mon passage dans votre entreprise.\n\nJe vous prie d'agréer Monsieur, l'expression de mes salutations distinguées.\n\nAyad Hichem\n\n", 'reponse': "\n \n\nEURL DIVATECH \nCENTRE COMMERCIAL MOHAMMADIA MALL \n7ÉME ÉTAGE LOCAL N 1262, MOHAMMADIA                               ALGER LE : 18/05/2024\nTEL : 023 80 49 07 / INFO@DIVATECHDZ.COM\n\n\n\nObjet : Concernant votre démission\n\nM. Ayad Hichem\n\n\nEn réponse à votre lettre concernant votre démission de votre poste de technicien de réparation au niveau de l'entreprise EURL DIVATECH\n\nJ'ai l'honneur de vous informer de l'importance de compléter les jours de congé dus pour la période de service effectif au niveau de l'institution, qui est estimée dans les jours restants à onze jours Du 23/05/2024 au 02/06/2024\nAprès la fin de la période de congé, vous serez contacté afin de compléter les démarches liées à la passation des tâches et des pouvoirs.\n\n\n\nLe Directeur \n\n                                                                                                   Brik toufik\n", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'hichem'}, {'id': 13, 'date': '2024-05-06', 'datereponse': '2024-05-07', 'objet': 'Clarification de la date de début de service et demande de rectification', 'message': "Je me permets de vous contacter concernant un malentendu sur la date de début de mon service au sein de Divatech. Selon les informations que j'ai reçues, il semble y avoir une confusion sur cette date, ce qui a conduit à des problèmes lors de ma demande de jours de congé.\n\nJe tiens à clarifier que j'ai commencé à travailler pour Divatech le 3 septembre 2023, Je suis conscient qu'il peut y avoir eu un retard dans la déclaration d'assurance, mais cela ne change pas ma date de début effective au sein de l'entreprise.\n\nEn conséquence, je vous serais reconnaissant de bien vouloir rectifier mes données dans vos systèmes internes afin que ma date de début de service soit correctement enregistrée comme étant le 3 septembre. Cela facilitera la gestion future de mes congés et autres demandes administratives.\n\nEt donc, compte tenu de ma date de début de service effective au 3 septembre, et conformément à la politique de l'entreprise qui accorde 2,5 jours de congé par mois travaillé, je suis en droit de bénéficier de 20 jours de congé pour l'année en cours. \n\nMais puisque j'ai eu droit à 2 jours de congé avant l'aid, il me reste que 18 jours.\n\nJe souhaiterais donc utiliser ces jours de congé selon le planning suivant :  du 12 Mai 2024 au 29 Mai 2024, soit une durée de 18 jours. Je prévois donc de reprendre le travail le 30 Juin 2024.\n\nJe reste à votre disposition pour toute information supplémentaire. Je vous remercie par avance pour votre attention à cette demande et je me tiens à votre disposition pour discuter de cette question de vive voix si nécessaire.", 'reponse': "En réponse à votre correspondance relative au congé annuel, j'ai l'honneur de vous informer du contenu du règlement intérieur conforme au droit du travail algérien, qui précise les conditions d'octroi, qui représentent essentiellement l'atteinte d'une année effective de travail, ainsi que le calendrier des dates d'ouverture des vacances Sans exception légale prévue par vous, j'ai le regret de vous informer que vous ne pouvez actuellement bénéficier de congés annuelles.", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'billel'}, {'id': 11, 'date': '2024-05-05', 'datereponse': '2024-05-07', 'objet': "Demande d'accompagnement pour la prospection clientes ", 'message': "Dans le cadre de l'élargissement de notre clientèle chez DivaTech et en coordination avec l'expédition prévue demain vers l'ouest et Oran, je vous soumets une liste de clients potentiels dans la wilaya d'Oran.\n\nJe vous prie donc de bien vouloir m'autoriser à accompagner le chauffeur, sans que cela n'affecte le déroulement de mon travail quotidien. En effet, je veillerai à maintenir mon programme d'appels téléphoniques.\n\nLa Liste :\n-Glitch Oran \n-Collosse informatique  \n-New-tech pro \n-Tahadi bureautique et informatique\n-AMZ El \n-MIB Informatique\n-Vision Informatique\n-Micro Land\n-BSM informatique \n-Micro Bil 2\nMerci \nCordialement      ", 'reponse': 'Dans le cas où votre correspondance urgente ne recevrait pas de réponse, un contact direct est nécessaire pour éviter les retards et les accumulations.', 'valide': 'true', 'destinataire': 'executif', 'salarie': 'desactive'}, {'id': 10, 'date': '2024-05-05', 'datereponse': '2024-05-05', 'objet': 'Demande de remplacement de chaise de bureau', 'message': "J'espère que vous allez bien. Je me permets de vous contacter pour vous faire part d'une situation préoccupante au sein du store, Malheureusement, notre chaise de bureau s'est cassée, et cela fait maintenant plus de dix jours que nous sommes contraints de rester debout. \nPourriez-vous, s'il vous plaît, procéder au remplacement de la chaise cassée dans les plus brefs délais?\n Je vous remercie par avance de votre attention à cette demande et espère que nous pourrons compter sur votre aide rapide pour résoudre ce problème.", 'reponse': 'Votre demande a été prise en charge et le matériel vous sera envoyé dans les plus brefs délais', 'valide': 'true', 'destinataire': 'executif', 'salarie': 'yasmine'}, {'id': 9, 'date': '2024-05-05', 'datereponse': '2024-05-05', 'objet': 'confirmation pour le demande de congé ', 'message': "monsieur le directeur, je n'ai toujours pas reçu de confirmation pour ma demande de congé médical étant donné que mes vacances commencent le 9 mai.", 'reponse': 'La demande est acceptée, mais il faut se munir des documents nécessaires au règlement administratif', 'valide': 'true', 'destinataire': 'executif', 'salarie': '01'}, {'id': 8, 'date': '2024-05-05', 'datereponse': '2024-05-29', 'objet': 'Demande de congé du 11 Mai 2024 au 30 Mai 2024. [20 jours] Type de congé: annuel. Cause: Grand besoin de repos ', 'message': "Je me permets par la présente de vous adresser ma demande de congé pour la période du 11 Mai 2024 au 30 Mai 2024, soit une durée de 20 jours. Je prévois donc de reprendre le travail le 2 Juin 2024.\n\nJ'ai planifié mes jours de congé en choisissant de les aligner avec les week-ends à venir, dans le but de maximiser le temps de récupération. Ces dernières semaines ont été particulièrement exigeantes pour moi, et je ressens le besoin impérieux de prendre du recul pour me reposer et recharger mes batteries. Je vous serais donc reconnaissant de bien vouloir considérer ma demande avec bienveillance et de respecter les jours de congé que j'ai soigneusement sélectionnés.\n\n\nDe plus, étant dans une situation financière nécessitant une avance sur mon salaire, je sollicite respectueusement le paiement de mon salaire du mois en cours [Mai] avant ma sortie, soit le 9 Mai 2024. Si cela n'est pas réalisable, je vous demande alors de bien vouloir effectuer un virement de la totalité de mon salaire sur mon compte CCP le plus tôt possible.\n\n\nJe reste à votre disposition pour toute information complémentaire.\n\nCordialement,\n\n\n\nBillel ounesli", 'reponse': "Ce qu'il faut, c'est redéfinir la date exacte car votre période de service effective ne couvre pas les jours de vacances. Le début de service est le 10/11/2023. Le droit aux congés annuels débute à partir d'un an de service effectif. Vous pouvez bénéficier de congés exceptionnels en fonction du besoin ou de la nécessité de service", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'assistante_direction'}, {'id': 6, 'date': '2024-05-05', 'datereponse': '2024-06-09', 'objet': 'Demande validation BL', 'message': "Salam \nSvp Veuillez valider le bon de livraison BL2405/00845/ Bouzourine Abdelkader - Pc Service +  car il y a une expédition aujourd'hui à Blida et le fourgon est sur place.\nMerci \nCordialement ", 'reponse': "Il est nécessaire de contacter via WhatsApp en cas d'urgence", 'valide': 'true', 'destinataire': 'generale', 'salarie': 'desactive'}]
