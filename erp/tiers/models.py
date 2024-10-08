@@ -299,11 +299,12 @@ class Client(models.Model):
 
         # Iterate through BonComptoir instances related to the client
         for bon in self.mesbons_comptoir.all():
+            print(bon.idBon)
             if not bon.par_verssement:
                 # Convert datetime.date to string and Decimal to float
                 date_str = bon.dateBon.strftime("%Y-%m-%d")
                 caisse = bon.pointVente.pos_affectation.first().CompteTres.label
-                prix_payed_float = float(bon.prix_payed)
+                prix_payed_float = float(bon.prix_payed- bon.totalremise)
 
                 # Check if both dateBon and caisse already exist in the list
                 entry_exists = any(
@@ -318,15 +319,28 @@ class Client(models.Model):
                             entry['prix_payed'] += prix_payed_float
                             break
                 else:
+                    # print("pris payer")
+                    if bon.totalremise != 0:
+                        print(bon.prix_payed)
+                        print(bon.totalremise)
+                        
+                        
+                        print(prix_payed_float)
+                    
+                    
+                    
                     # Add a new entry to the list
                     debit_by_date.append({'dateBon': date_str, 'caisse': caisse, 'prix_payed': prix_payed_float})
             else:
                 verssements = bon.verssements.all() 
                 for verssement in verssements:  
+                    print("verment")
                     montant_v = 0
                     date_str =verssement.date.strftime("%Y-%m-%d")
                     caisse = bon.pointVente.pos_affectation.first().CompteTres.label
                     montant_v = float(verssement.montant or 0)
+                    # print(montant_v)
+                    
                     debit_by_date.append({'dateBon': date_str, 'caisse': caisse, 'prix_payed': montant_v})
                     
         for bon in self.client_bonS.exclude(idBon__startswith='BECH'):            
