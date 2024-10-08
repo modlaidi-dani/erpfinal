@@ -677,10 +677,12 @@ class="flex flex-col min-h-screen custom-scrollbar"
                           TypeClient : client.client_type,
                           ChiffreAffaire :client.ca,
                           Solde :client.remain,
-                          region : '',
+                          region :client.client_address ,
                           Commercial : client.client_user,
                       });
                     });
+                      
+                  
                   const ws = XLSX.utils.json_to_sheet(array_print);
                   const wb = XLSX.utils.book_new();
                   XLSX.utils.book_append_sheet(wb, ws, 'Client');
