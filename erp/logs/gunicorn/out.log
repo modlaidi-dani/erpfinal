@@ -17541,4 +17541,189 @@ hello ['inventory.can_see_bontransfert', 'inventory.can_see_stocktab', 'ventes.c
 gestion-stock
 hello ['inventory.can_see_invinitial', 'target.can_see_targettab', 'tiers.can_see_clients', 'users.can_see_users', 'comptoire.can_see_tableaubord', 'produits.can_see_produits', 'reglements.can_see_etattres', 'reglements.can_see_regfaccli', 'reglements.can_see_etatregfac', 'comptoire.can_see_clientfid', 'comptoire.can_see_cloture', 'inventory.can_see_etatreforme', 'reglements.can_see_divers', 'achats.can_see_facturesachats', 'clientInfo.can_see_type_client', 'ventes.can_see_avoir', 'comptoire.can_see_comptoir', 'inventory.can_see_repartition', 'inventory.can_see_invannuel', 'produits.can_see_produits_familles', 'users.can_see_users_perm', 'clientInfo.can_see_devises', 'inventory.can_see_etatentres', 'users.can_see_grp_users', 'clientInfo.can_see_tablebases', 'tiers.can_see_constructeur', 'inventory.can_see_etatsorties', 'reglements.can_see_salaries', 'tiers.can_see_agences', 'produits.can_see_liasion_entrepotproduit', 'clientInfo.can_see_societe', 'produits.can_see_producttab', 'inventory.can_see_entrepots', 'reglements.can_see_etatregbl', 'reglements.can_see_avoir', 'comptoire.can_see_caisseusers', 'comptoire.can_see_pointsvente', 'achats.can_see_achattab', 'reglements.can_see_depense', 'inventory.can_see_bonsorties', 'achats.can_see_avoirsachats', 'reglements.can_see_typereg', 'inventory.can_see_bonsreintegration', 'achats.can_see_bonscommandesachat', 'produits.can_see_etatreforme', 'reglements.can_see_loyers', 'inventory.can_see_bontransfert', 'ventes.can_see_factures', 'inventory.can_see_stocktab', 'ventes.can_see_bonlivraison', 'clientInfo.can_see_compteEntreprise', 'clientInfo.can_see_identification', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonentres', 'clientInfo.can_see_tax_tva', 'target.can_see_targets', 'tiers.can_see_tierstab', 'ventes.can_see_boncomptoires', 'reglements.can_see_regbl', 'ventes.can_see_bondevis', 'achats.can_see_bonreception', 'tiers.can_see_comptesBancaire', 'clientInfo.can_see_clientInfo', 'ventes.can_see_bongarantie', 'clientInfo.can_see_tax_douan', 'tiers.can_see_marques', 'inventory.can_see_bonreforme', 'produits.can_see_archives', 'achats.can_see_bonslivraisonachat', 'clientInfo.can_see_valeur_devis', 'comptoire.can_see_fidelite', 'ventes.can_see_bonretour', 'reglements.can_see_reglementstab', 'tiers.can_see_banques', 'target.can_see_equipe', 'ventes.can_see_ventetab', 'inventory.can_see_bonslivraisonachat', 'tiers.can_see_fournisseurs', 'reglements.can_see_echreg', 'clientInfo.can_see_units', 'inventory.can_see_bonretour', 'inventory.can_see_etatreintegration']
 hello ['inventory.can_see_invinitial', 'target.can_see_targettab', 'tiers.can_see_clients', 'users.can_see_users', 'comptoire.can_see_tableaubord', 'produits.can_see_produits', 'reglements.can_see_etattres', 'reglements.can_see_regfaccli', 'reglements.can_see_etatregfac', 'comptoire.can_see_clientfid', 'comptoire.can_see_cloture', 'inventory.can_see_etatreforme', 'reglements.can_see_divers', 'achats.can_see_facturesachats', 'clientInfo.can_see_type_client', 'ventes.can_see_avoir', 'comptoire.can_see_comptoir', 'inventory.can_see_repartition', 'inventory.can_see_invannuel', 'produits.can_see_produits_familles', 'users.can_see_users_perm', 'clientInfo.can_see_devises', 'inventory.can_see_etatentres', 'users.can_see_grp_users', 'clientInfo.can_see_tablebases', 'tiers.can_see_constructeur', 'inventory.can_see_etatsorties', 'reglements.can_see_salaries', 'tiers.can_see_agences', 'produits.can_see_liasion_entrepotproduit', 'clientInfo.can_see_societe', 'produits.can_see_producttab', 'inventory.can_see_entrepots', 'reglements.can_see_etatregbl', 'reglements.can_see_avoir', 'comptoire.can_see_caisseusers', 'comptoire.can_see_pointsvente', 'achats.can_see_achattab', 'reglements.can_see_depense', 'inventory.can_see_bonsorties', 'achats.can_see_avoirsachats', 'reglements.can_see_typereg', 'inventory.can_see_bonsreintegration', 'achats.can_see_bonscommandesachat', 'produits.can_see_etatreforme', 'reglements.can_see_loyers', 'inventory.can_see_bontransfert', 'ventes.can_see_factures', 'inventory.can_see_stocktab', 'ventes.can_see_bonlivraison', 'clientInfo.can_see_compteEntreprise', 'clientInfo.can_see_identification', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonentres', 'clientInfo.can_see_tax_tva', 'target.can_see_targets', 'tiers.can_see_tierstab', 'ventes.can_see_boncomptoires', 'reglements.can_see_regbl', 'ventes.can_see_bondevis', 'achats.can_see_bonreception', 'tiers.can_see_comptesBancaire', 'clientInfo.can_see_clientInfo', 'ventes.can_see_bongarantie', 'clientInfo.can_see_tax_douan', 'tiers.can_see_marques', 'inventory.can_see_bonreforme', 'produits.can_see_archives', 'achats.can_see_bonslivraisonachat', 'clientInfo.can_see_valeur_devis', 'comptoire.can_see_fidelite', 'ventes.can_see_bonretour', 'reglements.can_see_reglementstab', 'tiers.can_see_banques', 'target.can_see_equipe', 'ventes.can_see_ventetab', 'inventory.can_see_bonslivraisonachat', 'tiers.can_see_fournisseurs', 'reglements.can_see_echreg', 'clientInfo.can_see_units', 'inventory.can_see_bonretour', 'inventory.can_see_etatreintegration']
+hello <WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2410/02428CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-10-07', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '79cc7460-27fa-4825-b370-ffd3dc78cfa4', 'name': 'PANTALON CARRE ELASTIQUE exlt noi standard', 'ref': '05192noistandard', 'availableqte': 19, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-10-07', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '79cc7460-27fa-4825-b370-ffd3dc78cfa4', 'name': 'PANTALON CARRE ELASTIQUE exlt noi standard', 'ref': '05192noistandard', 'availableqte': 19, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+PANTALON CARRE ELASTIQUE exlt noi standard in MAG54 ROUIBA - Quantity: 19 1
+{'id': '79cc7460-27fa-4825-b370-ffd3dc78cfa4', 'name': 'PANTALON CARRE ELASTIQUE exlt noi standard', 'ref': '05192noistandard', 'availableqte': 19, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+hello ['inventory.can_see_invinitial', 'target.can_see_targettab', 'tiers.can_see_clients', 'users.can_see_users', 'comptoire.can_see_tableaubord', 'produits.can_see_produits', 'reglements.can_see_etattres', 'reglements.can_see_regfaccli', 'reglements.can_see_etatregfac', 'comptoire.can_see_clientfid', 'comptoire.can_see_cloture', 'inventory.can_see_etatreforme', 'reglements.can_see_divers', 'achats.can_see_facturesachats', 'clientInfo.can_see_type_client', 'ventes.can_see_avoir', 'comptoire.can_see_comptoir', 'inventory.can_see_repartition', 'inventory.can_see_invannuel', 'produits.can_see_produits_familles', 'users.can_see_users_perm', 'clientInfo.can_see_devises', 'inventory.can_see_etatentres', 'users.can_see_grp_users', 'clientInfo.can_see_tablebases', 'tiers.can_see_constructeur', 'inventory.can_see_etatsorties', 'reglements.can_see_salaries', 'tiers.can_see_agences', 'produits.can_see_liasion_entrepotproduit', 'clientInfo.can_see_societe', 'produits.can_see_producttab', 'inventory.can_see_entrepots', 'reglements.can_see_etatregbl', 'reglements.can_see_avoir', 'comptoire.can_see_caisseusers', 'comptoire.can_see_pointsvente', 'achats.can_see_achattab', 'reglements.can_see_depense', 'inventory.can_see_bonsorties', 'achats.can_see_avoirsachats', 'reglements.can_see_typereg', 'inventory.can_see_bonsreintegration', 'achats.can_see_bonscommandesachat', 'produits.can_see_etatreforme', 'reglements.can_see_loyers', 'inventory.can_see_bontransfert', 'ventes.can_see_factures', 'inventory.can_see_stocktab', 'ventes.can_see_bonlivraison', 'clientInfo.can_see_compteEntreprise', 'clientInfo.can_see_identification', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonentres', 'clientInfo.can_see_tax_tva', 'target.can_see_targets', 'tiers.can_see_tierstab', 'ventes.can_see_boncomptoires', 'reglements.can_see_regbl', 'ventes.can_see_bondevis', 'achats.can_see_bonreception', 'tiers.can_see_comptesBancaire', 'clientInfo.can_see_clientInfo', 'ventes.can_see_bongarantie', 'clientInfo.can_see_tax_douan', 'tiers.can_see_marques', 'inventory.can_see_bonreforme', 'produits.can_see_archives', 'achats.can_see_bonslivraisonachat', 'clientInfo.can_see_valeur_devis', 'comptoire.can_see_fidelite', 'ventes.can_see_bonretour', 'reglements.can_see_reglementstab', 'tiers.can_see_banques', 'target.can_see_equipe', 'ventes.can_see_ventetab', 'inventory.can_see_bonslivraisonachat', 'tiers.can_see_fournisseurs', 'reglements.can_see_echreg', 'clientInfo.can_see_units', 'inventory.can_see_bonretour', 'inventory.can_see_etatreintegration']
+hello ['inventory.can_see_invinitial', 'target.can_see_targettab', 'tiers.can_see_clients', 'users.can_see_users', 'comptoire.can_see_tableaubord', 'produits.can_see_produits', 'reglements.can_see_etattres', 'reglements.can_see_regfaccli', 'reglements.can_see_etatregfac', 'comptoire.can_see_clientfid', 'comptoire.can_see_cloture', 'inventory.can_see_etatreforme', 'reglements.can_see_divers', 'achats.can_see_facturesachats', 'clientInfo.can_see_type_client', 'ventes.can_see_avoir', 'comptoire.can_see_comptoir', 'inventory.can_see_repartition', 'inventory.can_see_invannuel', 'produits.can_see_produits_familles', 'users.can_see_users_perm', 'clientInfo.can_see_devises', 'inventory.can_see_etatentres', 'users.can_see_grp_users', 'clientInfo.can_see_tablebases', 'tiers.can_see_constructeur', 'inventory.can_see_etatsorties', 'reglements.can_see_salaries', 'tiers.can_see_agences', 'produits.can_see_liasion_entrepotproduit', 'clientInfo.can_see_societe', 'produits.can_see_producttab', 'inventory.can_see_entrepots', 'reglements.can_see_etatregbl', 'reglements.can_see_avoir', 'comptoire.can_see_caisseusers', 'comptoire.can_see_pointsvente', 'achats.can_see_achattab', 'reglements.can_see_depense', 'inventory.can_see_bonsorties', 'achats.can_see_avoirsachats', 'reglements.can_see_typereg', 'inventory.can_see_bonsreintegration', 'achats.can_see_bonscommandesachat', 'produits.can_see_etatreforme', 'reglements.can_see_loyers', 'inventory.can_see_bontransfert', 'ventes.can_see_factures', 'inventory.can_see_stocktab', 'ventes.can_see_bonlivraison', 'clientInfo.can_see_compteEntreprise', 'clientInfo.can_see_identification', 'comptoire.can_see_comptoirtab', 'inventory.can_see_bonentres', 'clientInfo.can_see_tax_tva', 'target.can_see_targets', 'tiers.can_see_tierstab', 'ventes.can_see_boncomptoires', 'reglements.can_see_regbl', 'ventes.can_see_bondevis', 'achats.can_see_bonreception', 'tiers.can_see_comptesBancaire', 'clientInfo.can_see_clientInfo', 'ventes.can_see_bongarantie', 'clientInfo.can_see_tax_douan', 'tiers.can_see_marques', 'inventory.can_see_bonreforme', 'produits.can_see_archives', 'achats.can_see_bonslivraisonachat', 'clientInfo.can_see_valeur_devis', 'comptoire.can_see_fidelite', 'ventes.can_see_bonretour', 'reglements.can_see_reglementstab', 'tiers.can_see_banques', 'target.can_see_equipe', 'ventes.can_see_ventetab', 'inventory.can_see_bonslivraisonachat', 'tiers.can_see_fournisseurs', 'reglements.can_see_echreg', 'clientInfo.can_see_units', 'inventory.can_see_bonretour', 'inventory.can_see_etatreintegration']
+aimen
+aya_b
+sarah
+nadjemeddine
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+chawki
+aya_b
+yasmine
+aimen
+yasmine
+aimen
+aimen
+yasmine
+aya_b
+sarah
+yasmine
+aya_b
+aya_b
+yasmine
+aya_b
+aya_b
+aya_b
+yasmine
+nadjemeddine
+yasmine
+younes
+aya_b
+chawki
+aimen
+sarah
+yasmine
+aimen
+chawki
+aimen
+chawki
+nadjemeddine
+aimen
+nadjemeddine
+chawki
+nadjemeddine
+yasmine
+nadjemeddine
+aimen
+nadjemeddine
+nadjemeddine
+aya_b
+aya_b
+yasmine
+aya_b
+sarah
+aimen
+aimen
+sarah
+chawki
+aya_b
+yasmine
+yasmine
+aya_b
+aimen
+aimen
+aya_b
+aya_b
+nadjemeddine
+nadjemeddine
+nadjemeddine
+chawki
+yasmine
+aimen
+01
+sarah
+yasmine
+yasmine
+yasmine
+sarah
+yasmine
+yasmine
+yasmine
+nadjemeddine
+yasmine
+aimen
+yasmine
+yasmine
+nadjemeddine
+toufik
+chawki
+aya_b
+yasmine
+01
+yasmine
+yasmine
+01
+aimen
+aya_b
+sarah
+nadjemeddine
+yasmine
+nadjemeddine
+01
+01
+yasmine
+01
+yasmine
+aimen
+nadjemeddine
+aya_b
+nadjemeddine
+aya_b
+aimen
+sarah
+aya_b
+nadjemeddine
+sarah
+sarah
+sarah
+01
+01
+chawki
+01
+nadjemeddine
+01
+aya_b
+yasmina_descative
+nadjemeddine
+aimen
+aimen
+sarah
+aya_b
+sarah
+nadjemeddine
+yasmine
+sarah
+yasmine
+aya_b
+nadjemeddine
+aya_b
+yasmine
+01
+01
+aimen
+01
+aya_b
+01
+sarah
+nadjemeddine
+nadjemeddine
+aimen
+aya_b
+01
+aya_b
+01
+01
+01
+yasmine
+yasmine
+yasmine
+nadjemeddine
+younes
+yasmina_descative
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
 hello 
