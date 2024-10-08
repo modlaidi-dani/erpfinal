@@ -767,7 +767,12 @@ class="flex flex-col min-h-screen custom-scrollbar"
 					renderInformation(idBon){
 						toprintbill = this.products.find((product) => product.reference == idBon)
 						this.toprint_bill = toprintbill
+						console.log(toprintbill);
+						
+
 						const toprint_bill = this.products.find((product) => product.reference == idBon)
+						console.log(toprint_bill);
+
 						invoiceDate = toprint_bill.name;
 						invoiceDueDate= toprint_bill.date_reg;
 						invoiceNumber = toprint_bill.reference;
@@ -790,17 +795,17 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						totalGSTLiv = (toprint_bill.totalHt * 0.19).toFixed(2);
 						TotalRemise = parseFloat(toprint_bill.remise);
 						nettotal = parseFloat(toprint_bill.totalprice) - parseFloat(toprint_bill.remise);
-						console.log(toprint_bill.variants);
+						console.log(toprint_bill);
 						item= []
 						let currentCPU = null;  // Variable to keep track of the current CPU
 
 						for (const variant of toprint_bill.variants) {
-							if (variant.component === "cpu") {
+							if (variant.component === "cpu" || variant.component === "") {
 								// If the CPU changes, push a new sublist into this.items
 								if (currentCPU !== variant.reference) {
 									currentCPU = toprint_bill.reference_pc[this.items.length];
 									this.items.push({
-										reference: currentCPU,
+										reference: currentCPU || variant.reference,
 										designation: toprint_bill.designation_pc[this.items.length],
 										products: []  // Initialize an empty array for the CPU's variants
 									});
