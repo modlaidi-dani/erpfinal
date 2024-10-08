@@ -299,7 +299,7 @@ class Client(models.Model):
 
         # Iterate through BonComptoir instances related to the client
         for bon in self.mesbons_comptoir.all():
-            print(bon.idBon)
+            # print(bon.idBon)
             if not bon.par_verssement:
                 # Convert datetime.date to string and Decimal to float
                 date_str = bon.dateBon.strftime("%Y-%m-%d")
@@ -320,12 +320,12 @@ class Client(models.Model):
                             break
                 else:
                     # print("pris payer")
-                    if bon.totalremise != 0:
-                        print(bon.prix_payed)
-                        print(bon.totalremise)
+                    # if bon.totalremise != 0:
+                    #     print(bon.prix_payed)
+                    #     print(bon.totalremise)
                         
                         
-                        print(prix_payed_float)
+                    #     print(prix_payed_float)
                     
                     
                     
@@ -334,7 +334,7 @@ class Client(models.Model):
             else:
                 verssements = bon.verssements.all() 
                 for verssement in verssements:  
-                    print("verment")
+                    # print("verment")
                     montant_v = 0
                     date_str =verssement.date.strftime("%Y-%m-%d")
                     caisse = bon.pointVente.pos_affectation.first().CompteTres.label
