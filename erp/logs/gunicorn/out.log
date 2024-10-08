@@ -17726,4 +17726,95 @@ None
 None
 None
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
-hello 
+hello <WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'categorieP': '', 'libFamille': 'PC', 'kit': False, 'component': '', 'list2': []}
+{'categorieP': '388', 'libFamille': 'PC PRO', 'kit': False, 'component': '', 'list2': []}
+{'categorieP': '388', 'libFamille': 'PC GAMING', 'kit': False, 'component': '', 'list2': []}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+  Veille Concurentielle
+gestion-stock
+[{'id': 16, 'date': '2024-05-22', 'datereponse': '2024-05-29', 'objet': "Contestation d'erreurs sur mes absences", 'message': "Ayad Hichem\nStidia, Mostaganem, Rus si Zeghloul \n27000, Stidia\nhclarman@gmail.com\n0771712247\nBrick Toufik\nDirecteur Exécutif\nDIVATECH\nLes Bananiers, Mohammadia Mall\n16000, Alger\nMercredi 22 mai 2024\n\nObjet : Contestation d'erreurs sur mes absences\n\nMonsieur,\n\nJe me permets de vous écrire afin de porter à votre attention une erreur concernant les absences enregistrées à mon nom.\nEn consultant mon relevé de présence pour le mois d’avril j'ai constaté plusieurs anomalies. En effet, il y est indiqué que j'étais absent le jeudi 04 avril 2024, alors que j'étais présent et que j'ai rempli mes tâches pour une demi journée. Je souhaite apporter les précisions suivantes :\n1.\tVendredi le 05 avril 2024 : jours ferrier pas de travail le vendredi\n2.\tSamedi 06 avril 2024 : le samedi n’est pas mentionné dans le contrat comme jour de travail \n3.\tDimanche 07 avril 2024 j’était absent sans justification\n4.\tDimanche 14 avril 2024 : absent pour une demi-journée en raison du long trajet pour arriver au travail heure d’arriver 14h:00 \nJe vous demande de bien vouloir vérifier les registres de présence et d'apporter les corrections nécessaires à mon dossier. Ces erreurs pourraient avoir des répercussions négatives sur mon salaire, mes avantages et mon évaluation annuelle, ce que je souhaite éviter.\nJe suis à votre disposition pour fournir toute information supplémentaire ou pour discuter de cette situation plus en détail.\nDans l'attente de votre retour, je vous prie de croire Monsieur, en l'assurance de ma considération distinguée.\n\n Ayad Hichem\n", 'reponse': '', 'valide': 'false', 'destinataire': 'executif', 'salarie': 'hichem'}, {'id': 14, 'date': '2024-05-21', 'datereponse': '2024-05-29', 'objet': 'Notification de fin de contrat de travail', 'message': " Monsieur,\n\nJe vous écris pour vous informer officiellement que mon contrat de travail à durée déterminée en tant que technicien prendra fin à la date du 22/06/2024, conformément aux termes de ce contrat signé le 28/07/2023.\n\nJe tiens à exprimer ma gratitude pour les opportunités et les expériences enrichissantes que j'ai pu vivre au sein de DIVATECH. Cette période m'a permis de développer mes compétences professionnelles et de travailler avec une équipe dynamique et engagée.\n\nAfin de faciliter mon départ et de garantir une transition en douceur, je vous prie de bien vouloir préparer tous les documents nécessaires relatifs à la cessation de mon contrat de travail, y compris mon certificat de travail et mon solde de tout compte. De plus, je souhaiterais que vous procédiez au règlement de mes jours de congé non pris, conformément aux dispositions légales en vigueur.\n\nJe vous remercie encore une fois pour votre soutien et votre confiance durant mon passage dans votre entreprise.\n\nJe vous prie d'agréer Monsieur, l'expression de mes salutations distinguées.\n\nAyad Hichem\n\n", 'reponse': "\n \n\nEURL DIVATECH \nCENTRE COMMERCIAL MOHAMMADIA MALL \n7ÉME ÉTAGE LOCAL N 1262, MOHAMMADIA                               ALGER LE : 18/05/2024\nTEL : 023 80 49 07 / INFO@DIVATECHDZ.COM\n\n\n\nObjet : Concernant votre démission\n\nM. Ayad Hichem\n\n\nEn réponse à votre lettre concernant votre démission de votre poste de technicien de réparation au niveau de l'entreprise EURL DIVATECH\n\nJ'ai l'honneur de vous informer de l'importance de compléter les jours de congé dus pour la période de service effectif au niveau de l'institution, qui est estimée dans les jours restants à onze jours Du 23/05/2024 au 02/06/2024\nAprès la fin de la période de congé, vous serez contacté afin de compléter les démarches liées à la passation des tâches et des pouvoirs.\n\n\n\nLe Directeur \n\n                                                                                                   Brik toufik\n", 'valide': 'true', 'destinataire': 'executif', 'salarie': 'hichem'}]
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+Finance
+manager
+Bon no: BL2410/02434CLient store: 1BL Store : 1
+Bon no: BL2410/02428CLient store: 1BL Store : 1
+Bon no: BL2409/02364CLient store: 1BL Store : 1
+hello ['comptoire.can_see_fidelite', 'inventory.can_see_bonentres', 'inventory.can_see_etatreforme', 'tiers.can_see_tierstab', 'inventory.can_see_invannuel', 'achats.can_see_bonreception', 'ventes.can_see_bondevis', 'comptoire.can_see_tableaubord', 'tiers.can_see_fournisseurs', 'ventes.can_see_bongarantie', 'produits.can_see_archives', 'reglements.can_see_regfaccli', 'inventory.can_see_invinitial', 'inventory.can_see_bonsorties', 'reglements.can_see_avoir', 'comptoire.can_see_comptoir', 'comptoire.can_see_clientfid', 'clientInfo.can_see_clientInfo', 'inventory.can_see_entrepots', 'reglements.can_see_reglementstab', 'tiers.can_see_marques', 'inventory.can_see_bonslivraisonachat', 'reglements.can_see_salaries', 'produits.can_see_produits_familles', 'achats.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreintegration', 'clientInfo.can_see_identification', 'clientInfo.can_see_societe', 'inventory.can_see_bontransfert', 'achats.can_see_avoirsachats', 'produits.can_see_producttab', 'tiers.can_see_comptesBancaire', 'reglements.can_see_divers', 'achats.can_see_achattab', 'comptoire.can_see_comptoirtab', 'ventes.can_see_avoir', 'tiers.can_see_agences', 'inventory.can_see_repartition', 'reglements.can_see_etatregbl', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_etatregfac', 'clientInfo.can_see_type_client', 'ventes.can_see_factures', 'clientInfo.can_see_valeur_devis', 'ventes.can_see_ventetab', 'target.can_see_equipe', 'reglements.can_see_typereg', 'comptoire.can_see_cloture', 'clientInfo.can_see_tax_douan', 'reglements.can_see_depense', 'inventory.can_see_etatsorties', 'produits.can_see_produits', 'ventes.can_see_bonretour', 'achats.can_see_bonscommandesachat', 'users.can_see_users_perm', 'inventory.can_see_bonretour', 'tiers.can_see_banques', 'inventory.can_see_bonreforme', 'reglements.can_see_echreg', 'tiers.can_see_clients', 'clientInfo.can_see_tablebases', 'reglements.can_see_etattres', 'clientInfo.can_see_devises', 'clientInfo.can_see_tax_tva', 'inventory.can_see_etatentres', 'users.can_see_users', 'inventory.can_see_bonsreintegration', 'inventory.can_see_stocktab', 'tiers.can_see_constructeur', 'users.can_see_grp_users', 'ventes.can_see_bonlivraison', 'target.can_see_targets', 'achats.can_see_facturesachats', 'ventes.can_see_boncomptoires', 'comptoire.can_see_pointsvente', 'reglements.can_see_loyers', 'clientInfo.can_see_units', 'comptoire.can_see_caisseusers', 'produits.can_see_etatreforme', 'reglements.can_see_regbl', 'clientInfo.can_see_compteEntreprise']
+Bon no: BL2409/02364CLient store: 1BL Store : 1
+Bon no: BL2410/02433CLient store: 1BL Store : 1
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+hello ['inventory.can_see_bontransfert', 'tiers.can_see_clients', 'tiers.can_see_tierstab', 'ventes.can_see_bongarantie', 'target.can_see_targets', 'produits.can_see_produits', 'ventes.can_see_bonretour', 'target.can_see_targettab', 'inventory.can_see_bonsorties', 'ventes.can_see_bonlivraison', 'inventory.can_see_bonretour', 'ventes.can_see_bondevis', 'ventes.can_see_ventetab', 'produits.can_see_producttab', 'inventory.can_see_stocktab']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-10-07', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3400.00', 'TotalRemise': '700', 'verssement': False, 'produits': [{'id': '579788d5-75b5-4030-b1db-5b40ca635034', 'name': 'SABOT AVEC STRASSE Mix standard', 'ref': '05785Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 3400}]}
+{'IdBon': '', 'dateBp': '2024-10-07', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3400.00', 'TotalRemise': '700', 'verssement': False, 'produits': [{'id': '579788d5-75b5-4030-b1db-5b40ca635034', 'name': 'SABOT AVEC STRASSE Mix standard', 'ref': '05785Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 3400}]}
+SABOT AVEC STRASSE Mix standard in MAG54 ROUIBA - Quantity: 6 1
+{'id': '579788d5-75b5-4030-b1db-5b40ca635034', 'name': 'SABOT AVEC STRASSE Mix standard', 'ref': '05785Mixstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '3400', 'gst': '0.00', 'total': 3400}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-10-07', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': '1500', 'verssement': False, 'produits': [{'id': 'e8fa2443-6dee-4e48-91c3-02dfa2e5d668', 'name': 'LIQUETTE SERDA OZEL Mix standard', 'ref': '04702Mixstandard', 'availableqte': 29, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+{'IdBon': '', 'dateBp': '2024-10-07', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '3500.00', 'TotalRemise': '1500', 'verssement': False, 'produits': [{'id': 'e8fa2443-6dee-4e48-91c3-02dfa2e5d668', 'name': 'LIQUETTE SERDA OZEL Mix standard', 'ref': '04702Mixstandard', 'availableqte': 29, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}]}
+LIQUETTE SERDA OZEL Mix standard in MAG54 ROUIBA - Quantity: 29 1
+{'id': 'e8fa2443-6dee-4e48-91c3-02dfa2e5d668', 'name': 'LIQUETTE SERDA OZEL Mix standard', 'ref': '04702Mixstandard', 'availableqte': 29, 'qty': '1', 'ent': '', 'rate': '3500', 'gst': '0.00', 'total': 3500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'montant': '20200', 'date': '2024-10-07'}
+{'dateReg': '2024-10-07', 'client': 240, 'typeReg': 'Paiement', 'modeReg': '1', 'modereglabel': 'Espece', 'montantTotal': '726000', 'banque': '', 'note': '', 'chequeInput': '', 'comptes': '8', 'bills': [{'idBon': 'BL2401/00046', 'montantRegle': 0, 'montant': 0.28}, {'idBon': 'BL2401/00157', 'montantRegle': 0, 'montant': 355500.03}, {'idBon': 'BL2403-00262', 'montantRegle': 0, 'montant': 1453849.93}, {'idBon': 'BL2403-00308', 'montantRegle': 0, 'montant': 782649.28}, {'idBon': 'BL2403/00309', 'montantRegle': 0, 'montant': 59300.08}, {'idBon': 'BL2404/00726', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2406/01294', 'montantRegle': 0, 'montant': 1100}, {'idBon': 'BL2406/01368', 'montantRegle': 0, 'montant': 10199.82}, {'idBon': 'BL2407/01676', 'montantRegle': 0, 'montant': 0.02}, {'idBon': 'BL2407/01962', 'montantRegle': 0, 'montant': 0.01}, {'idBon': 'BL2408/02044', 'montantRegle': 0, 'montant': 262799.98, 'regle': True}, {'idBon': 'BL2408/02047', 'montantRegle': 0, 'montant': 175199.99, 'regle': True}, {'idBon': 'BL2409/02366', 'montantRegle': 457199.99, 'montant': 1461899.93, 'regle': True}, {'idBon': 'BL2409/02391', 'montantRegle': 268800.01, 'montant': 268800.01, 'regle': True}, {'idBon': 'avance', 'montant': 0, 'montantRegle': 0}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+DIRECTEUR EXECUTIF
+rahou M2024s2025
+{'password': 'M2024s2025', 'idBon': '2688', 'typevalidation': False, 'typeclientvalidation': '', 'percent': '', 'montantSolde': 'NaN', 'type': 'bs'}
+Bon no: BL2410/02434CLient store: 1BL Store : 1
+hello ['comptoire.can_see_fidelite', 'inventory.can_see_bonentres', 'inventory.can_see_etatreforme', 'tiers.can_see_tierstab', 'inventory.can_see_invannuel', 'achats.can_see_bonreception', 'ventes.can_see_bondevis', 'comptoire.can_see_tableaubord', 'tiers.can_see_fournisseurs', 'ventes.can_see_bongarantie', 'produits.can_see_archives', 'reglements.can_see_regfaccli', 'inventory.can_see_invinitial', 'inventory.can_see_bonsorties', 'reglements.can_see_avoir', 'comptoire.can_see_comptoir', 'comptoire.can_see_clientfid', 'clientInfo.can_see_clientInfo', 'inventory.can_see_entrepots', 'reglements.can_see_reglementstab', 'tiers.can_see_marques', 'inventory.can_see_bonslivraisonachat', 'reglements.can_see_salaries', 'produits.can_see_produits_familles', 'achats.can_see_bonslivraisonachat', 'target.can_see_targettab', 'inventory.can_see_etatreintegration', 'clientInfo.can_see_identification', 'clientInfo.can_see_societe', 'inventory.can_see_bontransfert', 'achats.can_see_avoirsachats', 'produits.can_see_producttab', 'tiers.can_see_comptesBancaire', 'reglements.can_see_divers', 'achats.can_see_achattab', 'comptoire.can_see_comptoirtab', 'ventes.can_see_avoir', 'tiers.can_see_agences', 'inventory.can_see_repartition', 'reglements.can_see_etatregbl', 'produits.can_see_liasion_entrepotproduit', 'reglements.can_see_etatregfac', 'clientInfo.can_see_type_client', 'ventes.can_see_factures', 'clientInfo.can_see_valeur_devis', 'ventes.can_see_ventetab', 'target.can_see_equipe', 'reglements.can_see_typereg', 'comptoire.can_see_cloture', 'clientInfo.can_see_tax_douan', 'reglements.can_see_depense', 'inventory.can_see_etatsorties', 'produits.can_see_produits', 'ventes.can_see_bonretour', 'achats.can_see_bonscommandesachat', 'users.can_see_users_perm', 'inventory.can_see_bonretour', 'tiers.can_see_banques', 'inventory.can_see_bonreforme', 'reglements.can_see_echreg', 'tiers.can_see_clients', 'clientInfo.can_see_tablebases', 'reglements.can_see_etattres', 'clientInfo.can_see_devises', 'clientInfo.can_see_tax_tva', 'inventory.can_see_etatentres', 'users.can_see_users', 'inventory.can_see_bonsreintegration', 'inventory.can_see_stocktab', 'tiers.can_see_constructeur', 'users.can_see_grp_users', 'ventes.can_see_bonlivraison', 'target.can_see_targets', 'achats.can_see_facturesachats', 'ventes.can_see_boncomptoires', 'comptoire.can_see_pointsvente', 'reglements.can_see_loyers', 'clientInfo.can_see_units', 'comptoire.can_see_caisseusers', 'produits.can_see_etatreforme', 'reglements.can_see_regbl', 'clientInfo.can_see_compteEntreprise']
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
