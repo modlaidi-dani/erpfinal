@@ -17839,3 +17839,64 @@ None
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
 <WSGIRequest: POST '/produits/LoadOtherProducts'>
 {'IdBon': '', 'dateBp': '2024-10-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2300.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '3c0ea58b-6d67-4910-9393-67242ff4830d', 'name': 'HAUT STK SM 0565 noi standard', 'ref': '05219noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '2300', 'gst': '0.00', 'total': 2300}]}
+{'IdBon': '', 'dateBp': '2024-10-08', 'clientInfo': {'name': 'divers ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '2300.00', 'TotalRemise': 0, 'verssement': False, 'produits': [{'id': '3c0ea58b-6d67-4910-9393-67242ff4830d', 'name': 'HAUT STK SM 0565 noi standard', 'ref': '05219noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '2300', 'gst': '0.00', 'total': 2300}]}
+HAUT STK SM 0565 noi standard in MAG54 MOHAMMADIA MALL - Quantity: 4 1
+{'id': '3c0ea58b-6d67-4910-9393-67242ff4830d', 'name': 'HAUT STK SM 0565 noi standard', 'ref': '05219noistandard', 'availableqte': 4, 'qty': '1', 'ent': '', 'rate': '2300', 'gst': '0.00', 'total': 2300}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': '', 'dateBp': '2024-10-08', 'clientInfo': {'name': 'yennoun samira ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8500.00', 'TotalRemise': '500', 'verssement': False, 'produits': [{'id': '821d0861-009f-4cdc-b6ce-3dbea076f7df', 'name': 'HIJAB CLARITY 247184 ver standard', 'ref': '03239verstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}]}
+{'IdBon': '', 'dateBp': '2024-10-08', 'clientInfo': {'name': 'yennoun samira ', 'address': '', 'extra': '', 'phone': ''}, 'obs': '', 'TotalPay': '8500.00', 'TotalRemise': '500', 'verssement': False, 'produits': [{'id': '821d0861-009f-4cdc-b6ce-3dbea076f7df', 'name': 'HIJAB CLARITY 247184 ver standard', 'ref': '03239verstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}]}
+HIJAB CLARITY 247184 ver standard in MAG54 ROUIBA - Quantity: 6 1
+{'id': '821d0861-009f-4cdc-b6ce-3dbea076f7df', 'name': 'HIJAB CLARITY 247184 ver standard', 'ref': '03239verstandard', 'availableqte': 6, 'qty': '1', 'ent': '', 'rate': '8500', 'gst': '0.00', 'total': 8500}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+{'IdBon': 'FA2409-0189', 'dateFacture': '2024-09-22', 'dateReglement': '2024-09-22', 'modeReglement': 'Espèce', 'BlAssocie': 'BL2409-00189', 'Remise': 0, 'remise': {'type': '', 'valeur': ''}, 'etatFacture': 'Règlement Reçu', 'clientInfo': {'id': '1603', 'name': 'SARL VES CONSULTING', 'address': 'CENTRE AFF SAADA 26 RUE MOHAMED AYACHI HAMMA ANASSERS', 'num_registre': '16/00-0998801B16', 'nif': '001616099880112', 'nai': '16045759902', 'nis': '001616020023760', 'phone': ''}, 'echeance': '', 'produits': [{'id': 'eede822d-026f-4ee7-95c3-08b88b80cbc8', 'name': 'PC INTEL I5 134F Z1', 'ref': 'PC-I5-134-V1-66', 'component': '', 'qty': 3, 'rate': 175621.85, 'livraison_prix': 0, 'rateLiv': 175621.85, 'tva': 19, 'gst': '28040.46', 'gstLiv': '28040.46', 'totalLiv': 526865.55, 'total': 526865.55}]}
+commercial
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+Bon no: BL2410-00190CLient store: 6BL Store : 6
+Vendeuse
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+manager mag54
+240
+#BA-24219
+[{'produit_ref': '5650G-MPK', 'produit_name': 'CPU AMD RYZEN 5 5650G MPK', 'produit_qty': 432}, {'produit_ref': 'RYZEN5-5600GT', 'produit_name': 'CPU AMD RYZEN 5 5600GT BOX', 'produit_qty': 632}, {'produit_ref': 'AW100100000263MPK\t', 'produit_name': 'CPU AMD RYZEN 7 5700G MPK\t', 'produit_qty': 180}, {'produit_ref': 'RYZEN5-9600X', 'produit_name': 'CPU AMD RYZEN 5 9600X BOX', 'produit_qty': 20}, {'produit_ref': 'RYZEN7-9700X', 'produit_name': 'CPU AMD RYZEN 7 9700X BOX', 'produit_qty': 12}, {'produit_ref': 'BX8071512400FSRL5Z', 'produit_name': 'CPU INTEL I5-12400F BOX', 'produit_qty': 200}, {'produit_ref': 'INB71514400FSRN47', 'produit_name': 'CPU INTEL I5 14400F BOX', 'produit_qty': 50}, {'produit_ref': 'I9-14900KF\t', 'produit_name': 'CPU INTEL I9 14900KF\t', 'produit_qty': 20}, {'produit_ref': 'I9-14900K\t', 'produit_name': 'CPU INTEL I9 14900K\t', 'produit_qty': 20}, {'produit_ref': 'I9-14900KS', 'produit_name': 'CPU INTEL I9 14900KS BOX', 'produit_qty': 5}]
+{'IdBon': 'FIG2410-2627', 'dateBp': '2024-10-08', 'clientInfo': {'name': 'Kouba-Computer', 'address': '57, Avenue des frères Abdeslami, Kouba, Algeria', 'num_registre': '16/00-0978184b07', 'nif': '000716097818494', 'nai': '161882080882', 'nis': '000716180248546', 'phone': '0555619622/0555619620'}, 'AssociatedBL': 'BL2410/02434', 'time': 20, 'produits': [{'id': '15874616-2d01-40f6-82b5-31022e232ac1', 'name': 'RAM DDR5 ADATA DDR5  16GB 5600MHZ U-DIMM', 'ref': '16-5600-D5', 'qty': 3, 'livre': True, 'rate': 8823.53, 'total': 26470.59, 'numSeries': ['1O1200374819', '1O1200374812', '1O1200871858']}]}
+commercial-vente
+commercial-vente
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FIG2410-2628', 'dateBp': '2024-10-08', 'clientInfo': {'name': 'promo tech  bab ezzouar', 'address': 'bab ezzouar', 'num_registre': '', 'nif': '', 'nai': '', 'nis': '', 'phone': '+213 555 78 85 06'}, 'AssociatedBL': 'BL2410/02433', 'time': 689, 'produits': [{'id': '6f6827de-e0f7-49fa-b4ef-1f33cea265a4', 'name': 'CPU AMD RYZEN 5 7600 MPK\t', 'ref': '7600-MPK', 'qty': 2, 'livre': True, 'rate': 30672.27, 'total': 61344.54, 'numSeries': ['YB04777P40075_100-000001015', 'YB04776P40255_100-000001015']}, {'id': 'bddfd1d2-0e11-4611-88fe-d57bb950a1c8', 'name': 'CPU AMD RYZEN 7 5700G MPK\t', 'ref': 'AW100100000263MPK\t', 'qty': 3, 'livre': True, 'rate': 27563.03, 'total': 82689.09, 'numSeries': ['9ADF025P40253_100-000000263', '9ADF025P40250_100-000000263', '9ADF025P40252_100-000000263']}, {'id': '3580006b-274e-45bc-a79b-a68b1b48445e', 'name': 'CPU AMD RYZEN 5 7500F MPK', 'ref': '7500F-MPK', 'qty': 1, 'livre': True, 'rate': 27394.96, 'total': 27394.96, 'numSeries': ['9MF1586P40449_100-000000597']}, {'id': 'b9298f59-6195-40d6-8a6e-8f7ae320f2ff', 'name': 'CPU AMD RYZNE 5 8400F BOX', 'ref': '8400F-BOX', 'qty': 2, 'livre': True, 'rate': 25630.25, 'total': 51260.5, 'numSeries': ['9ACZ209O40288', '9ACZ209O40268']}, {'id': '40bd78fe-8a95-4b27-96fd-81de3b42caab', 'name': 'CPU INTEL I7 14700KF BOX', 'ref': 'I7-14700KF\t', 'qty': 1, 'livre': True, 'rate': 64285.72, 'total': 64285.72, 'numSeries': ['U49X0S4501856']}, {'id': 'ae175d5b-2931-4dbc-8574-a679b434eeba', 'name': 'CPU INTEL I5 13600KF', 'ref': 'I5-13600KF', 'qty': 2, 'livre': True, 'rate': 39411.77, 'total': 78823.54, 'numSeries': ['U494767102767', 'U494767104150']}, {'id': 'ed7a69b5-b7b4-4ffe-8c30-4badb2b753d4', 'name': 'CPU INTEL I5 12600KF BOX', 'ref': 'I5-12600KF', 'qty': 2, 'livre': True, 'rate': 29327.73, 'total': 58655.46, 'numSeries': ['U4MM678503272', 'U48P1K5300839']}, {'id': '8d04ca13-70e6-420c-b7b1-c6cfc2547145', 'name': 'CPU INTEL I7 13700KF BOX', 'ref': 'I7-13700KF-BOX', 'qty': 1, 'livre': True, 'rate': 51680.67, 'total': 51680.67, 'numSeries': ['U3U64R3000316']}, {'id': 'c227671d-d33a-4dd9-a32f-33a7a1201e34', 'name': 'CARTE MERE MSI PRO B650M-P\t', 'ref': 'MD9117E27001\t', 'qty': 2, 'livre': True, 'rate': 23109.25, 'total': 46218.5, 'numSeries': ['601-7E27-010B2404002713', '601-7E27-010B2404002714']}, {'id': '322d41db-fb73-4f1f-9117-6a9b53dc7611', 'name': 'CARTE MERE MSI PRO B760M-P\t DDR4', 'ref': 'MD9117E02006\t', 'qty': 3, 'livre': True, 'rate': 17563.03, 'total': 52689.09, 'numSeries': ['601-7E02-050B2402000863', '601-7E02-050B2402000862', '601-7E02-050B2402000911']}, {'id': '1633e2fa-35ce-4517-8cfe-ca9817a66856', 'name': 'CARTE MERE MSI B760M-P DDR5', 'ref': 'MD9117E02011', 'qty': 2, 'livre': True, 'rate': 22352.94, 'total': 44705.88, 'numSeries': ['601-7E02-040B2404000242', '601-7E02-040B2404000241']}, {'id': '5c71a7a3-5d61-4c7f-880b-3dcf84374420', 'name': 'CARTE MERE MSI B760M GAMING PLUS WIFI ', 'ref': '4711377154017', 'qty': 2, 'livre': True, 'rate': 29327.73, 'total': 58655.46, 'numSeries': ['601-7D99-130B2404003101', '601-7D99-130B2404003110']}, {'id': 'ddabe41d-3b4d-4aca-933a-e7af7bbee3b3', 'name': 'BOITIER MSI MAG PANO M100R PZ WHITE', 'ref': 'PANO-M100R-WHITE', 'qty': 1, 'livre': False, 'rate': 19243.7, 'total': 19243.7, 'numSeries': ['no livre']}, {'id': '9e28a2c1-9e09-4ada-965a-a3f8f32c79d9', 'name': 'BOITIER MSI MAG PANO M100R PZ BLACK', 'ref': 'PANO-M100R-BLACK', 'qty': 1, 'livre': True, 'rate': 19243.7, 'total': 19243.7, 'numSeries': ['3067G24R25HH910423000195']}, {'id': '66c26935-6b4e-470e-9722-cd65e404bc76', 'name': 'B650M PROJECT ZERO', 'ref': '4711377126649', 'qty': 2, 'livre': True, 'rate': 36050.42, 'total': 72100.84, 'numSeries': ['601-7E09-040B2404002886', '601-7E09-040B2404002873']}, {'id': 'd9374493-4bb3-4fdc-9b11-f29089f893da', 'name': 'CARTE GRAPIQUE MSI RTX 4070 SUPER 12G GAMING X SLIM WHITE', 'ref': '4070GAMINGXSLIM-WHITE', 'qty': 1, 'livre': True, 'rate': 137731.09, 'total': 137731.09, 'numSeries': ['602-V513-310B2405004196']}, {'id': 'c49f8133-6311-47fd-ae58-feca29941949', 'name': 'RAM DDR5 ADATA LANCER RGB 16GB 6400MHZ - BLACK', 'ref': 'LCR16-6400-B', 'qty': 6, 'livre': True, 'rate': 13025.21, 'total': 78151.26, 'numSeries': ['1O0100795410', '1O0100795381', '1O0100795364', '1O0100795414', '1O0100795382', '1O0100795378']}]}
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+commercial-vente
+Bon no: BL2410-00189CLient store: 6BL Store : 6
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+{'IdBon': 'FA2409-0190', 'dateFacture': '2024-09-22', 'dateReglement': '2024-09-22', 'modeReglement': '\n\t\t\t\t\t\t\t\t\t\t Espèce \n\t\t\t\t\t\t\t\t\t ', 'BlAssocie': 'BL2409-00190', 'Remise': '8781.512', 'remise': {'type': '', 'valeur': ''}, 'etatFacture': 'Règlement Reçu', 'clientInfo': {'id': '1603', 'name': 'SARL VES CONSULTING', 'address': 'CENTRE AFF SAADA 26 RUE MOHAMED AYACHI HAMMA ANASSERS', 'num_registre': '16/00-0998801B16', 'nif': '001616099880112', 'nai': '16045759902', 'nis': '001616020023760', 'phone': ''}, 'echeance': '', 'produits': [{'id': '2c24157e-d1b9-4bf2-966a-97af1833c4c0', 'name': 'PC INTEL I5 134F Z1', 'ref': 'PC-I5-134-V1-66', 'component': '', 'qty': 2, 'rate': 175621.85, 'livraison_prix': 0, 'rateLiv': 175621.85, 'tva': 19, 'gst': '28040.46', 'gstLiv': '28040.46', 'totalLiv': 351243.7, 'total': 351243.7}]}
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+None
+None
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+<WSGIRequest: POST '/produits/LoadOtherProducts'>
+fares O:r-24jC0b\6:s_7
+None
+None
