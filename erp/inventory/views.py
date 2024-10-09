@@ -3407,7 +3407,9 @@ class StockRetourView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                client_name = client_info['name']
                client_address = client_info['address']
                client_phone = client_info['phone']
-               client, _ = models.Client.objects.get_or_create(name=client_name, adresse=client_address, phone=client_phone)
+               client= models.Client.objects.filter(name=client_name, adresse=client_address, phone=client_phone).first() 
+               if client == None:
+                    client, _ = models.Client.objects.get_or_create(name=client_name, adresse=client_address, phone=client_phone)
                bonL = BonSortie.objects.filter(idBon=dataInvoice["AssociatedBL"]).first()
                current_year = datetime.now().strftime('%y')
                current_month = datetime.now().strftime('%m')
