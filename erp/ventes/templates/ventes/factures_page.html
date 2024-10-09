@@ -198,10 +198,10 @@ class="flex flex-col min-h-screen custom-scrollbar"
 					<template x-for="variant in product.variants">
 						<tr class="transition-all  border-b hover:shadow-lg">
 						<td class="border-r  text-center">
-							<div  class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.reference"></div>
+							<div  class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.name"></div>
 						</td>
 						<td class="border-r text-center">
-							<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.name"></div>
+							<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.reference"></div>
 						</td>
 						<td class="border-r text-center">
 							<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.quantity"></div>
@@ -373,8 +373,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
 					<tbody>
 						<template x-for="invoice in toprintbill.variants">
 						<tr class="border border-black">
-							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
-							<td class="border border-black px-1 py-2 text-black print-td  text-xs" x-text="invoice.name"></td>
+							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
+							<td class="border border-black px-1 py-2 text-black print-td  text-xs" x-text="invoice.ref"></td>
 							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qty"></td>
 							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.rateLiv"></td>
 							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.totalLiv"></td>
