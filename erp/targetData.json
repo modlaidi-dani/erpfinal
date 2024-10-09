@@ -10,15 +10,15 @@
         "ref": "DARKENTS-GS570\t",
         "name": "BAFFLE REDRAGON DARKNETS GS570 BT SPEAKER ",
         "quantity_to_sell": 13,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 9,
+        "price": 44100.03
     },
     {
         "ref": "ADIEMUS-GS560",
         "name": "BAFFLE REDRAGON GS560 ADIEMUS GAMING SPEAKER ",
         "quantity_to_sell": 14,
-        "quantity_sold": 2,
-        "price": 9000.02
+        "quantity_sold": 8,
+        "price": 36000.07
     },
     {
         "ref": "MSCUBEP",
@@ -31,22 +31,22 @@
         "ref": "MCA-16\t",
         "name": "CABLE MARS GAMING MCA-16 PREMIUM 16PIN (8+8) VGA POWER ",
         "quantity_to_sell": 18,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 10800.01
     },
     {
         "ref": "MCA-24\t",
         "name": "CABLE MARS GAMING MCA-24 PREMIUM 24PIN MB POWER ",
         "quantity_to_sell": 19,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 10800.01
     },
     {
         "ref": "90YH02R1-B1UA00\t",
         "name": "CASQUE ASUS ROG STRIX GO CORE\t",
         "quantity_to_sell": 2,
-        "quantity_sold": 2,
-        "price": 28099.99
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "90YH0381-B1UA00\t",
@@ -59,8 +59,8 @@
         "ref": "90YH0391-B3UA00\t",
         "name": "CASQUE ASUS TUF GAMING H1 WIRELESS\t",
         "quantity_to_sell": 4,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 12900.0
     },
     {
         "ref": "90YH02ZG-B3UA00",
@@ -73,99 +73,99 @@
         "ref": "LAMIA-2-H320RGB-A-W",
         "name": "COMBO REDRAGON CASQUE + SUPPORT CASQUE - LAMIA 2 / WHITE",
         "quantity_to_sell": 4,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 5,
+        "price": 25599.99
     },
     {
         "ref": "LAMIA-2-H320RGB-1",
         "name": "COMBO REDRAGON CASQUE + SUPPORT CASQUE - LAMIA 2 / BLACK",
         "quantity_to_sell": 9,
-        "quantity_sold": 6,
-        "price": 38399.99
+        "quantity_sold": 14,
+        "price": 57599.99
     },
     {
         "ref": "H848-Black\t",
         "name": "CASQUE REDRAGON IRE PRO H848 ULTRA-LIGHT WIRELESS BLACK ",
         "quantity_to_sell": 10,
-        "quantity_sold": 2,
-        "price": 15800.01
+        "quantity_sold": 8,
+        "price": 63200.04
     },
     {
         "ref": "90MP01Q1-BKFA00\t",
         "name": "CLAVIER ASUS RA05 TUF GAMING K3 /BN/FR\t",
         "quantity_to_sell": 7,
-        "quantity_sold": 1,
-        "price": 18900.0
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "MDS1104FR233CLA",
         "name": "CLAVIER MSI VIGOR GK20",
         "quantity_to_sell": 26,
-        "quantity_sold": 1,
-        "price": 4600.0
+        "quantity_sold": 11,
+        "price": 50600.05
     },
     {
         "ref": "Draconic-K530RGB\t",
         "name": "CLAVIER REDRAGON DRACONIC K530 RGB WIRELESS - BLACK ",
         "quantity_to_sell": 8,
-        "quantity_sold": 4,
-        "price": 41199.99
+        "quantity_sold": 5,
+        "price": 51499.99
     },
     {
         "ref": "KUMARA-K552RGB-1",
         "name": "CLAVIER REDRAGON KUMARA K552-RGB / BLACK",
         "quantity_to_sell": 22,
-        "quantity_sold": 15,
-        "price": 106500.06
+        "quantity_sold": 26,
+        "price": 156200.09
     },
     {
         "ref": "K552-2-BLACK",
         "name": "CLAVIER REDRAGON KUMARA K552-2 / BLACK",
         "quantity_to_sell": 23,
-        "quantity_sold": 6,
-        "price": 34800.0
+        "quantity_sold": 16,
+        "price": 92800.01
     },
     {
         "ref": "MDS1104FR237CLA",
         "name": "COMBO MSI VIGOR GK30 BLACK",
         "quantity_to_sell": 12,
-        "quantity_sold": 3,
-        "price": 29700.01
+        "quantity_sold": 14,
+        "price": 118800.03
     },
     {
         "ref": "S10-43G0080-EC4\t",
         "name": "MANETTE MSI FORCE GC30 V2 BLACK\t",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 6,
+        "price": 22499.68
     },
     {
         "ref": "S10-43G0040-EC4\t",
         "name": "MANETTE MSI FORCE GC30 V2 WHITE\t",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 7,
+        "price": 22500.0
     },
     {
         "ref": "MMIC-XT\t",
         "name": "MICROHPONE MARS GAMING MMIC-XT ULTRA-HIGH DEF ARGB \t",
         "quantity_to_sell": 11,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 15900.01
     },
     {
         "ref": "GM200-1",
         "name": "MICROPHONE REDRAGON QUASAR 2 GM200-1",
         "quantity_to_sell": 14,
-        "quantity_sold": 1,
-        "price": 6500.02
+        "quantity_sold": 7,
+        "price": 45500.13
     },
     {
         "ref": "MT0",
         "name": "PATE THERMIQUE MARS GAMING MT0 , HIGH-EFFICIENCY 6W\t",
         "quantity_to_sell": 140,
-        "quantity_sold": 3,
-        "price": 1469.98
+        "quantity_sold": 63,
+        "price": 30869.65
     },
     {
         "ref": "MT1",
@@ -185,29 +185,29 @@
         "ref": "MM55 ",
         "name": "SOURIS MARS GAMING MM55 BLACK ",
         "quantity_to_sell": 32,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 13,
+        "price": 45500.05
     },
     {
         "ref": "MM55W",
         "name": "SOURIS MARS GAMING MM55 WHITE ",
         "quantity_to_sell": 25,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 6,
+        "price": 21000.03
     },
     {
         "ref": "IMPACT-M908\t",
         "name": "SOURIS REDRAGON IMPACT M908 RGB",
         "quantity_to_sell": 28,
-        "quantity_sold": 4,
-        "price": 19600.01
+        "quantity_sold": 7,
+        "price": 34300.02
     },
     {
         "ref": "M987-K\t",
         "name": "SOURIS REDRAGON M987-K",
         "quantity_to_sell": 26,
-        "quantity_sold": 4,
-        "price": 13200.0
+        "quantity_sold": 17,
+        "price": 56100.02
     },
     {
         "ref": "MHHPROW",
@@ -234,8 +234,8 @@
         "ref": "MHHXW",
         "name": "SUPPORT CASQUE MARS GAMING MHHX WHITE ",
         "quantity_to_sell": 3,
-        "quantity_sold": 1,
-        "price": 3600.01
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "E22-GA60011-CLA\t",
@@ -255,8 +255,8 @@
         "ref": "SCEPTER-ELITE-HA311\t",
         "name": "SUPPORT CASQUE REDRAGON SCEPTER ELITE HA311\t",
         "quantity_to_sell": 10,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 7600.03
     },
     {
         "ref": "MGSONE",
@@ -276,15 +276,15 @@
         "ref": "EPEIUS-P009\t",
         "name": "TAPIS DE SOURIS REDRAGON EPEIUS P009",
         "quantity_to_sell": 16,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 7,
+        "price": 31500.06
     },
     {
         "ref": "MMPRGBL\t",
         "name": "TAPIS DE SOURIS MARS GAMING MMPRGBL BLACK\t",
         "quantity_to_sell": 6,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 2000.0
     },
     {
         "ref": "J02-VXXXX12-EB9\t",
@@ -311,22 +311,22 @@
         "ref": "SUZAKU-P003\t",
         "name": "TAPIS DE SOURIS REDRAGON SUZAKU P003",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 4,
+        "price": 5700.0
     },
     {
         "ref": "MWPROW",
         "name": "WEBCAM MARS GAMING MWPRO PRO - WHITE",
         "quantity_to_sell": 18,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 12400.01
     },
     {
         "ref": "MWPRO ",
         "name": "WEBCAM MARS GAMING MWPRO PRO - BLACK",
         "quantity_to_sell": 8,
-        "quantity_sold": 3,
-        "price": 18600.02
+        "quantity_sold": 2,
+        "price": 12400.01
     },
     {
         "ref": "90YH0350-B2UA00\t",
@@ -339,22 +339,22 @@
         "ref": "HITMAN-GW800\t",
         "name": "WEBCAM REDRAGON HITMAN GW800",
         "quantity_to_sell": 12,
-        "quantity_sold": 3,
-        "price": 21900.02
+        "quantity_sold": 10,
+        "price": 73000.07
     },
     {
         "ref": "9L90YE00N1B0NA00\t",
         "name": "ALIMENTATION ASUS ROG LOKI 1000P PLATINUM\t",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 57900.0
     },
     {
         "ref": "9L90YE00N3B0NA00",
         "name": "ALIMENTATION ASUS ROG LOKI 850P PLATINUM BLACK\t",
         "quantity_to_sell": 4,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 48900.0
     },
     {
         "ref": "9L90YE00N2B0NA00\t",
@@ -388,22 +388,22 @@
         "ref": "MPIII550",
         "name": "ALIMENTATION MARS GAMING MPIII550 WATTS FULL BLACK\t",
         "quantity_to_sell": 75,
-        "quantity_sold": 11,
-        "price": 51700.0
+        "quantity_sold": 12,
+        "price": 56400.0
     },
     {
         "ref": "MD3067ZP6A11809",
         "name": "ALIMENTATION MSI MAG A500DN 500 WATTS 80PLUS",
         "quantity_to_sell": 50,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 16,
+        "price": 115200.0
     },
     {
         "ref": "MD3067ZP2A11CE0",
         "name": "ALIMENTATION MSI MAG A550BN 550 WATTS 80PLUS BRONZE",
         "quantity_to_sell": 32,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 23,
+        "price": 202400.06
     },
     {
         "ref": "90DC0023-B39000\t",
@@ -458,8 +458,8 @@
         "ref": "MC-ULTRAW\t",
         "name": "BOITIER MARS GAMING MC-ULTRA XXL PREMIUM CUSTOM E-ATX CASE - WHITE",
         "quantity_to_sell": 16,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 18900.01
     },
     {
         "ref": "MC-ULTRA\t",
@@ -472,22 +472,22 @@
         "ref": "MCNEO",
         "name": "BOITIER MARS GAMING MCNEO BLACK",
         "quantity_to_sell": 8,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 31800.01
     },
     {
         "ref": "MCONE",
         "name": "BOITIER MARS GAMING MCONE - BLACK",
         "quantity_to_sell": 20,
-        "quantity_sold": 3,
-        "price": 23700.02
+        "quantity_sold": 2,
+        "price": 15800.01
     },
     {
         "ref": "MCPRO2\t",
         "name": "BOITIER MARS GAMING MCPRO2 BLACK\t",
         "quantity_to_sell": 1,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 13500.0
     },
     {
         "ref": "MCV4",
@@ -507,8 +507,8 @@
         "ref": "MC-CW\t",
         "name": "MARS GAMING MC-C WHITE",
         "quantity_to_sell": 13,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 8,
+        "price": 84000.01
     },
     {
         "ref": "MCV3-BLACK\t",
@@ -521,22 +521,22 @@
         "ref": "MCV3W\t",
         "name": "MARS GAMING MCV3 XXL PREMIUM CUSTOM E-ATX CASE - WHITE\t",
         "quantity_to_sell": 5,
-        "quantity_sold": 1,
-        "price": 13500.0
+        "quantity_sold": 2,
+        "price": 27000.01
     },
     {
         "ref": "MD912V516004\t",
         "name": "CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC\tBLACK",
         "quantity_to_sell": 20,
-        "quantity_sold": 13,
-        "price": 934700.03
+        "quantity_sold": 16,
+        "price": 1150400.04
     },
     {
         "ref": "RTX4060-VNTS-WHITE\t",
         "name": "CARTE GRAPHIQUE MSI VENTUS RTX4060 X2 8GB OC WHITE EDITION\t",
         "quantity_to_sell": 19,
-        "quantity_sold": 3,
-        "price": 215700.01
+        "quantity_sold": 8,
+        "price": 575200.02
     },
     {
         "ref": "MD912V515017\t",
@@ -549,50 +549,50 @@
         "ref": "MD9117C56050",
         "name": "CARTE MERE MSI B550-A PRO\t",
         "quantity_to_sell": 22,
-        "quantity_sold": 8,
-        "price": 207200.04
+        "quantity_sold": 4,
+        "price": 103600.02
     },
     {
         "ref": "MD9117C56049\t",
         "name": "CARTE MERE MSI MPG B550 GAMING PLUS\t",
         "quantity_to_sell": 18,
-        "quantity_sold": 5,
-        "price": 144499.97
+        "quantity_sold": 1,
+        "price": 28899.99
     },
     {
         "ref": "MD9117E28001",
         "name": "CARTE MERE MSI PRO A620M-E",
         "quantity_to_sell": 50,
-        "quantity_sold": 11,
-        "price": 218900.01
+        "quantity_sold": 18,
+        "price": 358200.02
     },
     {
         "ref": "MD9117E27001\t",
         "name": "CARTE MERE MSI PRO B650M-P\t",
         "quantity_to_sell": 40,
-        "quantity_sold": 3,
-        "price": 82500.02
+        "quantity_sold": 6,
+        "price": 165000.04
     },
     {
         "ref": "MD9117E02006\t",
         "name": "CARTE MERE MSI PRO B760M-P\t DDR4",
         "quantity_to_sell": 70,
-        "quantity_sold": 25,
-        "price": 522500.14
+        "quantity_sold": 27,
+        "price": 564300.15
     },
     {
         "ref": "911-7D48-012\t",
         "name": "CARTE MERE MSI PRO H610M-E DDR4\t",
         "quantity_to_sell": 220,
-        "quantity_sold": 33,
-        "price": 557699.97
+        "quantity_sold": 14,
+        "price": 236599.99
     },
     {
         "ref": "MD9117D91030",
         "name": "CARTE MERE MSI Z790 TOMAHAWK WIFI\t",
         "quantity_to_sell": 4,
-        "quantity_sold": 2,
-        "price": 127800.0
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "MD9117E01039",
@@ -605,29 +605,29 @@
         "ref": "AW100100000252MPK",
         "name": "CPU AMD RYZEN 5 5600G MPK",
         "quantity_to_sell": 300,
-        "quantity_sold": 27,
-        "price": 634500.03
+        "quantity_sold": 48,
+        "price": 1128000.05
     },
     {
         "ref": "7600-MPK",
         "name": "CPU AMD RYZEN 5 7600 MPK\t",
         "quantity_to_sell": 15,
-        "quantity_sold": 5,
-        "price": 182500.01
+        "quantity_sold": 7,
+        "price": 255500.01
     },
     {
         "ref": "RYZEN9-7950X\t",
         "name": "CPU AMD RYZEN 9 7950X\t",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 217000.0
     },
     {
         "ref": "INB71512100FSRL63\t",
         "name": "CPU INTEL I3 12100F BOX\t",
         "quantity_to_sell": 5,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 31600.0
     },
     {
         "ref": "13100F-BOX\t",
@@ -640,43 +640,43 @@
         "ref": "I5-14600KF\t",
         "name": "CPU INTEL I5 14600KF BOX",
         "quantity_to_sell": 2,
-        "quantity_sold": 1,
-        "price": 56500.0
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "BX8071512400FSRL5Z",
         "name": "CPU INTEL I5-12400F BOX",
         "quantity_to_sell": 120,
-        "quantity_sold": 84,
-        "price": 1923600.25
+        "quantity_sold": 29,
+        "price": 635099.95
     },
     {
         "ref": "I7-14700K\t",
         "name": "CPU INTEL I7 14700K\t",
         "quantity_to_sell": 7,
-        "quantity_sold": 6,
-        "price": 489000.04
+        "quantity_sold": 1,
+        "price": 81500.01
     },
     {
         "ref": "I7-14700KF\t",
         "name": "CPU INTEL I7 14700KF BOX",
         "quantity_to_sell": 2,
-        "quantity_sold": 4,
-        "price": 153000.01
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "I9-14900K\t",
         "name": "CPU INTEL I9 14900K\t",
         "quantity_to_sell": 5,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 111899.9
     },
     {
         "ref": "I9-14900KF\t",
         "name": "CPU INTEL I9 14900KF\t",
         "quantity_to_sell": 5,
-        "quantity_sold": 2,
-        "price": 219000.01
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "MP33-PCIe-256\t",
@@ -696,22 +696,22 @@
         "ref": "4711377022484\t",
         "name": "SSD NVME M.2 MSI SPATIUM M450 1000GB PCIE 4.0 \t",
         "quantity_to_sell": 25,
-        "quantity_sold": 6,
-        "price": 95400.04
+        "quantity_sold": 13,
+        "price": 206700.08
     },
     {
         "ref": "47111377022477",
         "name": "SSD NVME M.2 MSI SPATIUM M450 500GB PCIE 4.0 ",
         "quantity_to_sell": 25,
-        "quantity_sold": 2,
-        "price": 21600.0
+        "quantity_sold": 7,
+        "price": 75600.0
     },
     {
         "ref": "4711377105590",
         "name": "SSD NVME M.2 MSI SPATIUM M480 PRO 1000GB PCIE 4.0 ",
         "quantity_to_sell": 12,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 3,
+        "price": 59700.0
     },
     {
         "ref": "TEAMGROUP-GX2-128\t",
@@ -731,15 +731,15 @@
         "ref": "VENOM-32GB-6200-RGB\t",
         "name": "RAM DDR5 PATRIOT VENOM 32GB KIT 16GBX2 6200MHZ CL32 RGB\t",
         "quantity_to_sell": 7,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 59800.0
     },
     {
         "ref": "VENOM-32GB-6400-RGB\t",
         "name": "RAM DDR5 PATRIOT VENOM 32GB KIT 16GBX2 6400MHZ CL32 RGB\t",
         "quantity_to_sell": 1,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 31900.01
     },
     {
         "ref": "VENOM-32GB-7200-RGB\t",
@@ -752,8 +752,8 @@
         "ref": "PSP48G320081H1",
         "name": "RAM DDR4 PATRIOT SL PREM WITH HEATHSINK 8G 3200MHZ - BLACK",
         "quantity_to_sell": 10,
-        "quantity_sold": 12,
-        "price": 53000.1
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "PVE2416G400C0",
@@ -780,8 +780,8 @@
         "ref": "PVSR416G360C0\t",
         "name": "RAM DDR4 VIPER STEEL CL20 SINGLE 16GB 3600MHZ RGB",
         "quantity_to_sell": 5,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 27600.0
     },
     {
         "ref": "PVSR48G320C8",
@@ -801,22 +801,22 @@
         "ref": "MCPU120",
         "name": "AIR COOLING MARS GAMING MCPU120",
         "quantity_to_sell": 20,
-        "quantity_sold": 15,
-        "price": 33000.01
+        "quantity_sold": 8,
+        "price": 17600.0
     },
     {
         "ref": "ML-ONE240W\t",
         "name": "WATER COOLING MARS GAMING ML-ONE240 - WHITE ",
         "quantity_to_sell": 100,
-        "quantity_sold": 8,
-        "price": 79200.02
+        "quantity_sold": 7,
+        "price": 69300.02
     },
     {
         "ref": "MLULTRA360",
         "name": "WATER COOLING MARS GAMING ML-ULTRA360 - BLACK",
         "quantity_to_sell": 10,
-        "quantity_sold": 2,
-        "price": 33800.0
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "90RC00F1-M0UAY0\t",
@@ -829,15 +829,15 @@
         "ref": "ML-ONE360\t",
         "name": "WATER COOLING MARS GAMING ML-ONE360  - BLACK\t",
         "quantity_to_sell": 4,
-        "quantity_sold": 1,
-        "price": 12900.0
+        "quantity_sold": 2,
+        "price": 25800.01
     },
     {
         "ref": "MLULTRA360W",
         "name": "WATER COOLING MARS GAMING ML-ULTRA360 - WHITE",
         "quantity_to_sell": 12,
-        "quantity_sold": 4,
-        "price": 67600.0
+        "quantity_sold": 1,
+        "price": 16900.0
     },
     {
         "ref": "ML-ONE360W\t",
@@ -850,22 +850,22 @@
         "ref": "MD3067ZW1B50812",
         "name": "WATER COOLING MSI MAG CORELIQUID 240R V2 WHITE",
         "quantity_to_sell": 30,
-        "quantity_sold": 12,
-        "price": 202799.99
+        "quantity_sold": 5,
+        "price": 84500.0
     },
     {
         "ref": "306-7ZW2R31-813\t",
         "name": "WTER COOLING MSI MAG CORELIQUID C360\t",
         "quantity_to_sell": 12,
-        "quantity_sold": 5,
-        "price": 124000.02
+        "quantity_sold": 2,
+        "price": 49600.01
     },
     {
         "ref": "MAX-F20A\t",
         "name": "FAN MSI MAX F20A\t",
         "quantity_to_sell": 10,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 10,
+        "price": 25000.0
     },
     {
         "ref": "9L90DA0030B09000\t",
@@ -885,15 +885,15 @@
         "ref": "MF-3DKITW\t",
         "name": "FANS PACK MARS GAMING MF-3DKIT - WHITE",
         "quantity_to_sell": 13,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 11400.01
     },
     {
         "ref": "MF-3DKIT\t",
         "name": "FANS PACK MARS GAMING MF-3DKIT - BLACK",
         "quantity_to_sell": 18,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 5700.0
     },
     {
         "ref": "MAX-F12A\t",
@@ -913,8 +913,8 @@
         "ref": "MFD",
         "name": "FAN MARS GAMING MFD - TRANSPARENT ",
         "quantity_to_sell": 100,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 900.01
     },
     {
         "ref": "MFXW",
@@ -934,29 +934,29 @@
         "ref": "G244F",
         "name": "ECRAN MSI G244F - IPS - 170HZ - 1MS\t",
         "quantity_to_sell": 90,
-        "quantity_sold": 67,
-        "price": 2003299.97
+        "quantity_sold": 99,
+        "price": 2690999.95
     },
     {
         "ref": "MD9S63CC29H045",
         "name": "ECRAN MSI MAG 274UPF IPS - 4K - 144HZ - 1MS\t",
         "quantity_to_sell": 2,
-        "quantity_sold": 1,
-        "price": 99500.01
+        "quantity_sold": 2,
+        "price": 199000.01
     },
     {
         "ref": "120A-AIRFLOW",
         "name": "BOITIER MSI MAG FORGE 120A AIRFLOW",
         "quantity_to_sell": 50,
-        "quantity_sold": 15,
-        "price": 163500.11
+        "quantity_sold": 17,
+        "price": 185300.12
     },
     {
         "ref": "MHAXW",
         "name": "CASQUE MARS GAMING MHAX WHITE ",
         "quantity_to_sell": 8,
-        "quantity_sold": 4,
-        "price": 27200.02
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "4070S-GAMING-X",
@@ -969,8 +969,8 @@
         "ref": "4070S-VENTUS-2X",
         "name": "CARTE GRAPHIQUE MIS RTX4070 SUPER 12G VENTUS 2X OC",
         "quantity_to_sell": 3,
-        "quantity_sold": 2,
-        "price": 299799.98
+        "quantity_sold": 1,
+        "price": 149899.99
     },
     {
         "ref": "4070TI-S-GAMINGX-",
@@ -983,8 +983,8 @@
         "ref": "4070TI-S-VENTUS-2X",
         "name": "CARTE GRAPHIQUE MSI RTX4070TI SUPER 16G VENTUS 2X",
         "quantity_to_sell": 1,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 199499.99
     },
     {
         "ref": "GTX1650-XS",
@@ -997,8 +997,8 @@
         "ref": "MCPUVRW",
         "name": "CPU FAN MARS GAMING MCPU-VR CPU COOLER, DUAL INFINITE - WHITE",
         "quantity_to_sell": 6,
-        "quantity_sold": 8,
-        "price": 32400.03
+        "quantity_sold": 5,
+        "price": 27000.03
     },
     {
         "ref": "MFDUOW",
@@ -1011,36 +1011,36 @@
         "ref": "MHRGB ",
         "name": "CASQUE MARS GAMING MHRGB BLACK CHROMA 360 HEADPHONES+MIC, ULTRA",
         "quantity_to_sell": 18,
-        "quantity_sold": 4,
-        "price": 19000.02
+        "quantity_sold": 2,
+        "price": 9500.01
     },
     {
         "ref": "MPB-550",
         "name": "ALIMENTATION MARS GAMING MPB 550WATTS 80PLUS BRONZE",
         "quantity_to_sell": 60,
-        "quantity_sold": 47,
-        "price": 314899.88
+        "quantity_sold": 6,
+        "price": 40199.99
     },
     {
         "ref": "MPB-650",
         "name": "ALIMENTATION MARS GAMING MPB 650WATTS 80PLUS BRONZE",
         "quantity_to_sell": 35,
-        "quantity_sold": 17,
-        "price": 132599.96
+        "quantity_sold": 19,
+        "price": 148199.96
     },
     {
         "ref": "ML-PRO240",
         "name": "WATER COOLING MARS GAMING ML-PRO240 BLACK",
         "quantity_to_sell": 55,
-        "quantity_sold": 2,
-        "price": 19800.01
+        "quantity_sold": 4,
+        "price": 39600.01
     },
     {
         "ref": "MCPU-66",
         "name": "AIR COOLING MARS GAMING MCPU-66",
         "quantity_to_sell": 20,
-        "quantity_sold": 27,
-        "price": 118000.16
+        "quantity_sold": 9,
+        "price": 53100.07
     },
     {
         "ref": "MF-PWMX2W",
@@ -1053,15 +1053,15 @@
         "ref": "MF-LINKFINITYKIT",
         "name": "PACK FANS X3 MARS GAMING MF-LINKFINITYKIT BLACK",
         "quantity_to_sell": 14,
-        "quantity_sold": 5,
-        "price": 34500.0
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "MF-LINKFINITYKITW",
         "name": "PACK FANS X3 MARS GAMING MF-LINKFINITYKITW WHITE",
         "quantity_to_sell": 12,
-        "quantity_sold": 5,
-        "price": 34500.0
+        "quantity_sold": 1,
+        "price": 6900.0
     },
     {
         "ref": "MCA-GCB",
@@ -1088,57 +1088,57 @@
         "ref": "MM-P2",
         "name": "TAPIS DE SOURIS MARS GAMINNG MMP2",
         "quantity_to_sell": 35,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 4399.98
     },
     {
         "ref": "MH-122",
         "name": "CASQUE MARS GAMING MH122 BLACK",
         "quantity_to_sell": 25,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 10,
+        "price": 32000.05
     },
     {
         "ref": "MH-222W",
         "name": "CASQUE MARS GAMING MH222W WHITE",
         "quantity_to_sell": 15,
-        "quantity_sold": 3,
-        "price": 13800.01
+        "quantity_sold": 2,
+        "price": 9200.01
     },
     {
         "ref": "MH-RGBW",
         "name": "CASQUE MARS GAMING MHRGBW WHITE ",
         "quantity_to_sell": 5,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 9500.01
     },
     {
         "ref": "MCP-RGB3",
         "name": "COMBO 4IN1 MARS GAMING CLAVIER - SOURIS - TAPIS DE SOURIS - CASQUE MARS GAMING MCP-RGB3 BLACK",
         "quantity_to_sell": 18,
-        "quantity_sold": 7,
-        "price": 54599.98
+        "quantity_sold": 10,
+        "price": 77999.98
     },
     {
         "ref": "MCP-RGB3W",
         "name": "COMBO 4IN1 MARS GAMING CLAVIER - SOURIS - TAPIS DE SOURIS - CASQUE MARS GAMING MCP-RGB3W WHITE",
         "quantity_to_sell": 4,
-        "quantity_sold": 1,
-        "price": 7800.0
+        "quantity_sold": 5,
+        "price": 31199.99
     },
     {
         "ref": "MK-023",
         "name": "CLAVIER MARS GAMING MK023 BLACK",
         "quantity_to_sell": 35,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 12,
+        "price": 34800.07
     },
     {
         "ref": "MK-023W",
         "name": "CLAVIER MARS GAMING MK023W WHITE",
         "quantity_to_sell": 12,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 11,
+        "price": 31900.07
     },
     {
         "ref": "MK-XTKL",
@@ -1158,8 +1158,8 @@
         "ref": "MMIC-SE",
         "name": "MICROPHONE MARS GAMING MMIC-SE BLACK",
         "quantity_to_sell": 12,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 6,
+        "price": 35400.05
     },
     {
         "ref": "MMIC-SEW",
@@ -1214,64 +1214,64 @@
         "ref": "MC-Q3",
         "name": "BOITIER MARS GAMING MC-Q3 BLACK",
         "quantity_to_sell": 18,
-        "quantity_sold": 1,
-        "price": 7900.01
+        "quantity_sold": 14,
+        "price": 110600.08
     },
     {
         "ref": "MC-XP",
         "name": "BOITIER MARS GAMING MC-XP BLACK",
         "quantity_to_sell": 20,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 11900.0
     },
     {
         "ref": "MC-XPW",
         "name": "BOITIER MARS GAMING MC-XPW WHITE",
         "quantity_to_sell": 18,
-        "quantity_sold": 4,
-        "price": 47600.0
+        "quantity_sold": 3,
+        "price": 35700.0
     },
     {
         "ref": "MC-VIEW",
         "name": "BOITIER MARS GAMING MC-VIEW BLACK",
         "quantity_to_sell": 65,
-        "quantity_sold": 1,
-        "price": 8900.0
+        "quantity_sold": 3,
+        "price": 26699.99
     },
     {
         "ref": "MC-VIEWW",
         "name": "BOITIER MARS GAMING MC-VIEWW WHITE",
         "quantity_to_sell": 65,
-        "quantity_sold": 1,
-        "price": 8900.0
+        "quantity_sold": 2,
+        "price": 17800.0
     },
     {
         "ref": "9JAGAMMIXS601TCS",
         "name": "SSD ADATA XPG GAMMIX S60 BLADE 1TB PCIE GEN4X4 M.2",
         "quantity_to_sell": 20,
-        "quantity_sold": 11,
-        "price": 207899.96
+        "quantity_sold": 3,
+        "price": 56699.99
     },
     {
         "ref": "9JAGAMMIXS60512GCS",
         "name": "SSD ADATA XPG GAMMIX S60 BLADE 512GB PCIE GEN4X4 M.2",
         "quantity_to_sell": 15,
-        "quantity_sold": 10,
-        "price": 116000.01
+        "quantity_sold": 2,
+        "price": 23200.0
     },
     {
         "ref": "9JAGAMMIXS70B1TCS",
         "name": "SSD ADATA XPG GAMMIX S70 BLADE 1TB PCIE GEN4X4 M.2",
         "quantity_to_sell": 15,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 3,
+        "price": 65400.01
     },
     {
         "ref": "9JAGAMMIXS70B512GCS",
         "name": "SSD ADATA XPG GAMMIX S70 BLADE 512GB PCIE GEN4X4 M.2",
         "quantity_to_sell": 12,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 5,
+        "price": 67500.01
     },
     {
         "ref": "9JALEG960M1TCS",
@@ -1291,8 +1291,8 @@
         "ref": "9JAX4U36008G18ISBKD35",
         "name": "RAM DDR4 ADATA GAMMIX D35 8GB 3600MHZ BLACK",
         "quantity_to_sell": 48,
-        "quantity_sold": 2,
-        "price": 10000.0
+        "quantity_sold": 17,
+        "price": 84999.99
     },
     {
         "ref": "9JAX4U36008G18ISWHD35",
@@ -1347,50 +1347,50 @@
         "ref": "9JAX5U5600C4616GSLABWH",
         "name": "RAM DDR5 ADATA LANCER BLADE 16GB 5600MHZ WHITE",
         "quantity_to_sell": 7,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 14,
+        "price": 80500.04
     },
     {
         "ref": "9JAX5U6000C3032GCLARBK",
         "name": "RAM DDR5 ADATA LANCER RGB 32GB 6000MHZ BLACK",
         "quantity_to_sell": 2,
-        "quantity_sold": 1,
-        "price": 26500.0
+        "quantity_sold": 4,
+        "price": 53000.01
     },
     {
         "ref": "MD3067ZW1B41813",
         "name": "WATER COOLING MSI MAG CORELIQUID 240R V2 BLACK",
         "quantity_to_sell": 25,
-        "quantity_sold": 14,
-        "price": 229599.96
+        "quantity_sold": 7,
+        "price": 114799.98
     },
     {
         "ref": "MD3067ZW4R14813",
         "name": "WATER COOLING MSI MAG CORELIQUID M240 ",
         "quantity_to_sell": 30,
-        "quantity_sold": 12,
-        "price": 183599.96
+        "quantity_sold": 8,
+        "price": 122399.97
     },
     {
         "ref": "MD3067ZW4R24813",
         "name": "WATER COOLING MSI MAG CORELIQUID M360",
         "quantity_to_sell": 10,
-        "quantity_sold": 1,
-        "price": 18900.0
+        "quantity_sold": 2,
+        "price": 37799.99
     },
     {
         "ref": "MD9117E02011",
         "name": "CARTE MERE MSI B760M-P DDR5",
         "quantity_to_sell": 40,
-        "quantity_sold": 1,
-        "price": 26600.0
+        "quantity_sold": 4,
+        "price": 106399.99
     },
     {
         "ref": "MD9117E06028",
         "name": "CARTE MERE MSI Z790 GAMING PLUS WIFI",
         "quantity_to_sell": 6,
-        "quantity_sold": 2,
-        "price": 111800.0
+        "quantity_sold": 1,
+        "price": 55900.0
     },
     {
         "ref": "MD9366A1521001",
@@ -1403,113 +1403,113 @@
         "ref": "MDJ02VXXXXX6V34",
         "name": "TAPIS DE SOURIS MSI AGILITY GD21",
         "quantity_to_sell": 35,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 5800.01
     },
     {
         "ref": "MDS1104FR306CLA",
         "name": "COMBO MSI VIGOR GK30 WHITE",
         "quantity_to_sell": 15,
-        "quantity_sold": 4,
-        "price": 43600.03
+        "quantity_sold": 9,
+        "price": 98100.07
     },
     {
         "ref": "MDS120401800CLA",
         "name": "SOURIS MSI CLUTCH GM08",
         "quantity_to_sell": 15,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 14,
+        "price": 40600.09
     },
     {
         "ref": "MDS372101030SV1",
         "name": "CASQUE MSI IMMERSE GH20",
         "quantity_to_sell": 65,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 6,
+        "price": 32400.03
     },
     {
         "ref": "MDS372101080SV1",
         "name": "CASQUE MSI IMMERSE GH30 V2",
         "quantity_to_sell": 25,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 7,
+        "price": 41300.06
     },
     {
         "ref": "ARCHON2-RGB",
         "name": "BOITIER COUGAR ARCHON 2 RGB BLACK",
         "quantity_to_sell": 5,
-        "quantity_sold": 5,
-        "price": 64500.02
+        "quantity_sold": 2,
+        "price": 25800.01
     },
     {
         "ref": "ARCHON2-RGB-MESH",
         "name": "BOITIER COUGAR ARCHON 2 MESH RGB BLACK",
         "quantity_to_sell": 180,
-        "quantity_sold": 5,
-        "price": 64500.02
+        "quantity_sold": 3,
+        "price": 38700.01
     },
     {
         "ref": "DUOFACE-BLACK",
         "name": "BOITIER COUGAR DUOFACE RGB BLACK",
         "quantity_to_sell": 4,
-        "quantity_sold": 5,
-        "price": 63600.03
+        "quantity_sold": 1,
+        "price": 15900.01
     },
     {
         "ref": "ATLAS-600",
         "name": "ALIMENTATION COUGAR ATLAS 600 WATT 80PLUS BRONZE",
         "quantity_to_sell": 40,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 8,
+        "price": 79200.02
     },
     {
         "ref": "HKB6-FR",
         "name": "CLAVIER CANYON HKB6 - FR",
         "quantity_to_sell": 85,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 10,
+        "price": 33500.05
     },
     {
         "ref": "HKBW2-FR",
         "name": "CLAVIER CANYON HKBW2 - FR",
         "quantity_to_sell": 22,
-        "quantity_sold": 3,
-        "price": 5970.0
+        "quantity_sold": 21,
+        "price": 41790.03
     },
     {
         "ref": "GH3A",
         "name": "CASQUE CANYON FOBOS GH-3A BLACK",
         "quantity_to_sell": 40,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 17,
+        "price": 49300.11
     },
     {
         "ref": "MW7",
         "name": "SOURIS CANYON MW-7 BLACK",
         "quantity_to_sell": 15,
-        "quantity_sold": 2,
-        "price": 2600.01
+        "quantity_sold": 25,
+        "price": 19500.05
     },
     {
         "ref": "GK6-US",
         "name": "CLAVIER CANYON GK-6 - US",
         "quantity_to_sell": 32,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 5,
+        "price": 34500.0
     },
     {
         "ref": "GK7-US",
         "name": "CLAVIER CANYON GK-7 - US",
         "quantity_to_sell": 30,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 4,
+        "price": 31600.02
     },
     {
         "ref": "TYPE C-40GB-BLACK",
         "name": "CABLE TYPE C TO TYPE C 40GB - 120HZ - 240W / BLACK",
         "quantity_to_sell": 4,
-        "quantity_sold": 3,
-        "price": 10350.0
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "TYEPR C-40GB-WHITE",
@@ -1522,92 +1522,92 @@
         "ref": "GM211-BLACK",
         "name": "SOURIS CANYON GM-211 BLACK",
         "quantity_to_sell": 20,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 28,
+        "price": 38000.03
     },
     {
         "ref": "GM3-BLACK",
         "name": "SOURIS CANYON GM-3 BLACK",
         "quantity_to_sell": 55,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 18,
+        "price": 39600.01
     },
     {
         "ref": "BTHS3-BLACK",
         "name": "CASQUE CANYON BTHS-3 DARK GREY",
         "quantity_to_sell": 18,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 3200.01
     },
     {
         "ref": "GM11",
         "name": "SOURIS CANYON GM-11",
         "quantity_to_sell": 51,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 11,
+        "price": 34099.97
     },
     {
         "ref": "GH6B",
         "name": "CASQUE CANYON GH-6B / BLACK",
         "quantity_to_sell": 17,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 7,
+        "price": 25900.05
     },
     {
         "ref": "GH6W",
         "name": "CASQUE CANYON GH-6W / WHITE",
         "quantity_to_sell": 60,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 15,
+        "price": 55500.11
     },
     {
         "ref": "GH9A",
         "name": "CASQUE CANYON GH-9A / BLACK",
         "quantity_to_sell": 20,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 13,
+        "price": 61100.0
     },
     {
         "ref": "GM321",
         "name": "SOURIS CANYON GM-321 BLACK",
         "quantity_to_sell": 20,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 8,
+        "price": 26800.04
     },
     {
         "ref": "GK4",
         "name": "CLAVIER CANYON GK-4 BLACK",
         "quantity_to_sell": 22,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 9,
+        "price": 49049.98
     },
     {
         "ref": "ATLAS-650",
         "name": "ALIMENTATION COUGAR ATLAS 650 WATTS 80PLUS BRONZE",
         "quantity_to_sell": 35,
-        "quantity_sold": 13,
-        "price": 136500.01
+        "quantity_sold": 20,
+        "price": 210000.01
     },
     {
         "ref": "XTC-550",
         "name": "ALIMENTATION COUGAR XTC 550 WATTS ARGB 80PLUS WHITE",
         "quantity_to_sell": 100,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 3,
+        "price": 25500.01
     },
     {
         "ref": "INB71514100SRMX1",
         "name": "CPU INTEL I3 14100 BOX",
         "quantity_to_sell": 7,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 30900.0
     },
     {
         "ref": "INB71514100FSRMX1",
         "name": "CPU INTEL I3 14100F BOX",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 45400.0
     },
     {
         "ref": "INCM71505092207SRMX2",
@@ -1620,260 +1620,260 @@
         "ref": "INB71514400FSRN47",
         "name": "CPU INTEL I5 14400F BOX",
         "quantity_to_sell": 13,
-        "quantity_sold": 4,
-        "price": 163600.01
+        "quantity_sold": 9,
+        "price": 368100.02
     },
     {
         "ref": "INCM71504821113SRN47",
         "name": "CPU INTEL I5 14400F TRAY",
         "quantity_to_sell": 22,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 39900.0
     },
     {
         "ref": "INCM71504820722SRN3Y",
         "name": "CPU INTEL I7 14700KF TRAY",
         "quantity_to_sell": 2,
-        "quantity_sold": 1,
-        "price": 76500.01
+        "quantity_sold": 3,
+        "price": 153000.01
     },
     {
         "ref": "TM-26-C06U",
         "name": "SUPPORT ECRAN TWISTED MINDS SINGLE / TM-26-C06U / BLACK",
         "quantity_to_sell": 4,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 6,
+        "price": 41199.99
     },
     {
         "ref": "TM-26-C012U",
         "name": "SUPPORT ECRAN TWISTED MINDS DUAL / TM-26-C012U / BLACK",
         "quantity_to_sell": 4,
-        "quantity_sold": 7,
-        "price": 57200.02
+        "quantity_sold": 2,
+        "price": 28600.01
     },
     {
         "ref": "TM-49-C06-W",
         "name": "SUPPORT ECRAN TWISTED MINDS SINGLE / TM-49-C06-W / WHITE",
         "quantity_to_sell": 6,
-        "quantity_sold": 5,
-        "price": 57500.03
+        "quantity_sold": 1,
+        "price": 11500.01
     },
     {
         "ref": "TM-49-C06-G",
         "name": "SUPPORT ECRAN TWISTED MINDS SINGLE / TM-49-C06-G / GREY",
         "quantity_to_sell": 7,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 6,
+        "price": 69000.03
     },
     {
         "ref": "TM-54-C06-W",
         "name": "SUPPORT ECRAN TWISTED MINDS SINGLE - RGB / TM-54-C06-W / WHITE",
         "quantity_to_sell": 5,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 34999.99
     },
     {
         "ref": "TM-54-C06-G",
         "name": "SUPPORT ECRAN TWISTED MINDS SINGLE - RGB / TM-54-C06-G / GREY",
         "quantity_to_sell": 6,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 34999.99
     },
     {
         "ref": "TM-54-C012-W",
         "name": "SUPPORT ECRAN TWISTED MINDS DUAL - RGB / TM-54-C012-W / WHITE",
         "quantity_to_sell": 5,
-        "quantity_sold": 1,
-        "price": 29900.0
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "TM-71-C06",
         "name": "SUPPORT ECRAN TWISTED MINDS SINGLE / TM-71-C06 / BLACK",
         "quantity_to_sell": 13,
-        "quantity_sold": 5,
-        "price": 24500.02
+        "quantity_sold": 12,
+        "price": 58800.04
     },
     {
         "ref": "TM-71-C012",
         "name": "SUPPORT ECRAN TWISTED MINDS DUAL / TM-71-C012 / BLACK",
         "quantity_to_sell": 8,
-        "quantity_sold": 3,
-        "price": 21600.0
+        "quantity_sold": 9,
+        "price": 57600.0
     },
     {
         "ref": "W104",
         "name": "MICROPHONE TWISTED MINDS W104 BLACK",
         "quantity_to_sell": 13,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 5800.0
     },
     {
         "ref": "M612-RGB",
         "name": "SOURIS REDRAGON PREDATOR M612 RGB",
         "quantity_to_sell": 20,
-        "quantity_sold": 4,
-        "price": 13200.0
+        "quantity_sold": 11,
+        "price": 36300.01
     },
     {
         "ref": "M808-PRO",
         "name": "SOURIS REDRAGON M808 STROM PRO ",
         "quantity_to_sell": 15,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 4,
+        "price": 30000.0
     },
     {
         "ref": "M801-RGB",
         "name": "SOURIS REDRAGON SNIPER M801 RGB WIRELESS",
         "quantity_to_sell": 35,
-        "quantity_sold": 4,
-        "price": 21199.99
+        "quantity_sold": 6,
+        "price": 31799.99
     },
     {
         "ref": "M901-PERDITION",
         "name": "SOURIS REDRAGON M901 PERDITION",
         "quantity_to_sell": 35,
-        "quantity_sold": 4,
-        "price": 20800.01
+        "quantity_sold": 3,
+        "price": 15600.01
     },
     {
         "ref": "K552W-RGB",
         "name": "CLAVIER REDRAGON KUMARA K552W-RGB / WHITE",
         "quantity_to_sell": 15,
-        "quantity_sold": 15,
+        "quantity_sold": 17,
         "price": 106500.06
     },
     {
         "ref": "K617-R-WP",
         "name": "CLAVIER REDRAGON FIZZ RAINBOW K617-R / WHITE-PINK",
         "quantity_to_sell": 6,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 12,
+        "price": 33599.98
     },
     {
         "ref": "K617-RGB-WP",
         "name": "CLAVIER REDRAGON FIZZ RGB K617-RGB / WHITE-PINK",
         "quantity_to_sell": 16,
-        "quantity_sold": 7,
-        "price": 42700.0
+        "quantity_sold": 27,
+        "price": 97599.99
     },
     {
         "ref": "K628RGB-PRO-WL",
         "name": "CLAVIER REDRAGON POLLUX K628RGB-PRO -BRW WIRELESS",
         "quantity_to_sell": 7,
-        "quantity_sold": 2,
-        "price": 22400.01
+        "quantity_sold": 6,
+        "price": 67200.04
     },
     {
         "ref": "K631RGB-PRO-WL",
         "name": "CLAVIER REDRAGON CASTOR K631RGB-PRO-BRW WIRELESS",
         "quantity_to_sell": 10,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 6,
+        "price": 64800.0
     },
     {
         "ref": "H112",
         "name": "CASQUE REDRAGON H112",
         "quantity_to_sell": 3,
-        "quantity_sold": 3,
-        "price": 14100.0
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "H120",
         "name": "CASQUE REDRAGON ARES H120",
         "quantity_to_sell": 26,
-        "quantity_sold": 15,
-        "price": 43500.09
+        "quantity_sold": 28,
+        "price": 75400.16
     },
     {
         "ref": "P032",
         "name": "TAPIS DE SOURIS REDRAGON P032 LICK XL",
         "quantity_to_sell": 30,
-        "quantity_sold": 5,
-        "price": 14500.03
+        "quantity_sold": 6,
+        "price": 17400.04
     },
     {
         "ref": "P006A-L",
         "name": "TAPIS DE SOURIS REDRAGON KUNLUN  P006A L",
         "quantity_to_sell": 10,
-        "quantity_sold": 10,
-        "price": 29000.06
+        "quantity_sold": 4,
+        "price": 11600.02
     },
     {
         "ref": "P041",
         "name": "TAPIS DE SOURIS REDRAGON XEON P041",
         "quantity_to_sell": 25,
-        "quantity_sold": 11,
-        "price": 30799.98
+        "quantity_sold": 2,
+        "price": 5600.0
     },
     {
         "ref": "GM100",
         "name": "MICROPHONE REDRAGON SEYFERT GM100",
         "quantity_to_sell": 5,
-        "quantity_sold": 1,
-        "price": 5500.0
+        "quantity_sold": 6,
+        "price": 27500.01
     },
     {
         "ref": "TG-A-030-R",
         "name": "PATE THERMIQUE THERMAL GRIZZLY AERONAUT TG-A-030-R / 7,8G - 3ML",
         "quantity_to_sell": 15,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 21,
+        "price": 41999.98
     },
     {
         "ref": "TG-CE-001-R",
         "name": "PATE THERMIQUE THERMAL GRIZZLY CONDUCTONAUT EXTREME TG-CE-001-R / 1G",
         "quantity_to_sell": 1,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 4600.0
     },
     {
         "ref": "TG-H001-RS",
         "name": "PATE THERMIQUE THERMAL GRIZZLY HYDRONAUT HIGH PERFORMANCE TG-H001-RS / 1G",
         "quantity_to_sell": 7,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 12,
+        "price": 14700.03
     },
     {
         "ref": "TG-K-001-RS",
         "name": "PATE THERMIQUE THERMAL GRIZZLY KRYONAUT TG-K-001-RS / 1G",
         "quantity_to_sell": 16,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 20,
+        "price": 36800.13
     },
     {
         "ref": "TG-KE-002-R",
         "name": "PATE THERMIQUE THERMAL GRIZZLY KRYONAUT EXTREME TG-KE-002-R / 2G",
         "quantity_to_sell": 30,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 10,
+        "price": 49000.03
     },
     {
         "ref": "TG-KS-33-33",
         "name": "PAD THERMIQUE THERMAL GRIZZLY KRYOSHEET TG-KS-33-33 / 33X33 MM",
         "quantity_to_sell": 1,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 3,
+        "price": 5900.01
     },
     {
         "ref": "TG-KS-38-38 ",
         "name": "PAD THERMIQUE THERMAL GRIZZLY KRYOSHEET TG-KS-38-38 / 38X38 MM",
         "quantity_to_sell": 1,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 5900.01
     },
     {
         "ref": "TG-MP8-30-30-05-1R",
         "name": "PAD THERMIQUE THERMAL GRIZZLY MINUS PAD 8 TG-MP8-30-30-05-1R / 30X30X0.5 MM",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 3,
+        "price": 5700.0
     },
     {
         "ref": "TG-MP8-30-30-15-1R ",
         "name": "PAD THERMIQUE THERMAL GRIZZLY MINUS PAD 8 TG-MP8-30-30-15-1R / 30X30X1.0 MM",
         "quantity_to_sell": 1,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 3,
+        "price": 2700.0
     },
     {
         "ref": "TG-MP8-30-30-20-1R",
@@ -1914,8 +1914,8 @@
         "ref": "MODEL-I/WHT",
         "name": "SOURIS GLORIOUS MODEL I / MATTE WHITE",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 13800.0
     },
     {
         "ref": "GMMK-V2-BLK-65",
@@ -2012,8 +2012,8 @@
         "ref": "O11D-EVO-XL-WHT",
         "name": "BOITIER LIAN LI O11 DYNAMIC EVO XL / WHITE",
         "quantity_to_sell": 2,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 51900.01
     },
     {
         "ref": "O11D-EVO-BLK",
@@ -2068,8 +2068,8 @@
         "ref": "SP750-WHT",
         "name": "ALIMENTATION LIAN LI SP750 - 750 WATS 80PLUS GOLD -SFX / WHITE",
         "quantity_to_sell": 3,
-        "quantity_sold": 1,
-        "price": 24500.01
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "SP850-BLK",
@@ -2103,8 +2103,8 @@
         "ref": "SL-IN120-X3-BLK",
         "name": "PACK FANS X3 LIAN LI SL INFINITY 120 / BLACK",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 34400.0
     },
     {
         "ref": "SL-IN120-WHT",
@@ -2138,15 +2138,15 @@
         "ref": "AL120V2-WHT",
         "name": "FAN LIAN LI AL120 V2 / WHITE",
         "quantity_to_sell": 9,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 5700.0
     },
     {
         "ref": "AL120V2-X3-WHT",
         "name": "PACK FANS X3 LIAN LI AL120 V2 / WHITE",
         "quantity_to_sell": 6,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 34400.0
     },
     {
         "ref": "GALAHAD III-SL-360-BLK",
@@ -2166,8 +2166,8 @@
         "ref": "12VHPWR-12/(12+4 TO 12+4 PIN) ",
         "name": "CABLE D'EXTENSION LIAN LI STRIMER PLUS V2 12VHPWR (12+4 TO 12+4 PIN) 12 LIGHTS ",
         "quantity_to_sell": 4,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 11900.0
     },
     {
         "ref": "12VHPWR-8/(12+4 TO 3X8 PIN)",
@@ -2180,8 +2180,8 @@
         "ref": "PW24-V2 ARGB 24 PIN",
         "name": "CABLE D'EXTENSION LIAN LI STRIMER PLUS V2 PW24-V2 ARGB 24 PIN",
         "quantity_to_sell": 4,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 23800.0
     },
     {
         "ref": "L-CONNECT 3",
@@ -2215,57 +2215,57 @@
         "ref": "SP-GPU-RISER-O11DMINI-WHT",
         "name": "SUPPORT CARTE GRAPHIQUE VERTICAL  PCIE 4.0 LIAN LI O11D MINI  / WHITE",
         "quantity_to_sell": 2,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 14900.0
     },
     {
         "ref": "AW10010001236BOX",
         "name": "CPU AMD RYZEN 7 8700G BOX",
         "quantity_to_sell": 10,
-        "quantity_sold": 3,
-        "price": 191700.0
+        "quantity_sold": 2,
+        "price": 127800.0
     },
     {
         "ref": "AW100100001237BOX",
         "name": "CPU AMD RYZEN 5 8600G BOX",
         "quantity_to_sell": 20,
-        "quantity_sold": 2,
-        "price": 89800.02
+        "quantity_sold": 5,
+        "price": 224500.04
     },
     {
         "ref": "AW100100001489BOX",
         "name": "CPU AMD RYZEN 5 5500GT BOX",
         "quantity_to_sell": 10,
-        "quantity_sold": 1,
-        "price": 24500.01
+        "quantity_sold": 11,
+        "price": 245000.06
     },
     {
         "ref": "911-7C95-066",
         "name": "CARTE MERE MSI B550M PRO VDH",
         "quantity_to_sell": 26,
-        "quantity_sold": 5,
-        "price": 104500.03
+        "quantity_sold": 16,
+        "price": 334400.09
     },
     {
         "ref": "911-7D96-013",
         "name": "CARTE MERE MSI MAG B760 TOMAHAWK WIFI",
         "quantity_to_sell": 2,
-        "quantity_sold": 1,
-        "price": 47800.0
+        "quantity_sold": 3,
+        "price": 95600.01
     },
     {
         "ref": "RTX4070-VENTUS/X2-BLACK",
         "name": "CARTE GRAPHIQUE MSI RTX4070 VENTUS 2X E 12GB OC BLACK",
         "quantity_to_sell": 6,
-        "quantity_sold": 5,
-        "price": 684500.02
+        "quantity_sold": 3,
+        "price": 410700.01
     },
     {
         "ref": "RTX4070-VENTUS/X2-WHITE",
         "name": "CARTE GRAPHIQUE MSI RTX4070 VENTUS 2X E 12GB OC WHITE",
         "quantity_to_sell": 5,
-        "quantity_sold": 1,
-        "price": 138900.0
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "RTX4070TI-SUPER-VENTUS/X2-WHITE",
@@ -2285,175 +2285,175 @@
         "ref": "S78-440E350-P83",
         "name": "SSD MSI SATA III SPATIUM S270 480GB",
         "quantity_to_sell": 200,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 17,
+        "price": 134300.09
     },
     {
         "ref": "RTX3050-VENTUS-6",
         "name": "CARTE GRAPHIQUE RTX3050 VENTUS 2X 6G OC",
         "quantity_to_sell": 4,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 11,
+        "price": 179600.04
     },
     {
         "ref": "G2422C-180",
         "name": "ECRAN MSI G2422C - 24INCH - CURVED - 180HZ - 1MS",
         "quantity_to_sell": 95,
-        "quantity_sold": 81,
-        "price": 2349000.2
+        "quantity_sold": 84,
+        "price": 2436000.21
     },
     {
         "ref": "G244FE2-180",
         "name": "ECRAN MSI G244F E2 - 24INCH - IPS - 180HZ - 1MS",
         "quantity_to_sell": 32,
-        "quantity_sold": 21,
-        "price": 669899.93
+        "quantity_sold": 51,
+        "price": 1020799.9
     },
     {
         "ref": "G274F-180",
         "name": "ECRAN MSI G274F - 27INCH - IPS - 180HZ - 1MS",
         "quantity_to_sell": 80,
-        "quantity_sold": 56,
-        "price": 2178400.29
+        "quantity_sold": 75,
+        "price": 2917500.39
     },
     {
         "ref": "MP2412-100",
         "name": "ECRAN MSI PRO MP2412 - 24INCH - VA - 100HZ - 1MS",
         "quantity_to_sell": 25,
-        "quantity_sold": 25,
+        "quantity_sold": 36,
         "price": 535000.2
     },
     {
         "ref": "MP273A-100",
         "name": "ECRAN MSI PRO MP273A - 27INCH - IPS - 100HZ - 1MS",
         "quantity_to_sell": 35,
-        "quantity_sold": 17,
-        "price": 462399.94
+        "quantity_sold": 48,
+        "price": 951999.88
     },
     {
         "ref": "MP251P-100",
         "name": "ECRAN MSI PRO MP251P - 24INCH - IPS - 100HZ - 1MS - ADJUSTABLE STAND ",
         "quantity_to_sell": 55,
-        "quantity_sold": 38,
-        "price": 942400.17
+        "quantity_sold": 71,
+        "price": 1364000.25
     },
     {
         "ref": "MP251-100",
         "name": "ECRAN MSI PRO MP251 - 24INCH - IPS - 100HZ - 1MS",
         "quantity_to_sell": 100,
-        "quantity_sold": 71,
-        "price": 1604600.28
+        "quantity_sold": 117,
+        "price": 2260000.4
     },
     {
         "ref": "Z790-A-MAX-WL",
         "name": "CARTE MERE MSI PRO Z790-A MAX WIFI",
         "quantity_to_sell": 7,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 1,
+        "price": 59900.01
     },
     {
         "ref": "B760-P-DDR4-II",
         "name": "CARTE MERE MSI PRO B760-P II DDR4 ",
         "quantity_to_sell": 35,
-        "quantity_sold": 8,
-        "price": 223200.02
+        "quantity_sold": 0,
+        "price": 0.0
     },
     {
         "ref": "H610M-E-DDR5",
         "name": "CARTE MERE MSI H610M-E DDR5",
         "quantity_to_sell": 35,
-        "quantity_sold": 9,
-        "price": 179100.01
+        "quantity_sold": 2,
+        "price": 39800.0
     },
     {
         "ref": "B650-TMHW-WL",
         "name": "CARTE MERE MSI MAG B650 TOMAHAWK WIFI",
         "quantity_to_sell": 12,
-        "quantity_sold": 2,
-        "price": 99800.02
+        "quantity_sold": 5,
+        "price": 249500.04
     },
     {
         "ref": "B650-GP-WL",
         "name": "CARTE MERE MSI B650 GAMING PLUS WIFI",
         "quantity_to_sell": 35,
-        "quantity_sold": 7,
-        "price": 272300.04
+        "quantity_sold": 5,
+        "price": 194500.03
     },
     {
         "ref": "A520-M-A",
         "name": "CARTE MERE MSI A520M-A PRO",
         "quantity_to_sell": 350,
-        "quantity_sold": 37,
-        "price": 514299.9
+        "quantity_sold": 115,
+        "price": 1598499.69
     },
     {
         "ref": "MAG401QR",
         "name": "ECRAN MSI MAG401QR - 40INCH - IPS - 155HZ - 2K - ULTRAWIDE - 1MS ",
         "quantity_to_sell": 10,
-        "quantity_sold": 2,
-        "price": 199000.01
+        "quantity_sold": 19,
+        "price": 995000.05
     },
     {
         "ref": "MD271UL",
         "name": "ECRAN MSI MODERN MD271UL - 27INCH - IPS - 4K ",
         "quantity_to_sell": 10,
-        "quantity_sold": 5,
-        "price": 314500.04
+        "quantity_sold": 20,
+        "price": 629000.08
     },
     {
         "ref": "G244PF-E2-180",
         "name": "ECRAN MSI G244PF E2 - 24INCH - IPS - 180HZ - 1MS - ADJUSTABLE STAND",
         "quantity_to_sell": 35,
-        "quantity_sold": 28,
-        "price": 963199.9
+        "quantity_sold": 56,
+        "price": 1203999.87
     },
     {
         "ref": "G2412-180",
         "name": "ECRAN MSI G2412F - 24INCH - IPS - 180HZ - 1MZ",
         "quantity_to_sell": 125,
-        "quantity_sold": 27,
-        "price": 861299.91
+        "quantity_sold": 70,
+        "price": 2232999.78
     },
     {
         "ref": "MP223-100",
         "name": "ECRAN MSI PRO MP223 - 22INCH - VA - 100HZ - 1MS",
         "quantity_to_sell": 90,
-        "quantity_sold": 40,
-        "price": 716000.15
+        "quantity_sold": 89,
+        "price": 1593100.34
     },
     {
         "ref": "AGILITY-GD70",
         "name": "TAPIS DE SOURIS MSI AGILITY GD70",
         "quantity_to_sell": 35,
-        "quantity_sold": 6,
-        "price": 35400.05
+        "quantity_sold": 3,
+        "price": 17700.02
     },
     {
         "ref": "7950X3D",
         "name": "CPU AMD RYZEN 9 7950X3D",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 249000.0
     },
     {
         "ref": "7900X3D",
         "name": "CPU AMD RYZEN 9 7900X3D",
         "quantity_to_sell": 3,
-        "quantity_sold": 0,
-        "price": 0.0
+        "quantity_sold": 2,
+        "price": 197800.01
     },
     {
         "ref": "8500G-BOX",
         "name": "CPU AMD RYZEN 5 8500G BOX",
         "quantity_to_sell": 25,
-        "quantity_sold": 12,
-        "price": 414000.05
+        "quantity_sold": 13,
+        "price": 448500.05
     },
     {
         "ref": "3200G-MPK",
         "name": "CPU AMD RYZEN 3 3200G MPK",
         "quantity_to_sell": 105,
-        "quantity_sold": 6,
-        "price": 83400.06
+        "quantity_sold": 87,
+        "price": 1209300.8
     }
 ]

@@ -17312,3 +17312,36 @@ SyntaxError: invalid syntax
 [2024-10-08 17:11:19 +0200] [1440969] [INFO] Booting worker with pid: 1440969
 [2024-10-08 17:11:19 +0200] [1440970] [INFO] Booting worker with pid: 1440970
 [2024-10-08 17:11:19 +0200] [1440971] [INFO] Booting worker with pid: 1440971
+[2024-10-09 12:57:44 +0200] [1440968] [INFO] Handling signal: term
+[2024-10-09 10:57:44 +0000] [1440969] [INFO] Worker exiting (pid: 1440969)
+[2024-10-09 10:57:44 +0000] [1440971] [INFO] Worker exiting (pid: 1440971)
+[2024-10-09 10:57:47 +0000] [1440970] [INFO] Worker exiting (pid: 1440970)
+[2024-10-09 12:57:49 +0200] [1440968] [INFO] Shutting down: Master
+[2024-10-09 12:57:49 +0200] [1493510] [INFO] Starting gunicorn 23.0.0
+[2024-10-09 12:57:49 +0200] [1493510] [INFO] Listening at: http://127.0.0.1:8000 (1493510)
+[2024-10-09 12:57:49 +0200] [1493510] [INFO] Using worker: sync
+[2024-10-09 12:57:49 +0200] [1493511] [INFO] Booting worker with pid: 1493511
+[2024-10-09 12:57:49 +0200] [1493512] [INFO] Booting worker with pid: 1493512
+[2024-10-09 12:57:49 +0200] [1493513] [INFO] Booting worker with pid: 1493513
+[2024-10-09 12:57:52 +0200] [1493510] [INFO] Handling signal: term
+[2024-10-09 10:57:52 +0000] [1493511] [INFO] Worker exiting (pid: 1493511)
+[2024-10-09 10:57:52 +0000] [1493512] [INFO] Worker exiting (pid: 1493512)
+[2024-10-09 10:57:52 +0000] [1493513] [INFO] Worker exiting (pid: 1493513)
+[2024-10-09 12:57:52 +0200] [1493510] [INFO] Shutting down: Master
+[2024-10-09 12:57:52 +0200] [1493517] [INFO] Starting gunicorn 23.0.0
+[2024-10-09 12:57:52 +0200] [1493517] [INFO] Listening at: http://127.0.0.1:8000 (1493517)
+[2024-10-09 12:57:52 +0200] [1493517] [INFO] Using worker: sync
+[2024-10-09 12:57:52 +0200] [1493518] [INFO] Booting worker with pid: 1493518
+[2024-10-09 12:57:52 +0200] [1493519] [INFO] Booting worker with pid: 1493519
+[2024-10-09 12:57:52 +0200] [1493520] [INFO] Booting worker with pid: 1493520
+[2024-10-09 15:17:04 +0200] [1493517] [INFO] Handling signal: term
+[2024-10-09 13:17:04 +0000] [1493519] [INFO] Worker exiting (pid: 1493519)
+[2024-10-09 13:17:04 +0000] [1493520] [INFO] Worker exiting (pid: 1493520)
+[2024-10-09 13:17:04 +0000] [1493518] [INFO] Worker exiting (pid: 1493518)
+[2024-10-09 15:17:06 +0200] [1493517] [INFO] Shutting down: Master
+[2024-10-09 15:17:06 +0200] [1498699] [INFO] Starting gunicorn 23.0.0
+[2024-10-09 15:17:06 +0200] [1498699] [INFO] Listening at: http://127.0.0.1:8000 (1498699)
+[2024-10-09 15:17:06 +0200] [1498699] [INFO] Using worker: sync
+[2024-10-09 15:17:06 +0200] [1498700] [INFO] Booting worker with pid: 1498700
+[2024-10-09 15:17:06 +0200] [1498701] [INFO] Booting worker with pid: 1498701
+[2024-10-09 15:17:06 +0200] [1498702] [INFO] Booting worker with pid: 1498702
