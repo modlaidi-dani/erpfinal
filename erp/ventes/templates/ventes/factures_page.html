@@ -198,10 +198,10 @@ class="flex flex-col min-h-screen custom-scrollbar"
 					<template x-for="variant in product.variants">
 						<tr class="transition-all  border-b hover:shadow-lg">
 						<td class="border-r  text-center">
-							<div  class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.name"></div>
+							<div  class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.reference"></div>
 						</td>
 						<td class="border-r text-center">
-							<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.reference"></div>
+							<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.name"></div>
 						</td>
 						<td class="border-r text-center">
 							<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.quantity"></div>
@@ -373,8 +373,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
 					<tbody>
 						<template x-for="invoice in toprintbill.variants">
 						<tr class="border border-black">
-							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
-							<td class="border border-black px-1 py-2 text-black print-td  text-xs" x-text="invoice.ref"></td>
+							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
+							<td class="border border-black px-1 py-2 text-black print-td  text-xs" x-text="invoice.name"></td>
 							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qty"></td>
 							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.rateLiv"></td>
 							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.totalLiv"></td>
@@ -402,11 +402,12 @@ class="flex flex-col min-h-screen custom-scrollbar"
 												</td>
 												<!-- Designation and Products columns -->
 												<td class="px-1 border-r border-black print-td text-center py-2" colspan="2">
-													<p class="text-gray-800 text-left font-bold" x-text="invoice.designation" ></p>
+													
 													<!-- Loop through products array for each variant -->
 													<template x-for="product in invoice.products">
-														<p class="text-gray-800 tex-sm" x-text="'- ' + product.reference"></p>
+														<p class="text-gray-800 font-bold" x-text="'- ' + product.reference"></p>
 													</template>
+													<p class="text-gray-800 text-left text-sm" x-text="invoice.designation" ></p>
 												</td>
 												<!-- Additional columns based on your requirements -->
 												<td class="px-1 border-r border-black text-center"  >
@@ -806,7 +807,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									currentCPU = toprint_bill.reference_pc[this.items.length];
 									this.items.push({
 										reference: currentCPU || variant.reference,
-										designation: toprint_bill.designation_pc[this.items.length],
+										designation: variant.name,
 										products: []  // Initialize an empty array for the CPU's variants
 									});
 								}
@@ -863,6 +864,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
 					printInvoice() {
 						var printContents = this.$refs.printTemplate.innerHTML;
 						document.body.innerHTML = printContents;
+						console.log(this.items);
+						
 						setTimeout(() => {
 							window.print();
 							window.location.reload();
@@ -1001,8 +1004,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							};
 							{% for produit in bon.produits_en_facture.all %}				
 								var variantData ={
-									name: "{{ produit.stock.reference }}",
-									reference: "{{ produit.stock.name }}",
+									name: "{{ produit.stock.name }}",
+									reference: "{{ produit.stock.reference }}",
 									component: "{{ produit.stock.category.pc_component }}",
 									price:"{{ produit.unitprice }}",
 									tva:"{{produit.stock.tva}}",
@@ -1010,6 +1013,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									quantity:"{{ produit.quantity }}",	
 								}
 								productData.variants.push(variantData)
+								
+								
 							{% endfor %}
 						// Check if the product already exists in the products array
 						var exists = products.some(function(existingProduct) {
