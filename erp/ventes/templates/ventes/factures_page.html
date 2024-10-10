@@ -372,7 +372,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						</tr>
 					</thead>
 					<tbody>
-						<template x-for="invoice in toprintbill.variants" :key="invoice.ref">
+						<template x-for="invoice in toprintbill.variants" :key="invoice.reference">
 							<tr class="border border-black">
 								<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.reference"></td>
 								<td class="border border-black px-1 py-2 text-black print-td text-xs" x-text="invoice.designation"></td>
