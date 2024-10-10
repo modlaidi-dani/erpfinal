@@ -36,7 +36,7 @@ from achats.models import ProduitsEnBonAchat, BonAchat
 from inventory.models import ProduitsEnBonReintegration, ProduitsEnBonEntry, ProduitsEnBonRetour
 from django.db.models import Sum
 from django.db.models.functions import Lower
-
+from production.models import ordreFabrication ,ProduitsEnOrdreFabrication
 def FilltheProductHistory(request):
     with open('jsonHistoryP.json', 'r') as f:
         dataList = json.load(f) 
@@ -389,6 +389,43 @@ def loadallProducts(request):
     products = models.Product.objects.filter(store = CurrentStore,  parent_product__isnull= True, id__gte = last_id)
     products_data = []
     for prod in products:
+        category=prod.category.Libellé if prod.category else ''
+        produits_p=[]
+
+        if category=="PC":
+            order=ordreFabrication.objects.filter(
+              pc_created= prod
+            ).first()
+            produits_en_pc=ProduitsEnOrdreFabrication.objects.filter(BonNo=order)
+            for pro in produits_en_pc:
+                produit_enpc={
+                    'id': pro.stock.id,
+                    'reference': pro.stock.reference,
+                    'reforme': True if pro.stock.reforme else False,
+                    'name': pro.stock.name,
+                    'prix_a': pro.stock.prix_achat,
+                    'prix_mag': pro.stock.prix_vente,
+                    'price': round(((float(pro.stock.clientfinal_price) + float(pro.stock.prix_livraison) + float(pro.stock.tva_douan)) * 1.19), 2),
+                    'priceachat': float(pro.stock.prix_vente) + float(pro.stock.prix_livraison),
+                    'prixRevendeur': round(((float(pro.stock.revendeur_price) + float(pro.stock.prix_livraison) + float(pro.stock.tva_douan)) * 1.19), 2),
+                    'fournisseur': pro.stock.fournisseur,
+                    'qty_diva': pro.stock.qty_in_store if pro.stock.qty_in_store != '' else '',  # You'll need to define quantity_total
+                    'frais_livraison': pro.stock.prix_livraison,
+                    'tax': pro.stock.tva_douan,
+                    'entrepot_quantities': pro.stock.quantities_per_entrepot,
+                    'entrepot_blockedquantities': pro.stock.quantitiesblocked_per_entrepot,
+                    'family': pro.stock.category.Libellé if pro.stock.category else '',
+                    'motherfamily': pro.stock.ancestor_categories,
+                    'price_variants': pro.stock.get_price_variants,
+                    'showVariants': False,
+                    'qty_in_config':pro.quantity,
+                    'codeOrdre': pro.BonNo.codeOrdre                             
+                }
+                produits_p.append(produit_enpc)
+        showVariants=False
+        if len(produits_p)>0:
+            showVariants=True
+        
         product_data = {
             'id': prod.id,
             'reference': prod.reference,
@@ -407,10 +444,13 @@ def loadallProducts(request):
             'entrepot_blockedquantities': prod.quantitiesblocked_per_entrepot,
             'family': prod.category.Libellé if prod.category else '',
             'motherfamily': prod.ancestor_categories,
-            'showVariants': False,
+            'showVariants': showVariants,
             'price_variants': prod.get_price_variants,
-            'variants': [],  # You can populate this later if needed
+            'variants': produits_p,  # You can populate this later if needed
         }
+        
+        if showVariants==True:
+            print(product_data['variants'])
         products_data.append(product_data)
     return JsonResponse({'stock': products_data})
     
@@ -1130,6 +1170,13 @@ class ProduitsView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context["product_families"]=product_families
         fournisseurs = Fournisseur.objects.filter(store=selected_store)
         context["product_fournisseur"] = fournisseurs
+        for produit in products:
+            print(produit.category.Libellé)
+            if produit.category.Libellé=="PC":
+                order=produit.ordre_creation
+                produit_en_pc=order.produits_en_ordre_fabrication
+                print(produit_en_pc)
+            
        
         # Extract specific fields from the queryset and create a list of dictionaries
         entrepots = Entrepot.objects.filter(store=selected_store)
