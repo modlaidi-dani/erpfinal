@@ -359,70 +359,74 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						   </div>
 				 </div>
 			 </div>
-			 {% if bon.BonS.reference_pc == '' %}
-			 	<table class="w-full border-collapse border border-black">
-					<thead>
-						<tr class="bg-gray-100">
-							<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
-							<th class="border border-black px-1 py-2 text-black uppercase print-td  tracking-wide text-sm font-bold">Designation</th>
-							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
-							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
-							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
-						</tr>
-					</thead>
-					<tbody>
-						<template x-for="invoice in toprintbill.variants">
-						<tr class="border border-black">
-							<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.ref"></td>
-							<td class="border border-black px-1 py-2 text-black print-td  text-xs" x-text="invoice.name"></td>
-							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.qty"></td>
-							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.rateLiv"></td>
-							<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.totalLiv"></td>
-						</tr>
-						</template>
-					</tbody>
-				</table>
-			 {% else %}	
+			 
+			 <template x-if="toprintbill.variants[0].products[0].component === ''">
 				<table class="w-full border-collapse border border-black">
 					<thead>
 						<tr class="bg-gray-100">
 							<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
-							<th class="border border-black px-1 py-2 text-black print-td  uppercase tracking-wide text-sm font-bold" colspan="2">Designation</th>
+							<th class="border border-black px-1 py-2 text-black uppercase print-td tracking-wide text-sm font-bold">Designation</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
+						</tr>
+					</thead>
+					<tbody>
+						<template x-for="invoice in toprintbill.variants" :key="invoice.ref">
+							<tr class="border border-black">
+								<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.reference"></td>
+								<td class="border border-black px-1 py-2 text-black print-td text-xs" x-text="invoice.designation"></td>
+								<td class="px-1 border-r border-black text-center">
+									<p class="text-gray-800" x-text="(parseFloat(invoice.totalPrice) / invoice.quantity).toFixed(2)"></p>
+								</td>
+								<td class="px-1 border-r border-black text-center">
+									<p class="text-gray-800" x-text="invoice.quantity"></p>
+								</td>
+								<td class="px-1 border-r border-black text-center">
+									<p class="text-gray-800" x-text="(invoice.totalPrice).toFixed(2)"></p>
+								</td>
+							</tr>
+						</template>
+					</tbody>
+				</table>
+			</template>
+			<template x-if="toprintbill.variants[0].products[0].component !== ''">
+				<table class="w-full border-collapse border border-black">
+					<thead>
+						<tr class="bg-gray-100">
+							<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
+							<th class="border border-black px-1 py-2 text-black print-td uppercase tracking-wide text-sm font-bold" colspan="2">Designation</th>
 							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">P.U</th>
 							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Qté</th>
 							<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. HT</th>
 						</tr>
 					</thead>
 					<tbody>
-										<template x-for="(invoice, index) in toprintbill.variants">
-											<tr class="-mx-1 py-2 border-b-2 border-black">
-												<!-- Reference column -->
-												<td class="px-1 border-r border-black text-center"  >
-													<p class="text-gray-800" x-text="invoice.reference"></p>
-												</td>
-												<!-- Designation and Products columns -->
-												<td class="px-1 border-r border-black print-td text-center py-2" colspan="2">
-													
-													<!-- Loop through products array for each variant -->
-												
-													<p class="text-gray-800 text-left text-sm" x-text="invoice.designation" ></p>
-												</td>
-												<!-- Additional columns based on your requirements -->
-												<td class="px-1 border-r border-black text-center"  >
-													<p class="text-gray-800" x-text="(parseFloat(invoice.totalPrice) / invoice.quantity).toFixed(2)"></p>
-												</td>
-												<td class="px-1 border-r border-black text-center"  >
-													<p class="text-gray-800" x-text="invoice.quantity"></p>
-												</td>
-												<td class="px-1 border-r border-black text-center"  >
-													<p class="text-gray-800" x-text="(invoice.totalPrice).toFixed(2)"></p>
-												</td>
-											</tr>
-										</template>
-										</tbody>
+						<template x-for="(invoice, index) in toprintbill.variants" :key="invoice.reference">
+							<tr class="-mx-1 py-2 border-b-2 border-black">
+								<td class="px-1 border-r border-black text-center">
+									<p class="text-gray-800" x-text="invoice.reference"></p>
+								</td>
+								<td class="px-1 border-r border-black print-td text-center py-2" colspan="2">
+									<p class="text-gray-800 text-left font-bold" x-text="invoice.designation"></p>
+									<template x-for="product in invoice.products" :key="product.name">
+										<p class="text-gray-800 tex-sm" x-text="'- ' + product.name"></p>
+									</template>
+								</td>
+								<td class="px-1 border-r border-black text-center">
+									<p class="text-gray-800" x-text="(parseFloat(invoice.totalPrice) / invoice.quantity).toFixed(2)"></p>
+								</td>
+								<td class="px-1 border-r border-black text-center">
+									<p class="text-gray-800" x-text="invoice.quantity"></p>
+								</td>
+								<td class="px-1 border-r border-black text-center">
+									<p class="text-gray-800" x-text="(invoice.totalPrice).toFixed(2)"></p>
+								</td>
+							</tr>
+						</template>
+					</tbody>
 				</table>
-			 {% endif %}
-				
+			</template>	
 
 			<div class="w-full flex mt-1  space-x-3 ">
 				<div class="w-full flex mt-1  space-x-3 ">
@@ -813,6 +817,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 
 							const newItem = {
 								reference: variant.reference,
+								component: variant.component,
 								name: variant.name,
 								quantity: variant.quantity,
 								price: variant.price,
