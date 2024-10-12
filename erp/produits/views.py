@@ -36,6 +36,9 @@ from achats.models import ProduitsEnBonAchat, BonAchat
 from inventory.models import ProduitsEnBonReintegration, ProduitsEnBonEntry, ProduitsEnBonRetour
 from django.db.models import Sum
 from django.db.models.functions import Lower
+from production.models import *
+from produits.models import *
+
 
 def FilltheProductHistory(request):
     with open('jsonHistoryP.json', 'r') as f:
@@ -918,14 +921,33 @@ class stockState(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(**kwargs)
 
         selected_store = store.objects.get(pk=self.request.session["store"])
-        products = models.Product.objects.filter(store=selected_store, parent_product__isnull=True)
-        product_families = models.Category.objects.filter(store=selected_store)
+        products = Product.objects.filter(store=selected_store, parent_product__isnull=True)
+        product_families = Category.objects.filter(store=selected_store)
         fournisseurs = Fournisseur.objects.filter(store=selected_store)
         entrepots = Entrepot.objects.filter(store=selected_store)
         stocks_all = Stock.objects.filter(product__store=selected_store)
+        mespc= ordreFabrication.objects.all()
+        pc =[]
+        for unpc in mespc:
+            produit=unpc.pc_created
+            pc.append(produit)
         stock_list = []
 
         for stock in stocks_all:
+            quantity_cons_production=0
+            quantity_util_production=0
+            if stock.product in pc:
+                order= ordreFabrication.objects.filter(pc_created=stock.product).first()                    
+                produit_production=ProduitsEnOrdreFabrication.objects.filter(BonNo=order).first()
+                quantity_cons_production=produit_production.quantity                        
+            produit_production=ProduitsEnOrdreFabrication.objects.filter(stock=stock.product)
+            for produit in produit_production:
+                quantity_util_production += produit.quantity
+            print("_____________")
+            print(stock)               
+            print(quantity_util_production)
+            print(quantity_cons_production)
+
             stock_dict = {
                 "reference": stock.product.reference,
                 "name": stock.product.name,
@@ -936,7 +958,11 @@ class stockState(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 "quantity_sold": stock.product_sold_quantity,
                 "quantity_returned":stock.product_returned_quantity,
                 "quantity_inreal":stock.quantity,
-                "quantity_expected": stock.quantity_expected
+                "quantity_expected": stock.quantity_expected,
+                "quantity_util_production": quantity_util_production,
+                "quantity_cons_production": quantity_cons_production,
+
+
             }
             stock_list.append(stock_dict)
         context["entrepots"] = entrepots
