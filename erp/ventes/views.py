@@ -2755,54 +2755,6 @@ class InvoiceListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         else:
           bons_sorties = models.BonSortie.objects.filter(store=selected_store, user=myuser).exclude(Q(typebl="KIT") | Q(typebl="carton")).order_by('-id')     
           context["bons_sorties"] =bons_sorties
-        
-        
-        for bon in context["bons_sorties"]:
-            bon.prod_en_bs=bon.produits_en_bon_sorties.all()
-            for prod_en_bs in bon.produits_en_bon_sorties.all():  
-
-                produit=prod_en_bs.stock
-                category=produit.category.Libellé if produit.category else ''
-                produits_p=[]
-                if category=="PC":
-                    ordre=produit.ordre_creation.first()
-                    produits_en_pc=ordre.produits_en_ordre_fabrication.all()
-                    for pro in produits_en_pc:
-                        produit_enpc={
-                        'id': pro.stock.id,
-                        'reference': pro.stock.reference,
-                        'reforme': True if pro.stock.reforme else False,
-                        'name': pro.stock.name,
-                        'prix_a': pro.stock.prix_achat,
-                        'prix_mag': pro.stock.prix_vente,
-                        'price': round(((float(pro.stock.clientfinal_price) + float(pro.stock.prix_livraison) + float(pro.stock.tva_douan)) * 1.19), 2),
-                        'priceachat': float(pro.stock.prix_vente) + float(pro.stock.prix_livraison),
-                        'prixRevendeur': round(((float(pro.stock.revendeur_price) + float(pro.stock.prix_livraison) + float(pro.stock.tva_douan)) * 1.19), 2),
-                        'fournisseur': pro.stock.fournisseur,
-                        'qty_diva': pro.stock.qty_in_store if pro.stock.qty_in_store != '' else '',  # You'll need to define quantity_total
-                        'frais_livraison': pro.stock.prix_livraison,
-                        'tax': pro.stock.tva_douan,
-                        'entrepot_quantities': pro.stock.quantities_per_entrepot,
-                        'entrepot_blockedquantities': pro.stock.quantitiesblocked_per_entrepot,
-                        'family': pro.stock.category.Libellé if pro.stock.category else '',
-                        'motherfamily': pro.stock.ancestor_categories,
-                        'price_variants': pro.stock.get_price_variants,
-                        'showVariants': False,
-                        'qty_in_config':pro.quantity,
-                        'codeOrdre': pro.BonNo.codeOrdre                             
-                    }
-                    produits_p.append(produit_enpc)
-                prod_en_bs.produits_p = produits_p
-                showVariants=False
-                
-                if len(produits_p)>0:
-                    showVariants=True
-                    
-                    
-                prod_en_bs.showVariants = showVariants
-           
-
-            
         entrepots = Entrepot.objects.filter(store=selected_store)
         context["entrepots"] = entrepots
         users_bills = CustomUser.objects.filter(EmployeeAt=selected_store)
