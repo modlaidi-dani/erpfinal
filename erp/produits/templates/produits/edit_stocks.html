@@ -101,8 +101,12 @@ class="flex flex-col min-h-screen custom-scrollbar"
           <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Entrepot</th>
           
           <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Qté entrée</th>
+          <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Qté Pc</th>
+
           <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Qté reçu</th>    
-          <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Qté transféré</th>    
+          <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Qté transféré</th>   
+          <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Qté en BP</th>    
+
           <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Qté vendu</th>    
           <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Qté retour</th>    
           <th class=" py-3 text-xs text-center border-r font-medium text-gray-500 uppercase">Qté actuelle </th>    
@@ -127,12 +131,18 @@ class="flex flex-col min-h-screen custom-scrollbar"
             <td class="px-6 py-4 border-r text-center">
               <div class="inline-flex px-2 text-xs font-semibold   leading-5" x-text="product.quantity_entered"></div>
             </td>
+			<td class="px-6 py-4 border-r text-center">
+				<div class="inline-flex px-2 text-xs font-semibold   leading-5" x-text="product.quantity_pc"></div>
+			</td>
             <td class="px-6 py-4 border-r text-center">
               <div class="inline-flex px-2 text-xs font-semibold   leading-5" x-text="product.quantity_received"></div>
             </td>
             <td class="px-6 py-4 border-r text-center ">
               <div class="inline-flex px-2 text-xs font-semibold   leading-5" x-text="product.quantity_transfered"></div>
             </td>
+			<td class="px-6 py-4 border-r text-center ">
+				<div class="inline-flex px-2 text-xs font-semibold   leading-5" x-text="product.quantity_util_production"></div>
+			</td>
             <td class="px-6 py-4 border-r text-center">
               <div class="inline-flex px-2 text-xs font-semibold   leading-5" x-text="product.quantity_sold"></div>
             </td>
@@ -351,9 +361,12 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								quantity_transfered:"{{prod.quantity_transfered}}",
 								quantity_sold:"{{prod.quantity_sold}}",
 								quantity_returned:"{{prod.quantity_returned}}",
+								quantity_util_production: "{{prod.quantity_util_production}}",
+								quantity_pc: "{{prod.quantity_pc}}",
 								quantity_inreal:"{{prod.quantity_inreal}}",
 								quantity_expected	:"{{prod.quantity_expected}}",			  
 								family: "{{ prod.family }}",
+
 								};
 								
 								products.push(productData)
