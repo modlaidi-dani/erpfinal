@@ -38,6 +38,8 @@ from django.db.models import Sum
 from django.db.models.functions import Lower
 from production.models import *
 from produits.models import *
+from production.models import ordreFabrication ,ProduitsEnOrdreFabrication
+from clientInfo.models import store as stor
 
 
 def FilltheProductHistory(request):
@@ -389,6 +391,42 @@ def loadallProducts(request):
     products = Product.objects.filter(store = CurrentStore,  parent_product__isnull= True, id__gte = last_id)
     products_data = []
     for prod in products:
+        category=prod.category.Libellé if prod.category else ''
+        produits_p=[]
+        if category=="PC":
+            order=ordreFabrication.objects.filter(
+              pc_created= prod
+            ).first()
+            produits_en_pc=ProduitsEnOrdreFabrication.objects.filter(BonNo=order)
+            for pro in produits_en_pc:
+                produit_enpc={
+                    'id': pro.stock.id,
+                    'reference': pro.stock.reference,
+                    'reforme': True if pro.stock.reforme else False,
+                    'name': pro.stock.name,
+                    'prix_a': pro.stock.prix_achat,
+                    'prix_mag': pro.stock.prix_vente,
+                    'price': round(((float(pro.stock.clientfinal_price) + float(pro.stock.prix_livraison) + float(pro.stock.tva_douan)) * 1.19), 2),
+                    'priceachat': float(pro.stock.prix_vente) + float(pro.stock.prix_livraison),
+                    'prixRevendeur': round(((float(pro.stock.revendeur_price) + float(pro.stock.prix_livraison) + float(pro.stock.tva_douan)) * 1.19), 2),
+                    'fournisseur': pro.stock.fournisseur,
+                    'qty_diva': pro.stock.qty_in_store if pro.stock.qty_in_store != '' else '',  # You'll need to define quantity_total
+                    'frais_livraison': pro.stock.prix_livraison,
+                    'tax': pro.stock.tva_douan,
+                    'entrepot_quantities': pro.stock.quantities_per_entrepot,
+                    'entrepot_blockedquantities': pro.stock.quantitiesblocked_per_entrepot,
+                    'family': pro.stock.category.Libellé if pro.stock.category else '',
+                    'motherfamily': pro.stock.ancestor_categories,
+                    'price_variants': pro.stock.get_price_variants,
+                    'showVariants': False,
+                    'qty_in_config':pro.quantity,
+                    'codeOrdre': pro.BonNo.codeOrdre                             
+                }
+                produits_p.append(produit_enpc)
+        showProduct=False
+        if len(produits_p)>0:
+            showProduct=True
+        
         product_data = {
             'id': prod.id,
             'reference': prod.reference,
@@ -408,9 +446,16 @@ def loadallProducts(request):
             'family': prod.category.Libellé if prod.category else '',
             'motherfamily': prod.ancestor_categories,
             'showVariants': False,
+            'showProduct': showProduct,
             'price_variants': prod.get_price_variants,
-            'variants': [],  # You can populate this later if needed
+            'variants': produits_p # You can populate this later if needed
         }
+        if showProduct==True:
+            print(product_data['name'])
+            print("_________________________________________________________________________________________________________________")
+            print(product_data['variants'])
+            print("_________________________________________________________________________________________________________________")
+            
         products_data.append(product_data)
     return JsonResponse({'stock': products_data})
     
@@ -664,7 +709,7 @@ class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(**kwargs) 
         ref = self.kwargs.get('product_ref')
         
-        my_product = models.Product.objects.get(id=ref)
+        my_product = Product.objects.get(id=ref)
         if my_product:   
           context["id_produit"] = my_product.id  
           context["reference_produit"] = my_product.reference
@@ -677,10 +722,10 @@ class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
           context["fournisseur"] = my_product.fournisseur
           context["qtyperCarton"] = my_product.QuantityPerCarton
           store = self.request.session["store"]
-          CurrentStore = models.store.objects.get(pk=store)
+          CurrentStore = stor.objects.get(pk=store)
           Currentuser = self.request.user
           myuser  = CustomUser.objects.get(username=Currentuser.username)
-          categories = models.Category.objects.filter(store=CurrentStore)
+          categories = Category.objects.filter(store=CurrentStore)
           fournisseurs_list = Fournisseur.objects.filter(store=CurrentStore)
           fournisseurs=[]
           for f in fournisseurs_list :                       
@@ -726,7 +771,7 @@ class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             })
           context["historiqueAchat"] = historique_prix_list
           context["prix_achat"]= prix_achatlast
-          clients = models.typeClient.objects.filter(store=my_product.store)
+          clients = typeClient.objects.filter(store=my_product.store)
           # Create a dictionary to quickly find existing variantsPrixClient instances
           existing_variants = {vp.type_client.id: vp for vp in my_product.produit_var.all()}
           # List to store the results for each client type
@@ -1383,13 +1428,13 @@ class AddProductView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         store = self.request.session["store"]
-        CurrentStore = models.store.objects.get(pk=store)
+        CurrentStore = stor.objects.get(pk=store)
         Currentuser = self.request.user
         myuser  = CustomUser.objects.get(username=Currentuser.username)
-        categories = models.Category.objects.filter(store=CurrentStore)
+        categories = Category.objects.filter(store=CurrentStore)
         fournisseurs_list = Fournisseur.objects.filter(store=CurrentStore)
         fournisseurs=[]
-        latest_product = models.Product.objects.latest('id')
+        latest_product = Product.objects.latest('id')
         # Obtenir son id
         latest_id = latest_product.id if latest_product else 0
 
@@ -1409,7 +1454,7 @@ class AddProductView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 "fournisseurEtrange": f.fournisseurEtrange,                 
             }
             fournisseurs.append(fr_dict)
-        clients = models.typeClient.objects.filter(store=CurrentStore)
+        clients = typeClient.objects.filter(store=CurrentStore)
         types_clients =[]
         for cl in clients:
            cl_dict ={
@@ -1430,17 +1475,17 @@ class AddProductView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         store_id = self.request.session["store"]
         currentStore = store.objects.get(id=store_id)
         category= None
-        if models.Category.objects.get(id = data['category'], store = currentStore) :
-          category =models.Category.objects.get(id = data['category'], store = currentStore)
+        if Category.objects.get(id = data['category'], store = currentStore) :
+          category = Category.objects.get(id = data['category'], store = currentStore)
           
-        existing_product = models.Product.objects.filter(reference=data['reference'], store=currentStore).first()
+        existing_product = Product.objects.filter(reference=data['reference'], store=currentStore).first()
         if existing_product:
             return JsonResponse({'error': 'Il existe déja un produit avec cette Référence !.'})
         QuantityPerCarton =0
         if 'qtypercart' in data :
             QuantityPerCarton = data['qtypercart'] 
                 
-        product = models.Product.objects.create(
+        product = Product.objects.create(
             reference=data['reference'],
             name=data['designation'],
             fournisseur=data['fournisseur'],
@@ -1460,10 +1505,10 @@ class AddProductView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         if data['product_variantes'] != "":
          for variant_data in data['product_variantes']:
           for value in variant_data['value']:
-              previous_product = models.Product.objects.latest('id')    
+              previous_product = Product.objects.latest('id')    
               new_product_id = data['reference']
               reference = f'{new_product_id}{variant_data["variante"]}{value}'
-              product_variants = models.Product.objects.create(
+              product_variants = Product.objects.create(
                 reference=reference,
                 name=data['designation']+' '+ variant_data['variante']+' ' + value,
                 parent_product= product,
@@ -1483,7 +1528,7 @@ class AddProductView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
            prix_vente = client_price['prixHt']  
            prix_vente_pc = client_price['prixHtPC']  
            type_client, created = typeClient.objects.get_or_create(type_desc=type_client_name, store=currentStore)
-           variant_price_client = models.variantsPrixClient.objects.create(
+           variant_price_client = variantsPrixClient.objects.create(
              type_client=type_client,
              produit=product,
              prix_vente=prix_vente,
