@@ -21,6 +21,8 @@ from datetime import datetime
 from django.shortcuts import redirect
 from inventory.models import Entrepot
 from tiers.models import Fournisseur,typeClient
+from tiers.models import typeClient as typecli
+
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 from .models import ProduitsCustomPermission
@@ -47,11 +49,11 @@ def FilltheProductHistory(request):
         dataList = json.load(f) 
     for product in dataList:
         if product["id"] :
-            productIns = models.Product.objects.get(id = product["id"])
+            productIns =Product.objects.get(id = product["id"])
             achats = product["achats"]  
             for achat_pr in achats:
                 prix_achat_calcule = ((achat_pr["priceAchatAct"] * achat_pr["qtyActual"]) + (achat_pr["priceachat"] * achat_pr["quantityachat"])) / (achat_pr["quantityachat"] + achat_pr["qtyActual"])
-                models.HistoriqueAchatProduit.objects.create(
+                HistoriqueAchatProduit.objects.create(
                     produit=productIns,  
                     qty_qctuelle=achat_pr["qtyActual"],
                     prix_achat_actuelle=achat_pr["priceAchatAct"],
@@ -88,7 +90,7 @@ def getStock(request):
 def GetProductHistorique(request):
     store_id = request.session["store"]
     current_store = store.objects.get(pk=store_id)
-    products = models.Product.objects.filter(store = current_store)  # Get all products from the database
+    products = Product.objects.filter(store = current_store)  # Get all products from the database
     stock_data = []
     for product in products:
         bill_data = []
@@ -203,7 +205,7 @@ class EtatStockWeekly(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         store_id = self.kwargs.get('store_id')
         selected_store = store.objects.get(pk=self.request.session["store"])
-        products = models.Product.objects.filter(
+        products = Product.objects.filter(
             store=selected_store,
             parent_product__isnull=True,
             name__icontains='msi'
@@ -238,10 +240,10 @@ class QuantiteFactureView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
         store_id = self.kwargs.get('store_id')
         selected_store = store.objects.get(pk=self.request.session["store"])
         if self.request.session["store"] == '2' :
-            products = models.Product.objects.filter(store=selected_store, parent_product__isnull= True)
+            products = Product.objects.filter(store=selected_store, parent_product__isnull= True)
         else:
-            products = models.Product.objects.filter(store=selected_store, parent_product__isnull= True)[:150]
-        product_families = models.Category.objects.filter(store=selected_store)
+            products = Product.objects.filter(store=selected_store, parent_product__isnull= True)[:150]
+        product_families = Category.objects.filter(store=selected_store)
         context["product_families"]=product_families
         fournisseurs = Fournisseur.objects.filter(store=selected_store)
         context["product_fournisseur"] = fournisseurs
@@ -254,7 +256,7 @@ class QuantiteFactureView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
         
 def ProductBlockView(request):
     data = json.loads(request.body)
-    my_product = models.Product.objects.get(id=data['id'])
+    my_product = Product.objects.get(id=data['id'])
     store_id = request.session["store"]
     current_store = store.objects.get(pk=store_id)
     if data['qty'] == 0:
@@ -274,10 +276,10 @@ def ImportProducts(request):
    store_id = request.session["store"]
    current_store = store.objects.get(pk=store_id)
    for prod_data in products_list:
-      category = models.Category.objects.filter(Libellé = prod_data["family"], store = current_store).first()
-      product_ins = models.Product.objects.filter(reference = prod_data['reference'], store = current_store).first()
+      category = Category.objects.filter(Libellé = prod_data["family"], store = current_store).first()
+      product_ins = Product.objects.filter(reference = prod_data['reference'], store = current_store).first()
       if product_ins is None :
-          product = models.Product.objects.create(
+          product = Product.objects.create(
                 reference=prod_data['reference'],
                 name=prod_data['name'],
                 prix_vente=prod_data['prixVente'],
@@ -292,21 +294,21 @@ def ImportProducts(request):
             ) 
           if "prixVente" in prod_data:
             type_client= typeClient.objects.get(type_desc='Client Final', store=current_store)
-            variant_price_client = models.variantsPrixClient.objects.create(
+            variant_price_client = variantsPrixClient.objects.create(
                 type_client=type_client,
                 produit=product,
                 prix_vente=prod_data["prixVente"]
             )
           if "prixVenteR" in prod_data:  
             type_client= typeClient.objects.get(type_desc='Revendeur', store=current_store)
-            variant_price_client = models.variantsPrixClient.objects.create(
+            variant_price_client = variantsPrixClient.objects.create(
                 type_client=type_client,
                 produit=product,
                 prix_vente=prod_data["prixVenteR"]
             )
           if "prixVenteRB" in prod_data:
             type_client= typeClient.objects.get(type_desc='Grossiste', store=current_store)
-            variant_price_client = models.variantsPrixClient.objects.create(
+            variant_price_client = variantsPrixClient.objects.create(
                 type_client=type_client,
                 produit=product,
                 prix_vente=prod_data["prixVenteRB"]
@@ -324,7 +326,7 @@ def UpdateRepartition(request):
         product_id = dataInvoice.get('id')
         if product_id:
             try:
-                product_obj = models.Product.objects.get(pk=int(product_id), store=current_store)
+                product_obj = Product.objects.get(pk=int(product_id), store=current_store)
                 entrepot_name = dataInvoice.get('entrepot_rep')
                 if entrepot_name :
                     entrepot_rep = Entrepot.objects.get(name = entrepot_name, store = current_store)
@@ -357,7 +359,7 @@ def LaunchPromotion(request):
         if product_id:
             try:
                 
-                product_obj = models.Product.objects.get(pk=int(product_id), store=current_store)
+                product_obj = Product.objects.get(pk=int(product_id), store=current_store)
                 promoListe = dataInvoice.get('promoList')
                 datedebut = dataInvoice["datedebPromo"]              
                 datefin = dataInvoice["datefinPromo"]  
@@ -365,7 +367,7 @@ def LaunchPromotion(request):
                     for typecl in promoListe:
                         typeClientObj = typeClient.objects.filter(type_desc=typecl["nom"]).first()
                         if typeClientObj :        
-                            models.Promotion.objects.create(
+                            Promotion.objects.create(
                                 type_client = typeClientObj,
                                 product = product_obj,
                                 prix_vente = typecl["prixHt"], 
@@ -465,7 +467,7 @@ def ImportProductsPrice(request):
    store_id = request.session["store"]
    current_store = store.objects.get(pk=store_id)
    for prod_data in products_list:
-      product_ins = models.Product.objects.filter(reference = prod_data['reference'], store = current_store).first()
+      product_ins = Product.objects.filter(reference = prod_data['reference'], store = current_store).first()
       if product_ins is None :
           return JsonResponse({'message':'Produit Not existant!'})
       else:
@@ -477,21 +479,21 @@ def ImportProductsPrice(request):
               product_ins.tva_douan = prod_data["tax"]
           if "prixVente" in prod_data:
             type_client= typeClient.objects.get(type_desc='Client Final', store=current_store)
-            variant_price_client = models.variantsPrixClient.objects.create(
+            variant_price_client = variantsPrixClient.objects.create(
                 type_client=type_client,
                 produit=product_ins,
                 prix_vente=prod_data["prixVente"]
             )
           if "prixVenteR" in prod_data:  
             type_client= typeClient.objects.get(type_desc='Revendeur', store=current_store)
-            variant_price_client = models.variantsPrixClient.objects.create(
+            variant_price_client = variantsPrixClient.objects.create(
                 type_client=type_client,
                 produit=product_ins,
                 prix_vente=prod_data["prixVenteR"]
             )
           if "prixVenteG" in prod_data:
             type_client= typeClient.objects.get(type_desc='Grossiste', store=current_store)
-            variant_price_client = models.variantsPrixClient.objects.create(
+            variant_price_client = variantsPrixClient.objects.create(
                 type_client=type_client,
                 produit=product_ins,
                 prix_vente=prod_data["prixVenteG"]
@@ -505,7 +507,7 @@ def importProductPriceCarton(request):
    store_id = request.session["store"]
    current_store = store.objects.get(pk=store_id)
    for prod_data in products_list:
-      product_ins = models.Product.objects.filter(reference = prod_data['reference'], store = current_store).first()
+      product_ins = Product.objects.filter(reference = prod_data['reference'], store = current_store).first()
       if product_ins is None :
           return JsonResponse({'message':'Produit Not existant!'})
       else:
@@ -514,21 +516,21 @@ def importProductPriceCarton(request):
               product_ins.save()
           if "PrixCFCarton" in prod_data:
             type_client= typeClient.objects.get(type_desc='Client Final', store=current_store)
-            variant_price_client = models.variantsPrixClient.objects.create(
+            variant_price_client = variantsPrixClient.objects.create(
                 type_client=type_client,
                 produit=product_ins,
                 prix_vente_carton=prod_data["PrixCFCarton"]
             )
           if "PrixRVCarton" in prod_data:  
             type_client= typeClient.objects.get(type_desc='Revendeur', store=current_store)
-            variant_price_client = models.variantsPrixClient.objects.create(
+            variant_price_client = variantsPrixClient.objects.create(
                 type_client=type_client,
                 produit=product_ins,
                 prix_vente_carton=prod_data["PrixRVCarton"]
             )
           if "PrixGCarton" in prod_data:
             type_client= typeClient.objects.get(type_desc='Grossiste', store=current_store)
-            variant_price_client = models.variantsPrixClient.objects.create(
+            variant_price_client = variantsPrixClient.objects.create(
                 type_client=type_client,
                 produit=product_ins,
                 prix_vente_carton=prod_data["PrixGCarton"]
@@ -543,13 +545,13 @@ def importProductFamilly(request):
    for prod_data in products_list:
     
       
-      product_ins = models.Product.objects.filter(reference = prod_data['reference'], store=current_store).first()
+      product_ins =Product.objects.filter(reference = prod_data['reference'], store=current_store).first()
 
       if product_ins is None :
           return JsonResponse({'message':f'Produit referance:{prod_data["reference"]} ,name:{prod_data["name"]}  Not existant!'})
       else:          
         if "category" in prod_data:
-            category = models.Category.objects.filter(Libellé = prod_data["category"]).first()
+            category =Category.objects.filter(Libellé = prod_data["category"]).first()
             product_ins.category = category
             product_ins.save()
 
@@ -576,8 +578,8 @@ class PrixListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         store_id = self.kwargs.get('store_id')
         selected_store = store.objects.get(pk=self.request.session["store"])
-        products = models.Product.objects.filter(store=selected_store, parent_product__isnull= True) 
-        product_families = models.Category.objects.filter(store=selected_store)
+        products = Product.objects.filter(store=selected_store, parent_product__isnull= True) 
+        product_families = Category.objects.filter(store=selected_store)
         context["product_families"]=product_families
         fournisseurs = Fournisseur.objects.filter(store=selected_store)
         context["product_fournisseur"] = fournisseurs
@@ -590,13 +592,13 @@ class PrixListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         
 def getArchiveProducts(request):
    data = json.loads(request.body)
-   my_archive = models.VerificationArchive.objects.get(id=data["id"])
+   my_archive = VerificationArchive.objects.get(id=data["id"])
    store_id = request.session["store"]
    current_store = store.objects.get(pk=store_id)
    stocks = my_archive.produits_verification.all()
    produits_archives = []
    for stock in stocks:
-        product_obj = models.Product.objects.get(reference = stock.product_reference, store =current_store)
+        product_obj = Product.objects.get(reference = stock.product_reference, store =current_store)
         prod_dict = {
             "reference": stock.product_reference,
             "name": product_obj.name,
@@ -616,11 +618,11 @@ def editCategory(request):
         category_id = dataInvoice.get('id')
         if category_id:
             try:
-                category = models.Category.objects.get(pk=int(category_id), store=current_store)
+                category = Category.objects.get(pk=int(category_id), store=current_store)
                 # Update the fields based on the data from the request
                 mother_category_id = dataInvoice.get('categorieP')
                 if mother_category_id and mother_category_id != 'null':
-                    mother_category = models.Category.objects.get(pk=int(mother_category_id))
+                    mother_category = Category.objects.get(pk=int(mother_category_id))
                     category.MotherCategory = mother_category
                 else:
                     category.MotherCategory = None
@@ -637,7 +639,7 @@ def editCategory(request):
                 category.save()
 
                 return JsonResponse({'message': 'Category updated successfully.', 'category_id': category.id})
-            except models.Category.DoesNotExist:
+            except Category.DoesNotExist:
                 return JsonResponse({'error': 'Category not found.'})
         else:
             return JsonResponse({'error': 'categoryId not provided.'})
@@ -650,7 +652,7 @@ def supprimerCategorie(request):
     CurrentStore = store.objects.get(pk=store_id)
     liste_id = data["liste_ids"]
     for id_bon in liste_id:
-        category = models.Category.objects.get(id=id_bon, store=CurrentStore)
+        category = Category.objects.get(id=id_bon, store=CurrentStore)
         with transaction.atomic():
               category.products.all().update(category=None)
                # Delete the Category instance
@@ -665,7 +667,7 @@ def DeleteProductView(request):
         CurrentStore = store.objects.get(pk=store_id)
         liste_ids = data["liste_ids"]
         for ref_produit in liste_ids:
-            product = models.Product.objects.get(reference=ref_produit, store=CurrentStore)
+            product = Product.objects.get(reference=ref_produit, store=CurrentStore)
             if not product.is_integrated():
                 for product_variante in product.myvariants.all():
                     if not product_variante.is_integrated():
@@ -677,7 +679,7 @@ def DeleteProductView(request):
             else:
                 return JsonResponse({'success': False, 'message': 'Produit Ne peut pas être Supprimé! Il est intégré dans des bons.'})
         return JsonResponse({'success': True , 'message': 'Produits Supprimés!'} )
-    except models.Product.DoesNotExist:
+    except Product.DoesNotExist:
         return JsonResponse({'success': False, 'error_message': 'ERREUR! Produit Non-trouvé.'})
 
 def supprimerArchive(request):
@@ -685,7 +687,7 @@ def supprimerArchive(request):
     store_id = request.session["store"]
     CurrentStore = store.objects.get(pk=store_id)
     archive_id = data["archive_id"]
-    category = models.VerificationArchive.objects.get(id=archive_id, store=CurrentStore)
+    category = VerificationArchive.objects.get(id=archive_id, store=CurrentStore)
     with transaction.atomic():
             for product in category.produits_verification.all() :
                 product.delete()    
@@ -847,11 +849,11 @@ class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             product_id_to_update = dataInvoice["id"] # Set this to the ID of the product you want to update
             # Retrieve the product you want to update
             try:
-                product = models.Product.objects.get(id=product_id_to_update, store=currentStore)
-            except models.Product.DoesNotExist:
+                product = Product.objects.get(id=product_id_to_update, store=currentStore)
+            except Product.DoesNotExist:
                 # Handle the case where the product with the specified ID does not exist
                 return JsonResponse({'Message':"Product not found"})
-            category =models.Category.objects.get(Libellé = dataInvoice['category'], store = currentStore)
+            category =Category.objects.get(Libellé = dataInvoice['category'], store = currentStore)
             # Update the product fields based on your data
             product.reference = dataInvoice['reference']
             product.name = dataInvoice['designation']
@@ -886,7 +888,7 @@ class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                       reference = f'{new_product_id}{variant_data["variante"]}{value}'
 
                       # Try to get an existing product variant by reference
-                      product_variant, created = models.Product.objects.get_or_create(
+                      product_variant, created = Product.objects.get_or_create(
                           reference=reference,
                           defaults={
                               'name': dataInvoice['designation'] +' '+ variant_data['variante'] +' '+ value,
@@ -923,9 +925,9 @@ class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                   prix_vente_pc = client_price['prixHtPC']
                   prix_vente_kit = client_price['prixHtKIT']
                   prix_vente_carton = client_price['prixHtCarton']
-                  typeClient = models.typeClient.objects.get(type_desc= type_client_name, store = currentStore)                
+                  typeClient =  typecli.objects.get(type_desc= type_client_name, store = currentStore)                
                    # Create or update the client price
-                  client_price = models.variantsPrixClient.objects.filter(
+                  client_price = variantsPrixClient.objects.filter(
                       type_client=typeClient,
                       produit=product,  # Make sure to set the correct product                               
                   ).first()
@@ -936,7 +938,7 @@ class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                       client_price.prix_vente_carton = prix_vente_carton
                       client_price.save()
                   else:
-                    models.variantsPrixClient.objects.create(
+                     variantsPrixClient.objects.create(
                         type_client=typeClient,
                         produit=product,  
                         prix_vente=prix_vente,
@@ -1062,7 +1064,7 @@ class ProductDetailsView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
         ref = self.kwargs.get('product_ref')
-        my_product = models.Product.objects.get(id=ref)
+        my_product = Product.objects.get(id=ref)
         if my_product:  
           quantity_total = 0
           if my_product.myvariants.all() :
@@ -1124,7 +1126,7 @@ class ProductDetailsView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             })
           context["historiqueAchat"] = historique_prix_list
 
-          clients = models.typeClient.objects.filter(store=my_product.store)
+          clients = typeClient.objects.filter(store=my_product.store)
 
           # Create a dictionary to quickly find existing variantsPrixClient instances
           existing_variants = {vp.type_client.id: vp for vp in my_product.produit_var.all()}
@@ -1235,13 +1237,13 @@ class ProduitsVerifMagView(LoginRequiredMixin, UserPassesTestMixin, TemplateView
            CurrentStore = store.objects.get(pk=store_id)
            current_year = datetime.now().strftime('%y')
            current_month = datetime.now().strftime('%m')
-           last_number = models.VerificationArchive.objects.order_by('-id').first()
+           last_number = VerificationArchive.objects.order_by('-id').first()
            if last_number:
                 last_number = last_number.id
            else:
                 last_number = 0
            codeArchive= f'AR{current_year}{current_month}-{last_number + 1:04d}'
-           verification = models.VerificationArchive.objects.create(
+           verification =VerificationArchive.objects.create(
             codeArchive=codeArchive,
             store=CurrentStore,
             entrepot=entrepot,
@@ -1253,7 +1255,7 @@ class ProduitsVerifMagView(LoginRequiredMixin, UserPassesTestMixin, TemplateView
               quantity = produit["quantity"]
               verificationResult = produit["verificationResult"]
               realQuantity = produit["realQuantity"]
-              models.ListProductVerificationArchive.objects.create(
+              ListProductVerificationArchive.objects.create(
                 verification=verification,
                 product_reference=reference,
                 quantity=quantity,
@@ -1283,7 +1285,7 @@ class UpdateArchiveMagView(LoginRequiredMixin, UserPassesTestMixin, TemplateView
         context["entrepots"]= entrepots
         id_archive = self.kwargs.get('archive_id')
         context["id_archive"] = id_archive
-        archive = models.VerificationArchive.objects.get(id=id_archive)
+        archive = VerificationArchive.objects.get(id=id_archive)
         entrepot = archive.entrepot
         context["entrepot"]= entrepot
         
@@ -1306,7 +1308,7 @@ class UpdateArchiveMagView(LoginRequiredMixin, UserPassesTestMixin, TemplateView
                 stock_data.append(stock_info)
         context['stocks'] = stock_data
         for prodduit in  archive.produits_verification.all():
-            product_obj = models.Product.objects.get(reference = prodduit.product_reference, store = CurrentStore)
+            product_obj = Product.objects.get(reference = prodduit.product_reference, store = CurrentStore)
             prod_dict = {
               "reference": prodduit.product_reference,
               "name": product_obj.name,
@@ -1330,7 +1332,7 @@ class UpdateArchiveMagView(LoginRequiredMixin, UserPassesTestMixin, TemplateView
            CurrentStore = store.objects.get(pk=store_id)
            store_id = self.request.session["store"]
            CurrentStore = store.objects.get(pk=store_id)
-           verification = models.VerificationArchive.objects.get(id= dataInvoice["archive_id"])
+           verification = VerificationArchive.objects.get(id= dataInvoice["archive_id"])
            for product in verification.produits_verification.all():
                product.delete()
                
@@ -1340,7 +1342,7 @@ class UpdateArchiveMagView(LoginRequiredMixin, UserPassesTestMixin, TemplateView
               quantity = produit["quantity"]
               verificationResult = produit["verificationResult"]
               realQuantity = produit["realQuantity"]
-              models.ListProductVerificationArchive.objects.create(
+              ListProductVerificationArchive.objects.create(
                 verification=verification,
                 product_reference=reference,
                 quantity=quantity,
@@ -1385,13 +1387,13 @@ class ProduitsVerifView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
            CurrentStore = store.objects.get(pk=store_id)
            current_year = datetime.now().strftime('%y')
            current_month = datetime.now().strftime('%m')
-           last_number = models.VerificationArchive.objects.order_by('-id').first()
+           last_number = VerificationArchive.objects.order_by('-id').first()
            if last_number:
                 last_number = last_number.id
            else:
                 last_number = 0
            codeArchive= f'AR{current_year}{current_month}-{last_number + 1:04d}'
-           verification = models.VerificationArchive.objects.create(
+           verification = VerificationArchive.objects.create(
             codeArchive=codeArchive,
             store=CurrentStore,
             entrepot=entrepot,
@@ -1403,7 +1405,7 @@ class ProduitsVerifView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
               quantity = produit["quantity"]
               verificationResult = produit["verificationResult"]
               realQuantity = produit["realQuantity"]
-              models.ListProductVerificationArchive.objects.create(
+              ListProductVerificationArchive.objects.create(
                 verification=verification,
                 product_reference=reference,
                 quantity=quantity,
@@ -1555,7 +1557,7 @@ class FamilleView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         store_id = self.request.session["store"]
         CurrentStore = store.objects.get(pk=store_id)
         Currentuser = self.request.user
-        categories  = models.Category.objects.filter(store=CurrentStore)
+        categories  = Category.objects.filter(store=CurrentStore)
         context["categories"]= categories
         return context
     
@@ -1570,7 +1572,7 @@ class FamilleView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         if dataInvoice: 
           mother_category_id = dataInvoice.get('categorieP')
           if mother_category_id != '':
-                mother_category = models.Category.objects.get(pk=int(mother_category_id))
+                mother_category = Category.objects.get(pk=int(mother_category_id))
           else:
             mother_category = None
 
@@ -1580,7 +1582,7 @@ class FamilleView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
           if dataInvoice.get('kit') == 'true':
             kit = True
             components = dataInvoice.get('list2')
-          category = models.Category.objects.create(
+          category = Category.objects.create(
             MotherCategory=mother_category,
             Libellé=libFamille,
             kit = kit,
@@ -1607,7 +1609,7 @@ class ArchiveListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(*args, **kwargs)
         store_id = self.request.session["store"]
         CurrentStore = store.objects.get(pk=store_id)
-        archives = models.VerificationArchive.objects.filter(store=CurrentStore)
+        archives = VerificationArchive.objects.filter(store=CurrentStore)
         
         context["archives"]=archives
         return context
