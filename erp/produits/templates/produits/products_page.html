@@ -302,17 +302,14 @@ class="flex flex-col min-h-screen custom-scrollbar"
                     {% heroicon_mini "no-symbol"  class="transition-transform  " %}
                 </a>
             {% endif %}
-            {% if request.session.store == '2' and request.session.role == 'manager' or  request.session.username == 'hanane' %}
-                 <a :href="'/produits/view-product/' + product.id" class="text-gray-700 cursor-pointer">
-                    {% heroicon_mini "pencil-square" class="transition-transform" %}
-                </a>
-                <button @click="product.showVariants = !product.showVariants" class="text-gray-700 cursor-pointer">
+                
+                    <button x-show="product.variants.length > 0" @click="product.showVariants = !product.showVariants" class="text-gray-700 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path  x-show="!product.showVariants"  stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                         <path x-show="product.showVariants" stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                     </svg>          
                 </button>
-            {% endif %}
+              
           </div>
         </div>
         <!-- Variant Structure -->
@@ -696,12 +693,13 @@ class="flex flex-col min-h-screen custom-scrollbar"
                     },
 
                     displayQuantitiesVariant(product) {
-                        const quantities = product.quantity_per_ent || {};
+                        
+                        const quantities = product.quantity_per_ent;
                         var entrepotName = this.selectedEntrepot;
                         if (entrepotName === '' || !quantities) {
-                        return Object.values(quantities).reduce((total, qty) => total + qty, 0);
+                        return product.qty_in_config || Object.values(quantities).reduce((total, qty) => total + qty, 0);
                         } else {
-                        return quantities[entrepotName] || 0;
+                        return product.qty_in_config || quantities[entrepotName];
                         }
                     },
 
@@ -1095,7 +1093,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
                                 price_variants: {{prod.get_price_variants | safe}},
                                 variants: [],
                             };
-                            {% for variant_product in  prod.myvariants.all %}
+                            
+                            {% for variant_product in prod.myvariants.all %}
                                 var variantData ={
                                     id : "{{ variant_product.id }}",
                                     name: "{{ variant_product.name }}",
@@ -1107,8 +1106,13 @@ class="flex flex-col min-h-screen custom-scrollbar"
                                     quantity_per_ent: {{variant_product.quantities_per_entrepot | safe}},
                                     family: "{{ variant_product.category }}",    
                                 }
-                                productData.variants.push(variantData)
+                                productData.variants.push(variantData);
+                                console.log('variants', productData.variants);
+                               
                             {% endfor %}
+
+
+
                             // Check if the product already exists in the products array
                             var exists = products.some(function(existingProduct) {
                                 return existingProduct.name === productData.name;
@@ -1172,10 +1176,12 @@ class="flex flex-col min-h-screen custom-scrollbar"
                                     entrepot_blockedquantities: prod.entrepot_blockedquantities,
                                     family: prod.family,
                                     motherfamily: prod.motherfamily,                                
-                                    showVariants: false,
+                                    showVariants: prod.showVariants,
+                                    showProduct: prod.showProduct,
                                     price_variants: prod.price_variants,
-                                    variants: []
+                                    variants: prod.variants
                                 };
+                               
                                 console.log(products)
                                 // Check if the product already exists in the products array
                                 var exists = products.some(function(existingProduct) {
