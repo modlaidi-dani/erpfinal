@@ -255,7 +255,6 @@ def ProductBlockView(request):
     my_product = models.Product.objects.get(id=data['id'])
     store_id = request.session["store"]
     current_store = store.objects.get(pk=store_id)
-    print(data)
     if data['qty'] == 0:
        my_product.reforme = False
     else:
@@ -362,7 +361,6 @@ def LaunchPromotion(request):
                 datefin = dataInvoice["datefinPromo"]  
                 if promoListe :
                     for typecl in promoListe:
-                        print(typecl)
                         typeClientObj = typeClient.objects.filter(type_desc=typecl["nom"]).first()
                         if typeClientObj :        
                             models.Promotion.objects.create(
@@ -384,12 +382,11 @@ def LaunchPromotion(request):
         return JsonResponse({'error': 'Invalid request data.'})
         
 def loadallProducts(request):
-    print(request)
     data = json.loads(request.body)
     last_id = data['lastId']  
     store_id = request.session["store"]
     CurrentStore = store.objects.get(pk=store_id)
-    products = models.Product.objects.filter(store = CurrentStore,  parent_product__isnull= True, id__gte = last_id)
+    products = Product.objects.filter(store = CurrentStore,  parent_product__isnull= True, id__gte = last_id)
     products_data = []
     for prod in products:
         product_data = {
@@ -572,7 +569,6 @@ def editCategory(request):
     dataInvoice = data.get('formData', '')
     if dataInvoice:      
         category_id = dataInvoice.get('id')
-        print(dataInvoice)
         if category_id:
             try:
                 category = models.Category.objects.get(pk=int(category_id), store=current_store)
@@ -934,20 +930,17 @@ class stockState(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         stock_list = []
 
         for stock in stocks_all:
-            quantity_cons_production=0
+            quantity_pc=0
             quantity_util_production=0
             if stock.product in pc:
                 order= ordreFabrication.objects.filter(pc_created=stock.product).first()                    
                 produit_production=ProduitsEnOrdreFabrication.objects.filter(BonNo=order).first()
-                quantity_cons_production=produit_production.quantity                        
+                quantity_pc=produit_production.quantity                        
             produit_production=ProduitsEnOrdreFabrication.objects.filter(stock=stock.product)
             for produit in produit_production:
                 quantity_util_production += produit.quantity
-            print("_____________")
-            print(stock)               
-            print(quantity_util_production)
-            print(quantity_cons_production)
 
+            quantity_expected=stock.quantity_expected-quantity_util_production+quantity_pc
             stock_dict = {
                 "reference": stock.product.reference,
                 "name": stock.product.name,
@@ -958,9 +951,9 @@ class stockState(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 "quantity_sold": stock.product_sold_quantity,
                 "quantity_returned":stock.product_returned_quantity,
                 "quantity_inreal":stock.quantity,
-                "quantity_expected": stock.quantity_expected,
+                "quantity_expected": quantity_expected,
                 "quantity_util_production": quantity_util_production,
-                "quantity_cons_production": quantity_cons_production,
+                "quantity_pc": quantity_pc,
 
 
             }
@@ -1142,17 +1135,15 @@ class ProduitsView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         store_id = self.kwargs.get('store_id')
-        print(store_id)
         selected_store = store.objects.get(pk=self.request.session["store"])
-        print(store_id)
         
         if self.request.session["store"] == '2' :
-            products = models.Product.objects.filter(store=selected_store, parent_product__isnull= True)
+            products = Product.objects.filter(store=selected_store, parent_product__isnull= True)
         else:
-            products = models.Product.objects.filter(store=selected_store, parent_product__isnull= True)[:150]
+            products = Product.objects.filter(store=selected_store, parent_product__isnull= True)[:150]
         # for product in products:
         #     print(product.store)
-        product_families = models.Category.objects.filter(store=selected_store)
+        product_families = Category.objects.filter(store=selected_store)
         context["product_families"]=product_families
         fournisseurs = Fournisseur.objects.filter(store=selected_store)
         context["product_fournisseur"] = fournisseurs
@@ -1532,7 +1523,6 @@ class FamilleView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         store_id = self.request.session["store"]
         CurrentStore = store.objects.get(pk=store_id)
         if dataInvoice: 
-          print(dataInvoice) 
           mother_category_id = dataInvoice.get('categorieP')
           if mother_category_id != '':
                 mother_category = models.Category.objects.get(pk=int(mother_category_id))
