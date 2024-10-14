@@ -519,7 +519,14 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								<tr>
 									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Référence</th>
 									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Titre</th>
-									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Quantité Totale</th>
+									<template x-for="varient in bill.variants" >
+										<th 
+										class="py-3 text-sm text-center border-r font-medium text-gray-500 uppercase" 
+										x-show="varient.produits_p.length > 0"
+										>
+										PC
+										</th>
+									</template>									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Quantité Totale</th>
 									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Prix Unitaire</th>
 									{% if request.session.store == "1" %}
 										<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">TVA</th>
@@ -530,14 +537,46 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								</tr>
 							</thead>
 							<tbody class="bg-gray-50">
+
+						
 								<template x-for="variant in bill.variants">
 									<tr class="transition-all  border-b hover:shadow-lg">
 									<td class="border-r">
 										<div  class="inline-flex px-2 text-sm font-semibold leading-5"  x-text="variant.reference"></div>
-									</td>
+									</td>	
 									<td class="border-r">
 										<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.name"></div>
 									</td>
+									
+									 <!-- PC components -->
+								<td x-show="variant.produits_p.length > 0">
+									<table class="min-w-full bg-gray-50 divide-y divide-gray-200">
+									<thead class="bg-gray-100">
+								<tr>
+									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Référence</th>
+									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase" >Composant</th>
+									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Quantité</th>
+								</tr>
+							</thead>
+							<tbody>  
+							<template x-for="product in variant.produits_p">
+							<tr class="transition-all  border-b hover:shadow-lg">
+									<td class="border-r">
+										<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.reference"></div>
+									</td>
+									<td class="border-r">
+										<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.name"></div>
+									</td>
+									<td class="border-r">
+										<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.qty_in_config"></div>
+									</td>
+									</tr>
+							</template>		
+                                   </tbody>
+                                    </table>
+ 									 </td>
+                                    <!-- End PC components -->
+
 									<td class="border-r">
 										<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="variant.quantity"></div>
 									</td>
@@ -667,7 +706,14 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							
 								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Reference</th>
 								<th class="border border-black px-1 py-2 text-black uppercase tracking-wide text-sm font-bold">Designation</th>
-								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
+									<template x-for="varient in toprintbill.variants" >
+										<th 
+										class="py-3 text-sm text-center border-r font-medium text-gray-500 uppercase" 
+										x-show="varient.produits_p.length > 0"
+										>
+										PC
+										</th>
+									</template>								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">Quantité</th>
 								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">PU. TTC</th>
 								<th class="border border-black px-1 py-2 w-32 text-right text-black uppercase tracking-wide text-sm font-bold">M. TTC</th>
 							</tr>
@@ -677,6 +723,34 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								<tr class="border border-black">
 									<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.name"></td>
 									<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.reference"></td>
+									  <!-- PC components -->
+								    <td x-show="invoice.produits_p.length > 0">
+									<table class="min-w-full bg-gray-50 divide-y divide-gray-200">
+									<thead class="bg-gray-100">
+								    <tr>
+									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Référence</th>
+									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase" >Composant</th>
+									<th class=" py-3 text-sm text-center border-r font-medium text-gray-500 uppercase">Quantité</th>
+								    </tr>
+							        </thead>
+							        <tbody>  
+							        <template x-for="product in invoice.produits_p">
+							        <tr class="transition-all  border-b hover:shadow-lg">
+									<td class="border-r">
+										<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.reference"></div>
+									</td>
+									<td class="border-r">
+										<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.name"></div>
+									</td>
+									<td class="border-r">
+										<div  class="inline-flex px-2 text-sm font-semibold leading-5" x-text="product.qty_in_config"></div>
+									</td>
+									</tr>
+							        </template>		
+                                   </tbody>
+                                    </table>
+ 									 </td>
+                                    <!-- End PC components -->
 									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.quantity"></td>
 									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="(parseFloat(invoice.price)* 1.19).toFixed(0)"></td>
 									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="(parseFloat(invoice.priceachat)* 1.19).toFixed(0)"></td>
@@ -926,9 +1000,11 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								quantity: variant.quantity,
 								price: variant.price,
 								total: variant.priceachat,
+								produits_p: variant.produits_p,
 							};
-							// Adding the new item to this.items
+						
 							this.items.push(newItem);
+							
 						}
 						this.printInvoice();
 					},
@@ -1101,56 +1177,59 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						var bills = [];
 						{% for bon in bons_sorties %}     				      
 							var billData = {
-								id:"{{bon.id}}",
-								reference: "{{bon.idBon}}",
-								date: "{{ bon.dateBon }}",
-								entrepot:"{{ bon.entrepot.name }}",
-								note: "{{bon.note}}",
-								client:"{{ bon.client.name }} ",
-								source:"{{bon.client.sourceClient}}",
-								client_adrees:"{{ bon.client.adresse }} ",
-								client_solde:"{{ bon.client.remaining_amount }}",
-								user: "{{bon.user.username }}",
-								validate_user: "{{ bon.ValidatePar }}",
-								totalHt :"{{bon.get_total_price}}",
-								garantie:"{{ bon.garantieprepared }}" == 'True' ? true : false,
-								totalprice: (parseFloat("{{ bon.get_total_price}}") * 1.19).toFixed(0),
-								prixpayed:"{{ bon.totalprice }}",
-								modereglement:"{{bon.mode_reglement.label}}",
-								modereglementID:"{{bon.mode_reglement.id}}",
-                                banque:'{{bon.banque_Reglement.pk}}',
-							    cheque:'{{bon.num_cheque_reglement}}',
-								livraison : {{bon.fraisLivraisonexterne}}, 
-								dateconfirm:"{{bon.confirmationDateTime}}",
-								fichierConfirm : "{{bon.confirmationFile}}", 
-								etat:"{{bon.statebill}}",
-								livre:"{{bon.livre}}" == 'True' ? true : false,
-								confirmed:"{{bon.confirmed}}" == 'True' ? true : false,
-								remise:"{{ bon.Remise }}",
-								valide:"{{ bon.valide }}" == 'True' ? true : false,
-								transfert_valide:"{{ bon.get_etat_transfert }}" == 'True' ? true : false,
-								modifiable:"{{ bon.modifiable }}" == 'True' ? true : false,
-								agenceliv:"{{ bon.agenceLivraison}}",
-								showVariants:false,
-								variants:[],
-							};
+							id:"{{bon.id}}",
+							reference: "{{bon.idBon}}",
+							date: "{{ bon.dateBon }}",
+							entrepot:"{{ bon.entrepot.name }}",
+							note: "{{bon.note}}",
+							client:"{{ bon.client.name }} ",
+							source:"{{bon.client.sourceClient}}",
+							client_adrees:"{{ bon.client.adresse }} ",
+							client_solde:"{{ bon.client.remaining_amount }}",
+							user: "{{bon.user.username }}",
+							validate_user: "{{ bon.ValidatePar }}",
+							totalHt :{{bon.get_total_price}},
+							garantie: {% if bon.garantieprepared %} true {% else %} false {% endif %},
+							totalprice: (parseFloat("{{ bon.get_total_price}}") * 1.19).toFixed(0),
+							prixpayed: {% if bon.totalprice %} 2 {% else %} 0 {% endif %},
+							modereglement:"{{bon.mode_reglement.label}}",
+							modereglementID:"{{bon.mode_reglement.id}}",
+							banque:'{{bon.banque_Reglement.pk}}',
+							cheque:'{{bon.num_cheque_reglement}}',
+							livraison : "{{bon.fraisLivraisonexterne}}", 
+							dateconfirm:"{{bon.confirmationDateTime}}",
+							fichierConfirm : "{{bon.confirmationFile}}", 
+							etat:"{{bon.statebill}}",
+							livre: {% if bon.livre %} true {% else %} false {% endif %},
+							confirmed: {% if bon.confirmed %} true {% else %} false {% endif %},
+							remise:{{ bon.Remise }},
+							valide: {% if bon.valide %} true {% else %} false {% endif %},
+							transfert_valide: {% if bon.get_etat_transfert %} true {% else %} false {% endif %},
+							modifiable: {% if bon.modifiable %} true {% else %} false {% endif %},
+							agenceliv:"{{ bon.agenceLivraison}}",
+							showVariants: false,
+							variants: [],
+						};
+
 							{% for produit in bon.produits_en_bon_sorties.all %}				
 								var variantData ={
 									name: "{{ produit.stock.reference }}",
 									reference: "{{ produit.stock.name }}",
-									price:"{{ produit.unitprice }}",
-									tva:"{{produit.stock.tva}}",
-									priceachat:"{{ produit.totalprice }}",
-									quantity:"{{ produit.quantity }}",	
-								}
-								billData.variants.push(variantData)
+									price:{{ produit.unitprice }},
+									tva:{{produit.stock.tva}},
+									priceachat:{{ produit.totalprice }},
+									quantity:{{ produit.quantity }},
+									produits_p:{{produit.stock.get_product_en_production | safe}},
+								};
+                            billData.variants.push(variantData);
 							{% endfor %}
 						// Check if the bill already exists in the bills array
 						var exists = bills.some(function(existingbill) {
 							return existingbill.id === billData.id;
 						});
 						if (!exists) {
-							bills.push(billData);					
+							bills.push(billData);	
+							console.log("first products", billData)				
 						}
 						{% endfor %}
 
@@ -1188,7 +1267,6 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								}
 							}).then((response) => {
 								data= response.data
-								console.log(data.bills)
 								data.bills.forEach(function(bon) {						
 									var billData = {
 										id: bon.id,
@@ -1199,14 +1277,13 @@ class="flex flex-col min-h-screen custom-scrollbar"
 										client: bon.client,
 										source: bon.source,
 										confirmed: bon.confirmed,
-										
 										client_adrees: bon.client_adrees,
 										client_solde: parseFloat(bon.client_solde).toFixed(2),
 										user: bon.user,
 										totalHt: parseFloat(bon.totalHt).toFixed(2),
 										garantie: bon.garantie === true,
 										totalprice: parseFloat(bon.totalprice).toFixed(2),
-										prixpayed: parseFloat(bon.prixpayed).toFixed(2),
+										prixpayed: parseFloat(bon.prixpayed).toFixed(2) || 0,
 										modereglement: bon.modereglement,
 										modereglementID: bon.modereglementID,
 										banque: bon.banque,
@@ -1230,7 +1307,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
 											price: parseFloat(variant.price).toFixed(2),
 											tva: parseFloat(variant.tva).toFixed(2),
 											priceachat: parseFloat(variant.priceachat).toFixed(0),
-											quantity: parseFloat(variant.quantity).toFixed(2)
+											quantity: parseFloat(variant.quantity).toFixed(2),
+									        produits_p:variant.produits_p
 										};
 										billData.variants.push(variantData);
 									});
@@ -1239,6 +1317,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									});
 									if (!exists) {
 										bills.push(billData);
+										console.log("other products", billData)
 									}
 								});  
 							})

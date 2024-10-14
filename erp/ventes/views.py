@@ -95,6 +95,7 @@ def fetch_rest_bills(selected_store, current_month):
     
     return rest_bills
 
+
 async def getRestBills(request):
     try:
         data = json.loads(request.body)
@@ -118,8 +119,9 @@ async def getRestBills(request):
                 "tva": produit.stock.tva,
                 "priceachat": produit.totalprice,
                 "quantity": produit.quantity,
+                "produits_p": await sync_to_async(produit.stock.get_product_en_production)(),
             }
-
+        
         tasks = [get_variant_data(produit) for produit in produits_en_bon_sorties]
         variants_data = await asyncio.gather(*tasks)
 
@@ -2103,6 +2105,7 @@ class FactureBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                     "categorie":categorie,
                     "price": float(price),
                     "prix_livraison": float(stock.product.prix_livraison),
+                    
                 }
                 stock_data.append(stock_info)
          context["stocks"] = stock_data
@@ -2118,8 +2121,11 @@ class FactureBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                "produit_tva": float(produit.stock.tva),
                "produit_livraison": float(produit.stock.prix_livraison),
                "produit_unitprice": float(produit.unitprice) if produit.unitprice is not None else None,                    
-               "produit_freeprice": float(produit.unitprice) - float(produit.stock.prix_livraison),                    
+               "produit_freeprice": float(produit.unitprice) - float(produit.stock.prix_livraison),
+               "produit_p":produit.stock.get_product_en_production()                  
             }
+            if len(produit_dict["produit_p"] )>0:
+                print(produit_dict["produit_p"])
             produits_data.append(produit_dict)
          context["produits"]=produits_data
          entrepots = Entrepot.objects.filter(store=selected_store)
@@ -2754,7 +2760,7 @@ class InvoiceListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             
         else:
           bons_sorties = models.BonSortie.objects.filter(store=selected_store, user=myuser).exclude(Q(typebl="KIT") | Q(typebl="carton")).order_by('-id')     
-          context["bons_sorties"] =bons_sorties
+          context["bons_sorties"] =bons_sorties    
         entrepots = Entrepot.objects.filter(store=selected_store)
         context["entrepots"] = entrepots
         users_bills = CustomUser.objects.filter(EmployeeAt=selected_store)
@@ -2765,6 +2771,7 @@ class InvoiceListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context["echeances"] = echeances 
         banques= Banque.objects.filter(store= selected_store)
         context["banques"] = banques
+    
         return context 
     
 class InvoiceCartonListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
@@ -2783,7 +2790,7 @@ class InvoiceCartonListView(LoginRequiredMixin, UserPassesTestMixin, TemplateVie
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)       
-        selected_store = get_object_or_404(store, pk=self.request.session["store"])
+        selected_store = get_object_or_404(store, pk=self.request.session["store"])         
         
         Currentuser = self.request.user
         myuser  = CustomUser.objects.get(username=Currentuser.username)
