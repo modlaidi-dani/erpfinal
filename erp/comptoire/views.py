@@ -1189,15 +1189,17 @@ class ClotureView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         current_date = datetime(today.year, 1, 1).date()
         affectations = models.pointVente.objects.filter(store= my_store)
         for affectation in affectations:
-            user = affectation.pos_affectation.first().utilisateur
-            while user.group is None:
-                # Get the next user in the affectation
-                affectation = models.AffectationCaisse.objects.filter(store=my_store, utilisateur__gt=user).first()
-                # If no more users, break out of the loop
-                if affectation is None:
-                    break
+            try:
+                user = affectation.pos_affectation.first().utilisateur
+            except:
+                while user.group is None:
+                    # Get the next user in the affectation
+                    affectation = models.AffectationCaisse.objects.filter(store=my_store, utilisateur__gt=user).first()
+                    # If no more users, break out of the loop
+                    if affectation is None:
+                        break
 
-                user = affectation.utilisateur
+                    user = affectation.utilisateur
 
 
             current_date = datetime(2024, 1, 1).date()  # Set the starting date
