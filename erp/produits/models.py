@@ -8,6 +8,7 @@ from inventory.models import ProduitsEnBonEntry, ProduitsEnBonRetour
 from ventes.models import ProduitsEnBonSortie
 from comptoire.models import ProduitsEnBonComptoir
 from production.models import *
+from inventory.models import Stock
 class ProduitsCustomPermission(Permission):
     class Meta:
         verbose_name = 'Custom Permission'
@@ -293,6 +294,7 @@ class Product(models.Model):
 
         # Helper function to update the quantities in the dictionary
         def update_quantities(entrepot_name, quantity, quantity_kit, quantity_pc):
+            
             if entrepot_name in variant_quantities:
                 variant_quantities[entrepot_name]['quantity'] += quantity
                 variant_quantities[entrepot_name]['quantity_kit'] += quantity_kit
@@ -303,17 +305,36 @@ class Product(models.Model):
                     'quantity_kit': quantity_kit,
                     'quantity_pc': quantity_pc,
                 }
-
+        
         # Check if the product has variants
         if self.myvariants.exists():
+            quantity_prod = 0
+            quantity_prod_kit = 0
+            quantity_prod_pc = 0
+           
+            for stock_entry in self.mon_stock.all():
+                    entrepot_proid_name = stock_entry.entrepot.name
+                    quantity_prod = stock_entry.get_quantity
+                    quantity_prod_kit = stock_entry.quantity_kit
+                    quantity_prod_pc = stock_entry.quantity_pc
+                    update_quantities(entrepot_proid_name, quantity_prod, quantity_prod_kit, quantity_prod_pc)
+                    variant_quantities
+            print (f"parent=== {variant_quantities}")
+                
+                    
             # Iterate through variants and sum quantities by entrepot
             for variant in self.myvariants.all():
+
                 for stock_entry in variant.mon_stock.all():
                     entrepot_name = stock_entry.entrepot.name
-                    quantity = stock_entry.get_quantity
+    
+                    quantity = stock_entry.get_quantity 
+                    
                     quantity_kit = stock_entry.quantity_kit
                     quantity_pc = stock_entry.quantity_pc
                     update_quantities(entrepot_name, quantity, quantity_kit, quantity_pc)
+
+                    
         else:
             # If no variants, use the quantities of the main product
             for stock_entry in self.mon_stock.all():
@@ -322,7 +343,7 @@ class Product(models.Model):
                 quantity_kit = stock_entry.quantity_kit
                 quantity_pc = stock_entry.quantity_pc
                 update_quantities(entrepot_name, quantity, quantity_kit, quantity_pc)
-
+    
         return variant_quantities    
         
     @property
