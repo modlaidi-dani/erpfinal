@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from inventory.models import ProduitsEnBonEntry, ProduitsEnBonRetour
 from ventes.models import ProduitsEnBonSortie
 from comptoire.models import ProduitsEnBonComptoir
+from production.models import *
 class ProduitsCustomPermission(Permission):
     class Meta:
         verbose_name = 'Custom Permission'
@@ -105,7 +106,27 @@ class Product(models.Model):
 
         return report
 
-
+    def get_product_en_production(self):
+                  
+                produit=self
+                category=produit.category.Libellé if produit.category else ''
+                produits_p=[]
+                if category=="PC":
+                    ordre=produit.ordre_creation.first()
+                    produits_en_pc=ProduitsEnOrdreFabrication.objects.filter(BonNo=ordre)
+                    for pro in produits_en_pc:
+                        produit_enpc={
+                        'id': pro.stock.id,
+                        'reference': pro.stock.reference,
+                        'name': pro.stock.name,                        
+                        'price': round(((float(pro.stock.clientfinal_price) + float(pro.stock.prix_livraison) + float(pro.stock.tva_douan)) * 1.19), 2),
+                        
+                        'family': pro.stock.category.Libellé if pro.stock.category else '',
+                        'qty_in_config':pro.quantity,
+                        'codeOrdre': pro.BonNo.codeOrdre                             
+                    }
+                        produits_p.append(produit_enpc)
+                return produits_p
     def get_entered_quantity(self, start_date, end_date):
         # Calculate quantity from entry transactions within the given date range
         entry_quantity = ProduitsEnBonEntry.objects.filter(
