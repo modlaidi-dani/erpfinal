@@ -38383,3 +38383,645 @@ Traceback (most recent call last):
   File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
     return self.connection.commit()
 django.db.utils.OperationalError: database is locked
+Not Found: /.env
+Forbidden (Referer checking failed - no Referer.): /
+Internal Server Error: /reglements/newReglement
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /reglements/newReglement
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /reglements/reglements
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /client/identification/1
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /client/identification/1
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /reglements/reglements
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /ventes/sell-bills
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Client' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/template/base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/root/Erps/erpfinal/erp/tiers/models.py", line 194, in remaining_amount
+    return round(self.total_amount + self.solde - (self.total_paid_amount + self.total_rembourse + self.total_annule),0)
+  File "/root/Erps/erpfinal/erp/tiers/models.py", line 179, in total_amount
+    return sum(Decimal(bon.get_total_soldprice) for bon in self.client_bonS.exclude(idBon__startswith='BECH'))
+  File "/root/Erps/erpfinal/erp/tiers/models.py", line 179, in <genexpr>
+    return sum(Decimal(bon.get_total_soldprice) for bon in self.client_bonS.exclude(idBon__startswith='BECH'))
+  File "/root/Erps/erpfinal/erp/ventes/models.py", line 174, in get_total_soldprice
+    price_part = self.produits_en_bon_sorties.aggregate(total_price=Sum('totalprice'))['total_price']
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/query.py", line 592, in aggregate
+    return self.query.chain().get_aggregation(self.db, kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/sql/query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erpfinal/erp/users/middleware.py", line 14, in __call__
+    myuser.save()
+  File "/root/Erps/erpfinal/erp/users/models.py", line 22, in save
+    super(CustomUser, self).save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 76, in save
+    super().save(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/models/base.py", line 873, in save_base
+    with context_manager:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/transaction.py", line 263, in __exit__
+    connection.commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 337, in commit
+    self._commit()
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 312, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/db/backends/base/base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.OperationalError: database is locked
+Not Found: /owa/auth.owa
+Not Found: /robots.txt
+Not Found: /.env
+Not Found: /autodiscover/autodiscover.json
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /.env
+Not Found: /.env
+Not Found: /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application
+Not Found: /hello.world
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/Util/PHP/eval-stdin.php
+Not Found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+Not Found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /lib/phpunit/Util/PHP/eval-stdin.php
+Not Found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /index.php
+Not Found: /public/index.php
+Not Found: /index.php
+Not Found: /index.php
+Not Found: /.env
+Not Found: /laravel/.env
+Not Found: /demo/.env
+Not Found: /web/.env
+Not Found: /admin/.env
+Not Found: /backend/.env
+Not Found: /app/.env
+Not Found: /api/.env
+Not Found: /dev/.env
+Not Found: /www/.env
+Not Found: /home/.env
+Not Found: /staging/.env
+Not Found: /test/.env
+Not Found: /apps/.env
+Not Found: /.git/config
+Not Found: /actuator/gateway/routes/
+Not Found: /remote/login/
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /gsb/bhic.php
+Not Found: /gsb/help.php
+Not Found: /favicon.ico
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /app/
+Not Found: /login/
+Not Found: /robots.txt
+Forbidden (Referer checking failed - no Referer.): /
+Forbidden (Referer checking failed - no Referer.): /
+Not Found: /a/
+Not Found: /download/file.ext
+Not Found: /SiteLoader/
+Not Found: /mPlayer/
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /cgi-bin/luci/;stok=/locale
+Not Found: /vpnsvc/connect.cgi
+Not Found: /Public/home/js/check.js
+Not Found: /static/admin/javascript/hetong.js
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /static/favicon.ico
+Not Found: /manager/html/
+Not Found: /.well-known/acme-challenge/4HZYysY_BMb-P7VkV0Xzhg0lwYwSJuMOK20Nkk85vOM
+Not Found: /robots.txt
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 76, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
+Internal Server Error: /get_sales/
+Traceback (most recent call last):
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Erps/erpfinal/erp/inventory/views.py", line 76, in get_sales
+    store_id = request.session["store"]
+  File "/root/Erps/erp_environnement/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'store'
