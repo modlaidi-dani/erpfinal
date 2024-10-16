@@ -599,7 +599,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Sous Total HT :'+' '+(bill.totalHt - bill.remise)" ></td>
 									<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Frais Livraison :'+' '+bill.livraison"></td>
 									{% if request.session.store != "2" and request.session.store != "7" %}
-										<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Total à Payé :'+' '+((bill.totalHt - bill.remise) * 1.19).toFixed(2)"></td>
+										<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Total à Payé :'+' '+((bill.totalHt - bill.remise) * 1.19)"></td>
 									{% else %}
 									<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Total à Payé :'+' '+ (bill.totalHt - bill.remise)"></td>
 									{% endif %}
@@ -752,8 +752,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
  									 </td>
                                     <!-- End PC components -->
 									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="invoice.quantity"></td>
-									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="(parseFloat(invoice.price)* 1.19).toFixed(0)"></td>
-									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="(parseFloat(invoice.priceachat)* 1.19).toFixed(0)"></td>
+									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="(parseFloat(invoice.price)* 1.19)"></td>
+									<td class="border border-black px-1 py-2 w-32 text-right text-black text-xs" x-text="(parseFloat(invoice.priceachat)* 1.19)"></td>
 								</tr>
 							</template>
 						</tbody>
@@ -777,7 +777,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									<td class="border border-gray-700 px-4 "> 0 %</td>
 								{% endif %}
 								{% if request.session.store != "2" and request.session.store != "8" and request.session.store != "1" %}
-									<td class="border border-gray-700 px-4 "x-text="((totalht - remise) * 0.19).toFixed(2) +' DZD'"></td> 
+									<td class="border border-gray-700 px-4 "x-text="((totalht - remise) * 0.19) +' DZD'"></td> 
 								{% else %}
 									<td class="border border-gray-700 px-4 "> 0 DZD</td>
 								{% endif %}
@@ -798,17 +798,17 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							<!-- Sample data rows -->
 							{% if  request.session.store == "1" %}
 								<tr class="border border-gray-700">
-									<td class="border border-gray-700 px-4" x-text="((totalht) * 1.19).toFixed(0) +'.00 DA'"></td>
-									<td class="border border-gray-700 px-4" x-text="((remise) * 1.19).toFixed(0)"></td>
-									<td class="border border-gray-700 px-4" x-text="((totalht - remise) * 1.19).toFixed(0) +'.00 DA'""></td>
-									<td class="border border-gray-700 px-4" x-text="((totalht - remise) * 1.19).toFixed(0) +'.00 DA'" ></td>
+									<td class="border border-gray-700 px-4" x-text="((totalht) * 1.19) +'.00 DA'"></td>
+									<td class="border border-gray-700 px-4" x-text="((remise) * 1.19)"></td>
+									<td class="border border-gray-700 px-4" x-text="((totalht - remise) * 1.19) +'.00 DA'""></td>
+									<td class="border border-gray-700 px-4" x-text="((totalht - remise) * 1.19) +'.00 DA'" ></td>
 								</tr>
 							{% else %}
 								<tr class="border border-gray-700">
 									<td class="border border-gray-700 px-4" x-text="totalht"></td>
 									<td class="border border-gray-700 px-4" x-text="remise"></td>
 									<td class="border border-gray-700 px-4" x-text="(totalht - remise)"></td>
-									<td class="border border-gray-700 px-4" x-text="((totalht - remise) * 1.19).toFixed(0) +'.00 DA'" ></td>
+									<td class="border border-gray-700 px-4" x-text="((totalht - remise) * 1.19) +'.00 DA'" ></td>
 								</tr>
 							{% endif %}
 							<tr>
@@ -989,7 +989,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						extra = toprint_bill.note;
 						totalht = toprint_bill.totalHt;
 						totalttc = toprint_bill.totalprice;
-						totalGSTLiv = (toprint_bill.totalHt * 0.19).toFixed(0);
+						totalGSTLiv = (toprint_bill.totalHt * 0.19);
 						remise = toprint_bill.remise;
 						nettotal = parseFloat(toprint_bill.totalprice) - parseFloat(toprint_bill.remise);
 						console.log(toprint_bill.variants);
@@ -1171,7 +1171,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
                         .reduce((accumulator, currentItem) => {
                             return accumulator + parseFloat(currentItem.totalprice);
                         }, 0);
-                        return (sum).toFixed(0);
+                        return (sum);
 					},
 					init() {
 						var bills = [];
@@ -1190,7 +1190,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							validate_user: "{{ bon.ValidatePar }}",
 							totalHt :{{bon.get_total_price}},
 							garantie: {% if bon.garantieprepared %} true {% else %} false {% endif %},
-							totalprice: (parseFloat("{{ bon.get_total_price}}") * 1.19).toFixed(0),
+							totalprice: (parseFloat("{{ bon.get_total_price}}") * 1.19),
 							prixpayed: {% if bon.totalprice %} 2 {% else %} 0 {% endif %},
 							modereglement:"{{bon.mode_reglement.label}}",
 							modereglementID:"{{bon.mode_reglement.id}}",
@@ -1278,20 +1278,20 @@ class="flex flex-col min-h-screen custom-scrollbar"
 										source: bon.source,
 										confirmed: bon.confirmed,
 										client_adrees: bon.client_adrees,
-										client_solde: parseFloat(bon.client_solde).toFixed(2),
+										client_solde: parseFloat(bon.client_solde),
 										user: bon.user,
-										totalHt: parseFloat(bon.totalHt).toFixed(2),
+										totalHt: parseFloat(bon.totalHt),
 										garantie: bon.garantie === true,
-										totalprice: parseFloat(bon.totalprice).toFixed(2),
-										prixpayed: parseFloat(bon.prixpayed).toFixed(2) || 0,
+										totalprice: parseFloat(bon.totalprice),
+										prixpayed: parseFloat(bon.prixpayed) || 0,
 										modereglement: bon.modereglement,
 										modereglementID: bon.modereglementID,
 										banque: bon.banque,
 										cheque: bon.cheque,
-										livraison: parseFloat(bon.livraison).toFixed(2),
+										livraison: parseFloat(bon.livraison),
 										etat: bon.etat,
 										livre: bon.livre === true,
-										remise: parseFloat(bon.remise).toFixed(2),
+										remise: parseFloat(bon.remise),
 										valide: bon.valide === true,
 										transfert_valide: bon.transfert_valide === true,
 										modifiable: bon.modifiable === true,
@@ -1304,10 +1304,10 @@ class="flex flex-col min-h-screen custom-scrollbar"
 										var variantData = {
 											name: variant.name,
 											reference: variant.reference,
-											price: parseFloat(variant.price).toFixed(2),
-											tva: parseFloat(variant.tva).toFixed(2),
-											priceachat: parseFloat(variant.priceachat).toFixed(0),
-											quantity: parseFloat(variant.quantity).toFixed(2),
+											price: parseFloat(variant.price),
+											tva: parseFloat(variant.tva),
+											priceachat: parseFloat(variant.priceachat),
+											quantity: parseFloat(variant.quantity),
 									        produits_p:variant.produits_p
 										};
 										billData.variants.push(variantData);
