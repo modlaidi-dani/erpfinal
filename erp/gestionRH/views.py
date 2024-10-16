@@ -1757,8 +1757,11 @@ class PagePaieCommercial(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                     'salaireCalculated': salaireCalculated,
                     'especeCalculated': EspeceCalculated
                 }
-                if salary.fonction == 'Commercial' or salary.fonction == 'Responsable Commercial':
+                fonc=salary.fonction.lstrip() 
+                if fonc == 'Commercial' or salary.fonction == 'Responsable Commercial' or fonc.startswith('Commercial'):
                     all_renumeration.append(renum_dict)
+                    
+                    
         context["liste_paie"] = all_renumeration
         return context
         
