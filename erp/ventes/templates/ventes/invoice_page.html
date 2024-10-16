@@ -1181,7 +1181,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							reference: "{{bon.idBon}}",
 							date: "{{ bon.dateBon }}",
 							entrepot:"{{ bon.entrepot.name }}",
-							note: "{{bon.note}}",
+							note: "{{bon.note | escapejs}}",
 							client:"{{ bon.client.name }} ",
 							source:"{{bon.client.sourceClient}}",
 							client_adrees:"{{ bon.client.adresse }} ",
