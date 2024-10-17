@@ -987,6 +987,7 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
         data = data.get('formData', '')
         store_id = request.session["store"]
         CurrentStore = store.objects.get(pk=store_id)
+        print(data)
         try:
              with transaction.atomic():
                 # Get the existing BonComptoir instance
@@ -1013,7 +1014,8 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
                 if self.request.session["store"] == '6' :    
                     if bon_comptoir.dateBon != data["dateBp"]:
                         bon_comptoir.dateBon = data["dateBp"]
-                        bon_comptoir.save()    
+                        bon_comptoir.save()
+                            
                 # fraisLivraisonexterne = bon_comptoir.fraisLivraisonexterne, 
                 # if data.get('fraislivraisonext') :
                 #     fraisLivraisonexterne = data['fraislivraisonext']    
