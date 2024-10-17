@@ -276,18 +276,24 @@ class ProduitsEnBonSortie(models.Model):
 
         return list(num_series_list)
     def get_product_PBS(self):
-        produitproductionBL=self.produits_en_PEnOrdre.all()
-        for produit in produitproductionBL:
-            stock=produit.ProduitsEnOrdreFabrication.stock
-            produits_p=[]
-            produit_enpc={
-                        'id': stock.id,                      
-                        'reference':stock.reference,
-                        'name': stock.name,                        
-                        'qty_sortante':produit.quantity,
+        produits_p=[]
+        
+        try:
+            produitproductionBL=self.produits_en_PEnOrdre.all()
+            for produit in produitproductionBL:
+                stock=produit.ProduitsEnOrdreFabrication.stock
+                produit_enpc={
+                            'id': stock.id,                      
+                            'reference':stock.reference,
+                            'name': stock.name,                        
+                            'qty_sortante':produit.quantity,
 
-                    }
-            produits_p.append(produit_enpc)
+                        }
+                produits_p.append(produit_enpc)
+        except:
+            produits_p=self.stock.get_product_en_production()
+            for product in produits_p:
+                product["qty_sortante"]=0
         return produits_p
 
         
