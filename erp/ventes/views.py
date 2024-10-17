@@ -1010,10 +1010,10 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
                 fraisLivraison = 0
                 if data['fraislivraison'] :
                     fraisLivraison = data['fraislivraison']
-                if self.request.session["store"] == '6' :    
-                    if bon_comptoir.dateBon != data["dateBp"]:
+                if bon_comptoir.dateBon != data["dateBp"]:
                         bon_comptoir.dateBon = data["dateBp"]
-                        bon_comptoir.save()    
+                        bon_comptoir.save()
+                            
                 # fraisLivraisonexterne = bon_comptoir.fraisLivraisonexterne, 
                 # if data.get('fraislivraisonext') :
                 #     fraisLivraisonexterne = data['fraislivraisonext']    
