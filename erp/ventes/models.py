@@ -12,6 +12,7 @@ from django.db.models import Sum
 from decimal import Decimal
 from django.db.models import Sum, F, ExpressionWrapper, DecimalField
 import ast
+from production.models import *
 
 class VentesCustomPermission(Permission):
     class Meta:
@@ -275,6 +276,20 @@ class ProduitsEnBonSortie(models.Model):
         ).values_list('NumeroSeries', flat=True)
 
         return list(num_series_list)
+    def get_product_PBS(self):
+        produitproductionBL=self.produits_en_PEnOrdre.all()
+        for produit in produitproductionBL:
+            stock=produit.ProduitsEnOrdreFabrication.stock
+            produits_p=[]
+            produit_enpc={
+                        'id': stock.id,                      
+                        'reference':stock.reference,
+                        'name': stock.name,                        
+                        'qty_sortante':produit.quantity,
+
+                    }
+            produits_p.append(produit_enpc)
+        return produits_p
 
         
 class BonGarantie(models.Model):
