@@ -987,7 +987,6 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
         data = data.get('formData', '')
         store_id = request.session["store"]
         CurrentStore = store.objects.get(pk=store_id)
-        print(data)
         try:
              with transaction.atomic():
                 # Get the existing BonComptoir instance
