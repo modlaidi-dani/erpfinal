@@ -12,7 +12,6 @@ from django.db.models import Sum
 from decimal import Decimal
 from django.db.models import Sum, F, ExpressionWrapper, DecimalField
 import ast
-from production.models import *
 
 class VentesCustomPermission(Permission):
     class Meta:
