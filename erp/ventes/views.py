@@ -1009,6 +1009,7 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
                         stock_entry.quantity += produit.quantity
                         
                     except Stock.DoesNotExist:
+                        
                         # If it doesn't exist, create a new stock entry
                         stock_entry = Stock.objects.create(product=produit.stock, entrepot=myentrepot, quantity=produit.quantity)
                     stock_entry.save()
@@ -1047,7 +1048,7 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
                 bon_comptoir.save()
                     
                 for produit in data["produits"]:
-                    p = Stock.objects.get( Q(product__reference=produit["ref"]) & Q(entrepot=myentrepot))
+                    p = Stock.objects.get( Q(product__reference=produit["ref"]) & Q(entrepot=myentrepot))                        
                     new_quantity = p.quantity - int(produit["qty"]) ## la quantité dans l'entrepot qui convient
                     p.quantity = new_quantity
                     p.save() 
@@ -1057,13 +1058,24 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
                     qty = int(produit['qty'])
                     rate = float(produit['rateLiv'])
                     total = int(qty) * float(rate)
-                    ProduitsEnBonSortie.objects.create(
+                    pro=ProduitsEnBonSortie.objects.create(
                         BonNo = bon_comptoir,
                         stock = produit_inst,
                         quantity = qty,
                         unitprice = rate,
                         totalprice =total
                     )
+                    if produit["produit_p"]!=[]:
+                        for pr in produit["produit_p"]:
+                            PO=ProduitsEnOrdreFabrication.objects.get(id=pr["POId"])
+                            ProduitProductionBL.objects.create(
+                                ProdenBL = pro,
+                                ProdPid = PO,
+                                quantity = pr["quantity"],
+                             
+                            )
+                        
+                            
                 myuser=CustomUser.objects.get(username=self.request.user.username)
                 responsable_entrepot = CustomUser.objects.filter(role ="manager")
                 if responsable_entrepot:
