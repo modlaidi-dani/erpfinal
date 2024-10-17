@@ -106,6 +106,7 @@ class Product(models.Model):
             start_date = end_date + timedelta(days=1)
 
         return report
+        
 
     def get_product_en_production(self):
                   
@@ -116,13 +117,21 @@ class Product(models.Model):
                     ordre=produit.ordre_creation.first()
                     produits_en_pc=ProduitsEnOrdreFabrication.objects.filter(BonNo=ordre)
                     for pro in produits_en_pc:
+                        qty_sortante=0
+                        try:
+                            prodsort=produits_en_pc.ProduitsEnBonSortie.all()
+                            for p in prodsort:
+                                qty_sortante+=p.quantity
+                        except:
+                            qty_sortante=qty_sortante
+                        
                         produit_enpc={
                         'id': pro.stock.id,
                         'POId':pro.id,                          
                         'reference': pro.stock.reference,
                         'name': pro.stock.name,                        
                         'price': round(((float(pro.stock.clientfinal_price) + float(pro.stock.prix_livraison) + float(pro.stock.tva_douan)) * 1.19), 2),
-                        
+                        'qty_sortante':qty_sortante,
                         'family': pro.stock.category.Libellé if pro.stock.category else '',
                         'qty_in_config':pro.quantity,
                         'codeOrdre': pro.BonNo.codeOrdre,
