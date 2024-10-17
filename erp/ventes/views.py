@@ -48,10 +48,17 @@ import asyncio
 from asgiref.sync import sync_to_async
 from datetime import datetime
 from django.utils.timezone import now
+from production.models import *
+from achats.models import *
+from ventes.models import *
+from produits.models import * 
+
+
+
 
 def markLivre(request):
    data = json.loads(request.body)
-   Bon = models.BonSortie.objects.get(id=data["idbon"])
+   Bon =  BonSortie.objects.get(id=data["idbon"])
    if not Bon.livre :
        Bon.livre = True
        Bon.save()
@@ -63,7 +70,7 @@ def markLivre(request):
 
 def markProduitLivre(request):
    data = json.loads(request.body)
-   Bon = models.ProduitsEnBonGarantie.objects.get(id=data["id"])
+   Bon =  ProduitsEnBonGarantie.objects.get(id=data["id"])
    if not Bon.livre :
        Bon.livre = True
        Bon.save()
@@ -78,7 +85,7 @@ def get_total_price(bon):
     return bon.get_total_price()
 
 def fetch_rest_bills(selected_store, current_month):
-    rest_bills = list(models.BonSortie.objects.filter(
+    rest_bills = list(BonSortie.objects.filter(
         store=selected_store, dateBon__month__lt=current_month
     ).order_by('-dateBon').select_related(
         'entrepot', 'client', 'user', 'mode_reglement', 'banque_Reglement'
@@ -172,9 +179,9 @@ def confirmBill(request):
             try:
                 
                 # Fetch the related BonSortie instance
-                bon_no = models.BonSortie.objects.get(pk=bon_no_id)
+                bon_no =  BonSortie.objects.get(pk=bon_no_id)
 
-                confirmation_bl = models.ConfirmationBl(
+                confirmation_bl =  ConfirmationBl(
                     BonNo=bon_no,
                     dateConfirmation = datetime.today(),
                     dateLivraisonPrevu=date_livraison_prevu,  
@@ -184,7 +191,7 @@ def confirmBill(request):
                 bon_no.confirmed = True
                 bon_no.save()
                 return render(request, 'ventes/invoice_page.html')
-            except models.BonSortie.DoesNotExist:
+            except:  
                 return HttpResponse("Bon de Livraison not found.", status=404)
     else:
         return render(request, 'ventes/invoice_page.html')
@@ -213,7 +220,7 @@ class ProduitsNonLivreListView(LoginRequiredMixin, UserPassesTestMixin, Template
         date_filter = datetime(2024, 4, 24)
 
         # Update the query to include the date condition
-        filtered_produits = models.ProduitsEnBonGarantie.objects.all()
+        filtered_produits =  ProduitsEnBonGarantie.objects.all()
         produits_en_bon_garantie = [prod for prod in filtered_produits if 'non livré' in prod.getnumSeries or 'Non livré' in prod.getnumSeries]
         users_list = []
         data=[]
@@ -239,7 +246,7 @@ class ProduitsNonLivreListView(LoginRequiredMixin, UserPassesTestMixin, Template
         
 def ModifierRecouvrementInfo(request):
     data = json.loads(request.body)
-    Bon = models.BonSortie.objects.get(id=data["id"])
+    Bon =  BonSortie.objects.get(id=data["id"])
     modereg = None
     if data['ModeReglement'] :
         modereg = ModeReglement.objects.get(id = data['ModeReglement'])
@@ -305,6 +312,7 @@ def getStock(request):
                 "price": price,
                 "prix_livraison": stock.product.prix_livraison,
                 "tax": stock.product.tva_douan,
+                "product_d":stock.product.get_product_en_production()
             }
             stock_data.append(stock_info)
    return JsonResponse({'stocks':stock_data})
@@ -330,7 +338,7 @@ class InvoiceEditedListView(LoginRequiredMixin, UserPassesTestMixin, TemplateVie
         
         Currentuser = self.request.user
         myuser  = CustomUser.objects.get(username=Currentuser.username)
-        bon_sorties = models.BonSortie.objects.filter(store = selected_store)
+        bon_sorties =  BonSortie.objects.filter(store = selected_store)
 
         filtered_bon_sorties = []
 
@@ -477,7 +485,7 @@ def fetchPrice(request):
 def fetchProducts(request):
   data = json.loads(request.body)
   print(data)
-  bonLivraison = models.BonSortie.objects.get(idBon=data["bonL"])
+  bonLivraison = BonSortie.objects.get(idBon=data["bonL"])
   produits = bonLivraison.produits_en_bon_sorties.all()
   produits_data=[]    
   for produit in produits :
@@ -525,10 +533,10 @@ def deleteInvoiceBill(request):
     CurrentStore = store.objects.get(pk=store_id)
     liste_id = data["liste_ids"]
     for id_bon in liste_id:
-        bon_c = models.BonSortie.objects.get(idBon=id_bon, store=CurrentStore)
+        bon_c =  BonSortie.objects.get(idBon=id_bon, store=CurrentStore)
         with transaction.atomic():
                 # Get the associated product transfers
-                produits_transfert = models.ProduitsEnBonSortie.objects.filter(BonNo=bon_c)
+                produits_transfert =  ProduitsEnBonSortie.objects.filter(BonNo=bon_c)
                 my_entrepot = Entrepot.objects.get(name=bon_c.entrepot, store=CurrentStore)           
                 # Iterate over the product transfers and update stock quantities
                 for produit_transfert in produits_transfert:                
@@ -549,7 +557,7 @@ def delete_devis_bill(request):
     CurrentStore = store.objects.get(pk=store_id)
     liste_ids = data["liste_ids"]
     for id_bon in liste_ids:
-        bon_c = models.BonDevis.objects.get(idBon=id_bon, store=CurrentStore)
+        bon_c =  BonDevis.objects.get(idBon=id_bon, store=CurrentStore)
         with transaction.atomic():
             bon_c.delete()
     return JsonResponse({'message': "Bons de devis Supprimés."})   
@@ -560,7 +568,7 @@ def delete_garantie_bill(request):
     CurrentStore = store.objects.get(pk=store_id)
     liste_ids = data["liste_ids"]
     for id_bon in liste_ids:
-        bon_c = models.BonGarantie.objects.get(idBon=id_bon, store=CurrentStore)
+        bon_c =  BonGarantie.objects.get(idBon=id_bon, store=CurrentStore)
         with transaction.atomic():
             bon_c.delete()
     return JsonResponse({'message': "Bons de garantie Supprimés."})     
@@ -571,7 +579,7 @@ def delete_facture_bill(request):
     CurrentStore = store.objects.get(pk=store_id)
     liste_ids = data["liste_ids"]
     for id_bon in liste_ids:
-        bon_c = models.Facture.objects.get(codeFacture=id_bon, store=CurrentStore)
+        bon_c =  Facture.objects.get(codeFacture=id_bon, store=CurrentStore)
         with transaction.atomic():
             bon_c.delete()
     return JsonResponse({'message': "Factures Supprimées."})  
@@ -635,7 +643,7 @@ class GarantieComptView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context["stock"] = all_stocks
         current_year = datetime.now().strftime('%y')
         current_month = datetime.now().strftime('%m')
-        last_number = models.BonGarantie.objects.order_by('-id').first()
+        last_number =  BonGarantie.objects.order_by('-id').first()
         if last_number:
             last_number = last_number.id
         else:
@@ -659,7 +667,7 @@ class GarantieComptView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
            CurrentStore = store.objects.get(pk=store_id)
            current_year = datetime.now().strftime('%y')
            current_month = datetime.now().strftime('%m')
-           last_number = models.BonGarantie.objects.order_by('-id').first()
+           last_number =  BonGarantie.objects.order_by('-id').first()
            if last_number:
                 last_number = last_number.id
            else:
@@ -667,7 +675,7 @@ class GarantieComptView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
            codeBon = f'FIG{current_year}{current_month}-{last_number + 1:04d}'
            dateBon = dataInvoice["dateBp"]
            client = Client.objects.filter(name=dataInvoice["clientInfo"]["name"], store=CurrentStore).first()
-           bon_garantie = models.BonGarantie.objects.create(
+           bon_garantie =  BonGarantie.objects.create(
               idBon = codeBon,
               dateBon = dateBon,
               tps_ecoule = dataInvoice["time"],
@@ -681,7 +689,7 @@ class GarantieComptView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
               produit = Product.objects.get(reference = product["ref"], store = CurrentStore)
               NumeroSeries = product["numSeries"]
               qty= product["qty"]
-              models.ProduitsEnBonGarantie.objects.create(
+              ProduitsEnBonGarantie.objects.create(
                 BonNo = bon_garantie,
                 produit = produit,
                 NumeroSeries = NumeroSeries 
@@ -710,9 +718,9 @@ class InvoicePCListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         Currentuser = self.request.user
         myuser  = CustomUser.objects.get(username=Currentuser.username)
         if(myuser.role =='manager') or (myuser.username =='ziad') or (myuser.role=='DIRECTEUR EXECUTIF') or (myuser.role=='gestion-stock') :
-            bons_sorties = models.BonSortie.objects.filter(store=selected_store, reference_pc__isnull=False, reference_pc__gt='').order_by('-idBon')
+            bons_sorties =  BonSortie.objects.filter(store=selected_store, reference_pc__isnull=False, reference_pc__gt='').order_by('-idBon')
         else:
-            bons_sorties = models.BonSortie.objects.filter(store=selected_store, user=myuser, reference_pc__isnull=False, reference_pc__gt='').order_by('-idBon')
+            bons_sorties =  BonSortie.objects.filter(store=selected_store, user=myuser, reference_pc__isnull=False, reference_pc__gt='').order_by('-idBon')
         context["bons_sorties"] = bons_sorties
         entrepots = Entrepot.objects.filter(store=selected_store)
         context["entrepots"] = entrepots
@@ -740,7 +748,7 @@ class BILLMAG54UpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
         bill_id = self.kwargs.get('bill_id')
         store_id = self.request.session["store"]
         CurrentStore = store.objects.get(pk=store_id)
-        invoice = models.BonSortie.objects.get(id=bill_id)
+        invoice =  BonSortie.objects.get(id=bill_id)
         idBon = invoice.idBon
         dateBon = invoice.dateBon
         client_name = invoice.client.name
@@ -801,7 +809,7 @@ class BILLMAG54UpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
              with transaction.atomic():
                 # Get the existing BonComptoir instance
                 idbon = data["IdBon"]
-                bon_comptoir = models.BonSortie.objects.select_for_update().get(idBon=idbon)
+                bon_comptoir =  BonSortie.objects.select_for_update().get(idBon=idbon)
                 # Handle stock updates for deleted entries
                 for produit in bon_comptoir.produits_en_bon_sorties.all():
                     myentrepot = Entrepot.objects.get(name = data["entrepotBon"], store = CurrentStore)
@@ -835,7 +843,7 @@ class BILLMAG54UpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
                     qty = int(produit['qty'])
                     rate = float(produit['rate'])
                     total = int(qty) * float(rate)
-                    models.ProduitsEnBonSortie.objects.create(
+                    ProduitsEnBonSortie.objects.create(
                         BonNo = bon_comptoir,
                         stock = produit_inst,
                         quantity = qty,
@@ -843,7 +851,7 @@ class BILLMAG54UpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
                         totalprice =total
                     )
                         
-        except models.BonSortie.DoesNotExist:
+        except  BonSortie.DoesNotExist:
             return JsonResponse({'error': "Bon Livraison not found.", 'prompt_user': False})    
         
         return JsonResponse({'success': "Bon Livraison modifié.", 'prompt_user': False})
@@ -869,9 +877,9 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
         CurrentStore = store.objects.get(pk=store_id)
         try:
             bill_id = kwargs['bill_id']
-            invoice = models.BonSortie.objects.get(id=bill_id)
+            invoice =  BonSortie.objects.get(id=bill_id)
             # rest of your code
-        except models.BonSortie.DoesNotExist:
+        except  BonSortie.DoesNotExist:
             raise Http404(f"Bon {bill_id} n'existe Pas")
         except ValueError as e:
             # Log the error along with additional information like user details
@@ -991,7 +999,7 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
              with transaction.atomic():
                 # Get the existing BonComptoir instance
                 idbon = data["IdBon"]
-                bon_comptoir = models.BonSortie.objects.select_for_update().get(id=data["id"])
+                bon_comptoir =  BonSortie.objects.select_for_update().get(id=data["id"])
                 # Handle stock updates for deleted entries
                 for produit in bon_comptoir.produits_en_bon_sorties.all():
                     myentrepot = Entrepot.objects.get(name = data["entrepotBon"], store = CurrentStore)
@@ -1049,7 +1057,7 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
                     qty = int(produit['qty'])
                     rate = float(produit['rateLiv'])
                     total = int(qty) * float(rate)
-                    models.ProduitsEnBonSortie.objects.create(
+                    ProduitsEnBonSortie.objects.create(
                         BonNo = bon_comptoir,
                         stock = produit_inst,
                         quantity = qty,
@@ -1067,7 +1075,7 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
                             description=f'/ventes/edit-bill-diva/{bon_comptoir.id}',
                             level=1,
                         )        
-        except models.BonSortie.DoesNotExist:
+        except  BonSortie.DoesNotExist:
             return JsonResponse({'error': "Bon Livraison not found.", 'prompt_user': False})    
         
         return JsonResponse({'success': "Bon Livraison modifié.", 'prompt_user': False})
@@ -1093,9 +1101,9 @@ class StockSellDIVACartonUpdateView(LoginRequiredMixin, UserPassesTestMixin, Tem
         CurrentStore = store.objects.get(pk=store_id)
         try:
             bill_id = kwargs['bill_id']
-            invoice = models.BonSortie.objects.get(id=bill_id)
+            invoice =  BonSortie.objects.get(id=bill_id)
             # rest of your code
-        except models.BonSortie.DoesNotExist:
+        except  BonSortie.DoesNotExist:
             raise Http404(f"Bon {bill_id} n'existe Pas")
         except ValueError as e:
             # Log the error along with additional information like user details
@@ -1216,7 +1224,7 @@ class StockSellDIVACartonUpdateView(LoginRequiredMixin, UserPassesTestMixin, Tem
         try:
             with transaction.atomic():
                 idbon = data["IdBon"]
-                bon_comptoir = models.BonSortie.objects.select_for_update().get(id=data["id"])
+                bon_comptoir =  BonSortie.objects.select_for_update().get(id=data["id"])
                 for produit in bon_comptoir.produits_en_bon_sorties.all():
                     myentrepot = Entrepot.objects.get(name = data["entrepotBon"], store = CurrentStore)
                     try:
@@ -1269,7 +1277,7 @@ class StockSellDIVACartonUpdateView(LoginRequiredMixin, UserPassesTestMixin, Tem
                     qty = int(produit['qty'])
                     rate = float(produit['rateLiv'])
                     total = int(qty) * float(rate)
-                    models.ProduitsEnBonSortie.objects.create(
+                    ProduitsEnBonSortie.objects.create(
                         BonNo = bon_comptoir,
                         stock = produit_inst,
                         quantity = qty,
@@ -1287,7 +1295,7 @@ class StockSellDIVACartonUpdateView(LoginRequiredMixin, UserPassesTestMixin, Tem
                             description=f'/ventes/edit-bill-diva/{bon_comptoir.id}',
                             level=1,
                         )        
-        except models.BonSortie.DoesNotExist:
+        except  BonSortie.DoesNotExist:
             return JsonResponse({'error': "Bon Livraison not found.", 'prompt_user': False})    
         
         return JsonResponse({'success': "Bon Livraison modifié.", 'prompt_user': False})
@@ -1628,9 +1636,9 @@ class DevisListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         Currentuser = self.request.user
         myuser  = CustomUser.objects.get(username=Currentuser.username)
         if myuser.role == 'manager':
-            bons = models.BonDevis.objects.filter(store=CurrentStore)
+            bons =  BonDevis.objects.filter(store=CurrentStore)
         else:
-           bons = models.BonDevis.objects.filter(store=CurrentStore, user=myuser) 
+           bons =  BonDevis.objects.filter(store=CurrentStore, user=myuser) 
         context["bons"]= bons
         return context
     
@@ -1659,9 +1667,9 @@ class GarantieListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         first_day_current_month = today.replace(day=1)
         first_day_past_month = (first_day_current_month - timedelta(days=1)).replace(day=1)
         if myuser.role == "manager" or myuser.role == "gestion-stock" or myuser.username == "nadjemeddine" :
-            bons = models.BonGarantie.objects.filter(store=CurrentStore).order_by('-idBon')
+            bons =  BonGarantie.objects.filter(store=CurrentStore).order_by('-idBon')
         else:
-            bons = models.BonGarantie.objects.filter(bonLivraisonAssocie__user = myuser, store=CurrentStore).order_by('-idBon')
+            bons =  BonGarantie.objects.filter(bonLivraisonAssocie__user = myuser, store=CurrentStore).order_by('-idBon')
         context["bons"]= bons
         return context
     
@@ -1683,7 +1691,7 @@ class GarantieView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(*args, **kwargs)
         store_id = self.request.session["store"]
         my_store = store.objects.get(pk=store_id)
-        all_bons_sortie = models.BonSortie.objects.filter(store=my_store)
+        all_bons_sortie = BonSortie.objects.filter(store=my_store)
         
         # Step 2: Get all clients
         Currentuser = self.request.user
@@ -1706,7 +1714,7 @@ class GarantieView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context["entrepots"] = entrepots
         current_year = datetime.now().strftime('%y')
         current_month = datetime.now().strftime('%m')
-        last_number = models.BonGarantie.objects.order_by('-id').first()
+        last_number = BonGarantie.objects.order_by('-id').first()
         if last_number:
             last_number = last_number.id
         else:
@@ -1730,7 +1738,7 @@ class GarantieView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
            CurrentStore = store.objects.get(pk=store_id)
            current_year = datetime.now().strftime('%y')
            current_month = datetime.now().strftime('%m')
-           last_number = models.BonGarantie.objects.order_by('-id').first()
+           last_number =  BonGarantie.objects.order_by('-id').first()
            if last_number:
                 last_number = last_number.id
            else:
@@ -1739,10 +1747,10 @@ class GarantieView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
            dateBon = dataInvoice["dateBp"]
            client = Client.objects.get(name=dataInvoice["clientInfo"]["name"])
            try:
-            AssociatedBL = models.BonSortie.objects.get(idBon=dataInvoice["AssociatedBL"])
-           except models.BonSortie.DoesNotExist:
+            AssociatedBL =  BonSortie.objects.get(idBon=dataInvoice["AssociatedBL"])
+           except  BonSortie.DoesNotExist:
             AssociatedBL = None
-           bon_garantie = models.BonGarantie.objects.create(
+           bon_garantie =  BonGarantie.objects.create(
               idBon = codeBon,
               dateBon = dateBon,
               bonLivraisonAssocie = AssociatedBL,
@@ -1756,7 +1764,7 @@ class GarantieView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
               produit = Product.objects.get(reference = product["ref"], store = CurrentStore)
               NumeroSeries = product["numSeries"]
               qty= product["qty"]
-              models.ProduitsEnBonGarantie.objects.create(
+              ProduitsEnBonGarantie.objects.create(   
                 BonNo = bon_garantie,
                 produit = produit,
                 quantity=qty,
@@ -1780,9 +1788,9 @@ class AvoirListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         selected_store = get_object_or_404(store, pk=self.request.session["store"])
-        avoirs = models.AvoirVente.objects.filter(store=selected_store)
+        avoirs = AvoirVente.objects.filter(store=selected_store)
         context["avoirs"]=avoirs
-        bons = models.BonSortie.objects.filter(store=selected_store)
+        bons =  BonSortie.objects.filter(store=selected_store)
         context["bons"]=bons
         
         return context
@@ -1794,7 +1802,7 @@ class AvoirListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         dataInvoice = data.get('formData')
 
         if dataInvoice: 
-             bonLivraison = models.BonSortie.objects.get(id=dataInvoice["bonLivraison"])
+             bonLivraison =  BonSortie.objects.get(id=dataInvoice["bonLivraison"])
              client_obj = Client.objects.get(id=dataInvoice["client"])
              date= dataInvoice["date"]
              motif= dataInvoice["motif"]
@@ -1803,7 +1811,7 @@ class AvoirListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
              year = '23'
 
              # Find the last AvoirVente object
-             last_avoir = models.AvoirVente.objects.last()
+             last_avoir =  AvoirVente.objects.last()
 
              # Determine the next sequential number
              if last_avoir:
@@ -1815,7 +1823,7 @@ class AvoirListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
 
              # Create the codeAvoir using the year and sequential number
              codeAvoir = f"AV{year}-{next_sequence:03d}"
-             avoirobject = models.AvoirVente.objects.create(
+             avoirobject = AvoirVente.objects.create(
                  BonSortieAssocie=bonLivraison,
                  client=client_obj,
                  codeAvoir=codeAvoir,
@@ -1844,7 +1852,7 @@ class GarantieUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(*args, **kwargs)
         bill_id = self.kwargs.get('bill_id')
         
-        invoice = models.BonGarantie.objects.get(id=bill_id)
+        invoice = BonGarantie.objects.get(id=bill_id)
         idBon = invoice.idBon
         dateBon = invoice.dateBon
         client_name = invoice.client.name
@@ -1908,10 +1916,10 @@ class GarantieUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             current_year = datetime.now().strftime('%y')
             current_month = datetime.now().strftime('%m')
             bon_garantie_id = dataInvoice.get("id")  # Assuming you have a field to identify the existing BonGarantie
-            bon_garantie = models.BonGarantie.objects.get(id=bon_garantie_id)
+            bon_garantie =  BonGarantie.objects.get(id=bon_garantie_id)
 
             # Delete existing ProduitsEnBonGarantie instances
-            models.ProduitsEnBonGarantie.objects.filter(BonNo=bon_garantie).delete()
+            ProduitsEnBonGarantie.objects.filter(BonNo=bon_garantie).delete()
 
             # Recreate ProduitsEnBonGarantie instances based on the updated data
             products = dataInvoice["produits"]
@@ -1919,7 +1927,7 @@ class GarantieUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 produit = Product.objects.get(reference=product["reference"], store = CurrentStore)
                 NumeroSeries = product["numSeries"]
                 qty = product["qty"]
-                models.ProduitsEnBonGarantie.objects.create(
+                ProduitsEnBonGarantie.objects.create(
                     BonNo=bon_garantie,
                     produit=produit,
                     quantity=qty,
@@ -1927,7 +1935,7 @@ class GarantieUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 )
 
             # Update other fields of BonGarantie if needed
-            bon_garantie.bonLivraisonAssocie = models.BonSortie.objects.get(idBon=dataInvoice["AssociatedBL"])
+            bon_garantie.bonLivraisonAssocie =  BonSortie.objects.get(idBon=dataInvoice["AssociatedBL"])
             bon_garantie.client = Client.objects.filter(name=dataInvoice["clientInfo"]["name"], store = CurrentStore).first()
             bon_garantie.save()
 
@@ -1951,7 +1959,7 @@ class GarantieBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super().get_context_data(*args, **kwargs)
         bill_id=self.kwargs.get('id_bon')
         
-        invoice = models.BonSortie.objects.get(id=bill_id)
+        invoice =  BonSortie.objects.get(id=bill_id)
         idBon = invoice.idBon
         dateBon = invoice.dateBon
         totalPrice=invoice.totalPrice
@@ -1993,7 +2001,7 @@ class GarantieBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context["stock"] = all_stocks
         current_year = datetime.now().strftime('%y')
         current_month = datetime.now().strftime('%m')
-        last_number = models.BonGarantie.objects.order_by('-id').first()
+        last_number =  BonGarantie.objects.order_by('-id').first()
         if last_number:
             last_number = last_number.id
         else:
@@ -2016,15 +2024,15 @@ class GarantieBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
            CurrentStore = store.objects.get(pk=store_id)
            current_year = datetime.now().strftime('%y')
            current_month = datetime.now().strftime('%m')
-           last_number = models.BonGarantie.objects.order_by('-id').first()
+           last_number =  BonGarantie.objects.order_by('-id').first()
            if last_number:
                 last_number = last_number.id
            else:
                 last_number = 0
            codeBon = f'FIG{current_year}{current_month}-{last_number + 1:04d}'
            dateBon = dataInvoice["dateBp"]
-           AssociatedBL = models.BonSortie.objects.get(idBon=dataInvoice["AssociatedBL"])
-           bon_garantie = models.BonGarantie.objects.create(
+           AssociatedBL =  BonSortie.objects.get(idBon=dataInvoice["AssociatedBL"])
+           bon_garantie =  BonGarantie.objects.create(
               idBon = codeBon,
               dateBon = dateBon,
               bonLivraisonAssocie = AssociatedBL,
@@ -2039,7 +2047,7 @@ class GarantieBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
               produit = Product.objects.get(reference = product["ref"], store = CurrentStore)
               NumeroSeries = product["numSeries"]
               qty= product["qty"]
-              models.ProduitsEnBonGarantie.objects.create(
+              ProduitsEnBonGarantie.objects.create(
                 BonNo = bon_garantie,
                 produit = produit,
                 quantity = qty,
@@ -2071,7 +2079,7 @@ class FactureBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
       myuser  = CustomUser.objects.get(username=Currentuser.username)
       selected_store = get_object_or_404(store, pk=self.request.session["store"])
       if  self.kwargs.get('id_bon') :
-         bon_associe = models.BonSortie.objects.get(id=self.kwargs.get('id_bon') )
+         bon_associe = BonSortie.objects.get(id=self.kwargs.get('id_bon') )
          cl_dict={
                "client_id" :bon_associe.client.id,
                "client_name" :bon_associe.client.name,
@@ -2136,7 +2144,7 @@ class FactureBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
          context["echeances"] = echeances 
          banques= Banque.objects.filter(store=selected_store)
          context["banques"] = banques
-         last_facture = models.Facture.objects.order_by('-id').first()
+         last_facture = Facture.objects.order_by('-id').first()
          current_year = str(timezone.now().year)[-2:]
          current_month = timezone.now().strftime('%m')
 
@@ -2166,7 +2174,7 @@ class FactureBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
            if dataInvoice["echeance"] != '':
               echeance = EcheanceReglement.objects.get(id=dataInvoice["echeance"])
            if dataInvoice["BlAssocie"] != '/':
-              bonAssocie = models.BonSortie.objects.get(idBon=dataInvoice["BlAssocie"])
+              bonAssocie = BonSortie.objects.get(idBon=dataInvoice["BlAssocie"])
            remise = dataInvoice["Remise"]
            etatFacture = dataInvoice["etatFacture"]
            client_name = dataInvoice["clientInfo"]["id"]
@@ -2175,7 +2183,7 @@ class FactureBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
            CurrentStore = store.objects.get(pk=store_id)
            Currentuser = self.request.user
            myuser  = CustomUser.objects.get(username=Currentuser.username)
-           facture_instance = models.Facture.objects.create(
+           facture_instance = Facture.objects.create(
               codeFacture = idFacture,
               date_facture = dateFacture,
               date_reglement = dateReglement,
@@ -2199,7 +2207,7 @@ class FactureBlView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 quantity =int(product_data["qty"])
                 unitprice = float(product_data["rateLiv"])
                 totalprice = quantity * unitprice
-                models.ProduitsEnFacture.objects.create(
+                ProduitsEnFacture.objects.create(
                     FactureNo =facture_instance,
                     stock =product,
                     unitprice = unitprice,
@@ -2231,7 +2239,7 @@ class FactureUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
       myuser  = CustomUser.objects.get(username=Currentuser.username)
       selected_store = get_object_or_404(store, pk=self.request.session["store"])
       if  self.kwargs.get('id_bon') :
-         bon_associe = models.Facture.objects.get(id =self.kwargs.get('id_bon'))
+         bon_associe = Facture.objects.get(id =self.kwargs.get('id_bon'))
          cl_dict={
                "client_id" :bon_associe.client.id,
                "client_name" :bon_associe.client.name,
@@ -2306,9 +2314,9 @@ class FactureUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             current_year = datetime.now().strftime('%y')
             current_month = datetime.now().strftime('%m')
             bon_garantie_id = dataInvoice.get("id")  # Assuming you have a field to identify the existing BonGarantie
-            bon_garantie = models.Facture.objects.get(id=bon_garantie_id)
+            bon_garantie = Facture.objects.get(id=bon_garantie_id)
             bon_garantie_id = dataInvoice.get("id")  # Assuming you have a field to identify the existing BonGarantie
-            bon_garantie = models.Facture.objects.get(id=bon_garantie_id)
+            bon_garantie = Facture.objects.get(id=bon_garantie_id)
             bon_garantie.Remise = dataInvoice.get("remise")
             print('edit',dataInvoice["dateFacture"])
             print('original',bon_garantie.date_facture)
@@ -2328,15 +2336,15 @@ class FactureUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             if dataInvoice["echeance"] != '':
                 echeance = EcheanceReglement.objects.get(id=dataInvoice["echeance"])
             if dataInvoice["BlAssocie"] != '/':
-              bonAssocie = models.BonSortie.objects.get(idBon=dataInvoice["BlAssocie"])
+              bonAssocie = BonSortie.objects.get(idBon=dataInvoice["BlAssocie"])
             # Recreate ProduitsEnBonGarantie instances based on the updated data
-            models.ProduitsEnFacture.objects.filter(FactureNo=bon_garantie).delete()
+            ProduitsEnFacture.objects.filter(FactureNo=bon_garantie).delete()
             for product_data in dataInvoice['produits']:
                 product = Product.objects.get(reference=product_data["ref"], store = CurrentStore) 
                 quantity =int(product_data["qty"])
                 unitprice = float(product_data["rateLiv"])
                 totalprice = quantity * unitprice
-                models.ProduitsEnFacture.objects.create(
+                ProduitsEnFacture.objects.create(
                     FactureNo =bon_garantie,
                     stock =product,
                     unitprice = unitprice,
@@ -2383,7 +2391,7 @@ class FactureView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             clients.append(cl_dict)
          context["clients"]=clients    
          context["selected_store"] = selected_store
-         bons_sortie = models.BonSortie.objects.filter(store=CurrentStore) 
+         bons_sortie =  BonSortie.objects.filter(store=CurrentStore) 
          context["bons_sorties"] = bons_sortie   
         else:
           clientsList = Client.objects.filter(user=Currentuser, valide= True)
@@ -2399,7 +2407,7 @@ class FactureView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
           selected_store = get_object_or_404(store, pk=self.request.session["store"])
           context["selected_store"] = selected_store
           context["clients"]=clients  
-          bons_sortie = models.BonSortie.objects.filter(user=myuser) 
+          bons_sortie =  filter(user=myuser) 
           context["bons_sorties"] = bons_sortie       
         entrepots = Entrepot.objects.filter(store= selected_store)
         context["entrepots"]=entrepots
@@ -2409,7 +2417,7 @@ class FactureView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context["echeances"] = echeances 
         banques= Banque.objects.filter(store= selected_store)
         context["banques"] = banques
-        last_facture = models.Facture.objects.order_by('-id').first()
+        last_facture =  Facture.objects.order_by('-id').first()
         current_year = timezone.now().year
         current_month = timezone.now().strftime('%m')
 
@@ -2445,12 +2453,12 @@ class FactureView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
            if dataInvoice["echeance"] != '':
               echeance = EcheanceReglement.objects.get(id=dataInvoice["echeance"])
            if dataInvoice["BlAssocie"] != '':
-              bonAssocie = models.BonSortie.objects.get(idBon=dataInvoice["BlAssocie"])
+              bonAssocie =  BonSortie.objects.get(idBon=dataInvoice["BlAssocie"])
            remise = dataInvoice["remise"]
            etatFacture = dataInvoice["etatFacture"]
            client_name = dataInvoice["clientInfo"]["name"]
            client = Client.objects.get(name=client_name, store = CurrentStore)
-           facture_instance = models.Facture.objects.create(
+           facture_instance =  Facture.objects.create(
               codeFacture = idFacture,
               date_facture = dateFacture,
               date_reglement = dateReglement,
@@ -2472,7 +2480,7 @@ class FactureView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 quantity =int(product_data["qty"])
                 unitprice = float(product_data["rateLiv"])
                 totalprice = quantity * unitprice
-                models.ProduitsEnFacture.objects.create(
+                ProduitsEnFacture.objects.create(
                     FactureNo =facture_instance,
                     stock =product,
                     unitprice = unitprice,
@@ -2500,7 +2508,7 @@ class FactureListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         Currentuser = self.request.user
         myuser  = CustomUser.objects.get(username=Currentuser.username)
         selected_store = get_object_or_404(store, pk=self.request.session["store"])
-        factures= models.Facture.objects.filter(store= selected_store).order_by('codeFacture')
+        factures=  Facture.objects.filter(store= selected_store).order_by('codeFacture')
         context["factures"]=factures
         return context
 
@@ -2545,7 +2553,7 @@ class DevisView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context["clients"]=clients    
         current_year = datetime.now().strftime('%y')
         current_month = datetime.now().strftime('%m')
-        last_number = models.BonDevis.objects.order_by('-id').first()
+        last_number = BonDevis.objects.order_by('-id').first()
         if last_number:
             last_number = last_number.id
         else:
@@ -2580,13 +2588,13 @@ class DevisView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             )          
            current_year = datetime.now().strftime('%y')
            current_month = datetime.now().strftime('%m')
-           last_number = models.BonDevis.objects.order_by('-id').first()
+           last_number = BonDevis.objects.order_by('-id').first()
            if last_number:
                 last_number = last_number.id
            else:
                 last_number = 0
            codeBon= f'DV{current_year}{current_month}-{last_number + 1:04d}'
-           bon_entry = models.BonDevis(
+           bon_entry =  BonDevis(
             idBon=codeBon,
             dateBon=dateBon,
             client =client,
@@ -2597,7 +2605,7 @@ class DevisView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
 
            for product_data in dataInvoice['produits']:
                 product = Product.objects.get(reference=product_data["ref"], store = CurrentStore) 
-                models.ProduitsEnBonDevis.objects.create(
+                ProduitsEnBonDevis.objects.create(
                     BonNo=bon_entry,
                     produit =product,
                     UnitPrice = float(product_data["rateLiv"]),
@@ -2629,7 +2637,7 @@ class DevisUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         CurrentStore = store.objects.get(pk=store_id)
         bill_id = self.kwargs.get('bill_id')
         
-        invoice = models.BonDevis.objects.get(id=bill_id)
+        invoice =  BonDevis.objects.get(id=bill_id)
         idBon = invoice.idBon
         dateBon = invoice.dateBon
         client_name = invoice.client.name
@@ -2692,16 +2700,16 @@ class DevisUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             current_year = datetime.now().strftime('%y')
             current_month = datetime.now().strftime('%m')
             bon_garantie_id = dataInvoice.get("id")  # Assuming you have a field to identify the existing BonGarantie
-            bon_garantie = models.BonDevis.objects.get(id=bon_garantie_id)
+            bon_garantie =  BonDevis.objects.get(id=bon_garantie_id)
 
             # Delete existing ProduitsEnBonGarantie instances
-            models.ProduitsEnBonDevis.objects.filter(BonNo=bon_garantie).delete()
+            ProduitsEnBonDevis.objects.filter(BonNo=bon_garantie).delete()
 
             # Recreate ProduitsEnBonGarantie instances based on the updated data
             
             for product_data in dataInvoice['produits']:
                 product = Product.objects.get(reference=product_data["ref"], store = CurrentStore) 
-                models.ProduitsEnBonDevis.objects.create(
+                ProduitsEnBonDevis.objects.create(
                     BonNo=bon_garantie,
                     produit =product,
                     UnitPrice = float(product_data["rateLiv"]),
@@ -2742,7 +2750,7 @@ class InvoiceListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             first_day_past_month = (first_day_current_month - timedelta(days=1)).replace(day=1)
             
             # Filter objects with dateBon greater than or equal to the first day of the past month
-            bons_sorties = models.BonSortie.objects.filter(
+            bons_sorties = BonSortie.objects.filter(
                 store=selected_store
             ).exclude(
                 Q(typebl="KIT") | Q(typebl="carton")
@@ -2750,7 +2758,7 @@ class InvoiceListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             
             context["bons_sorties"] = bons_sorties
         elif myuser.role=='gestion-stock':
-            bons_sorties = models.BonSortie.objects.filter(
+            bons_sorties = BonSortie.objects.filter(
                 store=selected_store,
                 valide = True,
                 reference_pc__exact='',
@@ -2759,7 +2767,7 @@ class InvoiceListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             context["bons_sorties"] = bons_sorties
             
         else:
-          bons_sorties = models.BonSortie.objects.filter(store=selected_store, user=myuser).exclude(Q(typebl="KIT") | Q(typebl="carton")).order_by('-id')     
+          bons_sorties = BonSortie.objects.filter(store=selected_store, user=myuser).exclude(Q(typebl="KIT") | Q(typebl="carton")).order_by('-id')     
           context["bons_sorties"] =bons_sorties    
         entrepots = Entrepot.objects.filter(store=selected_store)
         context["entrepots"] = entrepots
@@ -2802,14 +2810,14 @@ class InvoiceCartonListView(LoginRequiredMixin, UserPassesTestMixin, TemplateVie
             first_day_past_month = (first_day_current_month - timedelta(days=1)).replace(day=1)
             
             # Filter objects with dateBon greater than or equal to the first day of the past month
-            bons_sorties = models.BonSortie.objects.filter(
+            bons_sorties = BonSortie.objects.filter(
                 store=selected_store,
                 typebl="carton"
             ).order_by('-id')
             
             context["bons_sorties"] = bons_sorties
         elif myuser.role=='gestion-stock':
-            bons_sorties = models.BonSortie.objects.filter(
+            bons_sorties = BonSortie.objects.filter(
                 store=selected_store,
                 valide = True,
                 reference_pc__exact='',
@@ -2819,7 +2827,7 @@ class InvoiceCartonListView(LoginRequiredMixin, UserPassesTestMixin, TemplateVie
             context["bons_sorties"] = bons_sorties
             
         else:
-          bons_sorties = models.BonSortie.objects.filter(store=selected_store, user=myuser, typebl="carton").order_by('-id')     
+          bons_sorties = BonSortie.objects.filter(store=selected_store, user=myuser, typebl="carton").order_by('-id')     
           context["bons_sorties"] =bons_sorties
         entrepots = Entrepot.objects.filter(store=selected_store)
         context["entrepots"] = entrepots
@@ -3009,7 +3017,7 @@ class StockSellMagView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         current_year = timezone.now().year
 
         # Filter BonComptoir instances created in the current year
-        boncomptoirs_this_year = models.BonSortie.objects.filter(dateBon__year=current_year)
+        boncomptoirs_this_year = BonSortie.objects.filter(dateBon__year=current_year)
 
         # Get the count of BonComptoir instances in the current year
         sequential_number = boncomptoirs_this_year.count() + 1
@@ -3059,14 +3067,14 @@ class StockSellMagView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             p.quantity = new_quantity
             p.save()
 
-        bon_sortie = models.BonSortie.objects.create(idBon=idBon, dateBon=dateBon, totalPrice=total, agenceLivraison=agenceLivraison, num_cheque_reglement = fraisLivraison , Remise = remise, entrepot=currentEntrepot, client=client, user=myuser, store=CurrentStore)
+        bon_sortie = BonSortie.objects.create(idBon=idBon, dateBon=dateBon, totalPrice=total, agenceLivraison=agenceLivraison, num_cheque_reglement = fraisLivraison , Remise = remise, entrepot=currentEntrepot, client=client, user=myuser, store=CurrentStore)
         for product in dataInvoice["produits"]:
                 p = Product.objects.get(reference=product["ref"], store = CurrentStore)
                 p.TotalQte -= int(product["qty"])
                 p.save()
                 prod_total_price = p.prix_vente * int(product["qty"])
                 entrepot_inst = currentEntrepot
-                models.ProduitsEnBonSortie.objects.create(
+                ProduitsEnBonSortie.objects.create(
                     BonNo=bon_sortie,
                     stock=p,
                     entrepot=entrepot_inst,
@@ -3285,7 +3293,7 @@ class StockSellDIVAView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                     return JsonResponse({'error': f"Insufficient1 stock for product: {product['ref']}", 'prompt_user': True})            
         current_year = timezone.now().year
         current_month = datetime.now().strftime('%m')
-        boncomptoirs_this_year = models.BonSortie.objects.filter(dateBon__year=current_year, store = CurrentStore )
+        boncomptoirs_this_year = BonSortie.objects.filter(dateBon__year=current_year, store = CurrentStore )
 
         # Get the count of BonComptoir instances in the current year
         sequential_number = boncomptoirs_this_year.count() + 1
@@ -3297,7 +3305,7 @@ class StockSellDIVAView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 boncomptoire_code = f'BL{str(current_year)[-2:]}{str(current_month)}-{str(sequential_number).zfill(5)}'
         
             # Check if the boncomptoire_code already exists in the database
-            existing_bon = models.BonSortie.objects.filter(idBon=boncomptoire_code, store=CurrentStore).first()
+            existing_bon = BonSortie.objects.filter(idBon=boncomptoire_code, store=CurrentStore).first()
         
             if existing_bon is None:
                 # If the boncomptoire_code is unique, break out of the loop
@@ -3305,7 +3313,7 @@ class StockSellDIVAView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         
             # If the boncomptoire_code already exists, increment the sequential_number and try again
             sequential_number += 1 
-        bon_sortie = models.BonSortie.objects.create(
+        bon_sortie = BonSortie.objects.create(
             idBon=boncomptoire_code,
             dateBon=dateBon,
             agenceLivraison=agenceLivraison,
@@ -3322,7 +3330,7 @@ class StockSellDIVAView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             client=client, user=myuser, store=CurrentStore)
         
         if dataInvoice["creationAutomatique"]:
-            models.DemandeTransfert.objects.create(
+            DemandeTransfert.objects.create(
                 BonSNo = bon_sortie,
                 BonTransfert = bon_trans,
                 etat='False'
@@ -3340,7 +3348,7 @@ class StockSellDIVAView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 prod_total_price = float(product["rateLiv"]) * int(product["qty"])    
                 if product["ent"] != entrepot_inst.name:
                     entrepot_inst = Entrepot.objects.get(name = product["ent"], store = CurrentStore)
-                models.ProduitsEnBonSortie.objects.create(
+                produitenbs=ProduitsEnBonSortie.objects.create(
                     BonNo=bon_sortie,
                     stock=pr,
                     entrepot=entrepot_inst,                   
@@ -3348,7 +3356,20 @@ class StockSellDIVAView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                     unitprice= float(product["rateLiv"]),
                     totalprice=prod_total_price
                 )
-                
+                if pr.category.Libellé == "PC":                    
+                    
+                    produits_p=dataInvoice[product]["produits_p"]                      
+                    for prod in produits_p:
+                        
+                           
+                        prodenor=ProduitsEnOrdreFabrication.objects.get(id=prod)
+                        
+                        produ=ProduitProductionBL.objects.create(
+                            ProdenBL=produitenbs,
+                            ProdPid=prodenor,
+                            quantity=prod["quantity"]
+                        )
+                        print(produ)
         if not dataInvoice["creationAutomatique"]:        
             responsable_entrepot = CustomUser.objects.filter(role ="manager")
             if responsable_entrepot:
@@ -3575,7 +3596,7 @@ class StockSellCartonView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
                     return JsonResponse({'error': f"Insufficient1 stock for product: {product['ref']}", 'prompt_user': True})            
         current_year = timezone.now().year
         current_month = datetime.now().strftime('%m')
-        boncomptoirs_this_year = models.BonSortie.objects.filter(dateBon__year=current_year, store = CurrentStore )
+        boncomptoirs_this_year = BonSortie.objects.filter(dateBon__year=current_year, store = CurrentStore )
 
         # Get the count of BonComptoir instances in the current year
         sequential_number = boncomptoirs_this_year.count() + 1
@@ -3587,7 +3608,7 @@ class StockSellCartonView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
                 boncomptoire_code = f'BL{str(current_year)[-2:]}{str(current_month)}-{str(sequential_number).zfill(5)}'
         
             # Check if the boncomptoire_code already exists in the database
-            existing_bon = models.BonSortie.objects.filter(idBon=boncomptoire_code, store=CurrentStore).first()
+            existing_bon = BonSortie.objects.filter(idBon=boncomptoire_code, store=CurrentStore).first()
         
             if existing_bon is None:
                 # If the boncomptoire_code is unique, break out of the loop
@@ -3595,7 +3616,7 @@ class StockSellCartonView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
         
             # If the boncomptoire_code already exists, increment the sequential_number and try again
             sequential_number += 1 
-        bon_sortie = models.BonSortie.objects.create(
+        bon_sortie = BonSortie.objects.create(
             idBon=boncomptoire_code,
             dateBon=dateBon,
             agenceLivraison=agenceLivraison,
@@ -3612,7 +3633,7 @@ class StockSellCartonView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
             client=client, user=myuser, store=CurrentStore)
         
         if dataInvoice["creationAutomatique"]:
-            models.DemandeTransfert.objects.create(
+            DemandeTransfert.objects.create(
                 BonSNo = bon_sortie,
                 BonTransfert = bon_trans,
                 etat='False'
@@ -3630,7 +3651,7 @@ class StockSellCartonView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
                 prod_total_price = float(product["rateLiv"]) * int(product["qty"])    
                 if product["ent"] != entrepot_inst.name:
                     entrepot_inst = Entrepot.objects.get(name = product["ent"], store = CurrentStore)
-                models.ProduitsEnBonSortie.objects.create(
+                ProduitsEnBonSortie.objects.create(
                     BonNo=bon_sortie,
                     stock=pr,
                     entrepot=entrepot_inst,                   
@@ -3966,7 +3987,7 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             except: continue
         current_year = timezone.now().year
         current_month = datetime.now().strftime('%m')
-        boncomptoirs_this_year = models.BonSortie.objects.filter(dateBon__year = current_year, store= CurrentStore)
+        boncomptoirs_this_year = BonSortie.objects.filter(dateBon__year = current_year, store= CurrentStore)
 
 
         # Get the count of BonComptoir instances in the current year
@@ -3975,7 +3996,7 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             boncomptoire_code = f'BL{str(current_year)[-2:]}{str(current_month)}/{str(sequential_number).zfill(5)}'
         else: 
             boncomptoire_code = f'BL{str(current_year)[-2:]}{str(current_month)}-{str(sequential_number).zfill(5)}'
-        bon_sortie = models.BonSortie.objects.create(
+        bon_sortie = BonSortie.objects.create(
             idBon=boncomptoire_code,
             dateBon=dateBon,
             entrepot=currentEntrepot, 
@@ -3992,7 +4013,7 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             store=CurrentStore)
                      
         if dataInvoice["creationAutomatique"]:
-            models.DemandeTransfert.objects.create(
+            DemandeTransfert.objects.create(
                 BonSNo = bon_sortie,
                 BonTransfert = bon_trans,
                 etat='False'
@@ -4016,7 +4037,7 @@ class StockSellView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 
                 prod_total_price = float(product['rateLiv']) * int(qt)
                 entrepot_inst = currentEntrepot
-                models.ProduitsEnBonSortie.objects.create(
+                ProduitsEnBonSortie.objects.create(
                     BonNo=bon_sortie,
                     stock=p,
                     entrepot=entrepot_inst,
@@ -4048,10 +4069,10 @@ class InvoiceKitListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         Currentuser = self.request.user
         myuser  = CustomUser.objects.get(username=Currentuser.username)
         if(myuser.role =='manager') or (myuser.role == 'Finance') or (myuser.role=='DIRECTEUR EXECUTIF') :
-          bons_sorties = models.BonSortie.objects.filter(store=selected_store, typebl='KIT').order_by('-id')
+          bons_sorties = BonSortie.objects.filter(store=selected_store, typebl='KIT').order_by('-id')
           context["bons_sorties"] =bons_sorties
         elif myuser.role=='gestion-stock':
-            bons_sorties = models.BonSortie.objects.filter(
+            bons_sorties = BonSortie.objects.filter(
                 store=selected_store,
                 valide = True,
                 typebl = 'KIT',
@@ -4060,7 +4081,7 @@ class InvoiceKitListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             context["bons_sorties"] = bons_sorties
             
         else:
-          bons_sorties = models.BonSortie.objects.filter(store=selected_store, user=myuser, typebl='KIT').order_by('-id')       
+          bons_sorties = BonSortie.objects.filter(store=selected_store, user=myuser, typebl='KIT').order_by('-id')       
           context["bons_sorties"] =bons_sorties
         entrepots = Entrepot.objects.filter(store=selected_store)
         context["entrepots"] = entrepots
@@ -4272,7 +4293,7 @@ class StockSellKitView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                     return JsonResponse({'error': f"Insufficient1 stock for product: {product['ref']}", 'prompt_user': True})            
         current_year = timezone.now().year
         current_month = datetime.now().strftime('%m')
-        boncomptoirs_this_year = models.BonSortie.objects.filter(dateBon__year=current_year, store = CurrentStore )
+        boncomptoirs_this_year = BonSortie.objects.filter(dateBon__year=current_year, store = CurrentStore )
 
         # Get the count of BonComptoir instances in the current year
         sequential_number = boncomptoirs_this_year.count() + 1
@@ -4284,7 +4305,7 @@ class StockSellKitView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 boncomptoire_code = f'BL{str(current_year)[-2:]}{str(current_month)}-{str(sequential_number).zfill(5)}'
         
             # Check if the boncomptoire_code already exists in the database
-            existing_bon = models.BonSortie.objects.filter(idBon=boncomptoire_code, store=CurrentStore).first()
+            existing_bon = BonSortie.objects.filter(idBon=boncomptoire_code, store=CurrentStore).first()
         
             if existing_bon is None:
                 # If the boncomptoire_code is unique, break out of the loop
@@ -4292,7 +4313,7 @@ class StockSellKitView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         
             # If the boncomptoire_code already exists, increment the sequential_number and try again
             sequential_number += 1 
-        bon_sortie = models.BonSortie.objects.create(
+        bon_sortie = BonSortie.objects.create(
             idBon=boncomptoire_code,
             dateBon=dateBon,
             agenceLivraison=agenceLivraison,
@@ -4308,7 +4329,7 @@ class StockSellKitView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
             client=client, user=myuser, store=CurrentStore)
         
         if dataInvoice["creationAutomatique"]:
-            models.DemandeTransfert.objects.create(
+            DemandeTransfert.objects.create(
                 BonSNo = bon_sortie,
                 BonTransfert = bon_trans,
                 etat='False'
@@ -4325,7 +4346,7 @@ class StockSellKitView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 prod_total_price = float(product["rateLiv"]) * int(product["qty"])    
                 if product["ent"] != entrepot_inst.name:
                     entrepot_inst = Entrepot.objects.get(name = product["ent"], store = CurrentStore)
-                models.ProduitsEnBonSortie.objects.create(
+                ProduitsEnBonSortie.objects.create(
                     BonNo=bon_sortie,
                     stock=pr,
                     entrepot=entrepot_inst, 
@@ -4370,9 +4391,9 @@ class StockSellDIVAKitUpdateView(LoginRequiredMixin, UserPassesTestMixin, Templa
         CurrentStore = store.objects.get(pk=store_id)
         try:
             bill_id = kwargs['bill_id']
-            invoice = models.BonSortie.objects.get(id=bill_id)
+            invoice = BonSortie.objects.get(id=bill_id)
             # rest of your code
-        except models.BonSortie.DoesNotExist:
+        except BonSortie.DoesNotExist:
             raise Http404(f"Bon {bill_id} n'existe Pas")
         except ValueError as e:
             # Log the error along with additional information like user details
@@ -4494,7 +4515,7 @@ class StockSellDIVAKitUpdateView(LoginRequiredMixin, UserPassesTestMixin, Templa
              with transaction.atomic():
                 # Get the existing BonComptoir instance
                 idbon = data["IdBon"]
-                bon_comptoir = models.BonSortie.objects.select_for_update().get(id=data["id"])
+                bon_comptoir = BonSortie.objects.select_for_update().get(id=data["id"])
                 # Handle stock updates for deleted entries
                 for produit in bon_comptoir.produits_en_bon_sorties.all():
                     myentrepot = Entrepot.objects.get(name = data["entrepotBon"], store = CurrentStore)
@@ -4548,7 +4569,7 @@ class StockSellDIVAKitUpdateView(LoginRequiredMixin, UserPassesTestMixin, Templa
                     qty = int(produit['qty'])
                     rate = float(produit['rateLiv'])
                     total = int(qty) * float(rate)
-                    models.ProduitsEnBonSortie.objects.create(
+                    ProduitsEnBonSortie.objects.create(
                         BonNo = bon_comptoir,
                         stock = produit_inst,
                         quantity = qty,
@@ -4566,7 +4587,7 @@ class StockSellDIVAKitUpdateView(LoginRequiredMixin, UserPassesTestMixin, Templa
                             description=f'/ventes/edit-bill-diva/{bon_comptoir.id}',
                             level=1,
                         )        
-        except models.BonSortie.DoesNotExist:
+        except BonSortie.DoesNotExist:
             return JsonResponse({'error': "Bon Livraison not found.", 'prompt_user': False})    
         
         return JsonResponse({'success': "Bon Livraison modifié.", 'prompt_user': False})
@@ -4589,7 +4610,7 @@ class StockSellUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
         context = super().get_context_data(**kwargs)
         bill_id=self.kwargs.get('bill_id')
     
-        invoice = models.BonSortie.objects.get(id=bill_id)
+        invoice = BonSortie.objects.get(id=bill_id)
         idBon = invoice.idBon
         dateBon = invoice.dateBon
         totalPrice=invoice.totalPrice
@@ -4665,7 +4686,7 @@ class StockSellUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView)
             client_phone = client_info['phone']
 
             # Assuming you have a model named 'BonSortie' to represent sell bills
-            from .models import BonSortie, Client, Stock, ProduitsEnBonSortie
+            from .import BonSortie, Client, Stock, ProduitsEnBonSortie
 
             try:
                 # Get the existing sell bill from the database based on ID (IdBon)
@@ -4748,7 +4769,7 @@ import requests
 #             first_day_past_month = (first_day_current_month - timedelta(days=1)).replace(day=1)
             
 #             # Filter objects with dateBon greater than or equal to the first day of the past month
-#             bons_sorties = models.BonSortie.objects.filter(
+#             bons_sorties = BonSortie.objects.filter(
 #                 store=selected_store
 #             ).exclude(
 #                 Q(typebl="KIT") | Q(typebl="carton")
@@ -4756,7 +4777,7 @@ import requests
             
 #             context["bons_sorties"] = bons_sorties
 #         elif myuser.role=='gestion-stock':
-#             bons_sorties = models.BonSortie.objects.filter(
+#             bons_sorties = BonSortie.objects.filter(
 #                 store=selected_store,
 #                 valide = True,
 #                 reference_pc__exact='',
@@ -4765,7 +4786,7 @@ import requests
 #             context["bons_sorties"] = bons_sorties
             
 #         else:
-#           bons_sorties = models.BonSortie.objects.filter(store=selected_store, user=myuser).exclude(Q(typebl="KIT") | Q(typebl="carton")).order_by('-id')     
+#           bons_sorties = BonSortie.objects.filter(store=selected_store, user=myuser).exclude(Q(typebl="KIT") | Q(typebl="carton")).order_by('-id')     
 #           context["bons_sorties"] =bons_sorties
 #         entrepots = Entrepot.objects.filter(store=selected_store)
 #         context["entrepots"] = entrepots

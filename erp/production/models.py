@@ -1,5 +1,5 @@
 from django.db import models
-
+from ventes.models import ProduitsEnBonSortie
 
 class ordreFabrication(models.Model):
     entrepot_destocker =  models.ForeignKey('inventory.Entrepot', on_delete=models.CASCADE, related_name='ordre_fabrication_destock', null=True, blank=True)
@@ -15,3 +15,9 @@ class ProduitsEnOrdreFabrication(models.Model):
      
     def __str__(self):
 	    return "Ordre no: " + str(self.BonNo.idBon) + ", Item = " + self.stock.name
+class ProduitProductionBL(models.Model):
+    ProdenBL=models.ForeignKey(ProduitsEnBonSortie, on_delete = models.CASCADE, related_name='produits_en_PEnOrdre',null=True)
+    ProdPid = models.ForeignKey(ProduitsEnOrdreFabrication, on_delete = models.CASCADE, related_name='produits_en_bl')
+    quantity = models.IntegerField(default=1)
+
+    

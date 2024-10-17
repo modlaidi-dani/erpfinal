@@ -902,8 +902,8 @@
 			  </div>
 
 			   <!-- Modal -->
-				<div style=" background-color: rgba(0, 0, 0, 0.8); " class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full overflow-y-scroll" x-cloak x-show.transition.opacity="openModal">
-					<div class="p-4 max-w-xl mx-auto relative left-0 right-0 overflow-hidden mt-24">
+				<div style=" background-color: rgba(0, 0, 0, 0.8); " class="flex justify-center fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full " x-cloak x-show.transition.opacity="openModal">
+					<div class=" p-4 max-w-xl relative left-0 right-0 overflow-hidden mt-24">
 							<div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
 								x-on:click="openModal = !openModal">
 								<svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -965,6 +965,9 @@
 																		selected = option;
 																		optionsVisible = false;
 																		search='';
+																		if (option.product_d.length > 0) {
+																			componentsInProduct(option);
+																		}
 																	"
 																	x-text="option.name"
 																	style="display: block;"></a>
@@ -1005,7 +1008,6 @@
 														x-bind:data-livraison ="stock_item.livraison_prix"
 														x-text="stock_item.name"
 													>
-
 													</option>
 												</template>
 											</select>
@@ -1062,10 +1064,41 @@
 											</button>	
 										</div>
 								</div> 				  
-								</div>
+								
 							</form>
 					</div>
+
+					<div x-data="componentsPC">
+						<template x-if="componentsPC.length > 0"> 
+							<div class="bg-white">
+								<h1 class="text-xl text-center">Composants</h1>
+								<table>
+									<thead class="mx-4">
+										<tr>
+											<th class="mx-2">Référence</th>
+											<th class="mx-2">Composant</th>
+											<th class="mx-2">Quantité</th>
+										</tr>
+									</thead>
+									<tbody class="mx-4 h-60">
+										<template x-for="component in componentsPC[0]" > 
+											<tr>
+												<td class="mx-2">
+													<p x-text="component.reference"></p>
+												</td>
+												<td class="mx-2" x-text="component.name"></td>
+												<td class="mx-2" x-text="component.qty_in_config"></td>
+											</tr>
+										</template>
+									</tbody>
+								</table>
+							</div>
+						</template>
+					</div>
+					
+				
 				</div>
+				
 			   <!-- /Modal -->
 			
 		  </div>
@@ -1078,7 +1111,8 @@
 					  items: [],
 					  clients:[],
 					  stocks:[],
-					  stockFiltered:[],					 
+					  stockFiltered:[],	
+					  componentsPC: [],				 
 					  productsdifferent :[],
 					  type:'det',
 					  quantityRequired:'',
@@ -1215,7 +1249,19 @@
 						this.openModal =true;
 				     },
 
-					 editItem(invoice) {
+                   componentsInProduct(components) {
+					if (components.product_d.length > 0) {
+						this.componentsPC = []; 
+						this.componentsPC.push(components.product_d);
+						return this.componentsPC
+					} else {
+						this.componentsPC=[]
+						return this.componentsPC
+					}
+						
+		            },
+					
+					editItem(invoice) {
 						this.item = {
 							ent:invoice.ent,
 							ref: invoice.ref,
@@ -1242,10 +1288,8 @@
 						  }
 					   })
 					   .then((response) => {
-						  console.log(response.data.stocks) 
 						  itemsData=response.data.stocks;
-						  for (const itemData of itemsData) {		
-							  console.log(itemData.entrepot)						 
+						  for (const itemData of itemsData) {						 
 							  const item = {
 								  id: this.generateUUID(),
 								  name: itemData.product_name,
@@ -1255,9 +1299,11 @@
 								  prix: itemData.price,
 								  tax: itemData.tax,
 								  livraison_prix: itemData.prix_livraison,
-								  rateLiv: parseFloat(itemData.price) +  parseFloat(itemData.prix_livraison) +  parseFloat(itemData.tax)
+								  rateLiv: parseFloat(itemData.price) +  parseFloat(itemData.prix_livraison) +  parseFloat(itemData.tax),
+								  product_d:itemData.product_d
 							  };
 							  this.stocks.push(item);
+							  console.log(this.stocks);
 						  }						 
 					  	})
 						.catch((error) => {

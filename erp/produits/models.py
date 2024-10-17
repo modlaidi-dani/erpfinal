@@ -118,13 +118,14 @@ class Product(models.Model):
                     for pro in produits_en_pc:
                         produit_enpc={
                         'id': pro.stock.id,
+                        'POId':pro.id,                          
                         'reference': pro.stock.reference,
                         'name': pro.stock.name,                        
                         'price': round(((float(pro.stock.clientfinal_price) + float(pro.stock.prix_livraison) + float(pro.stock.tva_douan)) * 1.19), 2),
                         
                         'family': pro.stock.category.Libellé if pro.stock.category else '',
                         'qty_in_config':pro.quantity,
-                        'codeOrdre': pro.BonNo.codeOrdre                             
+                        'codeOrdre': pro.BonNo.codeOrdre,
                     }
                         produits_p.append(produit_enpc)
                 return produits_p
