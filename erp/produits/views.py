@@ -452,11 +452,6 @@ def loadallProducts(request):
             'price_variants': prod.get_price_variants,
             'variants': produits_p # You can populate this later if needed
         }
-        if showProduct==True:
-            print(product_data['name'])
-            print("_________________________________________________________________________________________________________________")
-            print(product_data['variants'])
-            print("_________________________________________________________________________________________________________________")
             
         products_data.append(product_data)
     return JsonResponse({'stock': products_data})
@@ -977,14 +972,6 @@ class stockState(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         stock_list = []
 
         for stock in stocks_all:
-            if stock.product.id == 5496:
-                
-                if stock.id==8752:
-                    prod=Product.objects.get(id=5571)
-                    stock.product=prod
-                    stock.save()
-                    print("fais")
-
             quantity_pc=0
             quantity_util_production=0
             if stock.product in pc:
