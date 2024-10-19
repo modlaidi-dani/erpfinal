@@ -781,7 +781,7 @@ class StockAchatView(TemplateView):
             product_reference = product_data['ref']
             new_price = Decimal(product_data['rate'])
             try:
-                product = Product.objects.get(reference=product_reference, store = CurrentStore)
+                product = Product.objects.filter(reference=product_reference, store = CurrentStore).first()
                 qtyActuelle = product.total_quantity_in_stock
                 qtyAchat = int(product_data["qty"])
                 prixAchat = Decimal(product_data['rate']) 
