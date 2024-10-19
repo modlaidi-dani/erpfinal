@@ -977,6 +977,14 @@ class stockState(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         stock_list = []
 
         for stock in stocks_all:
+            if stock.product.id == 5496:
+                
+                if stock.id==8752:
+                    prod=Product.objects.get(id=5571)
+                    stock.product=prod
+                    stock.save()
+                    print("fais")
+
             quantity_pc=0
             quantity_util_production=0
             if stock.product in pc:
