@@ -1678,7 +1678,8 @@ class PagePaieCommercial(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 sanction = salary.mes_primesmotivation.filter(motif__startswith='SANCTION').aggregate(Sum('montant'))['montant__sum'] or 0
                 salaire_commercial = 0
                 chiffreAffaire = 0
-                if salary.fonction == 'Commercial' or salary.fonction == 'Responsable Commercial':
+                fonc=salary.fonction.lstrip()
+                if salary.fonction == 'Commercial' or salary.fonction == 'Responsable Commercial' or fonc.startswith('Commercial') :
                     username = salary.fonctionarabe.lower()
                     salarie_user = CustomUser.objects.filter(username = username).first()
                     if salarie_user:
