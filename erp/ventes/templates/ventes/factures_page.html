@@ -413,13 +413,13 @@ class="flex flex-col min-h-screen custom-scrollbar"
 									</template>
 								</td>
 								<td class="px-1 border-r border-black text-center">
-									<p class="text-gray-800" x-text="(parseFloat(invoice.totalPrice) / invoice.quantity).toFixed(2)"></p>
+									<p class="text-gray-800" x-text="(parseFloat(invoice.totalPrice) / invoice.quantity).toFixed(0)"></p>
 								</td>
 								<td class="px-1 border-r border-black text-center">
 									<p class="text-gray-800" x-text="invoice.quantity"></p>
 								</td>
 								<td class="px-1 border-r border-black text-center">
-									<p class="text-gray-800" x-text="(invoice.totalPrice).toFixed(2)"></p>
+									<p class="text-gray-800" x-text="(invoice.totalPrice).toFixed(0)"></p>
 								</td>
 							</tr>
 						</template>
@@ -440,7 +440,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							<!-- Sample data rows -->
 							<tr class="border border-gray-700">
 								<td class="border border-gray-700 px-4 ">19 %</td>
-								<td class="border border-gray-700 px-4 "x-text="((netTotalLiv - TotalRemise) * 0.19).toFixed(2)"></td> 
+								<td class="border border-gray-700 px-4 "x-text="((netTotalLiv - TotalRemise) * 0.19).toFixed(0)"></td> 
 							</tr>
 							<!-- Add more rows as needed -->
 						</tbody>
@@ -467,18 +467,18 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						<tbody>
 							<!-- Sample data rows -->
 							<tr class="border border-gray-700">
-								<td class="border border-gray-700 px-4" x-text="netTotalLiv.toFixed(2)"></td>
-								<td class="border border-gray-700 px-4" x-text="TotalRemise.toFixed(2)"></td>
+								<td class="border border-gray-700 px-4" x-text="netTotalLiv.toFixed(0)"></td>
+								<td class="border border-gray-700 px-4" x-text="TotalRemise.toFixed(0)"></td>
 								<td class="border border-gray-700 px-4" x-text="(netTotalLiv - TotalRemise).toFixed(2) +' DA'"></td>
-								<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(2) +' DA'"></td>
+								<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(0) +' DA'"></td>
 								<template x-if="toprintbill.mode_reg == 'Espèce'">
-									<td class="border border-gray-700 px-4" x-text="(((netTotalLiv - TotalRemise) * 1.19)  * 0.01).toFixed(2)" ></td>
+									<td class="border border-gray-700 px-4" x-text="(((netTotalLiv - TotalRemise) * 1.19)  * 0.01).toFixed(0)" ></td>
 								</template>	
 								<template x-if="toprintbill.mode_reg == 'Espèce'">
-									<td class="border border-gray-700 px-4" x-text="(((netTotalLiv - TotalRemise) * 1.19)  * 1.01).toFixed(2) +' DA'" ></td>
+									<td class="border border-gray-700 px-4" x-text="(((netTotalLiv - TotalRemise) * 1.19)  * 1.01).toFixed(0) +' DA'" ></td>
 								</template>	
 								<template x-if="toprintbill.mode_reg != 'Espèce'">	
-                                	<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(2) +' DA'" ></td>
+                                	<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(0) +' DA'" ></td>
 								</template>	
 							</tr>
 							<tr>
@@ -1112,7 +1112,6 @@ function numberToWordsFrench(num, isCentimes = false) {
     if (decimalPart > 0) {
         centimesWord = numberToWordsFrench(decimalPart, true) + ' centime' + (decimalPart > 1 ? 's' : '');
     }
-    console.log(centimesWord)
     // Only append "dzd" if we're not processing centimes
     return isCentimes ? word : word + ' Dinars' + (centimesWord ? ' et ' + centimesWord : '');
 }
