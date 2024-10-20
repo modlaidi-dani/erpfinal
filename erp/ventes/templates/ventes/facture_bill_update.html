@@ -21,7 +21,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
  {% include 'tabs.html' with active_tab="vente" %}
  <div class=" w-full flex flex-row">
 	{% include "sidebar_ventes.html" %}
-  <div class="h-full w-full"  x-data="invoices()"
+  <div class="h-full w-full"  x-data="invoices()"Date de Facture
+
   x-init="initData()">
 	<!-- Main content header -->
 	<body class="antialiased sans-serif">
@@ -867,9 +868,11 @@ class="flex flex-col min-h-screen custom-scrollbar"
 				},
 			 
 			    initData(){
-                    this.invoiceDate = '{{bill.formatted_date}}';
-				    this.invoiceDueDate = '{{bill.formatted_duedate}}';
-				    console.log(this.dateinvoiceDate + this.invoiceDueDate)
+					this.invoiceDate = '{{ formatted_date }}';
+					this.invoiceDueDate = '{{ formatted_duedate }}';
+						console.log(this.invoiceDate)
+						console.log(this.invoiceDueDate)
+				  
 					itemsData={{ produits|safe }}        
 					for (const item of itemsData) {
 						const item_obj = {	
@@ -1081,7 +1084,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						 echeance : this.echeanceRegelement,
 						 produits:this.items,
 					 };
-
+                console.log(dataObj)
 			   axios.post('', {
 				  formData: dataObj
 				 }, {
