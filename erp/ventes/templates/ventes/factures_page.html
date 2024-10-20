@@ -521,7 +521,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
    </div></div>
 
 
-			 <div class="py-4 border-b border-stone-500 page-break">
+			 <div class="py-4 border-b border-stone-500 page-break ">
 				 <img src="{% static 'media/entete_2.jpg' %}" alt="">
 			 </div>
 			 <h2 class="text-3xl font-bold mb-2 mt-2 pb-2 tracking-wider uppercase text-center border-b border-stone-500">Bon De Livraison</h2>
@@ -808,8 +808,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								if (currentCPU !== variant.reference) {
 									currentCPU = toprint_bill.reference_pc[this.items.length];
 									this.items.push({
-										reference: currentCPU || variant.reference,
-										designation: variant.name,
+										reference: variant.reference || currentCPU,
+										designation: toprint_bill.designation_pc[0] || variant.name,
 										products: []  // Initialize an empty array for the CPU's variants
 									});
 								}
@@ -1024,7 +1024,9 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							return existingProduct.reference === productData.reference;
 						});
 						if (!exists) {
-							products.push(productData);					
+							products.push(productData);	
+							console.log(this.products);
+											
 						}
 						{% endfor %}
 
