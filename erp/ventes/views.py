@@ -886,7 +886,7 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
             raise PermissionDenied("Vous avez pas la permission d'accéder au.")
        
         idBon = invoice.idBon
-        dateBon = invoice.dateBon.strftime('%d/%m/%Y')
+        dateBon = invoice.dateBon.strftime('%Y-%m-%d')
         client_name = invoice.client.name
         client_address = invoice.client.adresse
         client_phone = invoice.client.phone
@@ -895,7 +895,8 @@ class StockSellDIVAUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateV
         store_id = self.request.session["store"]
         CurrentStore = store.objects.get(pk=store_id)
         
-        context["clients"]=clients    
+        context["clients"]=clients
+        context["dateBon"]=dateBon    
         products_enBon = invoice.produits_en_bon_sorties.all()
         entrepots = Entrepot.objects.filter(store= CurrentStore)
         context["entrepots"]=entrepots    
@@ -2281,6 +2282,12 @@ class FactureUpdateView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
                 stock_data.append(stock_info)
          context["stocks"] = stock_data
          entrepots = Entrepot.objects.filter(store=selected_store)
+         formatted_date=bon_associe.formatted_date.replace("/", "-").split("-")
+         invertedDate = f"{formatted_date[2]}-{formatted_date[1]}-{formatted_date[0]}"
+         context["formatted_date"]=invertedDate
+         formatted_duedate=bon_associe.formatted_duedate.replace("/", "-").split("-")
+         invertedDueDate = f"{formatted_duedate[2]}-{formatted_duedate[1]}-{formatted_duedate[0]}"
+         context["formatted_duedate"]=invertedDueDate
          context["entrepots"]=entrepots
          modeReg = ModeReglement.objects.filter(store = selected_store) 
          context["modeReg"]=modeReg  

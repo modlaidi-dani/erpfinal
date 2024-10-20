@@ -1418,7 +1418,8 @@
 					},
 			
 					initData() {
-                        this.invoiceDate = '{{dateBon}}';
+                       this.invoiceDate = '{{dateBon}}'	;
+						console.log('Date:',this.invoiceDate);
 						items= {{items | safe}}
 						for (const item of items) {
 							const item_obj = {	
@@ -1446,7 +1447,7 @@
 							const totalGST = parseFloat(this.totalGST.replace(/[^\d.,]/g, "").replace(",", "."));
 							const netTotalLiv = parseFloat(this.netTotalLiv.replace(/[^\d.,]/g, "").replace(",", "."));
 							const totalGSTLiv = parseFloat(this.totalGSTLiv.replace(/[^\d.,]/g, "").replace(",", "."));
-							console.log(totalGST);
+							
 							this.netTotalLiv = netTotalLiv;
 							this.TotalPay = netTotal + totalGST;
 							this.TotalPayLiv = netTotalLiv + totalGSTLiv;
@@ -1467,8 +1468,8 @@
 								rateLiv: parseFloat(itemData.price) +  parseFloat(itemData.prix_livraison) + parseFloat(itemData.tax)
 							};
 							this.stocks.push(item);
-						}	
-						this.invoiceDate = new Date('{{bill.dateBon}}').toLocaleDateString('fr-FR')		
+						}
+							
 					},
 
 
