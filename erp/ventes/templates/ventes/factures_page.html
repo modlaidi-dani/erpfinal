@@ -220,11 +220,10 @@ class="flex flex-col min-h-screen custom-scrollbar"
 
 
 					<tr class="bg-gray-100 border-t border-gray-100">
-							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Prix Total HT :'+' '+product.totalHt" colspan="2"></td>
-							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Prix Total TTC :'+' '+product.totalprice"></td>
-							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Remise :'+' '+product.remise"></td>
-							
-							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Net à Payé :'+' '+ (product.totalprice - product.remise)"></td>
+							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Prix Total HT :'+' '+ (product.totalHt).toFixed(2)" colspan="2"></td>
+							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Prix Total TTC :'+' '+ (product.totalprice).toFixed(2)"></td>
+							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Remise :'+' '+product.remise.toFixed(2)"></td>
+							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700" x-text="'Net à Payer :'+' '+ (product.totalprice - product.remise).toFixed(2)"></td>
 							<td class="px-4 py-2 text-sm font-medium text-left text-gray-700"></td>
 						</tr>
 					</tbody>
@@ -377,13 +376,13 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								<td class="border border-black px-1 py-2 text-black text-xs" x-text="invoice.reference"></td>
 								<td class="border border-black px-1 py-2 text-black print-td text-xs" x-text="invoice.designation"></td>
 								<td class="px-1 border-r border-black text-center">
-									<p class="text-gray-800" x-text="(parseFloat(invoice.totalPrice) / invoice.quantity).toFixed(2)"></p>
+									<p class="text-gray-800" x-text="(parseFloat(invoice.totalPrice) / invoice.quantity)"></p>
 								</td>
 								<td class="px-1 border-r border-black text-center">
 									<p class="text-gray-800" x-text="invoice.quantity"></p>
 								</td>
 								<td class="px-1 border-r border-black text-center">
-									<p class="text-gray-800" x-text="(invoice.totalPrice).toFixed(2)"></p>
+									<p class="text-gray-800" x-text="(invoice.totalPrice)"></p>
 								</td>
 							</tr>
 						</template>
@@ -468,8 +467,8 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						<tbody>
 							<!-- Sample data rows -->
 							<tr class="border border-gray-700">
-								<td class="border border-gray-700 px-4" x-text="netTotalLiv"></td>
-								<td class="border border-gray-700 px-4" x-text="TotalRemise"></td>
+								<td class="border border-gray-700 px-4" x-text="netTotalLiv.toFixed(2)"></td>
+								<td class="border border-gray-700 px-4" x-text="TotalRemise.toFixed(2)"></td>
 								<td class="border border-gray-700 px-4" x-text="(netTotalLiv - TotalRemise).toFixed(2) +' DA'"></td>
 								<td class="border border-gray-700 px-4" x-text="((netTotalLiv - TotalRemise) * 1.19).toFixed(2) +' DA'"></td>
 								<template x-if="toprintbill.mode_reg == 'Espèce'">
@@ -795,7 +794,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						solde = toprint_bill.client_solde;
 						totalht = toprint_bill.totalHt;
 						totalttc = toprint_bill.totalprice;
-						totalGSTLiv = (toprint_bill.totalHt * 0.19).toFixed(2);
+						totalGSTLiv = (toprint_bill.totalHt * 0.19);
 						TotalRemise = parseFloat(toprint_bill.remise);
 						nettotal = parseFloat(toprint_bill.totalprice) - parseFloat(toprint_bill.remise);
 						console.log(toprint_bill);
@@ -808,7 +807,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 								if (currentCPU !== variant.reference) {
 									currentCPU = toprint_bill.reference_pc[this.items.length];
 									this.items.push({
-										reference: variant.reference || currentCPU,
+										reference: toprint_bill.reference_pc[0] || variant.reference || currentCPU,
 										designation: toprint_bill.designation_pc[0] || variant.name,
 										products: []  // Initialize an empty array for the CPU's variants
 									});
@@ -839,14 +838,13 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							}
 						}
 						toprintbill.variants = this.items;
-						netTotalLiv = (toprint_bill.totalHt).toFixed(2);
-						TotalPayLiv = ((toprint_bill.totalHt) * 1.19).toFixed(2);
+						netTotalLiv = (toprint_bill.totalHt);
+						TotalPayLiv = ((toprint_bill.totalHt) * 1.19);
 						console.log(toprintbill.variants);
 						this.printInvoice();
 					},
 					exportExcelDiva() {
 						const array_print = []
-
 							this.filteredProducts.forEach(product => {
 								// Add the product itself
 								array_print.push({
@@ -997,9 +995,9 @@ class="flex flex-col min-h-screen custom-scrollbar"
 							banque:'{{bon.BonS.banque_Reglement.code}}',
 							cheque:'{{bon.BonS.num_cheque_reglement}}',
 							totalHt :{{ bon.get_total_price}},
-							totalprice: (parseFloat("{{ bon.get_total_price}}") * 1.19).toFixed(2),
+							totalprice: (parseFloat("{{ bon.get_total_price}}") * 1.19),
 							prixpayed:"{{ bon.totalprice }}",
-							remise:"{{ bon.Remise }}",
+							remise: parseFloat("{{ bon.Remise }}"),
 							valide:"{{ bon.valide }}" == 'True' ? true : false,
 							regle :"{{ bon.regle }}" == 'True' ? true : false,
 							showVariants:false,
@@ -1114,7 +1112,7 @@ function numberToWordsFrench(num, isCentimes = false) {
     if (decimalPart > 0) {
         centimesWord = numberToWordsFrench(decimalPart, true) + ' centime' + (decimalPart > 1 ? 's' : '');
     }
-
+    console.log(centimesWord)
     // Only append "dzd" if we're not processing centimes
     return isCentimes ? word : word + ' Dinars' + (centimesWord ? ' et ' + centimesWord : '');
 }
