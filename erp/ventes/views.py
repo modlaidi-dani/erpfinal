@@ -2508,6 +2508,9 @@ class FactureListView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         myuser  = CustomUser.objects.get(username=Currentuser.username)
         selected_store = get_object_or_404(store, pk=self.request.session["store"])
         factures= models.Facture.objects.filter(store= selected_store).order_by('codeFacture')
+        for facture in factures:
+            if  facture.BonS is None:
+                facture.delete()
         context["factures"]=factures
         return context
 
