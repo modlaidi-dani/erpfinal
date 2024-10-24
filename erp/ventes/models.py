@@ -451,7 +451,12 @@ class AvoirVente(models.Model):
     dateEmission = models.DateField(default=datetime.now)
     motif =  models.CharField(  max_length=200,blank=False,null=False, default="")
     montant = models.CharField(  max_length=200,blank=False,null=False, default="")
-    store = models.ForeignKey('clientInfo.store', on_delete=models.CASCADE,blank=True , null=True, default=None)  
+    store = models.ForeignKey('clientInfo.store', on_delete=models.CASCADE,blank=True , null=True, default=None) 
+    
+class produitsEnAvoir(models.Model):
+    produit=models.OneToOneField(ProduitsEnBonSortie, on_delete=models.CASCADE, null=True) 
+    avoir=models.ForeignKey(AvoirVente, on_delete=models.CASCADE, null=True) 
+    quantity= models.IntegerField(null=True)
 
 class ProduitsEnFacture(models.Model):
     FactureNo = models.ForeignKey(Facture, on_delete = models.CASCADE, related_name='produits_en_facture')

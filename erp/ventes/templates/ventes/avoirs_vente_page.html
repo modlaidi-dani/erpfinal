@@ -13,6 +13,7 @@ x-data="{
 	advanceSignUpModal: false,
 }" 
 class="flex flex-col min-h-screen custom-scrollbar"
+x-init="init()"
 >
 <!-- start::Black overlay -->
 <div :class="menuOpen ? 'block' : 'hidden'" @click="menuOpen = false" class="fixed  inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
@@ -48,41 +49,56 @@ class="flex flex-col min-h-screen custom-scrollbar"
 	<div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">		
 	 <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">Ajouter une nouvelle Avoir de vente</h2>
 	  <div class="form-input">
+		<div class="mb-4" x-data="{
+			clientname: '', 
+			produits: '',
+			montant: ''
+		}">
+			<label class="block text-gray-700 font-semibold mb-2" for="bonLivraison">
+				Bon Livraison:
+			</label>
+			<select
+				class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+				id="bonLivraison"
+				name="bonLivraison"
+				required  
+				x-on:change="
+					clientname = $event.target.selectedOptions[0].dataset.clientname;
+					montant = $event.target.selectedOptions[0].dataset.montant;
+					produits = $event.target.selectedOptions[0].dataset.produits;
+				"
+			>
+				<option value="" disabled selected>Select a Bon Livraison</option>
+				{% for bon in bons %}
+					<option 
+						value="{{ bon.bon_id }}" 
+						data-clientname="{{ bon.clientName }}" 
+						data-produits="{{ bon.produits }}" 
+						data-pricetotal="{{ bon.montant }}"
+					>
+						{{ bon.bon_id }}
+					</option>
+				{% endfor %}
+			</select>
+		</div>
+		
 		<div class="mb-4">
-					  <label class="block text-gray-700 font-semibold mb-2" for="banque">
-						Bon Livraison :
-					  </label>
-					  <select
-					   class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
-					   id="bonLivraison"
-					   name="bonLivraison"						
-					   required  
-					   x-on:change="
-					  		client.name=$event.target.selectedOptions[0].dataset.clientname
-							client.id=$event.target.selectedOptions[0].dataset.clientid
-							montant =$event.target.selectedOptions[0].dataset.pricetotal
-					   "
-					 >
-					   <option value="{{bon.id}}"> {{bon.idBon}} </option>
-					   <option value="" disabled selected> Choisir Bon</option>
-		   				{% for bon in bons  %}
-						 <option value="{{bon.id}}" data-clientname="{{bon.client.name}}" data-pricetotal ="{{bon.totalPrice}}" data-clientid="{{bon.client.id}}"> {{bon.idBon}} </option>
-		   				{% endfor %}
-					</select>
-				  </div>
-				  <div class="mb-4">
-					  <label class="block text-gray-700 font-semibold mb-2" for="code">
-						Client :
-					  </label>
-					  <input
-						class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-						type="text"
-						id="client"
-						name="client"
-						x-model="client.name"
-						placeholder=" Client ... "
-					  >
-				  </div>
+			<label class="block text-gray-700 font-semibold mb-2" for="client">
+				Client:
+			</label>
+			
+			<input
+				class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				type="text"
+				id="client"
+				name="client"
+				x-bind:value="clientname"  
+				placeholder="Client ..."
+			>
+		
+		</div>
+		
+		
 				  <div class="mb-4">
 					  <label class="block text-gray-700 font-semibold mb-2" for="adresse">
 						Date Emission :
@@ -139,12 +155,44 @@ class="flex flex-col min-h-screen custom-scrollbar"
  <!-- /Modal -->
  <script>
   function avoirs(){
+	
 	return{
+		produits:[],
+		bons:[],
 		isOpen:false,
 		montant:'',
 		client:{
 			id:'',
 			name:'',
+		},
+
+		init(){
+			{%for bon in bons %}
+			var objectData={
+				bon_id: '{{bon.bon_id}}',
+				clientName:' {{bon.clientName}}',
+				clientId : '{{bon.clientId}}',
+				produits:[],
+				
+			}
+			{%for produit in bon.produits %}
+				
+				var itemp={
+					id: '{{produit.id}}',
+					name:' {{produit.name}}',
+					unitprice : parseFloat({{produit.unitprice}}),
+					quantity:'{{produit.quantity}}',
+				}
+        		objectData.produits.push(itemp)
+			{%endfor%}
+				
+				
+
+        this.bons.push(objectData)
+
+		console.log(this.bons)
+		{%endfor%}
+	
 		},
 
 		addAvoir(){
@@ -158,7 +206,6 @@ class="flex flex-col min-h-screen custom-scrollbar"
 				motif: document.getElementById('motif').value,
 				montant:this.montant
 			}
-
 			axios.post('', {
 			 formData: dataObj
 			}, {
@@ -268,7 +315,7 @@ class="flex flex-col min-h-screen custom-scrollbar"
 						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{avoir.BonSortieAssocie.idBon}}</td>
 						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{avoir.client.name}}</td>
 						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{avoir.motif}}</td>
-						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{avoir.BonSortieAssocie.totalPrice}}</td>
+						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{avoir.montant}}</td>
 						<td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap flex">
 						  {% heroicon_mini "pencil-square" class="transition-transform" %}
 						  {% heroicon_mini "archive-box-x-mark" class="transition-transform" %}
